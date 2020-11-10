@@ -21,7 +21,7 @@ div#header {
 
 }
 
-ul#menu li {
+div#menu ul li {
     list-style: none;
     display: inline;
 }
@@ -33,6 +33,10 @@ div#menu {
 div#access {
     float: right;
     display: inline;
+}
+
+.DeD::after {
+    content: "\00ae"; 
 }
 
 #presentazioneFeatures {
@@ -47,18 +51,19 @@ div#access {
 #presentazioneFeatures h5{
     font-style: normal;
 }
-#presentazioneFeatures ul{
+#presentazioneFeatures ul   {
+    margin: auto;
     list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
+    width: 70%;
 }
 
 #presentazioneFeatures li {
-    width: 20em;
-    margin :auto;
-    flex: 0 2 200px;
+    margin: auto;
+    flex: 0 2 250px;
 }
 #presentazioneFeatures ul img {
     width: 6em;
