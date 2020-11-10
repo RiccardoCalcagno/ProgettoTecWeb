@@ -49,16 +49,20 @@ div#access {
 }
 #presentazioneFeatures ul{
     list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 }
+
 #presentazioneFeatures li {
     width: 20em;
-    margin:auto;
+    margin :auto;
+    flex: 0 2 200px;
 }
 #presentazioneFeatures ul img {
     width: 6em;
 }
-
-
 
 div#aboutReport {
     margin-left: 8%;
