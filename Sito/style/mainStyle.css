@@ -1,8 +1,108 @@
 *{
     border: 0;
     margin: 0;
-    color: #392D20;                 /* ATTENZIONE COLORE TESTO ALTERATO*/
+    /*color: #392D20;    */             /* ATTENZIONE COLORE TESTO ALTERATO*/
+    color: #85694b;
 }
+
 html{
     background-color: #FFF9EA;
 }
+
+body {
+    width: 100%;
+    background-color: #FFF9EA;
+    /*background-color: white;*/
+}
+
+div#header {
+    margin: 1em 1em 1em 1em;
+
+}
+
+ul#menu li {
+    list-style: none;
+    display: inline;
+}
+
+div#menu {
+    float: left;
+}
+
+div#access {
+    float: right;
+    display: inline;
+}
+
+div#presentazioneFeatures {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+dt img {
+    width: 8em;
+}
+
+dt, dd {
+    width: 55%;
+}
+
+dd {
+    font-size: 1.1em;
+}
+
+dl {
+    text-align: center;
+}
+
+.right {
+    padding-left: 45%;
+}
+
+div#aboutReport {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 4em;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1.2em;
+    background-color: #ffeab7;
+    border-radius: 11px;
+}
+
+div#aboutReport img {
+    height: 200px;
+    width: 266px;
+    float: right;
+}
+
+div#howToPersonaggio {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 4em;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1.4em;
+    background-color: #ffeab7;
+    border-radius: 11px;
+    height: 258px
+}
+
+div#imgHowToPers {
+    height: 258px;
+    width: 200px;
+    float: right;
+}
+
+div#imgHowToPers img {
+    width: 100%;
+    height: 100%;
+}
+
+div#howToPers {
+    width: 55%;
+    float:left;
+}
+
+
+
+
+

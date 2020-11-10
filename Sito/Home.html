@@ -39,14 +39,16 @@ Note DI CORREZIONE:
 
     <img id="logo" src="images/" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
 
-    <ul id="menu">
-        <li xml:lang="en" id="currentLink">Home</li>
-        <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA CONSIDERARE SE DISABILITARE IN CASO DI MANCATO ACCESSO-->
-        <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
-        <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
-        <li class="externalLink"><a href="otherHTMLs/Esplora.html">About</a></li>       <!--COME MENU A TENDINA PUO CONTENERE: 1) Cosa è Dungeons&Dragons 2) Chi siamo-->
-    </ul>
-
+    <div id="menu"> 
+        <ul id="menu">
+            <li xml:lang="en" id="currentLink">Home</li>
+            <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA CONSIDERARE SE DISABILITARE IN CASO DI MANCATO ACCESSO-->
+            <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
+            <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
+            <li class="externalLink"><a href="otherHTMLs/Esplora.html">About</a></li>       <!--COME MENU A TENDINA PUO CONTENERE: 1) Cosa è Dungeons&Dragons 2) Chi siamo-->
+        </ul>
+    </div>
+    
     <div id="access">
         <a id="AccediButton" href="">Accedi</a>                 <!--ATTENZIONE DA COMPLETARE-->
         <a id="IscrivitiButton" href="">Iscriviti</a>
@@ -78,10 +80,10 @@ Note DI CORREZIONE:
         <dd><em>Crea e gestisci i tuoi personaggi</em> per avere sempre a portata di                       <!--qua ci va un tag <p> ? -->
             mano schede aggiornate da stampare e usare nelle tue nuove avventure</dd>
 
-        <dt>
+        <dt class="right">
             <img src="images/features/mappaETrame.png" alt=""/>
         </dt>
-        <dd>Oltre <em>10 mappe</em> da scaricare e <em>10 trame</em>
+        <dd class="right">Oltre <em>10 mappe</em> da scaricare e <em>10 trame</em>
              differenti da cui trarre ispirazione</dd>
         
         <dt>
@@ -90,22 +92,22 @@ Note DI CORREZIONE:
         <dd>La <span xlm:lang="en">community</span> aspetta solo di conoscerti! <em>Accedi alla tua 
             Area Personale</em> e raccontaci che tipo di giocatore sei</dd>                              <!--Area Riservata e altre keyword da mettere in enfasi oppure come href-->
 
-        <dt>
+        <dt class="right">
             <img src="images/features/trascrizioneIdee.png" alt=""/>
         </dt>
-        <dd>Sei un Master? Realizza il tuo personalissimo <em>Report di Sessione</em>,           <!--Report di Sessione come href?-->
+        <dd class="right">Sei un Master? Realizza il tuo personalissimo <em>Report di Sessione</em>,           <!--Report di Sessione come href?-->
             cosicché nulla di vissuto durante il gioco venga perso</dd>                 <!--Master e Report li mettiamo in inglese?-->
 
         <dt>
-            <img src="images/features/comunità.png" alt=""/>
+            <img src="images/features/comunità.png" alt=""/>
         </dt>
         <dd>Ogni Report di Sessione costituisce un micro cosmo in cui potrai 
             <em>aprire conversazioni private </em> con i tuoi intimi compagni di avventura</dd>
 
-        <dt>
+        <dt class="right">
             <img src="images/features/globo.png" alt=""/>
         </dt>
-        <dd>A tua discrezione potrai <em>rendere publici i tuoi report</em>, avventurieri 
+        <dd class="right">A tua discrezione potrai <em>rendere publici i tuoi report</em>, avventurieri 
             di tutta Italia potranno ispirarsi e interagire con il tuo gruppo</dd>
 
         <dt>
@@ -121,7 +123,7 @@ Note DI CORREZIONE:
 
 <div id="aboutReport">
     <h2>Cos’è un report di sessione?</h2>
-    <img src="images/" alt="gruppo di amici, tra cui uno travestito da mago, giocano a Dungeons and Dragons"/>              <!--Trovare o meglio realizzare la foto-->
+    <img src="images/gruppoDiAmici.png" alt="gruppo di amici, tra cui uno travestito da mago, giocano a Dungeons and Dragons"/>              <!--Trovare o meglio realizzare la foto-->
 
     <section>
         <h3>Un <span xlm:lang="en">collage</span> di ricordi</h3>                                   <!--sicuro che è inglese collage?-->
@@ -164,17 +166,22 @@ Note DI CORREZIONE:
 
 
 <div id="howToPersonaggio">
-    <h2>Come realizzare la tua Scheda Personaggio</h2>
-    <img src="images/" alt="immagine di una generica scheda personaggio"/>                <!--INSERISCI IMMAGINE-->
+    <div id="imgHowToPers">
+        <img src="images/creazionePersonaggio.png" alt="immagine di una generica scheda personaggio"/>                <!--INSERISCI IMMAGINE-->
+    </div>
 
-    <ol id="passaggiHowToPersonaggio">
-        <li>Seleziona un vecchio personaggio da modificare o creare da zero</li>
-        <li>Configura la scheda con le informazioni indipendenti dalla giocata</li>
-        <li>Visualizza il risultato in formato di stampa in ogni momento</li>
-        <li>Stampa la tua scheda giocatore</li>
-    </ol>
+    <div id="howToPers">
+        <h2>Come realizzare la tua Scheda Personaggio</h2>
+    
+        <ol id="passaggiHowToPersonaggio">
+            <li>Seleziona un vecchio personaggio da modificare o creare da zero</li>
+            <li>Configura la scheda con le informazioni indipendenti dalla giocata</li>
+            <li>Visualizza il risultato in formato di stampa in ogni momento</li>
+            <li>Stampa la tua scheda giocatore</li>
+        </ol>
 
-    <a id="ProgettaReportButton">Progetta la tua Scheda Personaggio</a>
+        <a id="ProgettaReportButton">Progetta la tua Scheda Personaggio</a>
+    </div>
 </div>
 
 
