@@ -1,8 +1,9 @@
 *{
-    border: 0;
+    padding: 0;
     margin: 0;
-    /*color: #392D20;    */             /* ATTENZIONE COLORE TESTO ALTERATO*/
-    color: #85694b;
+    color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
+    font-family: "Helvetica Neue",Helvetica,sans-serif; 
+    /*color: #85694b;*/
 }
 
 html{
@@ -34,30 +35,30 @@ div#access {
     display: inline;
 }
 
-div#presentazioneFeatures {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-dt img {
-    width: 8em;
-}
-
-dt, dd {
-    width: 55%;
-}
-
-dd {
-    font-size: 1.1em;
-}
-
-dl {
+#presentazioneFeatures {
+    margin-left: 8%;
+    margin-right: 8%;
     text-align: center;
 }
-
-.right {
-    padding-left: 45%;
+#presentazioneFeatures h2, #presentazioneFeatures h5{
+    width: 80%;
+    margin: auto;
 }
+#presentazioneFeatures h5{
+    font-style: normal;
+}
+#presentazioneFeatures ul{
+    list-style-type: none;
+}
+#presentazioneFeatures li {
+    width: 20em;
+    margin:auto;
+}
+#presentazioneFeatures ul img {
+    width: 6em;
+}
+
+
 
 div#aboutReport {
     margin-left: 8%;
