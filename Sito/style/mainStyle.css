@@ -37,6 +37,7 @@ div#access {
 
 .DeD::after {
     content: "\00ae"; 
+    font-size: 0.3em;
 }
 
 #presentazioneFeatures {
@@ -58,11 +59,12 @@ div#access {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    width: 70%;
+    /*width: 70%;*/                      /*presentazioneFeatures è già ridotta, è bello anche se gli <li> vanno oltre il titolo*/
 }
 
 #presentazioneFeatures li {
     margin: auto;
+    padding:1em;
     flex: 0 2 250px;
 }
 #presentazioneFeatures ul img {
