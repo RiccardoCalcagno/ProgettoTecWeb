@@ -45,12 +45,12 @@ div#access {
     margin-right: 8%;
     text-align: center;
 }
-#presentazioneFeatures h2, #presentazioneFeatures h5{
+#presentazioneFeatures h2, #presentazioneFeatures p{
     width: 80%;
-    margin: auto;
+    margin: 0 auto 0.3em auto;
 }
-#presentazioneFeatures h5{
-    font-style: normal;
+#presentazioneFeatures p{
+    font-size: 0.9em;
 }
 #presentazioneFeatures ul   {
     margin: auto;
@@ -71,6 +71,7 @@ div#access {
     width: 6em;
 }
 
+/*
 div#aboutReport {
     margin-left: 9%;
     margin-top: 4em;
@@ -78,13 +79,14 @@ div#aboutReport {
     font-size: 1.2em;
     background-color: #ffeab7;
     border-radius: 11px 0 0 11px;
-}
+}*/
 
 div#aboutReport img {
     height: 200px;
     width: 266px;
     float: right;
 }
+
 
 div#howToReport {
     margin-right: 8%;
