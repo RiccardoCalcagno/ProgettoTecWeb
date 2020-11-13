@@ -18,23 +18,24 @@
 </head>
 <body>
 
-<h2>Creazione del Personaggio</h2>
+<h2 id="ccTitle">Creazione del Personaggio</h2>
 
-<p>
+<p id="ccP">
 	In questa pagina puoi dare vita al tuo personaggio, inserendo i suoi attributi principali e delle piccole descrizioni che lo caratterizzino.
 	Queste informazioni verranno salvate e saranno poi disponibili per te in qualsiasi momento se decidi di creare un account o se ne possiedi già uno.
 	Potrai inoltre prepararle in un formato stampa conforme allo standard di D&amp;D, pronte per essere usate nella prossima sessione!
 </p>
 
-<form autocomplete="on">
+<form id="ccForm" autocomplete="on">
 
-  <label for="cname">Scegli il nome:</label><br>
-  <input type="text" id="cname" name="cname"><br>
+  <label id="ccName" for="cname">Scegli il nome:</label>
+  <input type="text" id="cname" name="cname" />
 
 
 <!-- TODO: Mettere tutte form "required"-->
+
 <!--Di seguito l'opzione tendina, ma si può valutare una lista di radiobutton, con aside to the side-->
-  <fieldset><legend>Razza</legend>
+  <fieldset class="ccField"><legend>Razza</legend>
 	  <label for="crace">Scegli una Razza:</label>
 	  <select id="crace" name="crace">
 		<option value="umano">Umano</option>
@@ -47,14 +48,14 @@
 		<option value="mezzelfo">Mezzelfo</option>
 		<option value="mezzorco">Mezzorco</option>
 	  </select>
-	  <div>
+	  <div class="ccInfo">
 		  <!-- Informazioni sulla razza scelta, pescate con php e/o switchate con javascript. Potranno essere per esempio -->
 		  <!-- Razza, immagine standard, descrizione generica e fantasiosa, dettagli sulle meccaniche che fornisce al giocatore-->
 	  </div>
   </fieldset>
   
 
-  <fieldset><legend>Classe</legend>
+  <fieldset class="ccField"><legend>Classe</legend>
 	  <label for="cclass">Scegli una Classe:</label>
 	  <select id="cclass" name="cclass">
 		<option value="bardo">Bardo</option>
@@ -70,14 +71,14 @@
 		<option value="ranger">Ranger</option>
 		<option value="sorcerer">Sorcerer</option>
 	  </select>
-	  <div>
+	  <div class="ccInfo">
 	  
 	  
 	  </div>
   </fieldset>
   
   
-  <fieldset><legend>Background</legend>
+  <fieldset class="ccField"><legend>Background</legend>
 	  <label for="cbackground">Scegli un Background:</label>
 	  <select id="cbackground" name="cbackground">
 		<option value="accolito">Accolito</option>
@@ -90,37 +91,37 @@
 		<option value="half-elf">Half-Elf</option>
 		<option value="half-orc">Half-Orc</option>
 	  </select>
-	  <div>
+	  <div class="ccInfo">
 	  
 	  </div>
   </fieldset>
 
-  <fieldset>
+  <fieldset class="ccField"><legend>Allineamento</legend>
 	  <!-- Possiamo inserire una select e quindi una semplice tendina con (come prima) un div che si aggiorna in base alla scelta, con una piccola descrizione-->
 	  <!-- oppure una tabella (!!!) con i 9 allineamenti classici. Ogni elemento della tabella/griglia è un radiobutton selezionabile. OPZIONE NON PIACEVOLE :( causa accessibilità e ridimensionamento -->
   </fieldset>
   
-  <fieldset><legend>Tratti del Personaggio</legend>
+  <fieldset class="ccField"><legend>Tratti del Personaggio</legend>
 	  <p>
 		Qui puoi inserire una descrizione scritta del tuo personaggio. E' divisa in quattro campi per aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
 	  </p>
-      <label for="ctraits">Descrivi i tratti caratteriali del tuo personaggio</label>
-	  <textarea id="ctraits" name="ctraits" rows=4 cols=60 placeholder=""></textarea>
+      <label for="ctraits" class="ccTraitsL">Descrivi i tratti caratteriali del tuo personaggio</label>
+	  <textarea id="ctraits" class="ccTraitsTA" name="ctraits" rows=4 cols=60 placeholder=""></textarea>
 	  
-	  <label for="cideals">Quali sono i suoi Ideali?</label>
-	  <textarea id="cideals" name="cideals" rows=4 cols=60 placeholder=""></textarea>
+	  <label for="cideals" class="ccTraitsL">Quali sono i suoi Ideali?</label>
+	  <textarea id="cideals" class="ccTraitsTA" name="cideals" rows=4 cols=60 placeholder=""></textarea>
 	  
-	  <label for="cbonds">A chi è legato nel mondo di gioco?</label>
-	  <textarea id="cbonds" name="cbonds" rows=4 cols=60 placeholder=""></textarea>
+	  <label for="cbonds" class="ccTraitsL">A chi è legato nel mondo di gioco?</label>
+	  <textarea id="cbonds" class="ccTraitsTA" name="cbonds" rows=4 cols=60 placeholder=""></textarea>
 	  
-	  <label for="cflaws">Quali sono i suoi Difetti?</label>
-	  <textarea id="cflaws" name="cflaws" rows=4 cols=60 placeholder=""></textarea>
+	  <label for="cflaws" class="ccTraitsL">Quali sono i suoi Difetti?</label>
+	  <textarea id="cflaws" class="ccTraitsTA" name="cflaws" rows=4 cols=60 placeholder=""></textarea>
   </fieldset>
   
   <!-- Possibilità di ampliare le info inserite, con dettagli unici alla "scheda minimal" del sito, che rimarranno solo sul sito e non sulla versione stampata -->
   
 
-  <input type="submit" value="Crea Personaggio!">
+  <input id="ccSub" type="submit" value="Crea Personaggio!">
 </form> 
 
 </body>

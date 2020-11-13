@@ -108,73 +108,77 @@ div#access {
 
 
 
-/*
 
 
-#sezioni img{
-    height: 12em;
-    width: 15em;
-    float: right;
+
+/* --- Creazione Personaggio --- */
+h2#ccTitle {
+	text-align: center;
+	margin: 1em auto 0.8em auto;
 }
 
-
-div#howToReport {
-    margin: 2em 3em 2em 3em;
-    padding: 1.0em 1.5em 1.0em 1.5em;
-    font-size: 1.2em;
-    background-color: #ffeab7;
-    border-radius: 11px;
-    height: 258px;
+p#ccP {
+	padding: 0.7em 10%;
+	/*background-color: #FFEAB7;*/
 }
 
-div#HowToRep {
-    width: 55%;
-    float: right;
+form#ccForm {
+	
 }
 
-div#imgHowToRep {
-    height: 258px;
-    width: 200px;
-    float: left;
+label[for= cname] {
+	display: inline-block;
+	margin-top: 3em;
+	margin-bottom: 1em;
 }
 
-div#imgHowToRep img {
-    width: 100%;
-    height: 100%;
+input {
+	margin-top:1em;
+/* ?	margin-bottom: 1em; ? */
+	text-align: center;
 }
 
-div#howToPers {
-    width: 55%;
-    float:left;
+.ccField {
+	margin-top:1.3em;
+	margin-bottom: 1.3em;
+	background-color: #FFEAB7;
 }
 
-div#howToPersonaggio {
-    margin-right: 8%;
-    margin-top: 4em;
-    padding: 0.5em 1em 0.5em 10%;
-    font-size: 1.3em;
-    background-color: #ffeab7;
-    border-radius: 0 11px 11px 0;
-    height: 258px;
+.ccField legend {
+	/*background-color: #FFF9EA;*/
+	font-weight: bold;
 }
 
-div#imgHowToPers {
-    height: 258px;
-    width: 200px;
-    float: right;
+div.ccInfo {
+	/* ? PHP ?*/
+	padding: 0.5em;
+	margin: 0.5em;
+	background-color: red;
 }
 
-div#imgHowToPers img {
-    width: 100%;
-    height: 100%;
+fieldset.ccField p {
+	text-align: center;
+	margin: 0.7em;
 }
 
-div#howToPers {
-    width: 55%;
-    float:left;
+/* GRID? */
+.ccTraitsL {
+	display: block; /*display: inline-block*/
+	text-align: center;
+	margin-top: 1em;
+}
+/* GRID? */
+.ccTraitsTA {
+	display: block;
+	resize: none; /* maybe */
+    margin: 0.5em auto 2.4em auto;
 }
 
+input#ccSub {
+	position: absolute;
+	font-size: 1.1em;
+	right: 10%;
+	margin-bottom: 3em;
+}
 
-
-*/
-
+/* ---  --- */
