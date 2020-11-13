@@ -7,11 +7,13 @@
 }
 
 html{
+	width: 100%;
     background-color: #FFF9EA;
 }
 
 body {
-    width: 100%;
+    margin-left: 10%;
+	margin-right: 10%;
     background-color: #FFF9EA;
     /*background-color: white;*/
 }
@@ -141,7 +143,77 @@ div#howToPers {
     float:left;
 }
 
+/* --- Creazione Personaggio --- */
+h2#ccTitle {
+	text-align: center;
+	margin: 1em auto 0.8em auto;
+}
 
+p#ccP {
+	padding: 0.7em 10%;
+	/*background-color: #FFEAB7;*/
+}
+
+form#ccForm {
+	
+}
+
+label[for= cname] {
+	display: inline-block;
+	margin-top: 3em;
+	margin-bottom: 1em;
+}
+
+input {
+	margin-top:1em;
+/* ?	margin-bottom: 1em; ? */
+	text-align: center;
+}
+
+.ccField {
+	margin-top:1.3em;
+	margin-bottom: 1.3em;
+	background-color: #FFEAB7;
+}
+
+.ccField legend {
+	/*background-color: #FFF9EA;*/
+	font-weight: bold;
+}
+
+div.ccInfo {
+	/* ? PHP ?*/
+	padding: 0.5em;
+	margin: 0.5em;
+	background-color: red;
+}
+
+fieldset.ccField p {
+	text-align: center;
+	margin: 0.7em;
+}
+
+/* GRID? */
+.ccTraitsL {
+	display: block; /*display: inline-block*/
+	text-align: center;
+	margin-top: 1em;
+}
+/* GRID? */
+.ccTraitsTA {
+	display: block;
+	resize: none; /* maybe */
+    margin: 0.5em auto 2.4em auto;
+}
+
+input#ccSub {
+	position: absolute;
+	font-size: 1.1em;
+	right: 10%;
+	margin-bottom: 3em;
+}
+
+/* ---  --- */
 
 
 
