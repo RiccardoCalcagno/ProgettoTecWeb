@@ -114,10 +114,13 @@ Note DI CORREZIONE:
     </ul>
 </div>
 
-<div id="aboutDeD">
-    <h2 class="DeD" xml:lang="en">Dungeons &amp; Dragons</h2>
-    <img src="images/gruppoDiAmici.png" alt="gruppo di amici, tra cui uno travestito da mago, giocano a Dungeons and Dragons"/>              <!--Trovare o meglio realizzare la foto-->
+<div id="argomenti">                  <!--All'interno è meglio mettere <section> che div?-->
 
+<div id="aboutDeD" class="about">
+    <img src="images/argomenti/aboutDeD.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
+
+    <div class="testoArgomento">
+    <h2 class="DeD" xml:lang="en">Dungeons &amp; Dragons</h2>
     <section>                                
         <p>Cosa si ottiene mescolando giochi da tavolo, giochi di ruolo e 
             improvvisazione teatrale all’interno di una realtà dal sapore “<span xml:lang="en">Tolkien</span>-iano”?</p>
@@ -134,7 +137,9 @@ Note DI CORREZIONE:
 
     <a>Scopri come giocare a <span class="DeD" xml:lang="en">Dungeons &amp; Dragons</span></a>              <!--QUESTO PULSANTE PERMETTE DI ESPANDERE LA SEZIONE SOTTOSTANTE-->
 
-    <section>
+    </div>
+
+    <section id="howToPlay">
         <h3>Come si gioca?</h3> 
         <p>Ogni giocatore crea un personaggio che interpreterà durante la sessione di gioco. </p>
         <p>Il <span xml:lang="en">Dungeon Master</span>, persona scelta tra i componenti del gruppo, impersonerà una sorta 
@@ -149,10 +154,11 @@ Note DI CORREZIONE:
     </section>
 </div>
 
-<div id="aboutReport">
-    <h2>Cos’è un report di sessione?</h2>
-    <img src="images/" alt=""/>              <!--Trovare o meglio realizzare la foto-->
+<div id="aboutReport" class="about">
+    <img src="images/argomenti/aboutReport.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
 
+    <div class="testoArgomento">
+    <h2>Cos’è un report di sessione?</h2>
     <section>
         <h3>Un <span xml:lang="en">collage</span> di ricordi</h3>                                   <!--sicuro che è inglese collage?-->
         <p>Come sappiamo <span class="D&D" xml:lang="en">Dungeons &amp; Dragons</span>
@@ -175,17 +181,16 @@ Note DI CORREZIONE:
             tutti gli utenti che hanno partecipato alla partita come giocatori. Ogni persona 
             taggata in un report potrà reperire il medesimo nella dashboard della propria Area Personale.</p>
     </section>
+    </div>
 </div>
 
 
-<div id="howToReport">
+<div id="howToReport" class="howTo">
    
-    <div id="imgHowToRep">
-        <img src="images/" alt="immagine di un generico Report di Sessione"/>                <!--INSERISCI IMMAGINE-->
-    </div>
-
-    <div id="HowToRep">
-        <h2>Come realizzare il tuo Report di Sessione</h2>
+    <img src="images/argomenti/howToReport.jpg" alt=""/>                <!--INSERISCI IMMAGINE-->
+    
+    <div class="testoArgomento">
+    <h2>Come realizzare il tuo Report di Sessione</h2>
         <ol id="passaggiHowToReport">
             <li>Seleziona o aggiungi la mappa in cui hai ambientato la sessione</li>
             <li>Aggiungi tramite una rapida ricerca i giocatori che hanno partecipato</li>
@@ -197,9 +202,13 @@ Note DI CORREZIONE:
 </div>
 
 
-<div id="aboutPersonaggio">
+<div id="aboutPersonaggio" class="about">
+
+    <img src="images/argomenti/aboutPersonaggio.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
+
+    <div class="testoArgomento">
     <h2>Prova le nostre schede giocatore</h2>
-    <img src="images/" alt=""/>              <!--Trovare o meglio realizzare la foto-->
+
     <p>La scheda giocatore è il documento necessario che dobbiamo avere con noi per poter iniziare la
          nostra esperienza di gioco. Nella scheda il giocatore descrive il profilo del proprio personaggio
          specificando in modo sistematico le sue caratteristiche.</p>
@@ -210,29 +219,31 @@ Note DI CORREZIONE:
         che potrai stampare e portare con te alla sessione di gioco.</p>
     <p><a>Iscrivendoti</a> al nostro sito potrai contare in ogni momento da ogni dispositivo sulla collezione di                    <!-- link iscrizione-->
          tutti i personaggi, elenco visibile alla sezione <a>Area Personale</a>. Mai più schede giocatore perse!</p>                <!-- link Area Personale-->
+    </div>
 </div>  
 
 
-<div id="howToPersonaggio">
-    <div id="imgHowToPers">
-        <img src="images/creazionePersonaggio.png" alt="immagine di una generica scheda personaggio"/>                <!--INSERISCI IMMAGINE-->
-    </div>
+<div id="howToPersonaggio" class="howTo">
+    <img src="images/argomenti/howToPersonaggio.jpg" alt=""/>                <!--INSERISCI IMMAGINE-->
 
-    <div id="howToPers">
-        <h2>Come realizzare la tua Scheda Personaggio</h2>
-        <ol id="passaggiHowToPersonaggio">
-            <li>Seleziona un vecchio personaggio da modificare o creare da zero</li>
-            <li>Configura la scheda con le informazioni indipendenti dalla giocata</li>
-            <li>Visualizza il risultato in formato di stampa in ogni momento</li>
-            <li>Stampa la tua scheda giocatore</li>
-        </ol>
-        <a id="ProgettaReportButton">Progetta la tua Scheda Personaggio</a>
+    <div class="testoArgomento">
+    <h2>Come realizzare la tua Scheda Personaggio</h2>
+    <ol id="passaggiHowToPersonaggio">
+        <li>Seleziona un vecchio personaggio da modificare o creare da zero</li>
+        <li>Configura la scheda con le informazioni indipendenti dalla giocata</li>
+        <li>Visualizza il risultato in formato di stampa in ogni momento</li>
+        <li>Stampa la tua scheda giocatore</li>
+    </ol>
+    <a id="ProgettaReportButton">Progetta la tua Scheda Personaggio</a>
     </div>
 </div>
 
 
-<div id="aboutEsplora">
+<div id="aboutEsplora" class="about">
 
+    <img src="images/argomenti/Esplora.jpg" alt=""/>                <!--INSERISCI IMMAGINE-->
+
+    <div class="testoArgomento">
     <h2>Esplora altre realtà</h2>
     <section>
         <h3>Il social su misura per te</h3>
@@ -254,20 +265,29 @@ Note DI CORREZIONE:
             ogni dove, riuniti per scambiarsi idee, consigli, e tutto ciò che costella 
             l’esperienza antecedente al gioco che amiamo.</p>
     </section>
-    <div id="howToPostReport">
-        <h3>"Mi piace! Come posso condividere il mio Report?"</h3>
-        <img src="images/" alt="immagine del Report Card con frecci che punta al pulsante utile a condividerlo in globale"/>
-        <ol id="passaggiPostReport">
-            <li>Per iniziare identifica il report che vuoi condividere nella 
-                dashboard della tua <span><a>Area Personale</a></span>, esso si presenterà in forma                  <!--riferimanto a Area Personale-->
-                di scheda compatta come in figura.</li>
-            <li>Verifica che sia stato tu l’autore del report, solo i Master 
-                infatti hanno il permesso di publicare sul web i report.</li>
-            <li>Dopodiché pigia il pulsante che trovi vicino al lato destro della scheda
-                <img src="images/" alt="immagine del pulsante pubblica nella report Card "/>                <!-- IMPROTA IMMAGINE E ALT-->
-            </li>
-        </ol>
+    <p>"Mi piace! <span><a>Come posso condividere il mio Report?</a></span>"</p>                                    <!--riferimento mancante a howToPostReport-->
     </div>
+</div>
+
+<div id="howToPostReport" class="howTo">
+
+    <img src="images/argomenti/HowToPostReport.jpg" alt=""/>
+
+    <div class="testoArgomento">
+    <h3>"Mi piace! Come posso condividere il mio Report?"</h3>
+    <ol id="passaggiPostReport">
+        <li>Per iniziare identifica il report che vuoi condividere nella 
+            dashboard della tua <span><a>Area Personale</a></span>, esso si presenterà in forma                  <!--riferimanto a Area Personale-->
+            di scheda compatta come in figura.</li>
+        <li>Verifica che sia stato tu l’autore del report, solo i Master 
+            infatti hanno il permesso di publicare sul web i report.</li>
+        <li>Dopodiché pigia il pulsante che trovi vicino al lato destro della scheda
+            <img src="images/" alt="immagine del pulsante pubblica nella report Card "/>                <!-- IMPROTA IMMAGINE E ALT-->
+        </li>
+    </ol>
+    </div>
+</div>
+
 </div>
 
 </body>

@@ -7,13 +7,7 @@
 }
 
 html{
-    background-color: #FFF9EA;
-}
-
-body {
-    width: 100%;
-    background-color: #FFF9EA;
-    /*background-color: white;*/
+    background-color: #FFF8E6;
 }
 
 div#header {
@@ -72,13 +66,52 @@ div#access {
 }
 
 
-div#aboutReport, div#aboutPersonaggio, div#aboutDeD, div#aboutEsplora {
-    padding: 0.5em 5% 0.5em 5%;
-    font-size: 1.1em;
-    margin-top: 1em;
+/*
+
+*/
+
+#argomenti > div {
+    padding: 3em 2em 3em 2em;
+    font-size: 1em;
+    margin: 6em auto 6em auto;
+    display: flex;
+}
+#argomenti img{
+    display: block;
+    width: 20em;
+    height: 20em;
+    margin: auto;
+}
+#argomenti .testoArgomento{
+    width: 50%;
+    margin: auto;
 }
 
-div#aboutReport img, div#aboutPersonaggio img  {
+#argomenti > div:nth-child(odd){
+    flex-direction: row-reverse;
+}
+#argomenti > div:nth-child(even){
+    flex-direction: row;
+}
+#argomenti .testoArgomento , #argomenti img{
+    flex: 0 1 auto;
+}
+
+#howToPlay, #howToPostReport.howTo{
+    display: none;
+}
+.howTo{
+    background-color: #FFF0CA;
+    border-radius: 1em;
+    width: 90%;
+}
+
+
+
+/*
+
+
+#sezioni img{
     height: 12em;
     width: 15em;
     float: right;
@@ -143,5 +176,5 @@ div#howToPers {
 
 
 
-
+*/
 
