@@ -156,10 +156,15 @@ header{
 #argomenti > div:nth-child(even){
     flex-direction: row;
 }
-
-#argomenti .testoArgomento , #argomenti img{
+/*
+#argomenti .testoArgomento{
+    flex: 0 0 80%;
+    min-width: 50%;
+}*/
+#argomenti img , #argomenti .testoArgomento{
     flex: 0 1 auto;
 }
+
 
 #howToPlay, #howToPostReport.howTo{
     display: none;
