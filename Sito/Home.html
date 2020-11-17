@@ -13,7 +13,7 @@
 <meta charset="utf-8" >
 
 <link rel="stylesheet" href="style/mainStyle.css" media="screen"/>           <!--DA CREARE I FILE APPOSITI-->
-<link rel="stylesheet" href="style/" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
+<link rel="stylesheet" href="style/smallStyle.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
 
 </head>
 
@@ -38,21 +38,24 @@ Note DI CORREZIONE:
 <header>
 
     <img id="logo" src="images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
+    <div id="access">
+        <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
+        <input id="Iscrizione" type="submit" value="Iscriviti">
+    </div>
     <ul id="menu">
             <li xml:lang="en" id="currentLink">Home</li>
             <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA Definire-->
             <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
             <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
         </ul>
-    <div id="access">
-        <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
-        <input id="Iscrizione" type="submit" value="Iscriviti">
-    </div>
+
 
 </header>
 
 <div id="introduzione">
 
+    <img src="images/copertina.png" alt=""/>
+    <div id="angoliCornice"></div>
     <h1 id="titolo">Titolo</h1>                <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
     <h3 id="sottotitolo">Sottotitolo</h3>           <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
 
@@ -194,7 +197,7 @@ Note DI CORREZIONE:
             <li>Riporta un riassunto testuale della sessione ed eventuali momenti salienti</li>
             <li>Aggiungi alla gallery eventuali foto di momenti che ti piacerebbe conservare</li>
         </ol>
-        <a id="ProgettaReportButton">Progetta il tuo Report di Sessione</a>
+        <a class="buttonLink">Progetta il tuo Report di Sessione</a>
     </div>
 </div>
 
@@ -231,7 +234,7 @@ Note DI CORREZIONE:
         <li>Visualizza il risultato in formato di stampa in ogni momento</li>
         <li>Stampa la tua scheda giocatore</li>
     </ol>
-    <a id="ProgettaReportButton">Progetta la tua Scheda Giocatore</a>
+    <a class="buttonLink">Progetta la tua Scheda Giocatore</a>
     </div>
 </div>
 

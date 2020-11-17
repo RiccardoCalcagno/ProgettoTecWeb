@@ -32,6 +32,11 @@ html{
     background-color: #FFF8E6;
 }
 
+.DeD::after {
+    content: "\00ae"; 
+    font-size: 0.3em;
+}
+
 /*
 body{
     width: 640px;
@@ -42,7 +47,6 @@ body{
 
 header{
     margin: 1em 1em 1em 1em;
-    width: calc(100%-2em);
     font-size: 1.1em;
 }
 #logo{
@@ -65,32 +69,66 @@ header{
 #access {
     float: right;
     padding-top: 0.8em;
+    width: calc(9% + 9em);
+    margin: auto;
 }
 #access input {
-    display: inline-block;
-    width:8em;
+    width:46%;
+    margin: auto;
     height: 3em;
-    box-shadow: inset 0 0 0 2.5px rgba(14,19,24,.15);
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.1);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: 0 0 0 1em;
-
     /*transition-property:*/
 }
-#Accesso{
+
+#access #Accesso{
     background-color:#FFF0D4;
     color: #7F582C;
+    margin-right: 5%;
 }
 #Iscrizione{
-    background-color: #7F582C;
+    background-color: #8f5b20;
     color: #FFF0D4;
 }
-
-.DeD::after {
-    content: "\00ae"; 
-    font-size: 0.3em;
+#Iscrizione:hover{
+    background-color: #a36a28;
+    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
 }
+#Iscrizione:active{
+    background-color: rgba(163, 106, 40, 0.644);
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+}
+
+
+#introduzione{
+    width: 85%;
+    height: 622px;
+    margin:2em auto 4em auto;
+    overflow: hidden;
+}
+
+#angoliCornice{
+    width: 102%;
+    height: 628px;
+    position: relative;
+    top: -38.9em;
+    left: -0.35em;
+    content: url(../images/angoli_cornice.png);
+}
+#introduzione img{
+    display:block;
+    width: 85em;
+    position: relative;
+}
+#introduzione h1,h3{
+display:none;
+}
+
+
+
+
 
 #presentazioneFeatures {
     margin-left: 5%;
@@ -126,14 +164,35 @@ header{
 }
 
 
-/*
 
-*/
+
+.buttonLink{
+    background-color: #8f5b20;
+    color: #FFF8E6;
+    margin-top: 1.9em;
+    padding-top: 0.3em;
+    text-align: center;
+    float: right;
+    width:20em;
+    height: 2em;
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.buttonLink:hover{
+    background-color: #a36a28;
+    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
+}
+.buttonLink:active{
+    background-color: rgba(163, 106, 40, 0.644);
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+}
+
 
 #argomenti > div {
     padding: 2em 2em 2em 2em;
     font-size: 1em;
-    margin: 6em auto 3em auto;
+    margin: 7% auto 0 auto;
     display: flex;
     flex-wrap: wrap;                        /*CONSIDERA*/
 }
@@ -142,12 +201,14 @@ header{
     width: 25em;
     height: 25em;
     margin: auto;
-    padding: 1.2em 2em 1.2em 2em;
+    padding: 1.2em 2.5em 1.2em 2.5em;
+    flex: 0 1 auto;
 }
 #argomenti .testoArgomento{
-    width: 50%;
+    max-width: 90%;
     margin: auto;
     padding: 1.2em 2em 1.2em 2em;
+    flex: 1 1 50%;
 }
 
 #argomenti > div:nth-child(odd){
@@ -155,14 +216,6 @@ header{
 }
 #argomenti > div:nth-child(even){
     flex-direction: row;
-}
-/*
-#argomenti .testoArgomento{
-    flex: 0 0 80%;
-    min-width: 50%;
-}*/
-#argomenti img , #argomenti .testoArgomento{
-    flex: 0 1 auto;
 }
 
 
@@ -173,6 +226,28 @@ header{
     background-color: #FFF0D4;
     border-radius: 0.8em;
     width: 85%;
+}
+.howTo li{
+    padding-bottom: 1.5em;
+    list-style-type:none;
+}
+.howTo li:before{
+    float: left;
+    position: relative;
+    left: -1em;
+    top:-0.2em;
+}
+.howTo li:nth-child(1):before {content:  url(../images/numeri_lista/uno.png);}
+.howTo li:nth-child(2):before {content:  url(../images/numeri_lista/due.png);}
+.howTo li:nth-child(3):before {content:  url(../images/numeri_lista/tre.png);}
+.howTo li:nth-child(4):before {content:  url(../images/numeri_lista/quattro.png);}
+
+.howTo h2{
+    text-align: center;
+}
+#argomenti .howTo .testoArgomento{
+    max-width: 35em;
+    flex: 1 0 44.5%;
 }
 
 
