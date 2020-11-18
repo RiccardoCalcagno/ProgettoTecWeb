@@ -21,7 +21,11 @@
 
 Note DI CORREZIONE:
 
-1) 
+1) mettere le lable
+
+2) mettere gli alt
+
+3) mettere gli href
 
 -->
 
@@ -39,110 +43,125 @@ Note DI CORREZIONE:
     <div id="dashboard">
 
     <div id="personaggiUtente">
+        <header>
         <h2>Schede Giocatore</h2>
 
         <a class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
 
         <h4>Sottotitolo</h4>                            <!--Da compilare Sottotitolo-->
-
+        </header>
         <div id="boxPersonaggi" class="box">
+        <form action="" method="get">                                   <!--SPECIFICARE LA PAGINA DI AZIONE-->
         <ul>
+
             <li class="cardPersonaggio">
+                <input type="submit" name="Personaggio" value="1">
             </li>
 
             <li class="cardPersonaggio">
+                <input type="submit" name="Personaggio" value="2">
             </li>
 
             <li class="cardPersonaggio">
+                <input type="submit" name="Personaggio" value="3">
             </li>
 
             <li class="cardPersonaggio">
-            </li>
-<!--
-            <li class="cardPersonaggio">
+                <input type="submit" name="Personaggio" value="4">
             </li>
 
             <li class="cardPersonaggio">
+                <input type="submit" name="Personaggio" value="5">
             </li>
 
             <li class="cardPersonaggio">
-            </li>   -->
+                <input type="submit" name="Personaggio" value="6">
+            </li>
+
+            <li class="cardPersonaggio">
+                <input type="submit" name="Personaggio" value="7">
+            </li>   <!---->
         </ul>
-        </div>
-
+        </form>
+        <a class="espandi">Vedi di Più</a>                   <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" -->
+        </div>                                                  <!--Questo Metoto get permette di togliere la clausola CSS "overflow:hidden" nel flexbox:boxPersonaggi -->
     </div>  
 
     <div id="reportUtente">
+        <header>
         <h2><span xlm:lang="en">Report</span> Sessione</h2>
 
         <a class="buttonLink">Aggiungi <span xlm:lang="en">report</span> sessione</a>           <!--Da completare href-->
 
         <h4>Sottotitolo</h4>                            <!--Da compilare Sottotitolo-->
-
+        </header>
+        <div id="listeReport">
         <div id="reportMaster">
-            <h3>I tuoi <span xlm:lang="en">report</span></h3>
+            <h3>I tuoi <span xlm:lang="en">Report</span></h3>
             <h4>Sottotitolo</h4>                                     <!--Da compilare Sottotitolo-->
             
-            <div id="boxMaster" class="box">
+            <div class="box">
+            <form action="" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul>
                 <li class="cardReport" class="cardReportMaster">
+                    <input type="submit" name="ReportMaster" value="1">
                 </li>
     
                 <li class="cardReport" class="cardReportMaster">
+                    <input type="submit" name="ReportMaster" value="2">
                 </li>
     
                 <li class="cardReport" class="cardReportMaster">
+                    <input type="submit" name="ReportMaster" value="3">
                 </li>
     
                 <li class="cardReport" class="cardReportMaster">
+                    <input type="submit" name="ReportMaster" value="4">
                 </li>
     
                 <li class="cardReport" class="cardReportMaster">
-                </li>
-    
-                <li class="cardReport" class="cardReportMaster">
-                </li>
-    
-                <li class="cardReport" class="cardReportMaster">
+                    <input type="submit" name="ReportMaster" value="5">
                 </li>
             </ul>
+            </form>
             </div>
         </div>
 
         <div id="reportPartecipante">
-            <h3><span xlm:lang="en">report</span> condivisi con te</h3>
+            <h3><span xlm:lang="en">Report</span> condivisi con te</h3>
             <h4>Sottotitolo</h4>                                     <!--Da compilare Sottotitolo-->
 
-            <div id="boxPartecipante" class="box">
+            <div class="box">
+            <form action="" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul>
                 <li class="cardReport" class="cardReportPartecipante">
+                    <input type="submit" name="ReportPartecip" value="1">
                 </li>
     
                 <li class="cardReport" class="cardReportPartecipante">
+                    <input type="submit" name="ReportPartecip" value="2">
                 </li>
     
                 <li class="cardReport" class="cardReportPartecipante">
+                    <input type="submit" name="ReportPartecip" value="3">
                 </li>
     
                 <li class="cardReport" class="cardReportPartecipante">
+                    <input type="submit" name="ReportPartecip" value="4">
                 </li>
     
                 <li class="cardReport" class="cardReportPartecipante">
+                    <input type="submit" name="ReportPartecip" value="5">
                 </li>
-    
-                <li class="cardReport" class="cardReportPartecipante">
-                </li>
-    
-                <li class="cardReport" class="cardReportPartecipante">
                 </li>
             </ul>
+            </form>
             </div>
         </div>
 
-
+        </div>
     </div> 
 
-    </div>
 </body>
 
 </html>

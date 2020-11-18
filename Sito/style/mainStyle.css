@@ -42,6 +42,9 @@ html{
     font-size: 0.3em;
 }
 
+input[type="submit"]:focus{
+        outline: none;
+    }
 
 .buttonLink{
     background-color: #8f5b20;
@@ -84,7 +87,7 @@ body{
 /*
 --------------------------------------- HEADER ----------------------------------------------
 */
-header{
+#intestazioneSito{
     margin: 1em 1em 1em 1em;
     font-size: 1.1em;
 }
@@ -165,9 +168,6 @@ header{
     display:block;
     width: 85em;
     position: relative;
-}
-#introduzione h1,h3{
-display:none;
 }
 
 
@@ -403,8 +403,11 @@ input#ccSub {
 /*
 --------------------------------------- AREA DASHBOARD ----------------------------------------------
 */
-#dashboard h2, #dashboard h3, #dashboard h4{
+#dashboard header h2, #dashboard header h4{
     margin-left: 5%;
+}
+#dashboard h3{
+    font-size: 2em;
 }
 #dashboard h2{
     float: left;
@@ -415,34 +418,90 @@ input#ccSub {
 #dashboard h4{
     clear: both;
 }
+#dashboard header{
+    margin-bottom: 1em;
+}
 #dashboard .buttonLink{
     margin-right: 5%;
     margin-top: 1em;
     width: 18em;
 }
 #dashboard .box{
-    background-color: #552e021f;
-    border-radius: 1em;
-    list-style-type: none;
+    background-color: #f7ecd4;
+    border-radius: 0.7em;
 }
-#dashboard .box ul{margin: auto;}
 #dashboard li{
     border-radius: 0.5em;
+    box-shadow: 5px 5px 3px #74747488;
+    list-style-type: none;
 }
+
+
+
+
+#personaggiUtente{
+    border-top: 1px solid #5f3f1738;
+    padding-top:calc(2em + 3%);
+    border-bottom: 1px solid #5f3f1738;
+    margin-bottom: calc(2em + 3%);
+    padding-bottom: 5em;
+}
+
+
+
 #dashboard #boxPersonaggi{
-    width: 90%;
-    height: 18em;
+    width: 80%;
     margin: 2em auto 2em auto;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+#dashboard #boxPersonaggi ul{
+    width: calc(100% - 1em);
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(15em + 5px);
+    overflow: hidden;
+    justify-content: center;
+}
+#dashboard input{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+    background-color: transparent;
+    border: 0;
+    font-size:0;
+}
+#dashboard input:hover{
+    background-color: #ffffff3d;
+}
+#dashboard input:active{
+    background-color: #ffffff63;
+}
+.cardPersonaggio , .cardPersonaggio{
+
 }
 #boxPersonaggi li{
-    position: relative;
-    width: 15em;
-    height: 16em;
-    margin: 1em 0 1em 1.5em;
+    flex: 0 0 calc(10em);
+    width: 9em;
+    height: 11em;
+    margin: 1em 5px 1.2em 1em;
     display: inline-block;
-    background-color: #643907;
+    background-color: #FFFFFF;
+    border: 1em ridge #ffd5863f;
 }
-#boxPersonaggi li:last-child(){margin-right: 1.5em;}
+
+#boxPersonaggi a{
+    position: relative;
+    top:-1em;
+    text-align: center;
+    display: block;
+    float: right;
+    width: 7em;
+    background-color: #f7ecd4;
+    padding:1em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+}
 
 
 
@@ -450,7 +509,46 @@ input#ccSub {
     display: block;
 }
 
+#listeReport{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    margin-bottom: 10em;
+}
+#listeReport > div{
+    flex: 1 0 45%;
+    min-width: 25em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    max-width: 35em;
+}
+#reportMaster{
+    margin-right: 0.5em;
+}
+#reportPartecipante{
+    margin-left: 0.5em;
+}
 
+#listeReport h3, #listeReport h4{
+    text-align: center;
+}
+
+
+
+#reportUtente .box{
+    margin-top: 1em;
+    height: 42.5em;
+    padding-top: 1.5em;
+}
+#reportUtente li{
+    width: 95%;
+    height: 7em;
+    margin: 0 auto 1.5em auto;
+    display: block;
+    background-color: #FFFFFF;
+}
 
 
 
