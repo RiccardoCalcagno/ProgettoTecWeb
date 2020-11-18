@@ -397,8 +397,28 @@ input#ccSub {
 --------------------------------------- MODIFICA INFO UTENTE ----------------------------------------------
 */
 
+#viewInfoUser {
+    margin-right: 5em;
+    margin-left: 5em;
+}
 
+#viewInfoUser h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
 
+#viewInfoUser legend {
+    font-weight: bold;
+}
+
+#viewInfoUser input {
+    border-style: none;
+}
+
+#viewInfoUser fieldset {
+    border-style: none;
+    margin-top: 1em;
+}
 
 /*
 --------------------------------------- AREA DASHBOARD ----------------------------------------------
