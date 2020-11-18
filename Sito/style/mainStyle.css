@@ -388,7 +388,9 @@ input#ccSub {
 --------------------------------------- VISUALIZZA INFO UTENTE ----------------------------------------------
 */
 
-
+#viewInfoUser{
+    height: 20em;              /*da cambiare lo ho messo a caso*/
+}
 
 
 /*
@@ -401,8 +403,52 @@ input#ccSub {
 /*
 --------------------------------------- AREA DASHBOARD ----------------------------------------------
 */
+#dashboard h2, #dashboard h3, #dashboard h4{
+    margin-left: 5%;
+}
+#dashboard h2{
+    float: left;
+    font-size: 2.5em;
+    max-width: 8.5em;
+    padding-bottom: 0.3em;
+}
+#dashboard h4{
+    clear: both;
+}
+#dashboard .buttonLink{
+    margin-right: 5%;
+    margin-top: 1em;
+    width: 18em;
+}
+#dashboard .box{
+    background-color: #552e021f;
+    border-radius: 1em;
+    list-style-type: none;
+}
+#dashboard .box ul{margin: auto;}
+#dashboard li{
+    border-radius: 0.5em;
+}
+#dashboard #boxPersonaggi{
+    width: 90%;
+    height: 18em;
+    margin: 2em auto 2em auto;
+}
+#boxPersonaggi li{
+    position: relative;
+    width: 15em;
+    height: 16em;
+    margin: 1em 0 1em 1.5em;
+    display: inline-block;
+    background-color: #643907;
+}
+#boxPersonaggi li:last-child(){margin-right: 1.5em;}
 
 
+
+#reportUtente h3{
+    display: block;
+}
 
 
 
