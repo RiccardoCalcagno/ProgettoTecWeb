@@ -397,11 +397,6 @@ input#ccSub {
     height: 20em;              /*da cambiare lo ho messo a caso*/
 }
 
-
-/*
---------------------------------------- MODIFICA INFO UTENTE ----------------------------------------------
-*/
-
 #viewInfoUser {
     margin-right: 5em;
     margin-left: 5em;
@@ -424,6 +419,13 @@ input#ccSub {
     border-style: none;
     margin-top: 1em;
 }
+
+
+/*
+--------------------------------------- MODIFICA INFO UTENTE ----------------------------------------------
+*/
+
+
 
 /*
 --------------------------------------- AREA DASHBOARD ----------------------------------------------
