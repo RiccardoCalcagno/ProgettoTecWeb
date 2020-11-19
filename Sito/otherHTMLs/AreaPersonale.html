@@ -98,13 +98,20 @@ Note DI CORREZIONE:
 
         <a class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
 
-        <h4>Sottotitolo</h4>                            <!--Da compilare Sottotitolo-->
+        <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
         </header>
         <div id="boxPersonaggi" class="box">
         <form action="" method="get">                                   <!--SPECIFICARE LA PAGINA DI AZIONE-->
-        <ul>
+        <ul class="cards">
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/halfing.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Dragonide</p></li>
+                    <!--<li><h5>Classe </h5><p classe="persClasse">Sorcerer</p></li>-->
+                </ul><!--
+                <h5>Allineamento </h5> <p classe="persAllineamento">Lawful Good</p>-->
                 <input type="submit" name="Personaggio" value="1">
             </li>
 
@@ -132,9 +139,12 @@ Note DI CORREZIONE:
                 <input type="submit" name="Personaggio" value="7">
             </li>   <!---->
         </ul>
-        </form>
-        <a class="espandi">Vedi di Più</a>                   <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" -->
-        </div>                                                  <!--Questo Metoto get permette di togliere la clausola CSS "overflow:hidden" nel flexbox:boxPersonaggi -->
+        <nav class="espandi">                               <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
+            <label for="espandiPers">Vedi di Più</label>
+            <input type="submit" id="espandiPers" name="espandi" value="Pers">     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
+        </nav>
+        </form>                                     
+        </div>                                                  
     </div>  
 
     <div id="reportUtente">
@@ -143,16 +153,16 @@ Note DI CORREZIONE:
 
         <a class="buttonLink">Aggiungi <span xlm:lang="en">report</span> sessione</a>           <!--Da completare href-->
 
-        <h4>Sottotitolo</h4>                            <!--Da compilare Sottotitolo-->
+        <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
         </header>
         <div id="listeReport">
         <div id="reportMaster">
             <h3>I tuoi <span xlm:lang="en">Report</span></h3>
-            <h4>Sottotitolo</h4>                                     <!--Da compilare Sottotitolo-->
+            <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
             
             <div class="box">
             <form action="" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <ul>
+            <ul class="cards">
                 <li class="cardReport" class="cardReportMaster">
                     <input type="submit" name="ReportMaster" value="1">
                 </li>
@@ -173,17 +183,26 @@ Note DI CORREZIONE:
                     <input type="submit" name="ReportMaster" value="5">
                 </li>
             </ul>
+            <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+              <ul>
+                <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
+                <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
+                <li><span><abbr>Pag</abbr></span>. <span id="numPagMaster">1</span>/<span id="totNumPagMaster">2</span></li>
+                <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
+                <li><label id="LblMasterSuccessivo" for="masterSuccessivo">successiva</label></li>
+              </ul> 
+            </nav>
             </form>
             </div>
         </div>
 
         <div id="reportPartecipante">
             <h3><span xlm:lang="en">Report</span> condivisi con te</h3>
-            <h4>Sottotitolo</h4>                                     <!--Da compilare Sottotitolo-->
+            <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
 
             <div class="box">
             <form action="" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <ul>
+            <ul class="cards">
                 <li class="cardReport" class="cardReportPartecipante">
                     <input type="submit" name="ReportPartecip" value="1">
                 </li>
@@ -205,6 +224,15 @@ Note DI CORREZIONE:
                 </li>
                 </li>
             </ul>
+            <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+              <ul>
+                <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li>
+                <li class="inputMove"><input type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente"></li>                     
+                <li><span><abbr>Pag</abbr></span>. <span id="numPagPartec">1</span>/<span id="totNumPagPartec">2</span></li>
+                <li class="inputMove"><input type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo"></li>  
+                <li><label id="LblPartecSuccessivo" for="partecSuccessivo">successiva</label></li>
+              </ul>
+            </nav>
             </form>
             </div>
         </div>

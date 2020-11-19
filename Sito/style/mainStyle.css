@@ -68,6 +68,17 @@ input[type="submit"]:focus{
     box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
 }
 
+.espandi{
+    position: relative;
+    top:-0.8em;
+    text-align: center;
+    display: block;
+    float: right;
+    padding:1.2em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+    height: 1.8em;
+}
+
 /*
 body{
     width: 640px;
@@ -150,20 +161,14 @@ body{
 
 
 #introduzione{
-    width: 85%;
-    height: 622px;
+    width: calc(89% - 3em);
+    height: 620px;
     margin:2em auto 4em auto;
     overflow: hidden;
+    border: 3em ridge #ffd17c69;
+    border-radius: 1em;
 }
 
-#angoliCornice{
-    width: 102%;
-    height: 628px;
-    position: relative;
-    top: -38.9em;
-    left: -0.35em;
-    content: url(../images/angoli_cornice.png);
-}
 #introduzione img{
     display:block;
     width: 85em;
@@ -423,7 +428,7 @@ input#ccSub {
 /*
 --------------------------------------- AREA DASHBOARD ----------------------------------------------
 */
-#dashboard header h2, #dashboard header h4{
+#dashboard header h2, #dashboard header p{
     margin-left: 5%;
 }
 #dashboard h3{
@@ -435,53 +440,18 @@ input#ccSub {
     max-width: 8.5em;
     padding-bottom: 0.3em;
 }
-#dashboard h4{
+#dashboard p{
     clear: both;
 }
 #dashboard header{
     margin-bottom: 1em;
 }
+
+
 #dashboard .buttonLink{
     margin-right: 5%;
     margin-top: 1em;
     width: 18em;
-}
-#dashboard .box{
-    background-color: #f7ecd4;
-    border-radius: 0.7em;
-}
-#dashboard li{
-    border-radius: 0.5em;
-    box-shadow: 5px 5px 3px #74747488;
-    list-style-type: none;
-}
-
-
-
-
-#personaggiUtente{
-    border-top: 1px solid #5f3f1738;
-    padding-top:calc(2em + 3%);
-    border-bottom: 1px solid #5f3f1738;
-    margin-bottom: calc(2em + 3%);
-    padding-bottom: 5em;
-}
-
-
-
-#dashboard #boxPersonaggi{
-    width: 80%;
-    margin: 2em auto 2em auto;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
-}
-#dashboard #boxPersonaggi ul{
-    width: calc(100% - 1em);
-    display: flex;
-    flex-wrap: wrap;
-    height: calc(15em + 5px);
-    overflow: hidden;
-    justify-content: center;
 }
 #dashboard input{
     margin: 0;
@@ -492,16 +462,68 @@ input#ccSub {
     border: 0;
     font-size:0;
 }
-#dashboard input:hover{
+#dashboard .cards input:hover{
     background-color: #ffffff3d;
 }
-#dashboard input:active{
+#dashboard .cards input:active{
     background-color: #ffffff63;
 }
-.cardPersonaggio , .cardPersonaggio{
 
+
+#dashboard .box{
+    background-color: #f7ecd4;
+    border-radius: 0.7em;
 }
-#boxPersonaggi li{
+#dashboard .cards > li{
+    border-radius: 0.5em;
+    box-shadow: 5px 5px 3px #74747488;
+    list-style-type: none;
+}
+
+#dashboard .espandi{
+    background-color: #f7ecd4;
+}
+#dashboard .espandi label:hover{color: #50300d;}
+#dashboard .espandi label:active{color: #4e382093;}
+
+/*----------------------- PERSONAGGI --------------------------
+*/
+
+#personaggiUtente{
+    border-top: 1px solid #5f3f1738;
+    padding-top:calc(2em + 3%);
+    border-bottom: 1px solid #5f3f1738;
+    margin-bottom: calc(2em + 3%);
+    padding-bottom: 5em;
+}
+
+
+#dashboard #boxPersonaggi{
+    width: 80%;
+    margin: 2em auto 2em auto;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+#personaggiUtente .cards{
+    width: calc(100% - 1em);
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(15em + 5px);
+    overflow: hidden;
+    justify-content: center;
+}
+
+#personaggiUtente .espandi{
+    width: 7em;
+}
+#personaggiUtente .espandi input{
+visibility: hidden;
+}
+
+/*----------------------- CARD PERSONAGGI --------------------------
+*/
+
+#personaggiUtente .cardPersonaggio{
     flex: 0 0 calc(10em);
     width: 9em;
     height: 11em;
@@ -510,19 +532,37 @@ input#ccSub {
     background-color: #FFFFFF;
     border: 1em ridge #ffd5863f;
 }
-
-#boxPersonaggi a{
-    position: relative;
-    top:-1em;
+#personaggiUtente .cardPersonaggio h4{
     text-align: center;
+}
+#personaggiUtente .cardPersonaggio img{
     display: block;
+    width: 3.5em;
+    margin: 0.3em auto 0.3em auto;
+    border-radius: 0.3em;
+}
+#personaggiUtente .cardPersonaggio ul{
+    list-style-type: none;
+}
+#personaggiUtente .cardPersonaggio li{
+    display: block;
+    padding-bottom: 0.5em;
+}
+#personaggiUtente .cardPersonaggio li h5{
+    width: 50%;
+    float: left;
+    font-size: 0.9em;
+}
+#personaggiUtente .cardPersonaggio li p{
+    width: 50%;
     float: right;
-    width: 7em;
-    background-color: #f7ecd4;
-    padding:1em 0.5em 0.5em 0.5em;
-    border-radius: 0.5em;
+    font-size: 0.9em;
+    padding-bottom: 0;
 }
 
+
+/*----------------------- REPORT --------------------------
+*/
 
 
 #reportUtente h3{
@@ -556,13 +596,50 @@ input#ccSub {
 }
 
 
+#reportUtente .espandi{
+    width: 20em;
+    font-size: 0.9em;
+}
+#reportUtente .espandi ul{
+
+    list-style-type: none;
+}
+#reportUtente .espandi li{
+    display: inline; width: 5.3em;
+}
+#reportUtente .espandi .inputMove{
+    width: 1em;
+    margin: auto 0.5em auto 0.5em;
+}
+
+#reportUtente .espandi .precedente{
+    position:relative;top:-5px;
+    width: 20px;
+    height: 18px;
+    border-style: solid;
+    border-width: 9px 20px 9px 0;
+    border-color: transparent #2c2318 transparent transparent ;
+}
+#reportUtente .espandi .successivo{
+    position:relative;top:-5px;
+    width: 20px;
+    height: 18px;
+    border-style: solid;
+    border-width: 9px 0 9px 20px;
+    border-color: transparent transparent transparent #2c2318;
+}
+#reportUtente input.precedente:hover{border-right-color: #724713;}
+#reportUtente input.precedente:active{border-right-color: #3d2f1f96;}
+#reportUtente input.successivo:hover{border-left-color: #724713;}
+#reportUtente input.successivo:active{border-left-color: #3d2f1f96;}
+
 
 #reportUtente .box{
     margin-top: 1em;
     height: 42.5em;
     padding-top: 1.5em;
 }
-#reportUtente li{
+#reportUtente .cards li{
     width: 95%;
     height: 7em;
     margin: 0 auto 1.5em auto;
