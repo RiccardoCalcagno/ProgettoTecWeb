@@ -27,6 +27,8 @@ Note DI CORREZIONE:
 
 3) mettere gli href
 
+4) ARIA (come tabindex)
+
 -->
 
 
@@ -94,51 +96,120 @@ Note DI CORREZIONE:
 
     <div id="personaggiUtente">
         <header>
-        <h2>Schede Giocatore</h2>
-
-        <a class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
-
-        <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
+            <h2>Schede Giocatore</h2>
+            <a class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
+            <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
         </header>
-        <div id="boxPersonaggi" class="box">
+        <div class="box">
         <form action="" method="get">                                   <!--SPECIFICARE LA PAGINA DI AZIONE-->
-        <ul class="cards">
+            <ul class="cards">
 
             <li class="cardPersonaggio">
                 <img src="../images/icone_razze/halfing.png" alt="" /> 
                 <h4>Nome Personaggio</h4>
                 <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Dragonide</p></li>
-                    <!--<li><h5>Classe </h5><p classe="persClasse">Sorcerer</p></li>-->
-                </ul><!--
-                <h5>Allineamento </h5> <p classe="persAllineamento">Lawful Good</p>-->
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
+
                 <input type="submit" name="Personaggio" value="1">
             </li>
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/mezzorco.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
                 <input type="submit" name="Personaggio" value="2">
             </li>
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/dragonide.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
                 <input type="submit" name="Personaggio" value="3">
             </li>
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/gnomo.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
                 <input type="submit" name="Personaggio" value="4">
             </li>
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/elfo.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
                 <input type="submit" name="Personaggio" value="5">
             </li>
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/nano.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
                 <input type="submit" name="Personaggio" value="6">
             </li>
 
             <li class="cardPersonaggio">
+                <img src="../images/icone_razze/umano.png" alt="" /> 
+                <h4>Nome Personaggio</h4>
+                <ul>
+                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
+                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
+                    <li id="allineamento">
+                        <fieldset><legend>Allineamento</legend>
+                            <p classe="persAllineamento">Allineamento</p>
+                        </fieldset>
+                    </li>
+                </ul>
                 <input type="submit" name="Personaggio" value="7">
             </li>   <!---->
-        </ul>
+            </ul>
         <nav class="espandi">                               <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
             <label for="espandiPers">Vedi di Più</label>
             <input type="submit" id="espandiPers" name="espandi" value="Pers">     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
@@ -149,17 +220,16 @@ Note DI CORREZIONE:
 
     <div id="reportUtente">
         <header>
-        <h2><span xlm:lang="en">Report</span> Sessione</h2>
-
-        <a class="buttonLink">Aggiungi <span xlm:lang="en">report</span> sessione</a>           <!--Da completare href-->
-
-        <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
+            <h2><span xlm:lang="en">Report</span> Sessione</h2>
+            <a class="buttonLink">Aggiungi <span xlm:lang="en">report</span> sessione</a>           <!--Da completare href-->
+            <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
         </header>
         <div id="listeReport">
         <div id="reportMaster">
-            <h3>I tuoi <span xlm:lang="en">Report</span></h3>
-            <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
-            
+            <header>
+                <h3>I tuoi <span xlm:lang="en">Report</span></h3>
+                <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
+            </header>
             <div class="box">
             <form action="" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul class="cards">
@@ -197,9 +267,10 @@ Note DI CORREZIONE:
         </div>
 
         <div id="reportPartecipante">
-            <h3><span xlm:lang="en">Report</span> condivisi con te</h3>
-            <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
-
+            <header>
+                <h3><span xlm:lang="en">Report</span> condivisi con te</h3>
+                <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
+            </header>
             <div class="box">
             <form action="" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul class="cards">
@@ -239,6 +310,8 @@ Note DI CORREZIONE:
 
         </div>
     </div> 
+
+    </div>
 
 </body>
 
