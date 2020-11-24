@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="it" >
+
+<head>
+
+<title>Titolo</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+
+<meta name="description" content=""/>           
+<meta name="keywords" content="" />
+<meta name="author" content="" />
+<meta name="language" content="italian it" />
+<meta charset="utf-8" >
+
+<link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>          
+<link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
+
+</head>
+
+<body>
+	<header id="intestazioneSito">
+
+		<ul class="AiutiNavigazione">
+			<li><a href="">Vai al Menù</a></li>
+			<li><a href="">Vai al Contenuto</a></li>
+			<li><a href="">Salta alla sezione Esplora il Territorio</a></li>
+		</ul>
+
+	    <img id="logo" src="images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
+	    <div id="access">
+	        <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
+	        <input id="Iscrizione" type="submit" value="Iscriviti">
+	    </div>
+	    <ul id="menu">
+	            <li xml:lang="en" id="currentLink">Home</li>
+	            <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA Definire-->
+	            <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
+	            <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
+	    </ul>
+
+
+	</header>
+
+	<nav class="breadcrumbs">
+		<ul>
+			<li><a href="" xml:lang="en">Home</a></li>
+			<li>Esplora</li>
+		</ul>
+	</nav>
+
+
+	<div id="reportMaster">
+        <header>
+            <h2><span xlm:lang="en">Report</span> Globali</h2>
+            <p>Consulta i <span xlm:lang="en">Report</span> postati dagli altri utenti!</p>
+        </header>
+        <div class="box">
+        <form action="" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+        <ul class="cards">
+            <li class="cardReport" class="cardReportMaster">
+                <input type="submit" name="ReportMaster" value="1">
+            </li>
+
+            <li class="cardReport" class="cardReportMaster">
+                <input type="submit" name="ReportMaster" value="2">
+            </li>
+
+            <li class="cardReport" class="cardReportMaster">
+                <input type="submit" name="ReportMaster" value="3">
+            </li>
+
+            <li class="cardReport" class="cardReportMaster">
+                <input type="submit" name="ReportMaster" value="4">
+            </li>
+
+            <li class="cardReport" class="cardReportMaster">
+                <input type="submit" name="ReportMaster" value="5">
+            </li>
+        </ul>
+        <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+          <ul>
+            <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
+            <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
+            <li><span><abbr>Pag</abbr></span>. <span id="numPagMaster">1</span>/<span id="totNumPagMaster">2</span></li>
+            <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
+            <li><label id="LblMasterSuccessivo" for="masterSuccessivo">successiva</label></li>
+          </ul> 
+        </nav>
+        </form>
+        </div>
+    </div>
+
+    <aside>
+    	<h2>I prossimi Eventi</h2>
+    	<p>Sottotitolo</p>                   			<!--ATTENZIONE DA COMPLETARE-->
+    	<dl>
+    		<dt>Lucca Comics</dt>
+    		<dd>Visita il padiglione di Dungeons And Dragons per conoscere altri giocatori come te e partecipare a sessioni a tema!</dd>
+    		<dd>Da Giovedì 10 Marzo 2021, aperta per tutto il Weekend</dd>
+
+    		<dt>Fiera del Fumetto di Milano</dt>
+    		<dd>Vieni allo stand dedicato a D&D e partecipa ad una delle nostre OneShot.</dd>
+    		<dd>Rimandata a data da destinarsi</dd>
+    	</dl>
+    </aside>
+
+    <aside>
+    	<h2>Siti Utili, Strumenti e Manuali</h2>
+    	<p>Sottotitolo</p>                   			<!--ATTENZIONE DA COMPLETARE-->
+    	<dl>
+    		<dt><a href="">Nome Sito</a></dt>	<!--ATTENZIONE DA COMPLETARE-->
+    		<dd>Visita il sito ufficiale per controllare tutte le novità sul gioco</dd>
+
+    		<dt><a href="">Nome Sito</a></dt>			<!--ATTENZIONE DA COMPLETARE-->
+    		<dd>Negozio online dove comprare dadi e miniature per le tue partite</dd>
+    		
+    		<dt><a href="https://www.heroforge.com/">Hero Forge</a></dt>
+    		<dd>Negozio online per creare una miniatura personalizzata del tuo personaggio preferito</dd>
+    	</dl>
+    	
+    </aside>
+
+
+
+</body>
