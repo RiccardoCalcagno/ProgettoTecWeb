@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body id=bodyEsplora>
 	<header id="intestazioneSito">
 
 		<ul class="AiutiNavigazione">
@@ -26,30 +26,62 @@
 			<li><a href="">Salta alla sezione Esplora il Territorio</a></li>
 		</ul>
 
-	    <img id="logo" src="images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
+	    <img id="logo" src="../images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
 	    <div id="access">
 	        <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
 	        <input id="Iscrizione" type="submit" value="Iscriviti">
 	    </div>
 	    <ul id="menu">
-	            <li xml:lang="en" id="currentLink">Home</li>
-	            <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA Definire-->
+	            <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
+	            <li class="externalLink"><a href="../otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA Definire-->
 	            <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
-	            <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
+	            <li class="externalLink"><a id="currentLink" >Esplora</a></li>
 	    </ul>
 
 
 	</header>
 
-	<nav class="breadcrumbs">
+	<nav id="breadcrumbs">
 		<ul>
-			<li><a href="" xml:lang="en">Home</a></li>
+			<li><p><a href="../Home.html" xml:lang="en">Home</a> &gt; </p></li>
 			<li>Esplora</li>
 		</ul>
 	</nav>
 
+	<aside>
+		<ul>
+			<li id="eventi">
+				<h2>Prossimi Eventi</h2>
+				<p>Sottotitolo</p>                   			<!--ATTENZIONE DA COMPLETARE-->
+				<dl>
+					<dt>Lucca Comics</dt>
+					<dd>Visita il padiglione di Dungeons And Dragons per conoscere altri giocatori come te e partecipare a sessioni a tema!</dd>
+					<dd>Da Giovedì 10 Marzo 2021, aperta per tutto il Weekend</dd>
 
-	<div id="reportMaster">
+					<dt>Fiera del Fumetto di Milano</dt>
+					<dd>Vieni allo stand dedicato a D&D e partecipa ad una delle nostre OneShot.</dd>
+					<dd>Rimandata a data da destinarsi</dd>
+				</dl>
+			</li>
+
+			<li id="siti">
+			<h2>Siti Utili, Strumenti e Manuali</h2>
+			<p>Sottotitolo</p>                   			<!--ATTENZIONE DA COMPLETARE-->
+			<dl>
+				<dt><a href="">Nome Sito</a></dt>	<!--ATTENZIONE DA COMPLETARE-->
+				<dd>Visita il sito ufficiale per controllare tutte le novità sul gioco</dd>
+
+				<dt><a href="">Nome Sito</a></dt>			<!--ATTENZIONE DA COMPLETARE-->
+				<dd>Negozio online dove comprare dadi e miniature per le tue partite</dd>
+				
+				<dt><a href="https://www.heroforge.com/">Hero Forge</a></dt>
+				<dd>Negozio online per creare una miniatura personalizzata del tuo personaggio preferito</dd>
+			</dl>
+		</li>
+    	</ul>
+    </aside>
+
+	<div id="reportUtente">
         <header>
             <h2><span xlm:lang="en">Report</span> Globali</h2>
             <p>Consulta i <span xlm:lang="en">Report</span> postati dagli altri utenti!</p>
@@ -90,35 +122,7 @@
         </div>
     </div>
 
-    <aside>
-    	<h2>I prossimi Eventi</h2>
-    	<p>Sottotitolo</p>                   			<!--ATTENZIONE DA COMPLETARE-->
-    	<dl>
-    		<dt>Lucca Comics</dt>
-    		<dd>Visita il padiglione di Dungeons And Dragons per conoscere altri giocatori come te e partecipare a sessioni a tema!</dd>
-    		<dd>Da Giovedì 10 Marzo 2021, aperta per tutto il Weekend</dd>
 
-    		<dt>Fiera del Fumetto di Milano</dt>
-    		<dd>Vieni allo stand dedicato a D&D e partecipa ad una delle nostre OneShot.</dd>
-    		<dd>Rimandata a data da destinarsi</dd>
-    	</dl>
-    </aside>
-
-    <aside>
-    	<h2>Siti Utili, Strumenti e Manuali</h2>
-    	<p>Sottotitolo</p>                   			<!--ATTENZIONE DA COMPLETARE-->
-    	<dl>
-    		<dt><a href="">Nome Sito</a></dt>	<!--ATTENZIONE DA COMPLETARE-->
-    		<dd>Visita il sito ufficiale per controllare tutte le novità sul gioco</dd>
-
-    		<dt><a href="">Nome Sito</a></dt>			<!--ATTENZIONE DA COMPLETARE-->
-    		<dd>Negozio online dove comprare dadi e miniature per le tue partite</dd>
-    		
-    		<dt><a href="https://www.heroforge.com/">Hero Forge</a></dt>
-    		<dd>Negozio online per creare una miniatura personalizzata del tuo personaggio preferito</dd>
-    	</dl>
-    	
-    </aside>
 
 
 
