@@ -12,6 +12,7 @@
     color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
     line-height: 1.5em;
     font-weight: 400;
+    font-size: 1em;
     font-family: "Helvetica Neue",Helvetica,sans-serif; 
 }
 
@@ -23,6 +24,10 @@
 
 em{
     font-style: normal;
+    font-weight: 500;
+}
+abbr{
+    text-decoration: none;
 }
 p{
     padding-bottom: 0.5em;
@@ -42,7 +47,7 @@ h3, h3 >span{
 }
 
 html{
-    background-color: #FFF8E6;
+    background-color: #fff7e6;
 }
 
 .DeD::after {
@@ -53,6 +58,10 @@ html{
 input[type="submit"]:focus{
         outline: none;
     }
+
+button:focus{
+    outline: none;
+}
 
 .buttonLink{
     background-color: #8f5b20;
@@ -486,6 +495,13 @@ input#ccSub {
     margin-bottom: 1em;
 }
 
+#dashboard .buttonLink{
+    margin-right: 5%;
+    margin-top: 1em;
+    width: 18em;
+}
+
+
 /*----------------------- BOX GENERICO --------------------------
 */
 
@@ -501,33 +517,17 @@ input#ccSub {
     border-radius: 0.5em;
     box-shadow: 5px 5px 3px #74747488;
     list-style-type: none;
-}
-
-#dashboard .buttonLink{
-    margin-right: 5%;
-    margin-top: 1em;
-    width: 18em;
-}
-#dashboard input{
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 0.5em;
-    background-color: transparent;
-    border: 0;
-    font-size:0;
-}
-#dashboard .cards input:hover{
-    background-color: #ffffff3d;
-}
-#dashboard .cards input:active{
-    background-color: #ffffff63;
+    overflow: hidden;
 }
 
 /*----------------------- ESPANDI GENERICO --------------------------
 */
 #dashboard .espandi{
     background-color: #f7ecd4;
+}
+#dashboard .espandi input{
+    background-color: transparent;
+    font-size:0;
 }
 #dashboard .espandi label:hover{color: #50300d;}
 #dashboard .espandi label:active{color: #4e382093;}
@@ -582,14 +582,25 @@ visibility: hidden;
     background-image: url(../images/sfondo_card_personaggi.png);
     border: 1em ridge #915f14cc;
 }
-#personaggiUtente .cardPersonaggio >div{
+#personaggiUtente .cardPersonaggio button{
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
+    background-color: transparent;
+    border: none;
 }
+#personaggiUtente .cardPersonaggio button:hover{
+    background-color: #f1f1f16b;
+}
+#personaggiUtente .cardPersonaggio button:active{
+    background-color: #ffe0b175;
+}
+
 #personaggiUtente .cardPersonaggio h4{
     text-align: center;
+    width: calc(100% - 1em);
     padding: 0 0.5em 0.45em 0.5em;
     line-height:1.2em;
     font-family: Georgia, Times, "Times New Roman", serif;
@@ -604,6 +615,7 @@ visibility: hidden;
 #personaggiUtente .cardPersonaggio ul{
     list-style-type: none;
     height: 6em;
+    width: 100%;
 }
 #personaggiUtente .cardPersonaggio li{
     height: 1.4em;
@@ -632,10 +644,7 @@ visibility: hidden;
     font-size: 0.9em;
     padding-bottom: 0;
 }
-#personaggiUtente .cardPersonaggio input{
-    position: relative;
-    top:-100%;
-}
+
 
 /*------------------------------------- REPORTS ------------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -667,13 +676,14 @@ visibility: hidden;
 
 #reportUtente .box{
     margin-top: 1em;
-    height: 42.5em;
+    min-height: 42.5em;
     padding-top: 1.5em;
+    padding-bottom: 0.1em;
 }
 
 #reportUtente .cards li{
     width: 95%;
-    height: 7em;
+    height: 9em;
     margin: 0 auto 1.5em auto;
     display: block;
     background-color: #FFFFFF;
@@ -698,19 +708,18 @@ visibility: hidden;
     margin: auto 0.5em auto 0.5em;
 }
 
-#reportUtente .espandi .precedente{
-    position:relative;top:-5px;
+#reportUtente .espandi .precedente, #reportUtente .espandi .successivo{
+    position:relative;
+    top:-5px;
     width: 20px;
     height: 18px;
     border-style: solid;
+}
+#reportUtente .espandi .precedente{
     border-width: 9px 20px 9px 0;
     border-color: transparent #2c2318 transparent transparent ;
 }
 #reportUtente .espandi .successivo{
-    position:relative;top:-5px;
-    width: 20px;
-    height: 18px;
-    border-style: solid;
     border-width: 9px 0 9px 20px;
     border-color: transparent transparent transparent #2c2318;
 }
@@ -719,6 +728,141 @@ visibility: hidden;
 #reportUtente input.successivo:hover{border-left-color: #724713;}
 #reportUtente input.successivo:active{border-left-color: #3d2f1f96;}
 
+
+
+/*--------------------------- CARDS REPORTS -------------------
+*/
+#listeReport .cardReport > button{
+    height: 100%;
+    width: 100%;
+    border: 5px solid #e9e4dd;
+    border-radius: 0.5em;
+    background-color: transparent;
+}
+#listeReport .cardReport > button:hover{
+    background-color: #5a5a5a11;
+}
+#listeReport .cardReport > button:active{
+    background-color: #f8ddbe96;
+    border: 5px solid #ffd39b;
+}
+
+ #listeReport .cardReport .testoCardRep{
+    float: left;
+    height: 5.5em;
+    overflow: hidden;
+    width: 73%;
+    padding: 0.6em;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+ }
+ #listeReport .cardReport .testoCardRep h4{
+     font-size: 1.2em;
+     font-weight: 400;
+     padding-left: 0.5em;
+     padding-bottom: 0.15em;
+ }
+ #listeReport .cardReport .testoCardRep p{
+    font-size: 0.9em;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-bottom: 0;
+}
+
+
+#listeReport .cardReport .autoreRep{
+    display: flex;
+    flex-direction: column;
+    float: right;
+    width: calc(27% - 1.7em);
+    height: 100%;
+    text-align: center;
+    margin-right: 0.5em;
+}
+
+#listeReport #reportMaster .cardReport input{
+    display: none;
+}
+
+.lableRepPublico{                                                         /*da eliminare alla fine*/
+    display: none;
+}
+button[name="RemoveRep"]{                                                 /*da eliminare alla fine*/
+    display: none;
+}
+
+#listeReport #reportMaster button > div{
+    height: 100%;
+}
+#listeReport .cardReport .publicazione{
+    float: right;
+    width: calc(27% - 1.2em);
+    height: calc(100% - 10px);
+    border-radius: 0.5em;
+    position: relative;
+    top: calc(-10.4em + 5px);
+    right: 5px;
+}
+#listeReport .cardReport div.publicazione button{
+    border-radius: 0.2em;
+    border-top-left-radius: 3em;
+    border-bottom-left-radius: 3em;
+    margin: auto;
+    height: 100%;
+    border: none;
+    background-color: #ddddddbe;
+}
+#listeReport .cardReport .publicazione button:hover{
+    background-color: #e3b8ffbe;
+}
+#listeReport .cardReport .publicazione button:active{
+    background-color: #f9efff;
+}
+
+#listeReport .cardReport .autoreRep h5{
+    font-size: 1em;
+    font-weight: 500;
+    margin: auto;
+    margin-bottom: 0;
+}
+#listeReport .cardReport .autoreRep p{
+    font-size: 0.8em;
+    margin: auto;
+    margin-top: 0;
+}
+#listeReport .cardReport .autoreRep img{
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 1.75em;
+    margin: auto;
+}
+
+#listeReport .cardReport footer{
+    clear: both;
+    position: relative;
+    bottom: calc(1.4em + 4px);
+    left: -5px;
+}
+#listeReport .cardReport footer p{
+    width: 16em;
+    height: 1.3em;
+    padding-right: 0.5em;
+    padding-bottom: 0.1em;
+    font-size: 0.95em;
+
+    text-align: center;
+    border: 5px solid #e9e4dd;
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 0.5em;
+}
+#listeReport .cardReport footer .lableRepPublico{
+    background-color: #440f5c;
+    color: #FFF8E6;
+}
+#listeReport .cardReport footer .lableRepPrivato{
+    background-color: #fff5df;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
