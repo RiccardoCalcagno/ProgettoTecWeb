@@ -4,16 +4,16 @@
 
 <head>
 
-<title>Titolo</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+    <title>Area personale</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
 
-<meta name="description" content=""/>                   <!--DA COMPILARE-->
-<meta name="keywords" content="" />
-<meta name="author" content="" />
-<meta name="language" content="italian it" />
-<meta charset="utf-8" >
+    <meta name="description" content=""/>                   <!--DA COMPILARE-->
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="language" content="italian it" />
+    <meta charset="utf-8" >
 
-<link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>           
-<link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>           
+    <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 
 </head>
 
@@ -36,7 +36,7 @@ Note DI CORREZIONE:
 
 <body>
     <header>
-        <img id="logo" src="images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
+        <img id="logo" src="../images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
         <div id="access">
             <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
             <input id="Iscrizione" type="submit" value="Iscriviti">
@@ -49,50 +49,59 @@ Note DI CORREZIONE:
         </ul>
     </header>
 
+    
     <div id="viewInfoUser">
-        <h1>Riepilogo Account</h1>
-        <legend>Profilo</legend>
-        <fieldset>
-        <label for="NameSurname">Nome e cognome</label>
-        <input type="text" 
-               name="NameSurname" 
-               id="NameSurname" 
-               readonly="readonly" 
-               value="Alessandro Pirolo" />
-        </fieldset>
+        <h1>Benvenuto! ...</h1>
+        <h3>Dati personali</h3>
         
-        <fieldset>
-        <label for="email">E-mail</label>
-        <input type="email"
-               name="email"
-               id="email"
-               readonly="readonly"
-               value="piroloalessandro81@gmail.com" />
-        </fieldset>
+        <div>
+            <img alt="foto profilo" src="../images/IconaSito.png">
+        
+            <div> 
+                <fieldset>
+                <label for="NameSurname">Nome e cognome</label>
+                <input type="text" 
+                    name="NameSurname" 
+                    id="NameSurname" 
+                    readonly="readonly" 
+                    value="Alessandro Pirolo" />
+                </fieldset>
+        
+                <fieldset>
+                <label for="email">E-mail</label>
+                <input type="email"
+                    name="email"
+                    id="email"
+                    readonly="readonly"
+                    value="piroloalessandro81@gmail.com" 
+                    maxlength="100"/>
+                </fieldset>
 
-        <fieldset>
-        <label for="birth">Data di nascita</label>
-        <input type="text"
-               name="birth"
-               id="birth"
-               readonly="readonly"
-               value="xx mese xxxx"/>
-        </fieldset>
+                <fieldset>
+                <label for="birth">Data di nascita</label>
+                <input type="text"
+                    name="birth"
+                    id="birth"
+                    readonly="readonly"
+                    value="xx mese xxxx"/>
+                </fieldset>
 
-        <fieldset>
-        <label for="country">Paese o regione</label>
-        <input type="text"
-               name="country"
-               id="country"
-               readonly="readonly"
-               value="Italia" />
-        </fieldset>
+                <fieldset>
+                <label for="country">Paese o regione</label>
+                <input type="text"
+                    name="country"
+                    id="country"
+                    readonly="readonly"
+                    value="Italia" />
+                </fieldset>
+            </div>
+        </div>
 
     </div>
 
-    <div id="editInfoUser">
+    <!--<div id="editInfoUser">
 
-    </div>
+    </div>-->
 
     <div id="dashboard">
 

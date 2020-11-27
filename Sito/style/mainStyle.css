@@ -424,14 +424,38 @@ input#ccSub {
 ------------------------------------------------------------------------------------------------------------
 */
 
-
-#viewInfoUser{
-    height: 20em;              /*da cambiare lo ho messo a caso*/
-}
+/**#accountTitle, #profile {
+    margin-left: 5em;
+    margin-right: 5em;
+}*/
 
 #viewInfoUser {
-    margin-right: 5em;
-    margin-left: 5em;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+}
+
+#viewInfoUser div:nth-child(3) {
+    margin-top: 1em;
+    height: 14em; 
+    display: flex;
+    justify-content: center;
+    margin: 2em 1em 2em 1em;
+
+}
+
+#viewInfoUser div div:nth-child(2)  {
+    max-width: 50%;
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+#viewInfoUser img {
+    max-width: 14em;
+    height: 14em;
+    flex: 1 0;
 }
 
 #viewInfoUser h1 {
@@ -439,17 +463,34 @@ input#ccSub {
     font-weight: bold;
 }
 
-#viewInfoUser legend {
+#viewInfoUser h3 {
     font-weight: bold;
+    padding: 0em;
 }
 
 #viewInfoUser input {
     border-style: none;
+    background: none;
+    font-size: 1em;
+    text-align: left;
+}
+
+#viewInfoUser input[name="email"] {
+    width: 15em;
+}
+
+#viewInfoUser label {
+    font-size: 1em;
+    font-weight: bold;
+    display: inline-block;
+    width: 40%;
 }
 
 #viewInfoUser fieldset {
     border-style: none;
-    margin-top: 1em;
+    width: 100%;
+    max-height: 20%;
+    margin-bottom: 1em;
 }
 
 
@@ -871,6 +912,75 @@ button[name="RemoveRep"]{                                                 /*da e
 
 
 
+
+
+
+
+@media screen and (max-width: 640px) {
+    #viewInfoUser {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 3%;
+    }
+    
+    #viewInfoUser div:nth-child(3) {
+        height: 14em; 
+        /*display: flex;*/
+        /*justify-content: center;*/
+        margin: 2em 1em 2em 1em;
+    
+    }
+    
+    #viewInfoUser div div:nth-child(2)  {
+        max-width: 50%;
+        /*flex: 1 0;
+        display: flex;
+        flex-direction: column;*/
+        margin-left: 10%;
+    }
+    
+    #viewInfoUser img {
+        max-width: 17em;
+        height: 14em;
+        /*flex: 1 0;*/
+    }
+    
+    #viewInfoUser h1 {
+        font-size: 3em;
+        font-weight: bold;
+    }
+    
+    #viewInfoUser h3 {
+        font-weight: bold;
+        padding: 0em;
+    }
+    
+    #viewInfoUser input {
+        border-style: none;
+        background: none;
+        font-size: 1em;
+        text-align: left;
+    }
+    
+    #viewInfoUser input[name="email"] {
+        width: 15em;
+    }
+    
+    #viewInfoUser label {
+        font-size: 1em;
+        font-weight: bold;
+        display: inline-block;
+        width: 40%;
+    }
+    
+    #viewInfoUser fieldset {
+        border-style: none;
+        width: 100%;
+        max-height: 20%;
+        margin-bottom: 1em;
+    }
+    
+}
 
 
 
