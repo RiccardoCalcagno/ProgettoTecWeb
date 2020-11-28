@@ -97,6 +97,41 @@ button:focus{
     height: 1.8em;
 }
 
+#bodyEsplora {
+    max-width: 1024px;  /* max-widht o no ? */
+    margin: auto;
+}
+
+
+#breadcrumb {
+    background-color: #8f5b20;
+    padding: 0.1em 0.5em;
+    list-style: none;
+}
+
+#breadcrumb li {
+    display: inline;
+     /*color: ;                     DA CAMBIARE */
+}
+
+#breadcrumb li+li::before {
+    padding: 0.1px;
+    /*color: ;                     DA CAMBIARE */
+    content: ">\00a0";
+}
+
+#breadcrumb li a:hover {
+    color: #01447e;             /* DA CAMBIARE */
+  }
+
+.AiutiNavigazione {
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 /*
 body{
     width: 640px;
@@ -1057,6 +1092,82 @@ button[name="RemoveRep"]{                                                 /*da e
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
+
+/*------------------------------------- REPORTS ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#reportUtente {
+    padding-top: 0.7em;
+    padding-left: 1%;
+}
+#reportUtente h2{
+    padding-left: 2%;
+    padding-bottom: 0.4em;
+}
+
+#bodyEsplora #reportUtente {
+    width: 65%;
+}
+
+/*------------------------------------- ASIDE ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#bodyEsplora aside {
+    float: right;
+    max-width: 30%;
+}
+
+aside h2 {
+    font-size: 1.7em;
+    font-weight: bold;
+    padding-bottom: 0.3em;
+}
+
+#bodyEsplora aside li {
+    padding: 0.7em;
+    margin: 0.3em;
+    border-radius: 0.5em;
+    border: 1px solid #724713;
+}
+
+#bodyEsplora aside ul {
+    list-style-type: none;
+}
+
+/*--------------------------- ASIDE DL-DT-DD -------------------
+*/
+
+#eventi dt {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-left: 0.6em;
+}
+
+#eventi dd:nth-of-type(2n):not(:last-child) {
+    padding-bottom: 0.5em;
+}
+
+#eventi dd {
+    display: list-item;
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+#siti dt {
+    display: inline-block;
+}
+#siti dd{
+    display: inline;
+}
+#siti dd::after{
+    display: block;
+    content: "";
+}
+
+/* FINIRE CSS #SITI*/
+
 
 
 
