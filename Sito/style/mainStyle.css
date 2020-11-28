@@ -102,15 +102,26 @@ button:focus{
 }
 
 
-#breadcrumbs {
+#breadcrumb {
     background-color: #8f5b20;
+    padding: 0.1em 0.5em;
+    list-style: none;
 }
 
-#breadcrumbs li, #breadcrumbs p {
+#breadcrumb li {
     display: inline;
      /*color: ;                     DA CAMBIARE */
-    padding: 0.6em 0 0.2em 0.5em;
 }
+
+#breadcrumb li+li::before {
+    padding: 0.1px;
+    /*color: ;                     DA CAMBIARE */
+    content: ">\00a0";
+}
+
+#breadcrumb li a:hover {
+    color: #01447e;             /* DA CAMBIARE */
+  }
 
 .AiutiNavigazione {
     position: absolute;
