@@ -11,7 +11,6 @@
 
     color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
     line-height: 1.5em;
-    font-weight: 400;
     font-size: 1em;
     font-family: "Helvetica Neue",Helvetica,sans-serif; 
 }
@@ -26,6 +25,9 @@ em{
     font-style: normal;
     font-weight: 500;
 }
+strong{
+    font-weight: 500;
+}
 abbr{
     text-decoration: none;
 }
@@ -37,11 +39,10 @@ h2{
     font-size: 2em;
     font-weight: 500;
 }
-h2 > span{
-    font-size: 1em;
+h1{
     font-weight: 500;
 }
-h3, h3 >span{
+h3{
     font-weight: 500;
     padding-bottom: 0.2em;
 }
@@ -113,9 +114,9 @@ body{
 */
 
 
-
 /*
 --------------------------------------- HEADER ----------------------------------------------
+---------------------------------------------------------------------------------------------
 */
 #intestazioneSito{
     margin: 1em 1em 1em 1em;
@@ -175,36 +176,59 @@ body{
 
 
 /*
---------------------------------------- INTRODUZIONE ----------------------------------------------
+--------------------------------------- COPERTINA ----------------------------------------------
+---------------------------------------------------------------------------------------------------
 */
 
-
-#introduzione{
-    width: calc(89% - 3em);
-    height: 620px;
-    margin:2em auto 4em auto;
+#copertina{
+    height: 495px;
     overflow: hidden;
-    border: 3em ridge #ffd17c69;
-    border-radius: 1em;
+    margin-bottom: 3em;
+}
+#copertina h1{
+    text-align: center;
+    position: relative;
+    top:-455px;
+    font-size: 3em;
+}
+#copertina h3{
+    text-align: center;
+    position: relative;
+    top:-450px;
+    font-size: 1.3em;
+    font-weight: 400;
 }
 
-#introduzione img{
+#copertina img{
     display:block;
-    width: 85em;
+    width: 105em;
+    height: 495px;
     position: relative;
 }
 
 
 /*
+------------------------------------------------------------------------------------------------------------
+                                                INTRODUZIONE
+------------------------------------------------------------------------------------------------------------
+*/
+
+#introduzione{
+    overflow: hidden;
+}
+
+/*
 --------------------------------------- PRESENTAZIONE FEATURE ----------------------------------------------
+------------------------------------------------------------------------------------------------------------
 */
 
 
 #presentazioneFeatures {
-    margin-left: 5%;
-    margin-right: 5%;
     text-align: center;
+    width: 90%;
+    margin: auto;
 }
+
 #presentazioneFeatures h2, #presentazioneFeatures p{
     width: 80%;
     margin: auto;
@@ -222,34 +246,63 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #presentazioneFeatures li {
     margin: auto;
-    flex: 0 1 18em;
+    flex: 0 1 33%;
+    min-width: 18em;
 }
 #presentazioneFeatures ul img {
     width: 6em;
 }
 
 
+
 /*
 --------------------------------------- ARGOMENTI ----------------------------------------------
+------------------------------------------------------------------------------------------------
 */
 
+.puntoInterrogativo{
+    width: 1.5em;
+    font-size: 0.7em;
+    text-align: center;
+    display: inline-block;
+    margin-left: 1em;
+    background-color:#ffde85;
+    border-radius: 1em;
+    text-decoration: none;
+}
+.puntoInterrogativo:hover{
+    background-color:#ffe3af;
+}
+.puntoInterrogativo:active{
+    background-color:#ffb26a;
+}
+
+
+
+#argomenti{
+    padding-top: 0.5em;
+    clear: both;
+}
 
 #argomenti > div {
-    padding: 2em 2em 2em 2em;
+    padding: 3em 2em 2em 3em;
     font-size: 1em;
-    margin: 7% auto 0 auto;
+    margin: 5% auto 0 auto;
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;                        /*CONSIDERA*/
 }
+#argomenti #aboutReport{margin-top: 3em;}
+
 #argomenti img{
     display: block;
-    width: 25em;
-    height: 25em;
+    width: 23em;
+    height: 23em;
     margin: auto;
     padding: 1.2em 2.5em 1.2em 2.5em;
     flex: 0 1 auto;
@@ -258,21 +311,32 @@ body{
     max-width: 90%;
     margin: auto;
     padding: 1.2em 2em 1.2em 2em;
-    flex: 1 1 50%;
+    flex: 1 1 45%;
+}
+#aboutPersonaggio .testoArgomento h2{
+    padding-bottom: 1.2em;
+}
+#argomenti .about .testoArgomento{
+    max-width: 40em;
 }
 
-#argomenti > div:nth-child(odd){
+.about{
     flex-direction: row-reverse;
 }
-#argomenti > div:nth-child(even){
+.about ol{
+    margin: 0.5em auto 0.5em auto;
+    display: block;
+    width: 22em;
+}
+.about li{
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+}
+
+#argomenti .howTo{
+    padding-top:0;
+    margin-top:2%;
     flex-direction: row;
-}
-
-
-#howToPlay, #howToPostReport.howTo{
-    display: none;
-}
-.howTo{
     background-color: #FFF0D4;
     border-radius: 0.8em;
     width: 85%;
@@ -298,6 +362,91 @@ body{
 #argomenti .howTo .testoArgomento{
     max-width: 35em;
     flex: 1 0 44.5%;
+}
+
+
+/*
+------------------------------------- APPROFONDIMENTI ------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#approfondimenti{
+    margin: auto;
+    text-align: center;
+    margin-top: calc(5% + 3em);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20em;
+}
+#approfondimenti h2{
+    padding-bottom: 0;
+    font-size: 2.5em;
+}
+#approfondimenti p{
+    padding-bottom: 2%;
+    width: 80%;
+    margin: auto;
+}
+
+#approfondimenti ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    width: 93%;
+    margin: auto;
+}
+#approfondimenti li{
+    flex: 0 1 calc(22%);
+    font-size: 1.5em;
+    height: 5em;
+    min-width: 7em;
+    max-width: 20em;
+    margin: auto;
+    margin-top: 2em;
+    padding: 0 0.3em 0 0.3em ;
+}
+
+#approfondimenti li a{
+    display: block;
+    width: 100%;
+    height: 5em;
+    line-height: 5em;
+
+    border-radius: 1em;
+    cursor: pointer;
+}
+li #toApprDeD{background-color:#1a410be3;}
+li #toApprRep{background-color:#0d2e49e1;}
+li #toApprSche{background-color:#44350ce1;}
+li #toApprEsp{background-color:#280d42dc;}
+li #toApprDeD:hover{background-color:#36751db4;}
+li #toApprRep:hover{background-color:#184d79b7;}
+li #toApprSche:hover{background-color:#745b19b4;}
+li #toApprEsp:hover{background-color:#491975be;}
+li #toApprDeD:active{background-color:#4eaf27b4;}
+li #toApprRep:active{background-color:#237cc5b7;}
+li #toApprSche:active{background-color:#c0982cb4;}
+li #toApprEsp:active{background-color:#732ab8be;}
+
+#approfondimenti li a:after {
+    content: "";
+    display: block;
+    border-radius: 1em;
+    background-image: url(../images/sfondo_approfondimenti.png);
+    background-position: center;
+    height: 100%;
+    z-index: -1;   
+    position: relative;
+    top:-100%;
+  }
+#approfondimenti a > span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 0.9em;
+    font-weight: 800;
+    color: #FFFFFF;
 }
 
 
@@ -846,7 +995,7 @@ button[name="RemoveRep"]{                                                 /*da e
     border-top-left-radius: 3em;
     border-bottom-left-radius: 3em;
     margin: auto;
-    height: 100%;
+    height: 100.5%;
     border: none;
     background-color: #ddddddbe;
 }
@@ -995,11 +1144,6 @@ button[name="RemoveRep"]{                                                 /*da e
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#contentEsplora{
-    display: flex;
-    flex-wrap: wrap;
-}
-
 #asides{
     flex: 1 1 30em;
     min-width: 20em;
@@ -1035,3 +1179,86 @@ button[name="RemoveRep"]{                                                 /*da e
 }
 
 
+
+
+
+
+
+
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            APPROFONDIMENTI HTMLS
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+
+.htmlApprofondimento body{
+}
+
+.htmlApprofondimento .content{
+    width: 70%;
+    margin: auto;
+    max-width: 800px;
+    margin-bottom: 5em;
+}
+
+.htmlApprofondimento h1{
+    width: 100%;
+    margin-top: 0.5em;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 0.9em;
+}
+
+.htmlApprofondimento h2{
+    padding-bottom: 0.6em;
+    font-weight: 400;
+}
+.htmlApprofondimento section{
+    padding-bottom: 1.7em;
+}
+
+.htmlApprofondimento .howTo{
+    width: 90%;
+    margin: auto;
+    padding: 2em;
+    padding-top: 1.5em;
+    border-radius: 2em;
+    background-color: #FFF0D4;
+    margin-top: 1.2em;
+}
+.htmlApprofondimento .howTo li{
+    padding-bottom: 0;
+}
+.htmlApprofondimento .howTo h2{
+    padding-bottom: 0;
+}
+.htmlApprofondimento .howTo li:before {
+    float: none;
+    position: relative;
+    left: -3em;
+    top: +2.1em;
+    clear: both;
+    display: block;
+}
+.htmlApprofondimento .howTo img{
+    padding-top: 2.5em;
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+#contentEsplora ol{
+    width: 80%;
+    margin: auto;
+}
+
+.htmlApprofondimento .ritorna{
+    padding-top:1em;
+    display: block;
+    float: right;
+}

@@ -60,16 +60,25 @@ Note DI CORREZIONE:
 
 </header>
 
-<div id="introduzione">
+<nav class="breadcrumbs">
+    <ul>
+        <li>Home</li>
+    </ul>
+</nav>
+
+
+<div id="copertina">
 
     <img src="images/copertina.png" alt=""/>
     <div id="angoliCornice"></div>
-    <h1 id="titolo">Titolo</h1>                <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+    <h1 id="titolo">Titolo del Sito</h1>                <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
     <h3 id="sottotitolo">Sottotitolo</h3>           <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
 
 </div>
 
-<div id="presentazioneFeatures">
+<div id="introduzione">
+
+    <div id="presentazioneFeatures">
 
     <h2>La cornice adatta a <span class="DeD" xml:lang="en">Dungeons &amp; Dragons</span></h2>       <!--Mettere sempre class D&D in css metter con un after il sibolo: ® -->
     <p>Contorna la tua esperienza di gioco dall’inizio 
@@ -83,12 +92,14 @@ Note DI CORREZIONE:
             <p><em>Crea e gestisci i tuoi personaggi</em> per avere sempre disponibili
                  schede aggiornate da stampare e usare nelle tue nuove avventure</p>
         </li>
+        <!--
         <li>
             <img src="images/features/mappaETrame.png" alt=""/>
         
             <p>Oltre <em>10 mappe</em> da scaricare e <em>10 trame</em>
                 differenti da cui trarre ispirazione</p>
         </li>
+        -->
         <li>
             <img src="images/features/utente.png" alt=""/>
         
@@ -120,74 +131,35 @@ Note DI CORREZIONE:
                 dei report che hai pubblicato da Master e di quelli che ti riguardano come giocatore</p>
         </li>
     </ul>
-</div>
-
-<div id="argomenti">                  <!--All'interno è meglio mettere <section> che div?-->
-
-<div id="aboutDeD" class="about">
-    <img src="images/argomenti/aboutDeD.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
-
-    <div class="testoArgomento">
-    <h2 class="DeD" xml:lang="en">Dungeons &amp; Dragons</h2>
-    <section>                                
-        <p>Cosa si ottiene mescolando giochi da tavolo, giochi di ruolo e 
-            improvvisazione teatrale all’interno di una realtà dal sapore “<span xml:lang="en">Tolkien</span>-iano”?</p>
-        <p>Proprio così! il gioco stella degli anni settanta, una delle più grandi 
-            icone <span xml:lang="en">geek</span> o “nerd” di tutto il mondo, amato fino ai nostri tempi…</p>
-        <p>…<span class="DeD" xml:lang="en">Dungeons &amp; Dragons</span>.</p>
-        <p>Ciò che contraddistingue questo gioco è l’estrema libertà con cui ogni giocatore
-             può realizzare il proprio gioco. Se lo desiderano, i giocatori possono: formare
-             una compagnia, affrontare mostri, scoprire tesori o difendere un villaggio dagli
-             attacchi di un drago, in pratica un insieme illimitato di avventure. 
-            <br/>Il vero limite è solo la fantasia del gruppo, unita certo alla bontà dei dadi! </p>                            <!--qui va bene un <BR> ?-->
-        <p>Allora che aspetti? Comincia subito a <span><a>creare un personaggio</a></span> e dare vita alla tua esperienza.</p>                 <!--aggiungi riferimento Creazione Personaggio-->
-    </section>
-
-    <a>Scopri come giocare a <span class="DeD" xml:lang="en">Dungeons &amp; Dragons</span></a>              <!--QUESTO PULSANTE PERMETTE DI ESPANDERE LA SEZIONE SOTTOSTANTE-->
-
     </div>
 
-    <section id="howToPlay">
-        <h3>Come si gioca?</h3> 
-        <p>Ogni giocatore crea un personaggio che interpreterà durante la sessione di gioco. </p>
-        <p>Il <span xml:lang="en">Dungeon Master</span>, persona scelta tra i componenti del gruppo, impersonerà una sorta 
-            di narratore onnisciente ed arbitro della sessione. Il <span xml:lang="en">Master</span> sarà colui che creerà 
-            e giostrerà il mondo di gioco proponendo scenari e generando nuovi eventi da scatenare sui giocatori.</p>
-        <p>I giocatori possono rispondere a questi eventi in modo creativo stando attenti a rispettare i vincoli imposti dal 
-            <span xml:lang="en">Master</span> e dal gioco. 
-            <br/> A livello pratico, i manuali del gioco forniscono le regole tramite cui si decide                                     <!--uso di <br>-->
-            l’esito delle azioni intraprese dai personaggi, spesso con il tiro dei dadi.</p>
-        <p>In base a questi risultati il <span xml:lang="en">Master</span> potrà proseguire la narrazione, arricchendo la 
-            realtà di gioco in maniera dinamica, realistica e reattiva alle avventure dei giocatori.</p>
-    </section>
 </div>
+
+
+<div id="argomenti">                  <!--All'interno è meglio mettere <section> che div?-->
 
 <div id="aboutReport" class="about">
     <img src="images/argomenti/aboutReport.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
 
     <div class="testoArgomento">
-    <h2>Cos’è un report di sessione?</h2>
+    <h2>Report di sessione <span> <a class="puntoInterrogativo" href="otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h2>
+
     <section>
-        <h3>Un <span xml:lang="en">collage</span> di ricordi</h3>                                   <!--sicuro che è inglese collage?-->
-        <p>Come sappiamo <span class="D&D" xml:lang="en">Dungeons &amp; Dragons</span>
-             ci rende ricchi di momenti preziosi che non vorremmo dimenticare, ogni esperienza fatta 
-            giocandoci con i nostri amici è sempre nuova, fantasiosa e imprevedibile.</p>
-        <p>Il report di sessione è lo strumento adatto per conservare il ricordo della giocata 
-            con i suoi momenti salienti e la trama che è venuta a crearsi. In esso non solo potrai 
-            trascrivere l’evento in forma narrativa ma anche confezionare una galleria di foto che 
-            mostrano il vivo della vostra giocata. </p>
+        <p>Le esperienze vissute durante una sessione di gioco sono troppo preziose 
+            per essere dimenticate, per questa ragione il <strong><span xml:lang="en">report</span> di sessione</strong>  ti offre
+            uno spazio dove <strong>custodire il tuo ricordo</strong> e costellarlo di elementi utili come:</p>
     </section>
+    <ol>
+        <li><strong>Riassunto</strong> dell'avventura con i momenti salienti</li>
+        <li><strong>Mappa</strong> dell’ambientazione della sessione</li>
+        <li><strong xml:lang="en">Media Gallery</strong> con gli scatti del vostro incontro</li>
+        <li>Riferimento ai <strong>giocatori</strong> che hanno partecipato</li>
+        <li><strong>Area commenti</strong></li>
+    </ol>
     <section>
-        <h3>Uno sguardo all'orizzonte</h3> 
-        <p>Chiarendo in questo documento interattivo la direzione che sta prendendo la vostra 
-            avventura saprete meglio da dove partire nella prossima. Inoltre, grazie alla area commenti 
-            del report potrete fantasticare sulle vostre mosse future.</p>
-    </section>
-    <section>
-        <h3>Un raduno</h3> 
-        <p>L’autore di ogni report, identificato come Master, avrà la libertà di taggare                                    <!--CORRETTO USARE IL TERMINE "TAGGARE"?-->
-            tutti gli utenti che hanno partecipato alla partita come giocatori. Ogni persona 
-            taggata in un report potrà reperire il medesimo nella dashboard della propria Area Personale.</p>
+        <p>L’<span>area commenti</span> del <span xml:lang="en">report</span> ti permetterà di visualizzare la vostra avventura
+            dall’esterno e <strong>fantasticare sull’evoluzione del gioco</strong>, perché si sa: l’intuizione 
+            geniale può arrivare dappertutto, anche da un semplice commento…</p>
     </section>
     </div>
 </div>
@@ -215,18 +187,17 @@ Note DI CORREZIONE:
     <img src="images/argomenti/aboutPersonaggio.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
 
     <div class="testoArgomento">
-    <h2>Prova le nostre schede giocatore</h2>
+    <h2>Prova le nostre schede giocatore<span> <a class="puntoInterrogativo" href="otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h2>
 
-    <p>La scheda giocatore è il documento necessario che dobbiamo avere con noi per poter iniziare la
-         nostra esperienza di gioco. Nella scheda il giocatore descrive il profilo del proprio personaggio
-         specificando in modo sistematico le sue caratteristiche.</p>
-    <p>Il nostro sito ti metterà a disposizione un ambiente interattivo per realizzare passo passo la tua 
-        scheda personale, a te verrà chiesto solo di compilare i campi strettamente necessari e che non 
-        richiedono la validazione del <span xml:lang="en">Dungeon Master</span>.</p>
-    <p>In ogni momento potrai convertire la tua scheda in un formato conforme allo standard di <abbr title="Dungeons & Dragons">D&amp;D</abbr> e               <!--abbrevizione Da sistemare?-->
-        che potrai stampare e portare con te alla sessione di gioco.</p>
-    <p><a>Iscrivendoti</a> al nostro sito potrai contare in ogni momento da ogni dispositivo sulla collezione di                    <!-- link iscrizione-->
-         tutti i personaggi, elenco visibile alla sezione <a>Area Personale</a>. Mai più schede giocatore perse!</p>                <!-- link Area Personale-->
+    <p>Siete pronti per l’azione? Un attimo.. avete con voi la scheda giocatore? …No?!
+        <br/>
+        Provate la nostra! <strong>Compilarla</strong> è molto <strong>semplice</strong>, e in men che non si dica avrete una scheda giocatore da:
+    </p>
+    <ol>
+        <li>stampare nel formato standard di <abbr title="Dungeons and Dragons">D&amp;D</abbr></li>
+        <li>avere sempre a disposizione su ogni dispositivo</li>
+    </ol>
+    
     </div>
 </div>  
 
@@ -247,55 +218,19 @@ Note DI CORREZIONE:
 </div>
 
 
-<div id="aboutEsplora" class="about">
 
-    <img src="images/argomenti/Esplora.jpg" alt=""/>                <!--INSERISCI IMMAGINE-->
 
-    <div class="testoArgomento">
-    <h2>Esplora altre realtà</h2>
-    <section>
-        <h3>Il social su misura per te</h3>
-        <p>Noi di nomeSito crediamo nell’importanza di attribuire ad ogni                        <!--CAMBIA SEGNA POSTO-->
-            contenuto il suo adatto grado di visibilità. Alcune volte infatti 
-            è preferibile preservare dal mondo intero cosa si è dato vita. </p>
-        <p>Per questa ragione potrai contare su un ambiente protetto in cui 
-            tu e i tuoi compagni di avventura potrete instaurare una conversazione 
-            sotto forma di commenti associati al singolo report.</p>
-    </section>
-    <section>
-        <h3>Un intera <span xml:lang="en">community</span> pronta a ispirarti</h3>
-        <p>Credi che quanto hai scritto riguardo la sessione possa diventare uno 
-            spunto interessante per futuri master? O forse tu e tuoi compagni non 
-            vedete l’ora di fare nuovi incontri, condividere con quante più persone 
-            ciò che di bello avete creato nella sessione.</p>
-        <p>Se è così prova ad entrare a far parte della <span xml:lang="en">community</span> presente nella 
-            sezione <span><a>Esplora</a></span>, qui troverai report di sessione publicati da Master di                 <!--riferimanto a Esplora-->
-            ogni dove, riuniti per scambiarsi idee, consigli, e tutto ciò che costella 
-            l’esperienza antecedente al gioco che amiamo.</p>
-    </section>
-    <p>"Mi piace! <span><a>Come posso condividere il mio Report?</a></span>"</p>                                    <!--riferimento mancante a howToPostReport-->
-    </div>
 </div>
 
-<div id="howToPostReport" class="howTo">
-
-    <img src="images/argomenti/HowToPostReport.jpg" alt=""/>
-
-    <div class="testoArgomento">
-    <h3>"Mi piace! Come posso condividere il mio Report?"</h3>
-    <ol id="passaggiPostReport">
-        <li>Per iniziare identifica il report che vuoi condividere nella 
-            dashboard della tua <span><a>Area Personale</a></span>, esso si presenterà in forma                  <!--riferimanto a Area Personale-->
-            di scheda compatta come in figura.</li>
-        <li>Verifica che sia stato tu l’autore del report, solo i Master 
-            infatti hanno il permesso di publicare sul web i report.</li>
-        <li>Dopodiché pigia il pulsante che trovi vicino al lato destro della scheda
-            <img src="images/" alt="immagine del pulsante pubblica nella report Card "/>                <!-- IMPROTA IMMAGINE E ALT-->
-        </li>
-    </ol>
-    </div>
-</div>
-
+<div id="approfondimenti">
+    <h2>Approfondimenti</h2>                                                       <!--Da aggiungere gli href-->
+    <p>Ti sfugge qualcosa? Scopri di più sulle <strong>principali tematiche</strong> che trattiamo</p>
+    <ul>
+        <li><a href="otherHTMLs/Approfondimenti/Approfondimento_Dungeon&Dragon.html" id="toApprDeD"><span xml:lang="en">Dungeons &amp; Dragons</span></a></li>
+        <li><a href="otherHTMLs/Approfondimenti/approfondimento_Report.html" id="toApprRep"><span><span xml:lang="en">Report</span> di Sessione</span></a></li>
+        <li><a href="otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html" id="toApprSche"><span>Scheda giocatore</span></a></li>
+        <li><a href="otherHTMLs/Approfondimenti/approfondimento_esplora.html" id="toApprEsp"><span>Sezione "Esplora"</span></a></li>
+    </ul>
 </div>
 
 </body>
