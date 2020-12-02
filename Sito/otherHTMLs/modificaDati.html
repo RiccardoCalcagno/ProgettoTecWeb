@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="it" >
+
+    <head>
+
+        <title>Modifica dati</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+
+        <meta name="description" content=""/>                   <!--DA COMPILARE-->
+        <meta name="keywords" content="" />
+        <meta name="author" content="" />
+        <meta name="language" content="italian it" />
+        <meta charset="utf-8" >
+
+        <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>           
+        <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+
+    </head>
+
+    <body>
+        <header>
+            <img id="logo" src="../images/IconaSito.png" alt="" /> 
+        </header>
+
+        <div id="editInfoUser">
+            <h1>Modifica i tuoi dati</h1>
+            <img alt="selezionare immagine profilo" src="../images/IconaSito.png" />
+
+            <fieldset>
+            <label for="NomeCognome">Nome e cognome</label>
+            <input type="text" 
+                name="NomeCognome" 
+                id="NomeCognome"
+                value=""
+                placeholder="Inserisci il tuo nome e il tuo cognome"/>
+            
+            <label for="email">E-mail</label>
+            <input type="text" 
+                name="email" 
+                id="email"
+                value=""
+                placeholder="Inserisci la tua mail"/>
+
+            <label for="birthdate">Data di nascita</label>
+            <input type="date" 
+                name="birthdate" 
+                id="birthdate"
+                value=""
+                placeholder="Seleziona la tua data di nascita"/>
+
+            <label for="country">Paese</label>
+            <input type="text" 
+                name="country" 
+                id="country"
+                value=""
+                placeholder="Seleziona il tuo paese"/>
+
+            </fieldset>
+
+            <fieldset>
+            <legend>Modifica password</legend> 
+            <label for="password">Password corrente</label>
+            <input type="password" 
+                name="password" 
+                id="password"
+                value=""
+                placeholder="Digitare la password corrente"/>
+
+            <label for="newPasswd">Nuova Password</label>
+            <input type="password" 
+                name="newPasswd" 
+                id="newPasswd"
+                value=""
+                placeholder="Digitare la nuova password"/>
+        
+            <label for="">Digita nuovamente la password</label>
+            <input type="password" 
+                name="country" 
+                id="country"
+                value=""
+                placeholder="Seleziona il tuo paese"/>
+            </fieldset>
+
+
+        </div>
+    </body>
+</html>

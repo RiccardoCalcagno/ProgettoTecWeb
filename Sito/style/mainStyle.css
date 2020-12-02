@@ -493,20 +493,6 @@ input#ccSub {
     margin-bottom: 1em;
 }
 
-
-/*
-------------------------------------------------------------------------------------------------------------
-                                                MODIFICA INFO UTENTE
-------------------------------------------------------------------------------------------------------------
-*/
-
-
-
-
-
-
-
-
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 AREA DASHBOARD
@@ -900,6 +886,62 @@ button[name="RemoveRep"]{                                                 /*da e
 .report .cardReport footer .lableRepPrivato{
     background-color: #fff5df;
 }
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                MODIFICA DATI PERSONALI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#editInfoUser { 
+    width: 35%;
+    margin: 5% auto 5% auto; 
+}
+
+#editInfoUser h1 {
+    font-size: 3em;
+}
+
+#editInfoUser img {
+    width: 14em;
+    height: 14em;
+}
+
+#editInfoUser input {
+    height: 2.5em;
+    width: 25em;
+    display: block;
+    text-align: left;
+    margin-top: 0em;
+    border-radius: 5px;
+    border: 2px solid #392D20;
+    background-color: white;
+}
+
+#editInfoUser label {
+    margin-top: 1em;
+    display: block;
+    font-weight: bold;
+}
+
+#editInfoUser label, #editInfoUser input { margin-left: 2em; }
+
+#editInfoUser fieldset:nth-child(3) {
+    border-color: transparent;
+}
+
+#editInfoUser fieldset:nth-child(4) {
+    border-radius: 5px;
+    border: 1px solid brown;
+    margin-top: 1em;
+    padding-bottom: 1em;
+}
+
+#editInfoUser fieldset:nth-child(4) label[for="password"] { margin-top: 0em;}
+
+
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
