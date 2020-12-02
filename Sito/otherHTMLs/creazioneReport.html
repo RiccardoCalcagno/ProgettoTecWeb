@@ -14,14 +14,108 @@
     </head>
 
     <body id="creazioneReport">
-        <h1>Creazione del Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+        <h1>Creazione del Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
 
-        <p></p>
+        <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
+            passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai.</p>
 
-        <form id="areaCreazione" autocomplete="on"></form>
+        <p class="campiObbligatori"> : campo obbligatorio</p>
+
+        <form id="areaCreazione" autocomplete="on" class="creazioneFields">
+
+            <ol>
+                <li>
+                    <fieldset id="titoloRepo"><legend><h2 class="campiObbligatori">Titolo</h2></legend>
+                        <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
+                        <div><textarea name="titolo" rows=1 cols="60" placeholder="Inserisci un titolo di massimo 20 lettere" maxlength="20" aria-required="true" required="required"></textarea></div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset id="sottotitoloRepo"><legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
+                        <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
+                        <div><textarea name="sottotitolo" rows=4 cols="60" placeholder="Inserisci un sottotitolo di massimo 100 lettere" maxlength="100" aria-required="true" required="required"></textarea></div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset id="contenutoRepo"><legend><h2>Contenuto <span xml:lang="en">Report</span></h2> </legend>
+                        <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
+                        <div><textarea name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!"></textarea></div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset id="giocatoriRepo"><legend><h2>Giocatori Partecipanti</h2></legend>
+                        <p><strong>Registra</strong> all'interno del <span xml:lang="en">report</span> i <strong>giocatori che hanno partecipato</strong> 
+                            alla sessione, così che possano vedere la tua creazione e assime <strong>commentarla</strong>!</p>
+                        <div id="selezionamentoGiocatori">
+                            <div>
+                                <listaGiocatori/>                                                           <!-- SEGNA POSTO PER PHP-->
+                                <!-- ESEMPIO -->
+                                <ul>
+                                    <li>
+                                        <div class="badgeUtente">
+                                            <div>
+                                            <img src="../images/icone_razze/nano.png" alt="" /> 
+                                            <p class="textVariable">Nome Giocatore</p>
+                                            </div>
+                                            <button class="deleteButton" name="delete" value="1">X</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="badgeUtente">
+                                            <div>
+                                            <img src="../images/icone_razze/tiefilng.png" alt="" /> 
+                                            <p class="textVariable">Nome Giocatore</p>
+                                            </div>
+                                            <button class="deleteButton" name="delete" value="2">X</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="badgeUtente">
+                                            <div>
+                                            <img src="../images/icone_razze/elfo.png" alt="" /> 
+                                            <p class="textVariable">Nome Giocatore</p>
+                                            </div>
+                                            <button class="deleteButton" name="delete" value="3">X</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="badgeUtente">
+                                            <div>
+                                            <img src="../images/icone_razze/gnomo.png" alt="" /> 
+                                            <p class="textVariable">Nome Giocatore</p>
+                                            </div>
+                                            <button class="deleteButton" name="delete" value="4">X</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="badgeUtente">
+                                            <div>
+                                            <img src="../images/icone_razze/dragonide.png" alt="" /> 
+                                            <p class="textVariable">Nome Giocatore</p>
+                                            </div>
+                                            <button class="deleteButton" name="delete" value="5">X</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div><input class="buttonLink" type="submit" name="aggiungiGiocatore" value="Aggiungi Giocatore"/></div>
+                        </div>
+                    </fieldset>
+                </li>
+                <li>
+                    <fieldset id="immaginiRepo"><legend><h2>Immagini della Sessione</h2></legend>
+                        <p>Se lo desideri puoi aggiungere delle immagini, potrebbero essere le foto della partita oppure la mappa in cui avete giocato</p>
+                        <div>
+                            <p>Puoi aggiungere più immagini in una volta</p>
+                            <input type="file" name="aggiungiImmg" placeholder="Importa immagini..." multiple="multiple" accept="image/*"/>
+                        </div>
+                    </fieldset>
+                </li>
+            </ol>
 
 
-
+            <input type="submit" name="Spedisci" value="invia"/>
 
 
         </form>

@@ -71,7 +71,6 @@ button:focus{
     margin-top: 1.9em;
     padding-top: 0.3em;
     text-align: center;
-    float: right;
     width:20em;
     height: 2em;
     box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
@@ -131,6 +130,67 @@ button:focus{
     width: 1px;
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
+}
+
+input[type="file"]{
+    margin:auto;
+    width: 24em;
+    outline: none;
+    border-radius: 0.3em;
+    padding:0.5em;
+    border: 7px inset #dfdfdf;
+    background-color: #FFFFFF;
+    text-align:center;
+}
+input[type="file"]:hover{
+    background-color: #e6e6e6;
+}
+
+
+
+
+/*                                                      
+----------------------------------------------------------- BADGE -------------------------------------------------------------------*/
+.badgeUtente{
+    text-align: center;
+    width:6.5em;
+    height: 8em;
+}
+.badgeUtente h5{
+    font-size: 1em;
+    font-weight: 500;
+    margin: auto;
+    margin-bottom: 0;
+}
+.badgeUtente p{
+    font-size: 0.7em;
+    margin: auto;
+    margin-top: 0;
+}
+.badgeUtente img{
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 1.75em;
+    margin: auto;
+}
+
+
+.deleteButton{
+    background-color: #a133332f;
+    border:none;
+    color: #0000008e;
+    width: 25px;
+    height: 25px;
+    border-radius: 14px;
+    font-weight: 600;
+    vertical-align: middle;
+    position: relative;
+    top:-100%;
+    left: +32%
+}
+.deleteButton:hover{
+    background-color: #c22f2f;
+    color: #FFFFFF;
 }
 
 /*
@@ -369,7 +429,7 @@ body{
 }
 
 #argomenti .howTo{
-    padding-top:0;
+    padding-top:2em;
     margin-top:2%;
     flex-direction: row;
     background-color: #FFF0D4;
@@ -486,6 +546,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 
 
 
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -500,16 +561,17 @@ body#creazionePersonaggio{
 }
 
 h1#ccTitle {
-	margin: 1em auto 0.8em auto;
+	margin: 1em auto 0.3em auto;
 }
 
 p#ccP {
-	padding: 0.7em 10%;
+    text-align: center;
+    padding: 0 10%;
 	/*background-color: #FFEAB7;*/
 }
 
 form#ccForm {
-	
+	margin-top:2em;
 }
 
 label[for= cname] {
@@ -527,7 +589,7 @@ input {
 .ccField {
 	margin-top:1.3em;
 	margin-bottom: 1.3em;
-	background-color: #FFEAB7;
+	background-color: #FFF0D4;
 }
 
 .ccField legend {
@@ -580,8 +642,43 @@ input#ccSub {
 
 
 
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        CREAZIONI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
 
 
+form.creazioneFields ol{
+    list-style-type: none;
+}
+
+.creazioneFields fieldset{
+    background-color: #FFF0D4;
+    border:none;
+    border-radius: 0.5em;
+    padding:0em 1em 1.5em 1em;
+}
+.creazioneFields fieldset legend{
+    background-color: #FFF0D4;
+    border:none;
+    border-radius: 0.5em;
+    margin-left: 1em;
+    padding:0.5em 1em;
+}
+.creazioneFields fieldset legend h2{
+    font-size: 1.5em;
+}
+
+textarea{
+    outline: none;
+    resize: none;
+    padding:0.5em;
+    border: 1px solid #392D20;
+    border-radius: 0.3em;
+}
 
 
 /*
@@ -599,10 +696,117 @@ body#creazioneReport{
 
 #creazioneReport h1{
     margin-top: 1em;
+    margin-bottom: 0.3em;
+}
+#creazioneReport > p{ 
+    text-align: right;
+    width: 90%;}
+#creazioneReport h1 + p{
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+.campiObbligatori::before{
+    content:"*";
+    color: #da0000;
+    font-size: 1.2em;
+}
+
+#creazioneReport ol{
+    width: 80%;
+    margin:auto;
+}
+
+#creazioneReport .badgeUtente p{margin-top:0em;}
+
+#creazioneReport .creazioneFields fieldset{
+    width: 100%;
+    margin:auto;
+    margin-bottom: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+#creazioneReport .creazioneFields fieldset > p{
+    flex: 1 2 18em;
+    padding:1.5em 2em;
+    max-width: 80%;
+    text-align: left;
+    margin:auto;
+}
+#creazioneReport .creazioneFields fieldset > div{
+    margin:auto;
+    flex: 1 1 25em;
+    padding:1em 2em;
+    max-width: 80%;
+}
+#creazioneReport .creazioneFields fieldset textarea{
+    width: 100%;
 }
 
 
+#creazioneReport #immaginiRepo > div{
+    text-align: center;
+    flex: 1 1 24em;
+    max-width: 24em;
+    padding-right: 4em;
+    padding-left: 3em;
+}
 
+/*
+------------------------------------- BOX GIOCATORI ------------------------------------
+*/
+
+
+#creazioneReport #giocatoriRepo{
+    display: block;
+}
+#creazioneReport #selezionamentoGiocatori{
+    display:flex;
+    flex-wrap: wrap;
+    padding:0;
+    max-width: 95%;
+}
+#creazioneReport #selezionamentoGiocatori input{
+    outline: none;
+    width: 15em;
+    height: 2.5em;
+    padding-bottom: 0.4em;
+    border:none;
+    margin:auto;
+}
+#creazioneReport #selezionamentoGiocatori > div{
+    margin:auto;
+    padding:1em;
+} 
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente > div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente{
+    height: 7em;
+}
+#creazioneReport #selezionamentoGiocatori ul{
+    height: 6.8em;
+    width: 31em;
+    background-color: #FFFFFF;
+    padding: 1.2em 0 1em 1em;
+    border: 8px inset #dfdfdf;
+    border-radius: 0.5em;
+    overflow: scroll;
+}
+
+#creazioneReport #selezionamentoGiocatori ul li{
+    list-style-type: none;
+    float: left;
+    padding-right:1em;
+}
 
 
 
@@ -736,7 +940,11 @@ body#creazioneReport{
     margin-bottom: 1em;
 }
 
+.howTo .buttonLink{
+    float: right; 
+}
 #dashboard .buttonLink{
+    float: right;
     margin-right: 5%;
     margin-top: 1em;
     width: 18em;
@@ -1012,13 +1220,12 @@ body#creazioneReport{
 }
 
 
-.report .cardReport .autoreRep{
+.report .cardReport .badgeUtente{
     display: flex;
     flex-direction: column;
     float: right;
     width: calc(27% - 1.7em);
     height: 100%;
-    text-align: center;
     margin-right: 0.5em;
 }
 
@@ -1055,24 +1262,6 @@ button[name="RemoveRep"]{                                                 /*da e
 }
 .report .cardReport .publicazione button:active{
     background-color: #f9efff;
-}
-
-.report .cardReport .autoreRep h5{
-    font-size: 1em;
-    font-weight: 500;
-    margin: auto;
-    margin-bottom: 0;
-}
-.report .cardReport .autoreRep p{
-    font-size: 0.8em;
-    margin: auto;
-    margin-top: 0;
-}
-.report .cardReport .autoreRep img{
-    width: 3.5em;
-    height: 3.5em;
-    border-radius: 1.75em;
-    margin: auto;
 }
 
 .report .cardReport footer{
