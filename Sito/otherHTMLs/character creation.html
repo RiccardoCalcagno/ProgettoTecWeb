@@ -11,9 +11,40 @@
 	
 	<meta name="author" content="" />
 	
-	<link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />		
+	<link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />     
+	<link rel="stylesheet" type="text/css" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 </head>
+
 <body id="creazionePersonaggio">
+	<header id="intestazioneSito">
+
+		<ul class="AiutiNavigazione">
+			<li><a href="">Vai al</a></li>
+			<li><a href="">Vai al Contenuto</a></li>
+			<li><a href="">Vai a</a></li>
+		</ul>
+
+	    <img id="logo" src="../images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
+	    <div id="access">
+	        <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
+	        <input id="Iscrizione" type="submit" value="Iscriviti">
+	    </div>
+	    <ul id="menu">
+	            <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
+	            <li class="externalLink"><a href="../otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA Definire-->
+	            <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
+	            <li class="externalLink"><a href="../otherHTMLs/Esplora.html">Esplora</a></li>
+	    </ul>
+
+
+	</header>
+
+	<nav id="breadcrumb">
+		<ul>
+			<li><a href="../Home.html" xml:lang="en">Home</a></li>
+			<li>Creazione Personaggio</li>
+		</ul>
+	</nav>
 
 <h1 id="ccTitle">Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
 
@@ -27,35 +58,49 @@
 
 <form id="ccForm" autocomplete="on">
 
-  <label id="ccName" for="cname">Scegli il nome:</label>
-  <input type="text" id="cname" name="cname" />
-
+	<fieldset class="ccField"><legend>Nome</legend>
+  		<label id="ccName" for="cname" class="ccLabel">Nome Personaggio:</label>
+		<input type="text" id="cname" name="cname" class="ccWrite" />
+	<!--	<p class="ccFDesc">Scegli il nome del tuo personaggio</p>-->
+	</fieldset>
 
 <!-- TODO: Mettere tutte form "required"-->
 
 <!--Di seguito l'opzione tendina, ma si può valutare una lista di radiobutton, con aside to the side-->
   <fieldset class="ccField"><legend>Razza</legend>
-	  <label for="crace">Scegli una Razza:</label>
-	  <select id="crace" name="crace">
-		<option value="umano">Umano</option>
-		<option value="elfo">Elfo</option>
-		<option value="nano">Nano</option>
-		<option value="halfling">Halfling</option>
-		<option value="gnome">Gnome</option>
-		<option value="tiefling">Tiefling</option>
-		<option value="dragonide">Dragonide</option>
-		<option value="mezzelfo">Mezzelfo</option>
-		<option value="mezzorco">Mezzorco</option>
+	  <label for="crace" class="ccLabel">Scegli una Razza:</label>
+	  <select id="crace" name="crace" onchange="myFunction()"> 	<!--------------- PROVA JS !!! ----------------> <!--------------- PROVA JS !!! ---------------->
+		<option value="umano" data-desc="RaceDescUmano">Umano</option>
+		<option value="elfo" data-desc="RaceDescElfo">Elfo</option>
+		<option value="nano" data-desc="RaceDescNano">Nano</option>
+		<option value="halfling" data-desc="RaceDescHalfling">Halfling</option>
+		<option value="gnome" data-desc="RaceDescGnome">Gnome</option>
+		<option value="tiefling" data-desc="RaceDescTiefling">Tiefling</option>
+		<option value="dragonide" data-desc="RaceDescDragonide">Dragonide</option>
+		<option value="mezzelfo" data-desc="RaceDescMezzelfo">Mezzelfo</option>
+		<option value="mezzorco" data-desc="RaceDescMezzorco">Mezzorco</option>
 	  </select>
 	  <div class="ccInfo">
 		  <!-- Informazioni sulla razza scelta, pescate con php e/o switchate con javascript. Potranno essere per esempio -->
 		  <!-- Razza, immagine standard, descrizione generica e fantasiosa, dettagli sulle meccaniche che fornisce al giocatore-->
+		  <p id="dynamicP">TRY SELECTING A RACE</p>
 	  </div>
+	  							<!--------------- PROVA JS !!! ---------------->
+								<!--------------- PROVA JS !!! ---------------->
+	  <script>
+		function myFunction() {
+	var sel = document.getElementById("crace");
+    var option = sel.options[sel.selectedIndex];
+    var desc = option.getAttribute("data-desc");
+  	document.getElementById("dynamicP").innerHTML = desc;
+}
+	  </script>					<!--------------- PROVA JS !!! ---------------->
+	  							<!--------------- PROVA JS !!! ---------------->
   </fieldset>
   
 
   <fieldset class="ccField"><legend>Classe</legend>
-	  <label for="cclass">Scegli una Classe:</label>
+	  <label for="cclass" class="ccLabel">Scegli una Classe:</label>
 	  <select id="cclass" name="cclass">
 		<option value="bardo">Bardo</option>
 		<option value="barbaro">Barbaro</option>
@@ -78,7 +123,7 @@
   
   
   <fieldset class="ccField"><legend>Background</legend>
-	  <label for="cbackground">Scegli un Background:</label>
+	  <label for="cbackground" class="ccLabel">Scegli un Background:</label>
 	  <select id="cbackground" name="cbackground">
 		<option value="accolito">Accolito</option>
 		<option value="">Elf</option>
@@ -98,23 +143,35 @@
   <fieldset class="ccField"><legend>Allineamento</legend>
 	  <!-- Possiamo inserire una select e quindi una semplice tendina con (come prima) un div che si aggiorna in base alla scelta, con una piccola descrizione-->
 	  <!-- oppure una tabella (!!!) con i 9 allineamenti classici. Ogni elemento della tabella/griglia è un radiobutton selezionabile. OPZIONE NON PIACEVOLE :( causa accessibilità e ridimensionamento -->
+	  <label for="calignment" class="ccLabel">Scegli un Allineamento:</label>
+	  <select id="calignment" name="calignment">
+		<option value="LG">Lawful Good</option>
+		<option value="NG">Neutral Good</option>
+		<option value="CG">Chaotic Good</option>
+		<option value="LN">Lawful Neutral</option>
+		<option value="N">Neutral</option>
+		<option value="CN">Chaotic Neutral</option>
+		<option value="LE">Lawful Evil</option>
+		<option value="NE">Neutral Evil</option>
+		<option value="CE">Chaotic Evil</option>
+	  </select>
   </fieldset>
   
   <fieldset class="ccField"><legend>Tratti del Personaggio</legend>
-	  <p>
+	  <p id="traitsDesc">
 		Qui puoi inserire una descrizione scritta del tuo personaggio. E' divisa in quattro campi per aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
 	  </p>
       <label for="ctraits" class="ccTraitsL">Descrivi i tratti caratteriali del tuo personaggio</label>
-	  <textarea id="ctraits" class="ccTraitsTA" name="ctraits" rows=4 cols=60 placeholder=""></textarea>
+	  <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=60 placeholder=""></textarea>
 	  
 	  <label for="cideals" class="ccTraitsL">Quali sono i suoi Ideali?</label>
-	  <textarea id="cideals" class="ccTraitsTA" name="cideals" rows=4 cols=60 placeholder=""></textarea>
+	  <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=60 placeholder=""></textarea>
 	  
 	  <label for="cbonds" class="ccTraitsL">A chi è legato nel mondo di gioco?</label>
-	  <textarea id="cbonds" class="ccTraitsTA" name="cbonds" rows=4 cols=60 placeholder=""></textarea>
+	  <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=60 placeholder=""></textarea>
 	  
 	  <label for="cflaws" class="ccTraitsL">Quali sono i suoi Difetti?</label>
-	  <textarea id="cflaws" class="ccTraitsTA" name="cflaws" rows=4 cols=60 placeholder=""></textarea>
+	  <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=60 placeholder=""></textarea>
   </fieldset>
   
   <!-- Possibilità di ampliare le info inserite, con dettagli unici alla "scheda minimal" del sito, che rimarranno solo sul sito e non sulla versione stampata -->

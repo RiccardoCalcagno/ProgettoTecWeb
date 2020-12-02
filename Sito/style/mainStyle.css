@@ -561,52 +561,63 @@ body#creazionePersonaggio{
 }
 
 h1#ccTitle {
-	margin: 1em auto 0.3em auto;
+	margin: 0.5em 8%;
 }
 
 p#ccP {
-    text-align: center;
-    padding: 0 10%;
+	padding: 0.7em 5%;
 	/*background-color: #FFEAB7;*/
+}
+
+#creazionePersonaggio fieldset {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 form#ccForm {
 	margin-top:2em;
 }
 
-label[for= cname] {
-	display: inline-block;
-	margin-top: 3em;
-	margin-bottom: 1em;
-}
 
-input {
-	margin-top:1em;
+#creazionePersonaggio label.ccLabel {
+	display: inline-block;
+	padding: 0 1em 0.3em 1em;
+}
+/*
+.ccFDesc {
+    display: inline-block;
+    position: relative;
+    left: 20%;
+}
+*/
+#creazionePersonaggio fieldset input {
 /* ?	margin-bottom: 1em; ? */
 	text-align: center;
 }
 
 .ccField {
-	margin-top:1.3em;
+	margin-top: 1.3em;
 	margin-bottom: 1.3em;
-	background-color: #FFF0D4;
+    background-color: #FFEAB7;
 }
 
 .ccField legend {
 	/*background-color: #FFF9EA;*/
-	font-weight: bold;
+    font-weight: bold;
+    padding: 0 0.3em;
+    margin: 0 0.3em;
 }
 
 div.ccInfo {
-	/* ? PHP ?*/
-	padding: 0.5em;
-	margin: 0.5em;
-	background-color: red;
+
 }
 
 fieldset.ccField p {
 	text-align: center;
-	margin: 0.7em;
+}
+
+fieldset.ccField p#traitsDesc {
+    margin: 0.7em;
 }
 
 /* GRID? */
@@ -622,11 +633,45 @@ fieldset.ccField p {
     margin: 0.5em auto 2.4em auto;
 }
 
+.ccWrite {
+    background-color: #f7db90;
+    border: 1px inset black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#creazionePersonaggio select {
+   /* background-color: #f7db90;*/
+    text-align-last: center;
+    text-indent: -5%;
+    border: 1px inset black;
+    appearance: none;
+    background: #f7db90 url("../images/down_arrow.png") no-repeat 98% center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#crace, #cclass {
+    width: 110px;
+}
+
+#cbackground {
+    width: 120px;
+}
+
+#calignment {
+    width: 150px;
+}
+
 input#ccSub {
-	position: absolute;
-	font-size: 1.1em;
-	right: 10%;
-	margin-bottom: 3em;
+    padding: 0.2em;
+    margin: 0 auto 5em 55%;
+    width: 30%;
+	font-size: 1.4em;
+    border: 1px solid black;
+    background: #ffeab7;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
