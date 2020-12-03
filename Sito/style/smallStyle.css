@@ -1,4 +1,259 @@
 /*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                GENERALE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+html{
+    background-color: #fff7e6;
+}
+
+.DeD::after {
+    content: "\00ae"; 
+    font-size: 0.3em;
+}
+
+input[type="submit"]:focus{
+        outline: none;
+    }
+
+.buttonLink{
+    background-color: #8f5b20;
+    color: #FFF8E6;
+    margin-top: 1.9em;
+    padding-top: 0.3em;
+    text-align: center;
+    width:20em;
+    height: 2em;
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
+    border-radius: 4px;
+    cursor: pointer;
+}
+.buttonLink:hover{
+    background-color: #a36a28;
+    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
+}
+.buttonLink:active{
+    background-color: rgba(163, 106, 40, 0.644);
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+}
+
+.espandi{
+    position: relative;
+    top:-0.8em;
+    text-align: center;
+    display: block;
+    float: right;
+    padding:1.2em 0.5em 0.5em 0.5em;
+    border-radius: 0.5em;
+    height: 1.8em;
+}
+
+body {
+	max-width : 480px;
+	margin : auto;
+}
+
+#breadcrumb {
+    display: none;
+}
+
+.AiutiNavigazione {					/*ci devono essere in versione mobile?*/
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/*
+input[type="file"]{
+    margin:auto;
+    width: 24em;
+    outline: none;
+    border-radius: 0.3em;
+    padding:0.5em;
+    border: 7px inset #dfdfdf;
+    background-color: #FFFFFF;
+    text-align:center;
+}
+input[type="file"]:hover{
+    background-color: #e6e6e6;
+}
+*/
+
+/*
+--------------------------------------- HEADER ----------------------------------------------
+---------------------------------------------------------------------------------------------
+*/
+#intestazioneSito{
+	margin : 0;
+    font-size: 2.5em;
+    background-color: #f7db90;
+    height: 150px;
+}
+#logo{
+    display: inline-block;
+    margin: 5px;
+    height: 140px;
+    width: auto;
+}
+#menu{
+    /*
+    display: inline-block;
+    vertical-align: bottom;
+    width:18.5em;
+    padding-top: 1.2em;
+    */
+}
+
+#menu li {
+    list-style: none;
+    display: inline;
+    padding: 0.3em 0.8em 0.3em 0.8em;
+}
+
+
+#access {
+    float: right;
+    padding-top: 0.5em;
+    width: calc(9% + 9em);
+    margin: auto;
+}
+#access input {
+    width:46%;
+    margin: auto;
+    height: 3em;
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.1);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /*transition-property:*/
+}
+
+#access #Accesso{
+    background-color:#FFF0D4;
+    color: #7F582C;
+    margin-right: 5%;
+}
+#Iscrizione{
+    background-color: #8f5b20;
+    color: #FFF0D4;
+}
+#Iscrizione:hover{
+    background-color: #a36a28;
+    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
+}
+#Iscrizione:active{
+    background-color: rgba(163, 106, 40, 0.644);
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                ESPLORA
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+#esploraWrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+/*
+------------------------------------------------------------------------------------------------------------
+                                                ASIDE
+------------------------------------------------------------------------------------------------------------
+*/
+
+#bodyEsplora aside {
+    flex: 1 1 30%;    margin: auto;
+}
+
+aside h2 {
+    font-size: 1.7em;
+    font-weight: bold;
+    padding-bottom: 0.3em;
+}
+
+.asideButton{
+    display: initial;
+    background-color: #f7db90;
+}
+
+#bodyEsplora aside li {
+    padding: 0.7em;
+    margin: 0.3em;
+    border-radius: 0.5em;
+    border: 7px ridge #724713;
+    background-color: #f7ecd4;
+}
+
+#bodyEsplora aside ul {
+    list-style-type: none;
+}
+
+/*--------------------------- ASIDE DL-DT-DD -------------------
+*/
+
+#eventi dt {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-left: 0.6em;
+}
+
+#eventi dd:nth-of-type(2n):not(:last-child) {
+    padding-bottom: 0.5em;
+}
+
+#eventi dd {
+    display: list-item;
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+#siti dt {
+    display: inline-block;
+}
+#siti dd{
+    display: inline;
+}
+#siti dd::after{
+    display: block;
+    content: "";
+}
+
+/*
+------------------------------------------------------------------------------------------------------------
+                                                REPORTS
+------------------------------------------------------------------------------------------------------------
+*/
+
+#reportEsplora{
+    margin:auto;
+    flex: 1 1 40em;
+    min-width: 40em;
+    max-width: 100em;
+}
+
+#reportEsplora form{                    /* Usa la form per ridimensionare*/
+    margin:auto;
+    width: 90%;
+    max-width: 48em;
+}
+
+
+
+/*
+------------------------------------------------------------------------------------------------------------
+                                                DISCLAIMER
+------------------------------------------------------------------------------------------------------------
+Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... nel dubbio commentare
+*/
+
 #argomenti > div {
     margin: 7% auto 0 auto;
 }*/
