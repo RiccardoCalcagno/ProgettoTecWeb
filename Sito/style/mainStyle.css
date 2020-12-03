@@ -944,6 +944,11 @@ body#creazioneReport{
     margin-top: 3%;
 }
 
+#viewInfoUser header {
+    overflow: hidden;
+    clear:both;
+}
+
 #viewInfoUser div:nth-child(3) {
     margin-top: 1em;
     height: 14em; 
@@ -1018,7 +1023,7 @@ body#creazioneReport{
 #dashboard h3{
     font-size: 2em;
 }
-#dashboard h2{
+#dashboard h2, #viewInfoUser h2{
     float: left;
     font-size: 2.5em;
     max-width: 8.5em;
@@ -1034,7 +1039,7 @@ body#creazioneReport{
 .howTo .buttonLink{
     float: right; 
 }
-#dashboard .buttonLink{
+#dashboard .buttonLink, #viewInfoUser .buttonLink{
     float: right;
     margin-right: 5%;
     margin-top: 1em;
@@ -1390,7 +1395,7 @@ button[name="RemoveRep"]{                                                 /*da e
 */
 
 #editInfoUser { 
-    width: 35%;
+    width: 37%;
     margin: 5% auto 5% auto; 
 }
 
@@ -1398,23 +1403,24 @@ button[name="RemoveRep"]{                                                 /*da e
     font-size: 3em;
 }
 
-#editInfoUser img {
+#editInfoUser input[type="file"] {
     width: 14em;
     height: 14em;
+    margin: 0 30% 0 30%;
 }
 
-#editInfoUser input {
+#editInfoUser fieldset input {
     height: 2.5em;
     width: 25em;
     display: block;
     text-align: left;
     margin-top: 0em;
     border-radius: 5px;
-    border: 2px solid #392D20;
+    border: 1px solid #392D20;
     background-color: white;
 }
 
-#editInfoUser label {
+#editInfoUser fieldset label {
     margin-top: 1em;
     display: block;
     font-weight: bold;
@@ -1422,20 +1428,35 @@ button[name="RemoveRep"]{                                                 /*da e
 
 #editInfoUser label, #editInfoUser input { margin-left: 2em; }
 
-#editInfoUser fieldset:nth-child(3) {
-    border-color: transparent;
-}
-
-#editInfoUser fieldset:nth-child(4) {
+#editInfoUser form fieldset:nth-child(2), #editInfoUser form fieldset:nth-child(3) {
     border-radius: 5px;
-    border: 1px solid brown;
-    margin-top: 1em;
-    padding-bottom: 1em;
+    padding: 2em 2em 2em 2em;
+    margin-top: 3em;
 }
 
-#editInfoUser fieldset:nth-child(4) label[for="password"] { margin-top: 0em;}
+#editInfoUser label[for="password"], #editInfoUser label[for="NomeCognome"]  { margin-top: 0em;}
 
+#buttonEdit {
+    text-align: end;
+}
 
+#buttonEdit input[name="Annulla"] {
+    background-color:  #fff7e6;
+    color:  #392D20;
+    margin-top: 1.9em;
+    text-align: center;
+    width: 10em;
+    height: 2.5em;
+    box-shadow: inset 0 0 0 2px  #463726;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#buttonEdit input[name="Salva modifiche"] {
+    width: 10em;
+    height: 2.5em;
+    padding-top: 0em;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -1540,85 +1561,6 @@ aside h2 {
     display: block;
     content: "";
 }
-
-/* FINIRE CSS #SITI*/
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 640px) {
-    #viewInfoUser {
-        margin-left: 5%;
-        margin-right: 5%;
-        margin-top: 3%;
-    }
-    
-    #viewInfoUser div:nth-child(3) {
-        height: 14em; 
-        /*display: flex;*/
-        /*justify-content: center;*/
-        margin: 2em 1em 2em 1em;
-    
-    }
-    
-    #viewInfoUser div div:nth-child(2)  {
-        max-width: 50%;
-        /*flex: 1 0;
-        display: flex;
-        flex-direction: column;*/
-        margin-left: 10%;
-    }
-    
-    #viewInfoUser img {
-        max-width: 17em;
-        height: 14em;
-        /*flex: 1 0;*/
-    }
-    
-    #viewInfoUser h1 {
-        font-size: 3em;
-        font-weight: bold;
-    }
-    
-    #viewInfoUser h3 {
-        font-weight: bold;
-        padding: 0em;
-    }
-    
-    #viewInfoUser input {
-        border-style: none;
-        background: none;
-        font-size: 1em;
-        text-align: left;
-    }
-    
-    #viewInfoUser input[name="email"] {
-        width: 15em;
-    }
-    
-    #viewInfoUser label {
-        font-size: 1em;
-        font-weight: bold;
-        display: inline-block;
-        width: 40%;
-    }
-    
-    #viewInfoUser fieldset {
-        border-style: none;
-        width: 100%;
-        max-height: 20%;
-        margin-bottom: 1em;
-    }
-    
-}
-
-
-
 
 
 
