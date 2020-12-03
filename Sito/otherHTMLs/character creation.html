@@ -46,7 +46,7 @@
 		</ul>
 	</nav>
 
-<h1 id="ccTitle">Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+<h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
 
 <p id="ccP">
 	Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.
@@ -161,18 +161,30 @@
 	  <p id="traitsDesc">
 		Qui puoi inserire una descrizione scritta del tuo personaggio. E' divisa in quattro campi per aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
 	  </p>
-      <label for="ctraits" class="ccTraitsL">Descrivi i tratti caratteriali del tuo personaggio</label>
-	  <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=60 placeholder=""></textarea>
-	  
-	  <label for="cideals" class="ccTraitsL">Quali sono i suoi Ideali?</label>
-	  <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=60 placeholder=""></textarea>
-	  
-	  <label for="cbonds" class="ccTraitsL">A chi è legato nel mondo di gioco?</label>
-	  <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=60 placeholder=""></textarea>
-	  
-	  <label for="cflaws" class="ccTraitsL">Quali sono i suoi Difetti?</label>
-	  <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=60 placeholder=""></textarea>
-  </fieldset>
+
+	  <div id="traitsWrapper">
+
+			<div class="traitsCard">
+				<label for="ctraits" class="ccTraitsL">Traits</label>
+				<textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40 placeholder="Descrivi i tratti caratteriali del tuo personaggio"></textarea>
+			</div>
+
+			<div class="traitsCard">
+				<label for="cideals" class="ccTraitsL">Ideals</label>
+				<textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40 placeholder="Quali sono i suoi Ideali?"></textarea>
+			</div>
+				
+			<div class="traitsCard">
+				<label for="cbonds" class="ccTraitsL">Bonds</label>
+				<textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40 placeholder="A chi è legato nel mondo di gioco?"></textarea>
+			</div>
+
+			<div class="traitsCard">
+				<label for="cflaws" class="ccTraitsL">Flaws</label>
+				<textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40 placeholder="Quali sono i suoi Difetti?"></textarea>
+			</div>
+  		</div>
+	</fieldset>
   
   <!-- Possibilità di ampliare le info inserite, con dettagli unici alla "scheda minimal" del sito, che rimarranno solo sul sito e non sulla versione stampata -->
   

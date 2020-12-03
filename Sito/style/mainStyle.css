@@ -106,6 +106,7 @@ button:focus{
 #breadcrumb {
     background-color: #8f5b20;
     padding: 0.1em 0.5em;
+    margin: 0 1em;
     list-style: none;
 }
 
@@ -560,24 +561,14 @@ body#creazionePersonaggio{
     margin:auto;
 }
 
-h1#ccTitle {
-	margin: 0.5em 8%;
+#creazionePersonaggio h1 {
+	margin: 0.5em 1em;
 }
 
 p#ccP {
-	padding: 0.7em 5%;
+	margin: 0.7em 5%;
 	/*background-color: #FFEAB7;*/
 }
-
-#creazionePersonaggio fieldset {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-form#ccForm {
-	margin-top:2em;
-}
-
 
 #creazionePersonaggio label.ccLabel {
 	display: inline-block;
@@ -590,14 +581,9 @@ form#ccForm {
     left: 20%;
 }
 */
-#creazionePersonaggio fieldset input {
-/* ?	margin-bottom: 1em; ? */
-	text-align: center;
-}
 
 .ccField {
-	margin-top: 1.3em;
-	margin-bottom: 1.3em;
+	margin: 1.3em 10%;
     background-color: #FFEAB7;
 }
 
@@ -622,15 +608,23 @@ fieldset.ccField p#traitsDesc {
 
 /* GRID? */
 .ccTraitsL {
-	display: block; /*display: inline-block*/
-	text-align: center;
-	margin-top: 1em;
+    display: block;
+    text-align: center;
 }
-/* GRID? */
+/* .ccTraitsTA {
+	display: block;
+    resize: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0.5em auto 2.4em auto;
+    max-width: 40%;
+} 
+*/
+
 .ccTraitsTA {
 	display: block;
-	resize: none; /* maybe */
-    margin: 0.5em auto 2.4em auto;
+    resize: none; /* maybe */
+    margin: 0.5em 0;
 }
 
 .ccWrite {
@@ -651,22 +645,27 @@ fieldset.ccField p#traitsDesc {
     cursor: pointer;
 }
 
-#crace, #cclass {
-    width: 110px;
-}
-
-#cbackground {
-    width: 120px;
+#crace, #cclass, #cbackground{
+    width: 100px;
 }
 
 #calignment {
-    width: 150px;
+    width: 140px;
 }
 
-input#ccSub {
+#traitsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.traitsCard {
+    margin: 0 0.7em 2em 0.7em;
+}
+
+#ccSub {
     padding: 0.2em;
     margin: 0 auto 5em 55%;
-    width: 30%;
+    width: 33%;
 	font-size: 1.4em;
     border: 1px solid black;
     background: #ffeab7;
