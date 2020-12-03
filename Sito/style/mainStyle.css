@@ -1488,7 +1488,8 @@ button[name="RemoveRep"]{                                                 /*da e
 */
 
 #bodyEsplora aside {
-    width: 30%;
+    flex: 1 1 30%;
+    max-width: 70%;
     margin: auto;
 }
 
@@ -1615,55 +1616,6 @@ aside h2 {
     }
     
 }
-
-
-
-
-
-
-/*
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-                                               ESEMPIO ESPLORA
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-#asides{
-    flex: 1 1 30em;
-    min-width: 20em;
-    max-width: 30em;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-}
-#eventi{
-    margin: auto;
-    margin-right: 0;
-    flex: 1 0 30em;
-    max-width: 30em;
-}
-#risorse{
-    margin: auto;
-    margin-right: 0;
-    flex: 1 0 30em;
-    max-width: 30em;
-}
-
-#reportEsplora{
-    margin: auto;
-    flex: 1 1 40em;
-    min-width: 40em;
-    max-width: 100em;
-}
-
-#reportEsplora form{                    /* Usa la form per ridimensionare*/
-    width: 90%;
-    max-width: 48em;
-    margin: auto;
-}
-
-
 
 
 
