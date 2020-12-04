@@ -25,7 +25,7 @@ strong{
 abbr{
     text-decoration: none;
 }
-p,h1,h2,h3,h4,h5,h6{
+p,h1,h2,h3,h4,h5,h6,dt,dd{
     color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
 }
 
@@ -628,19 +628,16 @@ fieldset.ccField p#traitsDesc {
 }
 
 .ccWrite {
-    background-color: #f7db90;
     border: 1px inset black;
     border-radius: 5px;
-    text-align: center;
 }
 
 #creazionePersonaggio select {
-   /* background-color: #f7db90;*/
     text-align-last: center;
     text-indent: -5%;
     border: 1px inset black;
     appearance: none;
-    background: #f7db90 url("../images/down_arrow.png") no-repeat 98% center;
+    background: #FFF url("../images/down_arrow.png") no-repeat 98% center;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -1507,23 +1504,18 @@ button[name="RemoveRep"]{                                                 /*da e
 ------------------------------------------------------------------------------------------------
 */
 
-#bodyEsplora aside {
+#esploraAside {
     flex: 1 1 30%;
-    max-width: 70%;
     margin: auto;
 }
 
-aside h2 {
+#esploraAside h2 {
     font-size: 1.7em;
     font-weight: bold;
     padding-bottom: 0.3em;
 }
 
-.asideButton {
-    display: none;
-}
-
-#bodyEsplora aside li {
+#esploraAside li {
     padding: 0.7em;
     margin: 0.3em;
     border-radius: 0.5em;
@@ -1531,7 +1523,7 @@ aside h2 {
     background-color: #f7ecd4;
 }
 
-#bodyEsplora aside ul {
+#esploraAside ul {
     list-style-type: none;
 }
 

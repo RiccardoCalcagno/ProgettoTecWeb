@@ -108,9 +108,13 @@ body {
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
+
+
 #esploraWrapper {
+	margin: 1px 0;
+	padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex-wrap: wrap;
 }
 /*
@@ -119,52 +123,54 @@ body {
 ------------------------------------------------------------------------------------------------------------
 */
 
-#bodyEsplora aside {
-    flex: 1 1 30%;    margin: auto;
+#esploraAside {
+    flex: 1 auto;
+    margin: auto;
+    max-width: none;
 }
 
-aside h2 {
-    font-size: 1.7em;
-    font-weight: bold;
-    padding-bottom: 0.3em;
+#esploraAside h2{
+	font-size: 2em;
+	text-align: center; 
 }
 
-.asideButton{
-    display: initial;
-    background-color: #f7db90;
+#esploraAside ul{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-#bodyEsplora aside li {
-    padding: 0.7em;
-    margin: 0.3em;
-    border-radius: 0.5em;
-    border: 7px ridge #724713;
-    background-color: #f7ecd4;
+#esploraAside li{
+	flex: 1 auto;
+	width: 25em;
 }
 
-#bodyEsplora aside ul {
-    list-style-type: none;
+#esploraAside li p{
+	display: none;
 }
 
+#esploraAside li a{
+	font-size: 2.5em;
+}
 /*--------------------------- ASIDE DL-DT-DD -------------------
 */
 
-#eventi dt {
-    font-weight: bold;
-    font-size: 1.2em;
-    padding-left: 0.6em;
-}
 
+#eventi dt {
+    padding-left: 0em;
+}
+/*
 #eventi dd:nth-of-type(2n):not(:last-child) {
     padding-bottom: 0.5em;
 }
+*/
 
 #eventi dd {
     display: list-item;
-    list-style-type: square;
-    list-style-position: inside;
+    list-style-type: none;
 }
 
+/*
 #siti dt {
     display: inline-block;
 }
@@ -175,6 +181,7 @@ aside h2 {
     display: block;
     content: "";
 }
+*/
 
 /*
 ------------------------------------------------------------------------------------------------------------
@@ -183,17 +190,27 @@ aside h2 {
 */
 
 #reportEsplora{
-    margin:auto;
-    flex: 1 1 40em;
+    margin: 2em;
+    flex: 1 auto;
     min-width: 40em;
-    max-width: 100em;
+    max-width: none;
 }
 
 #reportEsplora form{                    /* Usa la form per ridimensionare*/
-    margin:auto;
-    width: 90%;
-    max-width: 48em;
+    margin: auto;
+    width: 100%;
+    max-width: none;
 }
+
+#reportEsplora header{
+	font-size: 1.5em;
+}
+
+#reportEsplora h2{
+	padding-bottom: 0.4em;
+}
+
+#reportEsplora 
 
 
 
