@@ -24,64 +24,69 @@
 
         <div id="editInfoUser">
             <h1>Modifica i tuoi dati</h1>
-            <img alt="selezionare immagine profilo" src="../images/IconaSito.png" />
+            <form  autocomplete="on" class="creazioneFields">
+                <input type="file" name="setImmg" placeholder="Importa immagini..." multiple="multiple" accept="image/*"/>
 
-            <fieldset>
-            <label for="NomeCognome">Nome e cognome</label>
-            <input type="text" 
-                name="NomeCognome" 
-                id="NomeCognome"
-                value=""
-                placeholder="Inserisci il tuo nome e il tuo cognome"/>
+                <fieldset>
+                    <legend>Dati anagrafici</legend>
+                    <label for="NomeCognome">Nome e cognome</label>
+                    <input type="text" 
+                        name="NomeCognome" 
+                        id="NomeCognome"
+                        value=""
+                        placeholder="Inserisci il tuo nome e il tuo cognome"/>
             
-            <label for="email">E-mail</label>
-            <input type="text" 
-                name="email" 
-                id="email"
-                value=""
-                placeholder="Inserisci la tua mail"/>
+                    <label for="email">E-mail</label>
+                    <input type="text" 
+                        name="email" 
+                        id="email"
+                        value=""
+                        placeholder="Inserisci la tua mail"/>
 
-            <label for="birthdate">Data di nascita</label>
-            <input type="date" 
-                name="birthdate" 
-                id="birthdate"
-                value=""
-                placeholder="Seleziona la tua data di nascita"/>
+                    <label for="birthdate">Data di nascita</label>
+                    <input type="date" 
+                        name="birthdate" 
+                        id="birthdate"
+                        value=""
+                        placeholder="Seleziona la tua data di nascita"/>
 
-            <label for="country">Paese</label>
-            <input type="text" 
-                name="country" 
-                id="country"
-                value=""
-                placeholder="Seleziona il tuo paese"/>
+                    <label for="country">Paese</label>
+                    <input type="text" 
+                        name="country" 
+                        id="country"
+                        value=""
+                        placeholder="Seleziona il tuo paese"/>
 
-            </fieldset>
+                </fieldset>
 
-            <fieldset>
-            <legend>Modifica password</legend> 
-            <label for="password">Password corrente</label>
-            <input type="password" 
-                name="password" 
-                id="password"
-                value=""
-                placeholder="Digitare la password corrente"/>
+                <fieldset>
+                    <legend>Modifica password</legend> 
+                    <label for="password">Password corrente</label>
+                    <input type="password" 
+                        name="password" 
+                        id="password"
+                        value=""
+                        placeholder="Digitare la password corrente"/>
 
-            <label for="newPasswd">Nuova Password</label>
-            <input type="password" 
-                name="newPasswd" 
-                id="newPasswd"
-                value=""
-                placeholder="Digitare la nuova password"/>
+                    <label for="newPasswd">Nuova Password</label>
+                    <input type="password" 
+                        name="newPasswd" 
+                        id="newPasswd"
+                        value=""
+                        placeholder="Digitare la nuova password"/>
         
-            <label for="">Digita nuovamente la password</label>
-            <input type="password" 
-                name="country" 
-                id="country"
-                value=""
-                placeholder="Seleziona il tuo paese"/>
-            </fieldset>
-
-
+                    <label for="">Digita nuovamente la password</label>
+                    <input type="password" 
+                        name="country" 
+                        id="country"
+                        value=""
+                        placeholder="Seleziona il tuo paese"/>
+                </fieldset>
+                <div id="buttonEdit">
+                    <input type="button" name="Annulla" value="Annulla"/>
+                    <input class="buttonLink" type="button" name="Salva modifiche" value="Salva modifche"/>
+                </div>
+            </form>
         </div>
     </body>
 </html>
