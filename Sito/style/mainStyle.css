@@ -646,7 +646,7 @@ fieldset.ccField p#traitsDesc {
 }
 
 #crace, #cclass, #cbackground{
-    width: 100px;
+    width: 110px;
 }
 
 #calignment {
@@ -1496,6 +1496,10 @@ aside h2 {
     font-size: 1.7em;
     font-weight: bold;
     padding-bottom: 0.3em;
+}
+
+.asideButton {
+    display: none;
 }
 
 #bodyEsplora aside li {
