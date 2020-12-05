@@ -5,151 +5,132 @@
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-
-html{
-    background-color: #fff7e6;
-}
-
-.DeD::after {
-    content: "\00ae"; 
-    font-size: 0.3em;
-}
-
-input[type="submit"]:focus{
-        outline: none;
-    }
-
-.buttonLink{
-    background-color: #8f5b20;
-    color: #FFF8E6;
-    margin-top: 1.9em;
-    padding-top: 0.3em;
-    text-align: center;
-    width:20em;
-    height: 2em;
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
-    border-radius: 4px;
-    cursor: pointer;
-}
-.buttonLink:hover{
-    background-color: #a36a28;
-    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
-}
-.buttonLink:active{
-    background-color: rgba(163, 106, 40, 0.644);
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
-}
-
-.espandi{
-    position: relative;
-    top:-0.8em;
-    text-align: center;
-    display: block;
-    float: right;
-    padding:1.2em 0.5em 0.5em 0.5em;
-    border-radius: 0.5em;
-    height: 1.8em;
-}
-
+/*
 body {
 	max-width : 480px;
 	margin : auto;
 }
+*/
 
+/* KEEP OR REMOVE ?? */
 #breadcrumb {
     display: none;
 }
-
-.AiutiNavigazione {					/*ci devono essere in versione mobile?*/
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-}
-
-/*
-input[type="file"]{
-    margin:auto;
-    width: 24em;
-    outline: none;
-    border-radius: 0.3em;
-    padding:0.5em;
-    border: 7px inset #dfdfdf;
-    background-color: #FFFFFF;
-    text-align:center;
-}
-input[type="file"]:hover{
-    background-color: #e6e6e6;
-}
-*/
 
 /*
 --------------------------------------- HEADER ----------------------------------------------
 ---------------------------------------------------------------------------------------------
 */
 #intestazioneSito{
-	margin : 0;
-    font-size: 2.5em;
-    background-color: #f7db90;
-    height: 150px;
+	margin : 1% 0;
+    background-color: #666460;
+    border: 2px solid black;
+    border-radius: 20px;
+    height: auto;
+    padding: 0.4em 0;
+    margin-bottom: 1em;
 }
-#logo{
-    display: inline-block;
-    margin: 5px;
-    height: 140px;
-    width: auto;
+
+/* KEEP OR REMOVE ?? */
+#logo {
+    display: none;
+/*    vertical-align: middle;
+    margin: 1%;
+    width: 10%;
+    height: auto; */
 }
-#menu{
-    /*
-    display: inline-block;
-    vertical-align: bottom;
-    width:18.5em;
-    padding-top: 1.2em;
-    */
+
+#menu {
+    font-size: 4vw;
+    width: 75%;
+    height: 100%;
+    padding-top: 2%;
+}
+
+#menu ol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 #menu li {
-    list-style: none;
-    display: inline;
-    padding: 0.3em 0.8em 0.3em 0.8em;
+    max-width: 20%;
+    flex: 1 1 0;
+    padding: 0;
+    margin-left: 0.4em;
 }
 
+#menu a {
+    display: inline-block;
+    text-align: center;
+    text-indent: -7%;
+    height: 70%;
+    border: 1px solid black;
+    background-color: #f7d371;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-left: 0.2em;
+    padding: 0.4em;
+}
+
+#menu #currentLink {
+    display: none;
+}
 
 #access {
-    float: right;
-    padding-top: 0.5em;
-    width: calc(9% + 9em);
+    padding-top: 3%;
     margin: auto;
-}
-#access input {
-    width:46%;
-    margin: auto;
+    width: 25%;
     height: 3em;
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.1);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    /*transition-property:*/
+    font-size: 3.5vw;
+}
+
+#access input {
+    width: 47%;
+    margin: auto;
+    height: 60%;
 }
 
 #access #Accesso{
-    background-color:#FFF0D4;
-    color: #7F582C;
-    margin-right: 5%;
+    margin-right: 1%;
 }
+
 #Iscrizione{
-    background-color: #8f5b20;
-    color: #FFF0D4;
+
 }
-#Iscrizione:hover{
-    background-color: #a36a28;
-    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        CREAZIONI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+.creazioneFields h2 {
+    padding-bottom: 0;
 }
-#Iscrizione:active{
-    background-color: rgba(163, 106, 40, 0.644);
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+
+.creazioneFields fieldset{
+    padding: 0 0.5em 0.7em 0.5em;
 }
+.creazioneFields fieldset legend{
+    margin-left: 0.5em;
+    padding: 0.2em 0.5em;
+}
+
+.creazioneFields fieldset legend h2{
+    font-size: 5vw;
+}
+
+textarea{
+    outline: none;
+    resize: none;
+    padding: 0.5em;
+    border: 1px solid #392D20;
+    border-radius: 0.3em;
+}
+
+
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -158,9 +139,13 @@ input[type="file"]:hover{
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
+
+
 #esploraWrapper {
+	margin: 1px 0;
+	padding: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     flex-wrap: wrap;
 }
 /*
@@ -169,52 +154,54 @@ input[type="file"]:hover{
 ------------------------------------------------------------------------------------------------------------
 */
 
-#bodyEsplora aside {
-    flex: 1 1 30%;    margin: auto;
+#esploraAside {
+    flex: 1 auto;
+    margin: auto;
+    max-width: none;
 }
 
-aside h2 {
-    font-size: 1.7em;
-    font-weight: bold;
-    padding-bottom: 0.3em;
+#esploraAside h2{
+	font-size: 2em;
+	text-align: center; 
 }
 
-.asideButton{
-    display: initial;
-    background-color: #f7db90;
+#esploraAside ul{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-#bodyEsplora aside li {
-    padding: 0.7em;
-    margin: 0.3em;
-    border-radius: 0.5em;
-    border: 7px ridge #724713;
-    background-color: #f7ecd4;
+#esploraAside li{
+	flex: 1 auto;
+	width: 25em;
 }
 
-#bodyEsplora aside ul {
-    list-style-type: none;
+#esploraAside li p{
+	display: none;
 }
 
+#esploraAside li a{
+	font-size: 2.5em;
+}
 /*--------------------------- ASIDE DL-DT-DD -------------------
 */
 
-#eventi dt {
-    font-weight: bold;
-    font-size: 1.2em;
-    padding-left: 0.6em;
-}
 
+#eventi dt {
+    padding-left: 0em;
+}
+/*
 #eventi dd:nth-of-type(2n):not(:last-child) {
     padding-bottom: 0.5em;
 }
+*/
 
 #eventi dd {
     display: list-item;
-    list-style-type: square;
-    list-style-position: inside;
+    list-style-type: none;
 }
 
+/*
 #siti dt {
     display: inline-block;
 }
@@ -225,6 +212,7 @@ aside h2 {
     display: block;
     content: "";
 }
+*/
 
 /*
 ------------------------------------------------------------------------------------------------------------
@@ -233,17 +221,27 @@ aside h2 {
 */
 
 #reportEsplora{
-    margin:auto;
-    flex: 1 1 40em;
+    margin: 2em;
+    flex: 1 auto;
     min-width: 40em;
-    max-width: 100em;
+    max-width: none;
 }
 
 #reportEsplora form{                    /* Usa la form per ridimensionare*/
-    margin:auto;
-    width: 90%;
-    max-width: 48em;
+    margin: auto;
+    width: 100%;
+    max-width: none;
 }
+
+#reportEsplora header{
+	font-size: 1.5em;
+}
+
+#reportEsplora h2{
+	padding-bottom: 0.4em;
+}
+
+#reportEsplora 
 
 
 
@@ -260,10 +258,6 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 #argomenti img{
     padding: 0;
 }
-#menu{
-    display:block;
-}
-
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -341,4 +335,52 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
     width: 100%;
     max-height: 20%;
     margin-bottom: 1em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                CREAZIONE PERSONAGGIO
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#creazionePersonaggio {
+    font-size: 4vw;
+}
+
+#creazionePersonaggio h1 {
+    font-size: 7vw;
+    margin: 0 10%;
+}
+
+p#ccP {
+	margin: 0 2%;
+}
+
+.ccField {
+    margin: 0.4em 0.1em 1.5em 0.1em;
+}
+
+#creazionePersonaggio fieldset input {
+    margin-bottom: 0.4em;
+} 
+
+#crace, #cclass, #cbackground{
+    width: 23%;
+}
+
+#calignment {
+    width: 33%;
+}
+
+.traitsCard {
+    margin: auto;
+    margin-bottom: .7em;
+}
+
+#ccSub {
+    margin: 0 auto 1.3em 50%;
+    width: 40%;
+    font-size: 1.2em;
 }

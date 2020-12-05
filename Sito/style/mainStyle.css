@@ -25,7 +25,7 @@ strong{
 abbr{
     text-decoration: none;
 }
-p,h1,h2,h3,h4,h5,h6{
+p,h1,h2,h3,h4,h5,h6,dt,dd{
     color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
 }
 
@@ -106,6 +106,7 @@ button:focus{
 #breadcrumb {
     background-color: #8f5b20;
     padding: 0.1em 0.5em;
+    margin: 0 1em;
     list-style: none;
 }
 
@@ -560,24 +561,14 @@ body#creazionePersonaggio{
     margin:auto;
 }
 
-h1#ccTitle {
-	margin: 0.5em 8%;
+#creazionePersonaggio h1 {
+	margin: 0.5em 1em;
 }
 
 p#ccP {
-	padding: 0.7em 5%;
+	margin: 0.7em 5%;
 	/*background-color: #FFEAB7;*/
 }
-
-#creazionePersonaggio fieldset {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-form#ccForm {
-	margin-top:2em;
-}
-
 
 #creazionePersonaggio label.ccLabel {
 	display: inline-block;
@@ -590,15 +581,9 @@ form#ccForm {
     left: 20%;
 }
 */
-#creazionePersonaggio fieldset input {
-/* ?	margin-bottom: 1em; ? */
-	text-align: center;
-}
 
 .ccField {
-	margin-top: 1.3em;
-	margin-bottom: 1.3em;
-    background-color: #FFEAB7;
+	margin: 1.3em 10% 2em 10%;
 }
 
 .ccField legend {
@@ -622,54 +607,65 @@ fieldset.ccField p#traitsDesc {
 
 /* GRID? */
 .ccTraitsL {
-	display: block; /*display: inline-block*/
-	text-align: center;
-	margin-top: 1em;
+    display: block;
+    text-align: center;
 }
-/* GRID? */
+/* .ccTraitsTA {
+	display: block;
+    resize: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin: 0.5em auto 2.4em auto;
+    max-width: 40%;
+} 
+*/
+
 .ccTraitsTA {
 	display: block;
-	resize: none; /* maybe */
-    margin: 0.5em auto 2.4em auto;
+    resize: none; /* maybe */
+    margin: 0.5em 0;
 }
 
 .ccWrite {
-    background-color: #f7db90;
     border: 1px inset black;
     border-radius: 5px;
-    text-align: center;
 }
 
 #creazionePersonaggio select {
-   /* background-color: #f7db90;*/
     text-align-last: center;
     text-indent: -5%;
     border: 1px inset black;
     appearance: none;
-    background: #f7db90 url("../images/down_arrow.png") no-repeat 98% center;
+    background: #FFF url("../images/down_arrow.png") no-repeat 98% center;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#crace, #cclass {
+#crace, #cclass, #cbackground{
     width: 110px;
 }
 
-#cbackground {
-    width: 120px;
-}
-
 #calignment {
-    width: 150px;
+    width: 140px;
 }
 
-input#ccSub {
+#traitsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.traitsCard {
+    margin: 0 0.7em 2em 0.7em;
+}
+
+#ccSub {
     padding: 0.2em;
     margin: 0 auto 5em 55%;
-    width: 30%;
+    width: 33%;
 	font-size: 1.4em;
     border: 1px solid black;
-    background: #ffeab7;
+    background-color:#8f5b20;
+    color: #FFF8E6;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -1522,19 +1518,18 @@ button[name="RemoveRep"]{                                                 /*da e
 ------------------------------------------------------------------------------------------------
 */
 
-#bodyEsplora aside {
+#esploraAside {
     flex: 1 1 30%;
-    max-width: 70%;
     margin: auto;
 }
 
-aside h2 {
+#esploraAside h2 {
     font-size: 1.7em;
     font-weight: bold;
     padding-bottom: 0.3em;
 }
 
-#bodyEsplora aside li {
+#esploraAside li {
     padding: 0.7em;
     margin: 0.3em;
     border-radius: 0.5em;
@@ -1542,7 +1537,7 @@ aside h2 {
     background-color: #f7ecd4;
 }
 
-#bodyEsplora aside ul {
+#esploraAside ul {
     list-style-type: none;
 }
 
