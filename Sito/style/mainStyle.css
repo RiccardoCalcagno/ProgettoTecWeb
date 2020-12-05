@@ -1389,27 +1389,27 @@ button[name="RemoveRep"]{                                                 /*da e
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
-                                                MODIFICA DATI PERSONALI
+                                                MODIFICA DATI PERSONALI E LOGIN
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#editInfoUser { 
+.userFields { 
     width: 37%;
     margin: 5% auto 5% auto; 
 }
 
-#editInfoUser h1 {
+.userFields h1 {
     font-size: 3em;
 }
 
-#editInfoUser input[type="file"] {
+.userFields input[type="file"] {
     width: 14em;
     height: 14em;
     margin: 0 30% 0 30%;
 }
 
-#editInfoUser fieldset input {
+.userFields fieldset input {
     height: 2.5em;
     width: 25em;
     display: block;
@@ -1418,23 +1418,33 @@ button[name="RemoveRep"]{                                                 /*da e
     border-radius: 5px;
     border: 1px solid #392D20;
     background-color: white;
+    padding-left: 0.5em;
 }
 
-#editInfoUser fieldset label {
+.userFields fieldset label {
     margin-top: 1em;
     display: block;
     font-weight: bold;
 }
 
-#editInfoUser label, #editInfoUser input { margin-left: 2em; }
+.userFields label, .userFields input { margin-left: 2em; }
 
-#editInfoUser form fieldset:nth-child(2), #editInfoUser form fieldset:nth-child(3) {
+#infoPasswd {
+    margin-left: 2em;
+}
+
+#infoPasswd ul {
+    list-style-position: inside;
+    color: #392D20;
+}
+
+.userFields form fieldset:nth-child(2), .userFields form fieldset:nth-child(3) {
     border-radius: 5px;
     padding: 2em 2em 2em 2em;
     margin-top: 3em;
 }
 
-#editInfoUser label[for="password"], #editInfoUser label[for="NomeCognome"]  { margin-top: 0em;}
+.userFields label[for="password"], .userFields label[for="NomeCognome"]  { margin-top: 0em;}
 
 #buttonEdit {
     text-align: end;
@@ -1456,6 +1466,10 @@ button[name="RemoveRep"]{                                                 /*da e
     width: 10em;
     height: 2.5em;
     padding-top: 0em;
+}
+
+#loginUser label {
+    padding-top: 1em;
 }
 
 /*
