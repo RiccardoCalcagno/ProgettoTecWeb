@@ -22,7 +22,7 @@
             <img id="logo" src="../images/IconaSito.png" alt="" /> 
         </header>
 
-        <div id="editInfoUser">
+        <div class="userFields">
             <h1>Modifica i tuoi dati</h1>
             <form  autocomplete="on" class="creazioneFields">
                 <input type="file" name="setImmg" placeholder="Importa immagini..." multiple="multiple" accept="image/*"/>
@@ -41,7 +41,8 @@
                         name="email" 
                         id="email"
                         value=""
-                        placeholder="Inserisci la tua mail"/>
+                        placeholder="Inserisci la tua mail"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
 
                     <label for="birthdate">Data di nascita</label>
                     <input type="date" 
@@ -73,7 +74,16 @@
                         name="newPasswd" 
                         id="newPasswd"
                         value=""
-                        placeholder="Digitare la nuova password"/>
+                        placeholder="Digitare la nuova password"
+                        pattern=".{8,}"
+                        title="Deve contenere almeno un numero e una lettera maiuscola e minuscola e almeno 8 o più caratteri"/>
+                    <div id="infoPasswd"><p>La password deve rispettare i seguenti requisiti:</p>
+                        <ul>
+                            <li>lunghezza minima di 8 caratteri;</li>
+                            <li>almeno una lettera minuscola ed una maiuscola;</li>
+                            <li>almeno una cifra numerica;</li>
+                        </ul>
+                    </div>
         
                     <label for="">Digita nuovamente la password</label>
                     <input type="password" 

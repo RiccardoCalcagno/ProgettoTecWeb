@@ -25,7 +25,7 @@ strong{
 abbr{
     text-decoration: none;
 }
-p,h1,h2,h3,h4,h5,h6{
+p,h1,h2,h3,h4,h5,h6,dt,dd{
     color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
 }
 
@@ -583,8 +583,7 @@ p#ccP {
 */
 
 .ccField {
-	margin: 1.3em 10%;
-    background-color: #FFEAB7;
+	margin: 1.3em 10% 2em 10%;
 }
 
 .ccField legend {
@@ -628,19 +627,16 @@ fieldset.ccField p#traitsDesc {
 }
 
 .ccWrite {
-    background-color: #f7db90;
     border: 1px inset black;
     border-radius: 5px;
-    text-align: center;
 }
 
 #creazionePersonaggio select {
-   /* background-color: #f7db90;*/
     text-align-last: center;
     text-indent: -5%;
     border: 1px inset black;
     appearance: none;
-    background: #f7db90 url("../images/down_arrow.png") no-repeat 98% center;
+    background: #FFF url("../images/down_arrow.png") no-repeat 98% center;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -668,7 +664,8 @@ fieldset.ccField p#traitsDesc {
     width: 33%;
 	font-size: 1.4em;
     border: 1px solid black;
-    background: #ffeab7;
+    background-color:#8f5b20;
+    color: #FFF8E6;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -1388,27 +1385,27 @@ button[name="RemoveRep"]{                                                 /*da e
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
-                                                MODIFICA DATI PERSONALI
+                                                MODIFICA DATI PERSONALI E LOGIN
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#editInfoUser { 
+.userFields { 
     width: 37%;
     margin: 5% auto 5% auto; 
 }
 
-#editInfoUser h1 {
+.userFields h1 {
     font-size: 3em;
 }
 
-#editInfoUser input[type="file"] {
+.userFields input[type="file"] {
     width: 14em;
     height: 14em;
     margin: 0 30% 0 30%;
 }
 
-#editInfoUser fieldset input {
+.userFields fieldset input {
     height: 2.5em;
     width: 25em;
     display: block;
@@ -1417,23 +1414,33 @@ button[name="RemoveRep"]{                                                 /*da e
     border-radius: 5px;
     border: 1px solid #392D20;
     background-color: white;
+    padding-left: 0.5em;
 }
 
-#editInfoUser fieldset label {
+.userFields fieldset label {
     margin-top: 1em;
     display: block;
     font-weight: bold;
 }
 
-#editInfoUser label, #editInfoUser input { margin-left: 2em; }
+.userFields label, .userFields input { margin-left: 2em; }
 
-#editInfoUser form fieldset:nth-child(2), #editInfoUser form fieldset:nth-child(3) {
+#infoPasswd {
+    margin-left: 2em;
+}
+
+#infoPasswd ul {
+    list-style-position: inside;
+    color: #392D20;
+}
+
+.userFields form fieldset:nth-child(2), .userFields form fieldset:nth-child(3) {
     border-radius: 5px;
     padding: 2em 2em 2em 2em;
     margin-top: 3em;
 }
 
-#editInfoUser label[for="password"], #editInfoUser label[for="NomeCognome"]  { margin-top: 0em;}
+.userFields label[for="password"], .userFields label[for="NomeCognome"]  { margin-top: 0em;}
 
 #buttonEdit {
     text-align: end;
@@ -1455,6 +1462,10 @@ button[name="RemoveRep"]{                                                 /*da e
     width: 10em;
     height: 2.5em;
     padding-top: 0em;
+}
+
+#loginUser label {
+    padding-top: 1em;
 }
 
 /*
@@ -1507,23 +1518,18 @@ button[name="RemoveRep"]{                                                 /*da e
 ------------------------------------------------------------------------------------------------
 */
 
-#bodyEsplora aside {
+#esploraAside {
     flex: 1 1 30%;
-    max-width: 70%;
     margin: auto;
 }
 
-aside h2 {
+#esploraAside h2 {
     font-size: 1.7em;
     font-weight: bold;
     padding-bottom: 0.3em;
 }
 
-.asideButton {
-    display: none;
-}
-
-#bodyEsplora aside li {
+#esploraAside li {
     padding: 0.7em;
     margin: 0.3em;
     border-radius: 0.5em;
@@ -1531,7 +1537,7 @@ aside h2 {
     background-color: #f7ecd4;
 }
 
-#bodyEsplora aside ul {
+#esploraAside ul {
     list-style-type: none;
 }
 
