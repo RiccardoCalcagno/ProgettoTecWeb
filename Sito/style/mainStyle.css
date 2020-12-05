@@ -583,8 +583,7 @@ p#ccP {
 */
 
 .ccField {
-	margin: 1.3em 10%;
-    background-color: #FFEAB7;
+	margin: 1.3em 10% 2em 10%;
 }
 
 .ccField legend {
@@ -665,7 +664,8 @@ fieldset.ccField p#traitsDesc {
     width: 33%;
 	font-size: 1.4em;
     border: 1px solid black;
-    background: #ffeab7;
+    background-color:#8f5b20;
+    color: #FFF8E6;
     border-radius: 5px;
     cursor: pointer;
 }
