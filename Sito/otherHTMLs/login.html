@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="it" >
+
+    <head>
+
+        <title> - Login</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+
+        <meta name="description" content=""/>                   <!--DA COMPILARE-->
+        <meta name="keywords" content="" />
+        <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
+        <meta name="language" content="italian it" />
+        <meta charset="utf-8" >
+
+        <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>           
+        <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+
+    </head>
+
+    <body>
+        <header>
+            <img id="logo" src="../images/IconaSito.png" alt="" /> 
+        </header>
+
+        <div class="userFields" id="loginUser">
+            <h1>Accedi!</h1>
+            <form  autocomplete="on" class="creazioneFields">
+
+                <fieldset>
+                    <!--legend>Dati anagrafici</legend-->
+                    <label for="email">E-mail</label>
+                    <input type="text" 
+                        name="email" 
+                        id="email"
+                        value=""
+                        placeholder="Inserisci la tua mail"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+
+                    <!--legend>Modifica password</legend-->
+                    <label for="password">Password</label>
+                    <input type="password" 
+                        name="password" 
+                        id="password"
+                        value=""
+                        placeholder="Digitare la password corrente"
+                        pattern=".{8,}"/>
+                </fieldset>
+                <div id="buttonEdit">
+                    <input type="button" name="Annulla" value="Annulla"/>
+                    <input class="buttonLink" type="button" name="Salva modifiche" value="Salva modifche"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
