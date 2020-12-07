@@ -49,8 +49,17 @@ h3{
 
 
 html{
-    background-color: #fff7e6;
+    background-color: #1F1A19;
+    background-image: url("../images/sfondo.png");
+    background-repeat: repeat;
 }
+body{
+    background-color: #fff7e6;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
 
 .DeD::after {
     content: "\00ae"; 
@@ -97,17 +106,15 @@ button:focus{
     height: 1.8em;
 }
 
-#bodyEsplora {
-    max-width: 1024px;  /* max-widht o no ? */
-    margin: auto;
-}
-
 
 #breadcrumb {
-    background-color: #8f5b20;
+    background-color: #382c22;
+    color:#fff7e6;
     padding: 0.1em 0.5em;
-    margin: 0 1em;
     list-style: none;
+}
+#breadcrumb a{
+    color:#fff7e6;
 }
 
 #breadcrumb li {
@@ -216,7 +223,7 @@ body{
 ---------------------------------------------------------------------------------------------
 */
 #intestazioneSito{
-    margin: 1em 1em 1em 1em;
+    margin: 0 1em 1em 1em;
     font-size: 1.1em;
 }
 #logo{
@@ -472,7 +479,7 @@ body{
     margin-top: calc(5% + 3em);
     display: flex;
     flex-direction: column;
-    margin-bottom: 20em;
+    padding-bottom: 5em;
 }
 #approfondimenti h2{
     padding-bottom: 0;
@@ -501,6 +508,8 @@ body{
     margin: auto;
     margin-top: 2em;
     padding: 0 0.3em 0 0.3em ;
+    position: relative;
+    z-index: 0;
 }
 
 #approfondimenti li a{
@@ -556,23 +565,18 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-body#creazionePersonaggio{
-    max-width: 1200px;
-    margin:auto;
-}
-
 #creazionePersonaggio h1 {
-	margin: 0.5em 1em;
+    margin: 0.5em 1em;
 }
 
 p#ccP {
-	margin: 0.7em 5%;
-	/*background-color: #FFEAB7;*/
+    margin: 0.7em 5%;
+    /*background-color: #FFEAB7;*/
 }
 
 #creazionePersonaggio label.ccLabel {
-	display: inline-block;
-	padding: 0 1em 0.3em 1em;
+    display: inline-block;
+    padding: 0 1em 0.3em 1em;
 }
 /*
 .ccFDesc {
@@ -583,11 +587,11 @@ p#ccP {
 */
 
 .ccField {
-	margin: 1.3em 10% 2em 10%;
+    margin: 1.3em 10% 2em 10%;
 }
 
 .ccField legend {
-	/*background-color: #FFF9EA;*/
+    /*background-color: #FFF9EA;*/
     font-weight: bold;
     padding: 0 0.3em;
     margin: 0 0.3em;
@@ -598,7 +602,7 @@ div.ccInfo {
 }
 
 fieldset.ccField p {
-	text-align: center;
+    text-align: center;
 }
 
 fieldset.ccField p#traitsDesc {
@@ -611,7 +615,7 @@ fieldset.ccField p#traitsDesc {
     text-align: center;
 }
 /* .ccTraitsTA {
-	display: block;
+    display: block;
     resize: none;
     padding-left: 1em;
     padding-right: 1em;
@@ -621,7 +625,7 @@ fieldset.ccField p#traitsDesc {
 */
 
 .ccTraitsTA {
-	display: block;
+    display: block;
     resize: none; /* maybe */
     margin: 0.5em 0;
 }
@@ -662,7 +666,7 @@ fieldset.ccField p#traitsDesc {
     padding: 0.2em;
     margin: 0 auto 5em 55%;
     width: 33%;
-	font-size: 1.4em;
+    font-size: 1.4em;
     border: 1px solid black;
     background-color:#8f5b20;
     color: #FFF8E6;
@@ -730,10 +734,6 @@ textarea{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-body#creazioneReport{
-    max-width: 1200px;
-    margin:auto;
-}
 #creazioneReport h1,#creazioneReport p{ width:90%; margin:auto;}
 #creazioneReport h1{
     margin-top: 1em;
@@ -859,7 +859,6 @@ body#creazioneReport{
     margin:auto;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10em;
 }
 #conclusione >div{
     margin:auto;
@@ -923,59 +922,75 @@ body#creazioneReport{
 */
 
 
+#areaPersonale > h1{
+    width: 90%;
+    margin:auto;
+    margin-top: 1em;
+}
+#areaPersonale > p{
+    text-align: center;
+    width: 80%;
+    margin:auto;
+    margin-bottom: 3.5em;
+}
+
+#areaPersonale section >header{
+    margin-left: 5%;
+    clear: both;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 VISUALIZZA INFO UTENTE
 ------------------------------------------------------------------------------------------------------------
 */
 
-/**#accountTitle, #profile {
-    margin-left: 5em;
-    margin-right: 5em;
-}*/
 
-#viewInfoUser {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 3%;
-}
-
-#viewInfoUser header {
-    overflow: hidden;
-    clear:both;
-}
-
-#viewInfoUser div:nth-child(3) {
-    margin-top: 1em;
-    height: 14em; 
+#viewInfoUser > div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 2em 1em 2em 1em;
-
+    width: 90%;
+    margin:auto;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    max-width: 55em;
 }
 
-#viewInfoUser div div:nth-child(2)  {
-    max-width: 50%;
-    flex: 1 0;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
+#viewInfoUser dl  {
+    width: 32em;
+    margin:auto;
+    padding-bottom:1em;
+    padding-left:4em
+}
+#viewInfoUser dt {
+    font-size: 1em;
+    font-weight: bold;
+    width: 12em;
+    float:left;
+    padding-bottom: 1.5em;
+}
+#viewInfoUser dd {
+    float:right;
+    width: 20em;
+    padding-bottom: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+#viewInfoUser > div > div{
+    padding: 0 1em 2.5em 1em;
+    margin:auto;
+}
 #viewInfoUser img {
-    max-width: 14em;
-    height: 14em;
-    flex: 1 0;
-}
-
-#viewInfoUser h1 {
-    font-size: 3em;
-    font-weight: bold;
-}
-
-#viewInfoUser h3 {
-    font-weight: bold;
-    padding: 0em;
+    width: 10em;
+    height: 10em;
+    border-radius: 6em;
+    border: 0.5em solid #dfdfdf;
 }
 
 #viewInfoUser input {
@@ -985,23 +1000,6 @@ body#creazioneReport{
     text-align: left;
 }
 
-#viewInfoUser input[name="email"] {
-    width: 15em;
-}
-
-#viewInfoUser label {
-    font-size: 1em;
-    font-weight: bold;
-    display: inline-block;
-    width: 40%;
-}
-
-#viewInfoUser fieldset {
-    border-style: none;
-    width: 100%;
-    max-height: 20%;
-    margin-bottom: 1em;
-}
 
 /*
 ------------------------------------------------------------------------------------------------------------
@@ -1012,10 +1010,6 @@ body#creazioneReport{
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
 
-#dashboard > div > header{
-    margin-left: 5%;
-}
-
 #dashboard h3{
     font-size: 2em;
 }
@@ -1025,12 +1019,7 @@ body#creazioneReport{
     max-width: 8.5em;
     padding-bottom: 0.3em;
 }
-#dashboard header p{
-    clear: both;
-}
-#dashboard header{
-    margin-bottom: 1em;
-}
+
 
 .howTo .buttonLink{
     float: right; 
@@ -1201,14 +1190,13 @@ body#creazioneReport{
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-evenly;
-    margin-bottom: 10em;
 }
 .listeReport > div{
     flex: 1 0 45%;
-    min-width: 25em;
     margin-top: 1em;
     margin-bottom: 2em;
-    max-width: 35em;
+    min-width: 32em;
+    max-width: 39em;
 }
 .listeReport #reportMaster{margin-right: 0.5em;}
 .listeReport #reportPartecipante{margin-left: 0.5em;}
@@ -1224,6 +1212,7 @@ body#creazioneReport{
 
 .report .cards li{
     width: 95%;
+    min-width: 30em;
     height: 9em;
     margin: 0 auto 1.5em auto;
     display: block;
@@ -1273,6 +1262,13 @@ body#creazioneReport{
 
 /*--------------------------- CARDS REPORTS -------------------
 */
+
+.cardReport{
+    overflow-wrap: break-word;        
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
 .report .cardReport > button{
     height: 100%;
     width: 100%;
@@ -1299,16 +1295,20 @@ body#creazioneReport{
     text-align: left;
  }
 .report .cardReport .testoCardRep h4{
-     font-size: 1.2em;
-     font-weight: 400;
-     padding-left: 0.5em;
-     padding-bottom: 0.15em;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-left: 0.5em;
+    padding-bottom: 0.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
  }
 .report .cardReport .testoCardRep p{
     font-size: 0.9em;
     margin-top: auto;
     margin-bottom: auto;
     padding-bottom: 0;
+    overflow: hidden;
 }
 
 
@@ -1392,7 +1392,8 @@ button[name="RemoveRep"]{                                                 /*da e
 
 .userFields { 
     width: 37%;
-    margin: 5% auto 5% auto; 
+    margin: 5% auto 0 auto;
+    padding-bottom: 5em; 
 }
 
 .userFields h1 {
@@ -1503,9 +1504,9 @@ button[name="RemoveRep"]{                                                 /*da e
 
 #reportEsplora{
     margin: auto;
-    flex: 1 1 40em;
-    min-width: 40em;
-    max-width: 100em;
+    flex: 1 1 39em;
+    min-width: 32em;
+    max-width: 39em;
 }
 
 #reportEsplora form{                    /* Usa la form per ridimensionare*/
@@ -1583,15 +1584,11 @@ button[name="RemoveRep"]{                                                 /*da e
 */
 
 
-
-.htmlApprofondimento body{
-}
-
 .htmlApprofondimento .content{
     width: 70%;
     margin: auto;
     max-width: 800px;
-    margin-bottom: 5em;
+    padding-bottom: 10em;
 }
 
 .htmlApprofondimento h1{

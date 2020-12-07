@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="it" >
+<html lang="it">
 
     <head>
 
@@ -34,85 +34,76 @@ Note DI CORREZIONE:
 -->
 
 
-<body>
-    <header>
-        <img id="logo" src="../images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
+<body id="areaPersonale">
+    <header id="intestazioneSito">
+
+        <ul class="AiutiNavigazione">
+            <li><a href="">Vai al Menù</a></li>
+            <li><a href="">Vai al Contenuto</a></li>
+            <li><a href="">Salta alla sezione Schede Giocatore</a></li>
+            <li><a href="">Salta alla sezione Report di Sessione</a></li>
+        </ul>
+
         <div id="access">
             <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
             <input id="Iscrizione" type="submit" value="Iscriviti">
         </div>
         <ul id="menu">
-            <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
-            <li id="currentLink">Area Personale</li>        <!--DA Definire-->
-            <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
-            <li class="externalLink"><a href="../otherHTMLs/Esplora.html">Esplora</a></li>
+                <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
+                <li id="currentLink">Area Personale</li>
+                <li class="externalLink"><a href="Esplora.html">Esplora</a></li>
         </ul>
+
+
     </header>
 
-    
-    <div id="viewInfoUser">
-        <h1>Benvenuto! ...</h1>
+    <nav id="breadcrumb">
+        <ul>
+            <li><a href="../Home.html" xml:lang="en">Home</a></li>
+            <li></li>
+        </ul>
+    </nav>
+
+
+    <h1>Benvenuto in Area Personale</h1>
+    <p>In questa pagina troverai le <strong>informazioni</strong> che caratterizzano la tua 
+        <strong>identità</strong> su questo sito, le <strong>schede utente</strong> e i 
+        <strong xlm:lang="en">report</strong> che hai creato oltre ai <span xlm:lang="en">report</span> 
+        che ti citano come giocatore</p>
+
+    <section id="viewInfoUser">
         <header>
             <h2>Dati personali</h2>
             <a href="modificaDati.html" class="buttonLink">Modifica profilo</a>                     <!--Da completare href-->
         </header>
         
         <div>
-            <img alt="foto profilo" src="../images/IconaSito.png">
+            <div><img alt="foto profilo" src="../images/icone_razze/dragonide.png"></div>
         
-            <div> 
-                <fieldset>
-                <label for="NameSurname">Nome e cognome</label>
-                <input type="text" 
-                    name="NameSurname" 
-                    id="NameSurname" 
-                    readonly="readonly" 
-                    value="Alessandro Pirolo" />
-                </fieldset>
+            <dl> 
+                <dt>Username</dt>
+                    <dd>MasterAlessandro</dd>
+
+                <dt>Nome e cognome</dt>
+                    <dd>Alessandro Pirolo</dd>
         
-                <fieldset>
-                <label for="email">E-mail</label>
-                <input type="email"
-                    name="email"
-                    id="email"
-                    readonly="readonly"
-                    value="piroloalessandro81@gmail.com" 
-                    maxlength="100"/>
-                </fieldset>
+                <dt>E-mail</dt>
+                    <dd>piroloalessandro81@gmail.com</dd>
 
-                <fieldset>
-                <label for="birth">Data di nascita</label>
-                <input type="text"
-                    name="birth"
-                    id="birth"
-                    readonly="readonly"
-                    value="xx mese xxxx"/>
-                </fieldset>
-
-                <fieldset>
-                <label for="country">Paese o regione</label>
-                <input type="text"
-                    name="country"
-                    id="country"
-                    readonly="readonly"
-                    value="Italia" />
-                </fieldset>
-            </div>
+                <dt>Data di nascita</dt>
+                    <dd>xx mese xxxx</dd>
+            </dl>
         </div>
 
-    </div>
+    </section>
 
-    <!--<div id="editInfoUser">
-
-    </div>-->
 
     <div id="dashboard">
 
-    <div id="personaggiUtente">
+    <section id="personaggiUtente">
         <header>
             <h2>Schede Giocatore</h2>
             <a href="character creation.html" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
-            <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
         </header>
         <div class="box">
         <form action="" method="get">                                   <!--SPECIFICARE LA PAGINA DI AZIONE-->
@@ -236,21 +227,16 @@ Note DI CORREZIONE:
         </nav>
         </form>                                     
         </div>                                                  
-    </div>  
-
-
-
-
+    </section>  
 
 
 
     
 
-    <div class="report">
+    <section class="report">
         <header>
             <h2><span xlm:lang="en">Report</span> Sessione</h2>
             <a href="creazioneReport.html" class="buttonLink">Aggiungi <span xlm:lang="en">report</span> sessione</a>           <!--Da completare href-->
-            <p>Sottotitolo</p>                            <!--Da compilare Sottotitolo-->
         </header>
         <div class="listeReport">
         <div id="reportMaster">
@@ -498,7 +484,7 @@ Note DI CORREZIONE:
         </div>
 
         </div>
-    </div> 
+    </section> 
 
     </div>
 
