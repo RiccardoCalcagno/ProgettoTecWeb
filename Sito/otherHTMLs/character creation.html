@@ -43,30 +43,28 @@
         </ul>
     </nav>
 
-<h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+    <header id="intestazionePagina">
+        <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+        <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo 
+            ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
+    </header>
 
-<p id="ccP">
-    Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.
-    <!--
-    A seguito dell'login potrai reperire queste informazioni in un secondo momento nella dashboard delle schede giocatore della tua Area Personale.
-    Potrai inoltre prepararle in un formato stampa conforme allo standard di <abbr title="Dungeons and Dragons">D&amp;D</abbr>, pronte per essere usate nella prossima sessione!
-    -->
-</p>
+    <p class="campiObbligatori"> : campo obbligatorio</p>
 
 <form id="ccForm" autocomplete="on" class="creazioneFields">
 
-    <fieldset class="ccField"><legend><h2>Nome</h2></legend>
+    <fieldset class="ccField"><legend><h2 class="campiObbligatori">Nome</h2></legend>
           <label id="ccName" for="cname" class="ccLabel">Nome Personaggio:</label>
-        <input type="text" id="cname" name="cname" class="ccWrite" />
+        <input type="text" id="cname" name="cname" class="ccWrite"  aria-required="true" required="required"/>
     <!--    <p class="ccFDesc">Scegli il nome del tuo personaggio</p>-->
     </fieldset>
 
 <!-- TODO: Mettere tutte form "required"-->
 
 <!--Di seguito l'opzione tendina, ma si può valutare una lista di radiobutton, con aside to the side-->
-  <fieldset class="ccField"><legend><h2>Razza</h2></legend>
+  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Razza</h2></legend>
       <label for="crace" class="ccLabel">Scegli una Razza:</label>
-      <select id="crace" name="crace" onchange="myFunction()">     <!--------------- PROVA JS !!! ----------------> <!--------------- PROVA JS !!! ---------------->
+      <select id="crace" name="crace" onchange="myFunction()"  aria-required="true" required="required">     <!--------------- PROVA JS !!! ----------------> <!--------------- PROVA JS !!! ---------------->
         <option value="umano" data-desc="RaceDescUmano">Umano</option>
         <option value="elfo" data-desc="RaceDescElfo">Elfo</option>
         <option value="nano" data-desc="RaceDescNano">Nano</option>
@@ -96,9 +94,9 @@
   </fieldset>
   
 
-  <fieldset class="ccField"><legend><h2>Classe</h2></legend>
+  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Classe</h2></legend>
       <label for="cclass" class="ccLabel">Scegli una Classe:</label>
-      <select id="cclass" name="cclass">
+      <select id="cclass" name="cclass"  aria-required="true" required="required">
         <option value="bardo">Bardo</option>
         <option value="barbaro">Barbaro</option>
         <option value="druido">Druido</option>
@@ -119,9 +117,9 @@
   </fieldset>
   
   
-  <fieldset class="ccField"><legend><h2>Background</h2></legend>
+  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Background</h2></legend>
       <label for="cbackground" class="ccLabel">Scegli un Background:</label>
-      <select id="cbackground" name="cbackground">
+      <select id="cbackground" name="cbackground" aria-required="true" required="required">
         <option value="accolito">Accolito</option>
         <option value="artigiano">Artigiano</option>
         <option value="ciarlatano">Ciarlatano</option>
@@ -141,11 +139,11 @@
       </div>
   </fieldset>
 
-  <fieldset class="ccField"><legend><h2>Allineamento</h2></legend>
+  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Allineamento</h2></legend>
       <!-- Possiamo inserire una select e quindi una semplice tendina con (come prima) un div che si aggiorna in base alla scelta, con una piccola descrizione-->
       <!-- oppure una tabella (!!!) con i 9 allineamenti classici. Ogni elemento della tabella/griglia è un radiobutton selezionabile. OPZIONE NON PIACEVOLE :( causa accessibilità e ridimensionamento -->
       <label for="calignment" class="ccLabel">Scegli un Allineamento:</label>
-      <select id="calignment" name="calignment">
+      <select id="calignment" name="calignment" aria-required="true" required="required">
         <option value="LG">Lawful Good</option>
         <option value="NG">Neutral Good</option>
         <option value="CG">Chaotic Good</option>

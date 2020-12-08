@@ -17,7 +17,7 @@
 
     </head>
 
-    <body>
+    <body id="modificaDati">
         <header id="intestazioneSito">
 
             <ul class="AiutiNavigazione">
@@ -45,80 +45,111 @@
             </ul>
         </nav>
 
-        <div class="userFields">
+        <header id="intestazionePagina">
             <h1>Modifica i tuoi dati</h1>
-            <form  autocomplete="on" class="creazioneFields">
-                <input type="file" name="setImmg" placeholder="Importa immagini..." multiple="multiple" accept="image/*"/>
+        </header>
 
-                <fieldset>
-                    <legend><h2>Dati anagrafici</h2></legend>
-                    <label for="NomeCognome">Nome e cognome</label>
-                    <input type="text" 
+        <p class="campiObbligatori"> : campo obbligatorio</p>
+        
+        <div class="userFields">
+            <form id="datiUtenza" autocomplete="on" class="creazioneFields">
+            <div>
+            <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
+                <ul>
+                    <li>
+                    <img alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="../images/img_profilo_mancante.png">
+                    <label for="imgProfilo">Immagine profilo</label>
+                    <input type="file" id="imgProfilo" name="setImmg" accept="image/*"/>
+                    </li>
+                    <li>
+                    <label for="username" class="campiObbligatori">Username</label>
+                    <input type="text"  aria-required="true" required="required"
+                            maxlength="20"
+                            name="username" 
+                            id="username"
+                            value=""
+                            placeholder="Inserisci un username di max 20 caratteri"/>
+                    </li>
+                </ul>
+            </fieldset>
+
+
+            <fieldset id="datiAnagrafici">  <legend><h2>Dati anagrafici</h2></legend>
+                <ul>
+                    <li>
+                    <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
+                    <input type="text"  aria-required="true" required="required"
                         name="NomeCognome" 
                         id="NomeCognome"
-                        value=""
+                        value="" 
                         placeholder="Inserisci il tuo nome e il tuo cognome"/>
-            
-                    <label for="email">E-mail</label>
-                    <input type="text" 
+                    </li>
+                    <li>
+                    <label for="email" class="campiObbligatori">E-mail</label>
+                    <input type="text"  aria-required="true" required="required"
                         name="email" 
                         id="email"
                         value=""
                         placeholder="Inserisci la tua mail"
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
-
-                    <label for="birthdate">Data di nascita</label>
-                    <input type="date" 
+                    </li>
+                    <li>
+                    <label for="birthdate" class="campiObbligatori">Data di nascita</label>
+                    <input type="date"  aria-required="true" required="required"
                         name="birthdate" 
                         id="birthdate"
                         value=""
                         placeholder="Seleziona la tua data di nascita"/>
+                    </li>
+                </ul>
+            </fieldset>
+            </div>
+            <div class="submitForm">
+                <p>Salva i dati di utenza e anagrafici che hai modificato </p>
+                <div>
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Annulla"/>
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati"/>  
+                </div>      
+            </div>
+            </form>
 
-                    <label for="country">Paese</label>
-                    <input type="text" 
-                        name="country" 
-                        id="country"
-                        value=""
-                        placeholder="Seleziona il tuo paese"/>
-
-                </fieldset>
-
-                <fieldset>
-                    <legend><h2>Modifica password</h2></legend> 
-                    <label for="password">Password corrente</label>
-                    <input type="password" 
+            <form id="datiPassword" autocomplete="on" class="creazioneFields">
+            <fieldset>  <legend><h2>Modifica password</h2></legend> 
+                <ul>
+                    <li>
+                    <label for="password" class="campiObbligatori">Password corrente</label>
+                    <input type="password"  aria-required="true" required="required"
                         name="password" 
                         id="password"
                         value=""
                         placeholder="Digitare la password corrente"/>
-
-                    <label for="newPasswd">Nuova Password</label>
-                    <input type="password" 
+                    </li>
+                    <li>
+                    <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
+                    <input type="password"  aria-required="true" required="required"
                         name="newPasswd" 
                         id="newPasswd"
                         value=""
-                        placeholder="Digitare la nuova password"
-                        pattern=".{8,}"
-                        title="Deve contenere almeno un numero e una lettera maiuscola e minuscola e almeno 8 o più caratteri"/>
-                    <div id="infoPasswd"><p>La password deve rispettare i seguenti requisiti:</p>
-                        <ul>
-                            <li>lunghezza minima di 8 caratteri;</li>
-                            <li>almeno una lettera minuscola ed una maiuscola;</li>
-                            <li>almeno una cifra numerica;</li>
-                        </ul>
-                    </div>
-        
-                    <label for="">Digita nuovamente la password</label>
-                    <input type="password" 
+                        placeholder="Digitare la nuova password"/>
+                    </li>
+                    <li>
+                    <label for="" class="campiObbligatori">Digita nuovamente la password</label>
+                    <input type="password"  aria-required="true" required="required"
                         name="country" 
                         id="country"
                         value=""
                         placeholder="Seleziona il tuo paese"/>
-                </fieldset>
-                <div id="buttonEdit">
-                    <input type="button" name="Annulla" value="Annulla"/>
-                    <input class="buttonLink" type="button" name="Salva modifiche" value="Salva modifche"/>
+                    </li>
+                </ul>
+            </fieldset>
+            <div class="submitForm">
+                <p>Salva La nuova password</p>
+                <div>
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Annulla"/>
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password"/>  
                 </div>
+                   
+            </div>
             </form>
         </div>
     </body>

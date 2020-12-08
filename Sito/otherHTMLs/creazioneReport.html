@@ -41,11 +41,11 @@
             </ul>
         </nav>
 
-
-        <h1>Creazione del Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
-
-        <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
-            passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai.</p>
+        <header id="intestazionePagina">
+            <h1>Creazione del Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
+            <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
+                passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai.</p>
+        </header>
 
         <p class="campiObbligatori"> : campo obbligatorio</p>
 
@@ -151,9 +151,13 @@
                         <input type="checkbox" id="condividi" name="condividi"/>
                     </div>
                 </div>
-                <div id="submitReport">
-                    <p>Concludi la creazione e salva il report creato nella tua Area Personale</p>
-                    <input class="buttonLink" type="submit" name="salvaRep" value="Accedi e Salva Report"/>       <!-- SE L'UTENTE NON HA FATTO L'ACCESSO => é SOLO Salva Report-->
+                <div id="submitReport" class="submitForm">
+                    <p>Concludi la creazione salvando il report che hai creato nella tua Area Personale</p>
+                    <div>
+                        <input class="buttonLink" type="submit" name="salvaRep" value="Annulla"/>
+                        <input class="buttonLink" type="submit" name="salvaRep" value="Salva Report"/>  
+                    </div>
+                       
                 </div>
 
             </div>
