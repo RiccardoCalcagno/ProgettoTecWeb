@@ -72,11 +72,10 @@ html{
     background-repeat: repeat;
 }
 body{
-    background-color: #fff7e6;
+    background-color: #fff7e6;      /* ATTENZIONE MODIFICARE ANCHE HEADER IN: VISUALIZZA REPORT DI SESSIONE */
     max-width: 1200px;
     margin: auto;
 }
-
 
 
 .DeD::after {
@@ -95,14 +94,18 @@ button:focus{
 .buttonLink{
     background-color: #8f5b20;
     color: #FFF8E6;
-    margin-top: 1.9em;
-    padding-top: 0.3em;
     text-align: center;
     width:20em;
-    height: 2em;
+    height: 2.7em;
     box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
     border-radius: 4px;
+    border:none;
     cursor: pointer;
+    margin:auto;
+}
+a.buttonLink {
+    padding-top:0.5em;
+    height: 2.2em;
 }
 .buttonLink:hover{
     background-color: #a36a28;
@@ -134,10 +137,6 @@ button:focus{
 }
 .submitForm input{
     width: 10em;
-    height: 2.7em;
-    padding-top: 0em;
-    border: none;
-    margin:auto;
     margin-top:1em;
 }
 .submitForm div :nth-child(1){margin-right: 0.5em;}
@@ -199,7 +198,6 @@ input[type="file"]:hover{
 .badgeUtente{
     text-align: center;
     width:6.5em;
-    height: 8em;
 }
 .badgeUtente h5{
     font-size: 1em;
@@ -592,6 +590,440 @@ li #toApprEsp:active{background-color:#732ab8be;}
 
 
 
+
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+#visualizzaReport > header{
+    background-color: #fff7e6;
+    margin:0;
+    padding-bottom: 1em;
+}
+
+#visualizzaReport{
+    background-color: transparent;
+}
+
+
+#visualizzaReport #content button[name="closeReport"]{
+    float: right;
+    position: relative;
+    top:-5.5em;
+    left: calc(3em);
+    width: 2.5em; 
+    height: 2.5em; 
+    background-image: url(../images/icona_close.png);
+    background-size: 2.5em 7.5em;
+    background-color: transparent;
+    border:none;
+    border-radius: 1em;
+}
+#visualizzaReport #content button[name="closeReport"]:hover{
+    background-position: center;
+}
+#visualizzaReport #content button[name="closeReport"]:active{
+    background-position: bottom;
+}
+
+#visualizzaReport #content{
+    background-color: #000000a8;
+    padding:4em 1em 4em 1em;
+}
+
+#contentRepo{
+    background-color: #FFFFFF;
+    max-width: 50em;
+    padding:2em 3em 2em 3em;
+    margin: auto;
+    border: 2px solid #2c2318;
+    border-radius: 2em;
+}
+
+/*
+--------------------------------------- HEADER REPO ----------------------------------------------
+*/
+#contentRepo header{
+    padding-bottom: 1.7em;
+}
+#contentRepo header h1{
+    font-size: 2.8em;
+    padding-bottom:0.2em;
+}
+#contentRepo header p{
+    font-size: 1.1em;
+    font-weight: 500;
+}
+/*
+--------------------------------------- SEZIONI REPO ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#giocatoriReport{
+    padding-top: 2.1em;
+}
+#giocatoriReport ul{
+    clear: both;
+    overflow: hidden;
+    padding-bottom: 1.5em;
+}
+#giocatoriReport ul > li{
+    float: left;
+    padding:0.3em;
+}
+
+#contentRepo section h2{
+    font-size: 1.8em;
+    padding-bottom: 0.5em;
+}
+
+#contentRepo section#giocatori{
+    margin-top:0.5em;
+}
+
+
+/*
+--------------------------------------- InfoDiCreazioni ----------------------------------------------
+*/
+
+#contentRepo #infoDiCreazione{
+    display: flex;
+    padding-bottom:1em;
+    flex-wrap: wrap;
+    text-align: center;
+    width:90%;
+    margin:auto;
+    background-color: #fff6e6;
+    border-radius: 1em;
+}
+#contentRepo #infoDiCreazione h2{
+    font-size: 1.3em;
+}
+#contentRepo #infoDiCreazione > section{
+    flex: 0 1 15em;
+    margin:auto;
+    padding-top: 1em;
+}
+#contentRepo #infoDiCreazione section > *{
+    margin:auto;
+    width: 5em;
+    display: inline-block;
+    padding-bottom: 0;
+}
+#contentRepo #infoDiCreazione #ultimaModifica{
+    flex: 0 1 19em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    position: relative;
+    top:0.5em;
+}
+#contentRepo #infoDiCreazione #ultimaModifica > *{
+    width: 8em;
+}
+#contentRepo #autore > h2{
+    position: relative;
+    top:-1.5em;
+}
+#contentRepo #autore .badgeUtente{
+    height: initial;
+    margin:0;
+    position: relative;
+    top:0.3em;
+}
+/*
+--------------------------------------- COMMENTI REPO ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#commentiField{
+    margin-top:2em;
+    margin-bottom: 3em;
+    background-color: #fff6e6;
+    border-radius: 1em;
+}
+#commentiField legend{background-color: #fff6e6;border-radius: 1em;}
+#commentiField legend >h2{
+    padding-bottom: 0;
+    font-size: 1.8em;
+}
+
+#commentiField #InserimentoCommento{
+    clear: both;
+    overflow: hidden;
+    margin:0 0 1.5em 2em;
+}
+#commentiField #InserimentoCommento input[type="submit"]{
+    margin-right: 1.5em;  
+    margin-top:1em;
+    float: right;
+    width: 10em;
+}
+#commentiField #InserimentoCommento input[type="text"]{
+    margin-top: 1em;
+    margin-right: 1em;
+    width: 58%;
+}
+
+#commentiField li{
+    clear: both;
+    overflow: hidden;
+    padding-bottom: 1em;
+}
+#commentiField li .badgeUtente{
+    padding:0.5em;
+    float: left;
+}
+#commentiField li > p{
+    margin-left: 1em;
+    width: calc(100% - 12em);
+    float:left;
+    position: relative;
+    top: 1.2em;
+}
+
+#commentiField li > button{
+    position: relative;
+    margin-left:0.7em;
+    top:1em;
+    width: 2em; 
+    height: 2em; 
+    background-image: url(../images/icona_elimina.png);
+    background-size: 2em 6em;
+    background-color: transparent;
+    border:none;
+}
+#commentiField li > button:hover{
+    background-position: center;
+}
+#commentiField li > button:active{
+    background-position: bottom;
+}
+
+
+/*
+--------------------------------------- REPO ACTIONS ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#ReportActions ul{
+    width: 100%;
+    height: 3em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#ReportActions ul button{
+    width: 10em;
+}
+#ReportActions ul :nth-child(1){
+    float: left;
+}
+#ReportActions ul :nth-child(2), #ReportActions ul :nth-child(3){
+    float: right;
+}
+#ReportActions ul :nth-child(3){
+    margin-right: 1em;
+}
+#ReportActions ul :nth-child(2) button{
+    width: 15em;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        CREAZIONI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.creazioneFields fieldset{
+    background-color: #FFF0D4;
+    border:none;
+    border-radius: 0.5em;
+    padding:0em 1em 1.5em 1em;
+}
+.creazioneFields fieldset legend{
+    background-color: #FFF0D4;
+    border:none;
+    border-radius: 0.5em;
+    margin-left: 1em;
+    padding:0.5em 1em;
+}
+.creazioneFields fieldset legend h2{
+    font-size: 1.5em;
+}
+
+textarea,input[type="text"],input[type="date"],input[type="password"]{
+    resize: none;
+    padding:0.5em;
+    border: 1px solid #392D20;
+    border-radius: 0.3em;
+    width: 25em;
+}
+
+p.campiObbligatori{ 
+    text-align: right;
+    margin-right: 7.5%;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                CREA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.campiObbligatori::before{
+    content:"*";
+    color: #da0000;
+    font-size: 1.2em;
+}
+
+#creazioneReport ol{
+    width: 80%;
+    margin:auto;
+}
+
+#creazioneReport .badgeUtente p{margin-top:0em;}
+
+#creazioneReport .creazioneFields fieldset{
+    width: 100%;
+    margin:auto;
+    margin-bottom: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+#creazioneReport .creazioneFields fieldset > p{
+    flex: 1 2 18em;
+    padding:1.5em 2em;
+    max-width: 80%;
+    text-align: left;
+    margin:auto;
+}
+#creazioneReport .creazioneFields fieldset > div{
+    margin:auto;
+    flex: 1 1 25em;
+    padding:1em 2em;
+    max-width: 80%;
+}
+#creazioneReport .creazioneFields fieldset textarea{
+    width: 100%;
+}
+
+
+#creazioneReport #immaginiRepo > div{
+    text-align: center;
+    flex: 1 1 24em;
+    max-width: 24em;
+    padding-right: 4em;
+    padding-left: 3em;
+}
+
+/*
+------------------------------------- BOX GIOCATORI ------------------------------------
+*/
+
+
+#creazioneReport #giocatoriRepo{
+    display: block;
+}
+#creazioneReport #selezionamentoGiocatori{
+    display:flex;
+    flex-wrap: wrap;
+    padding:0;
+    max-width: 95%;
+}
+#creazioneReport #selezionamentoGiocatori input{
+    width: 15em;
+}
+#creazioneReport #selezionamentoGiocatori > div{
+    margin:auto;
+    padding:1em;
+} 
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente > div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente{
+    height: 7em;
+}
+#creazioneReport #selezionamentoGiocatori ul{
+    height: 6.8em;
+    width: 31em;
+    background-color: #FFFFFF;
+    padding: 1.2em 0 1em 1em;
+    border: 8px inset #dfdfdf;
+    border-radius: 0.5em;
+    overflow: scroll;
+}
+
+#creazioneReport #selezionamentoGiocatori ul li{
+    float: left;
+    padding-right:1em;
+}
+
+
+/*
+------------------------------------- CONCLUSIONE------------------------------------
+*/
+
+#conclusione{
+    padding-top:2em;
+    width: 90%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#conclusione >div{
+    margin:auto;
+    padding:1.5em;
+}
+#conclusione #condivisione{
+    flex: 1 1 25em;
+    max-width: 27em;
+    text-align: center;
+    margin-bottom:4em;
+    margin-top:3em;
+}
+#conclusione #condivisione h3{
+    font-size: 1.1em;
+    padding-bottom: 0.7em;
+    width: 25em;
+    margin:auto;
+}
+#conclusione #condivisione input{
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 0.6em;
+    margin-left: 1em;
+    position: relative;
+    top: 0.45em;
+}
+#conclusione #condivisione > div{
+    margin:auto;
+    font-size:1.2em;
+    width: 12.8em;
+}
+
+#conclusione #submitReport{
+    flex: 1 1 25em;
+}
+
+
+
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -690,221 +1122,6 @@ fieldset.ccField p#traitsDesc {
     border-radius: 5px;
     cursor: pointer;
 }
-
-
-
-/*
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-                                                VISUALIZZA REPORT SESSIONE
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-
-
-
-/*
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-                                                        CREAZIONI
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-
-form.creazioneFields ol{
-}
-
-.creazioneFields fieldset{
-    background-color: #FFF0D4;
-    border:none;
-    border-radius: 0.5em;
-    padding:0em 1em 1.5em 1em;
-}
-.creazioneFields fieldset legend{
-    background-color: #FFF0D4;
-    border:none;
-    border-radius: 0.5em;
-    margin-left: 1em;
-    padding:0.5em 1em;
-}
-.creazioneFields fieldset legend h2{
-    font-size: 1.5em;
-}
-
-textarea,input[type="text"],input[type="date"],input[type="password"]{
-    resize: none;
-    padding:0.5em;
-    border: 1px solid #392D20;
-    border-radius: 0.3em;
-    width: 25em;
-    height: 2em;
-}
-
-p.campiObbligatori{ 
-    text-align: right;
-    margin-right: 7.5%;
-}
-
-/*
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-                                                CREA REPORT SESSIONE
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-.campiObbligatori::before{
-    content:"*";
-    color: #da0000;
-    font-size: 1.2em;
-}
-
-#creazioneReport ol{
-    width: 80%;
-    margin:auto;
-}
-
-#creazioneReport .badgeUtente p{margin-top:0em;}
-
-#creazioneReport .creazioneFields fieldset{
-    width: 100%;
-    margin:auto;
-    margin-bottom: 2em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-}
-
-#creazioneReport .creazioneFields fieldset > p{
-    flex: 1 2 18em;
-    padding:1.5em 2em;
-    max-width: 80%;
-    text-align: left;
-    margin:auto;
-}
-#creazioneReport .creazioneFields fieldset > div{
-    margin:auto;
-    flex: 1 1 25em;
-    padding:1em 2em;
-    max-width: 80%;
-}
-#creazioneReport .creazioneFields fieldset textarea{
-    width: 100%;
-}
-
-
-#creazioneReport #immaginiRepo > div{
-    text-align: center;
-    flex: 1 1 24em;
-    max-width: 24em;
-    padding-right: 4em;
-    padding-left: 3em;
-}
-
-/*
-------------------------------------- BOX GIOCATORI ------------------------------------
-*/
-
-
-#creazioneReport #giocatoriRepo{
-    display: block;
-}
-#creazioneReport #selezionamentoGiocatori{
-    display:flex;
-    flex-wrap: wrap;
-    padding:0;
-    max-width: 95%;
-}
-#creazioneReport #selezionamentoGiocatori input{
-    outline: none;
-    width: 15em;
-    height: 2.5em;
-    padding-bottom: 0.4em;
-    border:none;
-    margin:auto;
-}
-#creazioneReport #selezionamentoGiocatori > div{
-    margin:auto;
-    padding:1em;
-} 
-
-#creazioneReport #selezionamentoGiocatori .badgeUtente > div{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-#creazioneReport #selezionamentoGiocatori .badgeUtente{
-    height: 7em;
-}
-#creazioneReport #selezionamentoGiocatori ul{
-    height: 6.8em;
-    width: 31em;
-    background-color: #FFFFFF;
-    padding: 1.2em 0 1em 1em;
-    border: 8px inset #dfdfdf;
-    border-radius: 0.5em;
-    overflow: scroll;
-}
-
-#creazioneReport #selezionamentoGiocatori ul li{
-    float: left;
-    padding-right:1em;
-}
-
-
-/*
-------------------------------------- CONCLUSIONE------------------------------------
-*/
-
-#conclusione{
-    padding-top:2em;
-    width: 90%;
-    margin:auto;
-    display: flex;
-    flex-wrap: wrap;
-}
-#conclusione >div{
-    margin:auto;
-    padding:1.5em;
-}
-#conclusione #condivisione{
-    flex: 1 1 25em;
-    max-width: 27em;
-    text-align: center;
-    margin-bottom:4em;
-    margin-top:3em;
-}
-#conclusione #condivisione h3{
-    font-size: 1.1em;
-    padding-bottom: 0.7em;
-    width: 25em;
-    margin:auto;
-}
-#conclusione #condivisione input{
-    width: 1.5em;
-    height: 1.5em;
-    border-radius: 0.6em;
-    margin-left: 1em;
-    position: relative;
-    top: 0.45em;
-}
-#conclusione #condivisione > div{
-    margin:auto;
-    font-size:1.2em;
-    width: 12.8em;
-}
-
-#conclusione #submitReport{
-    flex: 1 1 25em;
-}
-
-
-
-
 
 
 /*
