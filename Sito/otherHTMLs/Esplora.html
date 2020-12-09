@@ -55,91 +55,97 @@
 	    </ul>
 
 
-	</header>
+    </header>
 
-	<nav id="breadcrumb">
-		<ul>
-			<li><a href="../Home.html" xml:lang="en">Home</a></li>
-			<li>Esplora</li>
-		</ul>
-	</nav>
+    <nav id="breadcrumb">
+        <ul>
+            <li><a href="../Home.html" xml:lang="en">Home</a></li>
+            <li>Esplora</li>
+        </ul>
+    </nav>
 
-	<div id="esploraWrapper">
-		
-		<aside id="esploraAside">
-			<ul>
-				<li id="eventi">
-					<h2>Prossimi Eventi</h2>
-					<p>Scopri quali sono gli eventi pianificati per il futuro, unisciti alla Community dal vivo!</p>
-					<dl>
-						<dt>Lucca Comics</dt>
-						<dd>Visita il padiglione di Dungeons&Dragons per conoscere altri giocatori come te e partecipare a sessioni a tema!</dd>
-						<dd>Da Giovedì 10 Marzo 2021, aperta per tutto il Weekend</dd>
+    <header id="intestazionePagina">
+        <h1>Benvenuto in Esplora <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_esplora.html">?</a></span></h1>
+        <p>In questa pagina avrai la possibilità di scoprire le avventure che master come te hanno voluto condividere globalmente.
+             Qui troverai anche interesantissimi aggiornamenti su ciò che il nostro territorio mette a disposizione ad avventurieri come noi.</p>
+    </header>
 
-						<dt>Fiera del Fumetto di Milano</dt>
-						<dd>Vieni allo stand dedicato a D&D e partecipa ad una delle nostre OneShot.</dd>
-						<dd>Rimandata a data da destinarsi</dd>
-					</dl>
-				</li>
+    <div id="esploraWrapper">
+        
+        <aside id="esploraAside">
+            <ul>
+                <li id="eventi">
+                    <h2>Prossimi Eventi</h2>
+                    <p>Scopri quali sono gli eventi pianificati per il futuro, unisciti alla Community dal vivo!</p>
+                    <dl>
+                        <dt>Lucca Comics</dt>
+                        <dd>Visita il padiglione di Dungeons&Dragons per conoscere altri giocatori come te e partecipare a sessioni a tema!</dd>
+                        <dd>Da Giovedì 10 Marzo 2021, aperta per tutto il Weekend</dd>
 
-				<li id="siti">
-					<h2>Siti Utili, Strumenti e Manuali</h2>
-					<p>Hai ancora un po di tempo per navigare? Ecco alcuni strumenti utili che puoi trovare online per arricchire la tua esperienza!</p>
-					<dl>
-						<dt><a href="https://dnd.wizards.com/">Dungeons&Dragons</a></dt>
-						<dd>Visita il sito ufficiale per controllare tutte le novità sul gioco</dd>
+                        <dt>Fiera del Fumetto di Milano</dt>
+                        <dd>Vieni allo stand dedicato a D&D e partecipa ad una delle nostre OneShot.</dd>
+                        <dd>Rimandata a data da destinarsi</dd>
+                    </dl>
+                </li>
 
-						<dt><a href="https://dnddice.com/">DnD Dice</a></dt>
-						<dd>Negozio online dove comprare dadi personalizzati per le tue partite</dd>
-						
-						<dt><a href="https://www.heroforge.com/">Hero Forge</a></dt>
-						<dd>Negozio online per creare miniature personalizzate dei tuoi personaggi preferiti</dd>
-					</dl>
-				</li>
-			</ul>
-		</aside>
+                <li id="siti">
+                    <h2>Siti Utili, Strumenti e Manuali</h2>
+                    <p>Hai ancora un po di tempo per navigare? Ecco alcuni strumenti utili che puoi trovare online per arricchire la tua esperienza!</p>
+                    <dl>
+                        <dt><a href="https://dnd.wizards.com/">Dungeons&Dragons</a></dt>
+                        <dd>Visita il sito ufficiale per controllare tutte le novità sul gioco</dd>
 
-		<section id="reportEsplora" class="report">
-			<form action="" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-				<header>
-					<h2><span xlm:lang="en">Report</span> Globali</h2>
-					<p>Consulta i <span xlm:lang="en">Report</span> postati dagli altri utenti!</p>
-				</header>
-				<div class="box">
-				<ul class="cards">
-					<li class="cardReport" class="cardReportEsplora">
-						<button name="ReportEsplora" value="1">
-							<div class="testoCardRep">
-								<h4 class="textVariable">Titolo Report di Sessione</h4>
-								<p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-									lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-							</div>
-							<div  class="badgeUtente">
-								<h5>Autore</h5>
-								<img src="../images/icone_razze/nano.png" alt="" /> 
-								<p class="textVariable">Nome Autore</p>
-							</div>
-						<footer>
-							<p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-							<p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-						</footer>
-						</button>
-					</li>
-				</ul>
-				</div>
-				<nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
-					<ul>
-						  <li><label id="LblEsploraPrecedente" for="esploraPrecedente">precedente</label></li>
-						  <li class="inputMove"><input type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente"></li>                     
-						  <li><span><abbr>Pag</abbr></span>. <span id="numPagEsplora">1</span>/<span id="totNumPagEsplora">2</span></li>
-						  <li class="inputMove"><input type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo"></li> 
-						  <li><label id="LblEsploraSuccessivo" for="esploraSuccessivo">successiva</label></li>
-					</ul> 
-				  </nav>
-			</form>
-		</section>
-		</div>
-	</div>
+                        <dt><a href="https://dnddice.com/">DnD Dice</a></dt>
+                        <dd>Negozio online dove comprare dadi personalizzati per le tue partite</dd>
+                        
+                        <dt><a href="https://www.heroforge.com/">Hero Forge</a></dt>
+                        <dd>Negozio online per creare miniature personalizzate dei tuoi personaggi preferiti</dd>
+                    </dl>
+                </li>
+            </ul>
+        </aside>
+
+        <section id="reportEsplora" class="report">
+            <form action="" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+                <header>
+                    <h2><span xlm:lang="en">Report</span> Globali</h2>
+                    <p>Consulta i <span xlm:lang="en">Report</span> postati dagli altri utenti!</p>
+                </header>
+                <div class="box">
+                <ul class="cards">
+                    <li class="cardReport" class="cardReportEsplora">
+                        <button name="ReportEsplora" value="1">
+                            <div class="testoCardRep">
+                                <h4 class="textVariable">Titolo Report di Sessione</h4>
+                                <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
+                                    lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
+                            </div>
+                            <div  class="badgeUtente">
+                                <h5>Autore</h5>
+                                <img src="../images/icone_razze/nano.png" alt="" /> 
+                                <p class="textVariable">Nome Autore</p>
+                            </div>
+                        <footer>
+                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
+                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
+                        </footer>
+                        </button>
+                    </li>
+                </ul>
+                </div>
+                <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+                    <ul>
+                          <li><label id="LblEsploraPrecedente" for="esploraPrecedente">precedente</label></li>
+                          <li class="inputMove"><input type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente"></li>                     
+                          <li><span><abbr>Pag</abbr></span>. <span id="numPagEsplora">1</span>/<span id="totNumPagEsplora">2</span></li>
+                          <li class="inputMove"><input type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo"></li> 
+                          <li><label id="LblEsploraSuccessivo" for="esploraSuccessivo">successiva</label></li>
+                    </ul> 
+                  </nav>
+            </form>
+        </section>
+        </div>
+    </div>
 
 
 

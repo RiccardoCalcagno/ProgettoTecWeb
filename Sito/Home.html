@@ -49,38 +49,45 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
 
 
-<body>
+<body id="bodyHome">
 
-<header id="intestazioneSito">
+    <header id="intestazioneSito">
 
-    <img id="logo" src="images/IconaSito.png" alt="" />          <!--ATTENZIONE DA COMPLETARE-->
-    <div id="access">
-        <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
-        <input id="Iscrizione" type="submit" value="Iscriviti">
-    </div>
-    <ul id="menu">
-            <li xml:lang="en" id="currentLink">Home</li>
-            <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>        <!--DA Definire-->
-            <!--<li class="externalLink"><a href="otherHTMLs/Mappe&Trame.html">Mappe e Trame</a></li>-->
-            <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
+        <ul class="AiutiNavigazione">
+            <li><a href="">Vai al Menù</a></li>
+            <li><a href="">Vai al Contenuto</a></li>
+        </ul>
+
+        <div id="access">
+            <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
+            <input id="Iscrizione" type="submit" value="Iscriviti">
+        </div>
+        <ul id="menu">
+                <li xml:lang="en" id="currentLink">Home</li>
+                <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>
+                <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
         </ul>
 
 
-</header>
+    </header>
 
-<nav class="breadcrumbs">
-    <ul>
-        <li>Home</li>
-    </ul>
-</nav>
+    <nav id="breadcrumb">
+        <ul>
+            <li><a href="../Home.html" xml:lang="en">Home</a></li>
+            <li></li>
+        </ul>
+    </nav>
 
 
 <div id="copertina">
 
     <img src="images/copertina.png" alt=""/>
     <div id="angoliCornice"></div>
-    <h1 id="titolo">Titolo del Sito</h1>                <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
-    <h3 id="sottotitolo">Sottotitolo</h3>           <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+
+    <header id="intestazionePagina">
+        <h1 id="titolo">Titolo del Sito</h1>                
+        <h3 id="sottotitolo">Sottotitolo</h3>          
+    </header>
 
 </div>
 

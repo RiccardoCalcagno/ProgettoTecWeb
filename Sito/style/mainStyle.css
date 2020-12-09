@@ -32,32 +32,59 @@ p,h1,h2,h3,h4,h5,h6,dt,dd{
 p{
     padding-bottom: 0.5em;
 }
+li{
+    list-style-type:none;
+}
+
 h2{
     padding-bottom: 0.8em;
     font-size: 2em;
     font-weight: 500;
-}
-h1{
-    font-weight: 500;
-    text-align: center;
-    font-size: 3em;
 }
 h3{
     font-weight: 500;
     padding-bottom: 0.2em;
 }
 
+#intestazionePagina{
+    width: 85%;
+    margin:auto;
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 4em;
+}
+#intestazionePagina h1{
+    font-weight: 500;
+    width: 100%;
+    font-size: 3em;
+    margin-bottom: 0.3em;
+}
+#intestazionePagina p{
+    width: 100%;
+}
+
+
+
 
 html{
-    background-color: #fff7e6;
+    background-color: #1F1A19;
+    background-image: url("../images/sfondo.png");
+    background-repeat: repeat;
 }
+body{
+    background-color: #fff7e6;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
 
 .DeD::after {
     content: "\00ae"; 
     font-size: 0.3em;
 }
 
-input[type="submit"]:focus{
+input, textarea{
         outline: none;
     }
 
@@ -97,18 +124,34 @@ button:focus{
     height: 1.8em;
 }
 
-#bodyEsplora {
-    max-width: 1024px;  /* max-widht o no ? */
-    margin: auto;
+
+.submitForm{
+    max-width: 31em;
+    text-align: center;
+    padding-bottom: 2em;
+    background-color: #FFF0D4;
+    border-radius: 4em;
 }
+.submitForm input{
+    width: 10em;
+    height: 2.7em;
+    padding-top: 0em;
+    border: none;
+    margin:auto;
+    margin-top:1em;
+}
+.submitForm div :nth-child(1){margin-right: 0.5em;}
+.submitForm div :nth-child(2){margin-left: 0.5em;}
 
 
 #breadcrumb {
-    background-color: #8f5b20;
-    padding: 0.2em 0.7em;
-    margin: 1em 1.1em;
-    margin-top: 0;
+    background-color: #382c22;
+    color:#fff7e6;
+    padding: 0.1em 0.5em;
     list-style: none;
+}
+#breadcrumb a{
+    color:#fff7e6;
 }
 
 #breadcrumb li {
@@ -136,7 +179,7 @@ button:focus{
 
 input[type="file"]{
     margin:auto;
-    width: 24em;
+    width: 24.3em;
     outline: none;
     border-radius: 0.3em;
     padding:0.5em;
@@ -220,8 +263,7 @@ body{
     display: none;
 }
 #intestazioneSito{
-    margin: 1em;
-    margin-bottom: 0;
+    margin: 0 1em 1em 1em;
     font-size: 1.1em;
 }
 
@@ -394,7 +436,6 @@ body{
 }
 #presentazioneFeatures ul   {
     margin: auto;
-    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -484,6 +525,7 @@ body{
 .about li{
     padding-bottom: 0.5em;
     padding-left: 0.5em;
+    list-style-type: decimal;
 }
 
 #argomenti .howTo{
@@ -496,7 +538,6 @@ body{
 }
 .howTo li{
     padding-bottom: 1.5em;
-    list-style-type:none;
 }
 .howTo li:before{
     float: left;
@@ -529,14 +570,14 @@ body{
     margin-top: calc(5% + 3em);
     display: flex;
     flex-direction: column;
-    margin-bottom: 20em;
+    padding-bottom: 5em;
 }
 #approfondimenti h2{
     padding-bottom: 0;
     font-size: 2.5em;
 }
 #approfondimenti p{
-    padding-bottom: 2%;
+    padding-bottom: 1%;
     width: 80%;
     margin: auto;
 }
@@ -545,7 +586,6 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    list-style-type: none;
     width: 93%;
     margin: auto;
 }
@@ -558,6 +598,8 @@ body{
     margin: auto;
     margin-top: 2em;
     padding: 0 0.3em 0 0.3em ;
+    position: relative;
+    z-index: 0;
 }
 
 #approfondimenti li a{
@@ -613,49 +655,26 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-body#creazionePersonaggio{
-    max-width: 1200px;
-    margin:auto;
-}
 
-#creazionePersonaggio h1 {
-	margin: 0.5em 1em;
-}
-
-p#ccP {
-	margin: 0.7em 5%;
-	/*background-color: #FFEAB7;*/
-}
 
 #creazionePersonaggio label.ccLabel {
-	display: inline-block;
-	padding: 0 1em 0.3em 1em;
-}
-/*
-.ccFDesc {
     display: inline-block;
-    position: relative;
-    left: 20%;
+    padding: 0 1em 0.3em 1em;
 }
-*/
 
 .ccField {
-	margin: 1.3em 10% 2em 10%;
+    margin: 0 10% 2em 10%;
 }
 
 .ccField legend {
-	/*background-color: #FFF9EA;*/
+    /*background-color: #FFF9EA;*/
     font-weight: bold;
     padding: 0 0.3em;
     margin: 0 0.3em;
 }
 
-div.ccInfo {
-
-}
-
 fieldset.ccField p {
-	text-align: center;
+    text-align: center;
 }
 
 fieldset.ccField p#traitsDesc {
@@ -668,7 +687,7 @@ fieldset.ccField p#traitsDesc {
     text-align: center;
 }
 /* .ccTraitsTA {
-	display: block;
+    display: block;
     resize: none;
     padding-left: 1em;
     padding-right: 1em;
@@ -678,7 +697,7 @@ fieldset.ccField p#traitsDesc {
 */
 
 .ccTraitsTA {
-	display: block;
+    display: block;
     resize: none; /* maybe */
     margin: 0.5em 0;
 }
@@ -719,7 +738,7 @@ fieldset.ccField p#traitsDesc {
     padding: 0.2em;
     margin: 0 auto 5em 55%;
     width: 33%;
-	font-size: 1.4em;
+    font-size: 1.4em;
     border: 1px solid black;
     background-color:#8f5b20;
     color: #FFF8E6;
@@ -750,7 +769,6 @@ fieldset.ccField p#traitsDesc {
 
 
 form.creazioneFields ol{
-    list-style-type: none;
 }
 
 .creazioneFields fieldset{
@@ -770,14 +788,19 @@ form.creazioneFields ol{
     font-size: 1.5em;
 }
 
-textarea{
-    outline: none;
+textarea,input[type="text"],input[type="date"],input[type="password"]{
     resize: none;
     padding:0.5em;
     border: 1px solid #392D20;
     border-radius: 0.3em;
+    width: 25em;
+    height: 2em;
 }
 
+p.campiObbligatori{ 
+    text-align: right;
+    margin-right: 7.5%;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -786,23 +809,6 @@ textarea{
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-
-body#creazioneReport{
-    max-width: 1200px;
-    margin:auto;
-}
-#creazioneReport h1,#creazioneReport p{ width:90%; margin:auto;}
-#creazioneReport h1{
-    margin-top: 1em;
-    margin-bottom: 0.3em;
-}
-#creazioneReport > p{ 
-    text-align: right;}
-#creazioneReport h1 + p{
-    text-align: center;
-    margin: auto;
-    margin-bottom: 2em;
-}
 
 .campiObbligatori::before{
     content:"*";
@@ -900,7 +906,6 @@ body#creazioneReport{
 }
 
 #creazioneReport #selezionamentoGiocatori ul li{
-    list-style-type: none;
     float: left;
     padding-right:1em;
 }
@@ -916,7 +921,6 @@ body#creazioneReport{
     margin:auto;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10em;
 }
 #conclusione >div{
     margin:auto;
@@ -949,21 +953,8 @@ body#creazioneReport{
     width: 12.8em;
 }
 
-#conclusione #submitReport input{
-    width: 15em;
-    height: 2.7em;
-    padding-top: 0em;
-    border: none;
-    margin:auto;
-    margin-top:1em;
-}
 #conclusione #submitReport{
     flex: 1 1 25em;
-    max-width: 31em;
-    text-align: center;
-    padding-bottom: 2em;
-    background-color: #FFF0D4;
-    border-radius: 4em;
 }
 
 
@@ -980,59 +971,64 @@ body#creazioneReport{
 */
 
 
+
+#areaPersonale section >header{
+    margin-left: 5%;
+    clear: both;
+    margin-bottom: 1em;
+    overflow: hidden;
+}
+
+
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 VISUALIZZA INFO UTENTE
 ------------------------------------------------------------------------------------------------------------
 */
 
-/**#accountTitle, #profile {
-    margin-left: 5em;
-    margin-right: 5em;
-}*/
 
-#viewInfoUser {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 3%;
-}
-
-#viewInfoUser header {
-    overflow: hidden;
-    clear:both;
-}
-
-#viewInfoUser div:nth-child(3) {
-    margin-top: 1em;
-    height: 14em; 
+#viewInfoUser > div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 2em 1em 2em 1em;
-
+    width: 90%;
+    margin:auto;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    max-width: 55em;
 }
 
-#viewInfoUser div div:nth-child(2)  {
-    max-width: 50%;
-    flex: 1 0;
-    display: flex;
-    flex-direction: column;
-    margin-left: 10%;
+#viewInfoUser dl  {
+    width: 32em;
+    margin:auto;
+    padding-bottom:1em;
+    padding-left:4em
+}
+#viewInfoUser dt {
+    font-size: 1em;
+    font-weight: bold;
+    width: 12em;
+    float:left;
+    padding-bottom: 1.5em;
+}
+#viewInfoUser dd {
+    float:right;
+    width: 20em;
+    padding-bottom: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+#viewInfoUser > div > div{
+    padding: 0 1em 2.5em 1em;
+    margin:auto;
+}
 #viewInfoUser img {
-    max-width: 14em;
-    height: 14em;
-    flex: 1 0;
-}
-
-#viewInfoUser h1 {
-    font-size: 3em;
-    font-weight: bold;
-}
-
-#viewInfoUser h3 {
-    font-weight: bold;
-    padding: 0em;
+    width: 10em;
+    height: 10em;
+    border-radius: 6em;
+    border: 0.5em solid #dfdfdf;
 }
 
 #viewInfoUser input {
@@ -1042,23 +1038,6 @@ body#creazioneReport{
     text-align: left;
 }
 
-#viewInfoUser input[name="email"] {
-    width: 15em;
-}
-
-#viewInfoUser label {
-    font-size: 1em;
-    font-weight: bold;
-    display: inline-block;
-    width: 40%;
-}
-
-#viewInfoUser fieldset {
-    border-style: none;
-    width: 100%;
-    max-height: 20%;
-    margin-bottom: 1em;
-}
 
 /*
 ------------------------------------------------------------------------------------------------------------
@@ -1069,10 +1048,6 @@ body#creazioneReport{
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
 
-#dashboard > div > header{
-    margin-left: 5%;
-}
-
 #dashboard h3{
     font-size: 2em;
 }
@@ -1082,12 +1057,7 @@ body#creazioneReport{
     max-width: 8.5em;
     padding-bottom: 0.3em;
 }
-#dashboard header p{
-    clear: both;
-}
-#dashboard header{
-    margin-bottom: 1em;
-}
+
 
 .howTo .buttonLink{
     float: right; 
@@ -1114,7 +1084,6 @@ body#creazioneReport{
 .cards > li{
     border-radius: 0.5em;
     box-shadow: 5px 5px 3px #74747488;
-    list-style-type: none;
     overflow: hidden;
 }
 
@@ -1211,7 +1180,6 @@ body#creazioneReport{
     border-radius: 0.3em;
 }
 #personaggiUtente .cardPersonaggio ul{
-    list-style-type: none;
     height: 6em;
     width: 100%;
 }
@@ -1258,14 +1226,13 @@ body#creazioneReport{
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-evenly;
-    margin-bottom: 10em;
 }
 .listeReport > div{
     flex: 1 0 45%;
-    min-width: 25em;
     margin-top: 1em;
     margin-bottom: 2em;
-    max-width: 35em;
+    min-width: 32em;
+    max-width: 39em;
 }
 .listeReport #reportMaster{margin-right: 0.5em;}
 .listeReport #reportPartecipante{margin-left: 0.5em;}
@@ -1281,6 +1248,7 @@ body#creazioneReport{
 
 .report .cards li{
     width: 95%;
+    min-width: 30em;
     height: 9em;
     margin: 0 auto 1.5em auto;
     display: block;
@@ -1294,10 +1262,7 @@ body#creazioneReport{
     width: 20em;
     font-size: 0.9em;
 }
-.report .espandi ul{
 
-    list-style-type: none;
-}
 .report .espandi li{
     display: inline; width: 5.3em;
 }
@@ -1330,6 +1295,13 @@ body#creazioneReport{
 
 /*--------------------------- CARDS REPORTS -------------------
 */
+
+.cardReport{
+    overflow-wrap: break-word;        
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
 .report .cardReport > button{
     height: 100%;
     width: 100%;
@@ -1356,16 +1328,20 @@ body#creazioneReport{
     text-align: left;
  }
 .report .cardReport .testoCardRep h4{
-     font-size: 1.2em;
-     font-weight: 400;
-     padding-left: 0.5em;
-     padding-bottom: 0.15em;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-left: 0.5em;
+    padding-bottom: 0.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
  }
 .report .cardReport .testoCardRep p{
     font-size: 0.9em;
     margin-top: auto;
     margin-bottom: auto;
     padding-bottom: 0;
+    overflow: hidden;
 }
 
 
@@ -1447,82 +1423,85 @@ button[name="RemoveRep"]{                                                 /*da e
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#modificaDati #intestazionePagina{
+    padding-bottom: 2.5em;
+}
+
 .userFields { 
-    width: 37%;
-    margin: 5% auto 5% auto; 
+    width: 100%;
+    padding-bottom: 5em; 
 }
-
-.userFields h1 {
-    font-size: 3em;
+.userFields fieldset{
+    width: 30em;
+    margin:auto;
+    padding-bottom: 3em;
 }
-
-.userFields input[type="file"] {
-    width: 14em;
-    height: 14em;
-    margin: 0 30% 0 30%;
+.userFields div{
+    margin:auto;
 }
-
-.userFields fieldset input {
-    height: 2.5em;
-    width: 25em;
+form#datiPassword .submitForm{
+    margin-bottom: 2em;
+    margin-top:3em;
+}
+form#datiUtenza .submitForm{
+    margin-bottom: 4em;
+}
+form#datiUtenza fieldset{
+    margin-bottom: 3em;
+}
+form#datiPassword{
+    margin-top:5em;
+}
+.userFields .submitForm p{
+    padding: 1em 0 0 0;
+}
+form#datiUtenza{
+    width: calc(100% - 4em);
+    padding:0 2em 0 2em;
+    border-bottom: 1px solid #5f3f1738;
+}
+#datiUtenza label[for="imgProfilo"],.userFields label[for="password"], .userFields label[for="NomeCognome"] {
+    margin-top: 0;
+}
+#datiUtenza #username{
+    width: 20em;
     display: block;
-    text-align: left;
-    margin-top: 0em;
-    border-radius: 5px;
-    border: 1px solid #392D20;
-    background-color: white;
-    padding-left: 0.5em;
+    margin:auto;
+}
+#datiUtenza label[for="username"]{
+    text-align: center;
+}
+#datiAnagrafici{
+    height: 26.5em;
+}
+#datiAnagrafici legend{
+    margin-bottom: 2.5em;
+}
+form#datiUtenza > div:first-child{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .userFields fieldset label {
-    margin-top: 1em;
+    padding-bottom: 0.5em;
+    margin-top: 1.5em;
     display: block;
     font-weight: bold;
 }
 
-.userFields label, .userFields input { margin-left: 2em; }
-
-#infoPasswd {
-    margin-left: 2em;
-}
-
-#infoPasswd ul {
-    list-style-position: inside;
-    color: #392D20;
-}
-
-.userFields form fieldset:nth-child(2), .userFields form fieldset:nth-child(3) {
-    border-radius: 5px;
-    padding: 2em 2em 2em 2em;
-    margin-top: 3em;
-}
-
-.userFields label[for="password"], .userFields label[for="NomeCognome"]  { margin-top: 0em;}
-
-#buttonEdit {
-    text-align: end;
-}
-
-#buttonEdit input[name="Annulla"] {
-    background-color:  #fff7e6;
-    color:  #392D20;
-    margin-top: 1.9em;
-    text-align: center;
+.userFields fieldset img {
+    display: block;
+    margin:auto;
     width: 10em;
-    height: 2.5em;
-    box-shadow: inset 0 0 0 2px  #463726;
-    border-radius: 4px;
-    cursor: pointer;
+    height: 10em;
+    border-radius: 6em;
+    border: 0.5em solid #dfdfdf;
 }
-
-#buttonEdit input[name="Salva modifiche"] {
-    width: 10em;
-    height: 2.5em;
-    padding-top: 0em;
-}
-
-#loginUser label {
-    padding-top: 1em;
+.userFields fieldset li{
+    margin:auto;
+    width:26em;
+    display: block;
+    margin:auto;
 }
 
 /*
@@ -1560,9 +1539,9 @@ button[name="RemoveRep"]{                                                 /*da e
 
 #reportEsplora{
     margin: auto;
-    flex: 1 1 40em;
-    min-width: 40em;
-    max-width: 100em;
+    flex: 1 1 39em;
+    min-width: 32em;
+    max-width: 39em;
 }
 
 #reportEsplora form{                    /* Usa la form per ridimensionare*/
@@ -1594,9 +1573,6 @@ button[name="RemoveRep"]{                                                 /*da e
     background-color: #f7ecd4;
 }
 
-#esploraAside ul {
-    list-style-type: none;
-}
 
 /*--------------------------- ASIDE DL-DT-DD -------------------
 */
@@ -1640,23 +1616,15 @@ button[name="RemoveRep"]{                                                 /*da e
 */
 
 
-
-.htmlApprofondimento body{
+.htmlApprofondimento #intestazionePagina{
+    padding-bottom: 0.7em;
 }
 
 .htmlApprofondimento .content{
     width: 70%;
     margin: auto;
     max-width: 800px;
-    margin-bottom: 5em;
-}
-
-.htmlApprofondimento h1{
-    width: 100%;
-    margin-top: 0.5em;
-    font-size: 3em;
-    text-align: center;
-    margin-bottom: 0.9em;
+    padding-bottom: 10em;
 }
 
 .htmlApprofondimento h2{
