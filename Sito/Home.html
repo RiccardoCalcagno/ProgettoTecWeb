@@ -14,6 +14,7 @@
 
 <link rel="stylesheet" href="style/mainStyle.css" media="screen"/>          
 <link rel="stylesheet" href="style/smallStyle.css" media="handheld, screen and (max-width:640px), only screen and (max-device-width:640px)"/>
+<link rel="stylesheet" href="style/printStyle.css" media="print"/>
 
 </head>
 
@@ -62,19 +63,35 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
             <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
             <input id="Iscrizione" type="submit" value="Iscriviti">
         </div>
-        <ul id="menu">
-                <li xml:lang="en" id="currentLink">Home</li>
-                <li class="externalLink"><a href="otherHTMLs/AreaPersonale.html">Area Personale</a></li>
-                <li class="externalLink"><a href="otherHTMLs/Esplora.html">Esplora</a></li>
-        </ul>
+
+        <ul id="menu" role="menubar">
+            <li id="currentLink"  class="externalLink" role="none"xml:lang="en">Home</li>
+            <li role="none" class="externalLink"><a href="otherHTMLs/AreaPersonale.html" role="menuitem">Area Personale</a></li> <!--MOVE TO #access ?? -->
+            <li role="none" class="externalLink">
+                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                <ul role="menu" class="dropdown-content">
+                    <li role="none"><a href="./otherHTMLs/character creation.html" role="menuitem" tabindex="-1">Crea Personaggio</a></li>
+                    <li role="none"><a href="otherHTMLs/creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
+                </ul>
+            </li>
+            <li role="none" class="externalLink">
+                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                <ul role="menu" class="dropdown-content">
+                    <li role="none"><a href="otherHTMLs/Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="otherHTMLs/Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                    <li role="none"><a href="otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                    <li role="none"><a href="otherHTMLs/Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                </ul>
+            </li>
+            <li role="none" class="externalLink"><a href="otherHTMLs/Esplora.html" role="menuitem">Esplora</a></li>
+    </ul>
 
 
     </header>
 
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../Home.html" xml:lang="en">Home</a></li>
-            <li></li>
+            <li>Home</li>
         </ul>
     </nav>
 

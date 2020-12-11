@@ -1,0 +1,177 @@
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                GENERALE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: justify;
+    margin: auto;
+}
+
+#intestazioneSito, #breadcrumb, .puntoInterrogativo { /*img in generale ? */
+    display: none;
+}
+/* ?
+#breadcrumb {
+
+}
+*/
+
+h1 {
+    font-size: 9mm;
+    margin: 5mm 0;
+    margin-bottom: 3mm;
+}
+/*
+h2 {
+    font-size: 6mm;
+    font-weight: normal;
+}
+*/
+a:link::after, a:visited::after {
+    content: " [" attr(href) "] ";
+    font-size: 90%;
+}
+abbr {
+    text-decoration: none;
+}
+abbr::after {
+    content: " (" attr(title) ") ";
+    font-size: 90%;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                HOME PAGE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#copertina img, #copertina #angoliCornice, #features img, .about img, .howTo img, #approfondimenti {
+    display: none;
+}
+
+#bodyHome #intestazionePagina h1 {
+    margin: 0 0 1.5mm 3mm ;
+}
+
+#intestazionePagina h3 { /* change HTML to h2 ? */
+    font-size: 5mm;
+    font-weight: normal;
+    font-style: italic;
+    margin-left: 10mm;
+    margin-bottom: 2.5mm;
+}
+
+#introduzione h2, #argomenti h2 {
+    font-size: 6mm;
+    /* font-weight: normal; */
+    margin: 2mm 0;
+    margin-bottom: 0.5mm;
+}
+
+#presentazioneFeatures > p {
+    font-style: italic;
+}
+
+#bodyHome li {
+    width: 95%;
+    margin: 0.5mm auto;
+}
+
+#aboutReport li, #aboutPersonaggio li {
+    list-style-type: disc;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            APPROFONDIMENTI HTMLS
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.htmlApprofondimento h2 {
+    font-size: 6mm;
+}
+
+.htmlApprofondimento .content {
+    width: 90%;
+    margin: auto;
+}
+
+.htmlApprofondimento section {
+    margin: 8mm auto;
+}
+
+.htmlApprofondimento p {
+    margin: 2mm auto;
+}
+
+.htmlApprofondimento #contentPersonaggio p {
+    margin: 4mm auto;
+}
+
+.htmlApprofondimento #whatsDeD p:nth-of-type(3) {
+    text-align: center;
+    text-indent: -40mm;
+    font-size: 5mm;
+}
+
+.htmlApprofondimento li {
+    margin: 3mm 10% 3mm 5%;
+}
+
+.htmlApprofondimento .ritorna {
+    display: none;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                ESPLORA
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#bodyEsplora #reportEsplora{
+    display: none;
+}
+
+#bodyEsplora h2 {
+    margin: 5mm 0;
+    margin-bottom: 2mm;
+}
+
+#bodyEsplora p {
+    margin: 2mm 0;
+}
+
+#bodyEsplora dt {
+    font-size: 5mm;
+}
+
+#bodyEsplora dd {
+    width: 95%;
+    margin: 1mm auto;
+}
+
+#bodyEsplora #eventi dd + dd, #bodyEsplora #siti dd {
+    margin-bottom: 2mm;
+}
+
+#bodyEsplora dd + dd::before {
+    content: "<"
+}
+#bodyEsplora dd + dd::after {
+    content: ">"
+}
