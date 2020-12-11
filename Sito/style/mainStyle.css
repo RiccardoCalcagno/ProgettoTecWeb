@@ -777,18 +777,26 @@ li #toApprEsp:active{background-color:#732ab8be;}
     padding:0.5em;
     float: left;
 }
-#commentiField li > p{
+#commentiField li .badgeUtente img{
+    width: 3em;
+    height: 3em;
+}
+#commentiField li .testoCommento{
     margin-left: 1em;
     width: calc(100% - 12em);
     float:left;
     position: relative;
-    top: 1.2em;
+    top: 0.6em;
+}
+#commentiField li p.dateTimeCommento{
+    font-size: 0.8em;
+    width: 10em;
 }
 
 #commentiField li > button{
     position: relative;
     margin-left:0.7em;
-    top:1em;
+    top:0.35em;
     width: 2em; 
     height: 2em; 
     background-image: url(../images/icona_elimina.png);
