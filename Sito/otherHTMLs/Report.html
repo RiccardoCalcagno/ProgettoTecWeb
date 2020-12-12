@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />        
     </head>
 
-    <body id="visualizzaReport">
+    <body id="visualizzaReport" class="documentoBody">
         <header id="intestazioneSito">
 
             <ul class="AiutiNavigazione">
@@ -44,7 +44,7 @@
         <div id="content">
         <div id="contentRepo">
             <form>
-                <button name="closeReport" value="1"></button>
+                <button name="close" value="report"></button>
             </form>
             <header>
                 <h1>Iniziare una Locanda</h1>
@@ -143,25 +143,23 @@
                 </fieldset>
             </form>
 
-            <form id="ReportActions">
-                <ul>
-                    <li>
-                        <button name="elimina" value="1" class="buttonLink">ELIMINA</span></button>         
-                    </li>
-                    <li>
-                        <button name="esplorabile" value="1" class="buttonLink">PUBBLICA IN "Esplora"</button>    
-                    </li>
-                    <li>
-                        <button name="modifica" value="1" class="buttonLink">MODIFICA</button>   
-                    </li>
-                </ul>
-            </form>
-
         </div>
 
-
-
     </div>
+
+    <form id="DocumentActions">
+        <ul>
+            <li>
+                <button name="elimina" value="report" class="buttonLink">ELIMINA</span></button>         
+            </li>
+            <li>
+                <button name="esplorabile" value="report" class="buttonLink">PUBBLICA IN "Esplora"</button>    
+            </li>
+            <li>
+                <button name="modifica" value="report" class="buttonLink">MODIFICA</button>   
+            </li>
+        </ul>
+    </form>
 
     </body>
 

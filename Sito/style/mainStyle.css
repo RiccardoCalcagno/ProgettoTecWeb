@@ -83,9 +83,9 @@ body{
     font-size: 0.3em;
 }
 
-input, textarea{
+input, textarea, a{
         outline: none;
-    }
+}
 
 button:focus{
     outline: none;
@@ -144,8 +144,7 @@ a.buttonLink {
 
 
 #breadcrumb {
-    background-color: #382c22;
-    color:#fff7e6;
+    background-color: #fff7e6;
     padding: 0.1em 0.5em;
     list-style: none;
 }
@@ -269,17 +268,12 @@ body{
 #menu {
     display: flex;
     align-items: center;
-    font-size: 1.2em;
+    font-size: 1.1em;
     list-style: none;
 }
 
 #menu > li {
     display: inline-block;
-    border-top: 1px solid #382c22;
-}
-/* Keep border-top/right ? */
-#menu > li:last-child {
-    border-right: 1px solid #382c22;
 }
 
 #menu a {
@@ -287,29 +281,18 @@ body{
 }
 
 #menu a:hover {
-    background-color: #392D20;
-    color: white;
-    /*  stessi colori breadcrumb ?
-    background-color: #382c22;
-    color:#fff7e6;
-    */
-}
-
-#menu > li:last-child, #menu > li:last-child a {
-    border-radius: 0 1em 1em 0;
+    background-color: #FFF0D4;
 }
 
 #menu a {
     display: inline-block;
     color: black;
-    background-color: #ec9b30;
     text-align: center;
     padding: 0.5em;
 }
 
 #menu #currentLink {
-    background-color: #382c22;
-    color:#fff7e6;
+    background-color: #ffe3b0;
     padding: 0.5em;
 }
 
@@ -326,19 +309,19 @@ body{
     display: none;
     position: absolute;
     min-width: 0em;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); /* fix em?*/
+    box-shadow: 0px 6px 13px 0px rgba(0,0,0,0.5); /* fix em?*/
     z-index: 1;
 }
 
 #menu ul.dropdown-content li {
     display: block;
-    width: 100%;
+    width: calc(100% + 0.5em);
+    background-color: #fff7e6;
 }
 
 #menu ul.dropdown-content li a {
-    width: 100%;
+    width: calc(100% - 1em);
     text-align: left;
-    padding: 0.3em;
 }
 
 #menu ul.dropdown-content li:not(:first-child) a {
@@ -348,6 +331,9 @@ body{
 #menu li:hover .dropdown-content {
     display: block;
 }
+
+
+
 
 #access {
     float: right;
@@ -661,31 +647,35 @@ li #toApprEsp:active{background-color:#732ab8be;}
 
 
 
-
-
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
-                                                VISUALIZZA REPORT SESSIONE
+                                                VISUALIZZA DOCUMENTO
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-#visualizzaReport > header{
+
+.documentoBody > header{
     background-color: #fff7e6;
+    width: calc(100% - 1em);
+    padding-right: 1em;
     margin:0;
-    padding-bottom: 1em;
 }
 
-#visualizzaReport{
+.documentoBody{
     background-color: transparent;
 }
 
+.documentoBody #content{
+    background-color: #000000a8;
+    padding:4em 1em 5em 1em;
+}
 
-#visualizzaReport #content button[name="closeReport"]{
+.documentoBody #content button[name="close"]{
     float: right;
     position: relative;
     top:-5.5em;
-    left: calc(3em);
+    left: 3em;
     width: 2.5em; 
     height: 2.5em; 
     background-image: url(../images/icona_close.png);
@@ -694,17 +684,55 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border:none;
     border-radius: 1em;
 }
-#visualizzaReport #content button[name="closeReport"]:hover{
+.documentoBody #content button[name="close"]:hover{
     background-position: center;
 }
-#visualizzaReport #content button[name="closeReport"]:active{
+.documentoBody #content button[name="close"]:active{
     background-position: bottom;
 }
 
-#visualizzaReport #content{
-    background-color: #000000a8;
-    padding:4em 1em 4em 1em;
+
+/*
+--------------------------------------- DOCUMENT ACTIONS ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#DocumentActions{
+    background-color: #fff7e6;
+    margin: auto;
 }
+#DocumentActions ul{
+    margin:auto;
+    clear:both;
+    overflow: hidden;
+    padding:3em 5% 3em 5%;
+}
+#DocumentActions ul button{
+    width: 10em;
+}
+#DocumentActions ul :nth-child(1){
+    float: left;
+}
+#DocumentActions ul :nth-child(2){
+    float: right;
+}
+
+#DocumentActions ul :nth-child(2) button{
+    width: 15em;
+}
+#DocumentActions ul :nth-child(3){
+    float: right;
+    margin-right: 1em;
+}
+
+
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
 
 #contentRepo{
     background-color: #FFFFFF;
@@ -868,7 +896,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     position: relative;
     margin-left:0.7em;
     top:0.35em;
-    width: 2em; 
+    width: 2em;
     height: 2em; 
     background-image: url(../images/icona_elimina.png);
     background-size: 2em 6em;
@@ -883,31 +911,113 @@ li #toApprEsp:active{background-color:#732ab8be;}
 }
 
 
+
+
 /*
---------------------------------------- REPO ACTIONS ----------------------------------------------
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA SCHEDA PERSONAGGIO
+--------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#ReportActions ul{
-    width: 100%;
-    height: 3em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+
+#contentPersonaggio::before{
+    content: "";
+    display: block;
+    width: 100%; 
+    height: 197px; 
+    background-image: url(../images/pergamena/pergamena_head.png);
+    background-size: 100% 197px;
+    position: relative;
+    top: -80px;
 }
-#ReportActions ul button{
-    width: 10em;
+
+#contentPersonaggio{
+    max-width: 58em;
+    margin: auto;
+    padding-top:1em;
+    margin-top:80px;
+    width: 100%; 
+    background-image: url(../images/pergamena/pergamena_body.png);
+    background-size: 100% 448px;
+    background-repeat: repeat-y;
+    margin-bottom: calc(1em + 20px);
 }
-#ReportActions ul :nth-child(1){
+#contentPersonaggio::after{
+    content: "";
+    display: block;
+    width: 100%; 
+    height: 145px;
+    background-image: url(../images/pergamena/pergamena_foot.png);
+    background-size: 100% 145px;
+    position: relative;
+    top: 40px;
+}
+
+#visualizzaScheda #content button[name="close"]{
+    top: calc( -4em - 256px);
+    left: 0;
+}
+
+#contentPersonaggio > div{
+    position: relative;
+    top: -100px;
+    left: 5px;
+    width: 85%;
+    margin:auto;
+}
+
+#contentPersonaggio h2{
+    font-size: 1.7em;
+    padding-bottom: 0em;
+}
+
+#contentPersonaggio dt{
+    margin-top: 2em;
+    margin-right: 2em;
+}
+#infoBreviPersonaggio dd,#razzaPersonaggio p{
+    font-size: 1.1em;
+}
+
+#infoBreviPersonaggio dl{
     float: left;
+    width: 22em;
 }
-#ReportActions ul :nth-child(2), #ReportActions ul :nth-child(3){
+
+#infoBreviPersonaggio dl div >*{
+    margin-top: 3em;
+    display: inline-block;
+}
+
+#infoBreviPersonaggio{
+    display: flex;
+    flex-wrap: wrap;
+}
+#infoBreviPersonaggio > *{
+    margin:auto;
+}
+
+#razzaPersonaggio{
+    width: 25em;
     float: right;
+    text-align: center;
 }
-#ReportActions ul :nth-child(3){
+#razzaPersonaggio img{
+    display: block;
+    width: 20em;
+    margin:auto;
+    padding: 1em;
+}
+#razzaPersonaggio h2, #razzaPersonaggio p{
+    display: inline-block;
+}
+#razzaPersonaggio h2{
     margin-right: 1em;
 }
-#ReportActions ul :nth-child(2) button{
-    width: 15em;
+
+#sezTestualiPersonaggio{
+    clear: both;
+    overflow: hidden;
 }
 
 
