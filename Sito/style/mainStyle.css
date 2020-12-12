@@ -242,6 +242,91 @@ body{
     margin: auto;
 }*/
 
+/*
+--------------------------------------- FOOTER ----------------------------------------------
+---------------------------------------------------------------------------------------------
+*/
+
+#tornaSuFooter {
+    display: block;
+    padding: 0.2em auto;
+    text-align: center;
+    /*text-decoration: none;*/
+    font-size: 1.2em;
+    border: 2px solid black;
+    background-color: rgb(12, 12, 12);
+    color: white;
+}
+
+#footerContent {
+    position: relative;
+    padding: 1em;
+    background-color: rgb(48, 44, 44);
+    color: rgb(241, 245, 245);
+}
+
+#footerContent h2 {
+    position: absolute;
+    top: 0.5em;
+    left: 1.5em;
+    color: white;
+}
+
+#footerContent dl {
+    padding: 1em 0 2em 0;
+    margin: 2% auto 0 auto;
+    text-align: center;
+    text-indent: -10%;
+}
+
+#footerContent dl dt {
+    display: inline;
+    color: white;
+}
+
+#footerContent dl dt a {
+    color: white;
+}
+
+#footerContent dl dd {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 45%;
+    margin: 2% 4%;
+}
+
+#footerContent dl dd p {
+    color: white;
+    padding: 0;
+    text-align: left;
+    text-indent: 0;
+}
+#footerContent dl dd a {
+    display: block;
+    margin-top: 2%;
+    color: white;
+    text-align: center;
+    text-indent: -20%;
+}
+
+#footerContent dl dd + dt::before {
+    content: " | ";
+    margin: 0 3%;
+}
+
+#footerContent .open {
+    text-indent: -40%;
+}
+
+#disclaimer {
+    background-color: rgb(12, 12, 12);
+    border: 1px solid black;
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
