@@ -29,11 +29,26 @@
                 <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
                 <input id="Iscrizione" type="submit" value="Iscriviti">
             </div>
-            <ul id="menu">
-                <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
-                <li class="externalLink"><a href="AreaPersonale.html">Area Personale</a></li>
-                <li class="externalLink"><a href="Esplora.html">Esplora</a></li>
-            </ul>
+            <ul id="menu" role="menubar">
+                <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
+                <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
+                        <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    </ul>
+                </li>
+        </ul>
     
     
         </header>
@@ -154,7 +169,8 @@ document.getElementById("birthdate").setAttribute("max", today);
                 </div>      
             </div>
             </form>
-
+            <div id="modificaPassword"> 
+            <p class="campiObbligatori"> : campo obbligatorio</p>
             <form id="datiPassword" autocomplete="on" class="creazioneFields">
             <fieldset>  <legend><h2>Modifica password</h2></legend> 
                 <ul>
@@ -189,10 +205,10 @@ document.getElementById("birthdate").setAttribute("max", today);
                 <div>
                     <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Annulla"/>
                     <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password"/>  
-                </div>
-                   
+                </div>        
             </div>
             </form>
+        </div>
         </div>
     </body>
 </html>

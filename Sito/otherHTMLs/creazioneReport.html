@@ -25,12 +25,27 @@
                 <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
                 <input id="Iscrizione" type="submit" value="Iscriviti">
             </div>
-            <ul id="menu">
-                <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
-                <li class="externalLink"><a href="AreaPersonale.html">Area Personale</a></li>
-                <li class="externalLink"><a href="Esplora.html">Esplora</a></li>
-            </ul>
-    
+            <ul id="menu" role="menubar">
+                <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
+                <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
+                        <li role="none" id="currentLink">Crea Report</li>
+                    </ul>
+                </li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    </ul>
+                </li>
+        </ul>
+
     
         </header>
     
@@ -53,25 +68,25 @@
 
             <ol>
                 <li>
-                    <fieldset id="titoloRepo"><legend><h2 class="campiObbligatori">Titolo</h2></legend>
+                    <fieldset id="titoloRepo" class="fieldss"><legend><h2 class="campiObbligatori">Titolo</h2></legend>
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
                         <div><textarea name="titolo" rows=1 cols="60" placeholder="Inserisci un titolo di massimo 30 lettere" maxlength="30" aria-required="true" required="required"></textarea></div>
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="sottotitoloRepo"><legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
+                    <fieldset id="sottotitoloRepo" class="fieldss"><legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
                         <div><textarea name="sottotitolo" rows=4 cols="60" placeholder="Inserisci un sottotitolo di massimo 120 lettere" maxlength="120" aria-required="true" required="required"></textarea></div>
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="contenutoRepo"><legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
+                    <fieldset id="contenutoRepo" class="fieldss"><legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
                         <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
                         <div><textarea name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true" required="required"></textarea></div>
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="giocatoriRepo"><legend><h2>Giocatori Partecipanti</h2></legend>
+                    <fieldset id="giocatoriRepo" class="fieldss"><legend><h2>Giocatori Partecipanti</h2></legend>
                         <p><strong>Registra</strong> all'interno del <span xml:lang="en">report</span> i <strong>giocatori che hanno partecipato</strong> 
                             alla sessione, così che possano vedere la tua creazione e assime <strong>commentarla</strong>!</p>
                         <div id="selezionamentoGiocatori">
@@ -132,7 +147,7 @@
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="immaginiRepo"><legend><h2>Immagini della Sessione</h2></legend>
+                    <fieldset id="immaginiRepo" class="fieldss"><legend><h2>Immagini della Sessione</h2></legend>
                         <p>Se lo desideri puoi aggiungere delle immagini, potrebbero essere le foto della partita oppure la mappa in cui avete giocato</p>
                         <div>
                             <p>Puoi aggiungere più immagini in una volta</p>
@@ -152,10 +167,10 @@
                     </div>
                 </div>
                 <div id="submitReport" class="submitForm">
-                    <p>Concludi la creazione salvando il report che hai creato nella tua Area Personale</p>
+                    <p>Concludi la creazione salvando il report nella tua Area Personale</p>
                     <div>
-                        <input class="buttonLink" type="submit" name="salvaRep" value="Annulla"/>
-                        <input class="buttonLink" type="submit" name="salvaRep" value="Salva Report"/>  
+                        <input class="buttonLink" type="submit" name="salvaRep" value="ANNULLA"/>
+                        <input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>  
                     </div>
                        
                 </div>

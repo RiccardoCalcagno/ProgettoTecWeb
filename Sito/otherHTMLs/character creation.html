@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title> - Creazione Scheda Giocatore</title>
     <meta name="title" content="Creazione Scheda Giocatore" />
-    
+
     <meta name="description" content="Crea la tua Scheda Giocatore!" />
     <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" />
-    
+
     <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
-    
-    <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />     
-    <link rel="stylesheet" type="text/css" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+
+    <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../style/smallStyle.css"
+        media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" />
 </head>
 
 <body id="creazionePersonaggio">
@@ -24,13 +26,29 @@
         </ul>
 
         <div id="access">
-            <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
+            <input id="Accesso" type="submit" value="Accedi">
+            <!--ATTENZIONE DA COMPLETARE-->
             <input id="Iscrizione" type="submit" value="Iscriviti">
         </div>
-        <ul id="menu">
-            <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
-            <li class="externalLink"><a href="AreaPersonale.html">Area Personale</a></li>
-            <li class="externalLink"><a href="Esplora.html">Esplora</a></li>
+        <ul id="menu" role="menubar">
+            <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
+            <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+            <li role="none" class="externalLink">
+                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                <ul role="menu" class="dropdown-content">
+                    <li role="none" id="currentLink">Crea Scheda Giocatore</li>
+                    <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
+                </ul>
+            </li>
+            <li role="none" class="externalLink">
+                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                <ul role="menu" class="dropdown-content">
+                    <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                    <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                    <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                </ul>
+            </li>
         </ul>
 
 
@@ -44,152 +62,203 @@
     </nav>
 
     <header id="intestazionePagina">
-        <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
-        <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo 
+        <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo"
+                    href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+        <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo
             ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
     </header>
 
     <p class="campiObbligatori"> : campo obbligatorio</p>
 
-<form id="ccForm" autocomplete="on" class="creazioneFields">
+    <form id="ccForm" autocomplete="on" class="creazioneFields">
 
-    <fieldset class="ccField"><legend><h2 class="campiObbligatori">Nome</h2></legend>
-          <label id="ccName" for="cname" class="ccLabel">Nome Personaggio:</label>
-        <input type="text" id="cname" name="cname" class="ccWrite" maxlength="30" placeholder="Inserisci un nome di max caratteri" aria-required="true" required="required"/>
-    <!--    <p class="ccFDesc">Scegli il nome del tuo personaggio</p>-->
-    </fieldset>
+        <ol>
+            <li>
+                <fieldset id="nomeField">
+                    <legend>
+                        <h2 class="campiObbligatori">Nome</h2>
+                    </legend>
+                    <div>
+                    <label id="ccName" for="cname" class="ccLabel">Scegli un <strong>nome</strong> per il tuo Personaggio</label>
+                    <input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome"
+                        aria-required="true" required="required" />
+                    </div>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset class="fieldss">
+                    <legend>
+                        <h2 class="campiObbligatori">Razza</h2>
+                    </legend>
+                    <p>I dragonidi sono una stirpe che discende dai draghi e combina i loro tratti con quelli umanoidi. 
+                        Vivono in clan che considerano importantissimi e tendono al bene, seppur tra loro i malvagi tendono al male estremo.</p>
+                    <div>
+                        <label for="crace" class="ccLabel">Scegli una <strong>Razza</strong> tra quelle proposte</label>
+                        <select id="crace" name="crace" onchange="myFunction()" aria-required="true"
+                            required="required">
+                            <!--------------- PROVA JS !!! ---------------->
+                            <!--------------- PROVA JS !!! ---------------->
+                            <option value="umano" data-desc="RaceDescUmano">Umano</option>
+                            <option value="elfo" data-desc="RaceDescElfo">Elfo</option>
+                            <option value="nano" data-desc="RaceDescNano">Nano</option>
+                            <option value="halfling" data-desc="RaceDescHalfling">Halfling</option>
+                            <option value="gnome" data-desc="RaceDescGnome">Gnome</option>
+                            <option value="tiefling" data-desc="RaceDescTiefling">Tiefling</option>
+                            <option value="dragonide" data-desc="RaceDescDragonide">Dragonide</option>
+                            <option value="mezzelfo" data-desc="RaceDescMezzelfo">Mezzelfo</option>
+                            <option value="mezzorco" data-desc="RaceDescMezzorco">Mezzorco</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </li>
 
-<!-- TODO: Mettere tutte form "required"-->
 
-<!--Di seguito l'opzione tendina, ma si può valutare una lista di radiobutton, con aside to the side-->
-  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Razza</h2></legend>
-      <label for="crace" class="ccLabel">Scegli una Razza:</label>
-      <select id="crace" name="crace" onchange="myFunction()"  aria-required="true" required="required">     <!--------------- PROVA JS !!! ----------------> <!--------------- PROVA JS !!! ---------------->
-        <option value="umano" data-desc="RaceDescUmano">Umano</option>
-        <option value="elfo" data-desc="RaceDescElfo">Elfo</option>
-        <option value="nano" data-desc="RaceDescNano">Nano</option>
-        <option value="halfling" data-desc="RaceDescHalfling">Halfling</option>
-        <option value="gnome" data-desc="RaceDescGnome">Gnome</option>
-        <option value="tiefling" data-desc="RaceDescTiefling">Tiefling</option>
-        <option value="dragonide" data-desc="RaceDescDragonide">Dragonide</option>
-        <option value="mezzelfo" data-desc="RaceDescMezzelfo">Mezzelfo</option>
-        <option value="mezzorco" data-desc="RaceDescMezzorco">Mezzorco</option>
-      </select>
-      <div class="ccInfo">
-          <!-- Informazioni sulla razza scelta, pescate con php e/o switchate con javascript. Potranno essere per esempio -->
-          <!-- Razza, immagine standard, descrizione generica e fantasiosa, dettagli sulle meccaniche che fornisce al giocatore-->
-          <p id="dynamicP">TRY SELECTING A RACE</p>
-      </div>
-                                  <!--------------- PROVA JS !!! ---------------->
-                                <!--------------- PROVA JS !!! ---------------->
-      <script>
-        function myFunction() {
-    var sel = document.getElementById("crace");
-    var option = sel.options[sel.selectedIndex];
-    var desc = option.getAttribute("data-desc");
-      document.getElementById("dynamicP").innerHTML = desc;
-}
-      </script>                    <!--------------- PROVA JS !!! ---------------->
-                                  <!--------------- PROVA JS !!! ---------------->
-  </fieldset>
-  
+            <script>
+                function myFunction() {
+                    var sel = document.getElementById("crace");
+                    var option = sel.options[sel.selectedIndex];
+                    var desc = option.getAttribute("data-desc");
+                    document.getElementById("dynamicP").innerHTML = desc;
+                }
+            </script>
+            <!--------------- PROVA JS !!! ---------------->
+            <!--------------- PROVA JS !!! ---------------->
 
-  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Classe</h2></legend>
-      <label for="cclass" class="ccLabel">Scegli una Classe:</label>
-      <select id="cclass" name="cclass"  aria-required="true" required="required">
-        <option value="bardo">Bardo</option>
-        <option value="barbaro">Barbaro</option>
-        <option value="druido">Druido</option>
-        <option value="ladro">Ladro</option>
-        <option value="chierico">Chierico</option>
-        <option value="guerriero">Guerriero</option>
-        <option value="monaco">Monaco</option>
-        <option value="mago">Mago</option>
-        <option value="warlock">Warlock</option>
-        <option value="paladino">Paladino</option>
-        <option value="ranger">Ranger</option>
-        <option value="stregone">Stregone</option>
-      </select>
-      <div class="ccInfo">
-      
-      
-      </div>
-  </fieldset>
-  
-  
-  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Background</h2></legend>
-      <label for="cbackground" class="ccLabel">Scegli un Background:</label>
-      <select id="cbackground" name="cbackground" aria-required="true" required="required">
-        <option value="accolito">Accolito</option>
-        <option value="artigiano">Artigiano</option>
-        <option value="ciarlatano">Ciarlatano</option>
-        <option value="criminale">Criminale</option>
-        <option value="eremita">Eremita</option>
-        <option value="eroe">Eroe</option>
-        <option value="forestiero">Forestiero</option>
-        <option value="intrattenitore">Intrattenitore</option>
-        <option value="marinaio">Marinaio</option>
-        <option value="monello">Monello</option>
-        <option value="nobile">Nobile</option>
-        <option value="sapiente">Sapiente</option>
-        <option value="soldato">Soldato</option>
-      </select>
-      <div class="ccInfo">
-      
-      </div>
-  </fieldset>
+            <li>
+                <fieldset class="fieldss">
+                    <legend>
+                        <h2 class="campiObbligatori">Classe</h2>
+                    </legend>
+                    <p>Gli elfi fanno parte di un popolo magico, sono snelli e aggraziati e hanno tratti fisici
+                         ancor più variabili rispetto agli umani. Per via della loro lunghissima vita dimostrano 
+                         divertimento e curiosità più che agitazione e bramosia. </p>
+                    <div>
+                        <label for="cclass" class="ccLabel">Scegli una <strong>Classe</strong> tra quelle
+                            proposte</label>
+                        <select id="cclass" name="cclass" aria-required="true" required="required">
+                            <option value="bardo">Bardo</option>
+                            <option value="barbaro">Barbaro</option>
+                            <option value="druido">Druido</option>
+                            <option value="ladro">Ladro</option>
+                            <option value="chierico">Chierico</option>
+                            <option value="guerriero">Guerriero</option>
+                            <option value="monaco">Monaco</option>
+                            <option value="mago">Mago</option>
+                            <option value="warlock">Warlock</option>
+                            <option value="paladino">Paladino</option>
+                            <option value="ranger">Ranger</option>
+                            <option value="stregone">Stregone</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </li>
 
-  <fieldset class="ccField"><legend><h2 class="campiObbligatori">Allineamento</h2></legend>
-      <!-- Possiamo inserire una select e quindi una semplice tendina con (come prima) un div che si aggiorna in base alla scelta, con una piccola descrizione-->
-      <!-- oppure una tabella (!!!) con i 9 allineamenti classici. Ogni elemento della tabella/griglia è un radiobutton selezionabile. OPZIONE NON PIACEVOLE :( causa accessibilità e ridimensionamento -->
-      <label for="calignment" class="ccLabel">Scegli un Allineamento:</label>
-      <select id="calignment" name="calignment" aria-required="true" required="required">
-        <option value="LG">Lawful Good</option>
-        <option value="NG">Neutral Good</option>
-        <option value="CG">Chaotic Good</option>
-        <option value="LN">Lawful Neutral</option>
-        <option value="N">Neutral</option>
-        <option value="CN">Chaotic Neutral</option>
-        <option value="LE">Lawful Evil</option>
-        <option value="NE">Neutral Evil</option>
-        <option value="CE">Chaotic Evil</option>
-      </select>
-  </fieldset>
-  
-  <fieldset class="ccField"><legend><h2>Tratti del Personaggio</h2></legend>
-      <p id="traitsDesc">
-        Qui puoi inserire una descrizione scritta del tuo personaggio. E' divisa in quattro campi per aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
-      </p>
+            <li>
+                <fieldset class="fieldss">
+                    <legend>
+                        <h2 class="campiObbligatori">Background</h2>
+                    </legend>
+                    <p>Gli gnomi amano le invenzioni, le scoperte, le esplorazioni, gli scherzi e il
+                         divertimento. Nonostante la grande longevità mantengono sempre un grande entusiasmo 
+                         per la vita e sono spesso abili artigiani, orafi e inventori.</p>
+                    <div>
+                        <label for="cbackground" class="ccLabel">Scegli un <strong xml:lang="en">Background</strong> tra
+                            quelli proposti</label>
+                        <select id="cbackground" name="cbackground" aria-required="true" required="required">
+                            <option value="accolito">Accolito</option>
+                            <option value="artigiano">Artigiano</option>
+                            <option value="ciarlatano">Ciarlatano</option>
+                            <option value="criminale">Criminale</option>
+                            <option value="eremita">Eremita</option>
+                            <option value="eroe">Eroe</option>
+                            <option value="forestiero">Forestiero</option>
+                            <option value="intrattenitore">Intrattenitore</option>
+                            <option value="marinaio">Marinaio</option>
+                            <option value="monello">Monello</option>
+                            <option value="nobile">Nobile</option>
+                            <option value="sapiente">Sapiente</option>
+                            <option value="soldato">Soldato</option>
+                        </select>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset class="fieldss">
+                    <legend>
+                        <h2 class="campiObbligatori">Allineamento</h2>
+                    </legend>
+                    <p>Gli halfling amano starsene comodi a casa a mangiare . Sono ingegnosi e sono affascinati da 
+                        ciò che non conoscono o non hanno mai visto dal vivo e la loro curiosità li spinge all’avventura.
+                         Sono generosi e di buon cuore.</p>
+                    <div>
+                        <label for="calignment" class="ccLabel">Scegli un <strong>Allineamento</strong> tra quelli
+                            proposti</label>
+                        <select id="calignment" name="calignment" aria-required="true" required="required">
+                            <option value="LG">Lawful Good</option>
+                            <option value="NG">Neutral Good</option>
+                            <option value="CG">Chaotic Good</option>
+                            <option value="LN">Lawful Neutral</option>
+                            <option value="N">Neutral</option>
+                            <option value="CN">Chaotic Neutral</option>
+                            <option value="LE">Lawful Evil</option>
+                            <option value="NE">Neutral Evil</option>
+                            <option value="CE">Chaotic Evil</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>
+                        <h2>Tratti del Personaggio</h2>
+                    </legend>
+                    <p id="traitsDesc">
+                        Qui puoi inserire una descrizione scritta del tuo personaggio. E' divisa in quattro campi per
+                        aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
+                    </p>
 
-      <div id="traitsWrapper">
+                    <ul id="traitsWrapper">
+                        <li class="traitsCard">
+                            <label for="ctraits" class="ccTraitsL">Traits</label>
+                            <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40
+                                placeholder="Descrivi i tratti caratteriali del tuo personaggio"></textarea>
+                        </li>
 
-            <div class="traitsCard">
-                <label for="ctraits" class="ccTraitsL">Traits</label>
-                <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40 placeholder="Descrivi i tratti caratteriali del tuo personaggio"></textarea>
+                        <li class="traitsCard">
+                            <label for="cideals" class="ccTraitsL">Ideals</label>
+                            <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40
+                                placeholder="Quali sono i suoi Ideali?"></textarea>
+                        </li>
+
+                        <li class="traitsCard">
+                            <label for="cbonds" class="ccTraitsL">Bonds</label>
+                            <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40
+                                placeholder="A chi è legato nel mondo di gioco?"></textarea>
+                        </li>
+
+                        <li class="traitsCard">
+                            <label for="cflaws" class="ccTraitsL">Flaws</label>
+                            <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40
+                                placeholder="Quali sono i suoi Difetti?"></textarea>
+                        </li>
+                    </ul>
+                </fieldset>
+            </li>
+
+        </ol>
+
+        <!-- Possibilità di ampliare le info inserite, con dettagli unici alla "scheda minimal" del sito, che rimarranno solo sul sito e non sulla versione stampata -->
+
+
+        <div id="submitPersonaggio" class="submitForm">
+            <p>Concludi la creazione salvando la Scheda Giocatore nella tua Area Personale</p>
+            <div>
+                <input class="buttonLink" type="submit" name="salvaPers" value="ANNULLA"/>
+                <input class="buttonLink" type="submit" name="salvaPers" value="SALVA SCHEDA"/>  
             </div>
-
-            <div class="traitsCard">
-                <label for="cideals" class="ccTraitsL">Ideals</label>
-                <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40 placeholder="Quali sono i suoi Ideali?"></textarea>
-            </div>
-                
-            <div class="traitsCard">
-                <label for="cbonds" class="ccTraitsL">Bonds</label>
-                <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40 placeholder="A chi è legato nel mondo di gioco?"></textarea>
-            </div>
-
-            <div class="traitsCard">
-                <label for="cflaws" class="ccTraitsL">Flaws</label>
-                <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40 placeholder="Quali sono i suoi Difetti?"></textarea>
-            </div>
-          </div>
-    </fieldset>
-  
-  <!-- Possibilità di ampliare le info inserite, con dettagli unici alla "scheda minimal" del sito, che rimarranno solo sul sito e non sulla versione stampata -->
-  
-
-  <input id="ccSub" type="submit" value="Crea Scheda!">
-</form> 
+               
+        </div>
+    </form>
 
 </body>
+
 </html>

@@ -75,6 +75,7 @@ body{
     background-color: #fff7e6;      /* ATTENZIONE MODIFICARE ANCHE HEADER IN: VISUALIZZA REPORT DI SESSIONE */
     max-width: 1200px;
     margin: auto;
+    min-height: 100vh;;
 }
 
 
@@ -756,7 +757,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     padding:4em 1em 5em 1em;
 }
 
-.documentoBody #content button[name="close"]{
+.documentoBody #content button[name="close"], #loginUser button[name="close"]{
     float: right;
     position: relative;
     top:-5.5em;
@@ -769,10 +770,10 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border:none;
     border-radius: 1em;
 }
-.documentoBody #content button[name="close"]:hover{
+.documentoBody #content button[name="close"]:hover, #loginUser button[name="close"]:hover{
     background-position: center;
 }
-.documentoBody #content button[name="close"]:active{
+.documentoBody #content button[name="close"]:active, #loginUser button[name="close"]:active{
     background-position: bottom;
 }
 
@@ -927,6 +928,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     margin-top:2em;
     margin-bottom: 3em;
     background-color: #fff6e6;
+    display: block;
     border-radius: 1em;
 }
 #commentiField legend{background-color: #fff6e6;border-radius: 1em;}
@@ -1004,6 +1006,61 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#visualizzaScheda #setLayout{
+    max-width: 40em;
+    margin: auto;
+    padding-bottom: 3em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#visualizzaScheda #setLayout > *{
+    display: inline-block;
+    padding: 0.5em;
+    margin: auto;
+}
+
+#visualizzaScheda #setLayout p{
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+#visualizzaScheda #setLayout #pulsante >*{
+    padding:0.8em;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    display: inline;
+}
+#visualizzaScheda #setLayout #pergamena{
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+}
+#visualizzaScheda #setLayout #standard{
+    border-top-right-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    position: relative;
+    left: -0.3em;
+}
+#visualizzaScheda #setLayout #pulsante p{
+    background-color: #FFFFFF;
+    color:black;
+    border:0.3em solid #b9b9b9;
+}
+#visualizzaScheda #setLayout #pulsante a{
+    background-color: #555555;
+    color:#FFFFFF;
+    padding:0.8em 1.1em 0.8em 1.1em;
+}
+#visualizzaScheda #setLayout #pulsante a:hover{
+    border:0.3em solid #808080;
+    padding:0.8em;
+    background-color: #6b6b6b;
+}
+#visualizzaScheda #setLayout #pulsante a:active{
+    background-color: #c48080;
+    border-color:#bd5252;
+}
 
 #contentPersonaggio::before{
     content: "";
@@ -1016,7 +1073,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     top: -80px;
 }
 
-#contentPersonaggio{
+#visualizzaScheda #contentPersonaggio{
     max-width: 58em;
     margin: auto;
     padding-top:1em;
@@ -1027,6 +1084,12 @@ li #toApprEsp:active{background-color:#732ab8be;}
     background-repeat: repeat-y;
     margin-bottom: calc(1em + 20px);
 }
+#contentPersonaggio p, #contentPersonaggio h1, #contentPersonaggio h2, #contentPersonaggio dd, #contentPersonaggio span{
+    font-family: Garamond, serif;
+    font-weight: 600;
+    color: #331e06;
+}
+
 #contentPersonaggio::after{
     content: "";
     display: block;
@@ -1051,60 +1114,80 @@ li #toApprEsp:active{background-color:#732ab8be;}
     margin:auto;
 }
 
+#contentPersonaggio h1{
+    width: 14em;
+    overflow: hidden;
+    font-size: 2.5em;
+    margin-top: 0;
+}
+
 #contentPersonaggio h2{
-    font-size: 1.7em;
+    font-size: 1.8em;
     padding-bottom: 0em;
 }
 
 #contentPersonaggio dt{
-    margin-top: 2em;
+    padding-top: 2em;
     margin-right: 2em;
 }
-#infoBreviPersonaggio dd,#razzaPersonaggio p{
-    font-size: 1.1em;
+#infoBreviPersonaggio dd{
+    font-size: 1.3em;
 }
 
 #infoBreviPersonaggio dl{
     float: left;
-    width: 22em;
+    width: 21em;
+    flex-grow: 1;
+    max-width: 25em;
+    padding-bottom: 2em;
+}
+#infoBreviPersonaggio div:first-child  dt{
+    padding-top: 0;
 }
 
 #infoBreviPersonaggio dl div >*{
-    margin-top: 3em;
+    margin-top: 0.8em;
     display: inline-block;
 }
 
 #infoBreviPersonaggio{
     display: flex;
+    flex-direction: row-reverse;
     flex-wrap: wrap;
+    position: relative;
+    top:-1.5em;
+    padding-bottom: 3em;
 }
 #infoBreviPersonaggio > *{
     margin:auto;
 }
 
-#razzaPersonaggio{
-    width: 25em;
-    float: right;
-    text-align: center;
-}
-#razzaPersonaggio img{
+#infoBreviPersonaggio img{
     display: block;
-    width: 20em;
+    width: 25em;
     margin:auto;
     padding: 1em;
 }
-#razzaPersonaggio h2, #razzaPersonaggio p{
-    display: inline-block;
-}
-#razzaPersonaggio h2{
-    margin-right: 1em;
+#sezTestualiPersonaggio{
+    position: relative;
+    top: -5em;
 }
 
-#sezTestualiPersonaggio{
+#sezTestualiPersonaggio dl :first-child dt{
+    padding-top: 0;
+}
+#sezTestualiPersonaggio dd{
+    font-weight: 400;
+    font-size: 1.3em;
+}
+#sezTestualiPersonaggio dl > div{
+    max-width: 38em;
     clear: both;
     overflow: hidden;
 }
-
+#sezTestualiPersonaggio dl :nth-child(even){
+    float: right;
+}
 
 
 /*
@@ -1120,7 +1203,28 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border:none;
     border-radius: 0.5em;
     padding:0em 1em 1.5em 1em;
+    width: (100% - 2em);
+    margin:auto;
+    margin-bottom: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
 }
+
+.creazioneFields .fieldss > p{
+    flex: 1 2 18em;
+    padding:1.5em 2em;
+    max-width: 80%;
+    text-align: left;
+    margin:auto;
+}
+.creazioneFields .fieldss > div{
+    margin:auto;
+    flex: 1 1 25em;
+    padding:1em 2em;
+    max-width: 80%;
+}
+
 .creazioneFields fieldset legend{
     background-color: #FFF0D4;
     border:none;
@@ -1160,38 +1264,23 @@ p.campiObbligatori{
 }
 
 #creazioneReport ol{
-    width: 80%;
+    width: 85%;
     margin:auto;
 }
 
 #creazioneReport .badgeUtente p{margin-top:0em;}
 
-#creazioneReport .creazioneFields fieldset{
-    width: 100%;
-    margin:auto;
-    margin-bottom: 2em;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-}
 
-#creazioneReport .creazioneFields fieldset > p{
-    flex: 1 2 18em;
-    padding:1.5em 2em;
-    max-width: 80%;
-    text-align: left;
-    margin:auto;
-}
-#creazioneReport .creazioneFields fieldset > div{
-    margin:auto;
-    flex: 1 1 25em;
-    padding:1em 2em;
-    max-width: 80%;
-}
 #creazioneReport .creazioneFields fieldset textarea{
     width: 100%;
 }
 
+#creazioneReport .creazioneFields #sottotitoloRepo textarea{
+    height: 4.5em;
+} 
+#creazioneReport .creazioneFields #contenutoRepo textarea{
+    height: 9em;
+}
 
 #creazioneReport #immaginiRepo > div{
     text-align: center;
@@ -1306,51 +1395,74 @@ p.campiObbligatori{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-
-
-#creazionePersonaggio label.ccLabel {
+#creazionePersonaggio .fieldss label{
     display: inline-block;
-    padding: 0 1em 0.3em 1em;
-}
-
-.ccField {
-    margin: 0 10% 2em 10%;
-}
-
-.ccField legend {
-    /*background-color: #FFF9EA;*/
-    font-weight: bold;
-    padding: 0 0.3em;
-    margin: 0 0.3em;
-}
-
-fieldset.ccField p {
+    width: 100%;
     text-align: center;
+    padding-bottom: 1em;
+}
+#creazionePersonaggio .fieldss select{
+    display: block;
+    margin: auto;
+}
+#creazionePersonaggio .fieldss div{
+    flex: 1 1 18em;
+}
+#creazionePersonaggio{
+    padding-bottom: 5em;
+}
+#creazionePersonaggio ol{
+    width: 85%;
+    margin:auto;
+}
+#nomeField div{
+    display: block;
+    margin: auto;
+    width: 20em;
 }
 
-fieldset.ccField p#traitsDesc {
-    margin: 0.7em;
+.creazioneFields #nomeField label{
+    display: block;
+    padding:0.5em;
+    text-align: center;
+    margin:auto;
+}
+.creazioneFields #nomeField input{
+    margin:auto;
+    width: 19em;
+    margin-bottom: 1em;
+}
+
+
+#submitPersonaggio{
+    margin:auto;
+    margin-top: 4em;
+    padding:1.5em;
+}
+#submitPersonaggio p{
+    width: 70%;
+    margin: auto;
+}
+
+
+#traitsDesc {
+    padding: 2em;
+    padding-top: 1em;
+    text-align: center;
 }
 
 /* GRID? */
 .ccTraitsL {
     display: block;
     text-align: center;
+    font-size: 1.2em;
+    font-weight: 500;
 }
-/* .ccTraitsTA {
-    display: block;
-    resize: none;
-    padding-left: 1em;
-    padding-right: 1em;
-    margin: 0.5em auto 2.4em auto;
-    max-width: 40%;
-} 
-*/
 
 .ccTraitsTA {
     display: block;
-    resize: none; /* maybe */
     margin: 0.5em 0;
+    resize: none;
 }
 
 .ccWrite {
@@ -1862,6 +1974,9 @@ button[name="RemoveRep"]{                                                 /*da e
 #modificaDati #intestazionePagina{
     padding-bottom: 2.5em;
 }
+#modificaDati fieldset{
+    display: block;
+}
 
 .userFields { 
     width: 100%;
@@ -1876,8 +1991,13 @@ button[name="RemoveRep"]{                                                 /*da e
     margin:auto;
 }
 form#datiPassword .submitForm{
+    width: 25em;
+    height: 7em;
+    margin:auto;
+}
+
+form#datiPassword fieldset{
     margin-bottom: 2em;
-    margin-top:3em;
 }
 form#datiUtenza .submitForm{
     margin-bottom: 4em;
@@ -1885,8 +2005,17 @@ form#datiUtenza .submitForm{
 form#datiUtenza fieldset{
     margin-bottom: 3em;
 }
-form#datiPassword{
+#modificaPassword .campiObbligatori{
+    float: right;
+}
+#modificaPassword{
     margin-top:5em;
+}
+form#datiPassword{
+    width: 90%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 .userFields .submitForm p{
     padding: 1em 0 0 0;
@@ -1939,6 +2068,78 @@ form#datiUtenza > div:first-child{
     display: block;
     margin:auto;
 }
+
+#loginUser button[name="close"]{
+    top:-4em;
+    left:2em
+}
+
+/*------------------------------------- LOGIN ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#loginBody{
+    padding-top: calc(50vh - 14.6em);
+    min-height: calc(50vh + 14.6em);
+    background-color: #000000a8;
+}
+
+#loginUser{
+    max-width: 40em;
+    margin:auto;
+    background-color: #fff7e6;
+    border-radius: 1em;
+    background-image: url(../images/decorazione_login/1.png), url(../images/decorazione_login/2.png);
+    background-size: 15em 15em, 7.9em 25em;
+    background-repeat: no-repeat, no-repeat;
+    background-position-x: left, right;
+}
+
+
+#loginUser header{
+    padding: 2em;
+}
+#loginUser h1{
+    text-align: center;
+    font-size: 3em;
+    padding-top:0.5em;
+    margin-bottom: 0.5em;
+}
+#loginUser form{
+    width: 90%;
+    margin:auto; 
+}
+#loginUser form label{
+    font-size: 1.3em;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+}
+#loginUser form > input{
+    width:20em;
+    margin:1em calc(50% - 10.5em) 1.5em calc(50% - 10.5em);
+}
+#loginUser form > p{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+#loginUser #submitLogin{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    padding-bottom: 0.4em;
+}
+#loginUser #submitLogin input{
+    width: 12em;
+}
+#loginUser #submitLogin div{
+    margin:auto;
+    padding: 1em;
+}
+
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
