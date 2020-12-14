@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
     </head>
 
-    <body id="visualizzaReport">
+    <body id="visualizzaReport" class="documentoBody">
         <header id="intestazioneSito">
 
             <ul class="AiutiNavigazione">
@@ -26,11 +26,26 @@
                 <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
                 <input id="Iscrizione" type="submit" value="Iscriviti">
             </div>
-            <ul id="menu">
-                <li xml:lang="en" class="externalLink"><a href="../Home.html">Home</a></li>
-                <li class="externalLink"><a href="AreaPersonale.html">Area Personale</a></li>
-                <li class="externalLink"><a href="Esplora.html">Esplora</a></li>
-            </ul>
+            <ul id="menu" role="menubar">
+                <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
+                <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
+                        <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    </ul>
+                </li>
+        </ul>
     
     
         </header>
@@ -45,7 +60,7 @@
         <div id="content">
         <div id="contentRepo">
             <form>
-                <button name="closeReport" value="1"></button>
+                <button name="close" value="report"></button>
             </form>
             <header>
                 <h1>Iniziare una Locanda</h1>
@@ -144,25 +159,23 @@
                 </fieldset>
             </form>
 
-            <form id="ReportActions">
-                <ul>
-                    <li>
-                        <button name="elimina" value="1" class="buttonLink">ELIMINA</span></button>         
-                    </li>
-                    <li>
-                        <button name="esplorabile" value="1" class="buttonLink">PUBBLICA IN "Esplora"</button>    
-                    </li>
-                    <li>
-                        <button name="modifica" value="1" class="buttonLink">MODIFICA</button>   
-                    </li>
-                </ul>
-            </form>
-
         </div>
 
-
-
     </div>
+
+    <form id="DocumentActions">
+        <ul>
+            <li>
+                <button name="elimina" value="report" class="buttonLink">ELIMINA</span></button>         
+            </li>
+            <li>
+                <button name="esplorabile" value="report" class="buttonLink">PUBBLICA IN "Esplora"</button>    
+            </li>
+            <li>
+                <button name="modifica" value="report" class="buttonLink">MODIFICA</button>   
+            </li>
+        </ul>
+    </form>
 
     </body>
 
