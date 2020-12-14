@@ -48,6 +48,10 @@ abbr::after {
     font-size: 90%;
 }
 
+footer {
+    display: none;
+}
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -174,4 +178,76 @@ abbr::after {
 }
 #bodyEsplora dd + dd::after {
     content: ">"
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#visualizzaReport img, #visualizzaReport #InserimentoCommento, #visualizzaReport #ReportActions, #visualizzaReport li.commento button {
+    display: none;
+}
+
+#visualizzaReport p {
+    margin: 2mm;
+    margin-left: 0;
+}
+
+#visualizzaReport h2  {
+    display: inline-block;
+    font-size: 5mm;
+    margin: 2mm 0 2mm 0;
+}
+
+#visualizzaReport h2::after  {
+    content: ":";
+}
+
+#visualizzaReport .badgeUtente, #visualizzaReport .badgeUtente p, #visualizzaReport #ultimaModifica p, #visualizzaReport #giocatoriReport li,  #visualizzaReport #boxGiocatori {
+    display: inline;
+}
+
+#visualizzaReport #giocatoriReport p {  /* Per non andare a capo spezzando nome*/
+    display: inline-block;
+    margin: 0.5mm 0 2mm 0;
+}
+
+#visualizzaReport #infoDiCreazione p {
+    margin-left: 2mm;
+}
+
+#visualizzaReport #giocatoriReport p {
+    margin-left: 3mm;
+}
+
+#visualizzaReport #testoReport h2  {
+    margin-bottom: 0;
+}
+
+#visualizzaReport #commentiField {
+    border: none;
+}
+
+#visualizzaReport .commento .badgeUtente {
+    font-size: 4.5mm;
+}
+
+#visualizzaReport li.commento {
+    margin-bottom: 4mm;
+}
+
+#visualizzaReport .testoCommento p {
+    margin: 1mm;
+}
+
+#visualizzaReport .testoCommento p.dateTimeCommento::before {
+    content: "<";
+}
+
+#visualizzaReport .testoCommento p.dateTimeCommento::after {
+    content: ">";
 }
