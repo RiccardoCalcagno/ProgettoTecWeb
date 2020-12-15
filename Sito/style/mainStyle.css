@@ -382,6 +382,9 @@ body{
 #menu a.dropdown {
     cursor: pointer;
 }
+#menu a#currentDirect{
+    background-color:black;
+}
 
 #menu a.dropdown::after { /* background?*/
     content:"";
@@ -765,7 +768,8 @@ li #toApprEsp:active{background-color:#732ab8be;}
     padding:4em 1em 5em 1em;
 }
 
-.documentoBody #content button[name="close"], #loginUser button[name="close"]{
+.documentoBody #content button[name="close"], #loginUser button[name="close"], #closeSalvataggio{
+    cursor: pointer;
     float: right;
     position: relative;
     top:-5.5em;
@@ -778,10 +782,10 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border:none;
     border-radius: 1em;
 }
-.documentoBody #content button[name="close"]:hover, #loginUser button[name="close"]:hover{
+.documentoBody #content button[name="close"]:hover, #loginUser button[name="close"]:hover, #closeSalvataggio:hover{
     background-position: center;
 }
-.documentoBody #content button[name="close"]:active, #loginUser button[name="close"]:active{
+.documentoBody #content button[name="close"]:active, #loginUser button[name="close"]:active, #closeSalvataggio:active{
     background-position: bottom;
 }
 
@@ -1206,6 +1210,21 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+.Attenzione{
+    color:#720000;
+}
+
+.counter{
+    float: right;
+}
+.limitazioniText{
+    font-weight: 400;
+}
+#datiUtenza .counter{
+    margin-top: 0.5em;
+    margin-right: 3em;
+}
+
 .creazioneFields fieldset{
     background-color: #FFF0D4;
     border:none;
@@ -1255,6 +1274,66 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 p.campiObbligatori{ 
     text-align: right;
     margin-right: 7.5%;
+}
+
+/*
+---------------------------------------------------------------------------------------------------------------------------------
+                                                        AUTENTICAZIONE OVERLAY  
+---------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#AutenticazioneOverlay {
+    position: fixed;
+    /*display: none;  */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+#popUpAutenticazione{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: #fff7e6;
+    padding: 2em;
+    padding-top: 1.7em;
+    width: 40%;
+    min-width: 22em;
+    border-radius: 1.5em;
+}
+#popUpAutenticazione h2{
+    font-size: 1.5em;
+}
+#popUpAutenticazione h1{
+    font-size: 2.6em;
+    padding-bottom: 0.25em;
+}
+#popUpAutenticazione a{
+    display: inline-block;
+    flex: 1 1 10em;
+    margin:1em;
+    text-decoration: none;
+}
+#popUpAutenticazione form > div{
+    display: flex;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+}
+#popUpAutenticazione #annullaSalvataggio{
+    height: 2.2em;
+    width:13em;
+    margin-left:1em;
+}
+#closeSalvataggio{
+    top:-5em;
+    left: 2.5em;
 }
 
 /*
@@ -1479,11 +1558,12 @@ p.campiObbligatori{
 }
 
 #creazionePersonaggio select {
+    width: 10em;
+    padding: 0.3em;
     text-align-last: center;
     text-indent: -5%;
     border: 1px inset black;
     appearance: none;
-    background: #FFF url("../images/down_arrow.png") no-repeat 98% center;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -2013,9 +2093,6 @@ form#datiUtenza .submitForm{
 form#datiUtenza fieldset{
     margin-bottom: 3em;
 }
-#modificaPassword .campiObbligatori{
-    float: right;
-}
 #modificaPassword{
     margin-top:5em;
 }
@@ -2108,9 +2185,12 @@ form#datiUtenza > div:first-child{
     padding: 2em;
 }
 #loginUser h1{
+    display: block;
+    width: 6em;
     text-align: center;
     font-size: 3em;
     padding-top:0.5em;
+    margin:auto;
     margin-bottom: 0.5em;
 }
 #loginUser form{
@@ -2161,38 +2241,39 @@ form#datiUtenza > div:first-child{
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap;
+    justify-content: center;
+}
+#bodyEsplora #intestazionePagina{
+    padding-bottom: 1em;
 }
 
 /*------------------------------------- REPORTS ------------------------------------------------
 ------------------------------------------------------------------------------------------------
 */
 
-/*
-#reportUtente {
-    padding-top: 0.7em;
-    padding-left: 1%;
-}
-#reportUtente h2{
-    padding-left: 2%;
-    padding-bottom: 0.4em;
-}
-
-#bodyEsplora #reportUtente {
-    width: 65%;
-}
-*/
-
 #reportEsplora{
+    padding-top:2em;
     margin: auto;
-    flex: 1 1 39em;
-    min-width: 32em;
-    max-width: 39em;
+    margin-top: 0;
+    flex: 1 1 35em;
+    min-width: 20em;
+}
+
+#reportEsplora h2{
+    font-size:2.5em;
+    text-align: center;
+    padding-bottom: 0.5em;
 }
 
 #reportEsplora form{                    /* Usa la form per ridimensionare*/
-    width: 90%;
-    max-width: 48em;
+    width: 95%;
+    max-width: 43em;
     margin: auto;
+    padding:0 6%;
+}
+
+#reportEsplora .box{
+    min-height: 50em;
 }
 
 /*------------------------------------- ASIDE ------------------------------------------------
@@ -2200,8 +2281,11 @@ form#datiUtenza > div:first-child{
 */
 
 #esploraAside {
-    flex: 1 1 30%;
+    flex: 1 1 20em;
+    max-width: 50em;
+    padding:0 3%;
     margin: auto;
+    margin-top: 2em;
 }
 
 #esploraAside h2 {
@@ -2211,11 +2295,11 @@ form#datiUtenza > div:first-child{
 }
 
 #esploraAside li {
-    padding: 0.7em;
+    padding: 1.5em;
     margin: 0.3em;
+    margin-bottom: 1.5em;
     border-radius: 0.5em;
-    border: 7px ridge #724713;
-    background-color: #f7ecd4;
+    background-color: #FFF0D4;
 }
 
 
@@ -2225,17 +2309,17 @@ form#datiUtenza > div:first-child{
 #eventi dt {
     font-weight: bold;
     font-size: 1.2em;
-    padding-left: 0.6em;
+    padding-bottom: 0.25em;
 }
-
-#eventi dd:nth-of-type(2n):not(:last-child) {
-    padding-bottom: 0.5em;
-}
-
 #eventi dd {
     display: list-item;
     list-style-type: square;
-    list-style-position: inside;
+    margin-left: 1.1em;
+    padding-bottom: 0.4em;
+}
+
+#eventi dd:nth-of-type(2n):not(:last-child) {
+    padding-bottom: 0.6em;
 }
 
 #siti dt {
@@ -2247,6 +2331,7 @@ form#datiUtenza > div:first-child{
 #siti dd::after{
     display: block;
     content: "";
+    padding-bottom: 0.7em;
 }
 
 
