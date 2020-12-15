@@ -10,7 +10,9 @@
     
         <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
     
-        <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />        
+        <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />     
+        
+        <script type="text/javascript" src="../scripts.js"></script> 
     </head>
 
     <body id="creazioneReport">
@@ -29,7 +31,7 @@
                 <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
                 <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
                 <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false" id="currentDirect">Crea</a>
                     <ul role="menu" class="dropdown-content">
                         <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
                         <li role="none" id="currentLink">Crea Report</li>
@@ -59,7 +61,8 @@
         <header id="intestazionePagina">
             <h1>Creazione del Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
             <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
-                passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai.</p>
+                passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai. </p>
+            <p><strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del report sarà necessaria una tua autenticazione</p>
         </header>
 
         <p class="campiObbligatori"> : campo obbligatorio</p>
@@ -70,13 +73,21 @@
                 <li>
                     <fieldset id="titoloRepo" class="fieldss"><legend><h2 class="campiObbligatori">Titolo</h2></legend>
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
-                        <div><textarea name="titolo" rows=1 cols="60" placeholder="Inserisci un titolo di massimo 30 lettere" maxlength="30" aria-required="true" required="required"></textarea></div>
+                        <div>
+                            <p class="limitazioniText">Inserisci un titolo di massimo 30 lettere</p>
+                            <textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" required="required" onkeyup="updateCounterTextarea('titoloReport', 'currentCountTitolo');"></textarea>
+                            <p class="counter"><span id="currentCountTitolo">0</span>/30</p>
+                        </div>
                     </fieldset>
                 </li>
                 <li>
                     <fieldset id="sottotitoloRepo" class="fieldss"><legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
-                        <div><textarea name="sottotitolo" rows=4 cols="60" placeholder="Inserisci un sottotitolo di massimo 120 lettere" maxlength="120" aria-required="true" required="required"></textarea></div>
+                        <div>
+                            <p class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</p>
+                            <textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" required="required" onkeyup="updateCounterTextarea('sottoTRepo', 'currentCountSottotitolo');"></textarea>
+                            <p class="counter"><span id="currentCountSottotitolo">0</span>/120</p>
+                        </div>
                     </fieldset>
                 </li>
                 <li>
@@ -181,5 +192,23 @@
 
     </body>
 
+    <div id="AutenticazioneOverlay">
+        <div id="popUpAutenticazione">
+
+            <button id="closeSalvataggio" name="Salvataggio" value="annulla"></button>
+
+            <h1>Attenzione</h1>
+            <h2>Per salvare il report è necessaria un autenticazione</h2>
+            <p>Effettua l'accesso o l'iscrizione e conclusa la procedura il tuo documento 
+                verrà salvato automaticamente nella tua Area Personale</p>
+            <form>
+            <div>
+                <a class="buttonLink" href="login.html">ACCESSO</a>
+                <a class="buttonLink" href="">ISCRIZIONE</a>
+            </div>
+            <button id="annullaSalvataggio" class="buttonLink" name="Salvataggio" value="annulla">ANNULLA</button>
+            </form>
+        </div>
+    </div>
 
 </html>

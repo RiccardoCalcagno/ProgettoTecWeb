@@ -15,9 +15,12 @@
         <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>           
         <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 
+        <script type="text/javascript" src="../scripts.js"></script> 
+
     </head>
 
-    <body id="modificaDati">
+    <body id="modificaDati" onload="onLoadModificaDati();">
+
         <header id="intestazioneSito">
 
             <ul class="AiutiNavigazione">
@@ -67,7 +70,7 @@
         <p class="campiObbligatori"> : campo obbligatorio</p>
         
         <div class="userFields">
-            <form id="datiUtenza" autocomplete="on" class="creazioneFields">
+            <form id="datiUtenza" autocomplete="on" class="creazioneFields";>
             <div>
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
@@ -77,13 +80,15 @@
                     <input type="file" id="imgProfilo" name="setImmg" accept="image/*"/>
                     </li>
                     <li>
-                    <label for="username" class="campiObbligatori">Username</label>
+                    <label for="username" class="campiObbligatori">Username <span class="limitazioniText">max 20 caratteri</span></label>
                     <input type="text"  aria-required="true" required="required"
                             maxlength="20"
+                            onkeyup="updateCounterTextarea('username', 'currentCountUser');"
                             name="username" 
                             id="username"
                             value=""
-                            placeholder="Inserisci un username di max 20 caratteri"/>
+                            placeholder="Digita l'username"/>
+                    <p class="counter"><span id="currentCountUser">0</span>/20</p>
                     </li>
                 </ul>
             </fieldset>
@@ -117,48 +122,8 @@
                         max=""
                         placeholder="Seleziona la tua data di nascita"/>
                     </li>
-
-
-
-
-<!--
-    ATTENZIONE  QUI C'È JAVASCRIPT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-    DA RIPORTARE ANCHE NELLE VERIFICHE DI INPUT LATO SERVER , OLTRE A VERIFICARE CHE LA DATA SIA IN FORMATO CORRETTO
-
--->
-
-<script>
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
- if(dd<10){
-        dd='0'+dd
-    } 
-    if(mm<10){
-        mm='0'+mm
-    } 
-
-today = yyyy+'-'+mm+'-'+dd;
-document.getElementById("birthdate").setAttribute("max", today);    
-</script>
-
-
-
-
-
-
-
-
-
-
-
                 </ul>
+
             </fieldset>
             </div>
             <div class="submitForm">
