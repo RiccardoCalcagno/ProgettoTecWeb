@@ -1,0 +1,450 @@
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                GENERALE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+* {
+    font-size: 1em;
+}
+
+body {
+    width: 100%;
+}
+
+h2{
+    padding-bottom: 0.5em;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+h3{
+    font-size: 1.3em;
+    font-weight: 500;
+    padding-bottom: 0.2em;
+}
+
+#intestazionePagina{
+    width: 90%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+#intestazionePagina h1{
+    font-weight: 500;
+    width: 100%;
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+.puntoInterrogativo{
+    margin-left: 0;
+}
+/*TO FIX */
+.buttonLink {
+    width:20em;
+    height: 2.7em;
+}
+/*TO FIX */
+a.buttonLink {
+    padding-top:0.5em;
+    height: 2.2em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                HOME PAGE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+/*
+--------------------------------------- PRESENTAZIONE FEATURE ----------------------------------------------
+------------------------------------------------------------------------------------------------------------
+*/
+
+#presentazioneFeatures {
+    width: 100%;
+}
+
+#presentazioneFeatures h2, #presentazioneFeatures p{
+    width: 90%;
+}
+
+#presentazioneFeatures p{
+    margin-bottom: 0.3em;
+}
+
+#presentazioneFeatures ul p{
+    font-size: 1em;
+    min-height: 40%;
+}
+
+#presentazioneFeatures li {
+    flex: 0 1 45%;
+    min-width: 45%;
+}
+
+#presentazioneFeatures ul img {
+    vertical-align: text-top;
+}
+
+/*
+--------------------------------------- ARGOMENTI ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#argomenti > div {
+    padding: 1em 0 1em 0;
+    margin: 1em auto 0 auto;
+    display: block;
+}
+
+#argomenti #aboutReport {
+    margin-top: 1.5em;
+}
+
+#argomenti img{
+    display: none;
+    /*display: block;
+    width: 15em;
+    height: 15em;
+    margin: auto;
+    padding: 0.5em;
+    flex: 1 1 auto; */
+}
+#argomenti .testoArgomento{
+    padding: 0;
+}
+
+#aboutPersonaggio .testoArgomento h2{
+    padding-bottom: 0.5em;
+}
+
+#argomenti .about .testoArgomento{
+    max-width: 95%;
+}
+
+.about ol{
+    margin: 0.2em 10%;
+    display: block;
+}
+.about li{
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    list-style-type: decimal;
+}
+
+#argomenti .howTo{
+    padding: 1.5em 0.7em 3.5em 0.7em;
+    width: calc(100% - 1.4em);
+}
+.howTo li{
+    padding-bottom: 1em;
+}
+.howTo li:before{
+    left: -0.5em;
+}
+
+.howTo h2{
+    text-align: left;
+}
+
+#argomenti .howTo .testoArgomento{
+    max-width: 95%;
+}
+
+
+/*
+------------------------------------- APPROFONDIMENTI ------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#approfondimenti{
+    margin-top: 2em;
+    padding-bottom: 3em;
+}
+#approfondimenti h2{
+    font-size: 2em;
+}
+
+#approfondimenti ul{
+    justify-content: space-around;
+    width: 100%;
+}
+#approfondimenti li{
+    min-width: 42%;
+    margin-top: 1em;
+    width: 100%;
+    height: 100%;
+}
+
+#approfondimenti li a{
+    height: 4em;
+    line-height: 4em;
+}
+
+#approfondimenti li a:after {
+    content: "";
+    display: block;
+    border-radius: 1em;
+    background-image: url(../images/sfondo_approfondimenti.png);
+    background-position: center;
+    height: 100%;
+    z-index: -1;   
+    position: relative;
+    top:-100%;
+  }
+#approfondimenti a > span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+    padding: 0.5em;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            APPROFONDIMENTI HTMLS
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.htmlApprofondimento #intestazionePagina{
+    padding-bottom: 0.7em;
+}
+
+.htmlApprofondimento .content{
+    width: 95%;
+    padding-bottom: 10%;
+}
+
+.htmlApprofondimento h2{
+    padding-bottom: 0.3em;
+}
+
+.htmlApprofondimento section{
+    padding-bottom: 1em;
+}
+
+.htmlApprofondimento .howTo{
+    padding: 1.5em;
+    padding-top: 0.5em;
+}
+
+.htmlApprofondimento .howTo img{
+    padding-top: 2em;
+    width: 85%;
+}
+
+#contentEsplora ol{
+    width: 80%;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                AREA PERSONALE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#areaPersonale section >header{
+    margin-left: 3%;
+    margin-bottom: 0;
+}
+
+
+/*
+------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA INFO UTENTE
+------------------------------------------------------------------------------------------------------------
+*/
+
+
+#viewInfoUser > div {
+    width: 98%;
+    padding-top: 1em;
+}
+
+#viewInfoUser dl  {
+    width: 90%; /* 75%  img-dl in 1 line*/
+    padding-bottom: 0;
+    padding-left:0;
+}
+
+#viewInfoUser dt {
+    width: 40%;
+    padding-bottom: 1em;
+}
+
+#viewInfoUser dd {
+    width: 50%;
+    float: left;
+    padding-bottom: 1em;
+    white-space: nowrap;
+    overflow: auto;
+    text-overflow: clip;
+}
+
+#viewInfoUser > div > div{
+    width:8em;  /* 5em img-dl in 1 line*/
+    padding: 0.5em;
+}
+#viewInfoUser img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #dfdfdf;
+}
+
+/* ?????
+#viewInfoUser input {
+    border-style: none;
+    background: none;
+    font-size: 1em;
+    text-align: left;
+}
+ ????? */
+
+
+/*
+------------------------------------------------------------------------------------------------------------
+                                                AREA DASHBOARD
+------------------------------------------------------------------------------------------------------------
+*/
+
+/*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
+*/
+
+#dashboard h3{
+    font-size: 1.5em; /*TO FIX */
+}
+
+#dashboard h2, #viewInfoUser h2{
+    font-size: 1.8em;
+    padding-bottom: 0.3em;
+}
+
+#dashboard .buttonLink, #viewInfoUser .buttonLink{
+    margin-right: 2%;
+    margin-top: 0;
+    width: auto;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+}
+
+/*------------------------------------- PERSONAGGI ---------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#personaggiUtente{
+    padding-top: 2%;
+    padding-bottom: 6%;
+    border-bottom: 1px solid #5f3f1738;
+    margin-bottom: 4%;
+}
+
+#personaggiUtente .box{
+    width: 95%;
+    margin: 1em auto;
+}
+#personaggiUtente .cards{
+    width: calc(100% - 1em);
+    justify-content: space-around;
+}
+
+/*----------------------- CARD PERSONAGGI --------------------------
+*/
+
+#personaggiUtente .cardPersonaggio {
+    margin: 1.2em 1%;
+    border: 11px ridge #915f14cc;
+}
+
+/* dl dt dd ?
+#personaggiUtente .cardPersonaggio li h5{
+    width: 36%;
+    float: left;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding-left: 0.8em;
+}
+*/
+
+/*------------------------------------- REPORTS ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+.listeReport{
+    width: 98%;
+}
+
+.listeReport > div{
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    min-width: 50.1%;
+}
+
+.listeReport #reportMaster {
+    margin-right: 0;
+}
+
+.listeReport #reportPartecipante{
+    margin-left: 0;
+}
+
+.report .box{
+    margin-top: 0;
+    padding-top: 1em;
+    padding-bottom: 0.1em;
+}
+
+.report .cards li{
+    min-width: 70%;
+}
+
+/*--------------------------- ESPANDI REPORTS -------------------
+*/
+/* TO FIX (MAYBE)
+.report .espandi{
+    width: 60%;
+}
+
+.report .espandi li{
+    display: inline; width: 5.3em;
+}
+
+.report .espandi .precedente, .report .espandi .successivo{
+    position:relative;
+    top:-5px;
+    width: 20px;
+    height: 18px;
+    border-style: solid;
+}
+.report .espandi .precedente{
+    border-width: 9px 20px 9px 0;
+    border-color: transparent #2c2318 transparent transparent ;
+}
+.report .espandi .successivo{
+    border-width: 9px 0 9px 20px;
+    border-color: transparent transparent transparent #2c2318;
+}
+*/
+
+/*--------------------------- CARDS REPORTS -------------------
+*/
+/* TO FIX */
+.report .cardReport .testoCardRep{
+    height: 5.5em;
+    width: 73%;
+ }
+
+.report .cardReport .testoCardRep h4{
+    padding-bottom: 0.2%;
+ }

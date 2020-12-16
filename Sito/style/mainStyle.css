@@ -436,6 +436,7 @@ body{
     float: right;
     height: 3em;
     width: calc(9% + 9em);
+    min-width: 245px;   /* FIX ? */
     margin: auto;
 }
 #access input {
@@ -690,7 +691,7 @@ body{
     flex: 0 1 calc(22%);
     font-size: 1.5em;
     height: 5em;
-    min-width: 7em;
+    min-width: 22%;
     max-width: 20em;
     margin: auto;
     margin-top: 2em;
@@ -736,7 +737,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
-    padding: 0.9em;
+    padding: 0.5em;
     font-weight: 800;
     color: #FFFFFF;
 }
