@@ -15,9 +15,11 @@
     <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="../style/smallStyle.css"
         media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" />
+
+    <script type="text/javascript" src="../scripts.js"></script> 
 </head>
 
-<body id="creazionePersonaggio">
+<body id="creazionePersonaggio" onload="onLoadCreaPersonaggio()">
     <header id="intestazioneSito">
 
         <ul class="AiutiNavigazione">
@@ -91,52 +93,37 @@
                     <legend>
                         <h2 class="campiObbligatori">Razza</h2>
                     </legend>
-                    <p>I dragonidi sono una stirpe che discende dai draghi e combina i loro tratti con quelli umanoidi. 
-                        Vivono in clan che considerano importantissimi e tendono al bene, seppur tra loro i malvagi tendono al male estremo.</p>
+                    <div id="razzaDesc"><p>La <strong>Razza</strong> rappresenta il popolo e l’etnia di cui fa parte il personaggio. Le razze influenzano 
+                        le caratteristiche e le abilità che rendono unico ogni personaggio come il modo in cui potrebbe
+                         interagire con gli altri personaggi.</p></div>
                     <div>
                         <label for="crace" class="ccLabel">Scegli una <strong>Razza</strong> tra quelle proposte</label>
-                        <select id="crace" name="crace" onchange="myFunction()" aria-required="true"
-                            required="required">
-                            <!--------------- PROVA JS !!! ---------------->
-                            <!--------------- PROVA JS !!! ---------------->
-                            <option value="umano" data-desc="RaceDescUmano">Umano</option>
-                            <option value="elfo" data-desc="RaceDescElfo">Elfo</option>
-                            <option value="nano" data-desc="RaceDescNano">Nano</option>
-                            <option value="halfling" data-desc="RaceDescHalfling">Halfling</option>
-                            <option value="gnome" data-desc="RaceDescGnome">Gnome</option>
-                            <option value="tiefling" data-desc="RaceDescTiefling">Tiefling</option>
-                            <option value="dragonide" data-desc="RaceDescDragonide">Dragonide</option>
-                            <option value="mezzelfo" data-desc="RaceDescMezzelfo">Mezzelfo</option>
-                            <option value="mezzorco" data-desc="RaceDescMezzorco">Mezzorco</option>
+                        <select id="crace" name="crace" onchange="setDescCaratteristica(0)" aria-required="true" required="required">
+                            <option value="umano">Umano</option>
+                            <option value="elfo">Elfo</option>
+                            <option value="nano">Nano</option>
+                            <option value="halfling">Halfling</option>
+                            <option value="gnome">Gnome</option>
+                            <option value="tiefling">Tiefling</option>
+                            <option value="dragonide">Dragonide</option>
+                            <option value="mezzelfo">Mezzelfo</option>
+                            <option value="mezzorco">Mezzorco</option>
                         </select>
                     </div>
                 </fieldset>
             </li>
-
-
-            <script>
-                function myFunction() {
-                    var sel = document.getElementById("crace");
-                    var option = sel.options[sel.selectedIndex];
-                    var desc = option.getAttribute("data-desc");
-                    document.getElementById("dynamicP").innerHTML = desc;
-                }
-            </script>
-            <!--------------- PROVA JS !!! ---------------->
-            <!--------------- PROVA JS !!! ---------------->
 
             <li>
                 <fieldset class="fieldss">
                     <legend>
                         <h2 class="campiObbligatori">Classe</h2>
                     </legend>
-                    <p>Gli elfi fanno parte di un popolo magico, sono snelli e aggraziati e hanno tratti fisici
-                         ancor più variabili rispetto agli umani. Per via della loro lunghissima vita dimostrano 
-                         divertimento e curiosità più che agitazione e bramosia. </p>
+                    <div id="classeDesc"><p>La <strong>Classe</strong> rappresenta la professione o vocazione del personaggio. Essa determina ciò che
+                         il personaggio è in grado di fare, come: combattere, sfruttare 
+                         capacità magiche e impiegare abilità speciali e altro ancora.</p></div>
                     <div>
-                        <label for="cclass" class="ccLabel">Scegli una <strong>Classe</strong> tra quelle
-                            proposte</label>
-                        <select id="cclass" name="cclass" aria-required="true" required="required">
+                        <label for="cclass" class="ccLabel">Scegli una <strong>Classe</strong> tra quelle proposte</label>
+                        <select id="cclass" name="cclass" onchange="setDescCaratteristica(1)" aria-required="true" required="required">
                             <option value="bardo">Bardo</option>
                             <option value="barbaro">Barbaro</option>
                             <option value="druido">Druido</option>
@@ -159,13 +146,12 @@
                     <legend>
                         <h2 class="campiObbligatori">Background</h2>
                     </legend>
-                    <p>Gli gnomi amano le invenzioni, le scoperte, le esplorazioni, gli scherzi e il
-                         divertimento. Nonostante la grande longevità mantengono sempre un grande entusiasmo 
-                         per la vita e sono spesso abili artigiani, orafi e inventori.</p>
+                    <div id="backgDesc"><p>Ogni personaggio è un individuo dotato di storia, interessi, contatti e capacità personali.
+                        Il <strong xml:lang="en">Background</strong> ci da la possibilità di esprimere lo sfondo storico
+                        adatto per introdurre il personaggio nell’azione.</p></div>
                     <div>
-                        <label for="cbackground" class="ccLabel">Scegli un <strong xml:lang="en">Background</strong> tra
-                            quelli proposti</label>
-                        <select id="cbackground" name="cbackground" aria-required="true" required="required">
+                        <label for="cbackground" class="ccLabel">Scegli un <strong xml:lang="en">Background</strong> tra quelli proposti</label>
+                        <select id="cbackground" name="cbackground" onchange="setDescCaratteristica(2)" aria-required="true" required="required">
                             <option value="accolito">Accolito</option>
                             <option value="artigiano">Artigiano</option>
                             <option value="ciarlatano">Ciarlatano</option>
@@ -187,22 +173,22 @@
                     <legend>
                         <h2 class="campiObbligatori">Allineamento</h2>
                     </legend>
-                    <p>Gli halfling amano starsene comodi a casa a mangiare . Sono ingegnosi e sono affascinati da 
-                        ciò che non conoscono o non hanno mai visto dal vivo e la loro curiosità li spinge all’avventura.
-                         Sono generosi e di buon cuore.</p>
+                    <p>L’<strong>Allineamento</strong> esprime la disposizione dell’animo del personaggio e si esprime grazie 
+                        a due attributi: uno riguardante l’ approccio alla legge [Legale, Neutrale, Caotico]
+                         e l’altro riguardante la scelta morale [Buono, Neutrale, Malvagio]</p>
                     <div>
                         <label for="calignment" class="ccLabel">Scegli un <strong>Allineamento</strong> tra quelli
                             proposti</label>
                         <select id="calignment" name="calignment" aria-required="true" required="required">
-                            <option value="LG">Lawful Good</option>
-                            <option value="NG">Neutral Good</option>
-                            <option value="CG">Chaotic Good</option>
-                            <option value="LN">Lawful Neutral</option>
-                            <option value="N">Neutral</option>
-                            <option value="CN">Chaotic Neutral</option>
-                            <option value="LE">Lawful Evil</option>
-                            <option value="NE">Neutral Evil</option>
-                            <option value="CE">Chaotic Evil</option>
+                            <option value="LG">Legale Buono</option>
+                            <option value="NG">Neutrale Buono</option>
+                            <option value="CG">Caotico Buono</option>
+                            <option value="LN">Legale Neutrale</option>
+                            <option value="N">Neutrale Puro</option>
+                            <option value="CN">Caotico Neutrale</option>
+                            <option value="LE">Legale Malvagio</option>
+                            <option value="NE">Neutrale Malvagio</option>
+                            <option value="CE">Caotico Malvagio</option>
                         </select>
                     </div>
                 </fieldset>
@@ -263,3 +249,8 @@
 </body>
 
 </html>
+
+
+
+
+

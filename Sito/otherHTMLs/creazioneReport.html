@@ -75,7 +75,7 @@
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
                         <div>
                             <p class="limitazioniText">Inserisci un titolo di massimo 30 lettere</p>
-                            <textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" required="required" onkeyup="updateCounterTextarea('titoloReport', 'currentCountTitolo');"></textarea>
+                            <textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" required="required" onkeyup="updateCounterTextarea(1);"></textarea>
                             <p class="counter"><span id="currentCountTitolo">0</span>/30</p>
                         </div>
                     </fieldset>
@@ -85,7 +85,7 @@
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
                         <div>
                             <p class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</p>
-                            <textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" required="required" onkeyup="updateCounterTextarea('sottoTRepo', 'currentCountSottotitolo');"></textarea>
+                            <textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" required="required" onkeyup="updateCounterTextarea(2);"></textarea>
                             <p class="counter"><span id="currentCountSottotitolo">0</span>/120</p>
                         </div>
                     </fieldset>
@@ -191,7 +191,7 @@
         </form>
 
     </body>
-
+    <!--
     <div id="AutenticazioneOverlay">
         <div id="popUpAutenticazione">
 
@@ -210,5 +210,5 @@
             </form>
         </div>
     </div>
-
+-->
 </html>
