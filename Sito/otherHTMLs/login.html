@@ -17,17 +17,19 @@
 
     </head>
 
-    <body id="loginBody">
-        <div id="loginUser">
-            <form>
-                <button name="close" value="login"></button>
-            </form>
+    <body id="loginBody" class="transitorio">
+        <div>
+            <div id="closeDirettamente">
+                <a href="javascript:history.go(-1)" 
+                onMouseOver="self.status=document.referrer;return true"></a>     <!--TROVARE MODO DI TORNARE IN DIETRO, FORSE QUESTO NON VA BENE-->
+            </div>
 
             <h1>Accesso</h1>
 
             <form autocomplete="on">
 
                 <label for="username">Username</label>
+                <p class="messErrore" id="erroreUsername">*Username sconosciuto</p>
                 <input type="text" 
                         name="username" 
                         id="username"
@@ -35,6 +37,7 @@
                         placeholder="Inserisci il tuo username"/>
 
                 <label for="password">Password</label>
+                <p class="messErrore" id="errorePassword">*Password scorretta</p>
                 <input type="password" 
                         name="password" 
                         id="password"

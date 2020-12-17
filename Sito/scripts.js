@@ -20,22 +20,53 @@ function onLoadModificaDati(){
 function updateCounterTextarea(numCount){
     var IDText;
     var IDCurrent;
+    var max;
     switch(numCount){
         case 1:
             IDText="titoloReport";
             IDCurrent="currentCountTitolo";
+            max=30;
             break;
         case 2:
             IDText="sottoTRepo";
             IDCurrent="currentCountSottotitolo";
+            max=120;
             break;
         case 3:
             IDText="username";
             IDCurrent="currentCountUser";
+            max=20;
+            break;
+        case 4:
+            IDText="ctraits";
+            IDCurrent="currentCountTraits";
+            max=200;
+            break;
+        case 5:
+            IDText="cideals";
+            IDCurrent="currentCountIdeals";
+            max=200;
+            break;
+        case 6:
+            IDText="cbonds";
+            IDCurrent="currentCountBonds";
+            max=200;
+            break;
+        case 7:
+            IDText="cflaws";
+            IDCurrent="currentCountFlaws";
+            max=200;
             break;
     }
     var characterCount=document.getElementById(IDText).value.length;
-    document.getElementById(IDCurrent).innerHTML=characterCount;
+    var obj1=document.getElementById(IDCurrent);
+    obj1.innerHTML=characterCount;
+    if(characterCount>=max){
+       obj1.style = "color: red;";
+    } else if(characterCount == 0){
+        obj1.style = "color: rgba(0, 0, 0, 0.5);";
+    }else{obj1.style = "color: black;";}
+
 }
 
 function onLoadCreaPersonaggio(){

@@ -105,6 +105,8 @@ button:focus{
     margin:auto;
 }
 a.buttonLink {
+    text-decoration: none;
+    display: block;
     padding-top:0.5em;
     height: 2.2em;
 }
@@ -189,6 +191,11 @@ input[type="file"]:hover{
     background-color: #e6e6e6;
 }
 
+
+.messErrore{
+    padding-bottom: 0;
+    color:#680000;
+}
 
 
 
@@ -769,12 +776,17 @@ li #toApprEsp:active{background-color:#732ab8be;}
     padding:4em 1em 5em 1em;
 }
 
-.documentoBody #content button[name="close"], #loginUser button[name="close"], #closeSalvataggio{
-    cursor: pointer;
-    float: right;
+#closeDirettamente{
+    width: 0;
+    height: 0;
     position: relative;
-    top:-5.5em;
-    left: 3em;
+    left: 100%;
+}
+#closeDirettamente a{
+    cursor: pointer;
+    position: absolute;
+    top:-3.5em;
+    left: -3em;
     width: 2.5em; 
     height: 2.5em; 
     background-image: url(../images/icona_close.png);
@@ -783,11 +795,24 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border:none;
     border-radius: 1em;
 }
-.documentoBody #content button[name="close"]:hover, #loginUser button[name="close"]:hover, #closeSalvataggio:hover{
+#closeDirettamente a:hover{
     background-position: center;
 }
-.documentoBody #content button[name="close"]:active, #loginUser button[name="close"]:active, #closeSalvataggio:active{
+#closeDirettamente a:hover{
     background-position: bottom;
+}
+#loginBody #closeDirettamente a{
+    left: -1em;
+}
+#confermaBody #closeDirettamente a{
+    left: -1em;
+}
+#visualizzaScheda #closeDirettamente a{
+    top:-20.4em;
+}
+#visualizzaReport #closeDirettamente a{
+    top: -5.7em;
+    left: 1em;
 }
 
 
@@ -1019,6 +1044,10 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#visualizzaScheda #content{
+    padding-top: 2em;
+}
+
 #visualizzaScheda #setLayout{
     max-width: 40em;
     margin: auto;
@@ -1114,12 +1143,8 @@ li #toApprEsp:active{background-color:#732ab8be;}
     top: 40px;
 }
 
-#visualizzaScheda #content button[name="close"]{
-    top: calc( -4em - 256px);
-    left: 0;
-}
 
-#contentPersonaggio > div{
+#contentPersonaggio > div:last-child{
     position: relative;
     top: -100px;
     left: 5px;
@@ -1211,8 +1236,20 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#currentCountTitolo,#currentCountFlaws,#currentCountBonds,#currentCountIdeals,#currentCountTraits,#currentCountUser,#currentCountSottotitolo{
+    color: rgb(0,0,0,0.5);
+}
+
 .Attenzione{
     color:#720000;
+}
+.attenzioneP{
+    padding-top: 1.5em;
+    text-align: left;
+}
+
+#creazionePersonaggio #intestazionePagina, #creazioneReport #intestazionePagina{
+    padding-bottom: 2em;
 }
 
 .counter{
@@ -1561,11 +1598,12 @@ p.campiObbligatori{
     margin: auto;
 }
 
-
-#traitsDesc {
-    padding: 2em;
-    padding-top: 1em;
+#creazionePersonaggio fieldset.traitField > p{
+    padding: 1em 2em 2.5em 2em;
+}
+#creazionePersonaggio fieldset.traitField > p:nth-child(2){
     text-align: center;
+    padding-bottom: 0.5em;
 }
 
 .ccTraitsL {
@@ -1606,9 +1644,18 @@ p.campiObbligatori{
 }
 
 #traitsWrapper {
+    padding-top: 0.5em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+#traitsWrapper label{
+    font-size: 1.4em;
+    padding-bottom: 0.3em;
+}
+#traitsWrapper textarea{
+    height: 8em;
 }
 .traitsCard {
     margin: 0 0.7em 2em 0.7em;
@@ -2116,14 +2163,12 @@ form#datiPassword .submitForm{
 form#datiPassword fieldset{
     margin-bottom: 2em;
 }
-form#datiUtenza .submitForm{
-    margin-bottom: 4em;
-}
 form#datiUtenza fieldset{
     margin-bottom: 3em;
 }
 #modificaPassword{
-    margin-top:5em;
+    border-top: 1px solid #5f3f1738;
+    padding-top: 3em;
 }
 form#datiPassword{
     width: 90%;
@@ -2136,8 +2181,7 @@ form#datiPassword{
 }
 form#datiUtenza{
     width: calc(100% - 4em);
-    padding:0 2em 0 2em;
-    border-bottom: 1px solid #5f3f1738;
+    padding:0 2em 2em 2em;
 }
 #datiUtenza label[for="imgProfilo"],.userFields label[for="password"], .userFields label[for="NomeCognome"] {
     margin-top: 0;
@@ -2151,14 +2195,18 @@ form#datiUtenza{
     text-align: center;
 }
 #datiAnagrafici{
-    height: 26.5em;
+    height: 28.5em;
+    margin-top: 0;
 }
 #datiAnagrafici legend{
-    margin-bottom: 2.5em;
+    margin-bottom: 3em;
 }
 form#datiUtenza > div:first-child{
     display: flex;
     flex-wrap: wrap;
+}
+form#datiUtenza > div:first-child fieldset:first-child{
+    padding-bottom: 2em;
 }
 
 .userFields fieldset label {
@@ -2183,9 +2231,33 @@ form#datiUtenza > div:first-child{
     margin:auto;
 }
 
-#loginUser button[name="close"]{
-    top:-4em;
-    left:2em
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                HTML TRANSITORI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.transitorio{
+    background-color: #000000a8;
+}
+
+.transitorio > div{
+    max-width: 37em;
+    padding: 0 1.5em 0 1.5em;
+    margin:auto;
+    background-color: #fff7e6;
+    border-radius: 1em;
+}
+.transitorio h1{
+    display: block;
+    text-align: center;
+    font-size: 2.6em;
+    padding-top:0.5em;
+    margin:auto;
+    margin-bottom: 0.5em;
 }
 
 /*------------------------------------- LOGIN ------------------------------------------------
@@ -2195,68 +2267,93 @@ form#datiUtenza > div:first-child{
 #loginBody{
     padding-top: calc(50vh - 14.6em);
     min-height: calc(50vh + 14.6em);
-    background-color: #000000a8;
 }
 
-#loginUser{
-    max-width: 40em;
+#loginBody .messErrore{
+    width: 20em;
     margin:auto;
-    background-color: #fff7e6;
-    border-radius: 1em;
+}
+
+#loginBody h1{
+    font-size: 3em;
+}
+
+#loginBody > div{
     background-image: url(../images/decorazione_login/1.png), url(../images/decorazione_login/2.png);
     background-size: 15em 15em, 7.9em 25em;
     background-repeat: no-repeat, no-repeat;
     background-position-x: left, right;
 }
 
-
-#loginUser header{
-    padding: 2em;
-}
-#loginUser h1{
-    display: block;
-    width: 6em;
-    text-align: center;
-    font-size: 3em;
-    padding-top:0.5em;
-    margin:auto;
-    margin-bottom: 0.5em;
-}
-#loginUser form{
+#loginBody form{
     width: 90%;
     margin:auto; 
 }
-#loginUser form label{
+#loginBody form label{
     font-size: 1.3em;
     font-weight: 500;
     display: block;
     text-align: center;
+    padding-bottom: 0.4em;
 }
-#loginUser form > input{
+#loginBody form > input{
     width:20em;
-    margin:1em calc(50% - 10.5em) 1.5em calc(50% - 10.5em);
+    margin:0 calc(50% - 10.5em) 1.5em calc(50% - 10.5em);
 }
-#loginUser form > p{
+#loginBody form p:last-child{
     width: 100%;
     text-align: center;
     padding-bottom: 1em;
 }
 
-#loginUser #submitLogin{
+#loginBody #submitLogin{
     width: 90%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
     padding-bottom: 0.4em;
 }
-#loginUser #submitLogin input{
+#loginBody #submitLogin input{
     width: 12em;
 }
-#loginUser #submitLogin div{
+#loginBody #submitLogin div{
     margin:auto;
     padding: 1em;
 }
 
+/*------------------------------------- CONFERMA SALVATAGGIO ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#confermaBody > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    padding-bottom: 2em;
+}
+
+.corretto{
+    font-weight: 500;
+    color:green;
+}
+
+#confermaBody p{
+    text-align: center;
+}
+#refAreaPersConf{
+    padding-top: 0.5em;
+}
+#confermaBody #linkVelociPostConferma{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+#confermaBody .buttonLink{
+    margin-top: 1em;
+    width: 13em;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -2386,9 +2483,16 @@ form#datiUtenza > div:first-child{
     padding-bottom: 10em;
 }
 
+.htmlApprofondimento p{
+    padding-bottom: 0.8em;
+}
+
 .htmlApprofondimento h2{
     padding-bottom: 0.6em;
     font-weight: 400;
+}
+.htmlApprofondimento #contentEsplora h2{
+    padding-bottom: 0;
 }
 .htmlApprofondimento section{
     padding-bottom: 1.7em;
@@ -2404,9 +2508,6 @@ form#datiUtenza > div:first-child{
     margin-top: 1.2em;
 }
 .htmlApprofondimento .howTo li{
-    padding-bottom: 0;
-}
-.htmlApprofondimento .howTo h2{
     padding-bottom: 0;
 }
 .htmlApprofondimento .howTo li:before {

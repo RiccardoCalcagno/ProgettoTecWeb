@@ -1,13 +1,46 @@
+
+<!--
+    ATTENZIONE:
+
+    QUESTO HTML CONTIENE IL NECESSARIO SIA PER CREARE SIA PER MODIFICARE UN REPORT MA..
+    BISOGNA SCAMBIARE I SEGUENTI ELEMENTI:
+
+    1) <head>
+    2) <header> intestazionePagina
+    3) <p> nell'ultimo submitForm
+-->
+
+
+<!-- RICORDARSI DI TOGLIERE L'ATTENZIONE SULL' HEADER SE L'UTENTE HA GIÀ FATTO L'AUTENTICAZIONE-->
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+
         <title>Creazione Report di Sessione</title>
         <meta name="title" content="Creazione Report di Sessione" />
-    
         <meta name="description" content="Crea il tuo report di sessione" />
-        <meta name="keywords" content="" />
+        <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />
     
+    <!-- QUESTO È L'HEAD CHE BISOGNA SCAMBIARE SE INVECE DI CREARE IL REPORT LO SI MODIFICANDO
+        <title>Modifica Report di Sessione</title>
+        <meta name="title" content="Modifica Report di Sessione" />
+        <meta name="description" content="Modifica il tuo report di sessione" />
+        <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />
+    -->
+
+
+
+
+
         <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
     
         <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />     
@@ -59,11 +92,23 @@
         </nav>
 
         <header id="intestazionePagina">
-            <h1>Creazione del Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
+            <h1>Creazione Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
             <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
                 passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai. </p>
-            <p><strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del report sarà necessaria una tua autenticazione</p>
+            <p class="attenzioneP">( <strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del report sarà necessaria una tua autenticazione )</p>
         </header>
+
+        <!--
+    QUESTO È L'HEADER CHE BISOGNA SCAMBIARE SE INVECE DI CREARE IL REPORT LO SI  MODIFICANDO
+
+    <header id="intestazionePagina">
+            <h1>Modifica Report di Sessione <span> <a class="puntoInterrogativo" 
+                href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
+    </header>
+-->
+
+
+
 
         <p class="campiObbligatori"> : campo obbligatorio</p>
 
@@ -178,7 +223,18 @@
                     </div>
                 </div>
                 <div id="submitReport" class="submitForm">
-                    <p>Concludi la creazione salvando il report nella tua Area Personale</p>
+                    <p>Concludi la creazione salvando il nuovo report nella tua Area Personale</p>
+
+
+
+<!--
+    QUESTO È IL <p> CHE BISOGNA SCAMBIARE SE INVECE DI CREARE IL REPORT LO SI STA MODIFICANDO
+
+    <p>Concludi la modifica salvando la nuova versione del report nella tua Area Personale</p>
+
+-->
+
+
                     <div>
                         <input class="buttonLink" type="submit" name="salvaRep" value="ANNULLA"/>
                         <input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>  
