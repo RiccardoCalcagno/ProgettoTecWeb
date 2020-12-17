@@ -19,7 +19,7 @@
 
     <body id="loginBody" class="transitorio">
         <div>
-            <div id="closeDirettamente">
+            <div id="closeDirettamente">        <!--L HREF DEL CLOSE DIRECT DEVE ESSERE IDENTICO A QUELLO DEL TASTO ANNULLA-->
                 <a href="javascript:history.go(-1)" 
                 onMouseOver="self.status=document.referrer;return true"></a>     <!--TROVARE MODO DI TORNARE IN DIETRO, FORSE QUESTO NON VA BENE-->
             </div>
@@ -45,7 +45,7 @@
                         placeholder="Inserisci la password associata"/>
 
             <div id="submitLogin">
-                <div><input class="buttonLink" type="submit" name="accessoUtente" value="ANNULLA"/></div>
+                <div><a href="../Home.html" class="annulla">ANNULLA</a></div>
                 <div><input class="buttonLink" type="submit" name="accessoUtente" value="ACCEDI"/></div>
             </div>
             <p>Non possiedi i dati d'Accesso? <a href="modificaDati.html">Effettua l'iscrizione</a></p>

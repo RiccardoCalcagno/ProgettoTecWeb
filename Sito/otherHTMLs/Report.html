@@ -1,183 +1,193 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Report di Sessione</title>
-        <meta name="title" content="Visualizzazione Report di Sessione" />
-    
-        <meta name="description" content="Visualizza i dettagli del report di sessione" />
-        <meta name="keywords" content="" />
-    
-        <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
-    
-        <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />        
-        <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
-    </head>
 
-    <body id="visualizzaReport" class="documentoBody">
-        <header id="intestazioneSito">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Report di Sessione</title>
+    <meta name="title" content="Visualizzazione Report di Sessione" />
 
-            <ul class="AiutiNavigazione">
-                <li><a href="">Vai al Menù</a></li>
-                <li><a href="">Vai al Contenuto</a></li>
-            </ul>
-    
-            <div id="access">
-                <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
-                <input id="Iscrizione" type="submit" value="Iscriviti">
-            </div>
-            <ul id="menu" role="menubar">
-                <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
-                <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
-                <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
-                    <ul role="menu" class="dropdown-content">
-                        <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                        <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
-                    </ul>
-                </li>
-                <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
-                    <ul role="menu" class="dropdown-content">
-                        <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
-                        <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
-                        <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                        <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
-                    </ul>
-                </li>
+    <meta name="description" content="Visualizza i dettagli del report di sessione" />
+    <meta name="keywords" content="" />
+
+    <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
+
+    <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />
+    <link rel="stylesheet" href="../style/printStyle.css" media="print" />
+</head>
+
+<body id="visualizzaReport" class="documentoBody">
+    <header id="intestazioneSito">
+
+        <ul class="AiutiNavigazione">
+            <li><a href="">Vai al Menù</a></li>
+            <li><a href="">Vai al Contenuto</a></li>
         </ul>
-    
-    
-        </header>
-    
-        <nav id="breadcrumb">
-            <ul>
-                <li><a href="../Home.html" xml:lang="en">Home</a></li>
-                <li></li>
-            </ul>
-        </nav>
 
-        <div id="content">
-        <div id="contentRepo">        
-            <div id="closeDirettamente">    <!--ATTENZIONE CON PHP questo va cambiato con (Home, AreaPersonale, Esplora) a seconda di dove è arrivato e se ha eseguito il logout-->
-                <a href="../Home.html"></a>           
-            </div>
-            <header>
-                <h1>Iniziare una Locanda</h1>
-                <p>Il modo più classico di iniziare una campagna può essere inaspettato? (si il sottotitolo può essere anche più lungo)</p>
-            </header>
-
-            <div id="infoDiCreazione">
-                <section id="autore">
-                    <h2>Autore</h2>
-                    <div class="badgeUtente">
-                        <img src="../images/icone_razze/elfo.png" alt="" /> 
-                        <p class="textVariable">Jonny_Fottuto_Bravo</p>
-                    </div>
-                </section>
-                <section id="ultimaModifica">
-                    <h2>Ultima modifica</h2>
-                    <p>2020-11-11</p>
-                </section>
-            </div>
-            <section id="giocatoriReport">
-                <h2>Giocatori presenti</h2>
-                <ul id="boxGiocatori">                                                         
-                    <li>
-                        <div class="badgeUtente">
-                            <img src="../images/icone_razze/nano.png" alt="" /> 
-                            <p class="textVariable">Nome Giocatore</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="badgeUtente">
-                            <img src="../images/icone_razze/tiefilng.png" alt="" /> 
-                            <p class="textVariable">Nome Giocatore</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="badgeUtente">
-                            <img src="../images/icone_razze/elfo.png" alt="" /> 
-                            <p class="textVariable">Nome Giocatore</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="badgeUtente">
-                            <img src="../images/icone_razze/gnomo.png" alt="" /> 
-                            <p class="textVariable">Nome Giocatore</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="badgeUtente">
-                            <img src="../images/icone_razze/dragonide.png" alt="" /> 
-                            <p class="textVariable">Nome Giocatore</p>
-                        </div>
-                    </li>
+        <div id="access">
+            <input id="Accesso" type="submit" value="Accedi">
+            <!--ATTENZIONE DA COMPLETARE-->
+            <input id="Iscrizione" type="submit" value="Iscriviti">
+        </div>
+        <ul id="menu" role="menubar">
+            <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
+            <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+            <li role="none" class="externalLink">
+                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                <ul role="menu" class="dropdown-content">
+                    <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda
+                            Giocatore</a></li>
+                    <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
                 </ul>
-            </section>
-            <section id="testoReport">
-                <h2>Descrizione della sessione</h2>
-                <p>Potete immaginare la mia delusione quando sabato sera ho scoperto che la nuova
-                     campagna che avremmo iniziato col solito gruppo di amici sarebbe iniziata in
-                      una locanda, "Al Drago Verde". Solitamente questo tipo di inizio sessione è 
-                      piuttosto lento e ci vogliono ore prima di iniziare a decapitare qualche goblin.
-                       Se solo avessi saputo... Appena il nostro party si è seduto al tavolo, le sedie
-                        si sono rivelate essere dei Mimic, e l\'intera banda di goblin a cui davamo la 
+            </li>
+            <li role="none" class="externalLink">
+                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                <ul role="menu" class="dropdown-content">
+                    <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem"
+                            tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem"
+                            tabindex="-1">Report Sessione</a></li>
+                    <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem"
+                            tabindex="-1">Scheda Giocatore</a></li>
+                    <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem"
+                            tabindex="-1">Sezione Esplora</a></li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </header>
+
+    <nav id="breadcrumb">
+        <ul>
+            <li><a href="../Home.html" xml:lang="en">Home</a></li>
+            <li></li>
+        </ul>
+    </nav>
+    <form id="DocumentActions" autocomplete="on" class="creazioneFields">
+        <!--SE L'UTENTE NON HA FATTO IL LOGIN => NON SI VISUALIZZA L'INSERIMENTO DEI COMMENTI, SOLO LA LISTA DEI COMMENTI  (QUINDI SENZA LA BARRA DI AGGIUNTA COMMENTO)-->
+        <div id="content">
+            <div id="contentRepo">
+                <div id="closeDirettamente">
+                    <!--ATTENZIONE CON PHP questo va cambiato con (Home, AreaPersonale, Esplora) a seconda di dove è arrivato e se ha eseguito il logout-->
+                    <a href="../Home.html"></a>
+                </div>
+                <header>
+                    <h1>Iniziare una Locanda</h1>
+                    <p>Il modo più classico di iniziare una campagna può essere inaspettato? (si il sottotitolo può
+                        essere anche più lungo)</p>
+                </header>
+
+                <div id="infoDiCreazione">
+                    <section id="autore">
+                        <h2>Autore</h2>
+                        <div class="badgeUtente">
+                            <img src="../images/icone_razze/elfo.png" alt="" />
+                            <p class="textVariable">Jonny_Fottuto_Bravo</p>
+                        </div>
+                    </section>
+                    <section id="ultimaModifica">
+                        <h2>Ultima modifica</h2>
+                        <p>2020-11-11</p>
+                    </section>
+                </div>
+                <section id="giocatoriReport">
+                    <h2>Giocatori presenti</h2>
+                    <ul id="boxGiocatori">
+                        <li>
+                            <div class="badgeUtente">
+                                <img src="../images/icone_razze/nano.png" alt="" />
+                                <p class="textVariable">Nome Giocatore</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badgeUtente">
+                                <img src="../images/icone_razze/tiefilng.png" alt="" />
+                                <p class="textVariable">Nome Giocatore</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badgeUtente">
+                                <img src="../images/icone_razze/elfo.png" alt="" />
+                                <p class="textVariable">Nome Giocatore</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badgeUtente">
+                                <img src="../images/icone_razze/gnomo.png" alt="" />
+                                <p class="textVariable">Nome Giocatore</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="badgeUtente">
+                                <img src="../images/icone_razze/dragonide.png" alt="" />
+                                <p class="textVariable">Nome Giocatore</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section id="testoReport">
+                    <h2>Descrizione della sessione</h2>
+                    <p>Potete immaginare la mia delusione quando sabato sera ho scoperto che la nuova
+                        campagna che avremmo iniziato col solito gruppo di amici sarebbe iniziata in
+                        una locanda, "Al Drago Verde". Solitamente questo tipo di inizio sessione è
+                        piuttosto lento e ci vogliono ore prima di iniziare a decapitare qualche goblin.
+                        Se solo avessi saputo... Appena il nostro party si è seduto al tavolo, le sedie
+                        si sono rivelate essere dei Mimic, e l\'intera banda di goblin a cui davamo la
                         caccia è saltata fuori dalla cucina per farci a pezzi! Ci siamo divertiti un mondo!
-                         Inutile dire che della locanda alla fine è rimasto ben poco LOL</p>
-            </section>
-            <form autocomplete="on" class="creazioneFields">            <!--SE L'UTENTE NON HA FATTO IL LOGIN => NON SI VISUALIZZA LA FORM, SOLO LA LISTA DEI COMMENTI  (QUINDI SENZA LA BARRA DI AGGIUNTA COMMENTO)-->                                             
-                <fieldset id="commentiField"> <legend><h2>Commenti</h2></legend>
+                        Inutile dire che della locanda alla fine è rimasto ben poco LOL</p>
+                </section>
+                <fieldset id="commentiField">
+                    <legend>
+                        <h2>Commenti</h2>
+                    </legend>
                     <div id="InserimentoCommento">
-                        <input type="text" placeholder="Lascia un commento.." name="contenutoCommento"/>
-                        <input type="submit" name="sendComment" value="COMMENTA" class="buttonLink"/>
+                        <input type="text" placeholder="Lascia un commento.." name="contenutoCommento" />
+                        <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
                     </div>
                     <ul id="listaCommenti">
                         <li class="commento">
                             <div class="badgeUtente">
-                                <img src="../images/icone_razze/nano.png" alt="" /> 
+                                <img src="../images/icone_razze/nano.png" alt="" />
                                 <p class="textVariable">Giorgio granCazzo</p>
-                            </div>  
+                            </div>
                             <div class="testoCommento">
-                                <p>Condividio pienamente Jonny, devo ricredermi! Da ora in poi solo Locande per il nostro gruppo</p>
+                                <p>Condividio pienamente Jonny, devo ricredermi! Da ora in poi solo Locande per il
+                                    nostro gruppo</p>
                                 <p class="dateTimeCommento">2020-11-13 21:45</p>
-                            </div>                
-                            <button title="elimina commento" name="eliminaCommento" value="IDCommento"></button>
+                            </div>
+                            <input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/>
                         </li>
                         <li class="commento">
                             <div class="badgeUtente">
-                                <img src="../images/icone_razze/umano.png" alt="" /> 
+                                <img src="../images/icone_razze/umano.png" alt="" />
                                 <p class="textVariable">Francesco Tozzi</p>
-                            </div>   
+                            </div>
                             <div class="testoCommento">
                                 <p>È vero! ma allora perchè non apriamo una locanda tutta nostra?</p>
                                 <p class="dateTimeCommento">2020-11-12 14:30</p>
-                            </div>                     
-                            <button title="elimina commento" name="eliminaCommento" value="IDCommento"></button>
+                            </div>
+                            <input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/>
                         </li>
                     </ul>
                 </fieldset>
-            </form>
-
-        </div>
 
     </div>
 
-    <form id="DocumentActions">
-        <ul>
-            <li>
-                <button name="elimina" value="report" class="buttonLink">ELIMINA</span></button>         
-            </li>
-            <li>
-                <button name="esplorabile" value="report" class="buttonLink">PUBBLICA IN "Esplora"</button>    
-            </li>
-            <li>
-                <button name="modifica" value="report" class="buttonLink">MODIFICA</button>   
-            </li>
-        </ul>
+    </div>
+    <ul id="footAction">
+        <li>
+            <input type="submit" name="report" value="ELIMINA" class="buttonLink"/>
+        </li>
+        <li>
+            <input type="submit" name="report" value="Pubblica in ESPLORA" class="buttonLink"/> 
+        </li>
+        <li>
+            <input type="submit" name="report" value="MODIFICA" class="buttonLink"/> 
+        </li>
+    </ul>
     </form>
 
-    </body>
+</body>
 
 
 </html>

@@ -17,6 +17,8 @@
 <link rel="stylesheet" href="style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 <link rel="stylesheet" href="style/printStyle.css" media="print"/>
 
+<script type="text/javascript" src="scripts.js"></script> 
+
 </head>
 
 
@@ -46,12 +48,14 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
 10) Mettere label a <a> hover per il punto interrogativo
 
+11) DEFINIRE Tutti i punti di ritorno es. tasti "annulla" pulsanti a "X" ecc..
+
 
 -->
 
 
 
-<body id="bodyHome">
+<body id="bodyHome" onload="setBannerSalvataggi();">
 
     <header id="intestazioneSito">
 
@@ -317,7 +321,8 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
     <p id="disclaimer">Salvo diversa indicazione, i contenuti di questa pagina hanno licenza <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a></p>
 </footer>
-
 </body>
+
+<div id="wrapperBannerSalvataggio"></div>
 
 </html>

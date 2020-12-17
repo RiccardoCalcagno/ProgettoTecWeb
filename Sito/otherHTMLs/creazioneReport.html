@@ -120,7 +120,7 @@
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
                         <div>
                             <p class="limitazioniText">Inserisci un titolo di massimo 30 lettere</p>
-                            <textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" required="required" onkeyup="updateCounterTextarea(1);"></textarea>
+                            <textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"></textarea>
                             <p class="counter"><span id="currentCountTitolo">0</span>/30</p>
                         </div>
                     </fieldset>
@@ -130,7 +130,7 @@
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
                         <div>
                             <p class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</p>
-                            <textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" required="required" onkeyup="updateCounterTextarea(2);"></textarea>
+                            <textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"></textarea>
                             <p class="counter"><span id="currentCountSottotitolo">0</span>/120</p>
                         </div>
                     </fieldset>
@@ -138,7 +138,7 @@
                 <li>
                     <fieldset id="contenutoRepo" class="fieldss"><legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
                         <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
-                        <div><textarea name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true" required="required"></textarea></div>
+                        <div><textarea name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"></textarea></div>
                     </fieldset>
                 </li>
                 <li>
@@ -156,7 +156,7 @@
                                             <img src="../images/icone_razze/nano.png" alt="" /> 
                                             <p class="textVariable">Nome Giocatore</p>
                                             </div>
-                                            <button class="deleteButton" name="delete" value="1">X</button>
+                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="1">X</button>
                                         </div>
                                     </li>
                                     <li>
@@ -165,7 +165,7 @@
                                             <img src="../images/icone_razze/tiefilng.png" alt="" /> 
                                             <p class="textVariable">Nome Giocatore</p>
                                             </div>
-                                            <button class="deleteButton" name="delete" value="2">X</button>
+                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="2">X</button>
                                         </div>
                                     </li>
                                     <li>
@@ -174,7 +174,7 @@
                                             <img src="../images/icone_razze/elfo.png" alt="" /> 
                                             <p class="textVariable">Nome Giocatore</p>
                                             </div>
-                                            <button class="deleteButton" name="delete" value="3">X</button>
+                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="3">X</button>
                                         </div>
                                     </li>
                                     <li>
@@ -183,7 +183,7 @@
                                             <img src="../images/icone_razze/gnomo.png" alt="" /> 
                                             <p class="textVariable">Nome Giocatore</p>
                                             </div>
-                                            <button class="deleteButton" name="delete" value="4">X</button>
+                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="4">X</button>
                                         </div>
                                     </li>
                                     <li>
@@ -192,16 +192,35 @@
                                             <img src="../images/icone_razze/dragonide.png" alt="" /> 
                                             <p class="textVariable">Nome Giocatore</p>
                                             </div>
-                                            <button class="deleteButton" name="delete" value="5">X</button>
+                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="5">X</button>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
 
-                            <div><input class="buttonLink" type="submit" name="aggiungiGiocatore" value="Aggiungi Giocatore"/></div>
+                            <div id="inserimentoGiocatori">
+                                <label for="aggiungiGiocatore">Aggiungi il giocatore inserendo il suo username</label>
+                                <div>
+                                    <input type="text" id="writeUsername" name="usernameGiocatore" rows=1 cols="35" placeholder="Digita l'username" maxlength="30"></textarea>
+                                    <input id="aggiungiGiocatore" class="buttonLink" type="submit" name="aggiungiGiocatore" value="AGGIUNGI"/>
+                                </div>
+
+                                <!--POSSIBILI MESSAGGI DI FEED BACK
+                                <p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>
+
+                                 ALTRIMENTI,  SE NON È STATO TROVATO NESSUN GIOCATORE
+
+                                <p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>
+                                -->
+
+
+
+
+                            </div>
                         </div>
                     </fieldset>
                 </li>
+                <!--
                 <li>
                     <fieldset id="immaginiRepo" class="fieldss"><legend><h2>Immagini della Sessione</h2></legend>
                         <p>Se lo desideri puoi aggiungere delle immagini, potrebbero essere le foto della partita oppure la mappa in cui avete giocato</p>
@@ -211,6 +230,7 @@
                         </div>
                     </fieldset>
                 </li>
+                -->
             </ol>
 
             <div id="conclusione">
@@ -236,7 +256,7 @@
 
 
                     <div>
-                        <input class="buttonLink" type="submit" name="salvaRep" value="ANNULLA"/>
+                        <a href="../Home.html" class="annulla">ANNULLA</a>
                         <input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>  
                     </div>
                        
@@ -247,24 +267,21 @@
         </form>
 
     </body>
-    <!--
-    <div id="AutenticazioneOverlay">
-        <div id="popUpAutenticazione">
+<!--
+<div id="AutenticazioneOverlay">
+    <div id="popUpAutenticazione">
 
-            <button id="closeSalvataggio" name="Salvataggio" value="annulla"></button>
-
-            <h1>Attenzione</h1>
-            <h2>Per salvare il report è necessaria un autenticazione</h2>
-            <p>Effettua l'accesso o l'iscrizione e conclusa la procedura il tuo documento 
-                verrà salvato automaticamente nella tua Area Personale</p>
-            <form>
-            <div>
-                <a class="buttonLink" href="login.html">ACCESSO</a>
-                <a class="buttonLink" href="">ISCRIZIONE</a>
-            </div>
-            <button id="annullaSalvataggio" class="buttonLink" name="Salvataggio" value="annulla">ANNULLA</button>
-            </form>
+        <h1>Salvataggio Pendente</h1>
+        <h2>La creazione del documento è avvenuta <strong class="corretto">correttamente</strong> ma per poter essere salvato è necessaria un' <strong class="scorretto">autenticazione</strong> </h2>
+        <p>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
+            verrà automaticamente salvato nella tua <a href="AreaPersonale.html">Area Personale</a></p>
+        <div>
+            <a class="buttonLink" href="login.html">ACCESSO</a>
+            <a class="buttonLink" href="">ISCRIZIONE</a>
         </div>
+        <a class="buttonLink" href="../Home.html">HOME</a>
     </div>
+</div>
 -->
+
 </html>
