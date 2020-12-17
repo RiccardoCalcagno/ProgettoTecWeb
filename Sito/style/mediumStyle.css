@@ -16,7 +16,7 @@ body {
 
 h2{
     padding-bottom: 0.5em;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 500;
 }
 
@@ -27,15 +27,18 @@ h3{
 }
 
 #intestazionePagina{
-    width: 90%;
+    width: 95%;
     padding-top: 1em;
     padding-bottom: 1em;
 }
 #intestazionePagina h1{
-    font-weight: 500;
-    width: 100%;
-    font-size: 2em;
-    margin-bottom: 0;
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+}
+
+#intestazionePagina p{
+    /* text-align: left;  ???
+    width: 95%; */
 }
 
 .puntoInterrogativo{
@@ -50,6 +53,10 @@ h3{
 a.buttonLink {
     padding-top:0.5em;
     height: 2.2em;
+}
+
+input[type="file"]{
+    width: 20em;
 }
 
 /*
@@ -99,7 +106,7 @@ a.buttonLink {
 
 #argomenti > div {
     padding: 1em 0 1em 0;
-    margin: 1em auto 0 auto;
+    margin: 1em auto 3em auto;
     display: block;
 }
 
@@ -139,7 +146,7 @@ a.buttonLink {
 }
 
 #argomenti .howTo{
-    padding: 1.5em 0.7em 3.5em 0.7em;
+    padding: 1.5em 0.7em 5em 0.7em;
     width: calc(100% - 1.4em);
 }
 .howTo li{
@@ -168,7 +175,8 @@ a.buttonLink {
     padding-bottom: 3em;
 }
 #approfondimenti h2{
-    font-size: 2em;
+    font-size: 2.3em;
+    padding-bottom: 0.3em;
 }
 
 #approfondimenti ul{
@@ -216,11 +224,11 @@ a.buttonLink {
 */
 
 .htmlApprofondimento #intestazionePagina{
-    padding-bottom: 0.7em;
+    padding-bottom: 0;
 }
 
 .htmlApprofondimento .content{
-    width: 95%;
+    width: 90%;
     padding-bottom: 10%;
 }
 
@@ -229,7 +237,7 @@ a.buttonLink {
 }
 
 .htmlApprofondimento section{
-    padding-bottom: 1em;
+    /*margin-bottom: 0.5em;*/
 }
 
 .htmlApprofondimento .howTo{
@@ -448,3 +456,236 @@ a.buttonLink {
 .report .cardReport .testoCardRep h4{
     padding-bottom: 0.2%;
  }
+
+ /*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        CREAZIONI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.attenzioneP{
+    padding-top: 0.7em;
+}
+
+#creazionePersonaggio #intestazionePagina, #creazioneReport #intestazionePagina{
+    padding-bottom: 1em;
+}
+
+#datiUtenza .counter{
+    margin-top: 0.5em;
+    margin-right: 3em;
+}
+
+.creazioneFields fieldset{
+    padding:0em 1em 1em 1em;
+    width: (100% - 2em);
+/*    flex-direction: column-reverse; TO FIX (CONSIDER)*/
+}
+
+.creazioneFields .fieldss > p{
+    padding: 0 1em;
+    max-width: 95%;
+}
+
+.creazioneFields .fieldss > div{
+    padding: 0.3em 1.5em;
+    max-width: 95%;
+}
+
+.creazioneFields fieldset legend{
+    padding-bottom: 0;
+}
+
+/* TO FIX
+textarea,input[type="text"],input[type="date"],input[type="password"]{
+    resize: none;
+    padding:0.5em;
+    border: 1px solid #392D20;
+    border-radius: 0.3em;
+    width: 25em;
+}
+*/
+
+/*
+---------------------------------------------------------------------------------------------------------------------------------
+                                                        AUTENTICAZIONE OVERLAY  
+---------------------------------------------------------------------------------------------------------------------------------
+*/ /* TO FIX
+
+#AutenticazioneOverlay {
+    position: fixed;
+    /-*display: none;  *-/
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+#popUpAutenticazione{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    background-color: #fff7e6;
+    padding: 2em;
+    padding-top: 1.7em;
+    width: 40%;
+    min-width: 22em;
+    border-radius: 1.5em;
+}
+#popUpAutenticazione h2{
+    font-size: 1.5em;
+}
+#popUpAutenticazione h1{
+    font-size: 2.6em;
+    padding-bottom: 0.25em;
+}
+#popUpAutenticazione a{
+    display: inline-block;
+    flex: 1 1 10em;
+    margin:1em;
+    text-decoration: none;
+}
+#popUpAutenticazione form > div{
+    display: flex;
+    padding-bottom: 1.5em;
+    padding-top: 1em;
+}
+#popUpAutenticazione #annullaSalvataggio{
+    height: 2.2em;
+    width:13em;
+    margin-left:1em;
+}
+#closeSalvataggio{
+    top:-5em;
+    left: 2.5em;
+}
+*/
+ /*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                CREAZIONE PERSONAGGIO
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#creazionePersonaggio .creazioneFields legend h2 {
+    padding-bottom: 0;
+}
+
+#creazionePersonaggio .fieldss label{
+    padding-bottom: 0.5em;
+}
+
+#creazionePersonaggio ol{
+    width: 95%;
+}
+
+#creazionePersonaggio .fieldss > p {
+    padding: 0.7em;
+    max-width: 90%;
+}
+
+.creazioneFields #nomeField input{
+    margin-bottom: 0.3em;
+}
+
+#submitPersonaggio{
+    margin-top: 3em;
+}
+
+#creazionePersonaggio fieldset.traitField > p{
+    padding: 0.7em;
+}
+
+#creazionePersonaggio fieldset.traitField > p:nth-child(2){
+    padding-bottom: 0.2em;
+}
+
+
+#traitsWrapper {
+    padding-top: 0;
+}
+
+#traitsWrapper label{
+    padding-bottom: 0;
+}
+
+#traitsWrapper textarea{
+    height: 5em;
+}
+
+.traitsCard {
+    margin: 0 0.7em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                CREA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#creazioneReport ol{
+    width: 95%;
+}
+
+#creazioneReport #immaginiRepo > div{
+    max-width: 100%;
+    padding: 1.2em 2em;
+}
+
+/*
+------------------------------------- BOX GIOCATORI ------------------------------------
+*/
+
+#creazioneReport #selezionamentoGiocatori{
+    max-width: 100%;
+}
+
+#creazioneReport #selezionamentoGiocatori > div{
+    padding: 0.5em;
+    width: 90%;
+} 
+
+#creazioneReport #selezionamentoGiocatori ul{
+    width: 90%;
+}
+
+#creazioneReport #selezionamentoGiocatori ul li{
+    padding-right: 0;
+    margin: 0 1%;
+}
+
+
+/*
+------------------------------------- CONCLUSIONE------------------------------------
+*/
+
+#conclusione{
+    padding-top: 0;
+    width: 90%;
+}
+
+#conclusione >div{
+    margin:auto;
+    padding: 0.5em;
+}
+
+#conclusione #condivisione{
+    margin-top: 1em;
+    margin-bottom: 2em; 
+}
+
+#conclusione #submitReport{
+    margin-bottom: 4em;
+}
