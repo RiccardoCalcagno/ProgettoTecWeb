@@ -55,13 +55,22 @@
                 <li></li>
             </ul>
         </nav>
+        <form id="DocumentActions">
 
         <div id="content">
             <div id="setLayout">
                 <p><span xml:lang="en">Layout</span> Scheda Personaggio</p>
                 <div id="pulsante">
-                    <p id="pergamena"> PERGAMENA</p>                            <!--UNA VOLTA CLICCATO BISOGNA SWICCIARE a diventa p e p diventa a con aggiunta del corretto link-->
-                    <a id="standard" href="">STANDARD <abbr title="Dungeons & Dragons">D&D</abbr></a>
+
+
+                    <p id="pergamena">PERGAMENA</p>                            <!--UNA VOLTA CLICCATO BISOGNA SWICCIARE: button diventa p e p diventa button con aggiunta del corretto link-->
+                    <input id="standard" type="submit" name="personaggio" value="STANDARD D&D"/>
+                    <!--                      
+                    <input id="pergamena" type="submit" name="personaggio" value="PERGAMENA"/>  
+                    <p id="standard">STANDARD D&D</p>    --> 
+
+                    
+                    
                 </div>
             </div>
         <div id="contentPersonaggio">
@@ -117,19 +126,18 @@
 
         </div>
 
-    <form id="DocumentActions">
-        <ul>
+        <ul id="footAction">
             <li>
-                <button name="elimina" value="personaggio" class="buttonLink">ELIMINA</span></button>         
+                <input type="submit" name="personaggio" value="ELIMINA" class="buttonLink"/>    
             </li>
             <li>
-                <button name="stampa" value="personaggio" class="buttonLink">STAMPA SCHEDA</button>    
+                <input type="submit" name="personaggio" value="STAMPA" class="buttonLink"/>   
             </li>
             <li>
-                <button name="modifica" value="personaggio" class="buttonLink">MODIFICA</button>   
+                <input type="submit" name="personaggio" value="MODIFICA" class="buttonLink"/>
             </li>
         </ul>
-    </form>
+        </form>
 
     </body>
 

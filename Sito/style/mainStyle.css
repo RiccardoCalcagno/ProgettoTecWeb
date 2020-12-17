@@ -107,9 +107,28 @@ button:focus{
 a.buttonLink {
     text-decoration: none;
     display: block;
-    padding-top:0.5em;
-    height: 2.2em;
+    padding-top:0.55em;
+    height: 2.15em;
 }
+
+.annulla{
+    background-color: #8f5b20;
+    color: #FFF8E6;
+    text-align: center;
+    width:20em;
+    height: 2.7em;
+    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
+    border-radius: 4px;
+    border:none;
+    cursor: pointer;
+    margin:auto;
+    text-decoration: none;
+    display: block;
+    padding-top:0.55em;
+    height: 2.15em;
+}
+
+
 .buttonLink:hover{
     background-color: #a36a28;
     box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
@@ -138,7 +157,8 @@ a.buttonLink {
     background-color: #FFF0D4;
     border-radius: 4em;
 }
-.submitForm input{
+.submitForm div >*{
+    display: inline-block;
     width: 10em;
     margin-top:1em;
 }
@@ -334,6 +354,69 @@ body{
     text-align: center;
     font-size: 0.8em;
 }
+
+
+
+/*
+--------------------------------------- BANNER SALVATAGGIO ----------------------------------------------
+---------------------------------------------------------------------------------------------
+*/
+
+#bannerSalvataggio{
+    color:#FFFFFF;
+    position: fixed;
+    top: 6em;
+    left: calc(100% - 23em);
+    width: 20em;
+    padding:0.7em;
+    background-color: #3d3d3d;
+    border-radius: 0.7em;
+    border:none;
+    box-shadow: 5px 8px 15px 0px rgba(0,0,0,0.5);
+}
+#bannerSalvataggio legend{
+    background-color: #3d3d3d;
+    padding:0.5em;
+    padding-bottom: 0;
+    border-radius: 0.4em;
+}
+#bannerSalvataggio p{
+    color:#FFFFFF;
+} 
+#bannerSalvataggio #titoloAvviso{
+    font-size: 1.1em;
+    font-weight: 500;
+}
+#bannerSalvataggio ul{
+    padding-bottom: 0.5em;
+}
+#bannerSalvataggio li{
+    width: 19em;
+    margin-left: 1.15em;
+    list-style-type: disc;
+    font-size: 0.9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#bannerSalvataggio a{
+    color:#FFFFFF;
+    text-decoration: underline;
+}
+#bannerSalvataggio #chiusuraBanner{
+    font-weight: 500;
+    color:#ffc8c8;
+    cursor: pointer;
+}
+#bannerSalvataggio #chiusuraBanner:before{
+    content:"X ";
+}
+
+#bannerSalvataggio #chiusuraBanner:hover{
+    color:#e63232;
+}
+
+
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -822,29 +905,30 @@ li #toApprEsp:active{background-color:#732ab8be;}
 */
 
 #DocumentActions{
-    background-color: #fff7e6;
+
     margin: auto;
 }
-#DocumentActions ul{
+#footAction{
+    background-color: #fff7e6;
     margin:auto;
     clear:both;
     overflow: hidden;
     padding:3em 5% 3em 5%;
 }
-#DocumentActions ul button{
+#footAction input{
     width: 10em;
 }
-#DocumentActions ul :nth-child(1){
+#footAction :nth-child(1){
     float: left;
 }
-#DocumentActions ul :nth-child(2){
+#footAction :nth-child(2){
     float: right;
 }
 
-#DocumentActions ul :nth-child(2) button{
+#footAction :nth-child(2) input{
     width: 15em;
 }
-#DocumentActions ul :nth-child(3){
+#footAction :nth-child(3){
     float: right;
     margin-right: 1em;
 }
@@ -1017,7 +1101,8 @@ li #toApprEsp:active{background-color:#732ab8be;}
     width: 10em;
 }
 
-#commentiField li > button{
+#commentiField li > input{
+    color: transparent;
     position: relative;
     margin-left:0.7em;
     top:0.35em;
@@ -1028,10 +1113,10 @@ li #toApprEsp:active{background-color:#732ab8be;}
     background-color: transparent;
     border:none;
 }
-#commentiField li > button:hover{
+#commentiField li > input:hover{
     background-position: center;
 }
-#commentiField li > button:active{
+#commentiField li > input:active{
     background-position: bottom;
 }
 
@@ -1085,23 +1170,26 @@ li #toApprEsp:active{background-color:#732ab8be;}
     left: -0.3em;
 }
 #visualizzaScheda #setLayout #pulsante p{
+    display: inline-block;
     background-color: #FFFFFF;
     color:black;
     border:0.3em solid #b9b9b9;
 }
-#visualizzaScheda #setLayout #pulsante a{
+#visualizzaScheda #setLayout #pulsante input{
     background-color: #555555;
     color:#FFFFFF;
-    padding:0.8em 1.1em 0.8em 1.1em;
+    padding:0.7em 1.1em 0.7em 1.1em;
+    border:none;
+    /*border:0.3em outset transparent;*/
 }
-#visualizzaScheda #setLayout #pulsante a:hover{
-    border:0.3em solid #808080;
-    padding:0.8em;
+#visualizzaScheda #setLayout #pulsante input:hover{
+    border:0.4em outset #808080;
+    padding:0.7em;
     background-color: #6b6b6b;
 }
-#visualizzaScheda #setLayout #pulsante a:active{
-    background-color: #c48080;
-    border-color:#bd5252;
+#visualizzaScheda #setLayout #pulsante input:active{
+    background-color: #555555;
+    border-style: outset;
 }
 
 #contentPersonaggio::before{
@@ -1347,33 +1435,32 @@ p.campiObbligatori{
     border-radius: 1.5em;
 }
 #popUpAutenticazione h2{
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 #popUpAutenticazione h1{
+    text-align: center;
     font-size: 2.6em;
     padding-bottom: 0.25em;
 }
-#popUpAutenticazione a{
+#popUpAutenticazione > a:last-child{
+    width: 13em;
+}
+#popUpAutenticazione > div a{
     display: inline-block;
     flex: 1 1 10em;
     margin:1em;
     text-decoration: none;
 }
-#popUpAutenticazione form > div{
+#popUpAutenticazione > div{
     display: flex;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
     padding-top: 1em;
 }
-#popUpAutenticazione #annullaSalvataggio{
+#popUpAutenticazione #annullaAutenticazione{
     height: 2.2em;
     width:13em;
     margin-left:1em;
 }
-#closeSalvataggio{
-    top:-5em;
-    left: 2.5em;
-}
-
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -1437,6 +1524,26 @@ p.campiObbligatori{
     padding:1em;
 } 
 
+#inserimentoGiocatori{
+    width: 25em;
+}
+#inserimentoGiocatori label, #inserimentoGiocatori p{
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+#inserimentoGiocatori label{padding-bottom: 1em;}#inserimentoGiocatori p{padding-top: 1em;}
+
+#selezionamentoGiocatori #inserimentoGiocatori input[type="text"]{
+    width: 15em;
+    overflow: auto;
+    padding:0 0.5em 0 0.5em;
+}
+#selezionamentoGiocatori #inserimentoGiocatori input[type="submit"]{
+    width:8em;
+    margin-left: 0.5em;
+}
+
 #creazioneReport #selezionamentoGiocatori .badgeUtente > div{
     height: 100%;
     display: flex;
@@ -1449,7 +1556,7 @@ p.campiObbligatori{
 }
 #creazioneReport #selezionamentoGiocatori ul{
     height: 6.8em;
-    width: 31em;
+    width: 23em;
     background-color: #FFFFFF;
     padding: 1.2em 0 1em 1em;
     border: 8px inset #dfdfdf;
@@ -2313,7 +2420,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     margin: auto;
     padding-bottom: 0.4em;
 }
-#loginBody #submitLogin input{
+#loginBody #submitLogin div >*{
     width: 12em;
 }
 #loginBody #submitLogin div{
@@ -2337,6 +2444,10 @@ form#datiUtenza > div:first-child fieldset:first-child{
 .corretto{
     font-weight: 500;
     color:green;
+}
+.scorretto{
+    font-weight: 500;
+    color:#7e0000;
 }
 
 #confermaBody p{
