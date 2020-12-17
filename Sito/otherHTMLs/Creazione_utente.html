@@ -4,7 +4,7 @@
 
     <head>
 
-        <title> - Modifica dati</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+        <title> - Registrazione Utente</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
 
         <meta name="description" content=""/>                   <!--DA COMPILARE-->
         <meta name="keywords" content="" />
@@ -64,7 +64,11 @@
         </nav>
 
         <header id="intestazionePagina">
-            <h1>Modifica i tuoi dati</h1>
+            <h1>Registrazione Utente</h1>
+            <p>È la prima volta che accedi al nostro portale? Non temere, segui questi semplici 
+                <strong>passaggi</strong> e in breve disporrai di un <strong>identità virtuale</strong> con la quale potrai salvare 
+                report e schede giocatore, osservare e commentare report di altri autori e naturalmente  
+                essere incluso nel report di qualche tuo <strong>amico</strong> ;)</p>
         </header>
 
         <p class="campiObbligatori"> : campo obbligatorio</p>
@@ -80,7 +84,7 @@
                     <input type="file" id="imgProfilo" name="setImmg" accept="image/*"/>
                     </li>
                     <li>
-                    <label for="username" class="campiObbligatori">Username <span class="limitazioniText">max 20 caratteri</span></label>
+                    <label for="username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
                     <input type="text"  aria-required="true" required="required"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
@@ -92,7 +96,6 @@
                     </li>
                 </ul>
             </fieldset>
-
 
             <fieldset id="datiAnagrafici">  <legend><h2>Dati anagrafici</h2></legend>
                 <ul>
@@ -126,27 +129,8 @@
 
             </fieldset>
             </div>
-            <div class="submitForm">
-                <p>Salva i dati di utenza e anagrafici che hai modificato </p>
-                <div>
-                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Annulla"/>
-                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati"/>  
-                </div>      
-            </div>
-            </form>
-            <div id="modificaPassword"> 
-            <p class="campiObbligatori"> : campo obbligatorio</p>
-            <form id="datiPassword" autocomplete="on" class="creazioneFields">
             <fieldset>  <legend><h2>Modifica password</h2></legend> 
                 <ul>
-                    <li>
-                    <label for="password" class="campiObbligatori">Password corrente</label>
-                    <input type="password"  aria-required="true" required="required"
-                        name="password" 
-                        id="password"
-                        value=""
-                        placeholder="Digitare la password corrente"/>
-                    </li>
                     <li>
                     <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
                     <input type="password"  aria-required="true" required="required"
@@ -156,20 +140,20 @@
                         placeholder="Digitare la nuova password"/>
                     </li>
                     <li>
-                    <label for="" class="campiObbligatori">Digita nuovamente la password</label>
+                    <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
                     <input type="password"  aria-required="true" required="required"
-                        name="country" 
-                        id="country"
+                        name="PasswdAgan" 
+                        id="PasswdAgan"
                         value=""
-                        placeholder="Seleziona il tuo paese"/>
+                        placeholder="Digita nuovamente la password"/>
                     </li>
                 </ul>
             </fieldset>
             <div class="submitForm">
-                <p>Salva La nuova password</p>
+                <p>Salva la nuova registrazione</p>
                 <div>
                     <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Annulla"/>
-                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password"/>  
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Registrazione"/>  
                 </div>        
             </div>
             </form>

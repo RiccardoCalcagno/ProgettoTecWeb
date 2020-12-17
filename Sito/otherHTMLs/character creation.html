@@ -1,14 +1,46 @@
+
+<!--
+    ATTENZIONE:
+
+    QUESTO HTML CONTIENE IL NECESSARIO SIA PER CREARE SIA PER MODIFICARE UNA CHEDA GIOCATORE MA..
+    BISOGNA SCAMBIARE I SEGUENTI ELEMENTI:
+
+    1) <head>
+    2) <header> intestazionePagina
+    3) <p> nell'ultimo submitForm
+-->
+
+
+<!-- RICORDARSI DI TOGLIERE L'ATTENZIONE SULL' HEADER SE L'UTENTE HA GIÀ FATTO L'AUTENTICAZIONE-->
+
+
+
+
 <!DOCTYPE html>
 
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+
     <title> - Creazione Scheda Giocatore</title>
     <meta name="title" content="Creazione Scheda Giocatore" />
-
     <meta name="description" content="Crea la tua Scheda Giocatore!" />
     <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" />
+
+    <!-- QUESTO È L'HEAD CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
+    <title> - Modifica Scheda Giocatore</title>
+    <meta name="title" content="Modifica Scheda Giocatore" />
+    <meta name="description" content="Modifica la tua Scheda Giocatore!" />
+    <meta name="keywords" content="modifica personaggio, Dungeons and Dragons character" />
+    -->
+
+
+
 
     <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
 
@@ -68,8 +100,19 @@
                     href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
         <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo
             ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
-        <p><strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione</p>
+        <p class="attenzioneP">( <strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione )</p>
     </header>
+
+<!--
+    QUESTO È L'HEADER CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
+
+    <header id="intestazionePagina">
+        <h1>Modifica Scheda Giocatore<span> <a class="puntoInterrogativo"
+                    href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+    </header>
+-->
+
+
 
     <p class="campiObbligatori"> : campo obbligatorio</p>
 
@@ -194,38 +237,44 @@
                 </fieldset>
             </li>
             <li>
-                <fieldset>
+                <fieldset class="traitField">
                     <legend>
                         <h2>Tratti del Personaggio</h2>
                     </legend>
-                    <p id="traitsDesc">
+                    <p>
                         Qui puoi inserire una descrizione scritta del tuo personaggio. E' divisa in quattro campi per
                         aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
                     </p>
+                    <p>( <strong class="Attenzione">Attenzione</strong>: Il <span xml:lang="en">rendering</span> di ciascuno dei seguenti campi 
+                        nel formato standard <abbr title="Dungeons & Dragons">D&D</abbr> troncherà ogni testo di lunghezza eccessiva, limite di sicurezza = 200 caratteri )</p>
 
                     <ul id="traitsWrapper">
                         <li class="traitsCard">
                             <label for="ctraits" class="ccTraitsL">Carattere</label>
-                            <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40
+                            <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40  onkeyup="updateCounterTextarea(4);"
                                 placeholder="Descrivi i tratti caratteriali del tuo personaggio"></textarea>
+                            <p class="counter" id="currentCountTraits">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cideals" class="ccTraitsL">Ideali</label>
-                            <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40
+                            <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40  onkeyup="updateCounterTextarea(5);"
                                 placeholder="Quali sono i suoi Ideali?"></textarea>
+                            <p class="counter" id="currentCountIdeals">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cbonds" class="ccTraitsL">Legami</label>
-                            <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40
+                            <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40  onkeyup="updateCounterTextarea(6);"
                                 placeholder="A chi è legato nel mondo di gioco?"></textarea>
+                            <p class="counter" id="currentCountBonds">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cflaws" class="ccTraitsL">Difetti</label>
-                            <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40
+                            <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40  onkeyup="updateCounterTextarea(7);"
                                 placeholder="Quali sono i suoi Difetti?"></textarea>
+                            <p class="counter" id="currentCountFlaws">0</p>
                         </li>
                     </ul>
                 </fieldset>
@@ -233,11 +282,18 @@
 
         </ol>
 
-        <!-- Possibilità di ampliare le info inserite, con dettagli unici alla "scheda minimal" del sito, che rimarranno solo sul sito e non sulla versione stampata -->
-
-
         <div id="submitPersonaggio" class="submitForm">
-            <p>Concludi la creazione salvando la Scheda Giocatore nella tua Area Personale</p>
+            <p>Concludi la crazione salvando nuova la Scheda Giocatore nella tua Area Personale</p>
+
+
+<!--
+    QUESTO È IL <p> CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
+
+    <p>Concludi la modifica salvando la nuova versione della Scheda Giocatore</p>
+
+-->
+
+
             <div>
                 <input class="buttonLink" type="submit" name="salvaPers" value="ANNULLA"/>
                 <input class="buttonLink" type="submit" name="salvaPers" value="SALVA SCHEDA"/>  
@@ -247,6 +303,27 @@
     </form>
 
 </body>
+<!--
+<div id="AutenticazioneOverlay">
+    <div id="popUpAutenticazione">
+
+        <button id="closeSalvataggio" name="Salvataggio" value="annulla"></button>
+
+        <h1>Attenzione</h1>
+        <h2>Per salvare il report è necessaria un autenticazione</h2>
+        <p>Effettua l'accesso o l'iscrizione e conclusa la procedura il tuo documento 
+            verrà salvato automaticamente nella tua Area Personale</p>
+        <form>
+        <div>
+            <a class="buttonLink" href="login.html">ACCESSO</a>
+            <a class="buttonLink" href="">ISCRIZIONE</a>
+        </div>
+        <button id="annullaSalvataggio" class="buttonLink" name="Salvataggio" value="annulla">ANNULLA</button>
+        </form>
+    </div>
+</div>
+
+-->
 
 </html>
 
