@@ -570,18 +570,13 @@ body{
     margin-bottom: 3em;
 }
 #copertina #intestazionePagina{
-    position: absolute;
-    top:100px;
-    z-index: 2;
-}
-#copertina h1{
     position: relative;
-    top:-455px;
+    padding-top: 0;
+    padding-bottom: 13%;
+    top:-850px;
 }
 #copertina h3{
     text-align: center;
-    position: relative;
-    top:-450px;
     font-size: 1.3em;
     font-weight: 400;
 }
@@ -601,7 +596,6 @@ body{
     background-image: url(../images/personaggi_copertina.png);
     background-size: 646px 304px;
     position: relative;
-    z-index: 2;
     margin-top: 10%;
     top:-410px;
 }

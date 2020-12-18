@@ -88,6 +88,9 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     position: relative;
     left: calc(100% - 800px);
 }
+#copertina #intestazionePagina{
+    top:-600px;
+}
 #personaggiCoperina{
     content:"";
     display: block;
@@ -96,7 +99,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     background-image: url(../images/personaggi_copertina.png);
     background-size: 433px 204px;
     position: relative;
-    z-index: 2;
     margin-top: 13%;
     top:-290px;
 }
