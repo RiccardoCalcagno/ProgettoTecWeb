@@ -54,9 +54,14 @@ a.buttonLink {
     padding-top:0.5em;
     height: 2.2em;
 }
-
+/*TO FIX */
 input[type="file"]{
     width: 20em;
+}
+
+/*TO FIX */
+textarea,input[type="text"],input[type="date"],input[type="password"] {
+    width: 100%;
 }
 
 /*
@@ -74,7 +79,7 @@ input[type="file"]{
 */
 
 #presentazioneFeatures {
-    width: 100%;
+    width: calc(55% + 200px);
 }
 
 #presentazioneFeatures h2, #presentazioneFeatures p{
@@ -106,7 +111,7 @@ input[type="file"]{
 
 #argomenti > div {
     padding: 1em 0 1em 0;
-    margin: 1em auto 3em auto;
+    margin: 2em auto 4em auto;
     display: block;
 }
 
@@ -132,7 +137,7 @@ input[type="file"]{
 }
 
 #argomenti .about .testoArgomento{
-    max-width: 95%;
+    width: calc(55% + 200px);
 }
 
 .about ol{
@@ -145,7 +150,7 @@ input[type="file"]{
     list-style-type: decimal;
 }
 
-#argomenti .howTo{
+#argomenti .howTo {
     padding: 1.5em 0.7em 5em 0.7em;
     width: calc(100% - 1.4em);
 }
@@ -161,7 +166,7 @@ input[type="file"]{
 }
 
 #argomenti .howTo .testoArgomento{
-    max-width: 95%;
+    width: 100%;
 }
 
 
@@ -228,7 +233,7 @@ input[type="file"]{
 }
 
 .htmlApprofondimento .content{
-    width: 90%;
+    width: calc(55% + 200px);
     padding-bottom: 10%;
 }
 
@@ -241,8 +246,10 @@ input[type="file"]{
 }
 
 .htmlApprofondimento .howTo{
+    width: calc(55% + 180px - 1.5em);
     padding: 1.5em;
     padding-top: 0.5em;
+    margin: 0;
 }
 
 .htmlApprofondimento .howTo img{
@@ -586,7 +593,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 }
 
 #creazionePersonaggio ol{
-    width: 95%;
+    width: calc(55% + 200px);/*calc(60% + 10em);*/
 }
 
 #creazionePersonaggio .fieldss > p {
@@ -636,12 +643,16 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 */
 
 #creazioneReport ol{
-    width: 95%;
+    width: calc(55% + 210px);
 }
 
 #creazioneReport #immaginiRepo > div{
     max-width: 100%;
     padding: 1.2em 2em;
+}
+
+#creazioneReport .creazioneFields #contenutoRepo textarea{
+    height: 6em;
 }
 
 /*
@@ -652,9 +663,12 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
     max-width: 100%;
 }
 
+#selezionamentoGiocatori #inserimentoGiocatori input[type="submit"]{
+    width: 7.5em;
+}
+
 #creazioneReport #selezionamentoGiocatori > div{
     padding: 0.5em;
-    width: 90%;
 } 
 
 #creazioneReport #selezionamentoGiocatori ul{
@@ -687,5 +701,80 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 }
 
 #conclusione #submitReport{
+    padding: 0.5em 1.2em;
     margin-bottom: 4em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                MODIFICA DATI PERSONALI E LOGIN
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#modificaDati #intestazionePagina{
+    padding-bottom: 1em;
+}
+
+.userFields fieldset{
+    width: calc(90%-0.5em);
+    padding-bottom: 1em;
+}
+
+form#datiPassword .submitForm{
+    width: calc(50% + 10em);
+}
+
+form#datiUtenza fieldset{
+    margin-bottom: 2em;
+}
+
+#modificaPassword{
+    border-top: 3px solid #3b2a1538;
+    padding-top: 2em;
+}
+
+form#datiUtenza{
+    width: calc(60% + 10em);
+    padding: 0;
+    margin: auto; /* can't remove ?????????????????????????????? */
+}
+
+#datiUtenza #username{
+    width: 15em;
+}
+
+#datiAnagrafici{
+    height: auto;
+    padding-bottom: 1.5em;
+    margin-top: 0;
+}
+
+#datiAnagrafici legend{
+    margin-bottom: 0;
+}
+
+.userFields fieldset img {
+    width: 9em;
+    height: 9em;
+    border: 3px solid #dfdfdf;
+}
+
+.userFields fieldset li{
+    width: 80%;
+    max-width:26em;
+}
+
+.userFields input[type="file"]{
+    width: 80%;
+    max-width: 20em;
+    min-width: 15em;
+}
+
+#modificaDati .submitForm{
+    min-width: 27em;
+    text-align: center;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
 }
