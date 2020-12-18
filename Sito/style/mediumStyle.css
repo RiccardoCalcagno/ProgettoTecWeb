@@ -73,6 +73,35 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 */
 
 
+
+/*
+--------------------------------------- COPERTINA ----------------------------------------------
+------------------------------------------------------------------------------------------------------------
+*/
+#copertina{
+    height: 334px;
+}
+#copertina img{
+    display:block;
+    width: 800px;
+    height: 334px;
+    position: relative;
+    left: calc(100% - 800px);
+}
+#personaggiCoperina{
+    content:"";
+    display: block;
+    width: 433px;
+    height: 204px;
+    background-image: url(../images/personaggi_copertina.png);
+    background-size: 433px 204px;
+    position: relative;
+    z-index: 2;
+    margin-top: 13%;
+    top:-290px;
+}
+
+
 /*
 --------------------------------------- PRESENTAZIONE FEATURE ----------------------------------------------
 ------------------------------------------------------------------------------------------------------------
