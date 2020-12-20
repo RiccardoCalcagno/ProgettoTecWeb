@@ -2504,7 +2504,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     padding-top:2em;
     margin: auto;
     margin-top: 0;
-    flex: 1 1 35em;
+    flex: 1 1 65%;
     min-width: 20em;
 }
 
@@ -2518,7 +2518,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     width: 95%;
     max-width: 43em;
     margin: auto;
-    padding:0 6%;
+    padding: 0;
 }
 
 #reportEsplora .box{
@@ -2530,9 +2530,9 @@ form#datiUtenza > div:first-child fieldset:first-child{
 */
 
 #esploraAside {
-    flex: 1 1 20em;
+    flex: 1 1 30%;
     max-width: 50em;
-    padding:0 3%;
+    padding:0 0.5% 0 0.3%;
     margin: auto;
     margin-top: 2em;
 }
@@ -2545,6 +2545,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 
 #esploraAside li {
     padding: 1.5em;
+    padding-top: 1em;
     margin: 0.3em;
     margin-bottom: 1.5em;
     border-radius: 0.5em;
@@ -2552,38 +2553,53 @@ form#datiUtenza > div:first-child fieldset:first-child{
 }
 
 
-/*--------------------------- ASIDE DL-DT-DD -------------------
-*/
+/* --------------------------- Eventi --------------------------- */
+
 
 #eventi dt {
     font-weight: bold;
     font-size: 1.2em;
     padding-bottom: 0.25em;
 }
+
 #eventi dd {
     display: list-item;
     list-style-type: square;
-    margin-left: 1.1em;
+    margin-left: 5%;
     padding-bottom: 0.4em;
+}
+
+#eventi dd + dd::before{
+    content: "<";
+}
+
+#eventi dd + dd::after{
+    content: ">";
 }
 
 #eventi dd:nth-of-type(2n):not(:last-child) {
     padding-bottom: 0.6em;
 }
 
+/* --------------------------- Siti --------------------------- */
+
 #siti dt {
     display: inline-block;
 }
+
+#siti dt::after {
+    content: ":";
+}
+
 #siti dd{
     display: inline;
 }
-#siti dd::after{
+
+#siti dd:not(:last-child)::after{
     display: block;
     content: "";
     padding-bottom: 0.7em;
 }
-
-
 
 
 /*
