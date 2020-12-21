@@ -893,3 +893,247 @@ form#datiUtenza{
     padding-left: 3%;
     padding-right: 3%;
 }
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA DOCUMENTO
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+/* ????????? 
+.documentoBody > header{
+    background-color: #fff7e6;
+    width: calc(100% - 1em);
+    padding-right: 1em;
+    margin:0;
+}
+*/
+
+.documentoBody #content{
+    /* TO FIX CONSIDER 44px 22px */
+    width: calc(90% + 48px);    
+    padding: 2em calc(5% - 24px);
+    margin: auto;
+}
+/* DELETE
+#closeDirettamente{
+    width: 0;
+    height: 0;
+    position: relative; 
+    left: 100%;
+}
+
+#closeDirettamente a{
+    top:-3.5em;
+    left: -3em;
+    width: 2.5em; 
+    height: 2.5em; 
+    background-size: 2.5em 7.5em;
+} */
+
+#loginBody #closeDirettamente a{
+    left: -2em;
+}
+
+#confermaBody #closeDirettamente a{
+    left: -2em;
+}
+
+#visualizzaScheda #closeDirettamente a{
+    top:-20.4em;
+}
+
+#visualizzaReport #closeDirettamente a{
+    /*top: 0;  TO FIX CONSIDER*/
+    top: -4em;
+    left: -2em;
+}
+
+
+/*
+--------------------------------------- DOCUMENT ACTIONS ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+/* TO FIX ??
+#DocumentActions{
+
+    margin: auto;
+}*/
+
+#footAction{
+    padding: 2.5em 3%;
+}
+#footAction input{
+    width: 7em;
+}
+
+#footAction :nth-child(2) input{
+    width: 12em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#contentRepo{
+    width: calc(100% - 2em - 4px); /* Border 2px */
+    padding: 1.5em 1em;
+}
+
+/*
+--------------------------------------- HEADER REPO ----------------------------------------------
+*/
+
+#contentRepo header{
+    padding-bottom: 1.5em;
+}
+#contentRepo header h1{
+    font-size: 2.6em;
+    padding-bottom:0.1em;
+}
+
+/*
+--------------------------------------- SEZIONI REPO ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#giocatoriReport{
+    padding-top: 1.8em;
+}
+
+#giocatoriReport ul > li{
+    padding:0.2em;
+}
+
+#contentRepo section#giocatori{
+    margin-top:0.5em;
+}
+
+
+/*
+--------------------------------------- InfoDiCreazioni ----------------------------------------------
+*/
+
+#contentRepo #infoDiCreazione{
+    flex-direction: column;
+    width:100%;
+    padding-bottom: 0.7em;
+}
+
+#contentRepo #infoDiCreazione > section{
+    flex: 0 1 auto; /* CANT REMOVE ? */
+    width: 100%;
+}
+
+#contentRepo #infoDiCreazione section > *{
+    width: 45%;
+}
+/* TO FIX ? */
+#contentRepo #infoDiCreazione section :nth-child(1){
+    text-indent: -20%;
+}
+/* TO FIX ? */
+#contentRepo #infoDiCreazione section :nth-child(2){
+    text-indent: -30%;
+}
+
+#contentRepo #infoDiCreazione #ultimaModifica{
+    flex: 0 1 auto; /* CANT REMOVE ? */
+    top: 0;
+}
+
+#contentRepo #infoDiCreazione #ultimaModifica > *{
+    width: 45%;
+}
+
+#contentRepo #autore > h2{
+    top:-1em;
+}
+
+/*
+--------------------------------------- COMMENTI REPO ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#commentiField{
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#commentiField legend >h2{
+    font-size: 1.6em;
+}
+
+#commentiField #InserimentoCommento{
+    margin: 0;
+    margin-bottom: 1.5em;
+}
+/* TO FIX ? margin ? (~630px)*/
+#commentiField #InserimentoCommento input[type="submit"]{
+    margin-right: 1em;  
+    width: 8.5em;
+}
+#commentiField #InserimentoCommento input[type="text"]{
+    width: 23em;
+}
+
+#commentiField li{
+    padding-bottom: 0.7em;
+}
+
+#commentiField li .badgeUtente{
+    padding: 0;
+    padding-top: 0.7em;
+}
+
+#commentiField li .testoCommento{
+    margin-left: 0.5em;
+    width: calc(100% - 9.5em);
+}
+
+#commentiField li > input{
+    float: right;
+    margin-left:0.5em;
+    top: 0.5em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA SCHEDA PERSONAGGIO
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#visualizzaScheda #content{
+    padding-top: 1em;
+}
+
+#visualizzaScheda #setLayout{
+    padding-bottom: 2em;
+}
+#contentPersonaggio h1 {
+    width: auto;
+}
+
+#contentPersonaggio dt{
+    padding-top: 0.5em;
+    margin-right: 1em;
+}
+
+#infoBreviPersonaggio dd{
+    font-size: 1.4em;
+}
+
+
+#infoBreviPersonaggio dl div >*{
+    margin-top: 0.5em;
+}
+
+#infoBreviPersonaggio img{
+    width: 18em;
+    padding: 1.5em 1em 0;
+    /*display: none; */
+}
