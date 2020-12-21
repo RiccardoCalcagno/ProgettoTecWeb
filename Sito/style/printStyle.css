@@ -14,9 +14,15 @@ html, body {
     font-family: Georgia, "Times New Roman", serif;
     text-align: justify;
     margin: auto;
+    font-size: 1em;
+    line-height: 1.5em; /* :( */
 }
 
-#intestazioneSito, #breadcrumb, .puntoInterrogativo { /*img in generale ? */
+#intestazioneSito, #breadcrumb, .puntoInterrogativo, #closeDirettamente, img{ /*img in generale ? */
+    display: none;
+}
+
+input, nav.espandi {
     display: none;
 }
 /* ?
@@ -26,16 +32,16 @@ html, body {
 */
 
 h1 {
-    font-size: 9mm;
+    font-size: 9mm; /* mm or em? */
     margin: 5mm 0;
     margin-bottom: 3mm;
 }
-/*
+
 h2 {
-    font-size: 6mm;
-    font-weight: normal;
+    font-size: 8mm;
+/*    font-weight: normal;*/
 }
-*/
+
 a:link::after, a:visited::after {
     content: " [" attr(href) "] ";
     font-size: 90%;
@@ -48,8 +54,18 @@ abbr::after {
     font-size: 90%;
 }
 
-footer {
+.campiObbligatori::before{
+    content:"*";
+    color: #da0000;
+    font-size: 1.2em;
+}
+
+p.counter {
     display: none;
+}
+
+textarea {
+    resize: none;
 }
 
 /*
@@ -77,7 +93,6 @@ footer {
 }
 
 #introduzione h2, #argomenti h2 {
-    font-size: 6mm;
     /* font-weight: normal; */
     margin: 2mm 0;
     margin-bottom: 0.5mm;
@@ -96,6 +111,10 @@ footer {
     list-style-type: disc;
 }
 
+#bodyHome > footer {
+    display: none;
+}
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -103,10 +122,6 @@ footer {
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-
-.htmlApprofondimento h2 {
-    font-size: 6mm;
-}
 
 .htmlApprofondimento .content {
     width: 90%;
@@ -147,10 +162,6 @@ footer {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#bodyEsplora #reportEsplora{
-    display: none;
-}
-
 #bodyEsplora h2 {
     margin: 5mm 0;
     margin-bottom: 2mm;
@@ -188,19 +199,13 @@ footer {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#visualizzaReport img, #visualizzaReport #InserimentoCommento, #visualizzaReport #ReportActions, #visualizzaReport li.commento button {
+#visualizzaReport img, #visualizzaReport #InserimentoCommento, #visualizzaReport #ReportActions, #visualizzaReport li.commento button, #visualizzaReport input {
     display: none;
 }
 
-#visualizzaReport p {
-    margin: 2mm;
-    margin-left: 0;
-}
-
 #visualizzaReport h2  {
-    display: inline-block;
     font-size: 5mm;
-    margin: 2mm 0 2mm 0;
+    margin: 2mm 0;
 }
 
 #visualizzaReport h2::after  {
@@ -211,7 +216,7 @@ footer {
     display: inline;
 }
 
-#visualizzaReport #giocatoriReport p {  /* Per non andare a capo spezzando nome*/
+#visualizzaReport #giocatoriReport p {  /* Per non andare a capo spezzando nome */
     display: inline-block;
     margin: 0.5mm 0 2mm 0;
 }
@@ -224,24 +229,21 @@ footer {
     margin-left: 3mm;
 }
 
-#visualizzaReport #testoReport h2  {
-    margin-bottom: 0;
-}
-
 #visualizzaReport #commentiField {
     border: none;
 }
 
 #visualizzaReport .commento .badgeUtente {
     font-size: 4.5mm;
+    padding: 0;
+}
+
+#visualizzaReport .commento .badgeUtente p {
+    font-weight: bold;
 }
 
 #visualizzaReport li.commento {
-    margin-bottom: 4mm;
-}
-
-#visualizzaReport .testoCommento p {
-    margin: 1mm;
+    margin: 0;
 }
 
 #visualizzaReport .testoCommento p.dateTimeCommento::before {
@@ -250,4 +252,449 @@ footer {
 
 #visualizzaReport .testoCommento p.dateTimeCommento::after {
     content: ">";
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                BOX reports
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.box ul {
+    /* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    */
+    list-style: none;
+}
+
+.box ul li.cardReport {
+    page-break-inside: avoid;
+    float:left;
+    width: 45%;
+    margin: 5mm 2.5%;
+}
+
+.box ul li {
+    page-break-inside: avoid;
+    margin: 3mm;
+}
+
+.box li > button {
+    background-color: white;
+}
+
+.testoCardRep h4 {
+    font-size: 6mm;
+    margin: 1mm auto;
+}
+
+.testoCardRep p {
+    padding: 2mm;
+    margin: 1mm 3mm;
+}
+
+.box .publicazione, #areaPersonale .cards .badgeUtente img {
+    display: none;
+}
+
+.box .cards .badgeUtente > * {
+    display: inline-block;
+    font-weight: bold;
+}
+
+.box .cards .badgeUtente > img {
+    display: none;
+}
+
+.cards footer {
+    display: none;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                AREA PERSONALE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#areaPersonale .buttonLink {
+    display: none;
+}
+
+/*
+------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA INFO UTENTE
+------------------------------------------------------------------------------------------------------------
+*/
+
+#areaPersonale h2, #areaPersonale p {
+    margin: 2mm;
+}
+
+#areaPersonale dl > * {
+    margin: 1mm 0 1mm;
+}
+
+#areaPersonale dt {
+    font-weight: bold;
+    float: left;
+    width: 25%;
+    margin-left: 3mm;
+}
+
+#areaPersonale dd {
+    float: left;
+    width: 70%;
+}
+
+/*
+------------------------------------------------------------------------------------------------------------
+                                                AREA DASHBOARD
+------------------------------------------------------------------------------------------------------------
+*/
+
+#areaPersonale #personaggiUtente {
+    clear: both;
+}
+
+#areaPersonale #personaggiUtente h2 {
+    padding-top: 4mm;
+}
+
+#areaPersonale .box img {
+    display: block;
+    width: 20mm;
+    margin: 3mm;
+    margin-left: calc(50% - 10mm);
+}
+
+#areaPersonale .box ul li.cardPersonaggio {
+    page-break-inside: avoid;
+    float:left;
+    width: 30%;
+    margin: 3mm 1.666%;
+}
+
+#areaPersonale .box ul li.cardPersonaggio button {
+    width: 100%;
+}
+
+#areaPersonale .report, #areaPersonale #reportPartecipante {
+    clear: both;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                HTML TRANSITORI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.transitorio > div{
+    max-width: 37em;
+    padding: 0 1.5em 0 1.5em;
+    margin:auto;
+}
+
+.transitorio h1{
+    text-align: center;
+    font-size: 2.6em;
+    padding-top:0.5em;
+    margin:auto;
+    margin-bottom: 0.5em;
+}
+
+/*------------------------------------- LOGIN ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#loginBody > div {
+    margin-top: 20%;
+}
+
+#loginBody input{
+    display: inline;
+}
+
+#loginBody .messErrore{
+    width: 20em;
+    margin:auto;
+}
+
+#loginBody h1{
+    font-size: 3em;
+}
+
+#loginBody form label{
+    font-size: 1.3em;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    padding-bottom: 0.4em;
+}
+
+#loginBody form > input{
+    width:20em;
+    margin:0 calc(50% - 10.5em) 3em;
+}
+
+#loginBody form p:last-child{
+    text-align: center;
+}
+
+#loginBody #submitLogin{
+    width: 90%;
+    display: flex;
+    margin: auto;
+    padding-bottom: 0.4em;
+}
+
+#loginBody #submitLogin div >*{
+    width: 12em;
+}
+
+#loginBody #submitLogin div{
+    margin:auto;
+    padding: 1em;
+}
+
+/*------------------------------------- CONFERMA SALVATAGGIO ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#confermaBody > div{
+    width: 80%;
+    margin: 20% auto;
+}
+
+.corretto{
+    font-weight: 500;
+    color:green;
+}
+.scorretto{
+    font-weight: 500;
+    color:#7e0000;
+}
+
+#confermaBody p{
+    text-align: center;
+}
+
+#refAreaPersConf{
+    padding-top: 0.5em;
+}
+
+#confermaBody #linkVelociPostConferma{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+#confermaBody .buttonLink{
+    margin-top: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                MODIFICA DATI PERSONALI E LOGIN
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#modificaDati input {
+    display: block;
+    margin: 0.2em auto 2em;
+}
+
+textarea,input[type="text"],input[type="date"],input[type="password"]{
+    padding:0.5em;
+    width: 25em;
+}
+
+.userFields fieldset{
+    margin: 2em 1em;
+}
+
+form#datiUtenza{
+    width: 100%;
+}
+
+form#datiUtenza > div:first-child {
+    display: flex;
+    width: 100%;
+}
+
+#modificaDati .submitForm input {
+    display: inline;
+    margin: 0.5em;
+}
+
+.userFields fieldset img {
+    display: block;
+    margin: 1em auto 0;
+    width: 10em;
+    height: 10em;
+    border-radius: 6em;
+}
+
+#datiUtenza label[for="username"]{
+    text-align: center;
+}
+
+#datiUtenza #username{
+    width: 20em;
+    display: block;
+}
+
+.userFields fieldset label {
+    padding-bottom: 0.5em;
+    margin-top: 0.5em;
+    display: block;
+    font-weight: bold;
+}
+
+.userFields fieldset li{
+    list-style-type: none;
+    width:26em;
+    margin:auto;
+}
+
+form#datiPassword {
+    width: 90%;
+    margin:auto;
+    display: flex;
+}
+
+form#datiPassword .submitForm {
+    width: 25em;
+    height: 7em;
+}
+
+#datiPassword .submitForm {
+    margin-top: 9em;
+}
+
+.submitForm {
+    text-align: center;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        CREAZIONI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.creazioneFields {
+    width: 90%;
+    margin: auto;
+}
+
+.creazioneFields legend h2 {
+    font-size: 1.5em;
+}
+
+.creazioneFields input {
+    display: inline;
+}
+
+.creazioneFields li {
+    page-break-inside: avoid;
+    list-style-type: none;
+    margin: 1em auto;
+}
+
+.creazioneFields li > * {
+    padding: 0.5em;
+}
+
+.creazioneFields li input,  .creazioneFields li textarea {
+    padding: 1em;
+    margin: 1em;
+}
+
+.creazioneFields li fieldset label {
+    display: inline-block;
+    margin-top: 1em;
+}
+
+/*------------------------------------- CREAZIONE REPORT ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+.creazioneFields li textarea {
+    display: block;
+    margin: 0.3em auto;
+}
+
+#selezionamentoGiocatori div:first-child button {
+    display: none;
+}
+
+#selezionamentoGiocatori div:first-child ul {
+    margin: 1em 0;
+}
+
+#selezionamentoGiocatori div:first-child ul li {
+    float: left;
+    margin: 0;
+    font-weight: bold;
+}
+
+#selezionamentoGiocatori div:first-child .badgeUtente {
+    padding: 0;
+    margin: 0.3em;
+}
+
+#inserimentoGiocatori {
+    clear: both;
+}
+
+#conclusione #condivisione div {
+    margin: 0.4em;
+}
+
+#conclusione #submitReport {
+    margin-top: 1.7em;
+}
+
+/*------------------------------------- CREAZIONE PERSONAGGIO ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#nomeField div {
+    text-align: center;
+}
+
+.traitField #traitsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.traitField #traitsWrapper li{
+    width: 45%;
+    text-align: center;
+    margin: 0 0.7em 0.5em;
+}
+
+.traitField #traitsWrapper li textarea{
+    width: 100%;
+    padding: 1em 0;
+    margin: auto;
+    text-align: center; /* NOT inherited ?*/
+}
+
+/* TO FIX ??? */
+#AutenticazioneOverlay {
+    display: none;
 }
