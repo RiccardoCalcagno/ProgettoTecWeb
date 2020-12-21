@@ -79,17 +79,32 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 ------------------------------------------------------------------------------------------------------------
 */
 #copertina{
-    height: 334px;
+    height: 281px;
 }
 #copertina img{
     display:block;
     width: 800px;
-    height: 334px;
+    height: 281px;
     position: relative;
     left: calc(100% - 800px);
 }
-#copertina #intestazionePagina{
-    top:-600px;
+#copertina header dl{
+    width: 20em;
+    margin-right: 2em;
+    padding: 0.5em;
+    border-top-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+}
+#copertina header dt:nth-child(3){
+    padding-top: 0.6em;
+}
+#copertina header dt{
+    padding-bottom: 0em;
+}
+#copertina header h1{
+    font-size: 3em;
+    margin-bottom: 0.4em;
+    padding-left: 0em;
 }
 #personaggiCoperina{
     content:"";
@@ -863,7 +878,7 @@ form#datiUtenza{
 
 .transitorio > div{
     width: calc(50% + 200px);
-    padding: 0 0.5em;
+    padding: 0 1em;
 }
 
 .transitorio h1{

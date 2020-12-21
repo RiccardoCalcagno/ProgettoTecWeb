@@ -362,6 +362,23 @@ body{
 ---------------------------------------------------------------------------------------------
 */
 
+.transitorio > div{
+    max-width: 37em;
+    padding: 0 1.5em 0 1.5em;
+    margin:auto;
+    background-color: #fff7e6;
+    border-radius: 1em;
+}
+.transitorio h1{
+    display: block;
+    text-align: center;
+    font-size: 2.6em;
+    padding-top:0.5em;
+    margin:auto;
+    margin-bottom: 0.5em;
+}
+
+
 #bannerSalvataggio{
     color:#FFFFFF;
     position: fixed;
@@ -565,15 +582,69 @@ body{
 */
 
 #copertina{
-    height: 499px;
+    height: 420px;
     overflow: hidden;
     margin-bottom: 3em;
 }
-#copertina #intestazionePagina{
+/*
+#copertina header{
     position: relative;
     padding-top: 0;
     padding-bottom: 13%;
     top:-850px;
+}*/
+#copertina header{
+    position: absolute;
+    padding-top: 0;
+    top:4.6em;
+    margin-top: 4%;
+    padding-left: 5%;
+
+}
+#copertina header h1{
+    font-family: Garamond, serif;
+    margin-bottom: 0.8em;
+    font-size: 4em;
+    padding-left: 0.5em;
+    padding-right: 1em;
+    display: block;
+    float: left;
+}
+#copertina header dl{
+    width: 22em;
+    margin-right: 3em;
+    display: block;
+    float: right;
+    text-align: left;
+    padding: 1em 1.5em;
+    border-radius: 0.6em;
+    background-color: #ffecc4bd;
+    font-weight: 500;
+    border-top-left-radius: 7em;
+    border-bottom-right-radius: 7em;
+}
+#copertina header dl >*{
+    display: block;
+}
+#copertina header a{
+    height: 1.8em;
+    padding-top: 0.3em;
+    width: 12em;
+    margin-left: 3em;
+}
+#copertina header dl :nth-child(2){
+    float: right;
+    margin-right: 3em;
+}
+#copertina header dt:nth-child(1){
+    text-align: right;
+}
+#copertina header dt:nth-child(3){
+    padding-top: 1em;
+    clear: both;
+}
+#copertina header dt{
+    padding-bottom: 0.5em;
 }
 #copertina h3{
     text-align: center;
@@ -584,20 +655,20 @@ body{
 #copertina img{
     display:block;
     width: 1200px;
-    height: 499px;
+    height: 420px;
     position: relative;
     left: calc(100% - 1200px);
 }
 #personaggiCoperina{
     content:"";
     display: block;
-    width: 646px;
-    height: 304px;
+    width: 600px;
+    height: 280px;
     background-image: url(../images/personaggi_copertina.png);
-    background-size: 646px 304px;
+    background-size: 600px 280px;
     position: relative;
     margin-top: 10%;
-    top:-410px;
+    top:-386px;
 }
 
 
@@ -896,18 +967,8 @@ li #toApprEsp:active{background-color:#732ab8be;}
 #closeDirettamente a:hover{
     background-position: bottom;
 }
-#loginBody #closeDirettamente a{
+#bannerPage #closeDirettamente a{
     left: -1em;
-}
-#confermaBody #closeDirettamente a{
-    left: -1em;
-}
-#visualizzaScheda #closeDirettamente a{
-    top:-20.4em;
-}
-#visualizzaReport #closeDirettamente a{
-    top: -5.7em;
-    left: 1em;
 }
 
 
@@ -1148,7 +1209,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 #visualizzaScheda #setLayout{
     max-width: 40em;
     margin: auto;
-    padding-bottom: 3em;
+    padding-bottom: 1em;
     display: flex;
     flex-wrap: wrap;
 }
@@ -1323,7 +1384,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     clear: both;
     overflow: hidden;
 }
-#sezTestualiPersonaggio dl :nth-child(even){
+#sezTestualiPersonaggio dl > div:nth-child(even){
     float: right;
 }
 
@@ -1416,11 +1477,10 @@ p.campiObbligatori{
 
 /*
 ---------------------------------------------------------------------------------------------------------------------------------
-                                                        AUTENTICAZIONE OVERLAY  
+                                                        BANNER VARI  
 ---------------------------------------------------------------------------------------------------------------------------------
 */
-
-#AutenticazioneOverlay {
+#bannerPage {
     position: fixed;
     /*display: none;  */
     width: 100%;
@@ -1432,47 +1492,44 @@ p.campiObbligatori{
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
+#bannerPage h2{
+    font-size: 1.3em;
+}
 
-#popUpAutenticazione{
+#bannerPage > div{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-    background-color: #fff7e6;
-    padding: 2em;
-    padding-top: 1.7em;
-    width: 40%;
-    min-width: 22em;
-    border-radius: 1.5em;
+    padding-bottom: 2em;
 }
-#popUpAutenticazione h2{
-    font-size: 1.3em;
+
+.corretto{
+    font-weight: 500;
+    color:green;
 }
-#popUpAutenticazione h1{
+.scorretto{
+    font-weight: 500;
+    color:#7e0000;
+}
+
+#bannerPage p{
     text-align: center;
-    font-size: 2.6em;
-    padding-bottom: 0.25em;
 }
-#popUpAutenticazione > a:last-child{
+#refAreaPersConf{
+    padding-top: 0.5em;
+}
+#bannerPage #linkVelociPostConferma{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+#bannerPage .buttonLink{
+    margin-top: 1em;
     width: 13em;
 }
-#popUpAutenticazione > div a{
-    display: inline-block;
-    flex: 1 1 10em;
-    margin:1em;
-    text-decoration: none;
-}
-#popUpAutenticazione > div{
-    display: flex;
-    padding-bottom: 1em;
-    padding-top: 1em;
-}
-#popUpAutenticazione #annullaAutenticazione{
-    height: 2.2em;
-    width:13em;
-    margin-left:1em;
-}
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -2359,33 +2416,14 @@ form#datiUtenza > div:first-child fieldset:first-child{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-.transitorio{
-    background-color: #000000a8;
-}
-
-.transitorio > div{
-    max-width: 37em;
-    padding: 0 1.5em 0 1.5em;
-    margin:auto;
-    background-color: #fff7e6;
-    border-radius: 1em;
-}
-.transitorio h1{
-    display: block;
-    text-align: center;
-    font-size: 2.6em;
-    padding-top:0.5em;
-    margin:auto;
-    margin-bottom: 0.5em;
-}
-
 /*------------------------------------- LOGIN ------------------------------------------------
 ------------------------------------------------------------------------------------------------
 */
 
 #loginBody{
-    padding-top: calc(50vh - 14.6em);
-    min-height: calc(50vh + 14.6em);
+    background-color: #000000a8;
+    padding-top: calc(50vh - 15.8em);
+    min-height: calc(50vh + 15.8em);
 }
 
 #loginBody .messErrore{
@@ -2440,43 +2478,6 @@ form#datiUtenza > div:first-child fieldset:first-child{
     padding: 1em;
 }
 
-/*------------------------------------- CONFERMA SALVATAGGIO ------------------------------------------------
-------------------------------------------------------------------------------------------------
-*/
-
-#confermaBody > div{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    padding-bottom: 2em;
-}
-
-.corretto{
-    font-weight: 500;
-    color:green;
-}
-.scorretto{
-    font-weight: 500;
-    color:#7e0000;
-}
-
-#confermaBody p{
-    text-align: center;
-}
-#refAreaPersConf{
-    padding-top: 0.5em;
-}
-#confermaBody #linkVelociPostConferma{
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-}
-#confermaBody .buttonLink{
-    margin-top: 1em;
-    width: 13em;
-}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
