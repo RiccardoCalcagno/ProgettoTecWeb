@@ -139,10 +139,11 @@ function setDescCaratteristica(num){
     document.getElementById(doveScrivere).innerHTML = Descrizioni[num][soggetto];
 
 }
+/*
 function setBannerSalvataggi(){
     var arraySalvataggi; // = php.getListaSalvataggio();
 
-    arraySalvataggi = [ "Report: Titolo Report1", "Report: Titolo Report1", "Personaggio: Titolo Personaggio1 + lungooooooo"];
+    /*arraySalvataggi = [ "Report: Titolo Report1", "Report: Titolo Report1", "Personaggio: Titolo Personaggio1 + lungooooooo"];
 
     if(arraySalvataggi.length >0){
 
@@ -155,4 +156,4 @@ function setBannerSalvataggi(){
 
         document.getElementById("wrapperBannerSalvataggio").innerHTML = str;
     }
-}
+}*/
