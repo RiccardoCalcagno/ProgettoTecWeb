@@ -675,6 +675,10 @@ form#datiPassword .submitForm {
     text-align: center;
 }
 
+#nomeField label {
+    margin: 0;
+}
+
 .traitField #traitsWrapper {
     display: flex;
     flex-wrap: wrap;
