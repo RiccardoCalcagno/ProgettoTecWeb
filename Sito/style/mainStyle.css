@@ -1236,36 +1236,37 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border-top-left-radius: 0.5em;
     border-bottom-left-radius: 0.5em;
 }
-#visualizzaScheda #setLayout #standard{
+#visualizzaScheda #setLayout #scheda{
     border-top-right-radius: 0.5em;
     border-bottom-right-radius: 0.5em;
     position: relative;
     left: -0.3em;
 }
-#visualizzaScheda #setLayout #pulsante p{
+#visualizzaScheda #setLayout #pulsante .active{
     display: inline-block;
     background-color: #FFFFFF;
     color:black;
     border:0.3em solid #b9b9b9;
 }
-#visualizzaScheda #setLayout #pulsante input{
+#visualizzaScheda #setLayout #pulsante .disabled{
     background-color: #555555;
     color:#FFFFFF;
     padding:0.7em 1.1em 0.7em 1.1em;
     border:none;
     /*border:0.3em outset transparent;*/
 }
-#visualizzaScheda #setLayout #pulsante input:hover{
+#visualizzaScheda #setLayout #pulsante .disabled:hover{
     border:0.4em outset #808080;
     padding:0.7em;
     background-color: #6b6b6b;
+    cursor: pointer;
 }
-#visualizzaScheda #setLayout #pulsante input:active{
+#visualizzaScheda #setLayout #pulsante .disabled:active{
     background-color: #555555;
     border-style: outset;
 }
 
-#contentPersonaggio::before{
+#contentPersonaggio.pergamena::before{
     content: "";
     display: block;
     width: 100%; 
@@ -1276,7 +1277,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     top: -80px;
 }
 
-#visualizzaScheda #contentPersonaggio{
+#visualizzaScheda #contentPersonaggio.pergamena{
     max-width: 58em;
     margin: auto;
     padding-top:1em;
@@ -1287,13 +1288,13 @@ li #toApprEsp:active{background-color:#732ab8be;}
     background-repeat: repeat-y;
     margin-bottom: calc(1em + 20px);
 }
-#contentPersonaggio p, #contentPersonaggio h1, #contentPersonaggio h2, #contentPersonaggio dd, #contentPersonaggio span{
+#contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena h2, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena span{
     font-family: Garamond, serif;
     font-weight: 600;
     color: #331e06;
 }
 
-#contentPersonaggio::after{
+#contentPersonaggio.pergamena::after{
     content: "";
     display: block;
     width: 100%; 
@@ -1305,7 +1306,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 }
 
 
-#contentPersonaggio > div:last-child{
+#contentPersonaggio.pergamena > div:last-child{
     position: relative;
     top: -100px;
     left: 5px;
@@ -1313,43 +1314,43 @@ li #toApprEsp:active{background-color:#732ab8be;}
     margin:auto;
 }
 
-#contentPersonaggio h1{
+#contentPersonaggio.pergamena h1{
     width: 14em;
     overflow: hidden;
     font-size: 2.5em;
     margin-top: 0;
 }
 
-#contentPersonaggio h2{
+#contentPersonaggio.pergamena h2{
     font-size: 1.8em;
     padding-bottom: 0em;
 }
 
-#contentPersonaggio dt{
+#contentPersonaggio.pergamena dt{
     padding-top: 2em;
     margin-right: 2em;
 }
-#infoBreviPersonaggio dd{
+.pergamena #infoBreviPersonaggio dd{
     font-size: 1.3em;
 }
 
-#infoBreviPersonaggio dl{
+.pergamena #infoBreviPersonaggio dl{
     float: left;
     width: 21em;
     flex-grow: 1;
     max-width: 25em;
     padding-bottom: 2em;
 }
-#infoBreviPersonaggio div:first-child  dt{
+.pergamena #infoBreviPersonaggio div:first-child  dt{
     padding-top: 0;
 }
 
-#infoBreviPersonaggio dl div >*{
+.pergamena #infoBreviPersonaggio dl div >*{
     margin-top: 0.8em;
     display: inline-block;
 }
 
-#infoBreviPersonaggio{
+.pergamena #infoBreviPersonaggio{
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap;
@@ -1357,37 +1358,115 @@ li #toApprEsp:active{background-color:#732ab8be;}
     top:-1.5em;
     padding-bottom: 3em;
 }
-#infoBreviPersonaggio > *{
+.pergamena #infoBreviPersonaggio > *{
     margin:auto;
 }
 
-#infoBreviPersonaggio img{
+.pergamena #infoBreviPersonaggio img{
     display: block;
     width: 25em;
     margin:auto;
     padding: 1em;
 }
-#sezTestualiPersonaggio{
+
+
+.pergamena #sezTestualiPersonaggio{
     position: relative;
     top: -5em;
 }
 
-#sezTestualiPersonaggio dl :first-child dt{
+.pergamena #sezTestualiPersonaggio dl :first-child dt{
     padding-top: 0;
 }
-#sezTestualiPersonaggio dd{
+.pergamena #sezTestualiPersonaggio dd{
     font-weight: 400;
     font-size: 1.3em;
 }
-#sezTestualiPersonaggio dl > div{
+.pergamena #sezTestualiPersonaggio dl > div{
     max-width: 38em;
     clear: both;
     overflow: hidden;
 }
-#sezTestualiPersonaggio dl > div:nth-child(even){
+.pergamena #sezTestualiPersonaggio dl > div:nth-child(even){
     float: right;
 }
 
+/* ------------------------ SCHEDA ---------------------------------- */
+#contentPersonaggio.scheda img, #contentPersonaggio.scheda dt  {
+    display: none;
+}
+
+#contentPersonaggio.scheda {
+    position: relative;
+    background: url(../images/CharSheet.png); /* TO FIX-------SIZE !!!!!!!!------------------------------------------------------------------ */
+    background-size: 210mm 297mm;
+    width: 210mm;
+    height: 297mm;
+    margin:auto;
+}
+
+#contentPersonaggio.scheda h1 {
+    position: absolute;
+    top: 20mm;
+    left: 22mm;
+    font-size: 8mm;
+}
+
+#contentPersonaggio.scheda h1 {
+    position: absolute;
+    top: 21.5mm;
+    left: 18mm;
+    font-size: 8mm;
+}
+
+#contentPersonaggio.scheda #infoBreviPersonaggio {
+    font-size: 5mm;
+}
+
+#contentPersonaggio.scheda #sezTestualiPersonaggio {
+    font-size: 3mm;
+}
+
+#contentPersonaggio.scheda * {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: normal;
+    color: black;
+}
+
+#contentPersonaggio.scheda dd {
+    position: absolute;
+}
+
+#contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
+    top: 18mm;
+    left: 94mm;
+}
+
+#contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
+    top: 27.5mm;
+}
+
+#contentPersonaggio.scheda #alignment, #contentPersonaggio.scheda #background {
+    left: 129mm;
+}
+
+#contentPersonaggio.scheda #pers-traits, #contentPersonaggio.scheda #ideals, #contentPersonaggio.scheda #bonds, #contentPersonaggio.scheda #flaws {
+    width: 53mm;
+    top: 52mm;
+    left: 143.5mm;
+}
+
+#contentPersonaggio.scheda #ideals {
+    top: 78mm;
+}
+
+#contentPersonaggio.scheda #bonds {
+    top: 99mm;
+}
+
+#contentPersonaggio.scheda #flaws {
+    top: 119.5mm;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -2674,4 +2753,88 @@ form#datiUtenza > div:first-child fieldset:first-child{
     padding-top:1em;
     display: block;
     float: right;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            PAGINE ERRORE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+body.errorPage {
+    text-align: center;
+}
+
+#body404 {
+    border: 1em ridge #915f14cc;
+    min-height: 96vh;
+    margin-top: 0.2em;
+}
+
+.errorPage h1 {
+    font-size: 5em;
+    font-weight: bold;
+    padding-top: 2%;
+}
+
+#body404 h1::after {
+    display: block;
+    content: "";
+    width: 8em;
+    height: 6em;
+    background: transparent url('../images/404_img.png') no-repeat;
+    background-size: 8em 6em;
+    border-radius: 0.2em;
+    margin: 0.1em auto 0.3em;
+}
+
+.errorPage section {
+    background-color: #FFF0D4;
+    border-radius: 1em;
+    width: 75%;
+    margin: auto;
+    padding: 1em;
+    margin-bottom: 3em;
+}
+
+.errorPage h2 {
+    background-color: #FFF0D4;
+    font-weight: bold;
+    border-radius: 1em 1em 0 0;
+}
+
+#body404 h2 {
+    font-size: 1.3em;
+    width: 4.5em;
+    padding: 0.4em 0.4em 0;
+    margin-left: 15%;
+}
+
+#errorBody h2 {
+    display: inline-block;
+    padding: 0.2em 0.6em 0;
+}
+
+#body404 section h3 {
+    font-size: 1.7em;
+    font-weight: 550;
+}
+
+.errorPage section p {
+    font-size: 1.2em;
+}
+
+#body404 section p {
+    padding: 0.5em; /* 1em se rimuovi secondo p*/
+}
+
+#errorBody section p {
+    font-size: 1.2em;
+    padding: 3em 0 1.5em;
+}
+
+#body404 .buttonLink {
+    width: 13em;
 }

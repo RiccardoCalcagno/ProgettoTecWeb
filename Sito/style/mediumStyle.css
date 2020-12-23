@@ -1129,25 +1129,25 @@ form#datiUtenza{
 #visualizzaScheda #setLayout{
     padding-bottom: 2em;
 }
-#contentPersonaggio h1 {
+#contentPersonaggio.pergamena h1 {
     width: auto;
 }
 
-#contentPersonaggio dt{
+#contentPersonaggio.pergamena dt{
     padding-top: 0.5em;
     margin-right: 1em;
 }
 
-#infoBreviPersonaggio dd{
+.pergamena #infoBreviPersonaggio dd{
     font-size: 1.4em;
 }
 
 
-#infoBreviPersonaggio dl div >*{
+.pergamena #infoBreviPersonaggio dl div >*{
     margin-top: 0.5em;
 }
 
-#infoBreviPersonaggio img{
+.pergamena #infoBreviPersonaggio img{
     width: 18em;
     padding: 1.5em 1em 0;
     /*display: none; */

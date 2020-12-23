@@ -157,3 +157,21 @@ function setBannerSalvataggi(){
         document.getElementById("wrapperBannerSalvataggio").innerHTML = str;
     }
 }*/
+
+function switchCharLayout(clickedButton) {
+
+    var content = document.getElementById("contentPersonaggio");
+    var otherButton;
+
+    if (clickedButton.id == "pergamena") {
+        otherButton = document.getElementById("scheda");
+        content.className = "pergamena";
+    }
+    else {
+        otherButton = document.getElementById("pergamena");
+        content.className = "scheda";
+    }
+    
+    clickedButton.className = "active";
+    otherButton.className = "disabled";
+}
