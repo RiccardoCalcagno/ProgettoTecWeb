@@ -1129,19 +1129,27 @@ form#datiUtenza{
 #visualizzaScheda #setLayout{
     padding-bottom: 2em;
 }
+
 #contentPersonaggio.pergamena h1 {
     width: auto;
 }
 
 #contentPersonaggio.pergamena dt{
-    padding-top: 0.5em;
+    padding-top: 1em;
     margin-right: 1em;
+}
+
+.pergamena #infoBreviPersonaggio {
+    padding-bottom: 0;
+}
+
+.pergamena #infoBreviPersonaggio dl {
+    padding-bottom: 0;
 }
 
 .pergamena #infoBreviPersonaggio dd{
     font-size: 1.4em;
 }
-
 
 .pergamena #infoBreviPersonaggio dl div >*{
     margin-top: 0.5em;
@@ -1151,4 +1159,42 @@ form#datiUtenza{
     width: 18em;
     padding: 1.5em 1em 0;
     /*display: none; */
+}
+
+.pergamena #sezTestualiPersonaggio{
+    top: 0;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            PAGINE ERRORE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#body404 {
+    width: auto;
+    margin-top: 0.2em;
+}
+
+.errorPage h1 {
+    font-size: 4em;
+    padding-top: 1%;
+}
+
+#body404 h1::after {
+    width: calc(72% + 110px);
+    height: 0;
+    padding-bottom: 65%;    /* Aspect Ratio*/
+    background-size: 100% 100%;
+}
+
+.errorPage section {
+    width: calc(75% + 100px - 2em);
+}
+
+#errorBody h2 {
+    display: inline-block;
+    padding: 0.2em 0.6em 0;
 }

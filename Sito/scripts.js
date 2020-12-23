@@ -172,6 +172,8 @@ function switchCharLayout(clickedButton) {
         content.className = "scheda";
     }
     
-    clickedButton.className = "active";
-    otherButton.className = "disabled";
+    clickedButton.className = "disabled";
+    clickedButton.setAttribute("disabled", "disabled");
+    otherButton.className = "active";
+    otherButton.removeAttribute("disabled");
 }

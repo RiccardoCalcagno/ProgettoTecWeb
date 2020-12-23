@@ -1242,26 +1242,26 @@ li #toApprEsp:active{background-color:#732ab8be;}
     position: relative;
     left: -0.3em;
 }
-#visualizzaScheda #setLayout #pulsante .active{
+#visualizzaScheda #setLayout #pulsante .disabled{
     display: inline-block;
     background-color: #FFFFFF;
     color:black;
     border:0.3em solid #b9b9b9;
 }
-#visualizzaScheda #setLayout #pulsante .disabled{
+#visualizzaScheda #setLayout #pulsante .active{
     background-color: #555555;
     color:#FFFFFF;
     padding:0.7em 1.1em 0.7em 1.1em;
     border:none;
     /*border:0.3em outset transparent;*/
 }
-#visualizzaScheda #setLayout #pulsante .disabled:hover{
+#visualizzaScheda #setLayout #pulsante .active:hover{
     border:0.4em outset #808080;
     padding:0.7em;
     background-color: #6b6b6b;
     cursor: pointer;
 }
-#visualizzaScheda #setLayout #pulsante .disabled:active{
+#visualizzaScheda #setLayout #pulsante .active:active{
     background-color: #555555;
     border-style: outset;
 }
@@ -2788,6 +2788,11 @@ body.errorPage {
     background-size: 8em 6em;
     border-radius: 0.2em;
     margin: 0.1em auto 0.3em;
+}
+
+#errorBody h1 {
+    margin-top: 2%;
+    margin-bottom: 0.5em;
 }
 
 .errorPage section {
