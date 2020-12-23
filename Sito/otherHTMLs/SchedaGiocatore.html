@@ -13,6 +13,9 @@
         <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" /> 
         <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/> 
 
+        <link rel="stylesheet" href="../style/printStyle.css" media="print" />
+        <link rel="stylesheet" href="../style/printFullScreen.css" media="print" />
+
         
         <script type="text/javascript" src="../scripts.js"></script> 
     </head>
@@ -132,7 +135,7 @@
                 <input type="submit" name="personaggio" value="ELIMINA" class="buttonLink"/>    
             </li>
             <li>
-                <input type="submit" name="personaggio" value="STAMPA" class="buttonLink"/>   
+                <input type="submit" name="personaggio" value="STAMPA" class="buttonLink" onclick="window.print()"/>   
             </li>
             <li>
                 <input type="submit" name="personaggio" value="MODIFICA" class="buttonLink"/>
