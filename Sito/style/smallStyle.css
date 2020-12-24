@@ -5,98 +5,180 @@
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-/*
-body {
-	max-width : 480px;
-	margin : auto;
-}
-*/
 
-/* KEEP OR REMOVE ?? */
+
+
 #breadcrumb {
+    display: block;
+    width: calc(100% - 15.5em);
+    position: absolute;
+    top:0;
+    left: 4em;
+    font-size: 1em;
+    font-weight: 400;
+    margin-top: 0.3em;
+    background-color: transparent;
+}
+#breadcrumb li:not(#breadCCurrent){
     display: none;
+}
+#breadcrumb li+li::before {
+    display: none;
+}
+#breadcrumb li:first-child::before{
+    content: "";
+}
+#breadcrumb:before{
+    content: "NOME SITO";
+    display: block;
+    width: 6em;
+    margin:auto;
 }
 
 /*
 --------------------------------------- HEADER ----------------------------------------------
 ---------------------------------------------------------------------------------------------
 */
-#intestazioneSito{
-	margin : 1% 0;
-    background-color: #666460;
-    border: 2px solid black;
-    border-radius: 20px;
-    height: auto;
-    padding: 0.4em 0;
-    margin-bottom: 1em;
+#copertina #titolo{
+    display:none;
 }
-
-/* KEEP OR REMOVE ?? */
-#logo {
+#intestazioneSito #menu{
+    width: 100%;
+    margin-left: 0;
+    background-color: #3b3835;
     display: none;
-/*    vertical-align: middle;
-    margin: 1%;
-    width: 10%;
-    height: auto; */
+    font-weight: 500;
 }
-
-#menu {
-    font-size: 4vw;
-    width: 75%;
-    height: 100%;
-    padding-top: 2%;
+#intestazioneSito #menu #currentLink{
+    display: none;
 }
-
-#menu ol {
+#intestazioneSito #menu > li {
+    display: block;
+    text-align: center;
+}
+#intestazioneSito #menu .dropdown{
+    width: 100%;
+    text-align: left;
+    padding:0.2em 1em;
+    background-color: rgb(48, 44, 44);
+    color:#ebebeb;
+    font-weight: 400;
+}
+#intestazioneSito  #menu .dropdown-content{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    position: inherit;
+    box-shadow: none;
 }
-
-#menu li {
-    max-width: 20%;
-    flex: 1 1 0;
-    padding: 0;
-    margin-left: 0.4em;
+#intestazioneSito #menu .dropdown-content li{
+    width: calc(50% - 2em);
+    min-width: 17em;
+    margin:auto;
 }
-
-#menu a {
-    display: inline-block;
+#intestazioneSito #menu .dropdown-content li a{ 
+    background-color: #3b3835;
     text-align: center;
-    text-indent: -7%;
-    height: 70%;
-    border: 1px solid black;
-    background-color: #f7d371;
-    border-radius: 20px;
+    border-top: none;
+    font-size: 1.3em;
+}
+#intestazioneSito #menu li a:not(.dropdown){
+    text-decoration: underline;
+}
+#intestazioneSito #menu > li a{
+    padding: 1em;
+    font-size: 1.1em;
+}
+
+#intestazioneSito #breadcrumb #breadCCurrent{
+    display: block;
+    position: absolute;
+    top:0;
+    left: 4em;
+}
+
+#intestazioneSito #access{
+    position: absolute;
+    right: 0;
+    top:0;
+    width:9.5em
+}
+#access input{
+    margin-top: 0.38em;
+    width: 4.5em;
+    height: 2.5em;
+}
+#intestazioneSito > a{
+    background: black;
+    display: block;
+    width: 3.3em;
+    height: 3.3em;
+    background-image: url(../images/hamburger_icon.png);
+    background-position: center;
+    background-size: 3em 3em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        HOME
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#copertina{
+    height: 350px;
+}
+#copertina img{
+    display:block;
+    width: 1000px;
+    height: 350px;
     overflow: hidden;
-    margin-left: 0.2em;
-    padding: 0.4em;
+    position: relative;
+    left: calc(100% - 1000px);
+}
+#copertina img:after{
+    content:"";
+    display: block;
+    position: relative;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #392D20;
+    z-index: 3;
+}
+#personaggiCoperina{
+    content:"";
+    display: block;
+    width: 471px;
+    height: 220px;
+    background-image: url(../images/personaggi_copertina.png);
+    background-size: 471px 220px;
+    position: relative;
+    margin-top: 13%;
+    top:-340px;
 }
 
-#menu #currentLink {
-    display: none;
+
+
+#copertina header dl{
+    width: 20em;
+    margin-right: 2em;
+    padding: 0.5em;
+    border-top-left-radius: 3em;
+    border-bottom-right-radius: 3em;
+    display:none;
 }
-
-#access {
-    padding-top: 3%;
-    margin: auto;
-    width: 25%;
-    height: 3em;
-    font-size: 3.5vw;
+#copertina header dt:nth-child(3){
+    padding-top: 0.6em;
 }
-
-#access input {
-    width: 47%;
-    margin: auto;
-    height: 60%;
+#copertina header dt{
+    padding-bottom: 0em;
 }
-
-#access #Accesso{
-    margin-right: 1%;
-}
-
-#Iscrizione{
-
+#copertina header h1{
+    font-size: 3em;
+    margin-bottom: 0.4em;
+    padding-left: 0em;
 }
 
 /*
@@ -142,8 +224,8 @@ textarea{
 
 
 #esploraWrapper {
-	margin: 1px 0;
-	padding: 0;
+    margin: 1px 0;
+    padding: 0;
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
@@ -161,27 +243,27 @@ textarea{
 }
 
 #esploraAside h2{
-	font-size: 2em;
-	text-align: center; 
+    font-size: 2em;
+    text-align: center; 
 }
 
 #esploraAside ul{
-	display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
 #esploraAside li{
-	flex: 1 auto;
-	width: 25em;
+    flex: 1 auto;
+    width: 25em;
 }
 
 #esploraAside li p{
-	display: none;
+    display: none;
 }
 
 #esploraAside li a{
-	font-size: 2.5em;
+    font-size: 2.5em;
 }
 /*--------------------------- ASIDE DL-DT-DD -------------------
 */
@@ -234,11 +316,11 @@ textarea{
 }
 
 #reportEsplora header{
-	font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 #reportEsplora h2{
-	padding-bottom: 0.4em;
+    padding-bottom: 0.4em;
 }
 
 #reportEsplora 
@@ -355,7 +437,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 }
 
 p#ccP {
-	margin: 0 2%;
+    margin: 0 2%;
 }
 
 .ccField {

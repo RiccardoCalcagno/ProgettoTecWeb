@@ -6,6 +6,42 @@
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#intestazioneSito{
+    width: calc(100% - 0.1em);
+    padding-right:0.1em;
+    font-size: 1.1em;
+    background-color: rgb(48, 44, 44);
+}
+#intestazioneSito #menu li{
+    font-size: 0.8em;
+}
+#intestazioneSito #access {
+    width: 10.4em;
+    font-size: 0.99em;
+    height: 2em;
+    margin: auto;
+    min-width:0;
+}
+#access #Accesso{
+    margin-right: 0;
+}
+#access input {
+    margin: auto;
+    width:5em; 
+    margin-top: 0.2em;
+    height: 1.9em;
+}
+#menu ul.dropdown-content li {
+    width:14em;
+}
+#menu ul.dropdown-content li a {
+    padding: 0.6em;
+    font-size: 1.2em;
+}
+#menu a.dropdown::after { 
+    display: none;
+}
+
 * {
     font-size: 1em;
 }

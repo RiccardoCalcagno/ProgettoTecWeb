@@ -139,6 +139,19 @@ function setDescCaratteristica(num){
     document.getElementById(doveScrivere).innerHTML = Descrizioni[num][soggetto];
 
 }
+
+
+function hamburgerFunction(){
+    var x= document.getElementById("menu");
+    if(x.style.display=="block"){
+        x.style.display="none";
+    }else{
+        x.style.display="block";
+    }
+}
+
+
+
 /*
 function setBannerSalvataggi(){
     var arraySalvataggi; // = php.getListaSalvataggio();

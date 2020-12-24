@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>    
 <link rel="stylesheet" href="style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 <link rel="stylesheet" href="style/printStyle.css" media="print"/>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="scripts.js"></script> 
 
 </head>
@@ -69,6 +69,8 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
             <input id="Iscrizione" type="submit" value="Iscriviti">
         </div>
 
+        <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
+
         <ul id="menu" role="menubar">
             <li role="none" id="currentLink" xml:lang="en">Home</li>
             <li role="none" class="externalLink"><a href="otherHTMLs/Esplora.html" role="menuitem">Esplora</a></li>
@@ -76,7 +78,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
                 <ul role="menu" class="dropdown-content">
                     <li role="none"><a href="otherHTMLs/character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                    <li role="none"><a href="otherHTMLs/creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
+                    <li role="none"><a href="otherHTMLs/creazioneReport.html" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
@@ -89,13 +91,13 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
                 </ul>
             </li>
         </ul>
-
+    
 
     </header>
 
     <nav id="breadcrumb">
         <ul>
-            <li>Home</li>
+            <li id="breadCCurrent">Home</li>
         </ul>
     </nav>
 
@@ -109,7 +111,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
         <h1 id="titolo">Titolo del Sito</h1>
         <dl id="starFeature">
             <dt>Preparati per la sessione con la nostra..</dt>
-            <dd><a class="buttonLink" href="otherHTMLs/creazioneReport.html">Scheda Giocatore</a></dd>
+            <dd><a class="buttonLink" href="otherHTMLs/character creation.html">Scheda Giocatore</a></dd>
             <dt>Dai un seguito alla tua avventura con il..</dt>
             <dd><a class="buttonLink" href="otherHTMLs/creazioneReport.html"><span xml:lang="en">Report</span> di Sessione</a></dd>
         </dl>     

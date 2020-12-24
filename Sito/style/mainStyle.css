@@ -168,10 +168,16 @@ a.buttonLink {
 
 #breadcrumb {
     font-weight: 300;
-    background-color: rgb(12,12,12);
+    font-size: 0.9em;
+    background-color: rgb(27, 27, 27);
     padding: 0 0.5em;
     list-style: none;
     color: #FFFFFF;
+}
+#breadcrumb li:first-child::before{
+    display: inline-block;
+    content:"Ti trovi in: ";
+    padding-right: 0.8em;
 }
 
 #breadcrumb li {
@@ -492,8 +498,10 @@ body{
 #menu a#currentDirect{
     background-color:black;
 }
-
-#menu a.dropdown::after { /* background?*/
+#menu a:not(.dropdown):hover{
+    text-decoration: underline;
+}
+#menu a.dropdown::after { 
     content:"";
     display: inline-block;
     background-image:url('../images/down_arrow.png');
@@ -503,7 +511,6 @@ body{
     width: 1.2em; height: 0.6em;
     padding-left: 0.4em;
 }
-
 #menu li ul.dropdown-content {
     display: none;
     position: absolute;
