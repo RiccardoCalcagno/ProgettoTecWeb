@@ -117,6 +117,15 @@
             return mysqli_query($this->connection, $query);
         }
 
+        //in base allo username restituisce l'immagine di profilo
+        public function getUserPic($username)
+        {
+            $username = clean_input($username);
+            $query = "SELECT User.img_path FROM User WHERE username = '" . $username . "';";
+            $user_pic = mysqli_query($this->connection, $query);
+            return $user_pic;
+        }
+
         public function getCharactersByUser($username)
         {
             $username = clean_input($username);

@@ -12,7 +12,7 @@ Users (username,name_surname,email,passwd,birthdate,img_path) VALUES
 ('admin', 'Alessia_Bianchi','admin@gmail.com','admin','1993-12-16','fac_simile_img/path');
 
 INSERT INTO
-Report (id,title,subtitle,content,author,isExplorable,creation_date) VALUES
+Report (id,title,subtitle,content,author,isExplorable,last_modified) VALUES
 (1,'Iniziare una Locanda','Il modo più classico di iniziare una campagna può essere inaspettato?',
 	'Potete immaginare la mia delusione quando sabato sera ho scoperto che la nuova campagna che avremmo iniziato col solito gruppo di amici sarebbe iniziata in una locanda, "Al Drago Verde". Solitamente questo tipo di inizio sessione è piuttosto lento e ci vogliono ore prima di iniziare a decapitare qualche goblin. Se solo avessi saputo... Appena il nostro party si è seduto al tavolo, le sedie si sono rivelate essere dei Mimic, e l\'intera banda di goblin a cui davamo la caccia è saltata fuori dalla cucina per farci a pezzi! Ci siamo divertiti un mondo! Inutile dire che della locanda alla fine è rimasto ben poco LOL',
 	'Grog',1,'2020-05-14'),

@@ -702,3 +702,227 @@ form#datiPassword .submitForm {
 #AutenticazioneOverlay {
     display: none;
 }
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA SCHEDA PERSONAGGIO
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#visualizzaScheda * {
+    -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
+    color-adjust: exact !important;                 /*Firefox*/
+}
+
+#visualizzaScheda #content{
+    padding: 0;
+}
+
+#visualizzaScheda #setLayout{
+    display: none;
+}
+
+#contentPersonaggio.pergamena::before{
+    content: "";
+    display: block;
+    width: 100%; 
+    height: 197px; 
+    background-image: url(../images/pergamena/pergamena_head.png);
+    background-size: 100% 197px;
+    position: relative;
+    top: -80px;
+}
+
+#visualizzaScheda #contentPersonaggio.pergamena{
+    max-width: 58em;
+    margin: 83px auto 0;
+    width: 100%; 
+    background-image: url(../images/pergamena/pergamena_body.png);
+    background-size: 100% 448px;
+    background-repeat: repeat-y;
+}
+#contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena h2, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena span{
+    font-family: Garamond, serif;
+    font-weight: 600;
+    color: #331e06;
+}
+
+#contentPersonaggio.pergamena::after{
+    content: "";
+    display: block;
+    width: 100%; 
+    height: 135px;
+    background-image: url(../images/pergamena/pergamena_foot.png);
+    background-size: 100% 135px;
+    position: relative;
+    top: 40px;
+}
+
+
+#contentPersonaggio.pergamena > div:last-child{
+    position: relative;
+    top: -100px;
+    left: 5px;
+    width: 85%;
+    margin:auto;
+}
+
+#contentPersonaggio.pergamena h1{
+    width: 14em;
+    overflow: hidden;
+    font-size: 2.5em;
+    padding-top: 0.1em;
+    margin-bottom: 1em;
+}
+
+#contentPersonaggio.pergamena h2{
+    font-size: 1.8em;
+    padding-bottom: 0em;
+}
+
+#contentPersonaggio.pergamena dt{
+    padding-top: 2em;
+    margin-right: 2em;
+}
+.pergamena #infoBreviPersonaggio dd{
+    font-size: 1.3em;
+}
+
+.pergamena #infoBreviPersonaggio dl{
+    float: left;
+    width: calc(50%);
+    flex-grow: 1;
+    max-width: 25em;
+    padding-bottom: 2em;
+}
+.pergamena #infoBreviPersonaggio div:first-child  dt{
+    padding-top: 0;
+}
+
+.pergamena #infoBreviPersonaggio dl div >*{
+    margin-top: 0.8em;
+    display: inline-block;
+}
+
+.pergamena #infoBreviPersonaggio{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    position: relative;
+    top:-1.5em;
+    padding-bottom: 0;
+}
+.pergamena #infoBreviPersonaggio > *{
+    margin:auto;
+}
+
+.pergamena #infoBreviPersonaggio img{
+    display: block;
+    width: calc(50% - 2em);
+    margin:auto;
+    padding: 1em;
+}
+
+
+.pergamena #sezTestualiPersonaggio{
+    position: relative;
+    top: 0;
+}
+
+.pergamena #sezTestualiPersonaggio dl :first-child dt{
+    padding-top: 0;
+}
+.pergamena #sezTestualiPersonaggio dd{
+    font-weight: 400;
+    font-size: 1.3em;
+}
+.pergamena #sezTestualiPersonaggio dl > div{
+    max-width: 38em;
+    clear: both;
+    overflow: hidden;
+}
+.pergamena #sezTestualiPersonaggio dl > div:nth-child(even){
+    float: right;
+}
+
+#footAction {
+    display: none;
+}
+
+/* ------------------------ SCHEDA ---------------------------------- */
+#contentPersonaggio.scheda img, #contentPersonaggio.scheda dt  {
+    display: none;
+}
+
+#contentPersonaggio.scheda {
+    position: relative;
+    background: url(../images/CharSheet.png); /* TO FIX-------SIZE !!!!!!!!------------------------------------------------------------------ */
+    background-size: 210mm 297mm;
+    width: 210mm;
+    height: 290mm;
+    margin:auto;
+}
+
+#contentPersonaggio.scheda h1 {
+    position: absolute;
+    top: 20mm;
+    left: 22mm;
+    font-size: 8mm;
+    margin: 0;
+}
+
+#contentPersonaggio.scheda h1 {
+    position: absolute;
+    top: 21.5mm;
+    left: 18mm;
+    font-size: 8mm;
+}
+
+#contentPersonaggio.scheda #infoBreviPersonaggio {
+    font-size: 5mm;
+}
+
+#contentPersonaggio.scheda #sezTestualiPersonaggio {
+    font-size: 3mm;
+}
+
+#contentPersonaggio.scheda * {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: normal;
+    color: black;
+}
+
+#contentPersonaggio.scheda dd {
+    position: absolute;
+}
+
+#contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
+    top: 18mm;
+    left: 94mm;
+}
+
+#contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
+    top: 27.5mm;
+}
+
+#contentPersonaggio.scheda #alignment, #contentPersonaggio.scheda #background {
+    left: 129mm;
+}
+
+#contentPersonaggio.scheda #pers-traits, #contentPersonaggio.scheda #ideals, #contentPersonaggio.scheda #bonds, #contentPersonaggio.scheda #flaws {
+    width: 53mm;
+    top: 52mm;
+    left: 143.5mm;
+}
+
+#contentPersonaggio.scheda #ideals {
+    top: 78mm;
+}
+
+#contentPersonaggio.scheda #bonds {
+    top: 99mm;
+}
+
+#contentPersonaggio.scheda #flaws {
+    top: 119.5mm;
+}

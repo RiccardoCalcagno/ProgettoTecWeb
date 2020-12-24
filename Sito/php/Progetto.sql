@@ -38,7 +38,7 @@ CREATE TABLE Report (
   content varchar(1000) NOT NULL,
   author varchar(50) NOT NULL,
   isExplorable boolean NOT NULL,
-  creation_date date NOT NULL,
+  last_modified date NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (author) REFERENCES Users (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
