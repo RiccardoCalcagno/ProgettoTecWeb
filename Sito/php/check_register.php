@@ -4,7 +4,15 @@
 
     $html = file_get_contents("../otherHTMLs/register.html");
     $new_user = null;
-    $is_there_error = false;
+    $err = array();
+
+    $username = $_POST["username"];
+    $name_surname = $_POST["name_surname"];
+    $email = $_POST["email"];
+    $passwd = $_POST["passwd"];
+    $birthdate = $_POST["birthdate"];
+    $img = $_POST["img"];
+
 
     try {
         $db = new DBinterface();
@@ -14,11 +22,11 @@
         if(!isset($_SESSION))
         {
             session_start();
-            if(strlen(trim($_POST["username"])) > 0)
+            if(strlen(trim($username)) > 0)
             {
                 $err["user_empty"] = false;
 
-                if($db->existUser($_POST["username"]))
+                if($db->existUser($username))
                     $err["user_already_exist"] = true;
                 else
                     $err["user_already_exist"] = false;
@@ -29,7 +37,7 @@
                 $err["user_empty"] = true;
             }
 
-            if(strlen(trim($_POST["passwd"])) == 0)
+            if(strlen(trim(passwd)) == 0)
             {
                 $err["empty_passwd"] = true;
             }
@@ -39,11 +47,11 @@
             }
 
 
-            if(strlen(trim($_POST["email"])) > 0 && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL))
+            if(strlen(trim($email)) > 0 && filter_var($email, FILTER_VALIDATE_EMAIL))
             {
                 $err["email_err"] = false;
 
-                if($db->existMail($_POST["email"]))
+                if($db->existMail($email))
                     $err["email_already_exist"] = true;
                 else
                     $err["email_already_exist"] = false;
@@ -54,7 +62,7 @@
                 $err["email_err"] = true;
             }
 
-            if(strlen(trim($_POST["name_surname"])) > 0)
+            if(strlen(trim($name_surname)) > 0)
             {
                 $err["empty_name"] = true;
             }
@@ -63,13 +71,25 @@
                 $err["empty_name"] = false;
             }
 
+            $db->closeConnection();
+
             if(in_array(true, $err))
             {
-                header("Location : area_personale.php");
+                $_SESSION["err"] = $err;
+                header("Location : register.php");
             }
             else
             {
-                header("Location : register.php");
+                $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $username, $img_path);
+                $db->addUser($new_user);
+                $_SESSION["username"] = $username;
+                $_SESSION["name_surname"] = $name_surname;
+                $_SESSION["email"] = $email;
+                $_SESSION["passwd"] = $passwd;
+                $_SESSION["birthdate"] = $birthdate;
+                $_SESSION["img"] = $img;
+                $_SESSION["login"] = true;
+                header("Location : area_personale.php");
             }
 
         }

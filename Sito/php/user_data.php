@@ -11,7 +11,7 @@
         private $birthdate;
         private $img_path;
     
-        public function __constructor($_username, $_name_surname, $_email, $_passwd, $_birthdate, $_img_path) 
+        public function __constructor($_username, $_name_surname, $_email, $_passwd, $_birthdate, $_img_path = null) 
         {
             $this->set_username($_username);
             $this->set_name_surname($_name_surname);

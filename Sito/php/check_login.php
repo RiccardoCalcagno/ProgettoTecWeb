@@ -12,7 +12,7 @@
     {
         session_start();
         $_SESSION["username"] = $user_data->get_username();
-        $_SESSION["name"] = $user_data->get_name_surname();
+        $_SESSION["name_surname"] = $user_data->get_name_surname();
         $_SESSION["email"] = $user_data->get_email();
         $_SESSION["passwd"] = $user_data->get_passwd();
         $_SESSION["birthdate"] = $user_data->get_birthdate();

@@ -10,7 +10,6 @@
     
         $db = new DBinterface();
 
-        $user_data = null;
         $character_data = null;
         $report_data = null;
         $author_report_data = null;
@@ -22,29 +21,18 @@
         try {
             $db->openConnection();
     
-
-            $user_data = $db->getUser($_SESSION["username"], $_SESSION["passwd"]);
-            if($user_data)
-            {
-                $character_data = $db->getCharacterByUser($_SESSION["username"]);
-                $num_pers = $db->contaPersonaggi($_SESSIONE["username"]);
-                $num_report = $db->countReport($_SESSION["username"]);
-                $num_report_master = $db->countReportAuthor($_SESSION["username"]);
-                $report_data = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
+            $character_data = $db->getCharacterByUser($_SESSION["username"]);
+            $num_pers = $db->contaPersonaggi($_SESSIONE["username"]);
+            $num_report = $db->countReport($_SESSION["username"]);
+            $num_report_master = $db->countReportAuthor($_SESSION["username"]);
+            $report_data = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
             
-                for($i = 0; $i < $num_report; $i++)
-                {
-                    $array_num_part_rep[$report_data[$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
-                }
-
-
-                $author_report_data = $db->getReportAuthor($_SESSION["username"]);
-            }
-            else
+            for($i = 0; $i < $num_report; $i++)
             {
-                $db->closeConnection();
-                // errore
+                $array_num_part_rep[$report_data[$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
             }
+
+            $author_report_data = $db->getReportAuthor($_SESSION["username"]);
 
             $db->closeConnection();
 
@@ -58,11 +46,11 @@
                 /**
                 * replace per l'utente
                 */
-                $html = str_replace("../images/icone_razze/dragonide.png", $user_data->get_img_path(), $html);
-                $html = str_replace("MasterAlessandro", $user_data->get_username(), $html);
-                $html = str_replace("Alessandro Pirolo", $user_data->get_name_surname(), $html);
-                $html = str_replace("piroloalessandro81@gmail.com", $user_data->get_email(), $html);
-                $html = str_replace("xx mese xxxx", $user_data->get_birthdate(), $html);
+                $html = str_replace("../images/icone_razze/dragonide.png", $_SESSION["img"], $html);
+                $html = str_replace("_user_", $_SESSION["username"], $html);
+                $html = str_replace("_name_", $_SESSION["name_surname"], $html);
+                $html = str_replace("_mail_", $_SESSION["email"], $html);
+                $html = str_replace("_date_", $_SESSION["birthdate"], $html);
 
 
                 /**
@@ -72,7 +60,7 @@
 
                 for($i = 0; $i < $num_pers; $i++)
                 {
-                    $_schede_personaggio .= "<li class=\"cardPersonaggio\">
+                    $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
                     <button name=\"Personaggio\" value=\"$i+1\">
                         <img src=\"" . $character_data[$i]->get_img() . "\" alt=\"\" /> 
                         <h4 class=\"textVariable\">" . $character_data[$i]->get_name() . "</h4>
