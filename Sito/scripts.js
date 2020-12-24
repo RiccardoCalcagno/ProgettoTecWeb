@@ -190,3 +190,33 @@ function switchCharLayout(clickedButton) {
     otherButton.className = "active";
     otherButton.removeAttribute("disabled");
 }
+
+function openDD(nth_dd) {
+
+    var dl = document.getElementById("footerList");
+    var dd = dl.querySelectorAll("dd")[nth_dd];
+
+    if(dl.className === "open-footer") {    
+    // Un dd e' gia' aperto
+
+        if (dd.className === "footer-open-dd") {    // il dd corrispondente era aperto, chiudilo e ripristina dl
+            dl.className = "";
+            dd.className = "";
+        }
+        
+        else {  // Un dd era aperto, chiudilo e apri il nuovo
+            var dds = dl.querySelectorAll("dd");
+            for(i = 0; i < 3; i++) {
+                var dd_i = dds[i];
+                if (dd_i.className === "footer-open-dd") {
+                    dd_i.className = "";    // Chiudi dd aperto
+                }
+            }
+            dd.className = "footer-open-dd";    // Apri nuovo dd
+        }
+    }
+    else {  // Nessuno dd era aperto, aprilo
+        dl.className = "open-footer";
+        dd.className = "footer-open-dd";
+    }
+}

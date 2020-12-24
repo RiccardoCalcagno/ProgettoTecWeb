@@ -298,59 +298,56 @@ body{
     color: rgb(241, 245, 245);
 }
 
-#footerContent h2 {
-    position: absolute;
-    top: 0.5em;
-    left: 1.5em;
+#footerContent * {
     color: white;
 }
 
+#footerContent h2 {
+    padding-bottom: 0;
+    text-indent: 10%;
+}
+
 #footerContent dl {
-    padding: 1em 0 2em 0;
-    margin: 2% auto 0 auto;
+    padding: 0.5em 0 2em;
+    margin: auto;
     text-align: center;
-    text-indent: -10%;
 }
 
 #footerContent dl dt {
     display: inline;
-    color: white;
 }
 
-#footerContent dl dt a {
-    color: white;
+#footerContent dl dt button {
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
-
+/* TO FIX MAYBE ?
+#footerContent dl dt button:focus {
+    outline: 2px solid blue;
+    outline-offset: 3px;
+}
+*/
 #footerContent dl dd {
     display: none;
     position: absolute;
     top: 0;
     right: 0;
-    max-width: 45%;
-    margin: 2% 4%;
+    width: 45%;
+    margin: 1%;
 }
 
-#footerContent dl dd p {
-    color: white;
-    padding: 0;
-    text-align: left;
-    text-indent: 0;
-}
 #footerContent dl dd a {
     display: block;
     margin-top: 2%;
-    color: white;
-    text-align: center;
-    text-indent: -20%;
+    margin-left: 10%;
 }
 
 #footerContent dl dd + dt::before {
     content: " | ";
     margin: 0 3%;
-}
-
-#footerContent .open {
-    text-indent: -40%;
 }
 
 #disclaimer {
@@ -361,7 +358,17 @@ body{
     font-size: 0.8em;
 }
 
+#footerContent dl.open-footer {
+    text-align: left;
+ }
 
+ #footerContent dl.open-footer dt:first-child{
+    margin-left: 5%;
+ }
+
+#footerContent dl dd.footer-open-dd {
+    display: block;
+ }
 
 /*
 --------------------------------------- BANNER SALVATAGGIO ----------------------------------------------

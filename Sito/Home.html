@@ -281,49 +281,16 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
     <div id="footerContent">
         <h2>NomeSito</h2>
-        <!-- dl dt dd ?-->
         <dl id="footerList">    
-            <dt><a href="javascript:void(0)" onclick="openDD(0)">Privacy</a></dt> <!-- PROVA JS -->
-            <dd><p>Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</p></dd>
+            <dt><button type="button" onclick="openDD(0)">Privacy</a></dt>
+            <dd class="footer-dd">Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</dd>
 
-            <dt><a href="javascript:void(0)" onclick="openDD(1)">Contattaci</a></dt> <!-- PROVA JS -->
-            <dd><p>Contattaci se hai consigli, feedback, miglioramenti, o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></p></dd>
+            <dt><button type="button" onclick="openDD(1)">Contattaci</a></dt>
+            <dd class="footer-dd">Contattaci se hai consigli, feedback, miglioramenti, o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></dd>
 
-            <dt><a href="javascript:void(0)" onclick="openDD(2)">Ringraziamenti</a></dt> <!-- PROVA JS -->
-            <dd><p>Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</p></dd>
+            <dt><button type="button" onclick="openDD(2)">Ringraziamenti</a></dt>
+            <dd class="footer-dd">Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</dd>
         </dl>
-
-        <!-- PROVA JS -->
-        <script>
-            function openDD(n) {
-                var dlVar = document.getElementById("footerList");
-                var ddVar = document.querySelectorAll("dd")[n];
-                if(dlVar.className === "open") {    // Era aperto
-                    if (ddVar.className === "ddOpen") {    // Era aperto, chiudi
-                        dlVar.className = "";
-                        ddVar.className = "";
-                        ddVar.style.display = "none";
-                    }
-                    else {  // Uno aperto, apri un altro
-                        for(i = 0; i < 3; i++) {
-                            var ddCicle = document.querySelectorAll("dd")[i];
-                            if (ddCicle.className === "ddOpen") {
-                                ddCicle.className = "";
-                                ddCicle.style.display = "none";
-                            }
-                        }
-                        ddVar.className = "ddOpen";     
-                        ddVar.style.display = "block";
-                    }
-                }
-                else {  // Era chiuso
-                    dlVar.className = "open";
-                    ddVar.className = "ddOpen";
-                    ddVar.style.display = "block";
-                }
-            }
-        </script>
-        <!-- PROVA JS -->
     </div>
 
     <p id="disclaimer">Salvo diversa indicazione, i contenuti di questa pagina hanno licenza <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a></p>
