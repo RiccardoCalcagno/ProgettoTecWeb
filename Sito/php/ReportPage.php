@@ -25,8 +25,11 @@ else{
 	//ATTENZIONE, sopra è un alternativa, segue invece come se questa pagina ricevesse direttamente l'oggetto report, $report_info
 
 	//prelevo l'oggetto report
+	/*
 	session_start();
-	$report_info = $_SESSION[""];	//ATTENZIONE! da inserire il nome della variabile che prelevo da session!
+	$report_info = $_SESSION[""];
+	*/
+	//ATTENZIONE! da inserire il nome della variabile che prelevo da session!
 
 	//titolo e sottotitolo
 	$replacer = '<h1>'.$report_info.get_title().'</h1>'.'<p>'.$report_info.get_subtitle().'</p>';
