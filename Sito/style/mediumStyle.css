@@ -100,6 +100,32 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     width: 100%;
 }
 
+#footerContent dl dd {
+    text-align: left;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 37%;
+    margin: 0 4% 2%;
+}
+
+#footerContent dl dd a {
+    display: block;
+    margin-top: 1%;
+    margin-left: 4%;
+}
+
+#footerContent dl.open-footer {
+    text-align: center;
+    padding-bottom: 17%;    /* TO FIX CALIBRATE*/
+ }
+
+ #footerContent dl.open-footer dt:first-child{
+    margin-left: 0;
+ }
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
