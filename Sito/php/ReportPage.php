@@ -60,4 +60,28 @@ else{
 	$replacer .= '<p>'.$report_info.get_content().'</p>';
 	str_replace("<content_placeholder/>", $replacer, $html);
 
+	//aggiungi un commento/registrati per commentare
+	//TODO
+
+	//lista dei commenti
+	//devo mostrare il commento con tutti i suoi dati, oltre che l'immagine del giocatore (non è un dato del commento)
+	$commentsArray = getComments($report_info.get_id());
+	$replacer = '<ul id="listaCommenti">';
+	foreach($commentsArray as $singleComment){
+		$replacer .= '<li class="commento"><div class="badgeUtente">';
+		$replacer .= '<img src="'.getUserPic($singleComment.get_author()).'" alt="Immagine profilo" />';
+		$replacer .= '<p class="textVariable">'.$singleComment.get_author().'</p></div>';
+		$replacer .= '<div class="testoCommento">';
+		$replacer .= '<p>'.$singleComment.get_text().'</p>';
+		$replacer .= '<p class="dateTimeCommento">'.$singleComment.get_date().'</p></div>';
+		$replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/></li>';
+		//quest'ultimo è il tasto per eliminare il commento.
+		//TODO controllare quando mostrarlo e quando no.
+	}
+	$replacer .= '</ul>';
+
+	str_replace("<comments_placeholder/>", $replacer, $html);
+
+	//
+
 }
