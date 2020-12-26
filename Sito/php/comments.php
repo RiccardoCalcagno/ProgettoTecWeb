@@ -6,14 +6,14 @@
         private $text;
         private $date;
         private $author;
-        private $profile_img;
+        private $report;
 
         public function __constructor($_id, $_text, $_date, $_author, $_report)
         {
             $this->id = $_id;
             $this->author = $_author;
             $this->date = $_date;
-            $this->profile_img = $_report;
+            $this->report = $_report;
             $this->set_text($_text);
         }
 

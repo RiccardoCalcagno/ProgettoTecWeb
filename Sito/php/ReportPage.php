@@ -14,6 +14,7 @@ $connection = $dbInterface->openConnection();
 
 if($connection == false){
 	//redirecting to 404
+	$dbInterface->closeConnection();
 }
 else{
 	//di seguito tutti gli accorgimenti per stampare le parti prelevate da DB all'interno della pagina Report.html
@@ -82,6 +83,9 @@ else{
 
 	str_replace("<comments_placeholder/>", $replacer, $html);
 
-	//
+	//chiudo la connessione
+	$dbInterface->closeConnection();
 
+	//stampo la pagina
+	echo ($html);
 }

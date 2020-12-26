@@ -451,9 +451,8 @@
         public function getComments($id_report)
         {
             $id_report = clean_input($id_report);
-            $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Users.username, Comments.report ".
-                     "FROM Comments INNER JOIN Users ".
-                     "ON Comments.author = Users.username ". 
+            $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
+                     "FROM Comments". 
                      "WHERE Comments.report = '" . $id_report . "';";
 
             $query_result = mysql_query($this->connection, $query);
@@ -467,7 +466,7 @@
                 $comments = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $comment = new Comments($row["Comments.id"], $row["Comments.testo"], $row["Comments.data_ora"], $row["Users.author"], $row["Comments.report"]);          
+                    $comment = new Comments($row["Comments.id"], $row["Comments.testo"], $row["Comments.data_ora"], $row["Comments.author"], $row["Comments.report"]);          
                     array_push($comments, $comment);
                 }
             }
