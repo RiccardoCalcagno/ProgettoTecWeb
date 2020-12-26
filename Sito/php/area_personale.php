@@ -36,7 +36,7 @@
 
             $db->closeConnection();
 
-            $html = file_get_contents("../otherHTMLs/AreaPersonale.html");
+            $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "AreaPersonale.html");
             if(!$html) 
             {
                 // pagina di errore

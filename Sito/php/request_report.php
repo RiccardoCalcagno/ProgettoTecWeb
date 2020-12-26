@@ -5,6 +5,6 @@
 
     $_SESSION["report"] = $_POST["id"];
 
-    header("Location : ")
+    header("Location : report.php");
 
 ?>

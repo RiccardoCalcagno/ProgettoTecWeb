@@ -2,7 +2,7 @@
 
     require_once("DBinterface.php");
 
-    $html = file_get_contents("../otherHTMLs/register.html");
+    $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     $new_user = null;
     $err = array();
 
@@ -37,7 +37,7 @@
                 $err["user_empty"] = true;
             }
 
-            if(strlen(trim(passwd)) == 0)
+            if(strlen(trim($passwd)) == 0)
             {
                 $err["empty_passwd"] = true;
             }
@@ -64,11 +64,11 @@
 
             if(strlen(trim($name_surname)) > 0)
             {
-                $err["empty_name"] = true;
+                $err["empty_name"] = false;
             }
             else
             {
-                $err["empty_name"] = false;
+                $err["empty_name"] = true;
             }
 
             $db->closeConnection();
@@ -76,6 +76,7 @@
             if(in_array(true, $err))
             {
                 $_SESSION["err"] = $err;
+                $_SESSION["login"] = false;
                 header("Location : register.php");
             }
             else
@@ -91,6 +92,10 @@
                 $_SESSION["login"] = true;
                 header("Location : area_personale.php");
             }
+
+        }
+        else
+        {
 
         }
 
