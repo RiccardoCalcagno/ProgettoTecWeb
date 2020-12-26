@@ -96,3 +96,5 @@ else{
 	//stampo la pagina
 	echo ($html);
 }
+
+?>
