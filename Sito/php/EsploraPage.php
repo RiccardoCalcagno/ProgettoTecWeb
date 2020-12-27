@@ -3,7 +3,7 @@
 //require
 require_once ("DBinterface");
 
-use DB/DBinterface;
+use DB\DBinterface;
 
 //prelevo Esplora.html
 $html = file_get_contents('../otherHTMLs/Esplora.html');

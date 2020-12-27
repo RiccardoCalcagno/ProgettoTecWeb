@@ -3,11 +3,11 @@
     require_once("comments.php");
     require_once("character.php");
     require_once("report_data.php");
-    require_once("card_data");
-    require_once("photo_data");
-    require_once("report_giocatore_data");
+    require_once("card_data.php");
+    require_once("photo_data.php");
+    require_once("report_giocatore_data.php");
 
-    require_once("GeneralPurpose");
+    require_once("GeneralPurpose.php");
 
 
     class DBinterface {

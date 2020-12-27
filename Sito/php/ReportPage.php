@@ -4,7 +4,7 @@
 require_once ("DBinterface");
 require_once ("report_data");
 
-use DB/DBinterface;
+use DB\DBinterface;
 
 //prelevo Report.html
 $html = file_get_contents('../otherHTMLs/Report.html');
@@ -57,7 +57,7 @@ else{
         $replacer .= '<img src="'.getUserPic($linked_user).'" alt="Immagine profilo" />';
         $replacer .= '<p class="textVariable">'.$linked_user.'</p>';
         $replacer .= '</div>';
-        $replacer .= '</li>;'
+        $replacer .= '</li>';
 	}
 	$replacer .= '</ul>';
 
