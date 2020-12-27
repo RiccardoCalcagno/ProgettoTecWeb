@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="it" >
+
+    <head>
+        <title>Registrazione Utente</title>                                
+        <meta name="title" content="Registrazione utente" />
+        <meta name="description" content="La pagina consente di registrarsi inserendo tutte le informazione necessarie a definire l'identità dell'utente nel sito"/>   
+        <meta name="keywords" content="" />
+
+
+
+
+        <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
+        <meta name="language" content="italian it" />
+        <meta charset="utf-8" >
+
+        <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>    
+        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>       
+        <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+        <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
+
+        <script type="text/javascript" src="../scripts.js"></script> 
+
+    </head>
+
+    <body id="modificaDati" onload="onLoadModificaDati();">
+
+        <header id="intestazioneSito">
+
+            <ul class="AiutiNavigazione">
+                <li><a href="">Vai al Menù</a></li>
+                <li><a href="">Vai al Contenuto</a></li>
+            </ul>
+    
+            <div id="access">
+                <input id="Accesso" type="submit" value="Accedi">                
+                <input id="Iscrizione" type="submit" value="Iscriviti">
+            </div>
+            <ul id="menu" role="menubar">
+                <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
+                <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
+                        <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report</a></li>
+                    </ul>
+                </li>
+                <li role="none" class="externalLink">
+                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                    <ul role="menu" class="dropdown-content">
+                        <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                        <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    </ul>
+                </li>
+        </ul>
+    
+    
+        </header>
+    
+        <nav id="breadcrumb">
+            <ul>
+                <li><a href="../Home.html" xml:lang="en">Home</a></li>
+                <li></li>
+            </ul>
+        </nav>
+
+        <header id="intestazionePagina">
+            <h1>Registrazione Utente</h1>
+            <p>È la prima volta che accedi al nostro portale? Non temere, segui questi semplici 
+                <strong>passaggi</strong> e in breve disporrai di un <strong>identità virtuale</strong> con la quale potrai salvare 
+                report e schede giocatore, osservare e commentare report di altri autori e naturalmente  
+                essere incluso nel report di qualche tuo <strong>amico</strong> ;)</p>
+        </header>
+
+        <p class="campiObbligatori"> : campo obbligatorio</p>
+        
+        <div class="userFields">
+            <form id="datiUtenza" autocomplete="on" class="creazioneFields";>
+            <div>
+            <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
+                <ul>
+                    <li>
+                    <img alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="../images/img_profilo_mancante.png">
+                    <label for="imgProfilo">Immagine profilo</label>
+                    <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*"/>
+                    </li>
+                    <li>
+                    <label for="username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
+                    <input type="text"  aria-required="true" required="required"
+                            maxlength="20"
+                            onkeyup="updateCounterTextarea(3);"
+                            name="username" 
+                            id="username"
+                            value=""
+                            placeholder="Digita l'username"/>
+                    <p class="counter"><span id="currentCountUser">0</span>/20</p>
+                    <p id="UserEmpty" class="hidden">  Username vuoto o troppo lungo </p>
+                    <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
+
+                    </li>
+                </ul>
+            </fieldset>
+
+
+            <fieldset id="datiAnagrafici">  <legend><h2>Dati anagrafici</h2></legend>
+                <ul>
+                    <li>
+                    <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
+                    <input type="text"  aria-required="true" required="required"
+                        name="NomeCognome" 
+                        id="NomeCognome"
+                        value="" 
+                        placeholder="Inserisci il tuo nome e il tuo cognome"/>
+                    <p id="NameEmpty" class="hidden">  Non hai inserito  </p>
+                    </li>
+                    <li>
+                    <label for="email" class="campiObbligatori">E-mail</label>
+                    <input type="text"  aria-required="true" required="required"
+                        name="email" 
+                        id="email"
+                        value=""
+                        placeholder="Inserisci la tua mail"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+                    <p id="EmailErr" class="hidden"> Non hai inserito una email valida </p>
+                    <p id="MailAlreadyExists" class="hidden"> Email già esistente  </p>
+
+                    </li>
+                    <li>
+                    <label for="birthdate" class="campiObbligatori">Data di nascita</label>
+                    <input type="date"  aria-required="true" required="required"
+                        name="birthdate" 
+                        id="birthdate"
+                        value=""
+                        max=""
+                        placeholder="Seleziona la tua data di nascita"/>
+                    </li>
+                </ul>
+
+            </fieldset>
+            </div>
+
+            <fieldset>  <legend><h2>Password</h2></legend> 
+                <ul>
+                    <li>
+                        <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
+                        <input type="password"  aria-required="true" required="required"
+                            name="newPasswd" 
+                            id="newPasswd"
+                            value=""
+                            placeholder="Digitare la nuova password"/>
+                        <p id="NewPasswdEmpty" class="hidden">  Non è accettata la password vuota </p>
+                        <p id="RepPasswdErr" class="hidden">  Le password non corrispondono  </p>
+
+                    </li>
+                    <li>
+                        <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
+                        <input type="password"  aria-required="true" required="required"
+                            name="PasswdAgan" 
+                            id="PasswdAgan"
+                            value=""
+                            placeholder="Digita nuovamente la password"/>
+                        <p id="RepPasswdErr" class="hidden">  Le password non corrispondono </p>
+                    </li>
+                </ul>
+            </fieldset>
+            <div class="submitForm">
+                <p>Salva la nuova registrazione</p>
+                <div>
+                    <a href="../Home.html" class="annulla">ANNULLA</a>
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Registrazione"/>  
+                </div>        
+            </div>
+
+            </form>
+        </div>
+    </body>
+</html>
