@@ -466,3 +466,7 @@ p#ccP {
     width: 40%;
     font-size: 1.2em;
 }
+
+.hidden {
+    display: none !important;
+}
