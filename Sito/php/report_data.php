@@ -10,7 +10,7 @@
         private $content;
         private $author;
         private $isExplorable;
-        private $last_modified
+        private $last_modified;
     
         public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_last_modified) 
         {

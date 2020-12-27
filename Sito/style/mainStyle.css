@@ -2801,10 +2801,10 @@ body.errorPage {
 #body404 h1::after {
     display: block;
     content: "";
-    width: 8em;
-    height: 6em;
+    width: 6em;
+    height: 4.5em;
     background: transparent url('../images/404_img.png') no-repeat;
-    background-size: 8em 6em;
+    background-size: 6em 4.5em;
     border-radius: 0.2em;
     margin: 0.1em auto 0.3em;
 }

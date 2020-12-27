@@ -1,10 +1,23 @@
 <?php
-	require_once ("DBinterface.php");
+	require_once("DBinterface.php");
+	require_once("character.php");
+	require_once("GeneralPurpose.php");
 	use DB\DBinterface;
 
 	$html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'character creation.html'); //forse togliere spazio nel nome
 
-	if (isset($_POST['submit'])) {
+	$messaggioForm = "";
+	$name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
+
+	function checkName($name) {
+		return preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);	// trim dopo, accetta sequenze strane ,,,,---... ma 
+	}
+
+	function checkText($text) {
+		return preg_match("/^.{10,}$/", $text); // clean_input dopo
+	}
+
+	if (isset($_POST['salvaPers'])) {
 
 		$name = $_POST['cname'];	//estraggo dal post della form le informazioni contenute
 		$race = $_POST['crace'];
@@ -18,35 +31,97 @@
 
 		//Fare i controlli sugli input
 		//Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
-		$check_name = preg_match("/\\S+/",$name);
+		$check_name = checkName($name); //preg_match("/\\S+/",$name);
 		//$check_race = ;			//provengono da select, non possono essere sbagliati, no?
 		//$check_class = ;
 		//$check_background = ;
 		//$check_alignment = ;
-		$check_traits = strlen($traits)>10;
-		$check_ideals = strlen($ideals)>10;
-		$check_bonds = strlen($bonds)>10;
-		$check_flaws = strlen($flaws)>10;
+		$check_traits = checkText($traits);
+		$check_ideals = checkText($ideals);
+		$check_bonds = checkText($bonds);
+		$check_flaws = checkText($flaws);
 
 		if($check_name && $check_traits && $check_ideals && $check_bonds && $check_flaws){
 			//se passo i controlli allora passo gli input alla costruzione di dati per il DB.
-			$db = new DBinterface();
-			$openConnection = $db->openConnection();
+			$character_data = new Character (
+				0,	// ID qui inutile, non viene considerato per inserimento DB (e poi oggetto character_data viene distrutto) (aggiungere valore di default?)
+				$name,
+				$race, $class, $background, $alignment,	// Ok, select
+				clean_input($traits), 
+				clean_input($ideals), 
+				clean_input($bonds), 
+				clean_input($flaws),
+				//date da DB ?
+				//img no? basta vedere race e caricare da icone_razze quando richiesto
+			);
 
-			if ($openDBConnection == true) {
+			if(isset($_SESSION[''])) {	// Inserisci
 
-				$character_data = new Character 
+				$db = new DBinterface();
+				$openConnection = $db->openConnection();
 
-				$result = $db->addCharacter($character_data);
+				if ($openConnection == true) {
+					$result = $db->addCharacter($character_data);	// TO FIX ADD Creator
 
+					if($result == true) {	// conferma ed errori con str_replace o banner_salvataggio.html ?
+						$messaggioForm = '<div id="conferma"><p>Personaggio Creato!</p></div>';
+						$name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
+					}
+					else {
+						// Can't insert in DB
+						$messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare.</p></div>'; // (ERRORE LATO DB)
+					}
+				}
+				else {
+					// Can't connect to DB
+					$messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare</p></div>'; // (ERRORE LATO Server)
+				}
 			}
-
+			else {	// non e' logged in, mantieni 
+				// TO FIX TODO
+			}
 		}
 		else{
 			//se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
+			$messaggioForm = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
 
+			if(!$check_name) {
+				$namelen = strlen($name);
+				if ($namelen < 3) { 
+					$messaggioForm .= '<li>Nome personaggio deve avere almeno 3 caratteri</li>';
+				}
+				else if ($namelen > 20) {
+					$messaggioForm .= '<li>Nome personaggio deve avere al massimo 20 caratteri</li>';
+				}
+				else {
+					$messaggioForm .= '<li>Formato Nome non valido: utilizzare solo lettere, spazi, virgole, punti e hypen</li>';
+				}
+			}
+
+			$charTraits = array("Carattere", "Ideali", "Legami", "Difetti");
+			$checkCharTraits = array($check_traits, $check_ideals, $check_bonds, $check_flaws);
+			for ($i = 0; $i < 4; $i++) {
+				if(!$checkCharTraits[$i]) {
+					$messaggioForm .= '<li>Descrizione per "' . $charTraits[$i]. '" deve essere almeno 10 caratteri </li>';
+				}
+			}
+			$messaggioForm .= '</ul></div>';
 		}
-
 	}
 
+$html = str_replace("<messaggioForm />", $messaggioForm, $html);
+
+$html = str_replace('<valoreNome />', $name, $html);
+// restore SElECTs :)))))))))))))
+// Possibile soluzione: str_replace su <selectValues /> con un ul con le varie values, con javascript leggo i valori e cambio le select, 
+//		infine rimuovo la ul; :o)
+// Altrimenti modificare direttamente $html aggiungendo attributo selected="selected" alla option giusta (ma molto piu' complicato e invasivo)
+// :))))
+$html = str_replace('<valoreNome />', $name, $html);
+$html = str_replace('<valoreTraits />', $traits, $html);
+$html = str_replace('<valoreIdeals />', $ideals, $html);
+$html = str_replace('<valoreBonds />', $bonds, $html);
+$html = str_replace('<valoreFlaws />', $flaws, $html);
+
+echo $html;
 ?>

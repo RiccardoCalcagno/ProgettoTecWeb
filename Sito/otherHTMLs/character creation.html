@@ -118,7 +118,10 @@
 
     <p class="campiObbligatori"> : campo obbligatorio</p>
 
-    <form id="ccForm" autocomplete="on" class="creazioneFields">
+    <form id="ccForm" autocomplete="on" class="creazioneFields"  method="post" action="../php/character_creation(FormAction).php">
+
+        <messaggioForm />
+        <selectValues />
 
         <ol>
             <li>
@@ -129,7 +132,7 @@
                     <div>
                     <label id="ccName" for="cname" class="ccLabel">Scegli un <strong>nome</strong> per il tuo Personaggio</label>
                     <input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome"
-                        aria-required="true" required="required" />
+                        aria-required="true" required="required" value="<valoreNome />" />
                     </div>
                 </fieldset>
             </li>
@@ -255,28 +258,28 @@
                         <li class="traitsCard">
                             <label for="ctraits" class="ccTraitsL">Carattere</label>
                             <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40  onkeyup="updateCounterTextarea(4);"
-                                placeholder="Descrivi i tratti caratteriali del tuo personaggio"></textarea>
+                                placeholder="Descrivi i tratti caratteriali del tuo personaggio"><valoreTraits /></textarea>
                             <p class="counter" id="currentCountTraits">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cideals" class="ccTraitsL">Ideali</label>
                             <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40  onkeyup="updateCounterTextarea(5);"
-                                placeholder="Quali sono i suoi Ideali?"></textarea>
+                                placeholder="Quali sono i suoi Ideali?"><valoreIdeals /></textarea>
                             <p class="counter" id="currentCountIdeals">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cbonds" class="ccTraitsL">Legami</label>
                             <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40  onkeyup="updateCounterTextarea(6);"
-                                placeholder="A chi è legato nel mondo di gioco?"></textarea>
+                                placeholder="A chi è legato nel mondo di gioco?"><valoreBonds /></textarea>
                             <p class="counter" id="currentCountBonds">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cflaws" class="ccTraitsL">Difetti</label>
                             <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40  onkeyup="updateCounterTextarea(7);"
-                                placeholder="Quali sono i suoi Difetti?"></textarea>
+                                placeholder="Quali sono i suoi Difetti?"><valoreFlaws /></textarea>
                             <p class="counter" id="currentCountFlaws">0</p>
                         </li>
                     </ul>
