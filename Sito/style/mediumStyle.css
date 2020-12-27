@@ -73,8 +73,7 @@ h3{
 }
 
 #intestazionePagina p{
-    /* text-align: left;  ???
-    width: 95%; */
+    font-size: 1.1em;
 }
 
 .puntoInterrogativo{
@@ -343,10 +342,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 .htmlApprofondimento .content{
     width: calc(55% + 200px);
     padding-bottom: 10%;
-}
-
-.htmlApprofondimento h2{
-    padding-bottom: 0.3em;
 }
 
 .htmlApprofondimento section{
@@ -636,9 +631,10 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     margin-right: 3em;
 }
 
-.creazioneFields fieldset{
-    padding:0em 1em 1em 1em;
-    width: (100% - 2em);
+.creazioneFields fieldset {
+    width: calc(100% - 2em);
+    padding: 0em 1em 1em;
+    margin-bottom: 2.5em;
 /*    flex-direction: column-reverse; TO FIX (CONSIDER)*/
 }
 
@@ -749,7 +745,12 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 
 #creazionePersonaggio .fieldss > p {
     padding: 0.7em;
+    margin-top: 0.3em;
     max-width: 90%;
+}
+
+#creazionePersonaggio .fieldss h3{
+    margin-bottom: 0.3em;
 }
 
 .creazioneFields #nomeField input{
@@ -758,6 +759,10 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 
 #submitPersonaggio{
     margin-top: 3em;
+}
+
+#creazionePersonaggio fieldset.traitField legend h2{
+    margin-bottom: 0.2em;
 }
 
 #creazionePersonaggio fieldset.traitField > p{
@@ -838,7 +843,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 
 #conclusione{
     padding-top: 0;
-    width: 90%;
 }
 
 #conclusione >div{

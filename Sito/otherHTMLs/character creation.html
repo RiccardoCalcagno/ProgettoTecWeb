@@ -43,6 +43,8 @@
 
 
     <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />
     <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
@@ -65,6 +67,9 @@
             <!--ATTENZIONE DA COMPLETARE-->
             <input id="Iscrizione" type="submit" value="Iscriviti">
         </div>
+
+        <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
+
         <ul id="menu" role="menubar">
             <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
@@ -93,7 +98,7 @@
         <ul>
             <li><a href="../Home.html" xml:lang="en">Home</a></li>
             <li>Crea</li>
-            <li>Crea Scheda Giocatore</li>
+            <li id="breadCCurrent">Crea Scheda Giocatore</li>
         </ul>
     </nav>
 

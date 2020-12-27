@@ -6,7 +6,50 @@
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+h1 {
+    font-size: 2em;
+}
 
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.3em;
+    padding-bottom: 0.2em;
+}
+
+#intestazionePagina{
+    padding-top: 0.5em;
+}
+#intestazionePagina h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.2em;
+}
+
+#intestazionePagina p{
+
+}
+
+/*TO FIX */
+.buttonLink {
+    width:20em;
+    height: 2.7em;
+}
+/*TO FIX */
+a.buttonLink {
+    padding-top:0.5em;
+    height: 2.2em;
+}
+/*TO FIX */
+input[type="file"]{
+    width: 20em;
+}
+
+/*TO FIX */
+textarea,input[type="text"],input[type="date"],input[type="password"] {
+    width: 100%;
+}
 
 #breadcrumb {
     display: block;
@@ -33,6 +76,40 @@
     display: block;
     width: 6em;
     margin:auto;
+}
+/* TO FIX 
+#footerContent dl dd {
+    text-align: left;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+    height: 37%;
+    margin: 0 4% 2%;
+}
+
+#footerContent dl dd a {
+    display: block;
+    margin-top: 1%;
+    margin-left: 4%;
+}
+
+#footerContent dl.open-footer {
+    text-align: center;
+    padding-bottom: 17%;    
+ }
+
+ #footerContent dl.open-footer dt:first-child{
+    margin-left: 0;
+ } */
+
+.submitForm a, .submitForm input{
+    width: 8em;
+}
+
+ .hidden {
+    display: none !important;
 }
 
 /*
@@ -180,39 +257,6 @@
     margin-bottom: 0.4em;
     padding-left: 0em;
 }
-
-/*
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-                                                        CREAZIONI
---------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------
-*/
-.creazioneFields h2 {
-    padding-bottom: 0;
-}
-
-.creazioneFields fieldset{
-    padding: 0 0.5em 0.7em 0.5em;
-}
-.creazioneFields fieldset legend{
-    margin-left: 0.5em;
-    padding: 0.2em 0.5em;
-}
-
-.creazioneFields fieldset legend h2{
-    font-size: 5vw;
-}
-
-textarea{
-    outline: none;
-    resize: none;
-    padding: 0.5em;
-    border: 1px solid #392D20;
-    border-radius: 0.3em;
-}
-
-
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -422,51 +466,256 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
+                                                            APPROFONDIMENTI HTMLS
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.htmlApprofondimento .content{
+    width: 100%;
+    padding-bottom: 15%;
+}
+
+.htmlApprofondimento h2{
+    padding-bottom: 0.2em;
+}
+
+.htmlApprofondimento p{
+    padding-bottom: 0.5em;
+}
+
+.htmlApprofondimento section{
+    width: 95%;
+    padding-bottom: 1em;
+    margin: auto;
+}
+
+.htmlApprofondimento .howTo{
+    width: calc(100% - 2.6em);
+    padding: 1.3em;
+    padding-top: 0.5em;
+    margin: 0;
+}
+
+.htmlApprofondimento .howTo li:before {
+    left: -2.2em;
+}
+
+.htmlApprofondimento .howTo img{
+    display: none;
+}
+
+#contentEsplora ol{
+    width: 95%;
+    margin-left: 5%;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                        CREAZIONI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.creazioneFields fieldset {
+    width: calc(95% - 2em);
+}
+
+.creazioneFields .fieldss > p{
+    padding: 0 1em;
+    max-width: 95%;
+}
+
+.creazioneFields .fieldss > div{
+    padding: 0.3em 1.5em;
+    max-width: 95%;
+}
+
+.creazioneFields fieldset legend{
+    padding-bottom: 0;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
                                                 CREAZIONE PERSONAGGIO
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#creazionePersonaggio {
-    font-size: 4vw;
+#creazionePersonaggio ol{
+    width: 100%;
 }
 
-#creazionePersonaggio h1 {
-    font-size: 7vw;
-    margin: 0 10%;
+#creazionePersonaggio .fieldss > p {
+    padding: 0.5em;
+    max-width: 95%;
 }
 
-p#ccP {
-    margin: 0 2%;
+#nomeField div{
+    width: 100%;
 }
 
-.ccField {
-    margin: 0.4em 0.1em 1.5em 0.1em;
+.creazioneFields #nomeField input{
+    display: block;
+    width: 10em;
+    margin: 0.2em auto;
 }
 
-#creazionePersonaggio fieldset input {
-    margin-bottom: 0.4em;
-} 
-
-#crace, #cclass, #cbackground{
-    width: 23%;
+#submitPersonaggio{
+    margin-top: 2.5em;
 }
 
-#calignment {
-    width: 33%;
+#creazionePersonaggio fieldset.traitField > p{
+    padding: 0.4em;
 }
 
 .traitsCard {
+    margin: 0 0.7em;
+}
+
+.traitsCard textarea {
+   width: calc(100% - 1em - 1px);
+}
+
+#submitPersonaggio{
+    padding:1em;
+}
+
+#submitPersonaggio p{
+    width: 90%;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                CREA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#creazioneReport ol{
+    width: 100%;
+}
+
+#creazioneReport #immaginiRepo > div{
+    max-width: 100%;
+    padding: 1.2em 2em;
+}
+
+#creazioneReport .creazioneFields #contenutoRepo textarea{
+    height: 6em;
+}
+
+/*
+------------------------------------- BOX GIOCATORI ------------------------------------
+*/
+
+#creazioneReport #selezionamentoGiocatori > div{
+    padding: 0;
+} 
+
+#inserimentoGiocatori{
+    width: 100%;
+}
+
+#selezionamentoGiocatori #inserimentoGiocatori input[type="text"]{
+    text-align: center;
+    display: block;
+    padding: 0 0.5em 0 0.5em;
     margin: auto;
-    margin-bottom: .7em;
 }
 
-#ccSub {
-    margin: 0 auto 1.3em 50%;
-    width: 40%;
-    font-size: 1.2em;
+#selezionamentoGiocatori #inserimentoGiocatori input[type="submit"]{
+    display: block;
+    margin: 1em auto 0;
 }
 
-.hidden {
-    display: none !important;
+#creazioneReport #selezionamentoGiocatori > div{
+    padding: 0;
+}
+
+#creazioneReport #selezionamentoGiocatori ul{
+    width: 100%;
+    height: auto;
+    background-color: inherit;
+    padding: 0;
+    border: 2px solid rgb(105, 102, 102);
+    overflow: hidden;
+    margin: 1em auto;
+}
+
+#creazioneReport #selezionamentoGiocatori ul li{
+    width: 100%;
+    margin: auto;
+}
+
+#creazioneReport #selezionamentoGiocatori ul li:not(:last-child){
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente {
+    display: flex;
+    text-align: left;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente div{
+    display: inline-block;
+    width: calc(100% - 35px);
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente img{
+    vertical-align: middle;
+    margin: 10px 10px;
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente p{
+    font-size: 1em;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    width: calc(100% - 3.5em - 26px);
+    padding: 0;
+    margin: 0;
+}
+
+#creazioneReport #selezionamentoGiocatori .badgeUtente .deleteButton{
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    border-radius: 40%;
+    position: static;
+    margin: 22px 5px 0 0;
+}
+
+
+/*
+------------------------------------- CONCLUSIONE------------------------------------
+*/
+
+#conclusione{
+    padding-top: 0;
+    width: 100%;
+}
+
+#conclusione #condivisione h3{
+    font-size: 1.3em;
+    width: 100%;
+}
+
+#conclusione #condivisione > div{
+    margin:auto;
+    font-size:1.2em;
+    width: 100%;
+}
+
+#conclusione #submitReport {
+    border-radius: 3em;
 }
