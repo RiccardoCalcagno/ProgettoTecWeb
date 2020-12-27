@@ -22,7 +22,7 @@
         {
             $err["old_password_err"] = false;
 
-            if(strlen(trim($new_password)) > 0)
+            if(strlen($new_password) > 0)
             {
                 $err["new_passwd_empty"] = false;
 

@@ -9,7 +9,7 @@
 
     if(isset($_SESSION['login']) && !$_SESSION['login'])
     {
-        str_replace("<p id='loginError' class='hidden'>","<p id='loginError'>", $html);
+        str_replace("<p id=\"loginError\" class=\"hidden\">","<p id=\"loginError\">", $html);
         session_destroy();
     }
 

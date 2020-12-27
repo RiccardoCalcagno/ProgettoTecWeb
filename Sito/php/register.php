@@ -20,6 +20,9 @@
         if($err["empty_passwd"])
             str_replace("<p id='PasswordEmpty' class='hidden'>","<p id='PasswordEmpty'>", $html);
 
+        if($err["rep_passwd_err"])
+            str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
+
         if($err["email_err"])
             str_replace("<p id='EmailErr' class='hidden'>","<p id='EmailErr'>", $html);
             

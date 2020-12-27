@@ -23,11 +23,10 @@
         <div>
 
             <h1>Accesso</h1>
-
             <form autocomplete="on">
-
+                
                 <label for="username">Username</label>
-                <p class="messErrore" id="erroreUsername">*Username sconosciuto</p>
+                <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
                 <input type="text" 
                         name="username" 
                         id="username"
@@ -35,7 +34,7 @@
                         placeholder="Inserisci il tuo username"/>
 
                 <label for="password">Password</label>
-                <p class="messErrore" id="errorePassword">*Password scorretta</p>
+                <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
                 <input type="password" 
                         name="password" 
                         id="password"
@@ -46,7 +45,7 @@
                 <div><a href="../Home.html" class="annulla">ANNULLA</a></div>
                 <div><input class="buttonLink" type="submit" name="accessoUtente" value="ACCEDI"/></div>
             </div>
-            <p>Non possiedi i dati d'Accesso? <a href="modificaDati.html">Effettua l'iscrizione</a></p>
+            <p>Non possiedi i dati d'Accesso? <a href="register.html">Effettua l'iscrizione</a></p>
             </form>
         </div>
     </body>

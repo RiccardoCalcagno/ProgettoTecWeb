@@ -7,9 +7,10 @@
     $err = array();
 
     $username = $_POST["username"];
-    $name_surname = $_POST["name_surname"];
+    $name_surname = $_POST["NomeCognome"];
     $email = $_POST["email"];
-    $passwd = $_POST["passwd"];
+    $passwd = $_POST["newPasswd"];
+    $rep_passwd = $_POST["PasswdAgan"];
     $birthdate = $_POST["birthdate"];
     $img = $_POST["img"];
 
@@ -37,13 +38,23 @@
                 $err["user_empty"] = true;
             }
 
-            if(strlen(trim($passwd)) == 0)
+            if(strlen($passwd) == 0)
             {
                 $err["empty_passwd"] = true;
             }
             else
             {
                 $err["empty_passwd"] = false;
+
+                if($passwd == $rep_passwd)
+                {
+                    $err["rep_passwd_err"] = false;
+                }
+                else
+                {
+                    $err["rep_passwd_err"] = true;
+                }
+                
             }
 
 
