@@ -1260,3 +1260,7 @@ form#datiUtenza{
     display: inline-block;
     padding: 0.2em 0.6em 0;
 }
+
+.hidden {
+    display: none !important;
+}

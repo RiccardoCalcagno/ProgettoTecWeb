@@ -142,7 +142,9 @@
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*"/>
                     </li>
                     <li>
+            
                     <label for="future_username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
+                    
                     <input type="text"  aria-required="true" required="required"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
@@ -151,6 +153,8 @@
                             value=""
                             placeholder="Digita l'username"/>
                     <p class="counter"><span id="currentCountUser">0</span>/20</p>
+                    <p id="UserEmpty" class="hidden">  Username vuoto o troppo lungo </p>
+                        <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
                     </li>
                 </ul>
             </fieldset>
@@ -165,6 +169,8 @@
                         id="NomeCognome"
                         value="" 
                         placeholder="Inserisci il tuo nome e il tuo cognome"/>
+                        <p id="NameEmpty" class="hidden">  Non hai inserito  </p>
+
                     </li>
                     <li>
                     <label for="future_email" class="campiObbligatori">E-mail</label>
@@ -174,6 +180,9 @@
                         value=""
                         placeholder="Inserisci la tua mail"
                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/>
+                        <p id="EmailErr" class="hidden"> Non hai inserito una email valida </p>
+                        <p id="MailAlreadyExists" class="hidden"> Email già esistente  </p>
+
                     </li>
                     <li>
                     <label for="birthdate" class="campiObbligatori">Data di nascita</label>
@@ -221,12 +230,14 @@
 
                     <!--QUESTO È UN ALTRO PEZZO DA ELIMINARE SE INVECE DI MODIFICARE SI STA CREANDO-->
                     <li>
+                        
                     <label for="password" class="campiObbligatori">Password corrente</label>
                     <input type="password"  aria-required="true" required="required"
                         name="password" 
                         id="password"
                         value=""
                         placeholder="Digitare la password corrente"/>
+                        <p id="OldPasswdErr" class="hidden" > La password che hai inserito non corrisponde a quella del tuo account </p>
                     </li>
 
 
@@ -243,6 +254,9 @@
                         id="newPasswd"
                         value=""
                         placeholder="Digitare la nuova password"/>
+                        <p id="NewPasswdEmpty" class="hidden">  Non è accettata la password vuota </p>
+                        <p id="RepPasswdErr" class="hidden">  Le password non corrispondono  </p>
+
                     </li>
                     <li>
                         <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
@@ -251,6 +265,8 @@
                             id="PasswdAgan"
                             value=""
                             placeholder="Digita nuovamente la password"/>
+                            <p id="RepPasswdErr" class="hidden">  Le password non corrispondono </p>
+
                     </li>
                 </ul>
             </fieldset>

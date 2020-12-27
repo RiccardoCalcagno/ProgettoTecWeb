@@ -2500,6 +2500,11 @@ form#datiUtenza > div:first-child fieldset:first-child{
     margin:auto;
 }
 
+#UserAlreadyExists, #UserEmpty, #EmailErr, #MailAlreadyExists, #NameEmpty, #OldPasswdErr, #NewPasswdEmpty, #RepPasswdErr {
+    font-weight: bold;
+    color: red;
+}
+
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -2856,4 +2861,8 @@ body.errorPage {
 
 #body404 .buttonLink {
     width: 13em;
+}
+
+.hidden {
+    display: none !important;
 }
