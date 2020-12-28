@@ -5,13 +5,15 @@
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-
+p,li{
+    font-size: 0.95em;
+}
 h1 {
     font-size: 2em;
 }
 
 h2 {
-    font-size: 1.8em;
+    font-size: 1.4em;
 }
 
 h3 {
@@ -19,9 +21,6 @@ h3 {
     padding-bottom: 0.2em;
 }
 
-#intestazionePagina{
-    padding-top: 0.5em;
-}
 #intestazionePagina h1 {
     font-size: 2.2em;
     margin-bottom: 0.2em;
@@ -166,11 +165,15 @@ input[type="file"]{
     font-size: 1.1em;
 }
 
-#intestazioneSito #breadcrumb #breadCCurrent{
+ #breadcrumb #breadCCurrent{
+     position: relative;
+    top:0.4em;
+    font-size: 0.8em;
     display: block;
-    position: absolute;
-    top:0;
-    left: 4em;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #intestazioneSito #access{
@@ -282,8 +285,8 @@ input[type="file"]{
     border: 8px inset #dfdfdf;
     border-radius: 0.5em; 
     width: calc(100% - 4em);
-    padding-top: 0.5em;
-    height: 17em;
+    padding-top: 0em;
+    height: 15em;
     overflow: scroll;
 }
 #presentazioneFeatures #features{
@@ -321,20 +324,12 @@ input[type="file"]{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-
-#esploraWrapper {
-    margin: 1px 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
-}
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 ASIDE
 ------------------------------------------------------------------------------------------------------------
 */
-
+/*
 #esploraAside {
     flex: 1 auto;
     margin: auto;
@@ -363,7 +358,7 @@ input[type="file"]{
 
 #esploraAside li a{
     font-size: 2.5em;
-}
+}*/
 /*--------------------------- ASIDE DL-DT-DD -------------------
 */
 
@@ -380,6 +375,10 @@ input[type="file"]{
 #eventi dd {
     display: list-item;
     list-style-type: none;
+}
+
+#esploraAside{
+    min-width: 0;
 }
 
 /*
@@ -401,31 +400,63 @@ input[type="file"]{
 ------------------------------------------------------------------------------------------------------------
 */
 
-#reportEsplora{
-    margin: 2em;
-    flex: 1 auto;
-    min-width: 40em;
-    max-width: none;
-}
-
-#reportEsplora form{                    /* Usa la form per ridimensionare*/
-    margin: auto;
-    width: 100%;
-    max-width: none;
+#reportEsplora.report{
+    padding-top: 0;
 }
 
 #reportEsplora header{
-    font-size: 1.5em;
+    font-size: 0.8em;
 }
 
 #reportEsplora h2{
     padding-bottom: 0.4em;
 }
+#reportEsplora{
+    min-width: 70%;
+}
+.report .espandi {
+    font-size: 1em;
+    max-width: calc(100% - 1em);
+}
+.report .espandi li:not(:nth-child(3)){
+    text-decoration: underline;
+}
+.report .espandi li.inputMove input{
+    border-color: transparent;
+    border-width: 0;
+    width: 0.1em;
+    height: 0.1em;
+}
+/*
+------------------------------------------------------------------------------------------------------------
+                                                CARD REPORT
+------------------------------------------------------------------------------------------------------------
+*/
 
-#reportEsplora 
+.report .cards li{
+    height: 11em;
+}
+.report .cards .badgeUtente img{
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+.report .cards .testoCardRep{
+    height: 7.5em;
+}
+.report .cards .testoCardRep p{
+    font-size: 1em;
+}
+.report .cardReport .publicazione{
+    top: calc(-12.4em + 4px);
 
-
-
+    width: calc(27% - 1.2em);
+    min-width: 4em;
+    height: calc(100% - 10px - 3.5em);
+}
+.report .cardReport div.publicazione button{
+    border-radius: 0.3em;
+    border-bottom-left-radius: 1em;
+}
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 DISCLAIMER
@@ -447,6 +478,18 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
+
+#dashboard h2, #viewInfoUser h2{
+    padding-bottom: 0.6em;
+}
+#areaPersonale .listeReport{
+    margin-top:0.8em;
+}
+
+#personaggiUtente .cardPersonaggio{
+    font-size: 1em;
+}
+
 
 
 /*
@@ -479,7 +522,6 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 
 #viewInfoUser img {
     max-width: 17em;
-    height: 14em;
     /*flex: 1 0;*/
 }
 

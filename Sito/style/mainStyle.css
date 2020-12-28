@@ -146,7 +146,7 @@ a.buttonLink {
     float: right;
     padding:1.2em 0.5em 0.5em 0.5em;
     border-radius: 0.5em;
-    height: 1.8em;
+    min-height: 1.8em;
 }
 
 
@@ -2113,7 +2113,7 @@ p.campiObbligatori{
     margin: 1em 5px 1.2em 1em;
     background-color: #f8d38d;
     background-image: url(../images/sfondo_card_personaggi.png);
-    border: 1em ridge #915f14cc;
+    border: 11px ridge #915f14cc;
 }
 #personaggiUtente .cardPersonaggio button{
     height: 100%;
@@ -2212,14 +2212,6 @@ p.campiObbligatori{
     padding-bottom: 0.1em;
 }
 
-.report .cards li{
-    width: 95%;
-    min-width: 30em;
-    height: 9em;
-    margin: 0 auto 1.5em auto;
-    display: block;
-    background-color: #FFFFFF;
-}
 
 /*--------------------------- ESPANDI REPORTS -------------------
 */
@@ -2283,9 +2275,18 @@ p.campiObbligatori{
     border: 5px solid #ffd39b;
 }
 
+.report .cards li{
+    width: 95%;
+    min-width: 30em;
+    height: 9.4em;
+    margin: 0 auto 1.5em auto;
+    display: block;
+    background-color: #FFFFFF;
+}
+
 .report .cardReport .testoCardRep{
     float: left;
-    height: 5.5em;
+    height: 5.9em;
     overflow: hidden;
     width: 73%;
     padding: 0.6em;
@@ -2297,7 +2298,7 @@ p.campiObbligatori{
     font-size: 1.2em;
     font-weight: 400;
     padding-left: 0.5em;
-    padding-bottom: 0.15em;
+    padding-bottom: 0.4em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2336,7 +2337,7 @@ button[name="RemoveRep"]{                                                 /*da e
     height: calc(100% - 10px);
     border-radius: 0.5em;
     position: relative;
-    top: calc(-10.4em + 5px);
+    top: calc(-10.8em + 5px);
     right: 5px;
 }
 .report .cardReport div.publicazione button{
@@ -2577,7 +2578,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 
 #esploraWrapper {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -2611,7 +2612,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 }
 
 #reportEsplora .box{
-    min-height: 50em;
+    min-height: 20em;
 }
 
 /*------------------------------------- ASIDE ------------------------------------------------
@@ -2621,6 +2622,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 #esploraAside {
     flex: 1 1 30%;
     max-width: 50em;
+    min-width: 20em;
     padding:0 0.5% 0 0.3%;
     margin: auto;
     margin-top: 2em;

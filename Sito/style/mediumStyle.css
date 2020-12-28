@@ -65,7 +65,7 @@ h3{
 #intestazionePagina{
     width: 95%;
     padding-top: 1em;
-    padding-bottom: 1em;
+    padding-bottom: 1.9em;
 }
 #intestazionePagina h1{
     font-size: 2.5em;
@@ -112,13 +112,13 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 
 #footerContent dl dd a {
     display: block;
-    margin-top: 1%;
+    margin-top: 0.1em;
     margin-left: 4%;
 }
 
 #footerContent dl.open-footer {
     text-align: center;
-    padding-bottom: 17%;    /* TO FIX CALIBRATE*/
+    padding-bottom: 2em;    /* TO FIX CALIBRATE*/
  }
 
  #footerContent dl.open-footer dt:first-child{
@@ -382,6 +382,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 #viewInfoUser > div {
     width: 98%;
     padding-top: 1em;
+    padding-bottom: 1.6em;
 }
 
 #viewInfoUser dl  {
@@ -434,6 +435,11 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
 
+
+#reportMaster .box, #reportPartecipante .box{
+    min-height: 20em;
+}
+
 #dashboard h3{
     font-size: 1.5em; /*TO FIX */
 }
@@ -456,10 +462,10 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 */
 
 #personaggiUtente{
-    padding-top: 2%;
-    padding-bottom: 6%;
+    padding-top: calc(2% + 2em);
+    padding-bottom: calc(2% + 3em);
     border-bottom: 1px solid #5f3f1738;
-    margin-bottom: 4%;
+    margin-bottom: calc(2% + 2em);;
 }
 
 #personaggiUtente .box{
@@ -471,23 +477,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     justify-content: space-around;
 }
 
-/*----------------------- CARD PERSONAGGI --------------------------
-*/
-
-#personaggiUtente .cardPersonaggio {
-    margin: 1.2em 1%;
-    border: 11px ridge #915f14cc;
-}
-
-/* dl dt dd ?
-#personaggiUtente .cardPersonaggio li h5{
-    width: 36%;
-    float: left;
-    font-size: 0.9em;
-    font-weight: 500;
-    padding-left: 0.8em;
-}
-*/
 
 /*------------------------------------- REPORTS ------------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -518,7 +507,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 
 .report .cards li{
-    min-width: 70%;
+    min-width: 0;
 }
 
 /*--------------------------- ESPANDI REPORTS -------------------
@@ -552,14 +541,21 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 /*--------------------------- CARDS REPORTS -------------------
 */
 /* TO FIX */
+.report .cards li{
+    height: 10.5em;
+}
 .report .cardReport .testoCardRep{
-    height: 5.5em;
-    width: 73%;
+    height: calc(7.4em + 1px);
+    padding-top: 0.2em;
+    padding-bottom: 0.4em;
  }
-
-.report .cardReport .testoCardRep h4{
-    padding-bottom: 0.2%;
+ .report .cardReport .testoCardRep h4{
+     padding-top: 0.2em;
+     padding-bottom: 0.2em;
  }
+ .report .cardReport .publicazione{
+    top: calc(-11.8em + 3px);
+}
 
  /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -568,11 +564,10 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-
-#esploraWrapper {
-    flex-direction: column-reverse;
+#esploraWrapper{
+    width: calc(100% - 1em);
+    margin:auto
 }
-
 #bodyEsplora #intestazionePagina{
     padding-bottom: 1em;
 }
@@ -582,8 +577,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 */
 
 #reportEsplora {
-    padding-top: 0;
-    width: 100%;
+    padding-top: 1em;
 }
 
 #reportEsplora form {
