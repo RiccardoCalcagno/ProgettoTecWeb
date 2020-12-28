@@ -17,6 +17,7 @@
         $num_report_master = 0;
         $num_report = 0;
         $array_num_part_rep = array();
+        $array_num_part_rep_master = array();
 
         try {
             $db->openConnection();
@@ -34,6 +35,11 @@
 
             $author_report_data = $db->getReportAuthor($_SESSION["username"]);
 
+            for($i = 0; $i < $num_report; $i++)
+            {
+                $array_num_part_rep_master[$author_report_data[$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
+            }
+
             $db->closeConnection();
 
             $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "AreaPersonale.html");
@@ -43,9 +49,7 @@
             }
             else
             {
-                /**
-                * replace per l'utente
-                */
+
                 $html = str_replace("../images/icone_razze/dragonide.png", $_SESSION["img"], $html);
                 $html = str_replace("_user_", $_SESSION["username"], $html);
                 $html = str_replace("_name_", $_SESSION["name_surname"], $html);
@@ -53,9 +57,7 @@
                 $html = str_replace("_date_", $_SESSION["birthdate"], $html);
 
 
-                /**
-                * replace per i personaggi
-                */
+
                 $_schede_personaggio = "";
 
                 for($i = 0; $i < $num_pers; $i++)
@@ -79,15 +81,13 @@
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
-                /**
-                * replace per i report master
-                */
+
                 $_schede_report_master = "";
 
                 for($i = 0; $i < $num_report_master; $i++)
                 {
                     $_schede_report_master .= "<li class=\"cardReport\" class=\"cardReportMaster\">
-                    <button name=\"ReportMaster\" value=\"$i+1\">
+                    <button name=\"ReportMaster\" value= \"". $author_report_data[$i]->get_id() . "\">
                         <div>
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">" . $author_report_data[$i]->get_title() . "</h4>
@@ -96,27 +96,32 @@
                         </div>
                         <footer>
                             <p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>
-                            <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">4</span> giocatori</p>
+                            <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $array_num_part_rep_master[$author_report_data[$i]->get_title()] . "</span> giocatori</p>
                         </footer>
                     </button>
-                    <div class=\"publicazione\">                     
-                        <button name=\"PostRep\" value=\"$i+1\">Publica in \"Esplora\"</button>                      
-                        <button name=\"RemoveRep\" value=\"$i+1\">Rimuovi da \"Esplora\"</button>
-                    </div>
-                </li>\n";
+                    <div class=\"publicazione\">";
+                    if($author_report_data[$i]->get_isExplorable() == false)    
+                    { 
+                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $author_report_data[$i]->get_id() . "\">Publica in \"Esplora\"</button>";
+                    }
+                    else                
+                    {                         
+                        $_schede_report_master .="<button name=\"RemoveRep\" value=\"". $author_report_data[$i]->get_id() . "\">Rimuovi da \"Esplora\"</button>";
+                    }
+                    
+                    $_schede_report_master .= "</div>
+                        </li>\n";
                 }
 
                 $html = str_replace("{report_author}", $_schede_report_master, $html);
 
-                /**
-                * replace per i report parteciapente
-                */
+
                 $_schede_report = "";
 
                 for($i = 0; $i < $num_report; $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
-                    <button name=\"ReportPartecip\" value=\"$i+1\">
+                    <button name=\"ReportPartecip\" value=\"". $author_report_data[$i]->get_id() . "\">
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">". $report_data[$i]->get_title() ."</h4>
                             <p> ". $report_data[$i]->get_subtitle() . "</p>

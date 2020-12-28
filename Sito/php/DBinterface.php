@@ -283,7 +283,7 @@
                      "    content 		= '" . $report_data.get_content() . "', ".
                      "    author 		= '" . $report_data.get_author() . "', ".
                      "    isExplorable 	= '" . $report_data.get_isExplorable() . "', ".
-                     "    creation_date = '" . date("Y-m-d", time()) . "', ".	//maybe spostare questa assegnazione in una funz. dedicata di ReportData
+                     "    creation_date = '" . date("Y-m-d", time()) . "' ".	//maybe spostare questa assegnazione in una funz. dedicata di ReportData
                      "WHERE username = '" . $currentUser . "';";
 
             return mysqli_query($this->connection, $query);
@@ -438,6 +438,15 @@
                      "INNER JOIN Users ". 
                      "ON report_giocatore.author = Users.username ". 
                      "WHERE Users.username = '" . $username . "';";
+
+            return mysqli_query($this->connection, $query);
+        }
+
+        public function setExplorable($report_id, $isExplorable = true)
+        {
+            $query = "UPDATE Report ". 
+                     "SET isExplorable = '" . $isExplorable . "' ".
+                     "WHERE id = '" . $report_id . "';";
 
             return mysqli_query($this->connection, $query);
         }
