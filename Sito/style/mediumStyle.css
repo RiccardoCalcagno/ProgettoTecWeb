@@ -72,9 +72,6 @@ h3{
     margin-bottom: 0.3em;
 }
 
-#intestazionePagina p{
-    font-size: 1.1em;
-}
 
 .puntoInterrogativo{
     margin-left: 0;
@@ -338,15 +335,12 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     padding-bottom: 10%;
 }
 
-.htmlApprofondimento section{
-    /*margin-bottom: 0.5em;*/
-}
 
 .htmlApprofondimento .howTo{
     width: calc(55% + 180px - 1.5em);
     padding: 1.5em;
     padding-top: 0.5em;
-    margin: 0;
+    margin-top: 0;
 }
 
 .htmlApprofondimento .howTo img{
@@ -378,7 +372,21 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 ------------------------------------------------------------------------------------------------------------
 */
 
+#viewInfoUser > div > div{
+    width:8em;  
+    padding: 0.5em;
+}
+#viewInfoUser dl  {
+    width: 95%; 
+    padding-bottom: 0;
+    padding-left:0;
+}
+#viewInfoUser dd{
+    float: left;
+    width: calc(100% - 12em);
+}
 
+/*
 #viewInfoUser > div {
     width: 98%;
     padding-top: 1em;
@@ -386,7 +394,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 
 #viewInfoUser dl  {
-    width: 90%; /* 75%  img-dl in 1 line*/
+    width: 90%; 
     padding-bottom: 0;
     padding-left:0;
 }
@@ -405,10 +413,10 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     text-overflow: clip;
 }
 
-#viewInfoUser > div > div{
-    width:8em;  /* 5em img-dl in 1 line*/
-    padding: 0.5em;
-}
+
+
+*/
+
 #viewInfoUser img {
     width: 100%;
     height: 100%;

@@ -26,10 +26,6 @@ h3 {
     margin-bottom: 0.2em;
 }
 
-#intestazionePagina p{
-
-}
-
 /*TO FIX */
 .buttonLink {
     width:20em;
@@ -329,48 +325,15 @@ input[type="file"]{
                                                 ASIDE
 ------------------------------------------------------------------------------------------------------------
 */
-/*
-#esploraAside {
-    flex: 1 auto;
-    margin: auto;
-    max-width: none;
-}
-
-#esploraAside h2{
-    font-size: 2em;
-    text-align: center; 
-}
-
-#esploraAside ul{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-#esploraAside li{
-    flex: 1 auto;
-    width: 25em;
-}
 
 #esploraAside li p{
     display: none;
 }
 
-#esploraAside li a{
-    font-size: 2.5em;
-}*/
-/*--------------------------- ASIDE DL-DT-DD -------------------
-*/
-
 
 #eventi dt {
     padding-left: 0em;
 }
-/*
-#eventi dd:nth-of-type(2n):not(:last-child) {
-    padding-bottom: 0.5em;
-}
-*/
 
 #eventi dd {
     display: list-item;
@@ -380,20 +343,6 @@ input[type="file"]{
 #esploraAside{
     min-width: 0;
 }
-
-/*
-#siti dt {
-    display: inline-block;
-}
-#siti dd{
-    display: inline;
-}
-#siti dd::after{
-    display: block;
-    content: "";
-}
-*/
-
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 REPORTS
@@ -498,11 +447,6 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 ------------------------------------------------------------------------------------------------------------
 */
 
-#viewInfoUser {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 3%;
-}
 
 #viewInfoUser div:nth-child(3) {
     height: 14em; 
@@ -735,11 +679,10 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 }
 
 #creazioneReport #selezionamentoGiocatori ul{
-    width: 100%;
+    width: calc(100% - 1em);
     height: auto;
-    background-color: inherit;
     padding: 0;
-    border: 2px solid rgb(105, 102, 102);
+    border: 6px inset #dfdfdf;
     overflow: hidden;
     margin: 1em auto;
 }
@@ -750,7 +693,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 }
 
 #creazioneReport #selezionamentoGiocatori ul li:not(:last-child){
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid rgb(211, 211, 211);
     border-collapse: collapse;
 }
 
@@ -764,7 +707,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 
 #creazioneReport #selezionamentoGiocatori .badgeUtente div{
     display: inline-block;
-    width: calc(100% - 35px);
+    width: calc(100% - 1em - 35px);
 }
 
 #creazioneReport #selezionamentoGiocatori .badgeUtente img{
@@ -777,7 +720,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
     vertical-align: middle;
     text-align: center;
     display: inline-block;
-    width: calc(100% - 3.5em - 26px);
+    width: calc(100% - 5.5em - 26px);
     padding: 0;
     margin: 0;
 }
@@ -883,6 +826,10 @@ form#datiUtenza{
 */
 
 #loginBody > div {
+    position: absolute;
+    border-radius: 0;
+    height: 100vh;
+    top:0;
     width: calc(100% - 2em);
     /*background-image: none; KEEP OR REMOVE ??? */
     background-position-x: -12%, 110%; /* OK ?*/
@@ -895,9 +842,8 @@ form#datiUtenza{
 }
 
 #loginBody form > input{
-    width: 15em;
+    width: 80%;
     display: block;
-    margin: 1em auto;
 }
 
 #loginBody #submitLogin div >*{
