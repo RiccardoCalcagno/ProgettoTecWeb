@@ -116,9 +116,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 --------------------------------------- HEADER ----------------------------------------------
 ---------------------------------------------------------------------------------------------
 */
-#copertina #titolo{
-    display:none;
-}
 #intestazioneSito #menu{
     width: 100%;
     margin-left: 0;
@@ -157,6 +154,9 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     text-align: center;
     border-top: none;
     font-size: 1.3em;
+}
+#intestazioneSito #menu li a:not(.dropdown):hover{
+    background-color: #464441;
 }
 #intestazioneSito #menu li a:not(.dropdown){
     text-decoration: underline;
@@ -203,60 +203,115 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 */
 
 #copertina{
-    height: 350px;
+    height: calc(20em + 30px);
+    background-color: #000000;
 }
+
 #copertina img{
+    position: relative;
     display:block;
     width: 1000px;
-    height: 350px;
-    overflow: hidden;
-    position: relative;
+    height: calc(20em + 30px);
     left: calc(100% - 1000px);
+    z-index: 1;
+    opacity: 0.5;
 }
-#copertina img:after{
-    content:"";
-    display: block;
-    position: relative;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #392D20;
-    z-index: 3;
-}
+
 #personaggiCoperina{
-    content:"";
-    display: block;
-    width: 471px;
-    height: 220px;
-    background-image: url(../images/personaggi_copertina.png);
-    background-size: 471px 220px;
+    left: calc(100% - 460px);
     position: relative;
-    margin-top: 13%;
-    top:-340px;
+    margin-top: 0;
+    top:-305px;
+    z-index: 2;
+    opacity: 0.6;
 }
 
-
-
+#copertina header{
+    z-index: 3;
+    padding: 0;
+    position: relative;
+    top:calc(-15em -  300px);
+}
 #copertina header dl{
-    width: 20em;
-    margin-right: 2em;
+    margin-left: 0.25em;
+    position: relative;
+    width: calc(100% - 1.5em);
+    top: 2.8em;
+    background-color: #ffecc4e3;
+    float: none;
+    clear: both;
     padding: 0.5em;
-    border-top-left-radius: 3em;
-    border-bottom-right-radius: 3em;
-    display:none;
+    border-radius: 2em;
+}
+#copertina header dl#starFeature > dt{
+    width: 100%;
+    text-align: center;
+}
+#copertina header dl#starFeature > dd{
+    float:none;
+    width: 100%;
+}
+#copertina header dl#starFeature > dd a{
+    margin:auto;
 }
 #copertina header dt:nth-child(3){
     padding-top: 0.6em;
 }
-#copertina header dt{
-    padding-bottom: 0em;
-}
-#copertina header h1{
+#copertina #titolo{
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
     font-size: 3em;
     margin-bottom: 0.4em;
-    padding-left: 0em;
+    padding: 0em;
 }
+
+/*
+--------------------------------------- PRESENTAZIONE FEATURE ----------------------------------------------
+------------------------------------------------------------------------------------------------------------
+*/
+#indicazioneUsoFeature{
+    padding-top: 2em;
+    display: block;
+}
+#presentazioneFeatures div{
+
+    background-color: #fffdfa;
+    margin:auto;
+    border: 8px inset #dfdfdf;
+    border-radius: 0.5em; 
+    width: calc(100% - 4em);
+    padding-top: 0.5em;
+    height: 17em;
+    overflow: scroll;
+}
+#presentazioneFeatures #features{
+    width: 100em;
+}
+#presentazioneFeatures #features li{
+    flex:0 0 14em;
+    min-width: 14em;
+}
+
+#approfondimenti a > span{
+    font-size: 0.7em;
+}
+
+.howTo .buttonLink{
+    width: 14em;
+    height: 3.5em;
+}
+.howTo li:before{
+    padding-bottom: 1em;
+}
+#bodyHome h2{
+    font-size: 1.8em;
+}
+
+
+
+
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------

@@ -508,16 +508,6 @@ body{
 #menu a:not(.dropdown):hover{
     text-decoration: underline;
 }
-#menu a.dropdown::after { 
-    content:"";
-    display: inline-block;
-    background-image:url('../images/down_arrow.png');
-    background-size: 1.2em 0.6em;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 1.2em; height: 0.6em;
-    padding-left: 0.4em;
-}
 #menu li ul.dropdown-content {
     display: none;
     position: absolute;
@@ -595,18 +585,7 @@ body{
 ---------------------------------------------------------------------------------------------------
 */
 
-#copertina{
-    height: 420px;
-    overflow: hidden;
-    margin-bottom: 3em;
-}
-/*
-#copertina header{
-    position: relative;
-    padding-top: 0;
-    padding-bottom: 13%;
-    top:-850px;
-}*/
+
 #copertina header{
     position: absolute;
     padding-top: 0;
@@ -665,11 +644,15 @@ body{
     font-size: 1.3em;
     font-weight: 400;
 }
-
+#copertina{
+    height: calc(15em + 180px);
+    overflow: hidden;
+    margin-bottom: 3em;
+}
 #copertina img{
     display:block;
     width: 1200px;
-    height: 420px;
+    height: calc(15em + 180px);
     position: relative;
     left: calc(100% - 1200px);
 }
@@ -700,7 +683,9 @@ body{
 --------------------------------------- PRESENTAZIONE FEATURE ----------------------------------------------
 ------------------------------------------------------------------------------------------------------------
 */
-
+#indicazioneUsoFeature{
+    display: none;
+}
 
 #presentazioneFeatures {
     text-align: center;
@@ -805,7 +790,7 @@ body{
 .about ol{
     margin: 0.5em auto 0.5em auto;
     display: block;
-    width: 22em;
+    max-width: 22em;
 }
 .about li{
     padding-bottom: 0.5em;
