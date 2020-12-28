@@ -1402,6 +1402,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     width: 210mm;
     height: 297mm;
     margin:auto;
+    border: 1em ridge black;
 }
 
 #contentPersonaggio.scheda h1 {
