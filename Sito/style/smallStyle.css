@@ -47,9 +47,9 @@ input[type="file"]{
 }
 
 /*TO FIX */
-textarea,input[type="text"],input[type="date"],input[type="password"] {
-    width: 100%;
-}
+/* textarea,input[type="text"],input[type="date"],input[type="password"] {
+    
+} */
 
 #breadcrumb {
     display: block;
@@ -718,4 +718,143 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 
 #conclusione #submitReport {
     border-radius: 3em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                MODIFICA DATI PERSONALI E LOGIN
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.userFields fieldset {
+    width: calc(100% - 2em);
+}
+
+.userFields .submitForm {
+    min-width: 0;
+    width: 95%;
+}
+
+#modificaDati .submitForm {
+    min-width: 0;
+    border-radius: 2.5em;
+}
+
+form#datiUtenza fieldset{
+    margin-bottom: 2em;
+}
+
+form#datiUtenza{
+    width: 95%;
+}
+
+.userFields fieldset img {
+    width: 7em;
+    height: 7em;
+}
+
+.userFields fieldset li{
+    width: 95%;
+}
+
+#modificaDati #sign-up_form .buttonLink {
+    width: 9.5em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                HTML TRANSITORI
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.transitorio > div{
+    width: calc(100% - 2em);
+    padding: 0 1em;
+}
+
+.transitorio h1{
+    font-size: 2.4em;
+    padding-top:0.7em;
+}
+
+/*------------------------------------- LOGIN ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#loginBody > div {
+    width: calc(100% - 2em);
+    /*background-image: none; KEEP OR REMOVE ??? */
+    background-position-x: -12%, 110%; /* OK ?*/
+    background-position-y: -3%, -8%; /* OK ?*/
+}
+
+#loginBody h1{
+    font-size: 3em;
+
+}
+
+#loginBody form > input{
+    width: 15em;
+    display: block;
+    margin: 1em auto;
+}
+
+#loginBody #submitLogin div >*{
+    width: 12em; 
+}
+
+#loginBody #submitLogin div{
+    margin: 0.7em 0.5em;
+}
+
+/*------------------------------------- CONFERMA SALVATAGGIO ------------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#confermaBody h1, #confermaBody p {
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            PAGINE ERRORE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.errorPage h1 {
+    font-size: 3.5em;
+    padding-top: 1%;
+}
+
+#body404 h1::after {
+    width: 3em;
+    height: 2em;
+    background-size: 200% 200%;
+    background-position-x: 72%;
+    background-position-y: 1%;
+    transform: scale(-1, 1); /* worth ?*/
+    -moz-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    padding-bottom: 0;
+}
+
+.errorPage section {
+    width: calc(95% - 2em);
+    border-radius: 0 0 1em 1em;  /* 320px :'(*/
+}
+
+#errorBody h2 {
+    font-size: 1.5em;
+}
+
+#errorBody section p {
+    padding: 1.5em 0 0.5em;
 }

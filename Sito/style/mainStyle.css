@@ -2793,8 +2793,8 @@ body.errorPage {
 
 #body404 {
     border: 1em ridge #915f14cc;
-    min-height: 96vh;
-    margin-top: 0.2em;
+    min-height: 0;
+    margin-top: 3%;
 }
 
 .errorPage h1 {
@@ -2816,7 +2816,7 @@ body.errorPage {
 
 #errorBody h1 {
     margin-top: 2%;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.3em;
 }
 
 .errorPage section {

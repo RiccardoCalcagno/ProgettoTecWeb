@@ -96,7 +96,7 @@ input[type="file"]{
 
 /*TO FIX */
 textarea,input[type="text"],input[type="date"],input[type="password"] {
-    width: 100%;
+    width: calc(100% - 1em);
 }
 
 #footerContent dl dd {
@@ -873,7 +873,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 }
 
 .userFields fieldset{
-    width: calc(90%-0.5em);
+    width: calc(90% - 0.5em);
     padding-bottom: 1em;
 }
 
@@ -964,6 +964,19 @@ form#datiUtenza{
 #loginBody h1{
     font-size: 3em;
 
+}
+
+#loginBody #submitLogin {
+    justify-content: space-around;
+}
+
+#loginBody #submitLogin div >*{
+    width: 10em;
+}
+
+#loginBody #submitLogin div{
+    padding: 0;
+    margin: 1em 0.5em;
 }
 
 /*------------------------------------- CONFERMA SALVATAGGIO ------------------------------------------------
@@ -1241,7 +1254,6 @@ form#datiUtenza{
 
 #body404 {
     width: auto;
-    margin-top: 0.2em;
 }
 
 .errorPage h1 {
