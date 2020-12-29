@@ -389,7 +389,12 @@ body{
     cursor: pointer;
     /*transition-property:*/
 }
-
+#access input[value="Esci"]{
+    width: 25%;
+}
+#access input[value="Area Personale"]{
+    width: 65%;
+}
 #access #Accesso{
     background-color:#FFF0D4;
     color: #7F582C;
@@ -2282,9 +2287,15 @@ p.campiObbligatori{
 .report .cardReport > button:hover{
     background-color: #5a5a5a11;
 }
+.report .cardReport > button:hover footer p{
+    background-color: #f7e4b142;
+}
 .report .cardReport > button:active{
-    background-color: #f8ddbe96;
-    border: 5px solid #ffd39b;
+    background-color: #ffffff;
+    border: 5px solid #633800;
+}
+.report .cardReport > button:active footer p{
+    border: 5px solid #633800;
 }
 
 .report .cards li{
