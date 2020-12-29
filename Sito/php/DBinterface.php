@@ -270,7 +270,7 @@
                               "'" . $report_data.get_content() . "', ".
                               "'" . $report_data.get_author() . "', ".
                               "'" . $report_data.get_isExplorable() . "', ".
-                              "'" . date("Y-m-d", time()) . "');";			//maybe spostare questa assegnazione in una funz. dedicata di ReportData
+                              "'" . $report_data.get_last_modified() . "');";
             return mysqli_query($this->connection, $query);
         }
 
@@ -449,6 +449,13 @@
                      "WHERE id = '" . $report_id . "';";
 
             return mysqli_query($this->connection, $query);
+        }
+
+        public function getLatestRep(){
+          $query = "SELECT Report.id FROM Report DESC;";
+          $queryResult = mysqli_query($this->connection, $query);
+          $row = $queryResult->fetch_row();
+          return $row[0];
         }
 
         /**
