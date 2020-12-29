@@ -220,3 +220,173 @@ function openDD(nth_dd) {
         dd.className = "footer-open-dd";
     }
 }
+
+// ---------------------------------------------------------------------------------
+// ------------------------------- General Validator -------------------------------
+// ---------------------------------------------------------------------------------
+
+// Abstract Validator
+function validateForm(testArray) {
+    var corretto = true;
+    var firstMistake = true;
+    for (var key in testArray) {
+        var input = document.getElementById(key);
+        var risultato = validazioneCampo(input, testArray);
+        corretto = corretto && risultato;
+
+        if(!corretto && firstMistake) {
+            input.previousSibling.scrollIntoView();
+            firstMistake = false;
+        }
+    }
+
+    return corretto;
+}
+
+function validazioneCampo(input, testArray) {
+
+    // Elimino messaggi precedenti per evitare ripetizione
+    var parent = input.parentNode;
+    if (parent.children.length == 2) {
+        input.classList.remove("input-errore");
+        parent.removeChild(parent.children[0]);
+    }
+
+    var regex = testArray[input.id][0]; // Espressione regolare associata all' ID
+    var text = input.value;
+    if (text.search(regex) != 0) {  // seartch match
+        mostraErrore(input, testArray);
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function mostraErrore(input, testArray) {
+
+    input.classList.add("input-errore");
+
+    var elemento = document.createElement("strong");
+    elemento.className = "text-errore";
+    //elemento.appendChild(document.createTextNode(testArray[input.id][1]));
+    elemento.innerHTML = testArray[input.id][1];    // Per usare tags all'interno
+    
+    var p = input.parentNode;
+    p.insertBefore(elemento, input);
+}
+// ------------------------------------------------------------------------------------
+// ------------------------------- validateCharCreation -------------------------------
+// ------------------------------------------------------------------------------------
+
+// NameSpace ?
+var charCreationTextRegex = /^.{10,}$/;
+var charCreationTextErrorMessage = "Inserisci almeno 10 caratteri";
+var charCreationValues = {
+    // ID: ["TestDaEseguire", "MessaggioErrore"]
+    "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Il nome deve essere da 3 a 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e <span xml:lang=\"en\">hypens</span>"],
+    "ctraits": [charCreationTextRegex, charCreationTextErrorMessage],
+    "cideals": [charCreationTextRegex, charCreationTextErrorMessage],
+    "cbonds": [charCreationTextRegex, charCreationTextErrorMessage],
+    "cflaws": [charCreationTextRegex, charCreationTextErrorMessage]
+};
+
+function validateCharCreation() {
+    return validateForm(charCreationValues);
+}
+
+// ---------------------------------------------------------------------------------
+// ------------------------------- validatereport ----------------------------------
+// ---------------------------------------------------------------------------------
+// NameSpace ?
+
+var reportValues = {
+    // ID: ["TestDaEseguire", "MessaggioErrore"]
+    "titoloReport": [/^.{3,30}$/, "Inserisci dai 3 ai 30 caratteri"],
+    "sottoTRepo": [/^.{3,120}$/, "Inserisci dai 3 ai 120 caratteri"],
+    "contRepo": [/^.{3,}$/, "Inserisci almeno 3 caratteri"],
+};
+
+function validateReport() {
+    return validateForm(reportValues);
+}
+
+// ---------------------------------------------------------------------------------
+// ------------------------------- log-in ------------------------------------------
+// ---------------------------------------------------------------------------------
+// NameSpace ?
+
+var loginValues = {
+    // ID: ["TestDaEseguire", "MessaggioErrore"]
+    "username": [/^.{1,}$/, "Inserisci il tuo username"],
+    "password": [/^.{1,}$/, "Inserisci la tua password"],
+};
+
+function validateLogin() {
+    return validateForm(loginValues);
+}
+
+// ---------------------------------------------------------------------------------
+// ------------------------------- log-in e Change Data ------------------------------------------
+// ---------------------------------------------------------------------------------
+
+// ------------------------------ WORK IN PROGRESS !!!!!!
+// NameSpace ?
+passwordRegex = /^.{3,}$/;
+var userDataValues = {
+    // ID: ["TestDaEseguire", "MessaggioErrore"]
+    "username": [/^.{1,}$/, "Inserisci il tuo username"],
+    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
+    "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"]
+};
+
+var passwordValues = {
+    "newPasswd": [passwordRegex, "Password non Valida (DA sistemare REGEX)"],
+    "PasswdAgan": ["", ""]  // SOLO PER TOGLIERE SHADOW-BOX, MEH
+};
+
+function validateUserData() {
+    var corretto = validateForm(userDataValues);
+    corretto = corretto && validateForm(passwordValues);
+
+    if(corretto) {
+        corretto = corretto && checkPasswordMatch();
+    }
+
+    return corretto;
+}
+/* TO FIX MAKE BETTER */
+function checkPasswordMatch() {
+
+    var passwordMatchValues = { // KINDA MEH
+        "newPasswd": ["", "Le password devono coincidere"],
+        "PasswdAgan": ["", ""]
+    };
+
+    var psw = document.getElementById("newPasswd");
+    var conf_psw = document.getElementById("PasswdAgan");
+
+    if(psw.value != conf_psw.value) {
+        mostraErrore(psw, passwordMatchValues);
+        mostraErrore(conf_psw, passwordMatchValues);
+        return false;
+    }
+
+    return true;
+}
+
+// ------------------------------- Change Data ------------------------------------------
+
+var newPasswordValue = {
+    "password": ["", "Inserisci la nuova Password"] // DA NON CONTROLLARE, PASSWORD CORRENTE
+};
+
+function validateChangeUserData() {
+    return validateForm(userDataValues);    // Stesso di log-in 
+    // future_email : )))))) (FME)
+}
+
+function validateChangeUserPassword() {
+    return validateForm(newPasswordValue) && validateForm(passwordValues) && checkPasswordMatch() ; 
+}
+// ------------------------------ WORK IN PROGRESS !!!!!!

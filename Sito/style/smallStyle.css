@@ -954,9 +954,10 @@ form#datiUtenza{
 
 }
 
-#loginBody form > input{
+#loginBody form span input{
     width: 80%;
     display: block;
+    margin: 0 auto 1em;
 }
 
 #loginBody #submitLogin div >*{
