@@ -1239,6 +1239,43 @@ form#datiUtenza{
 .pergamena #sezTestualiPersonaggio{
     top: 0;
 }
+/* HORRIBLE 
+#contentPersonaggio.scheda {    
+    overflow: scroll;
+    width: calc(95% - 1em);
+    height: 140mm;
+    background-attachment: local;
+    border: 0.5em ridge black;
+}*//* HORRIBLE 
+#contentPersonaggio.scheda > div {    
+    width: 210mm;
+    height: 140mm;
+}*/
+
+ /* EVEN F WORSE
+#contentPersonaggio.scheda {    
+    transform: scale(0.8, 0.8);
+    transform-origin: 30% 0; center DOESN"T WORK 
+ }
+
+@media (max-width: 768px) {
+    #contentPersonaggio.scheda {    
+        transform: scale(0.8, 0.8);
+        transform-origin: 30% center; center DOESN"T WORK 
+    }
+}
+@media (max-width: 700px) {
+    #contentPersonaggio.scheda {    
+        transform: scale(0.7, 0.7);
+        transform-origin: 5% center; 
+    }
+.....
+} */
+
+
+#contentPersonaggio.scheda h1, #contentPersonaggio.scheda #infoBreviPersonaggio{    
+    white-space: nowrap;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------

@@ -121,7 +121,7 @@
 
         <p class="campiObbligatori"> : campo obbligatorio</p>
 
-        <form id="areaCreazione" autocomplete="on" class="creazioneFields">
+        <form id="areaCreazione" autocomplete="on" class="creazioneFields" onsubmit="return validateReport();">
 
             <ol>
                 <li>
@@ -129,7 +129,7 @@
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
                         <div>
                             <p class="limitazioniText">Inserisci un titolo di massimo 30 lettere</p>
-                            <textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"></textarea>
+                            <span><textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"></textarea></span>
                             <p class="counter"><span id="currentCountTitolo">0</span>/30</p>
                         </div>
                     </fieldset>
@@ -139,7 +139,7 @@
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
                         <div>
                             <p class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</p>
-                            <textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"></textarea>
+                            <span><textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"></textarea></span>
                             <p class="counter"><span id="currentCountSottotitolo">0</span>/120</p>
                         </div>
                     </fieldset>
@@ -147,7 +147,8 @@
                 <li>
                     <fieldset id="contenutoRepo" class="fieldss"><legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
                         <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
-                        <div><textarea name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"></textarea></div>
+                <!-- TO FIX c'e' gia' un div, no span per js check (?)-->
+                        <div><textarea id="contRepo" name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"></textarea></div>
                     </fieldset>
                 </li>
                 <li>

@@ -806,6 +806,119 @@ form#datiUtenza{
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA DOCUMENTO
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+.documentoBody #content{
+    width: 100%;    
+    padding: 0 0 1em;
+}
+
+/*
+--------------------------------------- DOCUMENT ACTIONS ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#footAction input{
+    width: 6em;
+}
+
+#footAction :nth-child(2) input{
+    width: 6em;
+}
+
+#footAction :nth-child(3) {
+    margin: 0 0.7em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA SCHEDA PERSONAGGIO
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+#visualizzaScheda #content{
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 5em;
+}
+
+#visualizzaScheda #setLayout{
+    padding-bottom: 0;
+}
+
+#visualizzaScheda #setLayout p {
+    padding-bottom: 0;
+}
+
+#visualizzaScheda #pulsante{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /* z-index: 1; */
+}
+
+#contentPersonaggio.pergamena h1{
+    position: absolute;
+    top: -7%;
+}
+
+#contentPersonaggio.pergamena dt{
+    padding-top: 0;
+}
+
+.pergamena #infoBreviPersonaggio {
+    padding-top: 2.5em;
+    padding-bottom: 0;
+}
+
+.pergamena #infoBreviPersonaggio dl {
+    padding-bottom: 0;
+}
+
+.pergamena #infoBreviPersonaggio dd{
+    font-size: 1.2em;
+}
+
+#contentPersonaggio.pergamena h2 {
+    font-size: 1.5em;
+}
+
+/* TO FIX KEEP ? */
+.pergamena #infoBreviPersonaggio dl div >*{
+    margin-top: 0;
+}
+
+.pergamena #infoBreviPersonaggio img{
+    /* width: 10em; */
+    display: none;
+}
+
+.pergamena #sezTestualiPersonaggio{
+    top: -0.5em;
+    margin-bottom: -3em;
+}
+
+#contentPersonaggio.pergamena::before{
+    height: 120px; 
+    background-size: 100% 100%;
+}
+
+#contentPersonaggio.pergamena::after{
+    height: 88px;
+    background-size: 100% 100%;
+}
+/* HORRIBLE 
+#contentPersonaggio.scheda {    
+    overflow: scroll;
+    width: calc(95% - 1em);
+}
+*/
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
                                                 HTML TRANSITORI
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -841,9 +954,10 @@ form#datiUtenza{
 
 }
 
-#loginBody form > input{
+#loginBody form span input{
     width: 80%;
     display: block;
+    margin: 0 auto 1em;
 }
 
 #loginBody #submitLogin div >*{

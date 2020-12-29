@@ -19,29 +19,31 @@
         <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
         <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script type="text/javascript" src="../scripts.js"></script> 
     </head>
 
     <body id="loginBody" class="transitorio">
         <div>
 
             <h1>Accesso</h1>
-            <form autocomplete="on">
+            <form autocomplete="on" onsubmit="return validateLogin();">
                 
                 <label for="username">Username</label>
                 <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
-                <input type="text" 
+                <span><input type="text" 
                         name="username" 
                         id="username"
                         value=""
-                        placeholder="Inserisci il tuo username"/>
+                        placeholder="Inserisci il tuo username"/></span>
 
                 <label for="password">Password</label>
                 <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
-                <input type="password" 
+                <span><input type="password" 
                         name="password" 
                         id="password"
                         value=""
-                        placeholder="Inserisci la password associata"/>
+                        placeholder="Inserisci la password associata"/></span>
 
             <div id="submitLogin">
                 <div><a href="../Home.html" class="annulla">ANNULLA</a></div>

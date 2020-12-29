@@ -1413,6 +1413,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     width: 210mm;
     height: 297mm;
     margin:auto;
+    border: 1em ridge black;
 }
 
 #contentPersonaggio.scheda h1 {
@@ -2554,7 +2555,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     text-align: center;
     padding-bottom: 0.4em;
 }
-#loginBody form > input{
+#loginBody form span input{
     width:20em;
     margin:0 calc(50% - 10.5em) 1.5em calc(50% - 10.5em);
 }
@@ -2863,4 +2864,16 @@ body.errorPage section, body.errorPage header{
 
 .hidden {
     display: none !important;
+}
+
+.input-errore {
+    box-shadow: 0 0 0 2px red;
+}
+
+.text-errore {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: red;
+    margin: 0 auto 0.5em;
 }

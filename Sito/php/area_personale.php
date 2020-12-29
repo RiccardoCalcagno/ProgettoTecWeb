@@ -63,7 +63,7 @@
                 for($i = 0; $i < $num_pers; $i++)
                 {
                     $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
-                    <button name=\"Personaggio\" value=\"$i+1\">
+                    <button name=\"Personaggio\" value=\"" . $character_data[$i]->get_id() . "\">
                         <img src=\"" . $character_data[$i]->get_img() . "\" alt=\"\" /> 
                         <h4 class=\"textVariable\">" . $character_data[$i]->get_name() . "</h4>
                         <ul>
