@@ -107,7 +107,7 @@
                     href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
         <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo
             ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
-        <p class="attenzioneP">( <strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione )</p>
+        <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
     </header>
 
 <!--
@@ -123,7 +123,7 @@
 
     <p class="campiObbligatori"> : campo obbligatorio</p>
 
-    <form id="ccForm" autocomplete="on" class="creazioneFields"  method="post" action="../php/character_creation(FormAction).php">
+    <form id="ccForm" autocomplete="on" class="creazioneFields"  method="post" action="../php/character_creation(FormAction).php" onsubmit="return validateCharCreation();">
 
         <messaggioForm />
         <selectValues />
@@ -136,8 +136,8 @@
                     </legend>
                     <div>
                     <label id="ccName" for="cname" class="ccLabel">Scegli un <strong>nome</strong> per il tuo Personaggio</label>
-                    <input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome"
-                        aria-required="true" required="required" value="<valoreNome />" />
+                    <span><input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome"
+                        aria-required="true" required="required" value="<valoreNome />" /></span>
                     </div>
                 </fieldset>
             </li>
@@ -255,36 +255,36 @@
                         Questa sezione ti permetterà di descrivere in modo più sensibile il tuo personaggio, è divisa in quattro campi per
                         aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
                     </p>
-                    <p>( <strong class="Attenzione">Attenzione</strong>: Il <span xml:lang="en">rendering</span> di ciascuno dei seguenti campi 
+                    <p>(<strong class="Attenzione">Attenzione</strong>: Il <span xml:lang="en">rendering</span> di ciascuno dei seguenti campi 
                         nel <span xml:lang="en">layout</span> standard <abbr title="Dungeons & Dragons">D&D</abbr> troncherà ogni testo di 
-                        lunghezza eccessiva, limite di sicurezza = <strong>200 caratteri</strong>. Al contrario il <span xml:lang="en">layout</span> pergamena non comporta vincoli di lunghezza )</p>
+                        lunghezza eccessiva, limite di sicurezza = <strong>200 caratteri</strong>. Al contrario il <span xml:lang="en">layout</span> pergamena non comporta vincoli di lunghezza)</p>
 
                     <ul id="traitsWrapper">
                         <li class="traitsCard">
                             <label for="ctraits" class="ccTraitsL">Carattere</label>
-                            <textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40  onkeyup="updateCounterTextarea(4);"
-                                placeholder="Descrivi i tratti caratteriali del tuo personaggio"><valoreTraits /></textarea>
+                            <span><textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40  onkeyup="updateCounterTextarea(4);"
+                                placeholder="Descrivi i tratti caratteriali del tuo personaggio"><valoreTraits /></textarea></span>
                             <p class="counter" id="currentCountTraits">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cideals" class="ccTraitsL">Ideali</label>
-                            <textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40  onkeyup="updateCounterTextarea(5);"
-                                placeholder="Quali sono i suoi Ideali?"><valoreIdeals /></textarea>
+                            <span><textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40  onkeyup="updateCounterTextarea(5);"
+                                placeholder="Quali sono i suoi Ideali?"><valoreIdeals /></textarea></span>
                             <p class="counter" id="currentCountIdeals">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cbonds" class="ccTraitsL">Legami</label>
-                            <textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40  onkeyup="updateCounterTextarea(6);"
-                                placeholder="A chi è legato nel mondo di gioco?"><valoreBonds /></textarea>
+                            <span><textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40  onkeyup="updateCounterTextarea(6);"
+                                placeholder="A chi è legato nel mondo di gioco?"><valoreBonds /></textarea></span>
                             <p class="counter" id="currentCountBonds">0</p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cflaws" class="ccTraitsL">Difetti</label>
-                            <textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40  onkeyup="updateCounterTextarea(7);"
-                                placeholder="Quali sono i suoi Difetti?"><valoreFlaws /></textarea>
+                            <span><textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40  onkeyup="updateCounterTextarea(7);"
+                                placeholder="Quali sono i suoi Difetti?"><valoreFlaws /></textarea></span>
                             <p class="counter" id="currentCountFlaws">0</p>
                         </li>
                     </ul>
