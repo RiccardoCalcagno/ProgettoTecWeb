@@ -3,15 +3,14 @@
 	require_once("character.php");
 	require_once("GeneralPurpose.php");
 	use DB\DBinterface;
+	
+	// do you even need to check before ?
+	session_start();
 
 	$html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'character creation.html'); //forse togliere spazio nel nome
 
 	$messaggioForm = "";
 	$name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
-
-	function checkName($name) {
-		return preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);	// trim dopo, accetta sequenze strane ,,,,---... ma 
-	}
 
 	function checkText($text) {
 		return preg_match("/^.{10,}$/", $text); // clean_input dopo
@@ -31,7 +30,7 @@
 
 		//Fare i controlli sugli input
 		//Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
-		$check_name = checkName($name); //preg_match("/\\S+/",$name);
+		$check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
 		//$check_race = ;			//provengono da select, non possono essere sbagliati, no?
 		//$check_class = ;
 		//$check_background = ;
@@ -43,8 +42,8 @@
 
 		if($check_name && $check_traits && $check_ideals && $check_bonds && $check_flaws){
 			//se passo i controlli allora passo gli input alla costruzione di dati per il DB.
-			$character_data = new Character (
-				0,	// ID qui inutile, non viene considerato per inserimento DB (e poi oggetto character_data viene distrutto) (aggiungere valore di default?)
+			$character = new Character (
+				0,	// ID qui inutile, non viene considerato per inserimento DB (e poi oggetto character viene distrutto) (aggiungere valore di default?)
 				$name,
 				$race, $class, $background, $alignment,	// Ok, select
 				clean_input($traits), 
@@ -61,7 +60,7 @@
 				$openConnection = $db->openConnection();
 
 				if ($openConnection == true) {
-					$result = $db->addCharacter($character_data);	// TO FIX ADD Creator
+					$result = $db->addCharacter($character);	// TO FIX ADD Creator of character ?? 
 
 					if($result == true) {	// conferma ed errori con str_replace o banner_salvataggio.html ?
 						$messaggioForm = '<div id="conferma"><p>Personaggio Creato!</p></div>';
@@ -76,9 +75,14 @@
 					// Can't connect to DB
 					$messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare</p></div>'; // (ERRORE LATO Server)
 				}
+
+				$db->closeConnection();
 			}
 			else {	// non e' logged in, mantieni 
 				// TO FIX TODO
+				//lacalStorage.setItem("", ""); o indexedDB
+				//something like:
+				$html .= "<script> addCharacterToLocalStorage($character); </script>";
 			}
 		}
 		else{
