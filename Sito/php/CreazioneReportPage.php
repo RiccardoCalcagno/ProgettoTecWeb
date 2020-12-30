@@ -26,7 +26,7 @@
 
 				if ($insertionResult){
 					//costruisco un messaggio da mostrare vicino alla form
-					$message = '';
+					$message = 'Report inserito Correttamente!';
 
 					//azzero la form
 					$titolo = '';
@@ -36,13 +36,22 @@
 				}
 				else{
 					//messaggi di errore lato server, non errori di compilazione
-					$message = '';
+					$message = 'Errore lato Server, Riprovare.';
 				}
 			}
 		}
 		//altrimenti ci sono stati errori di inserimento
 		else{
-
+			$message = 'errori:';
+			if (strlen($title) == 0) {
+				$message.='titolo troppo corto';
+			}
+			if (strlen($subtitle) == 0) {
+				$message .='sottotitolo troppo corto';
+			}
+			if (strlen($descrizione) == 0) {
+				$message.='contenuto troppo corto';
+			}
 		}
 		
 	}
