@@ -15,6 +15,12 @@ h1 {
 h2 {
     font-size: 1.4em;
 }
+body{
+    margin-top: 3.6em;
+}
+#loginBody{
+    margin-top: 0;
+}
 
 h3 {
     font-size: 1.3em;
@@ -49,7 +55,7 @@ input[type="file"]{
 #breadcrumb {
     display: block;
     width: calc(100% - 15.5em);
-    position: absolute;
+    position: fixed;
     top:0;
     left: 4em;
     font-size: 1em;
@@ -111,12 +117,28 @@ input[type="file"]{
 --------------------------------------- HEADER ----------------------------------------------
 ---------------------------------------------------------------------------------------------
 */
-#intestazioneSito #menu{
+#intestazioneSito #menu > li:last-child{
+    position: relative;
     width: 100%;
+    top:6.5em;
+}
+#creazioneReport #menu > li:last-child, #creazionePersonaggio #menu > li:last-child{
+    top:3em;
+}
+#intestazioneSito #menu > li ul{
+    background-color: #3b3835;
+}
+#intestazioneSito{
+    max-height: 3.3em;
+    z-index: 3;
+}
+#intestazioneSito #menu{
+    width: calc(100% + 2px);
     margin-left: 0;
     background-color: #3b3835;
     display: none;
     font-weight: 500;
+    z-index: 4;
 }
 #intestazioneSito #menu #currentLink{
     display: none;
@@ -133,6 +155,9 @@ input[type="file"]{
     color:#ebebeb;
     font-weight: 400;
 }
+#intestazioneSito #menu > li:not(:last-child) li{
+    min-width: 16em;
+}
 #intestazioneSito  #menu .dropdown-content{
     display: flex;
     flex-wrap: wrap;
@@ -141,14 +166,14 @@ input[type="file"]{
 }
 #intestazioneSito #menu .dropdown-content li{
     width: calc(50% - 2em);
-    min-width: 17em;
+    min-width: 14.2em;
     margin:auto;
 }
 #intestazioneSito #menu .dropdown-content li a{ 
     background-color: #3b3835;
     text-align: center;
     border-top: none;
-    font-size: 1.3em;
+    font-size: 1.15em;
 }
 #intestazioneSito #menu li a:not(.dropdown):hover{
     background-color: #464441;
@@ -162,11 +187,11 @@ input[type="file"]{
 }
 
  #breadcrumb #breadCCurrent{
-     position: relative;
-    top:0.4em;
+    position: fixed;
+    top:2.4em;
     font-size: 0.8em;
     display: block;
-    width: 100%;
+    width: calc(100vw - 19em);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -226,7 +251,7 @@ input[type="file"]{
 }
 
 #copertina header{
-    z-index: 3;
+    z-index: 2;
     padding: 0;
     position: relative;
     top:calc(-15em -  300px);
@@ -513,7 +538,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 */
 
 .htmlApprofondimento .content{
-    width: 100%;
+    width: calc(100% - 2em);
     padding-bottom: 15%;
 }
 
@@ -540,6 +565,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 
 .htmlApprofondimento .howTo li:before {
     left: -2.2em;
+    top:3em;
 }
 
 .htmlApprofondimento .howTo img{
@@ -854,10 +880,7 @@ form#datiUtenza{
 }
 
 #visualizzaScheda #pulsante{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    /* z-index: 1; */
+    font-size: 0.8em;
 }
 
 #contentPersonaggio.pergamena h1{

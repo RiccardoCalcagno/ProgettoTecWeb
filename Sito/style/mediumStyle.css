@@ -12,24 +12,37 @@
     font-size: 1.1em;
     background-color: rgb(48, 44, 44);
 }
-#intestazioneSito #menu li{
+#intestazioneSito #menu > li{
     font-size: 0.8em;
+    height: 3.3em;
+}
+#intestazioneSito #menu li#currentLink{
+    padding-top: 1em;
+    height: 1.74em;
+}
+#intestazioneSito #menu > li > a{
+    padding-top: 1em;
+    height:1.8em;
 }
 #intestazioneSito #access {
     width: 10.4em;
     font-size: 0.99em;
-    height: 2em;
     margin: auto;
     min-width:0;
 }
 #access #Accesso{
     margin-right: 0;
 }
+#access input[value="Esci"], #access input[value="Area Personale"]{
+    font-size: 0.88em;
+    padding: 0.4em 0;
+    height: 2.7em;
+}
 #access input {
     margin: auto;
     width:5em; 
-    margin-top: 0.2em;
-    height: 1.9em;
+    margin-top: 0.3em;
+    height: 2.4em;
 }
 #menu ul.dropdown-content li {
     width:14em;
@@ -103,7 +116,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     bottom: 0;
     left: 0;
     width: 90%;
-    height: 37%;
     margin: 0 4% 2%;
 }
 
@@ -113,9 +125,13 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     margin-left: 4%;
 }
 
+#footerContent dl dd + dt::before {
+    margin: 0 2.6%;
+}
+
 #footerContent dl.open-footer {
     text-align: center;
-    padding-bottom: 2em;    /* TO FIX CALIBRATE*/
+    padding-bottom: 5em;    /* TO FIX CALIBRATE*/
  }
 
  #footerContent dl.open-footer dt:first-child{
@@ -331,7 +347,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 
 .htmlApprofondimento .content{
-    width: calc(55% + 200px);
+    width: 80%;
     padding-bottom: 10%;
 }
 

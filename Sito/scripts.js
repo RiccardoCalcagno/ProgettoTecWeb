@@ -228,34 +228,31 @@ function openDD(nth_dd) {
 // Abstract Validator
 function validateForm(testArray) {
     var corretto = true;
-    var firstMistake = true;
+    var firstError = true;
     for (var key in testArray) {
         var input = document.getElementById(key);
-        var risultato = validazioneCampo(input, testArray);
+        var risultato = validazioneCampo(input, testArray[input.id]);
         corretto = corretto && risultato;
 
-        if(!corretto && firstMistake) {
+        if(!corretto && firstError) {
             input.previousSibling.scrollIntoView();
-            firstMistake = false;
+            window.scrollBy(0, -100); // Feedback (Doesn't work consistentely?)
+            firstError = false;
         }
     }
 
     return corretto;
 }
 
-function validazioneCampo(input, testArray) {
+function validazioneCampo(input, inputArray) {
 
     // Elimino messaggi precedenti per evitare ripetizione
-    var parent = input.parentNode;
-    if (parent.children.length == 2) {
-        input.classList.remove("input-errore");
-        parent.removeChild(parent.children[0]);
-    }
+   clearErrorStatus(input);
 
-    var regex = testArray[input.id][0]; // Espressione regolare associata all' ID
+    var regex = inputArray[0]; // Espressione regolare associata all' ID
     var text = input.value;
     if (text.search(regex) != 0) {  // seartch match
-        mostraErrore(input, testArray);
+        mostraErrore(input, inputArray);
         return false;
     }
     else {
@@ -263,14 +260,22 @@ function validazioneCampo(input, testArray) {
     }
 }
 
-function mostraErrore(input, testArray) {
+function clearErrorStatus(input) {
+    var parent = input.parentNode;
+    if (parent.children.length == 2) {
+        input.classList.remove("input-errore");
+        parent.removeChild(parent.children[0]);
+    }
+}
+
+function mostraErrore(input, inputArray) {
 
     input.classList.add("input-errore");
 
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
-    //elemento.appendChild(document.createTextNode(testArray[input.id][1]));
-    elemento.innerHTML = testArray[input.id][1];    // Per usare tags all'interno
+    //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
+    elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
     
     var p = input.parentNode;
     p.insertBefore(elemento, input);
@@ -283,7 +288,6 @@ function mostraErrore(input, testArray) {
 var charCreationTextRegex = /^.{10,}$/;
 var charCreationTextErrorMessage = "Inserisci almeno 10 caratteri";
 var charCreationValues = {
-    // ID: ["TestDaEseguire", "MessaggioErrore"]
     "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Il nome deve essere da 3 a 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e <span xml:lang=\"en\">hypens</span>"],
     "ctraits": [charCreationTextRegex, charCreationTextErrorMessage],
     "cideals": [charCreationTextRegex, charCreationTextErrorMessage],
@@ -301,7 +305,6 @@ function validateCharCreation() {
 // NameSpace ?
 
 var reportValues = {
-    // ID: ["TestDaEseguire", "MessaggioErrore"]
     "titoloReport": [/^.{3,30}$/, "Inserisci dai 3 ai 30 caratteri"],
     "sottoTRepo": [/^.{3,120}$/, "Inserisci dai 3 ai 120 caratteri"],
     "contRepo": [/^.{3,}$/, "Inserisci almeno 3 caratteri"],
@@ -317,7 +320,6 @@ function validateReport() {
 // NameSpace ?
 
 var loginValues = {
-    // ID: ["TestDaEseguire", "MessaggioErrore"]
     "username": [/^.{1,}$/, "Inserisci il tuo username"],
     "password": [/^.{1,}$/, "Inserisci la tua password"],
 };
@@ -329,64 +331,59 @@ function validateLogin() {
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in e Change Data ------------------------------------------
 // ---------------------------------------------------------------------------------
-
-// ------------------------------ WORK IN PROGRESS !!!!!!
 // NameSpace ?
-passwordRegex = /^.{3,}$/;
 var userDataValues = {
     // ID: ["TestDaEseguire", "MessaggioErrore"]
     "username": [/^.{1,}$/, "Inserisci il tuo username"],
     "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
     "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"]
 };
-
-var passwordValues = {
+passwordRegex = /^.{3,}$/; // Non serve ?
+var newPasswordValue = {
     "newPasswd": [passwordRegex, "Password non Valida (DA sistemare REGEX)"],
-    "PasswdAgan": ["", ""]  // SOLO PER TOGLIERE SHADOW-BOX, MEH
 };
 
 function validateUserData() {
-    var corretto = validateForm(userDataValues);
-    corretto = corretto && validateForm(passwordValues);
 
-    if(corretto) {
-        corretto = corretto && checkPasswordMatch();
-    }
-
-    return corretto;
+    return validateForm(userDataValues) && validateForm(newPasswordValue) && checkPasswordMatch();
 }
 /* TO FIX MAKE BETTER */
 function checkPasswordMatch() {
 
     var passwordMatchValues = { // KINDA MEH
         "newPasswd": ["", "Le password devono coincidere"],
-        "PasswdAgan": ["", ""]
+        "PasswdAgan": ["", "Le password devono coincidere"]
     };
 
     var psw = document.getElementById("newPasswd");
     var conf_psw = document.getElementById("PasswdAgan");
 
+    clearErrorStatus(psw);
+    clearErrorStatus(conf_psw);
+
     if(psw.value != conf_psw.value) {
-        mostraErrore(psw, passwordMatchValues);
-        mostraErrore(conf_psw, passwordMatchValues);
+        mostraErrore(psw, passwordMatchValues[psw.id]);
+        mostraErrore(conf_psw, passwordMatchValues[conf_psw.id]);
+        window.scrollBy(0, -10); // Feedback
+
         return false;
     }
-
-    return true;
+    else {
+        return true;
+    }
 }
 
 // ------------------------------- Change Data ------------------------------------------
 
-var newPasswordValue = {
-    "password": ["", "Inserisci la nuova Password"] // DA NON CONTROLLARE, PASSWORD CORRENTE
+var oldPasswordValue = {
+    "password": [/^.{3,}$/, "Inserisci la tua Password corrente"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
 };
 
 function validateChangeUserData() {
-    return validateForm(userDataValues);    // Stesso di log-in 
-    // future_email : )))))) (FME)
+//    validateForm(futureEmail) TO FIX !!!!!! ----------------------------------------------------------------------------------------------------------
+    return validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
 }
 
 function validateChangeUserPassword() {
-    return validateForm(newPasswordValue) && validateForm(passwordValues) && checkPasswordMatch() ; 
+    return validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch(); 
 }
-// ------------------------------ WORK IN PROGRESS !!!!!!
