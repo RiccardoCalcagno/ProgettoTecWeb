@@ -116,7 +116,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     bottom: 0;
     left: 0;
     width: 90%;
-    height: 37%;
     margin: 0 4% 2%;
 }
 
@@ -126,9 +125,13 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     margin-left: 4%;
 }
 
+#footerContent dl dd + dt::before {
+    margin: 0 2.6%;
+}
+
 #footerContent dl.open-footer {
     text-align: center;
-    padding-bottom: 2em;    /* TO FIX CALIBRATE*/
+    padding-bottom: 5em;    /* TO FIX CALIBRATE*/
  }
 
  #footerContent dl.open-footer dt:first-child{

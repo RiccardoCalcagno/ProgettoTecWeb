@@ -474,7 +474,7 @@ body{
     position: absolute;
     top: 0;
     right: 0;
-    width: 45%;
+    width: calc(60% - 130px);
     margin: 1%;
 }
 
@@ -495,6 +495,7 @@ body{
     color: white;
     text-align: center;
     font-size: 0.8em;
+    padding: 0 1em;
 }
 
 #footerContent dl.open-footer {
