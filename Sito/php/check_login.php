@@ -19,8 +19,7 @@
         $_SESSION["img"] = $user_data->get_img_path();
         $_SESSION["login"] = true;
         $db->closeConnection();
-        //$user_data->free();
-        header("Location: area_personale.php");  /* redirect */
+        header("Location: area_personale.php"); 
 
     }
     else
@@ -28,9 +27,12 @@
         $_SESSION["login"] = false;
         header("Location: login.php");
     }
+    $user_data->free();
     
     } catch (Exception $e)  {
-    // pagina di errore sarà una location: ...
+        session_destroy();
+        header("Location : error.php");
+        exit();
     }
 
 

@@ -27,7 +27,6 @@
                     $err["user_already_exist"] = true;
                 else
                     $err["user_already_exist"] = false;
-
         }
         else
         {
@@ -44,7 +43,6 @@
                     $err["email_already_exist"] = true;
                 else
                     $err["email_already_exist"] = false;
-    
         }
         else
         {
@@ -84,7 +82,8 @@
             }
             else
             {
-                // pagina di errore
+                header("Location : error.php");
+                exit();
             }
         }
 
@@ -92,7 +91,8 @@
 
 
     } catch(Exception $e) {
-        // pag di err
+        header("Location : error.php");
+        exit();
     }
 
 ?>

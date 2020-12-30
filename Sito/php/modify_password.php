@@ -69,7 +69,8 @@
             }
             else
             {
-                // pagina di errore
+                header("Location : error.php");
+                exit();
             }
         }
 
@@ -77,7 +78,8 @@
 
 
     } catch(Exception $e) {
-        // pag di err
+        header("Location : error.php");
+        exit();
     }
 
 ?>

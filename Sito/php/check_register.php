@@ -105,15 +105,9 @@
             }
 
         }
-        else
-        {
-
-        }
-
-
-
 
     } catch(Exception $e) {
-        // pag di err
+        header("Location : error.php");
+        exit();
     }
 ?>

@@ -142,6 +142,14 @@
 
                 echo $html;
 
+                $character_data->free();
+                $report_data->free();
+                $author_report_data->free();
+                $num_pers->free();
+                $num_report_master->free();
+                $num_report->free();
+                $array_num_part_rep->free();
+                $array_num_part_rep_master->free();
 
             }
 
