@@ -75,7 +75,16 @@ else{
 	str_replace("<content_placeholder/>", $replacer, $html);
 
 	//aggiungi un commento/registrati per commentare
-	//TODO
+	if(isset($_SESSION["username"])) {
+		$replacer = '<div id="InserimentoCommento">
+                        <input type="text" placeholder="Lascia un commento.." name="contenutoCommento" />
+                        <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
+                    </div>';
+        str_replace("<InsertComment_placeholder/>", $replacer, $html);
+	}
+	else{
+		str_replace("<InsertComment_placeholder/>", "", $html);
+	}
 
 	//lista dei commenti
 	//devo mostrare il commento con tutti i suoi dati, oltre che l'immagine del giocatore (non è un dato del commento)
