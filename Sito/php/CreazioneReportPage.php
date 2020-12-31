@@ -6,6 +6,13 @@
 
 	$html = file_get_contents("../otherHTMLs/creazioneReport.html");
 
+	if(isset($_SESSION["username"]))
+	{
+		str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
+		str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
+	}
+
+
 	if(isset($_POST['submit'])){
 		$titolo = $_POST['titolo'];
 		$sottotitolo = $_POST['sottotitolo'];
@@ -20,7 +27,7 @@
 
 			if($connection){
 				//creo l'oggetto report
-				$rep = new ReportData(getLatestRep()+1,$title,$subtitle,$content,/*author*/,$condividi,date("Y-m-d"));
+				$rep = new ReportData(getLatestRep()+1, $title, $subtitle, $content, /*author*/, $condividi, date("Y-m-d"));
 				//aggiungo il report nel database
 				$insertionResult = $dbInterface->addReport($rep);
 

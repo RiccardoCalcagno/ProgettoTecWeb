@@ -13,7 +13,7 @@
     if(isset($_POST["RemoveRep"]))
     {
         $db->openConnection();
-        $db->setExplorable($_POST["PostRep"], false);
+        $db->setExplorable($_POST["RemoveRep"], false);
         $db->closeConnection();
         header("Location : area_personale.php");
     }
@@ -26,14 +26,22 @@
         header("Location : ReportPage.php");
     }
 
-    if(isset($_POST["id"]))
+    if(isset($_POST["ReportPartecip"]))
+    {
+        $db->openConnection();
+        $_SESSION["report_id"] = $db->getReport($_POST["ReportPartecip"]);
+        $db->closeConnection();
+        header("Location : ReportPage.php");
+    }
+
+    if(isset($_POST["ReportEsplora"]))
     {
         if(!isset($_SESSION))
             session_start();
 
-        $_SESSION["report_id"] = $_POST["id"];
+        $_SESSION["report_id"] = $_POST["ReportEsplora"];
 
-        header("Location : report.php");
+        header("Location : ReportPage.php");
     }
 
 
