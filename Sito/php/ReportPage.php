@@ -83,7 +83,10 @@ else{
         str_replace("<InsertComment_placeholder/>", $replacer, $html);
 	}
 	else{
-		str_replace("<InsertComment_placeholder/>", "", $html);
+		$replacer = '<div id="InserimentoCommento">
+                        <p>Registrati per lasciare un commento</p>
+                    </div>';
+		str_replace("<InsertComment_placeholder/>", $replacer, $html);
 	}
 
 	//lista dei commenti
@@ -104,6 +107,32 @@ else{
 	$replacer .= '</ul>';
 
 	str_replace("<comments_placeholder/>", $replacer, $html);
+
+
+	//tasti footer
+	////costruisco un if per controllare se l'utente logged in è l'author, se si mostro i tasti
+		//ESPLORA
+		//controllo che l'utente sia il creatore come prima, ma controllo anche che il report non sia già segnato come pubblico
+	if($_SESSION["username"])==$report_info.get_author()){
+		$replacer = '<ul id="footAction">
+		        		<li>
+		            		<input type="submit" name="report" value="ELIMINA" class="buttonLink"/>
+		        		</li>'
+		if($report_info.get_isExplorable()){
+			$replacer .= '<li>
+		            		<input type="submit" name="report" value="Pubblica in ESPLORA" class="buttonLink"/> 
+		        		</li>';
+		}
+		        		
+		$replacer .= 	'<li>
+		            		<input type="submit" name="report" value="MODIFICA" class="buttonLink"/> 
+		        		</li>
+		    		</ul>';
+		str_replace("<footerAction_placeholder/>", $replacer, $html);
+	}
+	else{
+		str_replace("<footerAction_placeholder/>", "", $html);
+	}
 
 	//chiudo la connessione
 	$dbInterface->closeConnection();
