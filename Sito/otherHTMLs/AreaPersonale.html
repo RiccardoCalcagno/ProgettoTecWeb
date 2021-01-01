@@ -375,7 +375,7 @@ Note DI CORREZIONE:
             </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+            <nav class="espandi"> {report master}                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                 <ul>
                   <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
@@ -494,8 +494,8 @@ Note DI CORREZIONE:
 
             </form>
             </div>
-            <form action="" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+            <form action="" method="post">                                    
+            <nav class="espandi"> {report normale}                      
                 <ul>
                   <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente"></li>                     

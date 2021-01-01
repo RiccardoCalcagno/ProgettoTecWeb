@@ -175,6 +175,11 @@ else if($_SESSION["login"])
                     <li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\">successiva</label></li>", " ", $html);
                 }
 
+                if($_SESSION["count_rep"] <= 5)
+                {
+                    $html = str_replace("<nav class=\"espandi\"> {report normali}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                }
+
                 $html = str_replace("{report_author}", $_schede_report_master, $html);
                 $html = str_replace("{numero attuale master}", $_SESSION["count_master"], $html);
                 $html = str_replace("{numero di master}", $numero_pag_master, $html);
@@ -216,6 +221,11 @@ else if($_SESSION["login"])
                 {
                     $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"masterSuccessivo\"></li> 
                     <li><label id=\"LblMasterSuccessivo\" for=\"masterSuccessivo\">successiva</label></li>", " ", $html);
+                }
+
+                if($_SESSION["count_master"] <= 5)
+                {
+                    $html = str_replace("<nav class=\"espandi\"> {report master}", "<nav class=\"espandi\" class=\"hidden\">", $html);
                 }
 
 
