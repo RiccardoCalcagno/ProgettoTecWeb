@@ -8,4 +8,9 @@
         header("Location : character.php");
     }
 
+    if(isset($_POST["espandiPers"]))
+    {
+        
+    }
+
 ?>

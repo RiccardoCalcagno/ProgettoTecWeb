@@ -1,155 +1,234 @@
 <?php
 
-    if(!isset($_SESSION))
-    {
-        header("Location: login.php");
-    }
-    else if($_SESSION["login"])
-    {
-        require_once("DBinterface.php");
+if(!isset($_SESSION))
+{
+    header("Location: login.php");
+}
+else if($_SESSION["login"])
+{
+    require_once("DBinterface.php");
     
-        $db = new DBinterface();
+    $db = new DBinterface();
 
-        $character_data = null;
+        /*$character_data = null;
         $report_data = null;
         $author_report_data = null;
         $num_pers = 0;
         $num_report_master = 0;
         $num_report = 0;
         $array_num_part_rep = array();
-        $array_num_part_rep_master = array();
+        $array_num_part_rep_master = array();*/
 
-        try {
+    try {
+
+        if(!isset($_SESSION["first_logged"]))
+        {
             $db->openConnection();
     
-            $character_data = $db->getCharacterByUser($_SESSION["username"]);
-            $num_pers = $db->contaPersonaggi($_SESSIONE["username"]);
-            $num_report = $db->countReport($_SESSION["username"]);
-            $num_report_master = $db->countReportAuthor($_SESSION["username"]);
-            $report_data = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
+            $_SESSION["vai_avanti_master"] = false;
+            $_SESSION["vai_avanti_rep"] = false;
+            $_SESSION["vai_indietro_master"] = false;
+            $_SESSION["vai_indietro_rep"] = false;
+            $_SESSION["count_rep"] = 1;
+            $_SESSION["count_master"] = 1;
+            $_SESSION["first_logged"] = true;
+            $_SESSION["character_data"] = $db->getCharacterByUser($_SESSION["username"]);
+            $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSIONE["username"]);
+            $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
+            $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
+            $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
             
             for($i = 0; $i < $num_report; $i++)
             {
-                $array_num_part_rep[$report_data[$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
+                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
             }
 
-            $author_report_data = $db->getReportAuthor($_SESSION["username"]);
+            $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
 
             for($i = 0; $i < $num_report; $i++)
             {
-                $array_num_part_rep_master[$author_report_data[$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
+                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
             }
 
             $db->closeConnection();
+        }
 
-            $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "AreaPersonale.html");
-            if(!$html) 
+
+        // calcolo numero delle pagine di report
+        $numero_pag_report = $_SESSION["num_report"] / 5;
+        $numero_pag_master = $_SESSION["num_report_master"] / 5;
+
+
+        /** controllo se si può andare avanti o indietro */
+
+
+
+        if($_SESSION["vai_avanti_master"])
+        {
+            $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
+        }
+
+        if($_SESSION["vai_avanti_rep"])
+        {
+            $_SESSION["count_rep"] == $numero_pag_master ? $_SESSION["count_rep"] = $numero_pag_master : $_SESSION["count_rep"]++;
+        }
+
+        if($_SESSION["vai_indietro_master"])
+        {
+            $_SESSION["count_master"] == 1 ? $_SESSION["count_master"] = 1 : $_SESSION["count_master"]--;
+        }
+
+        if($_SESSION["vai_indietro_rep"])
+        {
+            $_SESSION["count_rep"] == 1 ? $_SESSION["count_rep"] = 1 : $_SESSION["count_rep"]--;
+        }
+
+
+
+
+        /* fine controllo */
+
+        $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "AreaPersonale.html");
+        if(!$html) 
+        {
+            header("Location : 404.php");
+            exit();
+        }
+        else
+        {
+
+            $html = str_replace("../images/icone_razze/dragonide.png", $_SESSION["img"], $html);
+            $html = str_replace("_user_", $_SESSION["username"], $html);
+            $html = str_replace("_name_", $_SESSION["name_surname"], $html);
+            $html = str_replace("_mail_", $_SESSION["email"], $html);
+            $html = str_replace("_date_", $_SESSION["birthdate"], $html);
+
+
+
+            $_schede_personaggio = "";
+
+            for($i = 0; $i < $_SESSION["num_pers"] ; $i++)
             {
-                // pagina di errore
+                $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
+                <button name=\"Personaggio\" value=\"" . $_SESSION["character_data"][$i]->get_id() . "\">
+                    <img src=\"" . $_SESSION["character_data"][$i]->get_img() . "\" alt=\"\" /> 
+                    <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
+                    <ul>
+                        <li><h5>Razza </h5><p classe=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</p></li>        
+                        <li><h5>Classe </h5><p classe=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</p></li>
+                        <li id=\"allineamento\">
+                            <fieldset><legend>Allineamento</legend>
+                                <p classe=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</p>
+                            </fieldset>
+                        </li>
+                    </ul>
+                </button>
+                </li>\n";
             }
-            else
-            {
-
-                $html = str_replace("../images/icone_razze/dragonide.png", $_SESSION["img"], $html);
-                $html = str_replace("_user_", $_SESSION["username"], $html);
-                $html = str_replace("_name_", $_SESSION["name_surname"], $html);
-                $html = str_replace("_mail_", $_SESSION["email"], $html);
-                $html = str_replace("_date_", $_SESSION["birthdate"], $html);
-
-
-
-                $_schede_personaggio = "";
-
-                for($i = 0; $i < $num_pers; $i++)
-                {
-                    $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
-                    <button name=\"Personaggio\" value=\"" . $character_data[$i]->get_id() . "\">
-                        <img src=\"" . $character_data[$i]->get_img() . "\" alt=\"\" /> 
-                        <h4 class=\"textVariable\">" . $character_data[$i]->get_name() . "</h4>
-                        <ul>
-                            <li><h5>Razza </h5><p classe=\"persRazza\">" . $character_data[$i]->get_race() . "</p></li>        
-                            <li><h5>Classe </h5><p classe=\"persClasse\">" . $character_data[$i]->get_class() . "</p></li>
-                            <li id=\"allineamento\">
-                                <fieldset><legend>Allineamento</legend>
-                                    <p classe=\"persAllineamento\">" . $character_data[$i]->get_alignment() . "</p>
-                                </fieldset>
-                            </li>
-                        </ul>
-                    </button>
-                    </li>\n";
-                }
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
 
                 $_schede_report_master = "";
 
-                for($i = 0; $i < $num_report_master; $i++)
+                for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = $_SESSION["num_report_master"] < $numero_pag_master ? $limit = $_SESSION["num_report_master"] : $limit = 5*$_SESSION["count_master"] ; $i++)
                 {
                     $_schede_report_master .= "<li class=\"cardReport\" class=\"cardReportMaster\">
-                    <button name=\"ReportMaster\" value= \"". $author_report_data[$i]->get_id() . "\">
+                    <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
                         <div>
                         <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">" . $author_report_data[$i]->get_title() . "</h4>
-                            <p>". $author_report_data[$i]->get_subtitle() ."</p>
+                            <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
+                            <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
                         </div>
                         </div>
-                        <footer>
-                            <p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>
-                            <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $array_num_part_rep_master[$author_report_data[$i]->get_title()] . "</span> giocatori</p>
+                        <footer>";
+                        if($_SESSION["author_report_data"][$i]->get_isExplorable() == true)
+                        {
+                            $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
+                        }
+                        $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_title()] . "</span> giocatori</p>
                         </footer>
                     </button>
                     <div class=\"publicazione\">";
-                    if($author_report_data[$i]->get_isExplorable() == false)    
+                    if($_SESSION["author_report_data"][$i]->get_isExplorable() == false)    
                     { 
-                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $author_report_data[$i]->get_id() . "\">Publica in \"Esplora\"</button>";
+                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i] . "\">Publica in \"Esplora\"</button>";
                     }
                     else                
                     {                         
-                        $_schede_report_master .="<button name=\"RemoveRep\" value=\"". $author_report_data[$i]->get_id() . "\">Rimuovi da \"Esplora\"</button>";
+                        $_schede_report_master .="<button name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i] . "\">Rimuovi da \"Esplora\"</button>";
                     }
                     
                     $_schede_report_master .= "</div>
                         </li>\n";
                 }
 
+                if($_SESSION["count_rep"] == 1)
+                {
+                    $html = str_replace("<li><label id=\"LblPartecPrecedente\" for=\"partecPrecedente\">precedente</label></li>
+                    <li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li> ", " ", $html);
+                }
+
+                if($_SESSION["count_rep"] == $numero_pag_report)
+                {
+                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"partecSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"partecSuccessivo\"></li>  
+                    <li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\">successiva</label></li>", " ", $html);
+                }
+
                 $html = str_replace("{report_author}", $_schede_report_master, $html);
+                $html = str_replace("{numero attuale master}", $_SESSION["count_master"], $html);
+                $html = str_replace("{numero di master}", $numero_pag_master, $html);
 
 
                 $_schede_report = "";
 
-                for($i = 0; $i < $num_report; $i++)
+                for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = $_SESSION["num_report"] < $numero_pag_master ? $limit = $_SESSION["num_report"] : $limit = 5*$_SESSION["count_master"] ; $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
-                    <button name=\"ReportPartecip\" value=\"". $author_report_data[$i]->get_id() . "\">
+                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">". $report_data[$i]->get_title() ."</h4>
-                            <p> ". $report_data[$i]->get_subtitle() . "</p>
+                            <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                         </div>
                         <div class=\"badgeUtente\">
                             <h5>Autore</h5>
                             <img src=\"../images/icone_razze/nano.png\" alt=\"\" /> 
-                            <p class=\"textVariable\">" . $author_report_data[$i]->get_author() . "</p>
+                            <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
                     <footer>
-                        <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $array_num_part_rep[$report_data[$i]->get_title()] . "</span> giocatori</p>
+                        <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_title()] . "</span> giocatori</p>
                     </footer>
                     </button>
                 </li>\n";
                 }
 
                 $html = str_replace("{report}", $_schede_report, $html);
+                $html = str_replace("{numero attuale report}", $_SESSION["count_rep"], $html);
+                $html = str_replace("{numero di report}", $numero_pag_report, $html);
+
+                if($_SESSION["count_master"] == 1)
+                {
+                    $html = str_replace("<li><label id=\"LblMasterPrecedente\" for=\"masterPrecedente\">precedente</label></li>
+                    <li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>  ", " ", $html);
+                }
+
+                if($_SESSION["count_master"] == $numero_pag_master)
+                {
+                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"masterSuccessivo\"></li> 
+                    <li><label id=\"LblMasterSuccessivo\" for=\"masterSuccessivo\">successiva</label></li>", " ", $html);
+                }
+
 
                 echo $html;
 
-                $character_data->free();
+                /*$character_data->free();
                 $report_data->free();
                 $author_report_data->free();
                 $num_pers->free();
                 $num_report_master->free();
                 $num_report->free();
                 $array_num_part_rep->free();
-                $array_num_part_rep_master->free();
+                $array_num_part_rep_master->free();*/
 
             }
 
@@ -157,11 +236,7 @@
             // pagina di errore 
             exit();
         }
-
-
-    
-
-
-        
     }
+
+
 ?>

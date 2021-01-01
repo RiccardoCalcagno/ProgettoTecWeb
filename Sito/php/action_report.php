@@ -4,16 +4,18 @@
     
     if(isset($_POST["PostRep"]))
     {
+        $_POST["PostRep"]->set_isExplorable(true);
         $db->openConnection();
-        $db->setExplorable($_POST["PostRep"], true);
+        $db->setExplorable($_POST["PostRep"]->get_id(), true);
         $db->closeConnection();
         header("Location : area_personale.php");
     }
 
     if(isset($_POST["RemoveRep"]))
     {
+        $_POST["RemoveRep"]->set_isExplorable(false);
         $db->openConnection();
-        $db->setExplorable($_POST["RemoveRep"], false);
+        $db->setExplorable($_POST["RemoveRep"]->get_id(), false);
         $db->closeConnection();
         header("Location : area_personale.php");
     }
