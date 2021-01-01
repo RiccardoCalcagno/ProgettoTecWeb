@@ -75,7 +75,19 @@ else{
 	str_replace("<content_placeholder/>", $replacer, $html);
 
 	//aggiungi un commento/registrati per commentare
-	//TODO
+	if(isset($_SESSION["username"])) {
+		$replacer = '<div id="InserimentoCommento">
+                        <input type="text" placeholder="Lascia un commento.." name="contenutoCommento" />
+                        <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
+                    </div>';
+        str_replace("<InsertComment_placeholder/>", $replacer, $html);
+	}
+	else{
+		$replacer = '<div id="InserimentoCommento">
+                        <p>Registrati per lasciare un commento</p>
+                    </div>';
+		str_replace("<InsertComment_placeholder/>", $replacer, $html);
+	}
 
 	//lista dei commenti
 	//devo mostrare il commento con tutti i suoi dati, oltre che l'immagine del giocatore (non è un dato del commento)
@@ -95,6 +107,32 @@ else{
 	$replacer .= '</ul>';
 
 	str_replace("<comments_placeholder/>", $replacer, $html);
+
+
+	//tasti footer
+	////costruisco un if per controllare se l'utente logged in è l'author, se si mostro i tasti
+		//ESPLORA
+		//controllo che l'utente sia il creatore come prima, ma controllo anche che il report non sia già segnato come pubblico
+	if($_SESSION["username"])==$report_info.get_author()){
+		$replacer = '<ul id="footAction">
+		        		<li>
+		            		<input type="submit" name="report" value="ELIMINA" class="buttonLink"/>
+		        		</li>'
+		if($report_info.get_isExplorable()){
+			$replacer .= '<li>
+		            		<input type="submit" name="report" value="Pubblica in ESPLORA" class="buttonLink"/> 
+		        		</li>';
+		}
+		        		
+		$replacer .= 	'<li>
+		            		<input type="submit" name="report" value="MODIFICA" class="buttonLink"/> 
+		        		</li>
+		    		</ul>';
+		str_replace("<footerAction_placeholder/>", $replacer, $html);
+	}
+	else{
+		str_replace("<footerAction_placeholder/>", "", $html);
+	}
 
 	//chiudo la connessione
 	$dbInterface->closeConnection();
