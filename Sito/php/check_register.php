@@ -1,6 +1,8 @@
 <?php 
 
     require_once("DBinterface.php");
+    require_once("banners.php");
+    require_once("GeneralPurpose.php");
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     $new_user = null;
@@ -101,7 +103,15 @@
                 $_SESSION["birthdate"] = $birthdate;
                 $_SESSION["img"] = $img;
                 $_SESSION["login"] = true;
-                header("Location : area_personale.php");
+                
+                if($_SESSION['banner']=='elementi_salvati'){
+
+                    $_SESSION['banner']="creazione_utente_confermata";
+                    $html = addPossibleBanner($html);
+                    saveStaged();
+                    $_SESSION['banner']="elementi_salvati";
+                }else{$_SESSION['banner']="creazione_utente_confermata";
+                    $html = addPossibleBanner($html);}
             }
 
         }

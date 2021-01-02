@@ -48,9 +48,10 @@ Note DI CORREZIONE:
         </ul>
 
         <div id="access">
-            <form action="php/action.php" method="post">
-                <input id="Accedi" type="submit" value="Esci">                 <!--ATTENZIONE DA COMPLETARE-->
-                <input id="Iscrizione" type="submit" value="Area Personale">
+            <form action="php/action.php" method="get">
+                <input type="text" class="hidden" name="beforeAccess" value="otherHTMLs/AreaPersonale.html"/>
+                <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
+                <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
             </form>
         </div>
 

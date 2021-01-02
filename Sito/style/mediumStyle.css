@@ -11,6 +11,7 @@
     padding-right:0.1em;
     font-size: 1.1em;
     background-color: rgb(48, 44, 44);
+    min-height: 3em;
 }
 #intestazioneSito #menu > li{
     font-size: 0.8em;
@@ -18,7 +19,7 @@
 }
 #intestazioneSito #menu li#currentLink{
     padding-top: 1em;
-    height: 1.74em;
+    height: 1.8em;
 }
 #intestazioneSito #menu > li > a{
     padding-top: 1em;

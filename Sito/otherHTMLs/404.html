@@ -32,8 +32,11 @@
         </ul>
 
         <div id="access">
-            <input id="Accesso" type="submit" value="Accedi">
-            <input id="Iscrizione" type="submit" value="Iscriviti">
+            <form action="php/action.php" method="get">
+                <input type="text" class="hidden" name="beforeAccess" value="otherHTMLs/404.html"/>
+                <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
+                <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
+            </form>
         </div>
         <ul id="menu" role="menubar">
                 <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
