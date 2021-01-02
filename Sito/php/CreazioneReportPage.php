@@ -2,7 +2,7 @@
 	//require
 	require_once ("DBinterface.php");
 
-	use DB\DBinterface;
+	// use DB\DBinterface; //SERVE A QUALCOSA?
 
 	$html = file_get_contents("../otherHTMLs/creazioneReport.html");
 
@@ -15,6 +15,7 @@
 
 
 	if(isset($_POST['submit'])){
+		//controllo se esiste già il report, se si completo la form con i dati già esistenti
 		$titolo = $_POST['titolo'];
 		$sottotitolo = $_POST['sottotitolo'];
 		$contenuto = $_POST['contenuto'];
