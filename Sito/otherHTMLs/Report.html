@@ -28,9 +28,11 @@
         </ul>
 
         <div id="access">
-            <input id="Accesso" type="submit" value="Accedi">
-            <!--ATTENZIONE DA COMPLETARE-->
-            <input id="Iscrizione" type="submit" value="Iscriviti">
+            <form action="php/action.php" method="get">
+                <input type="text" class="hidden" name="beforeAccess" value="otherHTMLs/Report.html"/>
+                <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
+                <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
+            </form>
         </div>
 
         <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>

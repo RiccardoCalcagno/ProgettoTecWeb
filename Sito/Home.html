@@ -65,9 +65,10 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
         </ul>
 
         <div id="access">
-            <form action="php/action.php" method="post">
-                <input id="Accesso" type="submit" value="Accedi">                 <!--ATTENZIONE DA COMPLETARE-->
-                <input id="Iscrizione" type="submit" value="Iscrizione">
+            <form action="php/action.php" method="get">
+                <input type="text" class="hidden" name="beforeAccess" value="Home.html"/>
+                <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
+                <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
             </form>
         </div>
 
