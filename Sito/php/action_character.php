@@ -1,5 +1,6 @@
 <?php 
-
+    require_once("DBinterface.php");
+    
     $db = new DBinterface();
 
     if(isset($_POST["Personaggio"]))

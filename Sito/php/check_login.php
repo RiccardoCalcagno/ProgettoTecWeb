@@ -6,7 +6,7 @@
     try{
         $db->openConnection();
 
-    $user_data = $db->getUser(trim($_POST["username"]), $_POST["passwd"]);
+    $user_data = $db->getUser(trim($_POST["username"]), $_POST["password"]);
 
     if($user_data)
     {
@@ -20,14 +20,13 @@
         $_SESSION["login"] = true;
         $db->closeConnection();
         header("Location: area_personale.php"); 
-
     }
     else
     {
         $_SESSION["login"] = false;
         header("Location: login.php");
     }
-    $user_data->free();
+//    $user_data->free(); error ?
     
     } catch (Exception $e)  {
         session_destroy();
