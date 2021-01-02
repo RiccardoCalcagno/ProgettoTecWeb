@@ -1,17 +1,10 @@
 <?php
 
 //require
-require_once ("DBinterface");
-require_once ("report_data");
-
-use DB\DBinterface;
+require_once("DBinterface.php");
 
 //prelevo Report.html
 $html = file_get_contents('../otherHTMLs/Report.html');
-
-//prelevo l'oggetto report
-session_start();
-$report_info = $_SESSION["report_id"];
 
 
 if(isset($_SESSION["username"]))
@@ -22,6 +15,10 @@ if(isset($_SESSION["username"]))
 
 $dbInterface = new DBinterface();
 $connection = $dbInterface->openConnection();
+
+//prelevo l'oggetto report
+session_start();
+$report_info = $_SESSION["report_id"];
 
 //faccio subito le richieste al DB per poter chiudere la connessione
 $usernameArray = getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
@@ -149,11 +146,11 @@ else{
 	////costruisco un if per controllare se l'utente logged in è l'author, se si mostro i tasti
 		//ESPLORA
 		//controllo che l'utente sia il creatore come prima, ma controllo anche che il report non sia già segnato come pubblico
-	if($_SESSION["username"])==$report_info.get_author()){
+	if($_SESSION["username"]==$report_info.get_author()){
 		$replacer = '<ul id="footAction">
 		        		<li>
 		            		<input type="submit" name="report" value="ELIMINA" class="buttonLink"/>
-		        		</li>'
+		        		</li>';
 		if($report_info.get_isExplorable()){
 			$replacer .= '<li>
 		            		<input type="submit" name="report" value="Pubblica in ESPLORA" class="buttonLink"/> 
