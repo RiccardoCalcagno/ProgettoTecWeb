@@ -13,30 +13,39 @@
     */
 
     function addPossibleBanner($html) {
-    if($_SESSION['banners']){
-        $html = str_replace('</body>', "</body>" . createPossibleBanner(), $html);
-        if($_SESSION['banners']=='elementi_salvati'){
-            //COSI FUNZIONA?
-            if(((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
-                foreach ($_SESSION['stagedPersonaggi'] as $i => $value) {unset($_SESSION['stagedPersonaggi'][$i]);}
-                foreach ($_SESSION['stagedReports'] as $i => $value) {unset($_SESSION['stagedReports'][$i]);}
-            }
-        }
-        $_SESSION['banners']=null;
+    $banner = createPossibleBanner();
+    if($banner!=""){
+        $html = str_replace('</body>', "</body>" . $banner , $html);
     }
+    if(strpos($_SESSION['banner'],'elementi_salvati')){
+        //COSI FUNZIONA?
+        if(((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
+            foreach ($_SESSION['stagedPersonaggi'] as $i => $value) {unset($_SESSION['stagedPersonaggi'][$i]);}
+            foreach ($_SESSION['stagedReports'] as $i => $value) {unset($_SESSION['stagedReports'][$i]);}
+        }
+    }
+    $_SESSION['banners']=null;
     }
 
     function createPossibleBanner() {
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            if(($_SESSION['banners']=="elementi_salvati")&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
+            if((strpos($_SESSION['banner'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
 
-                $htmlBanner="        
-                <fieldset id='bannerSalvataggio'>
-                <legend><a xml:lang='en' id='chiusuraBanner'>Close</a></legend>
-                <p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p>
-                <ul>";
+                if($_SESSION['banners']="elementi_salvati_errore"){
+                    $htmlBanner="        
+                    <fieldset id='bannerSalvataggio'>
+                    <legend><a xml:lang='en' id='chiusuraBanner'>Close</a></legend>
+                    <p id='titoloAvviso'>Sono stati riscontrati errori nel salvataggio</p>
+                    <ul>";  
+                }else{
+                    $htmlBanner="        
+                    <fieldset id='bannerSalvataggio'>
+                    <legend><a xml:lang='en' id='chiusuraBanner'>Close</a></legend>
+                    <p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p>
+                    <ul>";
+                }
 
                 if(isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports'])){
 
@@ -50,11 +59,18 @@
                         $htmlBanner .="<li>Personaggio: " . $personaggio->get_name() . "</li>";
                     }
                 }
+                if($_SESSION['banners']="elementi_salvati_errore"){
+                    $htmlBanner .="  
+                    </ul>
+                    <p>Ci spiace al momento i nostri server sembrano non funzionare</p>
+                    </fieldset>";
+                }else{
+                    $htmlBanner .="  
+                    </ul>
+                    <p>Li puoi trovare nella tua <a href='AreaPersonale.html'>Area Personale</a></p>
+                    </fieldset>";
+                }
 
-                $htmlBanner .="  
-                </ul>
-                <p>Li puoi trovare nella tua <a href='AreaPersonale.html'>Area Personale</a></p>
-                </fieldset>";
 
             }else{
             $htmlBanner = "<div id='bannerPage' class='transitorio'><div>";

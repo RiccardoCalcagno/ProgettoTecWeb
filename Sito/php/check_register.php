@@ -104,14 +104,20 @@
                 $_SESSION["img"] = $img;
                 $_SESSION["login"] = true;
                 
-                if($_SESSION['banner']=='elementi_salvati'){
+                if(strpos($_SESSION['banner'],'elementi_salvati')){
 
                     $_SESSION['banner']="creazione_utente_confermata";
                     $html = addPossibleBanner($html);
-                    saveStaged();
-                    $_SESSION['banner']="elementi_salvati";
+                    if(  !saveStaged()  ){
+                        $_SESSION['banner']="elementi_salvati_errore";
+                    }else{
+                        $_SESSION['banner']="elementi_salvati";
+                    }
+                    
                 }else{$_SESSION['banner']="creazione_utente_confermata";
                     $html = addPossibleBanner($html);}
+                
+                echo $html;
             }
 
         }

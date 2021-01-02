@@ -1,5 +1,7 @@
 <?php 
     require_once("DBinterface.php");
+    require_once("banners.php");
+    require_once("GeneralPurpose.php");
 
     $db = new DBinterface();
 
@@ -19,8 +21,13 @@
         $_SESSION["img"] = $user_data->get_img_path();
         $_SESSION["login"] = true;
         $db->closeConnection();
-        header("Location: area_personale.php"); 
 
+        if(  !saveStaged()  ){
+            $_SESSION['banner']="elementi_salvati_errore";
+        }else{
+            $_SESSION['banner']="elementi_salvati";
+        }
+        header("Location: area_personale.php"); 
     }
     else
     {

@@ -51,7 +51,7 @@
                 clean_input($ideals), 
                 clean_input($bonds), 
                 clean_input($flaws),
-                //date da DB ?
+                null  //per L'autore
             );
 
             if(isset($_SESSION[''])) {    // Inserisci
