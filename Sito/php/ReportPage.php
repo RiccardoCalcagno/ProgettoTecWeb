@@ -10,11 +10,9 @@ use DB\DBinterface;
 $html = file_get_contents('../otherHTMLs/Report.html');
 
 //prelevo l'oggetto report
-/*
 session_start();
-$report_info = $_SESSION[""];
-*/
-//ATTENZIONE! da inserire il nome della variabile che prelevo da session!
+$report_info = $_SESSION["report_id"];
+
 
 if(isset($_SESSION["username"]))
 {
