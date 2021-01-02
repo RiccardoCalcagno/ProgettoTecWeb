@@ -66,21 +66,25 @@ else if($_SESSION["login"])
         if($_SESSION["vai_avanti_master"])
         {
             $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
+            $_SESSION["vai_avanti_master"] = false;
         }
 
         if($_SESSION["vai_avanti_rep"])
         {
             $_SESSION["count_rep"] == $numero_pag_master ? $_SESSION["count_rep"] = $numero_pag_master : $_SESSION["count_rep"]++;
+            $_SESSION["vai_avanti_rep"] = false;
         }
 
         if($_SESSION["vai_indietro_master"])
         {
             $_SESSION["count_master"] == 1 ? $_SESSION["count_master"] = 1 : $_SESSION["count_master"]--;
+            $_SESSION["vai_indietro_master"] = false;
         }
 
         if($_SESSION["vai_indietro_rep"])
         {
             $_SESSION["count_rep"] == 1 ? $_SESSION["count_rep"] = 1 : $_SESSION["count_rep"]--;
+            $_SESSION["vai_indietro_rep"] = false;
         }
 
 
@@ -127,6 +131,12 @@ else if($_SESSION["login"])
             }
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
+
+                if($_SESSION["espandiPers"] == true)
+                {
+                    $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\"> {espandi pers}", $html);
+                    $_SESSION["espandiPers"] = false;
+                }
 
 
                 $_schede_report_master = "";

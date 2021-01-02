@@ -8,9 +8,9 @@
         header("Location : character.php");
     }
 
-    if(isset($_POST["espandiPers"]))
+    if(isset($_POST["espandi"]) && $_POST["espandi"] == "Pers")
     {
-        
+        $_SESSION["espandiPers"] = true;
     }
 
 ?>
