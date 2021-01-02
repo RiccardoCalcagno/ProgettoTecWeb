@@ -145,7 +145,7 @@
                 $characters = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $character = new Character($row["id"], $row["name"], $row["race"], $row["class"], $row["background"], $row["alignment"], $row["traits"], $row["ideals"], $row["bonds"], $row["flaws"], $row["author"], $row["creation_date"], $row["img"]);
+                    $character = new Character($row["id"], $row["name"], $row["race"], $row["class"], $row["background"], $row["alignment"], $row["traits"], $row["ideals"], $row["bonds"], $row["flaws"], $row["author"], $row["creation_date"]);
                     array_push($characters, $character);
                 }
             }
@@ -170,7 +170,7 @@
             else
             {
                 $row = $query_result->mysqli_assoc(MYSQL_ASSOC);
-                return new Character($row["id"], $row["name"], $row["race"], $row["class"], $row["background"], $row["alignment"], $row["traits"], $row["ideals"], $row["bonds"], $row["flaws"], $row["author"], $row["creation_date"], $row["img"]);
+                return new Character($row["id"], $row["name"], $row["race"], $row["class"], $row["background"], $row["alignment"], $row["traits"], $row["ideals"], $row["bonds"], $row["flaws"], $row["author"], $row["creation_date"]);
             }
         }
 
@@ -194,8 +194,7 @@
                      "    ideals = '" . $character_data->get_ideals() . "', ".
                      "    bonds = '" . $character_data->get_bonds() . "', ".
                      "    flaws = '" . $character_data->get_flaws() . "', ".
-                     "    creation_date = '" . $character_data->get_creation_date() . "', ".
-                     "    img = '" . $character_data->get_img() . "', ".
+                     "    creation_date = '" . $character_data->get_creation_date() . "'".
                      "WHERE author = '" . $id . "';";
 
             return mysqli_query($this->connection, $query);
@@ -203,7 +202,7 @@
 
         public function addCharacter(Character $character_data)
         {
-            $query = "INSERT INTO Characters (name, race, class, background, alignment, traits, ideals, bonds, flaws, author, creation_date, img) ". 
+            $query = "INSERT INTO Characters (name, race, class, background, alignment, traits, ideals, bonds, flaws, author, creation_date) ". 
                      "VALUES ('" . $character_data->get_name() . "', ".
                               "'" . $character_data->get_race() . "', ".
                               "'" . $character_data->get_class() . "', ".
@@ -215,7 +214,6 @@
                               "'" . $character_data->get_flaws() . "', ".
                               "'" . $character_data->get_author() . "', ".
                               "'" . $character_data->get_creation_date() . "' ".
-                              "'" . $character_data->get_img() . "' ".
                               ");";
             return mysqli_query($this->connection, $query);
         }
@@ -263,8 +261,8 @@
 
         // aggiunta di un report
         public function addReport(ReprotData $report_data){
-        	$query = "INSERT INTO Report (id,title,subtitle,content,author,isExplorable,creation_date)".
-        			 "VALUES ('" . $report_data.get_id() . "', ".
+            $query = "INSERT INTO Report (id,title,subtitle,content,author,isExplorable,creation_date)".
+                     "VALUES ('" . $report_data.get_id() . "', ".
                               "'" . $report_data.get_title() . "', ".
                               "'" . $report_data.get_subtitle() . "', ".
                               "'" . $report_data.get_content() . "', ".
@@ -276,14 +274,14 @@
 
         // modifica report
         public function setReport(ReprotData $report_data, $currentUser){
-        	$query = "UPDATE Report ".
-                     "SET id 			= '" . $report_data.get_id() . "', " .
-                     "    title 		= '" . $report_data.get_title() . "', " .
-                     "    subtitle 		= '" . $report_data.get_subtitle() . "', ".
-                     "    content 		= '" . $report_data.get_content() . "', ".
-                     "    author 		= '" . $report_data.get_author() . "', ".
-                     "    isExplorable 	= '" . $report_data.get_isExplorable() . "', ".
-                     "    creation_date = '" . date("Y-m-d", time()) . "' ".	//maybe spostare questa assegnazione in una funz. dedicata di ReportData
+            $query = "UPDATE Report ".
+                     "SET id             = '" . $report_data.get_id() . "', " .
+                     "    title         = '" . $report_data.get_title() . "', " .
+                     "    subtitle         = '" . $report_data.get_subtitle() . "', ".
+                     "    content         = '" . $report_data.get_content() . "', ".
+                     "    author         = '" . $report_data.get_author() . "', ".
+                     "    isExplorable     = '" . $report_data.get_isExplorable() . "', ".
+                     "    creation_date = '" . $report_data.get_last_modified() . "' ";
                      "WHERE username = '" . $currentUser . "';";
 
             return mysqli_query($this->connection, $query);
@@ -300,34 +298,34 @@
         //funzione per ricavare il numero di utenti linkati ad un report come "partecipanti"
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
-        	$num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
-	        $num_query_Result = mysqli_query($this->connection, $num_query);
-	        return $num_query_Result;
+            $num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
+            $num_query_Result = mysqli_query($this->connection, $num_query);
+            return $num_query_Result;
         }
 
         //funzione per ricavare i dati di un determinato numero di Cards, in base ad una lista di report.id
         public function getReportCard($IDs_arr) {
           $IDs_arr = clean_input($IDs_arr);
-        	$CardData_List = array();
-        	foreach($IDs_arr as $repo_id){
-	            $query = "SELECT * FROM Report WHERE Report.id = '".$repo_id."';";
-	            $queryResult = mysqli_query($this->connection, $query);
+            $CardData_List = array();
+            foreach($IDs_arr as $repo_id){
+                $query = "SELECT * FROM Report WHERE Report.id = '".$repo_id."';";
+                $queryResult = mysqli_query($this->connection, $query);
 
-	            if(!$row = mysqli_fetch_assoc($queryResult)){
-	            	echo "Spiacenti! Report n.".$repo_id."non trovato";
-	            }
-	            else{
-	                // Cerco l'immagine dell'autore
-	                $img_query = "SELECT User.imgpath FROM Users, Report WHERE Users.username = Report.author AND Report.id ='".$row['id']."';";
-	                $img_query_Result = mysqli_query($this->connection, $img_query);
+                if(!$row = mysqli_fetch_assoc($queryResult)){
+                    echo "Spiacenti! Report n.".$repo_id."non trovato";
+                }
+                else{
+                    // Cerco l'immagine dell'autore
+                    $img_query = "SELECT User.imgpath FROM Users, Report WHERE Users.username = Report.author AND Report.id ='".$row['id']."';";
+                    $img_query_Result = mysqli_query($this->connection, $img_query);
 
-	                // Compongo l'array della singola card
+                    // Compongo l'array della singola card
                   $singleCard = new ReportCard($row['id'], $row['title'], $row['subtitle'], linkedUsersCounter($row['id']), $row['isExplorable'], $row['author'], $img_query_Result);
 
-	                array_push($CardData_List,$singleCard);
-            	}
-	        }
-			   return $CardData_List;
+                    array_push($CardData_List,$singleCard);
+                }
+            }
+               return $CardData_List;
         }
 
 
@@ -336,27 +334,27 @@
         public function getIDsReport($CardType,$currentUser){
           $CardType = clean_input($CardType);
           $currentUser = clean_input($currentUser);
-        	//se CardType = 0, MyDashboard
-        	if($CardType == 0 && $currentUser){
-        		$query = "SELECT Report.id FROM Report WHERE Report.author = '".$currentUser."' ORDER BY Report.creation_date DESC;";
-        		$queryresult = mysqli_query($this->connection, $query);
-        		return $queryResult;
-        	}
-        	//se CardType = 1, ImPlayer
-        	else if($CardType == 1 && $currentUser){
-        		$query = "SELECT RG.report FROM report_giocatore RG, Report WHERE RG.user = '".$currentUser."' AND RG.report = Report.id ORDER BY Report.creation_date DESC;";
-        		$queryresult = mysqli_query($this->connection, $query);
-        		return $queryResult;
-        	}
-        	//se CardType = 2, Esplora
-        	else if($CardType == 2){
-        		$query = "SELECT Report.id FROM Report WHERE Report.isExplorable = 1 ORDER BY Report.creation_date DESC;";
-        		$queryresult = mysqli_query($this->connection, $query);
-        		return $queryResult;
-        	}
-        	else{
-        		echo "Qualcosa è andato storto! Anteprima non disponibile";
-        	}
+            //se CardType = 0, MyDashboard
+            if($CardType == 0 && $currentUser){
+                $query = "SELECT Report.id FROM Report WHERE Report.author = '".$currentUser."' ORDER BY Report.creation_date DESC;";
+                $queryresult = mysqli_query($this->connection, $query);
+                return $queryResult;
+            }
+            //se CardType = 1, ImPlayer
+            else if($CardType == 1 && $currentUser){
+                $query = "SELECT RG.report FROM report_giocatore RG, Report WHERE RG.user = '".$currentUser."' AND RG.report = Report.id ORDER BY Report.creation_date DESC;";
+                $queryresult = mysqli_query($this->connection, $query);
+                return $queryResult;
+            }
+            //se CardType = 2, Esplora
+            else if($CardType == 2){
+                $query = "SELECT Report.id FROM Report WHERE Report.isExplorable = 1 ORDER BY Report.creation_date DESC;";
+                $queryresult = mysqli_query($this->connection, $query);
+                return $queryResult;
+            }
+            else{
+                echo "Qualcosa è andato storto! Anteprima non disponibile";
+            }
 
         }
 
@@ -549,9 +547,9 @@
         // funzione per prendere una specifica foto dal db
         public function getSinglePhoto ($photo_id){
           $photo_id = clean_input($photo_id);
-        	$query = "SELECT * FROM Photo WHERE Photo.id = '".$photo_id."';";
-        	$query_result = mysqli_query($this->connection, $query);
-        	if(mysqli_num_rows($query_result) == 0) {
+            $query = "SELECT * FROM Photo WHERE Photo.id = '".$photo_id."';";
+            $query_result = mysqli_query($this->connection, $query);
+            if(mysqli_num_rows($query_result) == 0) {
                 echo "Spiacenti! Foto non trovata";
                 return null;
             }

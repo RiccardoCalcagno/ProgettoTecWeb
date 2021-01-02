@@ -14,7 +14,6 @@
         private $flaws; 
         private $author; 
         private $creation_date;
-        private $img;
 
         private $err_race;
         private $err_class;
@@ -26,7 +25,7 @@
         private static $background_arr = array('Accolito', 'Artigiano', 'Ciarlatano', 'Criminale', 'Eremita', 'Eroe', 'Forestiero', 'Intrattenitore', 'Marinaio', 'Monello', 'Nobile', 'Sapiente', 'Soldato');
         private static $alignment_arr = array('Lawful Good', 'Neutral Good', 'Caothic Good', 'Lawful Neutral', 'Neutral', 'Caothic Neutral', 'Lawful Evil', 'Neutral Evil', 'Caothic Evil');
 
-        public function __constructor($_id, $_name, $_race, $_class, $_background, $_alignment, $_traits, $_ideals, $_bonds, $_flaws, $_author, $_creation_date, $_img = null)
+        public function __constructor($_id, $_name, $_race, $_class, $_background, $_alignment, $_traits, $_ideals, $_bonds, $_flaws, $_author, $_creation_date)
         {
             $this->id = $_id;
             $this->set_name($_name);
@@ -39,7 +38,6 @@
             $this->set_bonds($_bonds);
             $this->set_flaws($_flaws);
             $this ->set_creation_date($_creation_date);
-            $this->set_img($_img);
 
         }
 
@@ -102,12 +100,6 @@
         {
             return $this->creation_date;
         }
-
-        public function get_img() 
-        {
-            return $this->img;
-        }
-
         /*public function set_id($var)
         {
 
@@ -179,11 +171,6 @@
         public function set_creation_date($var)
         {
             $creation_date = $var;
-        }
-
-        public function set_img($var)
-        {
-            $img = $var;
         }
 
         public function get_err_race()
