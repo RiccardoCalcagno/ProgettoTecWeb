@@ -9,6 +9,13 @@ use DB\DBinterface;
 //prelevo Report.html
 $html = file_get_contents('../otherHTMLs/Report.html');
 
+//prelevo l'oggetto report
+/*
+session_start();
+$report_info = $_SESSION[""];
+*/
+//ATTENZIONE! da inserire il nome della variabile che prelevo da session!
+
 if(isset($_SESSION["username"]))
 {
 	str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
@@ -17,6 +24,11 @@ if(isset($_SESSION["username"]))
 
 $dbInterface = new DBinterface();
 $connection = $dbInterface->openConnection();
+
+//faccio subito le richieste al DB per poter chiudere la connessione
+$usernameArray = getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
+
+
 
 if($connection == false){
 	header("Location : 404.php");
@@ -29,13 +41,6 @@ else{
 		//prelevo il report desiderato, in base all'id contenuto in $selected_report_id
 		//$report_info = get_report($selected_report_id);
 	//ATTENZIONE, sopra è un alternativa, segue invece come se questa pagina ricevesse direttamente l'oggetto report, $report_info
-
-	//prelevo l'oggetto report
-	/*
-	session_start();
-	$report_info = $_SESSION[""];
-	*/
-	//ATTENZIONE! da inserire il nome della variabile che prelevo da session!
 
 	//titolo e sottotitolo
 	$replacer = '<h1>'.$report_info.get_title().'</h1>'.'<p>'.$report_info.get_subtitle().'</p>';
@@ -55,7 +60,6 @@ else{
 
 	//giocatori presenti
 	//servirà prelevare le info degli utenti collegati con il report
-	$usernameArray = getALLForReport($report_info.get_id());
 	$replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';
 	foreach ($usernameArray as $linked_user){
 		$replacer .= '<li>';
