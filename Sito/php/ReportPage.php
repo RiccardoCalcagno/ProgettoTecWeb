@@ -28,11 +28,23 @@ $connection = $dbInterface->openConnection();
 //faccio subito le richieste al DB per poter chiudere la connessione
 $usernameArray = getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
 
+$userPic = array();
+for ($i = 0; i < count($usernameArray);$i++){
+	$userPic[$i] = getUserPic($usernameArray[$i]);
+}
 
+$commentsArray = getComments($report_info.get_id());
+
+$commenterPic = array();
+for ($i = 0; i < count($commentsArray);$i++){
+	$commenterPic[$i] = getUserPic($commentsArray[$i].get_author());
+}
+
+//chiudo la connessione
+$dbInterface->closeConnection();
 
 if($connection == false){
 	header("Location : 404.php");
-	$dbInterface->closeConnection();
 }
 else{
 	//di seguito tutti gli accorgimenti per stampare le parti prelevate da DB all'interno della pagina Report.html
@@ -61,6 +73,15 @@ else{
 	//giocatori presenti
 	//servirà prelevare le info degli utenti collegati con il report
 	$replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';
+	for ($i = 0; $i < count($usernameArray);$i++){
+		$replacer .= '<li>';
+	    $replacer .= '<div class="badgeUtente">';
+	    $replacer .= '<img src="'.$userPic[$i].'" alt="Immagine profilo" />';
+	    $replacer .= '<p class="textVariable">'.$usernameArray[$i].'</p>';
+	    $replacer .= '</div>';
+	    $replacer .= '</li>';
+	}
+	/*OLD VERSION
 	foreach ($usernameArray as $linked_user){
 		$replacer .= '<li>';
         $replacer .= '<div class="badgeUtente">';
@@ -69,6 +90,7 @@ else{
         $replacer .= '</div>';
         $replacer .= '</li>';
 	}
+	*/
 	$replacer .= '</ul>';
 
 	str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
@@ -95,8 +117,19 @@ else{
 
 	//lista dei commenti
 	//devo mostrare il commento con tutti i suoi dati, oltre che l'immagine del giocatore (non è un dato del commento)
-	$commentsArray = getComments($report_info.get_id());
 	$replacer = '<ul id="listaCommenti">';
+	for($i = 0; i < count($commentsArray);$i++){
+		$replacer .= '<li class="commento"><div class="badgeUtente">';
+		$replacer .= '<img src="'.$commenterPic[$i].'" alt="Immagine profilo" />';
+		$replacer .= '<p class="textVariable">'.$commentsArray[$i].get_author().'</p></div>';
+		$replacer .= '<div class="testoCommento">';
+		$replacer .= '<p>'.$commentsArray[$i].get_text().'</p>';
+		$replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i].get_date().'</p></div>';
+		$replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/></li>';
+		//quest'ultimo è il tasto per eliminare il commento.
+		//TODO controllare quando mostrarlo e quando no.
+	}
+	/*OLD VERSION
 	foreach($commentsArray as $singleComment){
 		$replacer .= '<li class="commento"><div class="badgeUtente">';
 		$replacer .= '<img src="'.getUserPic($singleComment.get_author()).'" alt="Immagine profilo" />';
@@ -108,6 +141,7 @@ else{
 		//quest'ultimo è il tasto per eliminare il commento.
 		//TODO controllare quando mostrarlo e quando no.
 	}
+	*/
 	$replacer .= '</ul>';
 
 	str_replace("<comments_placeholder/>", $replacer, $html);
@@ -137,9 +171,6 @@ else{
 	else{
 		str_replace("<footerAction_placeholder/>", "", $html);
 	}
-
-	//chiudo la connessione
-	$dbInterface->closeConnection();
 
 	//stampo la pagina
 	echo ($html);
