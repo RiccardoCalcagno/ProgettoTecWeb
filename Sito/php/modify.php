@@ -80,7 +80,7 @@
 
                 $_SESSION['banners']= "modifica_utente_confermata";
 
-                header("Location : area_personale.php");
+                header("Location : modify_user.php");
             }
             else
             {
