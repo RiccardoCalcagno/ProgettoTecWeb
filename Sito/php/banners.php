@@ -12,12 +12,28 @@
     elementi_salvati
     */
 
+    function staged_session() { // Da chiamare a inizio codice ogni volta che si possono usare staged
+
+        if(!isset($_SESSION)) {
+            session_start();
+        }
+
+        if(!isset($_SESSION['stagedPersonaggi'])) {
+            $_SESSION['stagedPersonaggi'] = array();
+        }
+
+        if(!isset($_SESSION['stagedReports'])) {
+            $_SESSION['stagedReports'] = array();
+        }
+        
+    }
+
     function addPossibleBanner($html) {
     $banner = createPossibleBanner();
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
     }
-    if(strpos($_SESSION['banner'],'elementi_salvati')){
+    if(strpos($_SESSION['banners'],'elementi_salvati')){
         //COSI FUNZIONA?
         if(((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
             foreach ($_SESSION['stagedPersonaggi'] as $i => $value) {unset($_SESSION['stagedPersonaggi'][$i]);}
@@ -25,13 +41,15 @@
         }
     }
     $_SESSION['banners']=null;
+    
+    return $html;
     }
 
     function createPossibleBanner() {
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            if((strpos($_SESSION['banner'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
+            if((strpos($_SESSION['banners'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
 
                 if($_SESSION['banners']="elementi_salvati_errore"){
                     $htmlBanner="        

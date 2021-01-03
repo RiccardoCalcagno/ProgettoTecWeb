@@ -6,7 +6,10 @@
     
     // do you even need to check before ?
     session_start();
-    //$_SESSION["username"] = "user"; FOR TESTING
+    staged_session();
+    
+    $_SESSION["username"] = "user"; // FOR TESTING
+//    unset($_SESSION["username"]);
 
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'character creation.html'); //forse togliere spazio nel nome
 
@@ -51,11 +54,12 @@
                 clean_input($ideals), 
                 clean_input($bonds), 
                 clean_input($flaws),
-                $_SESSION['username']
             );
 
 
             if(isset($_SESSION['username'])) {
+
+                $character->set_author($_SESSION['username']);
 
                 $db = new DBinterface();
                 $openConnection = $db->openConnection();
