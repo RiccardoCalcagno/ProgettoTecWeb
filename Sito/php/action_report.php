@@ -74,6 +74,23 @@
 
     }
 
+    if(isset($_POST["contenutoCommento"]))
+    {
+        //create comment from data
+        $comment = new Comments($_POST["contenutoCommento"],$_SESSION["username"],$_SESSION["report_id"]);
+        $db->openConnection();
+        $db->addComments($comment);
+        $db->closeConnection();
+        header("Location : ReportPage.php");
+    }
+
+    if(isset($_POST["eliminaCommento"]))
+    { 
+        $db->openConnection();
+        $db->deleteComments($_POST["eliminaCommento"]);
+        $db->closeConnection();
+        header("Location : ReportPage.php");
+    }
 
     
 

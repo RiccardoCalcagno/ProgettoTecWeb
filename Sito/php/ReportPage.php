@@ -121,7 +121,7 @@ else{
 		$replacer .= '<p>'.$commentsArray[$i].get_text().'</p>';
 		$replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i].get_date().'</p></div>';
 		if($commentsArray[$i].get_author()==$_SESSION["username"]){
-			$replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/></li>';
+			$replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i].get_id().'"/></li>';
 		}
 	}
 	/*OLD VERSION
