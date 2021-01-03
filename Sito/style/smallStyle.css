@@ -929,9 +929,15 @@ form#datiUtenza{
     background-size: 100% 100%;
 }
 
+.pergamena {
+    padding-bottom: 1em;
+}
+
 #contentPersonaggio.pergamena::after{
     height: 88px;
+    top: 80px;
     background-size: 100% 100%;
+    margin-top: 1.5em;
 }
 /* HORRIBLE 
 #contentPersonaggio.scheda {    

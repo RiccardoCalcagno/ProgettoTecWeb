@@ -191,7 +191,7 @@
             }
             else
             {
-                $row = $query_result->mysqli_assoc(MYSQL_ASSOC);
+                $row = $query_result->fetch_assoc();
                 return new Character($row["id"], 
                                      $row["name"], 
                                      $row["race"], 
