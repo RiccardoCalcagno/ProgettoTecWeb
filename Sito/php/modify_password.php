@@ -65,6 +65,9 @@
                 $_SESSION["birthdate"] = $birthdate;
                 $_SESSION["img"] = $img;
                 $_SESSION["result"] = true;
+
+                $_SESSION['banners']= "modifica_utente_confermata";
+                
                 header("Location : area_personale.php");
             }
             else
