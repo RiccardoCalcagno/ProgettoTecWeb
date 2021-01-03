@@ -77,7 +77,7 @@
     if(isset($_POST["contenutoCommento"]))
     {
         //create comment from data
-        $comment = new Comments($_POST["contenutoCommento"],$_SESSION["username"],$_SESSION["report_id"]);
+        $comment = new Comments(0,$_POST["contenutoCommento"],0,$_SESSION["username"],$_SESSION["report_id"]);
         $db->openConnection();
         $db->addComments($comment);
         $db->closeConnection();
@@ -92,8 +92,25 @@
         header("Location : ReportPage.php");
     }
 
-    
+    if(isset($_POST["FtAct_DeleteReport"]))
+    {
+        $db->openConnection();
+        $db->deleteReport($_SESSION["report_id"]);
+        $db->closeConnection();
+        header("Location : ../Home.html");
+    }
 
-    
+    if(isset($_POST["FtAct_PublicReport"]))
+    {
+        $db->openConnection();
+        $db->setExplorable($_SESSION["report_id"]);
+        $db->closeConnection();
+        header("Location : ReportPage.php");
+    }
+
+    if(isset($_POST["FtAct_ModReport"]))
+    {
+        header("Location : CreazioneReportPage.php");
+    }
 
 ?>

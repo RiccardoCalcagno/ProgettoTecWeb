@@ -149,15 +149,15 @@ else{
 	if($_SESSION["username"]==$report_info.get_author()){
 		$replacer = '<ul id="footAction">
 		        		<li>
-		            		<input type="submit" name="report" value="ELIMINA" class="buttonLink"/>
+		            		<input type="submit" name="FtAct_DeleteReport" value="ELIMINA" class="buttonLink"/>
 		        		</li>';
-		if($report_info.get_isExplorable()){
+		if(!$report_info.get_isExplorable()){
 			$replacer .= '<li>
-		            		<input type="submit" name="report" value="Pubblica in ESPLORA" class="buttonLink"/> 
+		            		<input type="submit" name="FtAct_PublicReport" value="Pubblica in ESPLORA" class="buttonLink"/> 
 		        		</li>';
 		} 		
 		$replacer .= 	'<li>
-		            		<input type="submit" name="report" value="MODIFICA" class="buttonLink"/> 
+		            		<input type="submit" name="FtAct_ModReport" value="MODIFICA" class="buttonLink"/> 
 		        		</li>
 		    		</ul>';
 		str_replace("<footerAction_placeholder/>", $replacer, $html);
