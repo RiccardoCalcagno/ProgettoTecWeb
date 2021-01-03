@@ -4,7 +4,7 @@ if(isset($_POST["Accedi"]))
 {
     if($_POST["Accedi"] == "Accedi")
     {
-        header("Location : login.php");
+        header("Location: login.php");
         exit();
     }
 
@@ -25,18 +25,18 @@ if(isset($_POST["Iscrizione"]))
 {
     if($_POST["Iscrizione"] == "Iscrizione")
     {
-        header("Location : register.php");
+        header("Location: register.php");
         exit();
     }
 
     if($_POST["Iscrizione"] == "Area Personale")
     {
-        header("Location : area_personale.php");
+        header("Location: area_personale.php");
         exit();
     }
 }
 
-header("Location : index.php");
+header("Location: index.php");
 
 
 

@@ -11,7 +11,7 @@ if (!isset($_SESSION)) {
 //$_SESSION['character_id'] = 47;   // testing
     
 if (!isset($_SESSION['character_id'])) {
-    header("Location : Error.php"); // TO FIX DEFINE ?
+    header("Location: Error.php"); // TO FIX DEFINE ?
     //errorPage("Si e' verificato un problema")
 }
 else {
@@ -25,6 +25,8 @@ else {
         $db->closeConnection();
 
         if(isset($character)) {
+            
+            if ($character->get_author() == $_SESSION['username']) {
                 $html = str_replace("<nameValue />", $character->get_name(), $html);
                 $html = str_replace("<imgPath />", "../images/razze/" . strtolower($character->get_race()) . ".png", $html);
                 $html = str_replace("<raceValue />", $character->get_race(), $html);
@@ -35,6 +37,12 @@ else {
                 $html = str_replace("<idealsValue />", $character->get_ideals(), $html);
                 $html = str_replace("<bondsValue />", $character->get_bonds(), $html);
                 $html = str_replace("<flawsValue />", $character->get_flaws(), $html);
+            }
+            else {  // User sta cercando di accedere ad un personaggio non suo
+                $html = "<h1 style=\"font-size:5em; text-align: center; color: red;\">WAITTHATSILLEGAL</h1>";
+                // ERROR PAGE ?
+
+            }
         }
         else {
         // Can't get data from DB
