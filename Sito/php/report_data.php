@@ -65,6 +65,11 @@
             $lista_giocatori = $var;
         }
 
+        public function set_author_img($var)
+        {
+            $author_img = $var;
+        }
+
         public function set_last_modified($var) 
         {
             $last_modified = $var;
@@ -103,6 +108,11 @@
         public function get_lista_giocatori()
         {
             return $this->lista_giocatori;
+        }
+
+        public function get_author_img()
+        {
+            return $this->author_img;
         }
 
         public function get_last_modified() 
