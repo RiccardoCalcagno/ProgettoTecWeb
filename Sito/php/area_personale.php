@@ -203,12 +203,12 @@ else if($_SESSION["login"])
                     $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
                         <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">". $report_data[$i]->get_title() ."</h4>
+                            <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                         </div>
                         <div class=\"badgeUtente\">
                             <h5>Autore</h5>
-                            <img src=\"../images/icone_razze/nano.png\" alt=\"\" /> 
+                            <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
                             <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
                     <footer>
