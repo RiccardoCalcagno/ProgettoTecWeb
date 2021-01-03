@@ -18,7 +18,7 @@ $connection = $dbInterface->openConnection();
 
 //prelevo l'oggetto report
 session_start();
-$report_info = $_SESSION["report_id"];
+$report_info = getReport($_SESSION["report_id"]);
 
 //faccio subito le richieste al DB per poter chiudere la connessione
 $usernameArray = getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
@@ -120,9 +120,9 @@ else{
 		$replacer .= '<div class="testoCommento">';
 		$replacer .= '<p>'.$commentsArray[$i].get_text().'</p>';
 		$replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i].get_date().'</p></div>';
-		$replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/></li>';
-		//quest'ultimo è il tasto per eliminare il commento.
-		//TODO controllare quando mostrarlo e quando no.
+		if($commentsArray[$i].get_author()==$_SESSION["username"]){
+			$replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/></li>';
+		}
 	}
 	/*OLD VERSION
 	foreach($commentsArray as $singleComment){
@@ -155,8 +155,7 @@ else{
 			$replacer .= '<li>
 		            		<input type="submit" name="report" value="Pubblica in ESPLORA" class="buttonLink"/> 
 		        		</li>';
-		}
-		        		
+		} 		
 		$replacer .= 	'<li>
 		            		<input type="submit" name="report" value="MODIFICA" class="buttonLink"/> 
 		        		</li>
