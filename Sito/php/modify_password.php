@@ -2,7 +2,6 @@
 
     require_once("DBinterface.php");
 
-    $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     $modify_user = null;
     $err = array();
 

@@ -9,6 +9,8 @@ if(isset($_SESSION["username"]))
 }
 
 
+$html = addPossibleBanner($html, "../index.php");
+
 echo $html;
 
 ?>

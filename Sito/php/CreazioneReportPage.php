@@ -7,7 +7,7 @@
 
     // use DB\DBinterface; //SERVE A QUALCOSA?
 
-    $html = file_get_contents("../otherHTMLs/creazioneReport.html");
+    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . "creazioneReport.html");
 
     if(isset($_SESSION["username"]))
     {
@@ -116,10 +116,9 @@
     $html = str_replace('<valueSubtitle/>',$sottotitolo,$html);
     $html = str_replace('<valueContent/>',$contenuto,$html);
     
-    /*
-    QUESTO E DA METTERE ALLA FINE DI OGNI PHP PER OGNI PAGINA HTML
-    */
-    $html = addPossibleBanner($html);
+
+
+    $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
     echo $html;
 

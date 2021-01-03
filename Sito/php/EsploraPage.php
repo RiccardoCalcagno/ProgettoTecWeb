@@ -6,7 +6,7 @@ require_once ("DBinterface");
 use DB\DBinterface;
 
 //prelevo Esplora.html
-$html = file_get_contents('../otherHTMLs/Esplora.html');
+$html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . 'Esplora.html');
 
 if(isset($_SESSION["username"]))
 {
@@ -24,6 +24,8 @@ if($connection == false){
 else{
     //sostituire il placeholder delle card di report, gestire le pagine di cards
 }
+
+$html = addPossibleBanner($html, "EsploraPage.php");
 
 echo $html;
 

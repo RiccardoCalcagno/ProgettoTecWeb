@@ -4,7 +4,7 @@
 require_once("DBinterface.php");
 
 //prelevo Report.html
-$html = file_get_contents('../otherHTMLs/Report.html');
+$html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . 'Report.html');
 
 
 if(isset($_SESSION["username"]))
@@ -166,7 +166,8 @@ else{
         str_replace("<footerAction_placeholder/>", "", $html);
     }
 
-    //stampo la pagina
+    $html = addPossibleBanner($html, "ReportPage.php");
+
     echo ($html);
 }
 

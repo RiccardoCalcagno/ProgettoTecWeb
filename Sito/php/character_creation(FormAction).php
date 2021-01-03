@@ -10,12 +10,6 @@
     }
     staged_session();
 
-    if(isset($_SESSION["username"]))
-    {
-    $html = str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
-    $html = str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
-    }
-
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
     }
@@ -72,6 +66,8 @@
 //    $_SESSION["username"] = "user"; // FOR TESTING
 //    unset($_SESSION["username"]);
 
+    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . "character creation.html"); 
+
     $messaggioForm = "";
     $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
 
@@ -79,6 +75,12 @@
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
 
     $html = preparePage($html, $toModify);
+
+    if(isset($_SESSION["username"]))
+    {
+        $html = str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
+        $html = str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
+    }
 
     if ( isset($_POST['salvaPers']) ) {
 
@@ -225,10 +227,7 @@ $html = str_replace('<valoreFlaws />', $flaws, $html);
 
 
 
-/*
-    QUESTO E DA METTERE ALLA FINE DI OGNI PHP PER OGNI PAGINA HTML
-*/
-$html = addPossibleBanner($html);
+$html = addPossibleBanner($html, "character_creation(FormAction).php");
 
 
 echo $html;

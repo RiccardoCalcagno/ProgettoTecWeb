@@ -1,5 +1,8 @@
 <?php
 
+    require_once("banners.php");
+    require_once("GeneralPurpose.php");
+
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "register.html");
 
     if(isset($_SESSION["username"]))
@@ -11,19 +14,6 @@
     if(isset($_SESSION['beforeAccess'])){
         $html = str_replace('<a href="../Home.html" class="annulla">ANNULLA</a>',"<a href='".$_SESSION['beforeAccess']."' class='annulla'>ANNULLA</a>");
     }
-    if($_SESSION['banner']=="creazione_utente_confermata"){
-
-        $html = addPossibleBanner($html);
-
-        switch( saveStaged() ){
-            case -1: $_SESSION['banner']="elementi_salvati_errore"; break;
-            case 1: $_SESSION['banner']="elementi_salvati"; break;
-            case 0: break;
-        }
-    }
-
-
-
 
     if(!isset($_SESSION))
     {
@@ -65,7 +55,27 @@
         }
     }
 
-    
+
+    if($_SESSION['banner']=="creazione_utente_confermata"){
+
+        if(isset($_SESSION['beforeAccess'])){
+            $html = addPossibleBanner($html, $_SESSION['beforeAccess']);
+        }else{
+            $html = addPossibleBanner($html, "area_personale.php");
+        } 
+
+        switch( saveStaged() ){
+            case -1: $_SESSION['banner']="elementi_salvati_errore"; break;
+            case 1: $_SESSION['banner']="elementi_salvati"; break;
+            case 0: break;
+        }
+    }else{
+        if(isset($_SESSION['beforeAccess'])){
+            $html = addPossibleBanner($html, $_SESSION['beforeAccess']);
+        }else{
+            $html = addPossibleBanner($html, "area_personale.php");
+        }
+    }
 
     echo $html;
 ?>
