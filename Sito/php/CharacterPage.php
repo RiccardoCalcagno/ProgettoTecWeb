@@ -7,10 +7,10 @@ $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "otherHTMLs" . DIRECTORY_
 if (!isset($_SESSION)) {
     session_start();
 }
-
+//$_SESSION['username'] = 'user';    // testing
 //$_SESSION['character_id'] = 47;   // testing
     
-if (!isset($_SESSION['character_id'])) {
+if ( !isset($_SESSION['username']) || !isset($_SESSION['character_id']) ) {
     header("Location: Error.php"); // TO FIX DEFINE ?
     //errorPage("Si e' verificato un problema")
 }

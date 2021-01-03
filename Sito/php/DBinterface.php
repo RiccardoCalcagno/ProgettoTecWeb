@@ -137,6 +137,42 @@
             return $user_pic;
         }
 
+        public function getCharacterOfUser($char_id, $username)
+        {
+            $username = clean_input($username);
+
+            $query = "SELECT * ".
+                     "FROM Characters ". 
+                     "WHERE author = '" . $username . "' " . 
+                     "AND id = '" . $char_id . "';";
+
+            $query_result = mysqli_query($this->connection, $query);
+
+            if(!$query_result) {
+                // ERROR?
+            }
+            else if(!$query_result->num_rows) {
+                return null;
+            }
+            else {
+                $row = $query_result->fetch_assoc();
+                $character = new Character($row["id"], 
+                                            $row["name"], 
+                                            $row["race"], 
+                                            $row["class"], 
+                                            $row["background"], 
+                                            $row["alignment"], 
+                                            $row["traits"], 
+                                            $row["ideals"], 
+                                            $row["bonds"], 
+                                            $row["flaws"], 
+                                            $row["author"], 
+                                            $row["creation_date"]);
+                                            
+                return $character;
+            }
+        }
+
         public function getCharactersByUser($username)
         {
             $username = clean_input($username);
@@ -228,9 +264,10 @@
                      "    traits = '" . $character_data->get_traits() . "', ".
                      "    ideals = '" . $character_data->get_ideals() . "', ".
                      "    bonds = '" . $character_data->get_bonds() . "', ".
-                     "    flaws = '" . $character_data->get_flaws() . "', ".
-                     "    creation_date = '" . $character_data->get_creation_date() . "'".
-                     "WHERE author = '" . $id . "';";
+                     "    flaws = '" . $character_data->get_flaws() . "'".
+                     "WHERE id = '" . $id . "';"; //"WHERE author = '" . $id . "';";
+
+                     print($query);
 
             $done = (bool) mysqli_query($this->connection, $query);
             return $done;

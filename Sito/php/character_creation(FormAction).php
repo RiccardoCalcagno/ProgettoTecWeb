@@ -3,24 +3,80 @@
     require_once("character.php");
     require_once("GeneralPurpose.php");
     require_once("banners.php");
-    
-    // do you even need to check before ?
-    session_start();
+
+//---------------------------------- UTILITY FUNCTIONs
+    if(!isset($_SESSION)) {
+        session_start();
+    }
     staged_session();
-    
-    $_SESSION["username"] = "user"; // FOR TESTING
-//    unset($_SESSION["username"]);
-
-    $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'character creation.html'); //forse togliere spazio nel nome
-
-    $messaggioForm = "";
-    $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
 
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
     }
+    
+    function preparePage($htmlPage, $toModify) {
 
-    if (isset($_POST['salvaPers'])) {
+        $title = ''; $header = ''; $p = ''; $button = '';
+
+        
+        if ( $toModify ){
+
+            $title = '<title> - Modifica Scheda Giocatore</title>
+            <meta name="title" content="Modifica Scheda Giocatore" />
+            <meta name="description" content="Modifica la tua Scheda Giocatore!" />
+            <meta name="keywords" content="modifica personaggio, Dungeons and Dragons character" />';
+
+            $header = '<header id="intestazionePagina">
+                <h1>Modifica Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+                </header>';
+
+                $p = 'Concludi la modifica salvando la nuova versione della Scheda Giocatore';
+
+                $button = 'SALVA MODIFICA';
+        }
+        else  { // else if (isset($_POST['salvaPers']))
+
+            $title = '<title> - Creazione Scheda Giocatore</title>
+                <meta name="title" content="Creazione Scheda Giocatore" />
+                <meta name="description" content="Crea la tua Scheda Giocatore!" />
+                <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" />';
+
+            $header = '<header id="intestazionePagina">
+                <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+                <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
+                <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
+                </header>';
+
+                $p = 'Concludi la crazione salvando nuova la Scheda Giocatore nella tua Area Personale';
+
+                $button = 'SALVA SCHEDA'; 
+        }
+        // else {
+        //     // ERROR PAGE ? forse non serve neanche 
+        // }
+
+        $htmlPage = str_replace('<titleValue />', $title, $htmlPage);
+        $htmlPage = str_replace('<headerValue />', $header, $htmlPage);
+        $htmlPage = str_replace('<pValue />', $p, $htmlPage);
+        $htmlPage = str_replace('<buttonValue />', $button, $htmlPage);
+
+        return $htmlPage;
+    }
+ //---------------------------------------------------------------------
+//    $_SESSION["username"] = "user"; // FOR TESTING
+//    unset($_SESSION["username"]);
+
+    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs'. DIRECTORY_SEPARATOR . 'character creation.html');
+    
+    $messaggioForm = "";
+    $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
+
+
+    $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
+
+    $html = preparePage($html, $toModify);
+
+    if ( isset($_POST['salvaPers']) ) {
 
         $name = $_POST['cname'];    //estraggo dal post della form le informazioni contenute
         $race = $_POST['crace'];
@@ -65,11 +121,15 @@
                 $openConnection = $db->openConnection();
 
                 if ($openConnection == true) {
-                    $result = $db->addCharacter($character);
+                    $result = $toModify ? $db->setCharacter($character, $_SESSION["character_id"]) : $db->addCharacter($character); // TO FIX $_SESSION['user_id'] ?
 
                     if($result == true) {    // conferma ed errori con str_replace o banner_salvataggio.html ?
-                        $_SESSION['banners']= "creazione_documento_confermata";
+                        $_SESSION['banners'] = $toModify ? "modifica_documento_confermata" : "creazione_documento_confermata";
                         $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
+                        
+                        unset($_SESSION["character_id"]);
+                        unset($_SESSION['modificaChar']);
+                     //   header("Location: character_creation(FormAction).php");
                     }
                     else {
                         // Can't insert in DB
@@ -83,7 +143,8 @@
 
                 $db->closeConnection();
             }
-            else {
+            else {  
+                // if(!$toModify) altrimenti errore?
                 array_push($_SESSION['stagedPersonaggi'], $character);
                 $_SESSION['banners']= "salvataggio_pendente";
             }
@@ -113,6 +174,32 @@
                 }
             }
             $messaggioForm .= '</ul></div>';
+        }
+    }
+    else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
+
+        $db = new DBinterface();
+        $openConnection = $db->openConnection();
+
+        if ($openConnection == true) {
+            $character = $db->getCharacterOfUser($_SESSION["character_id"], $_SESSION['username']);
+            if($character) {
+                $name = $character->get_name();
+                $race = $character->get_race();
+                $class = $character->get_class();
+                $background = $character->get_background();
+                $alignment = $character->get_alignment();
+                $traits = $character->get_traits();
+                $ideals = $character->get_ideals();
+                $bonds = $character->get_bonds();
+                $flaws = $character->get_flaws();
+            }
+            else {
+                // ERROR PAGE ?
+            }
+        }
+        else {
+            // ERROR PAGE ?
         }
     }
 
