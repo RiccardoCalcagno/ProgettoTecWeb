@@ -70,13 +70,13 @@ CREATE TABLE Characters (
   race varchar(50) NOT NULL,
   class varchar(50) NOT NULL,
   background varchar(50) NOT NULL,
-  alignment varchar(10) NOT NULL,
+  alignment varchar(17) NOT NULL,
   traits varchar(150) NOT NULL,
   ideals varchar(150) NOT NULL,
   bonds varchar(150) NOT NULL,
   flaws varchar(150) NOT NULL,
   author varchar(50) NOT NULL,
-  creation_date date NOT NULL,
+  creation_date timestamp NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (id),
   FOREIGN KEY (author) REFERENCES Users (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

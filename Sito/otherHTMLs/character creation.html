@@ -128,7 +128,6 @@
     <form id="ccForm" autocomplete="on" class="creazioneFields"  method="post" action="../php/character_creation(FormAction).php" onsubmit="return validateCharCreation();">
 
         <messaggioForm />
-        <selectValues />
 
         <ol>
             <li>
@@ -154,15 +153,15 @@
                     <div>
                         <label for="crace" class="ccLabel">Scegli una <strong>Razza</strong> tra quelle proposte</label>
                         <select id="crace" name="crace" onchange="setDescCaratteristica(0)" aria-required="true" required="required">
-                            <option value="umano">Umano</option>
-                            <option value="elfo">Elfo</option>
-                            <option value="nano">Nano</option>
-                            <option value="halfling">Halfling</option>
-                            <option value="gnome">Gnome</option>
-                            <option value="tiefling">Tiefling</option>
-                            <option value="dragonide">Dragonide</option>
-                            <option value="mezzelfo">Mezzelfo</option>
-                            <option value="mezzorco">Mezzorco</option>
+                            <option value="Umano">Umano</option>
+                            <option value="Elfo">Elfo</option>
+                            <option value="Nano">Nano</option>
+                            <option value="Halfling">Halfling</option>
+                            <option value="Gnome">Gnome</option>
+                            <option value="Tiefling">Tiefling</option>
+                            <option value="Dragonide">Dragonide</option>
+                            <option value="Mezzelfo">Mezzelfo</option>
+                            <option value="Mezzorco">Mezzorco</option>
                         </select>
                     </div>
                 </fieldset>
@@ -179,18 +178,18 @@
                     <div>
                         <label for="cclass" class="ccLabel">Scegli una <strong>Classe</strong> tra quelle proposte</label>
                         <select id="cclass" name="cclass" onchange="setDescCaratteristica(1)" aria-required="true" required="required">
-                            <option value="bardo">Bardo</option>
-                            <option value="barbaro">Barbaro</option>
-                            <option value="druido">Druido</option>
-                            <option value="ladro">Ladro</option>
-                            <option value="chierico">Chierico</option>
-                            <option value="guerriero">Guerriero</option>
-                            <option value="monaco">Monaco</option>
-                            <option value="mago">Mago</option>
-                            <option value="warlock">Warlock</option>
-                            <option value="paladino">Paladino</option>
-                            <option value="ranger">Ranger</option>
-                            <option value="stregone">Stregone</option>
+                            <option value="Bardo">Bardo</option>
+                            <option value="Barbaro">Barbaro</option>
+                            <option value="Druido">Druido</option>
+                            <option value="Ladro">Ladro</option>
+                            <option value="Chierico">Chierico</option>
+                            <option value="Guerriero">Guerriero</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mago">Mago</option>
+                            <option value="Warlock">Warlock</option>
+                            <option value="Paladino">Paladino</option>
+                            <option value="Ranger">Ranger</option>
+                            <option value="Stregone">Stregone</option>
                         </select>
                     </div>
                 </fieldset>
@@ -207,19 +206,19 @@
                     <div>
                         <label for="cbackground" class="ccLabel">Scegli un <strong xml:lang="en">Background</strong> tra quelli proposti</label>
                         <select id="cbackground" name="cbackground" onchange="setDescCaratteristica(2)" aria-required="true" required="required">
-                            <option value="accolito">Accolito</option>
-                            <option value="artigiano">Artigiano</option>
-                            <option value="ciarlatano">Ciarlatano</option>
-                            <option value="criminale">Criminale</option>
-                            <option value="eremita">Eremita</option>
-                            <option value="eroe">Eroe</option>
-                            <option value="forestiero">Forestiero</option>
-                            <option value="intrattenitore">Intrattenitore</option>
-                            <option value="marinaio">Marinaio</option>
-                            <option value="monello">Monello</option>
-                            <option value="nobile">Nobile</option>
-                            <option value="sapiente">Sapiente</option>
-                            <option value="soldato">Soldato</option>
+                            <option value="Accolito">Accolito</option>
+                            <option value="Artigiano">Artigiano</option>
+                            <option value="Ciarlatano">Ciarlatano</option>
+                            <option value="Criminale">Criminale</option>
+                            <option value="Eremita">Eremita</option>
+                            <option value="Eroe">Eroe</option>
+                            <option value="Forestiero">Forestiero</option>
+                            <option value="Intrattenitore">Intrattenitore</option>
+                            <option value="Marinaio">Marinaio</option>
+                            <option value="Monello">Monello</option>
+                            <option value="Nobile">Nobile</option>
+                            <option value="Sapiente">Sapiente</option>
+                            <option value="Soldato">Soldato</option>
                         </select>
                 </fieldset>
             </li>
@@ -235,15 +234,15 @@
                         <label for="calignment" class="ccLabel">Scegli un <strong>Allineamento</strong> tra quelli
                             proposti</label>
                         <select id="calignment" name="calignment" aria-required="true" required="required">
-                            <option value="LG">Legale Buono</option>
-                            <option value="NG">Neutrale Buono</option>
-                            <option value="CG">Caotico Buono</option>
-                            <option value="LN">Legale Neutrale</option>
-                            <option value="N">Neutrale Puro</option>
-                            <option value="CN">Caotico Neutrale</option>
-                            <option value="LE">Legale Malvagio</option>
-                            <option value="NE">Neutrale Malvagio</option>
-                            <option value="CE">Caotico Malvagio</option>
+                            <option value="Legale Buono">Legale Buono</option>
+                            <option value="Neutrale Buono">Neutrale Buono</option>
+                            <option value="Caotico Buono">Caotico Buono</option>
+                            <option value="Legale Neutrale">Legale Neutrale</option>
+                            <option value="Neutrale Puro">Neutrale Puro</option>
+                            <option value="Caotico Neutrale">Caotico Neutrale</option>
+                            <option value="Legale Malvagio">Legale Malvagio</option>
+                            <option value="Neutrale Malvagio">Neutrale Malvagio</option>
+                            <option value="Caotico Malvagio">Caotico Malvagio</option>
                         </select>
                     </div>
                 </fieldset>

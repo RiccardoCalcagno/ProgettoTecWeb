@@ -12,7 +12,7 @@
         private $isExplorable;
         private $last_modified;
     
-        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_last_modified )
+        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_last_modified = null)
         {
             $this->set_id($_id);
             $this->set_title($_title);

@@ -32,11 +32,13 @@ else if($_SESSION["login"])
             $_SESSION["count_rep"] = 1;
             $_SESSION["count_master"] = 1;
             $_SESSION["first_logged"] = true;
-            $_SESSION["character_data"] = $db->getCharacterByUser($_SESSION["username"]);
-            $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSIONE["username"]);
+            $_SESSION["character_data"] = $db->getCharactersByUser($_SESSION["username"]);
+            $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSION["username"]);
             $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
             $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
             $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
+
+            //$num_report =  $_SESSION["num_report"]; TO FIX ADD ?
             
             for($i = 0; $i < $num_report; $i++)
             {
@@ -52,7 +54,6 @@ else if($_SESSION["login"])
 
             $db->closeConnection();
         }
-
 
         // calcolo numero delle pagine di report
         $numero_pag_report = $_SESSION["num_report"] / 5;
@@ -132,7 +133,7 @@ else if($_SESSION["login"])
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
-                if($_SESSION["espandiPers"] == true)
+                if(isset($SESSIO["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
                     $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\"> {espandi pers}", $html);
                     $_SESSION["espandiPers"] = false;
@@ -202,12 +203,12 @@ else if($_SESSION["login"])
                     $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
                         <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">". $report_data[$i]->get_title() ."</h4>
+                            <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                         </div>
                         <div class=\"badgeUtente\">
                             <h5>Autore</h5>
-                            <img src=\"../images/icone_razze/nano.png\" alt=\"\" /> 
+                            <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
                             <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
                     <footer>
