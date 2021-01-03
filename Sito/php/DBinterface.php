@@ -3,9 +3,9 @@
     require_once("comments.php");
     require_once("character.php");
     require_once("report_data.php");
-    require_once("card_data.php");
-    require_once("photo_data.php");
-    require_once("report_giocatore_data.php");
+    //require_once("card_data.php");
+    //require_once("photo_data.php");
+    //require_once("report_giocatore_data.php");
 
     require_once("GeneralPurpose.php");
 
@@ -156,7 +156,18 @@
                 $characters = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $character = new Character($row["id"], $row["name"], $row["race"], $row["class"], $row["background"], $row["alignment"], $row["traits"], $row["ideals"], $row["bonds"], $row["flaws"], $row["author"], $row["creation_date"]);
+                    $character = new Character($row["id"], 
+                                                $row["name"], 
+                                                $row["race"], 
+                                                $row["class"], 
+                                                $row["background"], 
+                                                $row["alignment"], 
+                                                $row["traits"], 
+                                                $row["ideals"], 
+                                                $row["bonds"], 
+                                                $row["flaws"], 
+                                                $row["author"], 
+                                                $row["creation_date"]);
                     array_push($characters, $character);
                 }
             }
@@ -181,7 +192,18 @@
             else
             {
                 $row = $query_result->mysqli_assoc(MYSQL_ASSOC);
-                return new Character($row["id"], $row["name"], $row["race"], $row["class"], $row["background"], $row["alignment"], $row["traits"], $row["ideals"], $row["bonds"], $row["flaws"], $row["author"], $row["creation_date"]);
+                return new Character($row["id"], 
+                                     $row["name"], 
+                                     $row["race"], 
+                                     $row["class"], 
+                                     $row["background"], 
+                                     $row["alignment"], 
+                                     $row["traits"], 
+                                     $row["ideals"], 
+                                     $row["bonds"], 
+                                     $row["flaws"], 
+                                     $row["author"], 
+                                     $row["creation_date"]);
             }
         }
 
@@ -253,8 +275,8 @@
         //-----------------------------------------------------------------------------------------------------------------
         public function getReport($id_report) {
             $id_report = clean_input($id_report);
-            $query = "SELECT * 
-                      FROM Report
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
+                      FROM Report INNER JOIN Users ON Report.author = Users.username
                       WHERE Report.id = '".$id_report."';";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -265,7 +287,14 @@
             }
             else {
                 $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
-                return new ReportData($report_data["id"], $report_data["title"], $report_data["subtitle"], $report_data["content"], $report_data["author"], $report_data["isExplorable"]);
+                return new ReportData($row["Report.id"], 
+                                        $row["Report.titolo"], 
+                                        $row["Report.sottotitolo"], 
+                                        $row["Report.contenuto"], 
+                                        $row["Report.autore"], 
+                                        $row["Report.isExplorable"], 
+                                        $row["Users.img_path"], 
+                                        $row["Report.last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
 
@@ -277,7 +306,7 @@
 
         // aggiunta di un report
         public function addReport(ReprotData $report_data){
-            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,creation_date)".
+            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified)".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
@@ -317,12 +346,12 @@
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
             $num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
-            $num_query_Result = mysqli_query($this->connection, $num_query);
+            $num_query_Result = (int) mysqli_query($this->connection, $num_query);
             return $num_query_Result;
         }
 
         //funzione per ricavare i dati di un determinato numero di Cards, in base ad una lista di report.id
-        public function getReportCard($IDs_arr) {
+        /*public function getReportCard($IDs_arr) {
           $IDs_arr = clean_input($IDs_arr);
             $CardData_List = array();
             foreach($IDs_arr as $repo_id){
@@ -344,12 +373,12 @@
                 }
             }
                return $CardData_List;
-        }
+        }*/
 
 
         // funzione che estrae gli esatti report.id per le card desiderate, in base alla pagina
         // temporaneamente uso un numero per identificare i tipi CardType : MyDashboard=0, ImPlayer=1, Esplora=2
-        public function getIDsReport($CardType,$currentUser){
+        /*public function getIDsReport($CardType,$currentUser){
           $CardType = clean_input($CardType);
           $currentUser = clean_input($currentUser);
             //se CardType = 0, MyDashboard
@@ -374,7 +403,7 @@
                 echo "Qualcosa è andato storto! Anteprima non disponibile";
             }
 
-        }
+        }*/
 
         public function getReportList($username) 
         {
@@ -555,7 +584,7 @@
         // FUNZIONI RELATIVE A PHOTO REPORT
         //-----------------------------------------------------------------------------------------------------------------
 
-        public function getMediaGallery ($repo_id){
+        /*public function getMediaGallery ($repo_id){
           $repo_id = clean_input($repo_id);
           $querySelect = "SELECT * FROM Photo WHERE Photo.report = '".$repo_id."' ORDER BY ID ASC;";
           $queryResult = mysqli_query($this->connection, $querySelect);
@@ -607,43 +636,40 @@
                 $row_arr = $query->mysqli_assoc(MYSQLI_ASSOC);
                 return $row_arr;
             }
-        }
+        }*/
 
         //-----------------------------------------------------------------------------------------------------------------
         // FUNZIONI RELATIVE A REPORT_GIOCATORE
         //-----------------------------------------------------------------------------------------------------------------
 
         // Aggiunge una riga alla tabella report_giocatore
-        public function addLinkedUser (ReportGiocData $data){
+        public function addLinkedUser (UserData $user, ReportData $report){
           $query = "INSERT INTO report_giocatore (user, report) ". 
-                     "VALUES ('" . $data->get_user() . "', ".  
-                             "'" . $data->get_report() . "');" ;
+                     "VALUES ('" . $user->get_id() . "', ".  
+                             "'" . $report->get_id() . "');" ;
             $done = (bool) mysqli_query($this->connection, $query);
             return $done;
         }
 
         //elimina un singolo utente da un determinato report
-        public function deleteUserFromReport(ReportGiocData $data)
+        public function deleteUserFromReport(UserData $user, ReportData $report)
         {
-            $data = clean_input($data);
-            $query = "DELETE FROM report_giocatore WHERE user = '" . $data->get_user() . "' AND report = '".$data->get_report()."';";
+            $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "' AND report = '".$report->get_id()."';";
             $done = (bool) mysqli_query($this->connection, $query);
             return $done;
         }
 
         //elimina un singolo utente da un determinato report
-        public function deleteUserFromALL(ReportGiocData $data)
+        public function deleteUserFromALL(UserData $user, ReportData $report)
         {
-            $data = clean_input($data);
-            $query = "DELETE FROM report_giocatore WHERE user = '" . $data->get_user() . "';";
+            $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "';";
             return mysqli_query($this->connection, $query);
         }
 
         //elimina tutte le mention ad un determinato Report
-        public function deleteReportMention(ReportGiocData $data)
+        public function deleteReportMention(UserData $user, ReportData $report)
         {
-            $data = clean_input($data);
-            $query = "DELETE FROM report_giocatore WHERE report = '".$data->get_report()."';";
+            $query = "DELETE FROM report_giocatore WHERE report = '".$report->get_id()."';";
             $done = (bool) mysqli_query($this->connection, $query);
             return $done;
         }
