@@ -1,14 +1,16 @@
 <?php
 
-if(isset($_POST["Accedi"]))
+if(isset($_GET["Accedi"]))
 {
-    if($_POST["Accedi"] == "Accedi")
+    $_SESSION['beforeAccess']=$_GET["BeforeAccess"];
+
+    if($_GET["Accedi"] == "Accedi")
     {
         header("Location: login.php");
         exit();
     }
 
-    if($_POST["Accedi"] == "Esci")
+    if($_GET["Accedi"] == "Esci")
     {
         session_start();
         
@@ -21,15 +23,17 @@ if(isset($_POST["Accedi"]))
 
 }
 
-if(isset($_POST["Iscrizione"]))
+if(isset($_GET["Iscrizione"]))
 {
-    if($_POST["Iscrizione"] == "Iscrizione")
+    $_SESSION['beforeAccess']=$_GET["BeforeAccess"];
+
+    if($_GET["Iscrizione"] == "Iscrizione")
     {
         header("Location: register.php");
         exit();
     }
 
-    if($_POST["Iscrizione"] == "Area Personale")
+    if($_GET["Iscrizione"] == "Area Personale")
     {
         header("Location: area_personale.php");
         exit();
