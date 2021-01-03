@@ -205,7 +205,7 @@
 
         public function addCharacter(Character $character_data)
         {
-            $query = "INSERT INTO Characters (name, race, class, background, alignment, traits, ideals, bonds, flaws, author, creation_date) ". 
+            $query = "INSERT INTO Characters (name, race, class, background, alignment, traits, ideals, bonds, flaws, author) ". 
                      "VALUES ('" . $character_data->get_name() . "', ".
                               "'" . $character_data->get_race() . "', ".
                               "'" . $character_data->get_class() . "', ".
@@ -215,8 +215,7 @@
                               "'" . $character_data->get_ideals() . "', ".
                               "'" . $character_data->get_bonds() . "', ".
                               "'" . $character_data->get_flaws() . "', ".
-                              "'" . $character_data->get_author() . "', ".
-                              "'" . $character_data->get_creation_date() . "' ".
+                              "'" . $character_data->get_author() . "'".
                               ");";
             return mysqli_query($this->connection, $query);
         }

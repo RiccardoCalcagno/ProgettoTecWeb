@@ -3,10 +3,10 @@
     require_once("character.php");
     require_once("GeneralPurpose.php");
     require_once("banners.php");
-    use DB\DBinterface;
     
     // do you even need to check before ?
     session_start();
+    //$_SESSION["username"] = "user"; FOR TESTING
 
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'character creation.html'); //forse togliere spazio nel nome
 
@@ -43,7 +43,7 @@
 
         if($check_name && $check_traits && $check_ideals && $check_bonds && $check_flaws){
             //se passo i controlli allora passo gli input alla costruzione di dati per il DB.
-            $character = new Character (
+            $character = new Character(
                 0,    // ID qui inutile, non viene considerato per inserimento DB (e poi oggetto character viene distrutto) (aggiungere valore di default?)
                 $name,
                 $race, $class, $background, $alignment,    // Ok, select
@@ -51,16 +51,17 @@
                 clean_input($ideals), 
                 clean_input($bonds), 
                 clean_input($flaws),
-                null  //per L'autore
+                $_SESSION['username']
             );
 
-            if(isset($_SESSION[''])) {    // Inserisci
+
+            if(isset($_SESSION['username'])) {
 
                 $db = new DBinterface();
                 $openConnection = $db->openConnection();
 
                 if ($openConnection == true) {
-                    $result = $db->addCharacter($character);    // TO FIX ADD Creator of character ?? 
+                    $result = $db->addCharacter($character);
 
                     if($result == true) {    // conferma ed errori con str_replace o banner_salvataggio.html ?
                         $_SESSION['banners']= "creazione_documento_confermata";
@@ -114,12 +115,12 @@
 $html = str_replace("<messaggioForm />", $messaggioForm, $html);
 
 $html = str_replace('<valoreNome />', $name, $html);
-// restore SElECTs :)))))))))))))
-// Possibile soluzione: str_replace su <selectValues /> con un ul con le varie values, con javascript leggo i valori e cambio le select, 
-//        infine rimuovo la ul; :o)
-// Altrimenti modificare direttamente $html aggiungendo attributo selected="selected" alla option giusta (ma molto piu' complicato e invasivo)
-// :))))
-$html = str_replace('<valoreNome />', $name, $html);
+// options
+$html = str_replace("value=\"$race\">", "value=\"$race\" selected=\"selected\">", $html);   // se $race="" nessun replace
+$html = str_replace("value=\"$class\">", "value=\"$class\" selected=\"selected\">", $html);
+$html = str_replace("value=\"$background\">", "value=\"$background\" selected=\"selected\">", $html);
+$html = str_replace("value=\"$alignment\">", "value=\"$alignment\" selected=\"selected\">", $html);
+// text-areas
 $html = str_replace('<valoreTraits />', $traits, $html);
 $html = str_replace('<valoreIdeals />', $ideals, $html);
 $html = str_replace('<valoreBonds />', $bonds, $html);
