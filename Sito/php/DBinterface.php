@@ -436,6 +436,7 @@
                                              $row["Report.contenuto"], 
                                              $row["Report.autore"], 
                                              $row["Report.isExplorable"], 
+                                             DBinterface::getALLForReport($row["Report.id"]),
                                              $row["Users.img_path"], 
                                              $row["Report.last_modified"]);
                     array_push($reports, $report);
@@ -473,6 +474,7 @@
                                              $row["Report.contenuto"], 
                                              $row["Report.autore"], 
                                              $row["Report.isExplorable"], 
+                                             DBinterface::getALLForReport($row["Report.id"]),
                                              $row["Users.img_path"], 
                                              $row["Report.last_modified"]);
                     array_push($reports, $report);

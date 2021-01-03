@@ -10,13 +10,14 @@
         private $content;
         private $author;
         private $isExplorable;
+        private $author_img;
 
         /*HO INSERITO QUESTO CAMPO*/
         private $lista_giocatori;                          
 
         private $last_modified;
     
-        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_last_modified = null)
+        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified = null)
         {
             $this->set_id($_id);
             $this->set_title($_title);
@@ -24,6 +25,7 @@
             $this->set_content($_content);
             $this->set_author($_author);
             $this->set_isExplorable($_isExplorable);
+            $this->set_author_img($_author_img);
             $this->set_lista_giocatori($_lista_giocatori);
             if($_last_modified)
                 $this->set_last_modified($_last_modified);
