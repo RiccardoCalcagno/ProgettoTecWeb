@@ -20,7 +20,7 @@
         private $err_background;
         private $err_alignment;
 
-        private static $race_arr = array('Umano', 'Elfo', 'Nano', 'Halfing', 'Gnome', 'Tiefling', 'Dragonide', 'Mezzelfo', 'Mezzorco');
+        private static $race_arr = array('Umano', 'Elfo', 'Nano', 'Halfling', 'Gnome', 'Tiefling', 'Dragonide', 'Mezzelfo', 'Mezzorco');
         private static $class_arr = array('Bardo', 'Barbaro', 'Druido', 'Ladro', 'Chierico', 'Guerriero', 'Monaco', 'Mago', 'Warlock', 'Paladino', 'Ranger', 'Stregone');
         private static $background_arr = array('Accolito', 'Artigiano', 'Ciarlatano', 'Criminale', 'Eremita', 'Eroe', 'Forestiero', 'Intrattenitore', 'Marinaio', 'Monello', 'Nobile', 'Sapiente', 'Soldato');
         private static $alignment_arr = array('Legale Buono', 'Neutrale Buono', 'Caotico Buono', 'Legale Neutrale', 'Neutrale Puro', 'Caotico Neutrale', 'Legale Malvagio', 'Neutrale Malvagio', 'Caotico Malvagio');
