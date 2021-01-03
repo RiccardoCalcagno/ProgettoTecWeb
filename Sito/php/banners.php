@@ -28,24 +28,31 @@
         
     }
 
-    function addPossibleBanner($html) {
-    $banner = createPossibleBanner();
+    function addPossibleBanner($html, $returnPage) {
+    $banner = createPossibleBanner($returnPage);
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
     }
     if(strpos($_SESSION['banners'],'elementi_salvati')){
-        //COSI FUNZIONA?
+        if(isset($_SESSION['stagedReports'])){
+            $_SESSION['stagedReports']=null;
+        }
+        if(isset($_SESSION['stagedPersonaggi'])){
+            $_SESSION['stagedPersonaggi']=null;
+        }
+        /*
         if(((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
             foreach ($_SESSION['stagedPersonaggi'] as $i => $value) {unset($_SESSION['stagedPersonaggi'][$i]);}
             foreach ($_SESSION['stagedReports'] as $i => $value) {unset($_SESSION['stagedReports'][$i]);}
         }
+        */
     }
     $_SESSION['banners']=null;
     
     return $html;
     }
 
-    function createPossibleBanner() {
+    function createPossibleBanner($returnPage) {
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 

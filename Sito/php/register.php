@@ -6,7 +6,24 @@
     {
         $html = str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
         $html = str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
-    }       
+    }    
+    
+    if(isset($_SESSION['beforeAccess'])){
+        $html = str_replace('<a href="../Home.html" class="annulla">ANNULLA</a>',"<a href='".$_SESSION['beforeAccess']."' class='annulla'>ANNULLA</a>");
+    }
+    if($_SESSION['banner']=="creazione_utente_confermata"){
+
+        $html = addPossibleBanner($html);
+
+        switch( saveStaged() ){
+            case -1: $_SESSION['banner']="elementi_salvati_errore"; break;
+            case 1: $_SESSION['banner']="elementi_salvati"; break;
+            case 0: break;
+        }
+    }
+
+
+
 
     if(!isset($_SESSION))
     {

@@ -22,12 +22,17 @@
         $_SESSION["login"] = true;
         $db->closeConnection();
         
-        if(  !saveStaged()  ){
-            $_SESSION['banner']="elementi_salvati_errore";
-        }else{
-            $_SESSION['banner']="elementi_salvati";
+        switch( saveStaged() ){
+            case -1: $_SESSION['banner']="elementi_salvati_errore"; break;
+            case 1: $_SESSION['banner']="elementi_salvati"; break;
+            case 0: break;
         }
-        header("Location: area_personale.php"); 
+        
+        if(isset($_SESSION['beforeAccess'])){
+            header("Location: ".$_SESSION['beforeAccess']); 
+        }else{
+            header("Location: area_personale.php"); 
+        }
     }
     else
     {

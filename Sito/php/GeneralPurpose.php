@@ -11,6 +11,7 @@
     }
 
     function saveStaged(){
+        $presenti=0;
         $db = new DBinterface();
         $openConnection = $db->openConnection();
         if ($openConnection == false) {
@@ -22,7 +23,9 @@
                     $result = $db->addCharacter($personaggio);  
                     if(!$result){
                         $personaggio->set_name("Errore di Salvataggio");
-                        return false;
+                        return -1;
+                    }else{
+                        $presenti=1;
                     }
                 } 
             }
@@ -32,12 +35,14 @@
                     $result = $db->addReport($report);  
                     if(!$result){
                         $report->set_title("Errore di Salvataggio");
-                        return false;
+                        return -1;
+                    }else{
+                        $presenti=1;
                     }
                 } 
             }
             $db->closeConnection();
         }
-        return true;
+        return $presenti;
     }
 ?>
