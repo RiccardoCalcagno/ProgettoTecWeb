@@ -10,7 +10,6 @@
     $html = file_get_contents("../otherHTMLs/creazioneReport.html");
     $html = setup($html);
 
-
     /*
             IMPORTANTE !!!!!!!!!!!!!!!
 
@@ -111,10 +110,9 @@
     $html = str_replace('<valueSubtitle/>',$sottotitolo,$html);
     $html = str_replace('<valueContent/>',$contenuto,$html);
     
-    /*
-    QUESTO E DA METTERE ALLA FINE DI OGNI PHP PER OGNI PAGINA HTML
-    */
-    $html = addPossibleBanner($html);
+
+
+    $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
     echo $html;
 

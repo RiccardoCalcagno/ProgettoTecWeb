@@ -244,6 +244,10 @@ else if($_SESSION["login"])
                 }
 
 
+                $html = addPossibleBanner($html, "area_personale.php");
+
+
+
                 echo $html;
 
                 /*$character_data->free();

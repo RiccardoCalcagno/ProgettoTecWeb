@@ -39,7 +39,7 @@
         str_replace("<p id=\"Successful\" class=\"hidden\">", "<p id=\"Successful\">", $html);
     }
 
-    
+    $html = addPossibleBanner($html, "modify_user.php");
 
     echo $html;
 ?>

@@ -5,7 +5,6 @@
     require_once("banners.php");
 
 //---------------------------------- UTILITY FUNCTIONs
-
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
     }
@@ -61,7 +60,6 @@
  //---------------------------------------------------------------------
 //    $_SESSION["username"] = "user"; // FOR TESTING
 //    unset($_SESSION["username"]);
-
     staged_session();
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs'. DIRECTORY_SEPARATOR . 'character creation.html');
@@ -218,10 +216,7 @@ $html = str_replace('<valoreFlaws />', $flaws, $html);
 
 
 
-/*
-    QUESTO E DA METTERE ALLA FINE DI OGNI PHP PER OGNI PAGINA HTML
-*/
-$html = addPossibleBanner($html);
+$html = addPossibleBanner($html, "character_creation(FormAction).php");
 
 
 echo $html;

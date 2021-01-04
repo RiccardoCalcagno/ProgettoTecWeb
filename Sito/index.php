@@ -5,6 +5,8 @@ $html = file_get_contents("Home.html");
 
 $html = setup($html);
 
+$html = addPossibleBanner($html, "../index.php");
+
 echo $html;
 
 ?>
