@@ -5,16 +5,6 @@
     require_once("banners.php");
 
 //---------------------------------- UTILITY FUNCTIONs
-    if(!isset($_SESSION)) {
-        session_start();
-    }
-    staged_session();
-
-    if(isset($_SESSION["username"]))
-    {
-    $html = str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
-    $html = str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
-    }
 
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
@@ -72,13 +62,16 @@
 //    $_SESSION["username"] = "user"; // FOR TESTING
 //    unset($_SESSION["username"]);
 
+    staged_session();
+
+    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs'. DIRECTORY_SEPARATOR . 'character creation.html');
+    $html = setup($html);
+    $html = preparePage($html, $toModify);
+
     $messaggioForm = "";
     $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
 
-
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
-
-    $html = preparePage($html, $toModify);
 
     if ( isset($_POST['salvaPers']) ) {
 

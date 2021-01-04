@@ -1,8 +1,7 @@
 <?php
+    require_once("GeneralPurpose.php");
 
-    if (!isset($_SESSION)) {
-        session_start();
-    }
+    clearSession();
 
     if(isset($_POST["Personaggio"]))
     {

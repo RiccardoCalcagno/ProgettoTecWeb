@@ -40,4 +40,38 @@
         }
         return true;
     }
+
+    function setup($html) { // Setup generico per tutte le pagine
+        
+        if( !isset($_SESSION) ) {
+            session_start();
+        }
+
+
+        if(isset($_SESSION["username"])) {
+            $html = str_replace('<input id="Accedi" type="submit" name="accesso" value="Accedi">', '<input id="Accesso" type="submit" value="Esci">', $html);
+            $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" type="submit" value="Area Personale">', $html);
+        }
+
+        return $html;
+    }
+    
+    function clearSession() {   // Clear di variabili session utili solo a specifiche pagine
+            //unset OK anche su null
+        if( !isset($_SESSION) ) {
+            session_start();
+        }
+
+        unset($_SESSION["character_id"]);
+        unset($_SESSION['modificaChar']);
+    }
+
+    function setup_clear($html) { // Setup generico e clearSession
+        
+        clearSession();
+        return setup($html);
+    }
+
+
+
 ?>

@@ -1,18 +1,11 @@
 <?php
 require_once("DBinterface.php");
 require_once("character.php");
+require_once("GeneralPurpose.php");
 
 $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "otherHTMLs" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
+$html = setup($html);
 
-if(isset($_SESSION["username"]))
-{
-    $html = str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
-    $html = str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
-}
-
-if (!isset($_SESSION)) {
-    session_start();
-}
 //$_SESSION['username'] = 'user';    // testing
 //$_SESSION['character_id'] = 47;   // testing
     

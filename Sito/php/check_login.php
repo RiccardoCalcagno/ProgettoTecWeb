@@ -3,6 +3,8 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    clearSession(); // ok ?
+
     $db = new DBinterface();
 
     try{

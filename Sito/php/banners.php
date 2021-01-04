@@ -12,6 +12,10 @@
     elementi_salvati
     */
 
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+
     function staged_session() { // Da chiamare a inizio codice ogni volta che si possono usare staged
 
         if(!isset($_SESSION)) {

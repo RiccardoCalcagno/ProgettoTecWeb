@@ -1,4 +1,7 @@
 <?php
+    require_once("GeneralPurpose.php");
+
+    clearSession();
 
 if(isset($_GET["Accedi"]))
 {

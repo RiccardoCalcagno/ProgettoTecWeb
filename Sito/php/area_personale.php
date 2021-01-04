@@ -1,6 +1,9 @@
 <?php
+require_once("GeneralPurpose.php");
 
-if(!isset($_SESSION))
+clear_session();
+
+if(!isset($_SESSION["login"]) ||  !$_SESSION["login"])
 {
     header("Location: login.php");
 }
@@ -94,6 +97,7 @@ else if($_SESSION["login"])
         /* fine controllo */
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "AreaPersonale.html");
+        $html = setup($html);
         if(!$html) 
         {
             header("Location : 404.php");
@@ -101,11 +105,6 @@ else if($_SESSION["login"])
         }
         else
         {
-            if(isset($_SESSION["username"]))
-            {
-                $html = str_replace("<input id=\"Accesso\" type=\"submit\" value=\"Accedi\">", "<input id=\"Accesso\" type=\"submit\" value=\"Esci\">", $html);
-                $html = str_replace("<input id=\"Iscrizione\" type=\"submit\" value=\"Iscrizione\">", "<input id=\"Iscrizione\" type=\"submit\" value=\"Area Personale\">", $html);
-            }
 
             $html = str_replace("../images/icone_razze/dragonide.png", $_SESSION["img"], $html);
             $html = str_replace("_user_", $_SESSION["username"], $html);

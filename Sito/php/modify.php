@@ -1,8 +1,10 @@
 <?php 
 
     require_once("DBinterface.php");
+    require_once("GeneralPurpose.php");
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
+    $html = setup($html);   // setup_clear() ?
     $modify_user = null;
     $err = array();
 
