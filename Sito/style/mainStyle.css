@@ -443,12 +443,12 @@ body{
 }
 
 #footerContent h2 {
-    padding-bottom: 0;
-    text-indent: 10%;
+    padding-bottom: 0.5em;
+    text-align: center;
 }
 
 #footerContent dl {
-    padding: 0.5em 0 2em;
+    padding: 0.5em 0 0.5em 3%;
     margin: auto;
     text-align: center;
 }
@@ -464,25 +464,26 @@ body{
     padding: 0;
     cursor: pointer;
 }
-/* TO FIX MAYBE ?
+/* TO FIX MAYBE ?*/
 #footerContent dl dt button:focus {
     outline: 2px solid blue;
     outline-offset: 3px;
 }
-*/
+
 #footerContent dl dd {
     display: none;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: calc(60% - 130px);
-    margin: 1%;
+    bottom: 0;
+    left: 0;
+    width: 92%;
+    height: 3em;
+    margin: 0 4% 2%;
 }
 
 #footerContent dl dd a {
     display: block;
-    margin-top: 2%;
-    margin-left: 10%;
+    margin-top: 0.7em;
+    text-indent: -3%;
 }
 
 #footerContent dl dd + dt::before {
@@ -500,12 +501,10 @@ body{
 }
 
 #footerContent dl.open-footer {
-    text-align: left;
+    text-align: center;
+    padding-bottom: 6em;
  }
 
- #footerContent dl.open-footer dt:first-child{
-    margin-left: 5%;
- }
 
 #footerContent dl dd.footer-open-dd {
     display: block;

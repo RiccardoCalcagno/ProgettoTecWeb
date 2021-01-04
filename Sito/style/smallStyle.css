@@ -78,32 +78,10 @@ input[type="file"]{
     width: 6em;
     margin:auto;
 }
-/* TO FIX 
-#footerContent dl dd {
-    text-align: left;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    left: 0;
-    width: 90%;
-    height: 37%;
-    margin: 0 4% 2%;
+
+#footerContent dl {
+    padding-left: 0;
 }
-
-#footerContent dl dd a {
-    display: block;
-    margin-top: 1%;
-    margin-left: 4%;
-}
-
-#footerContent dl.open-footer {
-    text-align: center;
-    padding-bottom: 17%;    
- }
-
- #footerContent dl.open-footer dt:first-child{
-    margin-left: 0;
- } */
 
 .submitForm a, .submitForm input{
     width: 8em;
