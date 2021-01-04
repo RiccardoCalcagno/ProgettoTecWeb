@@ -1,7 +1,9 @@
 <?php
     require_once("GeneralPurpose.php");
 
-    clearSession();
+    if( !isset($_SESSION) ) {
+        session_start();
+    }
 
 if(isset($_GET["Accedi"]))
 {

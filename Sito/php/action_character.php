@@ -1,7 +1,10 @@
 <?php
     require_once("GeneralPurpose.php");
 
-    clearSession();
+    if( !isset($_SESSION) ) {
+        session_start();
+    }
+    $_SESSION["username"] = 'user';
 
     if(isset($_POST["Personaggio"]))
     {
