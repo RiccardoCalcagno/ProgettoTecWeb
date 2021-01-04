@@ -13,7 +13,6 @@
 
         $title = ''; $header = ''; $p = ''; $button = '';
 
-        
         if ( $toModify ){
 
             $title = '<title> - Modifica Scheda Giocatore</title>
@@ -64,12 +63,12 @@
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs'. DIRECTORY_SEPARATOR . 'character creation.html');
     $html = setup($html);
+    $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
     $html = preparePage($html, $toModify);
 
     $messaggioForm = "";
     $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
 
-    $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
 
     if ( isset($_POST['salvaPers']) ) {
 
