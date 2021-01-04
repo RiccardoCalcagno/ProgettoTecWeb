@@ -12,13 +12,13 @@
     elementi_salvati
     */
 
-    if(!isset($_SESSION)) {
+    if(session_status() == PHP_SESSION_NONE) {
         session_start();
     }
 
     function staged_session() { // Da chiamare a inizio codice ogni volta che si possono usare staged
 
-        if(!isset($_SESSION)) {
+        if(session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
@@ -37,7 +37,7 @@
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
     }
-    if(strpos($_SESSION['banners'],'elementi_salvati')){
+    if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'elementi_salvati')){
         if(isset($_SESSION['stagedReports'])){
             $_SESSION['stagedReports']=null;
         }
