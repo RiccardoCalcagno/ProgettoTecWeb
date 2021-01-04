@@ -39,6 +39,7 @@
     else
     {
         $_SESSION["login"] = false;
+        unset($_POST["password"]);
         header("Location: login.php");
     }
 //    $user_data->free(); error ?

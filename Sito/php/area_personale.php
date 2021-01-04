@@ -45,14 +45,14 @@ else if($_SESSION["login"])
             
             for($i = 0; $i < $num_report; $i++)
             {
-                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
+                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_title()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
             }
 
             $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
 
             for($i = 0; $i < $num_report; $i++)
             {
-                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_title()] = count($db->getALLForReport($report_data[$i]));
+                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_title()] = count($db->getALLForReport($_SESSION["author_report_data"][$i]));
             }
 
             $db->closeConnection();
@@ -137,9 +137,9 @@ else if($_SESSION["login"])
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
-                if(isset($SESSIO["espandiPers"]) && $_SESSION["espandiPers"] == true)
+                if(isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\"> {espandi pers}", $html);
+                    $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\">", $html);
                     $_SESSION["espandiPers"] = false;
                 }
 
@@ -262,7 +262,7 @@ else if($_SESSION["login"])
             }
 
         } catch(Exception $e) {
-            // pagina di errore 
+            header("Location : Errore.php");
             exit();
         }
     }

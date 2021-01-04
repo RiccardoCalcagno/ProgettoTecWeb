@@ -87,22 +87,33 @@
 
             if(in_array(true, $err))
             {
+                unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
                 $_SESSION["err"] = $err;
-                $_SESSION["login"] = false;
                 header("Location : register.php");
             }
             else
             {
+                $db->openConnection();
                 $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $username, $img_path);
-                $db->addUser($new_user);
-                $_SESSION["username"] = $username;
-                $_SESSION["name_surname"] = $name_surname;
-                $_SESSION["email"] = $email;
-                $_SESSION["passwd"] = $passwd;
-                $_SESSION["birthdate"] = $birthdate;
-                $_SESSION["img"] = $img;
-                $_SESSION["login"] = true;
+                if($db->addUser($new_user))
+                {
+                    $_SESSION["username"] = $username;
+                    $_SESSION["name_surname"] = $name_surname;
+                    $_SESSION["email"] = $email;
+                    $_SESSION["passwd"] = $passwd;
+                    $_SESSION["birthdate"] = $birthdate;
+                    $_SESSION["img"] = $img;
+                    $_SESSION["login"] = true;
                 
+                }
+                else
+                {
+                    session_destroy();
+                    header("Location : 404.php");
+                    exit();
+                }
+                
+                $db->closeConnection();
                 $_SESSION['banner']="creazione_utente_confermata";
                 header("Location : register.php");
             }
@@ -110,7 +121,7 @@
         }
 
     } catch(Exception $e) {
-        header("Location : error.php");
+        header("Location : Errore.php");
         exit();
     }
 ?>

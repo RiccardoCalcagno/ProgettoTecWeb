@@ -4,8 +4,21 @@
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     $html = setup($html);   // setup_clear() ?
 
-    if($_SESSION["result"] == false)
+    $username = $_SESSION["username"];
+    $name_surname = $_SESSION["name_surname"];
+    $email = $_SESSION["email"];
+    $birthdate = $_SESSION["birthdate"];
+    $img = $_SESSION["img"];
+
+    if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
+
+        $username = $_POST["future_username"];
+        $name_surname = $_POST["NomeCognome"];
+        $email = $_POST["future_email"];
+        $birthdate = $_POST["birthdate"];
+        $img = $_POST["imgProfilo"];
+
         $err = $_SESSION["err"];
 
         if($err["user_already_exist"])
@@ -34,10 +47,16 @@
     
     }
 
-    if($_SESSION["result"] == true)
+    if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
     {
         str_replace("<p id=\"Successful\" class=\"hidden\">", "<p id=\"Successful\">", $html);
     }
+
+    $html = str_replace("src=\" <img_profilo> \"", "src=\"" . $img ."\"", $html) ;
+    $html = str_replace("value=\"<username>\"", "value=\"" . $username . "\"", $html);
+    $html = str_replace("value=\"<name>\"", "value=\"" . $name_surname . "\"", $html);
+    $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
+    $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
 
     $html = addPossibleBanner($html, "modify_user.php");
 

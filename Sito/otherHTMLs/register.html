@@ -85,7 +85,7 @@
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
                     <li>
-                    <img alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="../images/img_profilo_mancante.png">
+                    <img alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src=" <img_profilo> ">
                     <label for="imgProfilo">Immagine profilo</label>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*"/>
                     </li>
@@ -96,7 +96,7 @@
                             onkeyup="updateCounterTextarea(3);"
                             name="username" 
                             id="username"
-                            value=""
+                            value="<username>"
                             placeholder="Digita l'username"/></span>
                     <p class="counter"><span id="currentCountUser">0</span>/20</p>
                     <p id="UserEmpty" class="hidden">  Username vuoto o troppo lungo </p>
@@ -114,7 +114,7 @@
                     <span><input type="text"  aria-required="true" required="required"
                         name="NomeCognome" 
                         id="NomeCognome"
-                        value="" 
+                        value="<name>" 
                         placeholder="Inserisci il tuo nome e il tuo cognome"/></span>
                     <p id="NameEmpty" class="hidden">  Non hai inserito  </p>
                     </li>
@@ -123,7 +123,7 @@
                 <span><input type="text"  aria-required="true" required="required"
                         name="email" 
                         id="email"
-                        value=""
+                        value="<email>"
                         placeholder="Inserisci la tua mail"/></span>
                     <p id="EmailErr" class="hidden"> Non hai inserito una email valida </p>
                     <p id="MailAlreadyExists" class="hidden"> Email già esistente  </p>
@@ -134,7 +134,7 @@
                 <span><input type="date"  aria-required="true" required="required"
                         name="birthdate" 
                         id="birthdate"
-                        value=""
+                        value="<birthdate>"
                         max=""
                         placeholder="Seleziona la tua data di nascita"/></span>
                     </li>
