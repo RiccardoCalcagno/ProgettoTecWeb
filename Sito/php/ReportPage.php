@@ -3,10 +3,7 @@
 //require
 require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
-<<<<<<< Updated upstream
-=======
 require_once("banners.php");
->>>>>>> Stashed changes
 
 //prelevo Report.html
 $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . 'Report.html');

@@ -2,10 +2,7 @@
 require_once("DBinterface.php");
 require_once("character.php");
 require_once("GeneralPurpose.php");
-<<<<<<< Updated upstream
-=======
 require_once("banners.php");
->>>>>>> Stashed changes
 
 if ( session_status() == PHP_SESSION_NONE ) {
     session_start();
@@ -92,11 +89,8 @@ else {
     echo $html;
 }
 
-<<<<<<< Updated upstream
-=======
 $html = addPossibleBanner($html, "CharacterPage.php");
 
 echo $html;
 
->>>>>>> Stashed changes
 ?>
