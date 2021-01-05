@@ -89,7 +89,7 @@
             {
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
                 $_SESSION["err"] = $err;
-                header("Location : register.php");
+                header("Location: register.php");
             }
             else
             {
@@ -104,24 +104,25 @@
                     $_SESSION["birthdate"] = $birthdate;
                     $_SESSION["img"] = $img;
                     $_SESSION["login"] = true;
+                    $_SESSION['banners']="creazione_utente_confermata";
                 
                 }
                 else
                 {
                     session_destroy();
-                    header("Location : 404.php");
+                    header("Location: 404.php");
                     exit();
                 }
                 
                 $db->closeConnection();
-                $_SESSION['banner']="creazione_utente_confermata";
-                header("Location : register.php");
+                
+                header("Location: register.php");
             }
 
         }
 
     } catch(Exception $e) {
-        header("Location : Errore.php");
+        header("Location: Errore.php");
         exit();
     }
 ?>

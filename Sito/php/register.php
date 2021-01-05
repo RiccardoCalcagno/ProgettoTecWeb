@@ -13,7 +13,7 @@
 
     $username = ""; $name_surname = ""; $img = ""; $birthdate = ""; $email = "";
 
-    if(isset($_SESSION) && $_SESSION["err"])
+    if(isset(($_SESSION)['err']) && $_SESSION["err"])
     {  
         $username = $_POST["username"];
         $name_surname = $_POST["NomeCognome"];
@@ -53,7 +53,7 @@
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
 
-    if($_SESSION['banner']=="creazione_utente_confermata"){
+    if($_SESSION['banners']=="creazione_utente_confermata"){
 
         unset($_SESSION["err"]);
         unset($_POST);
