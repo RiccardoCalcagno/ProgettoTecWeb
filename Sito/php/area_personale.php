@@ -140,6 +140,7 @@ else if($_SESSION["login"])
                 if(isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
                     $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<ul class=\"cards\" Personaggi>", "<ul class=\"expanded\">", $html);
                     $_SESSION["espandiPers"] = false;
                 }
 

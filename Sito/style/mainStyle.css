@@ -2115,6 +2115,14 @@ p.campiObbligatori{
     justify-content: center;
 }
 
+#personaggiUtente .expanded{
+    width: calc(100% - 1em);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+}
+
 #personaggiUtente .espandi{
     width: 7em;
 }
