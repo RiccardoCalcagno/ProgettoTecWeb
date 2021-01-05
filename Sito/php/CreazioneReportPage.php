@@ -75,34 +75,36 @@
         ----------------------------------------------------------------------------------------------------------------
     */
 
-
-    /*
-    HO SOTITUITO QUESTO CON QUELLO SOTTO:
-    $titolo = $_POST['titolo'];
-    $sottotitolo = $_POST['sottotitolo'];
-    $contenuto = $_POST['contenuto'];
-    $condividi = $_POST['condividi'];
-    */
-
-    // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
-    $rep = $_SESSION['report_in_creazione'];
-    $titolo = $rep->get_titolo();
-    $sottotitolo = $rep->get_sottotitolo();
-    $contenuto = $rep->get_contenuto();
-    $condividi = $rep->get_condividi();
-    $lista_giocatori = $rep->get_lista_giocatori();
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
 
 
 
     if(isset($_POST['salvaRep'])){
 
+        /*
+        HO SOTITUITO QUESTO CON QUELLO SOTTO:
+        $titolo = $_POST['titolo'];
+        $sottotitolo = $_POST['sottotitolo'];
+        $contenuto = $_POST['contenuto'];
+        $condividi = $_POST['condividi'];
+        */
+
+        // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
+        $rep = $_SESSION['report_in_creazione'];
+        $titolo = $rep->get_titolo();
+        $sottotitolo = $rep->get_sottotitolo();
+        $contenuto = $rep->get_contenuto();
+        $condividi = $rep->get_condividi();
+        $lista_giocatori = $rep->get_lista_giocatori();
+
         //controlli
         if(strlen($titolo) != 0 && strlen($sottotitolo) != 0 && strlen($contenuto) != 0) {
 
-            /*creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-            $rep = new ReportData($idRep, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
-            */
-            
+            //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
+            //$rep = new ReportData($idRep, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+            //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
+            //$_SESSION['report_in_creazione'] = $rep;
+
             if(isset($_SESSION['username'])) {
 
                 $dbInterface = new DBinterface();
