@@ -9,6 +9,8 @@
     modifica_documento_confermata
     creazione_utente_confermata
     modifica_utente_confermata
+    confermare_eliminazione_personaggio
+    confermare_eliminazione_report
     elementi_salvati
     */
 
@@ -62,18 +64,13 @@
 
             if((strpos($_SESSION['banners'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
 
+                $htmlBanner="
+                    <fieldset id='bannerSalvataggio'>
+                    <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
                 if($_SESSION['banners']="elementi_salvati_errore"){
-                    $htmlBanner="        
-                    <fieldset id='bannerSalvataggio'>
-                    <legend><a xml:lang='en' id='chiusuraBanner'>Close</a></legend>
-                    <p id='titoloAvviso'>Sono stati riscontrati errori nel salvataggio</p>
-                    <ul>";  
+                    $htmlBanner.="<p id='titoloAvviso'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
-                    $htmlBanner="        
-                    <fieldset id='bannerSalvataggio'>
-                    <legend><a xml:lang='en' id='chiusuraBanner'>Close</a></legend>
-                    <p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p>
-                    <ul>";
+                    $htmlBanner.="<p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p><ul>";
                 }
 
                 if(isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports'])){
@@ -111,62 +108,84 @@
                     <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
                         verrà automaticamente salvato nella tua <a href='AreaPersonale.html'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='login.html'>ACCESSO</a>
-                        <a class='buttonLink' href=''>ISCRIZIONE</a>
+                        <a class='buttonLink' href='../php/login.php'>ACCESSO</a>
+                        <a class='buttonLink' href='../php/register.php'>ISCRIZIONE</a>
                     </div>
-                    <a class='buttonLink' href='../Home.html'>HOME</a>";
+                    <a class='buttonLink' href='../index.php'>HOME</a>";
                 break;
                 case "creazione_documento_confermata":
                     $htmlBanner .= "    
                     <div id='closeDirettamente'>
-                    <a href='../Home.html'></a>                          
+                    <a href='PLACEHOLDER' ></a>                          
                     </div>
                     <h1>Creazione Confermata</h1>
                     <p>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'>Quando vorrai potrai recuperare questo speciale manufatto nella tua </br><a href='AreaPersonale.html'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../Home.html' xml:lang='en'>HOME</a>
+                        <a class='buttonLink' href='../index.php' xml:lang='en'>HOME</a>
                     </div>";
                 break;
                 case "modifica_documento_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                    <a href='../Home.html'></a>                          
+                    <a href='PLACEHOLDER' ></a>                          
                     </div>
                         <h1>Modifica Confermata</h1>
                         <p>Confermiamo che la modifica del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='AreaPersonale.html'>AREA PERSONALE</a>
-                        <a class='buttonLink' href='Esplora.html'>ESPLORA</a>
+                        <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
+                        <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
                     </div>";
                 break;
                 case "creazione_utente_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                    <a href='../Home.html'></a>                          
+                    <a href='PLACEHOLDER' ></a>                          
                     </div>
                     <h1>Registrazione Confermata</h1>
                     <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='AreaPersonale.html'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../Home.html' xml:lang='en'>HOME</a>
+                        <a class='buttonLink' href='../index.php' xml:lang='en'>HOME</a>
                     </div>";
                 break;
                 case "modifica_utente_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                        <a href='../Home.html'></a>                          
+                        <a href='PLACEHOLDER' ></a>                          
                     </div>
                     <h1>Modifica utente confermata</h1>
                     <p>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='AreaPersonale.html'>AREA PERSONALE</a>
-                        <a class='buttonLink' href='../Home.html' xml:lang='en'>HOME</a>
+                        <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
+                        <a class='buttonLink' href='../index.php' xml:lang='en'>HOME</a>
                     </div>";
+                break;
+                case "confermare_eliminazione_personaggio":
+                    $htmlBanner .= "
+                    <h1>Confermare Eliminazione</h1>
+                    <h2>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
+                    <p>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
+                    <form id='linkVelociPostConferma' method='POST' action='../php/action_character.php'>
+                        <a class='annulla' href='../php/CharacterPage.php'>ANNULLA</a>
+                        <input type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                    </form>";
+                break;
+                case "confermare_eliminazione_report":
+                    $htmlBanner .= "
+                    <h1>Confermare Eliminazione</h1>
+                    <h2>Sei sicuro di voler eliminare questo report di sessione?</h2>
+                    <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
+                    <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
+                        <a class='annulla' href='../php/ReportPage.php'>ANNULLA</a>
+                        <input type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                    </form>";
                 break;
             }
 
             $htmlBanner .= "</div></div>";
+            if($returnPage="index.php"){$htmlBanner =str_replace("../","",$htmlBanner);}
+            $htmlBanner =str_replace("PLACEHOLDER",$returnPage,$htmlBanner);
         }
 
         }

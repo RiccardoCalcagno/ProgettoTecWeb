@@ -97,10 +97,8 @@
 
     if(isset($_POST["FtAct_DeleteReport"]))
     {
-        $db->openConnection();
-        $db->deleteReport($_SESSION["report_id"]);
-        $db->closeConnection();
-        header("Location: ../Home.html");
+        $_SESSION['banners']="confermare_eliminazione_report";
+        header("Location: ReportPage.html");
     }
 
     if(isset($_POST["FtAct_PublicReport"]))
@@ -113,6 +111,8 @@
 
     if(isset($_POST["FtAct_ModReport"]))
     {
+        $_SESSION['ModificaReport'] = true;
+        //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
         header("Location: CreazioneReportPage.php");
     }
 
