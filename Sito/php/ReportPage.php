@@ -46,7 +46,7 @@ else{
 
     //titolo e sottotitolo
     $replacer = '<h1>'.$report_info.get_title().'</h1>'.'<p>'.$report_info.get_subtitle().'</p>';
-    str_replace("<TitleAndSub_placeholder/>", $replacer, $html);
+    $html = str_replace("<TitleAndSub_placeholder/>", $replacer, $html);
 
     //autore e img
     $replacer = '<h2>Autore</h2>';
@@ -54,11 +54,11 @@ else{
     $replacer .= '<img src="'.$report_info.get_author_img().'" alt="Immagine profilo" />';
     $replacer .= '<p class="textVariable">'.$report_info.get_author().'</p>';
     $replacer .= '</div>';
-    str_replace("<author_placeholder/>", $replacer, $html);
+    $html = str_replace("<author_placeholder/>", $replacer, $html);
     
     //ultima modifica
     $replacer = '<h2>Ultima modifica</h2>'.'<p>'.$report_info.get_last_modified().'</p>';
-    str_replace("<date_placeholder/>", $replacer, $html);
+    $html = str_replace("<date_placeholder/>", $replacer, $html);
 
     //giocatori presenti
     //servirà prelevare le info degli utenti collegati con il report
@@ -83,12 +83,12 @@ else{
     */
     $replacer .= '</ul>';
 
-    str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
+    $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
 
     //contenuto del report
     $replacer = '<h2>Descrizione della sessione</h2>';
     $replacer .= '<p>'.$report_info.get_content().'</p>';
-    str_replace("<content_placeholder/>", $replacer, $html);
+    $html = str_replace("<content_placeholder/>", $replacer, $html);
 
     //aggiungi un commento/registrati per commentare
     if(isset($_SESSION["username"])) {
@@ -96,13 +96,13 @@ else{
                         <input type="text" placeholder="Lascia un commento.." name="contenutoCommento" />
                         <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
                     </div>';
-        str_replace("<InsertComment_placeholder/>", $replacer, $html);
+        $html = str_replace("<InsertComment_placeholder/>", $replacer, $html);
     }
     else{
         $replacer = '<div id="InserimentoCommento">
                         <p>Registrati per lasciare un commento</p>
                     </div>';
-        str_replace("<InsertComment_placeholder/>", $replacer, $html);
+        $html = str_replace("<InsertComment_placeholder/>", $replacer, $html);
     }
 
     //lista dei commenti
@@ -134,7 +134,7 @@ else{
     */
     $replacer .= '</ul>';
 
-    str_replace("<comments_placeholder/>", $replacer, $html);
+    $html = str_replace("<comments_placeholder/>", $replacer, $html);
 
 
     //tasti footer
@@ -155,10 +155,10 @@ else{
                             <input type="submit" name="FtAct_ModReport" value="MODIFICA" class="buttonLink"/> 
                         </li>
                     </ul>';
-        str_replace("<footerAction_placeholder/>", $replacer, $html);
+        $html = str_replace("<footerAction_placeholder/>", $replacer, $html);
     }
     else{
-        str_replace("<footerAction_placeholder/>", "", $html);
+        $html = str_replace("<footerAction_placeholder/>", "", $html);
     }
 
     $html = addPossibleBanner($html, "ReportPage.php");

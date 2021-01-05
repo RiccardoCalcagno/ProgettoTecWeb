@@ -5,10 +5,64 @@
     require_once("GeneralPurpose.php");
     require_once("banners.php");
 
-    // use DB\DBinterface; //SERVE A QUALCOSA?
+//-------------------------- UTILITY
+    
+    //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
+    function preparePage($html, $toModify){
+        
+        $headTitle = ''; $header = ''; $p = ''; $button = '';
+        
+        if($toModify){
+            $headTitle = '<title>Modifica Report di Sessione</title>
+            <meta name="title" content="Modifica Report di Sessione" />
+            <meta name="description" content="Modifica il tuo report di sessione" />
+            <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />';
 
-    $html = file_get_contents("../otherHTMLs/creazioneReport.html");
+            $header = '<header id="intestazionePagina">
+            <h1>Modifica Report di Sessione <span> <a class="puntoInterrogativo" 
+                href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
+            </header>';
+
+            $p = '<p>Concludi la modifica salvando la nuova versione del report nella tua Area Personale</p>';
+
+            $button = '<input class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA"/>';
+        }
+        else {
+            $headTitle = '<title>Creazione Report di Sessione</title>
+            <meta name="title" content="Creazione Report di Sessione" />
+            <meta name="description" content="Crea il tuo report di sessione" />
+            <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />';
+
+            $header = '<header id="intestazionePagina">
+            <h1>Creazione Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
+            <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
+                passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai. </p>
+            <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del report sarà necessaria una tua autenticazione)</p>
+            </header>';
+
+            $p = '<p>Concludi la creazione salvando il nuovo report nella tua Area Personale</p>';
+
+            $button = '<input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>';
+        }
+
+        $html = str_replace('<headTitle_placeholder />',$headTitle,$html);
+        $html = str_replace('<header_placeholder />',$header,$html);
+        $html = str_replace('<p_placeholder />',$p,$html);
+        $html = str_replace('<button_placeholder />',$button,$html);
+
+        return $html;
+    }
+
+// -------------------------------------------------------
+
+    staged_session();
+
+    $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'creazioneReport.html');
     $html = setup($html);
+    $toModify = isset( $_SESSION['ModificaReport']) &&  $_SESSION['ModificaReport'];
+    $html = preparePage($html,$toModify);
+
+
 
     /*
             IMPORTANTE !!!!!!!!!!!!!!!

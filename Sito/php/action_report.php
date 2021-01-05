@@ -113,6 +113,8 @@
 
     if(isset($_POST["FtAct_ModReport"]))
     {
+        $_SESSION['ModificaReport'] = true;
+        //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
         header("Location: CreazioneReportPage.php");
     }
 
