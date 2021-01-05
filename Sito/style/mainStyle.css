@@ -1590,6 +1590,7 @@ p.campiObbligatori{
   }
 #bannerPage h2{
     font-size: 1.3em;
+    text-align: center;
 }
 
 #bannerPage > div{
@@ -1621,10 +1622,10 @@ p.campiObbligatori{
     flex-wrap: wrap;
     margin: auto;
 }
-#bannerPage .buttonLink{
+#bannerPage .buttonLink, #bannerPage .annulla{
     margin-top: 1em;
     width: 13em;
-}
+} 
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------

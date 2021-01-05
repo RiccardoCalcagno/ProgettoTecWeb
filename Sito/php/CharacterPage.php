@@ -2,6 +2,10 @@
 require_once("DBinterface.php");
 require_once("character.php");
 require_once("GeneralPurpose.php");
+<<<<<<< Updated upstream
+=======
+require_once("banners.php");
+>>>>>>> Stashed changes
 
 if ( session_status() == PHP_SESSION_NONE ) {
     session_start();
@@ -22,6 +26,29 @@ else {
     //$_SESSION['username'] = 'user';    // testing
     //$_SESSION['character_id'] = 47;   // testing
 
+
+    if(isset($_SESSION['documento'])){
+        header("Location: CharacterPage.php");
+        if($_SESSION['documento']=="ELIMINA"){
+
+            $db = new DBinterface();
+            $openConnection = $db->openConnection();
+        
+            if ($openConnection) {
+                $result= $db->deleteCharacter($_SESSION['character_id']);
+                if(isset($result)){
+                    header("Location: area_personale.php");
+                }else{
+                    // Can't get data from DB
+                    // ERROR PAGE ? // (ERRORE LATO DB)       
+                }
+            }else{
+                // Can't get data from DB
+                // ERROR PAGE ? // (ERRORE LATO DB)
+            }
+        }
+        exit();
+    }
 
     $db = new DBinterface();
     $openConnection = $db->openConnection();
@@ -65,4 +92,11 @@ else {
     echo $html;
 }
 
+<<<<<<< Updated upstream
+=======
+$html = addPossibleBanner($html, "CharacterPage.php");
+
+echo $html;
+
+>>>>>>> Stashed changes
 ?>

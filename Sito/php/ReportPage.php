@@ -3,6 +3,10 @@
 //require
 require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
+<<<<<<< Updated upstream
+=======
+require_once("banners.php");
+>>>>>>> Stashed changes
 
 //prelevo Report.html
 $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . 'Report.html');
@@ -37,6 +41,31 @@ if($connection == false){
     header("Location : 404.php");
 }
 else{
+
+    if(isset($_SESSION['documento'])){
+        header("Location: ReportPage.php");
+        if($_SESSION['documento']=="ELIMINA"){
+
+            $db = new DBinterface();
+            $openConnection = $db->openConnection();
+        
+            if ($openConnection) {
+                $result= $db->deleteReport($report_info.get_id());
+                if(isset($result)){
+                    header("Location: area_personale.php");
+                }else{
+                    // Can't get data from DB
+                    // ERROR PAGE ? // (ERRORE LATO DB)       
+                }
+            }else{
+                // Can't get data from DB
+                // ERROR PAGE ? // (ERRORE LATO DB)
+            }
+        }
+        exit();
+    }
+
+
     //di seguito tutti gli accorgimenti per stampare le parti prelevate da DB all'interno della pagina Report.html
     //Devo inserire titolo, sottotitolo, contenuto, autore, img_autore, giocatori collegati, commenti, ultima modifica.
 
