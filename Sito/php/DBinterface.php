@@ -267,8 +267,6 @@
                      "    flaws = '" . $character_data->get_flaws() . "'".
                      "WHERE id = '" . $id . "';"; //"WHERE author = '" . $id . "';";
 
-                     print($query);
-
             $done = (bool) mysqli_query($this->connection, $query);
             return $done;
         }

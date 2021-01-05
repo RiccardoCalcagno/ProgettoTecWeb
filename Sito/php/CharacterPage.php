@@ -3,17 +3,25 @@ require_once("DBinterface.php");
 require_once("character.php");
 require_once("GeneralPurpose.php");
 
-$html = file_get_contents(".." . DIRECTORY_SEPARATOR . "otherHTMLs" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
-$html = setup($html);
+if ( session_status() == PHP_SESSION_NONE ) {
+    session_start();
+    header("Location: login.php"); // ?
+}
+else if ( !isset($_SESSION['username']) ) {
 
-//$_SESSION['username'] = 'user';    // testing
-//$_SESSION['character_id'] = 47;   // testing
-    
-if ( !isset($_SESSION['username']) || !isset($_SESSION['character_id']) ) {
-    header("Location: Error.php"); // TO FIX DEFINE ?
-    //errorPage("Si e' verificato un problema")
+    error("Errore ..."); // header("Location: login.php"); ?
+}
+else if ( !isset($_SESSION['character_id'] )) {
+
+    error("Errore ..."); // header("Location: login.php"); ?
 }
 else {
+    $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "otherHTMLs" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
+    $html = setup($html);
+
+    //$_SESSION['username'] = 'user';    // testing
+    //$_SESSION['character_id'] = 47;   // testing
+
 
     $db = new DBinterface();
     $openConnection = $db->openConnection();
@@ -53,8 +61,8 @@ else {
     // Can't connect to DB
         // ERROR PAGE ? // (ERRORE LATO Server)
     }
+    
+    echo $html;
 }
-
-echo $html;
 
 ?>

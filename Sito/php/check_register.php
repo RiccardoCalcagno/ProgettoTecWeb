@@ -21,7 +21,7 @@
         
         $db->openConnection();
 
-        if(!isset($_SESSION))
+        if(session_status() == PHP_SESSION_NONE)
         {
             session_start();
             if(strlen(trim($username)) > 0)

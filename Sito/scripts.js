@@ -219,6 +219,8 @@ function openDD(nth_dd) {
         dl.className = "open-footer";
         dd.className = "footer-open-dd";
     }
+    
+    window.scrollTo(0, document.body.scrollHeight);
 }
 
 // ---------------------------------------------------------------------------------

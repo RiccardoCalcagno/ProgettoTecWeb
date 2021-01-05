@@ -110,20 +110,20 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     width: calc(100% - 1em);
 }
 
+#footerContent h2 {
+    padding-bottom: 0.3em;
+}
+
 #footerContent dl dd {
-    text-align: left;
-    top: auto;
-    right: auto;
-    bottom: 0;
-    left: 0;
-    width: 90%;
-    margin: 0 4% 2%;
+    height: auto;
 }
 
 #footerContent dl dd a {
-    display: block;
     margin-top: 0.1em;
-    margin-left: 4%;
+}
+
+#footerContent dl {
+    padding-left: 2.6%;
 }
 
 #footerContent dl dd + dt::before {
@@ -131,12 +131,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 
 #footerContent dl.open-footer {
-    text-align: center;
-    padding-bottom: 5em;    /* TO FIX CALIBRATE*/
- }
-
- #footerContent dl.open-footer dt:first-child{
-    margin-left: 0;
+    padding-bottom: 5em;
  }
 
 /*

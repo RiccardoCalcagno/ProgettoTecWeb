@@ -1,7 +1,7 @@
 <?php
 require_once("GeneralPurpose.php");
 
-clear_session();
+clearSession();
 
 if(!isset($_SESSION["login"]) ||  !$_SESSION["login"])
 {

@@ -1,6 +1,7 @@
 <?php
     require_once("DBinterface.php");
     require_once("character.php");
+    require_once("Errore.php");
 
     function clean_input($var) {   
         $var = htmlentities($var);
@@ -48,7 +49,7 @@
 
     function setup($html) { // Setup generico per tutte le pagine
         
-        if( !isset($_SESSION) ) {
+        if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }
 
@@ -62,7 +63,7 @@
     
     function clearSession() {   // Clear di variabili session utili solo a specifiche pagine
             //unset OK anche su null
-        if( !isset($_SESSION) ) {
+        if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }
 
@@ -76,6 +77,8 @@
         return setup($html);
     }
 
-
+    function errorPage($errorMessage) {
+        error($errorMessage);
+    }
 
 ?>

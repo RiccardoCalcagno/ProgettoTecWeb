@@ -1,10 +1,9 @@
 <?php
     require_once("GeneralPurpose.php");
 
-    if( !isset($_SESSION) ) {
+    if( session_status() == PHP_SESSION_NONE ) {
         session_start();
     }
-    $_SESSION["username"] = 'user';
 
     if(isset($_POST["Personaggio"]))
     {
