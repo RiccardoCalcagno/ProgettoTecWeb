@@ -3,19 +3,11 @@ require_once("DBinterface.php");
 require_once("character.php");
 require_once("GeneralPurpose.php");
 
-if ( session_status() == PHP_SESSION_NONE ) {
-    session_start();
-    header("Location: login.php"); // ?
-}
-else if ( !isset($_SESSION['username']) ) {
+$_SESSION['username'] = 'user';
+$_SESSION['character_id'] = 47;
 
-    error("Errore ..."); // header("Location: login.php"); ?
-}
-else if ( !isset($_SESSION['character_id'] )) {
+function characterSheet($html = '') {
 
-    error("Errore ..."); // header("Location: login.php"); ?
-}
-else {
     $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "otherHTMLs" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
     $html = setup($html);
 
@@ -46,7 +38,7 @@ else {
                 $html = str_replace("<flawsValue />", $character->get_flaws(), $html);
             }
             else {  // User sta cercando di accedere ad un personaggio non suo
-                $html = "<h1 style=\"font-size:5em; text-align: center; color: red;\">WAITTHATSILLEGAL</h1>";
+                error("WAITTHATSILLEGAL");
                 // ERROR PAGE ?
 
             }
@@ -61,8 +53,24 @@ else {
     // Can't connect to DB
         // ERROR PAGE ? // (ERRORE LATO Server)
     }
-    
-    echo $html;
+
+    return $html;
+}
+
+if ( session_status() == PHP_SESSION_NONE ) {
+    session_start();
+    header("Location: login.php"); // ?
+}
+else if ( !isset($_SESSION['username']) ) {
+
+    error("Errore ..."); // header("Location: login.php"); ?
+}
+else if ( !isset($_SESSION['character_id'] )) {
+
+    error("Errore ..."); // header("Location: login.php"); ?
+}
+else  {
+    echo characterSheet();
 }
 
 ?>
