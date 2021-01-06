@@ -5,7 +5,7 @@
         session_start();
     }
 
-if(isset($_GET["Accedi"]))
+if(isset($_GET["accesso"]))
 {
 
     if($_GET["accesso"] == "Accedi")
@@ -26,11 +26,6 @@ if(isset($_GET["Accedi"]))
         
         die();
     }
-
-}
-
-if(isset($_GET["Iscrizione"]))
-{
 
     if($_GET["accesso"] == "Iscrizione")
     {
