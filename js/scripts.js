@@ -151,26 +151,6 @@ function hamburgerFunction(){
 }
 
 
-
-/*
-function setBannerSalvataggi(){
-    var arraySalvataggi; // = php.getListaSalvataggio();
-
-    /*arraySalvataggi = [ "Report: Titolo Report1", "Report: Titolo Report1", "Personaggio: Titolo Personaggio1 + lungooooooo"];
-
-    if(arraySalvataggi.length >0){
-
-        var str = "<fieldset id='bannerSalvataggio'><legend><a xml:lang='en' id='chiusuraBanner' href='#' onclick='window.location.reload(true);'>Close</a></legend><p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p><ul>";
-        var li;
-        for(var i=0; i<arraySalvataggi.length; i++){
-            str = str + "<li>" + arraySalvataggi[i] + "</li>";
-        }
-        str = str + "</ul><p>Li puoi trovare nella tua <a href='AreaPersonale.html'>Area Personale</a></p></fieldset>";
-
-        document.getElementById("wrapperBannerSalvataggio").innerHTML = str;
-    }
-}*/
-
 function switchCharLayout(clickedButton) {
 
     var content = document.getElementById("contentPersonaggio");

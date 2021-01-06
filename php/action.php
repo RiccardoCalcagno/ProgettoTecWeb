@@ -5,10 +5,10 @@
         session_start();
     }
 
-if(isset($_GET["Accedi"]))
+if(isset($_GET["accesso"]))
 {
 
-    if($_GET["Accedi"] == "Accedi")
+    if($_GET["accesso"] == "Accedi")
     {
         $_SESSION['beforeAccess']=$_GET["BeforeAccess"];
 
@@ -16,7 +16,7 @@ if(isset($_GET["Accedi"]))
         exit();
     }
 
-    if($_GET["Accedi"] == "Esci")
+    if($_GET["accesso"] == "Esci")
     {
         session_start();
         
@@ -27,12 +27,7 @@ if(isset($_GET["Accedi"]))
         die();
     }
 
-}
-
-if(isset($_GET["Iscrizione"]))
-{
-
-    if($_GET["Iscrizione"] == "Iscrizione")
+    if($_GET["accesso"] == "Iscrizione")
     {
         $_SESSION['beforeAccess']=$_GET["BeforeAccess"];
         
@@ -40,7 +35,7 @@ if(isset($_GET["Iscrizione"]))
         exit();
     }
 
-    if($_GET["Iscrizione"] == "Area Personale")
+    if($_GET["accesso"] == "Area Personale")
     {
         header("Location: area_personale.php");
         exit();
