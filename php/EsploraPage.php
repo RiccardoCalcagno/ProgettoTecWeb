@@ -6,7 +6,7 @@ require_once("GeneralPurpose.php");
 require_once("banners.php");
 require_once("report_data.php");
 
-//prelevo Esplora.html
+
 
 /*
 $dbInterface = new DBinterface();
@@ -44,7 +44,7 @@ else{
     $_SESSION["vai_indietro_esplora"] = false;
     $_SESSION["count_esplora"] = 1;
     $_SESSION["num_report_esplora"] = 1;      // DA METTERE
-    $_SESSION["report_data"] = new ReportData(1,'Iniziare una Locanda','Il modo più classico di iniziare una campagna può essere inaspettato?','Potete Appena Ci siamolocanda alla fine è rimasto ben poco LOL','Grog',true,['hey','gio','come','stai']);
+    $_SESSION["report_data"] = array(new ReportData(1,'Iniziare una Locanda','Il modo più classico di iniziare una campagna può essere inaspettato?','Potete Appena Ci siamolocanda alla fine è rimasto ben poco LOL','Grog',true,['hey','gio','come','stai']));
     $numero_pag_esplora = 2;
 
     for($i = 0; $i < $numero_pag_esplora; $i++)
