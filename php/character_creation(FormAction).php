@@ -76,7 +76,6 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
     $html = preparePage($html, $toModify);
 
     if ( isset($_POST['salvaPers']) ) {
-        /*
         $name = $_POST['cname'];    //estraggo dal post della form le informazioni contenute
         $race = $_POST['crace'];
         $class = $_POST['cclass'];
@@ -88,6 +87,9 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
         $flaws = $_POST['cflaws'];
         //Fare i controlli sugli input
         //Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
+
+        /*
+
         $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
         //$check_race = ;            //provengono da select, non possono essere sbagliati, no?
         //$check_class = ;
@@ -97,6 +99,8 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
         $check_ideals = checkText($ideals);
         $check_bonds = checkText($bonds);
         $check_flaws = checkText($flaws);
+
+        */
 
         if($check_name && $check_traits && $check_ideals && $check_bonds && $check_flaws){
             //se passo i controlli allora passo gli input alla costruzione di dati per il DB.
@@ -173,7 +177,6 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
             }
             $messaggioForm .= '</ul></div>';
         }
-        */
     }
     else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
         $db = new DBinterface();
