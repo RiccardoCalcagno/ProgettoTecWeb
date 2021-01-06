@@ -1,17 +1,17 @@
 <?php
 
 
-//require_once("DBinterface.php");
+//require_once("DBinterface.php");                              !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 require_once("report_data.php");
 
 //prelevo Esplora.html
 
+/*
 $dbInterface = new DBinterface();
 $connection = $dbInterface->openConnection();
 
-/*
 if($connection == false){
     header("Location: Errore.php");
     exit();
