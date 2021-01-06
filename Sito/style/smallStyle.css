@@ -843,10 +843,8 @@ form#datiUtenza{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#visualizzaScheda #content{
-    position: relative;
+#visualizzaScheda #content {
     padding-top: 0;
-    padding-bottom: 5em;
 }
 
 #visualizzaScheda #setLayout{
@@ -859,6 +857,10 @@ form#datiUtenza{
 
 #visualizzaScheda #pulsante{
     font-size: 0.8em;
+}
+
+#visualizzaScheda #content .pergamena{
+    padding-bottom: 3em;
 }
 
 #contentPersonaggio.pergamena h1{
@@ -917,12 +919,36 @@ form#datiUtenza{
     background-size: 100% 100%;
     margin-top: 1.5em;
 }
-/* HORRIBLE 
-#contentPersonaggio.scheda {    
-    overflow: scroll;
-    width: calc(95% - 1em);
+
+#contentPersonaggio.scheda h1 {
+    font-size: 4.7mm;
 }
+
+#contentPersonaggio.scheda #infoBreviPersonaggio {
+    font-size: 2.3mm;
+}
+
+#contentPersonaggio.scheda #sezTestualiPersonaggio {
+    font-size: 1.4mm;
+}
+
+/*
+@media screen and (max-width: 370px) {
+
+#contentPersonaggio.scheda h1 {
+    font-size: 4.3mm;
+}
+
+#contentPersonaggio.scheda #infoBreviPersonaggio {
+    font-size: 2mm;
+}
+
+#contentPersonaggio.scheda #sezTestualiPersonaggio {
+    font-size: 1.2mm;
+}
+
 */
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------

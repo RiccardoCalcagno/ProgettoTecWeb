@@ -1413,26 +1413,31 @@ li #toApprEsp:active{background-color:#732ab8be;}
 }
 
 #contentPersonaggio.scheda {
-    position: relative;
-    background: url(../images/CharSheet.png); /* TO FIX-------SIZE !!!!!!!!------------------------------------------------------------------ */
-    background-size: 210mm 297mm;
-    width: 210mm;
-    height: 297mm;
-    margin:auto;
+    max-width: 850px;
+    max-height: 1100px;
+    width: 95%;
+    margin: auto;
     border: 1em ridge black;
 }
 
-#contentPersonaggio.scheda h1 {
-    position: absolute;
-    top: 20mm;
-    left: 22mm;
-    font-size: 8mm;
+#contentPersonaggio.scheda > div{
+    position: relative;
+    background: url(../images/CharSheet.png) no-repeat; /* TO FIX-------SIZE (MB) !!!!!!!!------------------------------------------------------------------ */
+    background-size: contain;
+    height: 0;
+    padding-bottom: 129.41%; /* 850 x 1100 */
+    margin:auto;
+}
+
+#contentPersonaggio.scheda h1, #contentPersonaggio.scheda #infoBreviPersonaggio dd {
+    text-align: center;
 }
 
 #contentPersonaggio.scheda h1 {
     position: absolute;
-    top: 21.5mm;
-    left: 18mm;
+    top: 7.1%;
+    left: 7.5%;
+    width: 34%;
     font-size: 8mm;
 }
 
@@ -1441,7 +1446,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 }
 
 #contentPersonaggio.scheda #sezTestualiPersonaggio {
-    font-size: 3mm;
+    font-size: 2.7mm;
 }
 
 #contentPersonaggio.scheda * {
@@ -1455,34 +1460,41 @@ li #toApprEsp:active{background-color:#732ab8be;}
 }
 
 #contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
-    top: 18mm;
-    left: 94mm;
+    top: 6.3%;
+    left: 43%;
+    width: 15%;
 }
 
 #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
-    top: 27.5mm;
+    top: 9.6%;
 }
 
 #contentPersonaggio.scheda #alignment, #contentPersonaggio.scheda #background {
-    left: 129mm;
+    left: 58%;
+    width: 19%;
 }
 
 #contentPersonaggio.scheda #pers-traits, #contentPersonaggio.scheda #ideals, #contentPersonaggio.scheda #bonds, #contentPersonaggio.scheda #flaws {
-    width: 53mm;
-    top: 52mm;
-    left: 143.5mm;
+    top: 17.6%;
+    left: 68.3%;
+    width: 25%;
+    height: 4.7%;
+}
+
+#contentPersonaggio.scheda #pers-traits {
+    height: 6.4%;
 }
 
 #contentPersonaggio.scheda #ideals {
-    top: 78mm;
+    top: 26.3%;
 }
 
 #contentPersonaggio.scheda #bonds {
-    top: 99mm;
+    top: 33.3%;
 }
 
 #contentPersonaggio.scheda #flaws {
-    top: 119.5mm;
+    top: 40.3%;
 }
 
 /*
@@ -1590,6 +1602,7 @@ p.campiObbligatori{
   }
 #bannerPage h2{
     font-size: 1.3em;
+    text-align: center;
 }
 
 #bannerPage > div{
@@ -1621,10 +1634,10 @@ p.campiObbligatori{
     flex-wrap: wrap;
     margin: auto;
 }
-#bannerPage .buttonLink{
+#bannerPage .buttonLink, #bannerPage .annulla{
     margin-top: 1em;
     width: 13em;
-}
+} 
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------

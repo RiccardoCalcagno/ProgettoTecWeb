@@ -191,6 +191,15 @@ function switchCharLayout(clickedButton) {
     otherButton.removeAttribute("disabled");
 }
 
+function CharSheet_JS_ON() {
+    
+    var scrollButton = document.getElementById("pergamena");
+    var sheetButton = document.getElementById("scheda");
+
+    scrollButton.setAttribute('type', 'button');
+    sheetButton.setAttribute('type', 'button');
+}
+
 function openDD(nth_dd) {
 
     var dl = document.getElementById("footerList");

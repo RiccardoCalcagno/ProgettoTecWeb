@@ -1,4 +1,4 @@
-
+﻿
 <!--
     ATTENZIONE:
 
@@ -8,6 +8,7 @@
     1) <head>
     2) <header> intestazionePagina
     3) <p> nell'ultimo submitForm
+    4) <input> per il bottone che conferma il salvataggio/modifica
 -->
 
 
@@ -22,22 +23,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
 
-
-
-        <title>Creazione Report di Sessione</title>
-        <meta name="title" content="Creazione Report di Sessione" />
-        <meta name="description" content="Crea il tuo report di sessione" />
-        <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />
-    
-    <!-- QUESTO È L'HEAD CHE BISOGNA SCAMBIARE SE INVECE DI CREARE IL REPORT LO SI MODIFICANDO
-        <title>Modifica Report di Sessione</title>
-        <meta name="title" content="Modifica Report di Sessione" />
-        <meta name="description" content="Modifica il tuo report di sessione" />
-        <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />
-    -->
-
-
-
+        <!--Il placeholder cambia valore se il report sta venendo creato per la prima volta oppure modificato-->
+        <headTitle_placeholder />
 
 
         <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
@@ -59,12 +46,12 @@
                 <li><a href="">Vai al Menù</a></li>
                 <li><a href="">Vai al Contenuto</a></li>
             </ul>
-    
+
             <div id="access">
                 <form action="php/action.php" method="get">
-                    <input type="text" class="hidden" name="beforeAccess" value="CreazioneReportPage.php"/>
-                    <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
+                    <input type="text" class="hidden" name="beforeAccess" value="CreazioneReportPage.php" />
+                    <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
                 </form>
             </div>
 
@@ -89,11 +76,11 @@
                         <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
                     </ul>
                 </li>
-        </ul>
+            </ul>
 
-    
+
         </header>
-    
+
         <nav id="breadcrumb">
             <ul>
                 <li><a href="../Home.html" xml:lang="en">Home</a></li>
@@ -102,22 +89,9 @@
             </ul>
         </nav>
 
-        <header id="intestazionePagina">
-            <h1>Creazione Report di Sessione <span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
-            <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
-                passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai. </p>
-            <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del report sarà necessaria una tua autenticazione)</p>
-        </header>
 
-        <!--
-    QUESTO È L'HEADER CHE BISOGNA SCAMBIARE SE INVECE DI CREARE IL REPORT LO SI  MODIFICANDO
-
-    <header id="intestazionePagina">
-            <h1>Modifica Report di Sessione <span> <a class="puntoInterrogativo" 
-                href="../otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h1>
-    </header>
--->
-
+        <!--Il placeholder cambia valore se il report sta venendo creato per la prima volta oppure modificato-->
+        <header_placeholder />
 
 
 
@@ -127,46 +101,52 @@
 
             <ol>
                 <li>
-                    <fieldset id="titoloRepo" class="fieldss"><legend><h2 class="campiObbligatori">Titolo</h2></legend>
+                    <fieldset id="titoloRepo" class="fieldss">
+                        <legend><h2 class="campiObbligatori">Titolo</h2></legend>
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
                         <div>
                             <p class="limitazioniText">Inserisci un titolo di massimo 30 lettere</p>
-                            <span><textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"><valueTitle/></textarea></span>
+                            <span><textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"><valueTitle /></textarea></span>
                             <p class="counter"><span id="currentCountTitolo">0</span>/30</p>
                         </div>
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="sottotitoloRepo" class="fieldss"><legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
+                    <fieldset id="sottotitoloRepo" class="fieldss">
+                        <legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
                         <div>
                             <p class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</p>
-                            <span><textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"><valueSubtitle/></textarea></span>
+                            <span><textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"><valueSubtitle /></textarea></span>
                             <p class="counter"><span id="currentCountSottotitolo">0</span>/120</p>
                         </div>
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="contenutoRepo" class="fieldss"><legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
+                    <fieldset id="contenutoRepo" class="fieldss">
+                        <legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
                         <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
-                <!-- TO FIX c'e' gia' un div, no span per js check (?)-->
-                        <div><textarea id="contRepo" name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"><valueContent/></textarea></div>
+                        <!-- TO FIX c'e' gia' un div, no span per js check (?)-->
+                        <div><textarea id="contRepo" name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"><valueContent /></textarea></div>
                     </fieldset>
                 </li>
                 <li>
-                    <fieldset id="giocatoriRepo" class="fieldss"><legend><h2>Giocatori Partecipanti</h2></legend>
-                        <p><strong>Registra</strong> all'interno del <span xml:lang="en">report</span> i <strong>giocatori che hanno partecipato</strong> 
-                            alla sessione, così che possano vedere la tua creazione e assime <strong>commentarla</strong>!</p>
+                    <fieldset id="giocatoriRepo" class="fieldss">
+                        <legend><h2>Giocatori Partecipanti</h2></legend>
+                        <p>
+                            <strong>Registra</strong> all'interno del <span xml:lang="en">report</span> i <strong>giocatori che hanno partecipato</strong>
+                            alla sessione, così che possano vedere la tua creazione e assime <strong>commentarla</strong>!
+                        </p>
                         <div id="selezionamentoGiocatori">
                             <div>
-                                <listaGiocatori/>                                                           <!-- SEGNA POSTO PER PHP-->
+                                <listaGiocatori />                                                           <!-- SEGNA POSTO PER PHP-->
                                 <!-- ESEMPIO -->
                                 <ul>
                                     <li>
                                         <div class="badgeUtente">
                                             <div>
-                                            <img src="../images/icone_razze/nano.png" alt="" /> 
-                                            <p class="textVariable">Nome Giocatore</p>
+                                                <img src="../images/icone_razze/nano.png" alt="" />
+                                                <p class="textVariable">Nome Giocatore</p>
                                             </div>
                                             <button title="rimuovi giocatore" class="deleteButton" name="delete" value="1">X</button>
                                         </div>
@@ -174,8 +154,8 @@
                                     <li>
                                         <div class="badgeUtente">
                                             <div>
-                                            <img src="../images/icone_razze/tiefilng.png" alt="" /> 
-                                            <p class="textVariable">Nome Giocatore</p>
+                                                <img src="../images/icone_razze/tiefilng.png" alt="" />
+                                                <p class="textVariable">Nome Giocatore</p>
                                             </div>
                                             <button title="rimuovi giocatore" class="deleteButton" name="delete" value="2">X</button>
                                         </div>
@@ -183,8 +163,8 @@
                                     <li>
                                         <div class="badgeUtente">
                                             <div>
-                                            <img src="../images/icone_razze/elfo.png" alt="" /> 
-                                            <p class="textVariable">Nome Giocatore</p>
+                                                <img src="../images/icone_razze/elfo.png" alt="" />
+                                                <p class="textVariable">Nome Giocatore</p>
                                             </div>
                                             <button title="rimuovi giocatore" class="deleteButton" name="delete" value="3">X</button>
                                         </div>
@@ -192,8 +172,8 @@
                                     <li>
                                         <div class="badgeUtente">
                                             <div>
-                                            <img src="../images/icone_razze/gnomo.png" alt="" /> 
-                                            <p class="textVariable">Nome Giocatore</p>
+                                                <img src="../images/icone_razze/gnomo.png" alt="" />
+                                                <p class="textVariable">Nome Giocatore</p>
                                             </div>
                                             <button title="rimuovi giocatore" class="deleteButton" name="delete" value="4">X</button>
                                         </div>
@@ -201,8 +181,8 @@
                                     <li>
                                         <div class="badgeUtente">
                                             <div>
-                                            <img src="../images/icone_razze/dragonide.png" alt="" /> 
-                                            <p class="textVariable">Nome Giocatore</p>
+                                                <img src="../images/icone_razze/dragonide.png" alt="" />
+                                                <p class="textVariable">Nome Giocatore</p>
                                             </div>
                                             <button title="rimuovi giocatore" class="deleteButton" name="delete" value="5">X</button>
                                         </div>
@@ -214,16 +194,16 @@
                                 <label for="aggiungiGiocatore">Aggiungi il giocatore inserendo il suo username</label>
                                 <div>
                                     <input type="text" id="writeUsername" name="usernameGiocatore" rows=1 cols="35" placeholder="Digita l'username" maxlength="30"></textarea>
-                                    <input id="aggiungiGiocatore" class="buttonLink" type="submit" name="aggiungiGiocatore" value="AGGIUNGI"/>
+                                    <input id="aggiungiGiocatore" class="buttonLink" type="submit" name="aggiungiGiocatore" value="AGGIUNGI" />
                                 </div>
 
                                 <!--POSSIBILI MESSAGGI DI FEED BACK
-                                <p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>
+                            <p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>
 
-                                 ALTRIMENTI,  SE NON È STATO TROVATO NESSUN GIOCATORE
+                             ALTRIMENTI,  SE NON È STATO TROVATO NESSUN GIOCATORE
 
-                                <p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>
-                                -->
+                            <p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>
+                            -->
 
 
 
@@ -233,16 +213,16 @@
                     </fieldset>
                 </li>
                 <!--
-                <li>
-                    <fieldset id="immaginiRepo" class="fieldss"><legend><h2>Immagini della Sessione</h2></legend>
-                        <p>Se lo desideri puoi aggiungere delle immagini, potrebbero essere le foto della partita oppure la mappa in cui avete giocato</p>
-                        <div>
-                            <p>Puoi aggiungere più immagini in una volta</p>
-                            <input type="file" name="aggiungiImmg" placeholder="Importa immagini..." multiple="multiple" accept="image/*"/>
-                        </div>
-                    </fieldset>
-                </li>
-                -->
+            <li>
+                <fieldset id="immaginiRepo" class="fieldss"><legend><h2>Immagini della Sessione</h2></legend>
+                    <p>Se lo desideri puoi aggiungere delle immagini, potrebbero essere le foto della partita oppure la mappa in cui avete giocato</p>
+                    <div>
+                        <p>Puoi aggiungere più immagini in una volta</p>
+                        <input type="file" name="aggiungiImmg" placeholder="Importa immagini..." multiple="multiple" accept="image/*"/>
+                    </div>
+                </fieldset>
+            </li>
+            -->
             </ol>
 
             <div id="conclusione">
@@ -251,28 +231,21 @@
                     <p>permetterai a molta più gente di vederlo e commentarlo</p>
                     <div>
                         <label for="condividi">Condividi in "Esplora"</label>
-                        <input type="checkbox" id="condividi" name="condividi"/>
+                        <input type="checkbox" id="condividi" name="condividi" />
                     </div>
                 </div>
                 <div id="submitReport" class="submitForm">
-                    <p>Concludi la creazione salvando il nuovo report nella tua Area Personale</p>
-                    <!--
-                        QUESTO È IL <p> CHE BISOGNA SCAMBIARE SE INVECE DI CREARE IL REPORT LO SI STA MODIFICANDO
 
-                        <p>Concludi la modifica salvando la nuova versione del report nella tua Area Personale</p>
-
-                    -->
+                    <!--Il placeholder cambia valore se il report sta venendo creato per la prima volta oppure modificato-->
+                    <p_placeholder />
 
 
                     <div>
                         <a href="../Home.html" class="annulla">ANNULLA</a>
-                        <input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>  
-                        <!--
-                            SCAMBIARE CON: 
-                            <input class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA"/>  
-                        -->
+                        <!--Il placeholder cambia valore se il report sta venendo creato per la prima volta oppure modificato-->
+                        <button_placeholder />
                     </div>
-                       
+
                 </div>
 
             </div>

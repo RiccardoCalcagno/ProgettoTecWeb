@@ -13,7 +13,7 @@
 
     $username = ""; $name_surname = ""; $img = ""; $birthdate = ""; $email = "";
 
-    if(isset($_SESSION) && $_SESSION["err"])
+    if(isset(($_SESSION)['err']) && $_SESSION["err"])
     {  
         $username = $_POST["username"];
         $name_surname = $_POST["NomeCognome"];
