@@ -1,7 +1,7 @@
 <?php
 
-//require
-require_once("DBinterface.php");
+
+//require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 require_once("report_data.php");
