@@ -37,7 +37,7 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
-
+    echo "Error: " . $sql . "HEYYYY ".$_SESSION["num_report_esplora"] .$_SESSION["report_data"] . mysqli_error($con);
 
 /*
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
