@@ -107,65 +107,84 @@
             //$_SESSION['report_in_creazione'] = $rep;
 
             if(isset($_SESSION['username'])) {
+                
+                $rep->set_author($_SESSION['username']); 
 
                 $dbInterface = new DBinterface();
                 $connection = $dbInterface->openConnection();
 
                 if($connection){
+                    $result = $toModify ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
 
-                    if($_POST['salvaRep']=="SALVA MODIFICA"){
-                        //modifico il report nel database
-                        $insertionResult = $dbInterface->setReport($rep);
-                        if ($insertionResult){
-                            $_SESSION['banners']= "modifica_documento_confermata";
-                            //azzero la form
-                            $titolo = '';$sottotitolo = '';$contenuto = '';$condividi = '';
-                        }
-                        else{
-                            //messaggi di errore lato server, non errori di compilazione
-                            $message = 'Errore lato Server, Riprovare.';
-                        }
-                    }else{
-                        //aggiungo il report nel database
-                        $insertionResult = $dbInterface->addReport($rep);
-                        if ($insertionResult){
-                            $_SESSION['banners']= "creazione_documento_confermata";
-                            //azzero la form
-                            $titolo = '';$sottotitolo = '';$contenuto = '';$condividi = '';
-                        }
-                        else{
-                            //messaggi di errore lato server, non errori di compilazione
-                            $message = 'Errore lato Server, Riprovare.';
-                        }
+                    if($result){
+                        $_SESSION['banners']= $toModify ? "modifica_documento_confermata" : "creazione_documento_confermata";;
+                        //azzero la form
+                        $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
+                            
+                        //devo fare unset di parametri particolari?
                     }
-                }else{
-                    $message = 'Errore lato Server, Riprovare.';
+                    else{
+                        //messaggi di errore inserimento nel DB
+                        $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                    }
                 }
-            }else{
+                else{
+                    //errore di connessione al DB
+                    $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                }
+                $dbInterface->closeConnection();
+            }
+            
+            else{
                 array_push($_SESSION['stagedReports'], $rep);
                 $_SESSION['banners']= "salvataggio_pendente";
             }
         }
         //altrimenti ci sono stati errori di inserimento
         else{
-            $message = 'errori:';
+            $message = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
             if (strlen($titolo) == 0) {
-                $message.='titolo troppo corto';
+                $message.='<li>titolo troppo corto</li>';
             }
             if (strlen($sottotitolo) == 0) {
-                $message .='sottotitolo troppo corto';
+                $message .='<li>sottotitolo troppo corto</li>';
             }
             if (strlen($contenuto) == 0) {
-                $message.='contenuto troppo corto';
+                $message.='<li>contenuto troppo corto</li>';
             }
+            $message .= '</ul></div>';
         }
         
+    }
+    else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
+
+        $dbInterface = new DBinterface();
+        $connection = $dbInterface->openConnection();
+
+        if ($connection) {
+            $rep = $_SESSION['report_in_creazione'];
+            if($rep) {
+                $titolo = $rep->get_titolo();
+                $sottotitolo = $rep->get_sottotitolo();
+                $contenuto = $rep->get_contenuto();
+                $condividi = $rep->get_condividi();
+                $lista_giocatori = $rep->get_lista_giocatori();
+            }
+            else {
+                // ERROR PAGE ?
+            }
+        }
+        else {
+            // ERROR PAGE ?
+        }
     }
 
     //il contenuto delle textarea viene settato qui
     $html = str_replace('<valueTitle/>',$titolo,$html);
     $html = str_replace('<valueSubtitle/>',$sottotitolo,$html);
     $html = str_replace('<valueContent/>',$contenuto,$html);
+
+    //TODO string replace per giocatori linkati e condivisibile!!!
     
 
 
