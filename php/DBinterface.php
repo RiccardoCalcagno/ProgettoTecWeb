@@ -11,7 +11,7 @@
 
 
     class DBinterface {
-        private const HOST = "localhost:8080";
+        private const HOST = "localhost";
         private const USERNAME = "rcalcagn";
         private const PASSWORD = "ein2neipieShahpe";
         private const DB_NAME = "rcalcagn";

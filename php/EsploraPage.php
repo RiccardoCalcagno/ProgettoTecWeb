@@ -24,7 +24,7 @@ else{
     $_SESSION["vai_avanti_esplora"] = false;
     $_SESSION["vai_indietro_esplora"] = false;
     $_SESSION["count_esplora"] = 1;
-    $_SESSION["num_report_esplora"] = $db->countReport($_SESSION["username"]);      // DA METTERE
+    $_SESSION["num_report_esplora"] = 2;//$db->countReport($_SESSION["username"]);      // DA METTERE
     $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);     // DA METTERE
 
     for($i = 0; $i < $num_report_esplora; $i++)
