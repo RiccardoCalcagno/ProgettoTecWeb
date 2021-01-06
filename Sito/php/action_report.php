@@ -26,17 +26,37 @@
     if(isset($_POST["ReportMaster"]))
     {
         $db->openConnection();
-        $_SESSION["report_id"] = $db->getReport($_POST["ReportMaster"]);
+        $_SESSION["report_id"] = $db->getReport($_POST["ReportMaster"], $_SESSION["username"]);
         $db->closeConnection();
-        header("Location: ReportPage.php");
+        
+        if($_SESSION["report_id"])
+        {
+            header("Location: ReportPage.php");
+            exit();
+        }
+        else
+        {
+            header("Location: 404.php");
+            exit();
+        }
     }
 
     if(isset($_POST["ReportPartecip"]))
     {
         $db->openConnection();
-        $_SESSION["report_id"] = $db->getReport($_POST["ReportPartecip"]);
+        $_SESSION["report_id"] = $db->getReportForPertecipant($_POST["ReportPartecip"], $_SESSION["username"]);
         $db->closeConnection();
-        header("Location: ReportPage.php");
+
+        if($_SESSION["report_id"])
+        {
+            header("Location: ReportPage.php");
+            exit();
+        }
+        else
+        {
+            header("Location: 404.php");
+            exit();
+        }
     }
 
     if(isset($_POST["ReportEsplora"]))

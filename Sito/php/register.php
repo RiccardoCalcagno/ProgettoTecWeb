@@ -53,7 +53,7 @@
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
 
-    if($_SESSION['banner']=="creazione_utente_confermata"){
+    if(isset($_SESSION['banner']) && $_SESSION['banner']=="creazione_utente_confermata"){
 
         unset($_SESSION["err"]);
         unset($_POST);

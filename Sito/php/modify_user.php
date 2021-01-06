@@ -47,10 +47,10 @@
     
     }
 
-    if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
+    /*if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
     {
         str_replace("<p id=\"Successful\" class=\"hidden\">", "<p id=\"Successful\">", $html);
-    }
+    }*/
 
     $html = str_replace("src=\" <img_profilo> \"", "src=\"" . $img ."\"", $html) ;
     $html = str_replace("value=\"<username>\"", "value=\"" . $username . "\"", $html);

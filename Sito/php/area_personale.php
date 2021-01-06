@@ -67,25 +67,25 @@ else if($_SESSION["login"])
 
 
 
-        if($_SESSION["vai_avanti_master"])
+        if(isset($_SESSION["vai_avanti_master"]) && $_SESSION["vai_avanti_master"])
         {
             $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
             $_SESSION["vai_avanti_master"] = false;
         }
 
-        if($_SESSION["vai_avanti_rep"])
+        if(isset($_SESSION["vai_avanti_rep"]) && $_SESSION["vai_avanti_rep"])
         {
             $_SESSION["count_rep"] == $numero_pag_master ? $_SESSION["count_rep"] = $numero_pag_master : $_SESSION["count_rep"]++;
             $_SESSION["vai_avanti_rep"] = false;
         }
 
-        if($_SESSION["vai_indietro_master"])
+        if(isset($_SESSION["vai_indietro_master"]) && $_SESSION["vai_indietro_master"])
         {
             $_SESSION["count_master"] == 1 ? $_SESSION["count_master"] = 1 : $_SESSION["count_master"]--;
             $_SESSION["vai_indietro_master"] = false;
         }
 
-        if($_SESSION["vai_indietro_rep"])
+        if(isset($_SESSION["vai_indietro_rep"]) && $_SESSION["vai_indietro_rep"])
         {
             $_SESSION["count_rep"] == 1 ? $_SESSION["count_rep"] = 1 : $_SESSION["count_rep"]--;
             $_SESSION["vai_indietro_rep"] = false;

@@ -308,11 +308,11 @@
         //-----------------------------------------------------------------------------------------------------------------
         // FUNZIONI RELATIVE AI REPORT
         //-----------------------------------------------------------------------------------------------------------------
-        public function getReport($id_report) {
+        public function getReport($id_report, $username) {
             $id_report = clean_input($id_report);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
                       FROM Report INNER JOIN Users ON Report.author = Users.username
-                      WHERE Report.id = '".$id_report."';";
+                      WHERE Report.id = '".$id_report."' AND Report.author = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -753,6 +753,43 @@
                 }
                 return $usersINreport;
             }
+        }
+
+        public function getReportForPertecipant($id_report, $partecipant)
+        {
+            $id_report = clean_input($id_report);
+            $query = $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
+                            "FROM Report ". 
+                            "INNER JOIN report_giocatore ".
+                            "ON Report.id = report_giocatore.report ". 
+                            "INNER JOIN Users ". 
+                            "ON report_giocatore.user = Users.id ". 
+                            "WHERE Users.username = '" . $username . "' AND Report.id = '" . $id_report . "';";
+
+            $query_result = mysqli_query($this->connection, $query);
+
+            if(mysqli_num_rows($query_result) == 0) {
+                echo "Spiacenti! Report non trovato";
+                return null;
+            }
+            else {
+                $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
+                return new ReportData($row["Report.id"], 
+                                        $row["Report.titolo"], 
+                                        $row["Report.sottotitolo"], 
+                                        $row["Report.contenuto"], 
+                                        $row["Report.autore"], 
+                                        $row["Report.isExplorable"], 
+                                        $row["Users.img_path"], 
+                                        $row["Report.last_modified"]);
+                /*
+                return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
+
+                $row_arr = $query->mysqli_fetch_assoc(MYSQLI_ASSOC);
+                return $row_arr;
+                */
+            }
+        }
         }
 
     }
