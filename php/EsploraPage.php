@@ -21,8 +21,8 @@ else{
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
 
-    $_SESSION["username"]="Barb";
-    $_SESSION["passwd"]="12345678Aa";
+    $_SESSION["username"]="QueenAdministrator";
+    $_SESSION["passwd"]="1000BimbiFucsia";
 
     $_SESSION["vai_avanti_esplora"] = false;
     $_SESSION["vai_indietro_esplora"] = false;
