@@ -8,7 +8,7 @@ require_once("report_data.php");
 
 
 
-/*
+
 $dbInterface = new DBinterface();
 $connection = $dbInterface->openConnection();
 
@@ -33,10 +33,10 @@ else{
     }
     $db->closeConnection();
     $numero_pag_esplora = $_SESSION["num_report_esplora"] / 5;
-*/
 
 
 
+/*
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
     $_SESSION["vai_avanti_esplora"] = false;
@@ -50,7 +50,7 @@ else{
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = 3;
     }
-
+*/
 
 
 
@@ -118,6 +118,6 @@ else{
     $html = addPossibleBanner($html, "EsploraPage.php");
 
     echo $html;
-    //}
+    }
 
 ?>
