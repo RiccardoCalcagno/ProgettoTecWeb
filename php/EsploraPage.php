@@ -21,9 +21,6 @@ else{
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
 
-    $_SESSION["username"]="QueenAdministrator";
-    $_SESSION["passwd"]="1000BimbiFucsia";
-
     $_SESSION["vai_avanti_esplora"] = false;
     $_SESSION["vai_indietro_esplora"] = false;
     $_SESSION["count_esplora"] = 1;
@@ -37,7 +34,7 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
-    echo "HEYYYY ". $_SESSION["num_report_esplora"];
+    echo "HEYYYY ". ($_SESSION["num_report_esplora"] < $numero_pag_esplora*5);
 
 /*
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
