@@ -1,7 +1,6 @@
 <?php
 require_once("GeneralPurpose.php");
 require_once("banners.php");
-require_once("DBinterface.php");
 
 clearSession();
 
@@ -184,7 +183,7 @@ else if($_SESSION["login"])
                 if($_SESSION["count_rep"] == 1)
                 {
                     $html = str_replace("<li><label id=\"LblPartecPrecedente\" for=\"partecPrecedente\">precedente</label></li>
-                    <li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li> ", " ", $html);
+                    <li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li>", " ", $html);
                 }
 
                 if($_SESSION["count_rep"] == $numero_pag_report)
@@ -232,7 +231,7 @@ else if($_SESSION["login"])
                 if($_SESSION["count_master"] == 1)
                 {
                     $html = str_replace("<li><label id=\"LblMasterPrecedente\" for=\"masterPrecedente\">precedente</label></li>
-                    <li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>  ", " ", $html);
+                    <li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>", " ", $html);
                 }
 
                 if($_SESSION["count_master"] == $numero_pag_master)
