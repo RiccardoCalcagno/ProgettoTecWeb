@@ -398,3 +398,20 @@ function validateChangeUserData() {
 function validateChangeUserPassword() {
     return validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch(); 
 }
+
+function updateProfileImg()
+{   
+    var img_path = document.getElementById("imgProfilo").value;
+    var img = document.getElementsById("immagine_profilo");
+
+    img.classList.remove("hidden");
+
+    if(img_path)
+    {
+        img.src(img_path);
+    }
+    else
+    {
+        img.src(" ");
+    }
+}

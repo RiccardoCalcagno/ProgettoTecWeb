@@ -145,9 +145,9 @@
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
                     <li>
-                    <img alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="<img>">
+                    <img class="hidden"  id="immagine_profilo" alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="<img>">
                     <label for="imgProfilo">Immagine profilo</label>
-                    <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*"/>
+                    <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg()"/>
                     </li>
                     <li>
             
