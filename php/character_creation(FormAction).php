@@ -5,10 +5,12 @@
     require_once("banners.php");
 
 //---------------------------------- UTILITY FUNCTIONs
+
+/*
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
     }
-    
+ 
     function preparePage($htmlPage, $toModify) {
 
         $title = ''; $header = ''; $p = ''; $button = '';
@@ -56,18 +58,23 @@
 
         return $htmlPage;
     }
+
+*/
+
  //---------------------------------------------------------------------
 //    $_SESSION["username"] = "user"; // FOR TESTING
 //    unset($_SESSION["username"]);
+
+$messaggioForm = "";
+$name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
+
     staged_session();
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html'. DIRECTORY_SEPARATOR . 'character creation.html');
+    /*
     $html = setup($html);
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
     $html = preparePage($html, $toModify);
-
-    $messaggioForm = "";
-    $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
 
 
     if ( isset($_POST['salvaPers']) ) {
@@ -196,6 +203,8 @@
             // ERROR PAGE ?
         }
     }
+
+    */
 
 $html = str_replace("<messaggioForm />", $messaggioForm, $html);
 
