@@ -72,10 +72,9 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html'. DIRECTORY_SEPARATOR . 'character creation.html');
 
     $html = setup($html);
-    /*
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
     $html = preparePage($html, $toModify);
-
+    /*
 
     if ( isset($_POST['salvaPers']) ) {
 
