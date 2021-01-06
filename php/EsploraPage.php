@@ -2,6 +2,7 @@
 
 //require
 require_once("DBinterface.php");
+echo "Error: " . $sql . "hey what fuck" . mysqli_error($con);
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
