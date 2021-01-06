@@ -22,7 +22,7 @@ if(isset($_GET["Accedi"]))
         
         session_destroy();
         
-        header('Location: index.php');
+        header('Location: ../index.php');
         
         die();
     }
@@ -47,7 +47,7 @@ if(isset($_GET["Iscrizione"]))
     }
 }
 
-header("Location: index.php");
+header("Location: ../index.php");
 
 
 

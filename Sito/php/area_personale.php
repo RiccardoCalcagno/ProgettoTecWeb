@@ -96,11 +96,11 @@ else if($_SESSION["login"])
 
         /* fine controllo */
 
-        $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "AreaPersonale.html");
+        $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
         $html = setup($html);
         if(!$html) 
         {
-            header("Location : 404.php");
+            header("Location: 404.php");
             exit();
         }
         else
@@ -263,7 +263,7 @@ else if($_SESSION["login"])
             }
 
         } catch(Exception $e) {
-            header("Location : Errore.php");
+            header("Location: Errore.php");
             exit();
         }
     }

@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" />
     <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="../scripts.js"></script> 
+    <script type="text/javascript" src="../js/scripts.js"></script> 
 </head>
 
 <body id="creazionePersonaggio" onload="onLoadCreaPersonaggio()">
@@ -63,7 +63,7 @@
         </ul>
 
         <div id="access">
-            <form action="php/action.php" method="get">
+            <form action="../php/action.php" method="get">
                 <input type="text" class="hidden" name="beforeAccess" value="character_creation(FormAction).php"/>
                 <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
                 <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
@@ -73,22 +73,22 @@
         <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
-            <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+            <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+            <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false" id="currentDirect">Crea</a>
                 <ul role="menu" class="dropdown-content">
                     <li role="none" id="currentLink">Crea Scheda Giocatore</li>
-                    <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
-                    <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                    <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
                 </ul>
             </li>
         </ul>
@@ -98,7 +98,7 @@
 
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../Home.html" xml:lang="en">Home</a></li>
+            <li><a href="../index.php" xml:lang="en">Home</a></li>
             <li>Crea</li>
             <li id="breadCCurrent">Crea Scheda Giocatore</li>
         </ul>
@@ -107,7 +107,7 @@
     <headerValue />
     <!-- <header id="intestazionePagina">
         <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo"
-                    href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+                    href="../php/Approf_personaggio.php">?</a></span></h1>
         <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo
             ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
         <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
@@ -118,7 +118,7 @@
 
     <header id="intestazionePagina">
         <h1>Modifica Scheda Giocatore<span> <a class="puntoInterrogativo"
-                    href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+                    href="./php/Approf_personaggio.php">?</a></span></h1>
     </header>
 -->
 
@@ -308,7 +308,7 @@
 
 
             <div>
-                <a href="../Home.html" class="annulla">ANNULLA</a>
+                <a href="../index.php" class="annulla">ANNULLA</a>
                 <input class="buttonLink" type="submit" name="salvaPers" value="<buttonValue />"/>  
                 <!-- DA SCAMBIARE CON:
                     <input class="buttonLink" type="submit" name="salvaPers" value="SALVA MODIFICA"/>  
@@ -326,12 +326,12 @@
         <h1>Salvataggio Pendente</h1>
         <h2>La creazione del documento è avvenuta <strong class="corretto">correttamente</strong> ma per poter essere salvato è necessaria un' <strong class="scorretto">autenticazione</strong> </h2>
         <p>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
-            verrà automaticamente salvato nella tua <a href="AreaPersonale.html">Area Personale</a></p>
+            verrà automaticamente salvato nella tua <a href="../php/area_personale.php">Area Personale</a></p>
         <div>
-            <a class="buttonLink" href="login.html">ACCESSO</a>
+            <a class="buttonLink" href="../php/login.php">ACCESSO</a>
             <a class="buttonLink" href="">ISCRIZIONE</a>
         </div>
-        <a class="buttonLink" href="../Home.html">HOME</a>
+        <a class="buttonLink" href="../index.php">HOME</a>
     </div>
 </div>
 

@@ -12,12 +12,12 @@
 <meta name="language" content="italian it" />
 <meta charset="utf-8" >
 
-<link rel="stylesheet" href="style/mainStyle.css" media="screen"/>      
-<link rel="stylesheet" href="style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>    
-<link rel="stylesheet" href="style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
-<link rel="stylesheet" href="style/printStyle.css" media="print"/>
+<link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>      
+<link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>    
+<link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+<link rel="stylesheet" href="../style/printStyle.css" media="print"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="scripts.js"></script> 
+<script type="text/javascript" src="../js/scripts.js"></script> 
 
 </head>
 
@@ -65,7 +65,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
         </ul>
 
         <div id="access">
-            <form action="php/action.php" method="get">
+            <form action="../php/action.php" method="get">
                 <input type="text" class="hidden" name="beforeAccess" value="../index.php"/>
                 <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
                 <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
@@ -75,22 +75,22 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
         <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" id="currentLink" xml:lang="en">Home</li>
-            <li role="none" class="externalLink"><a href="otherHTMLs/Esplora.html" role="menuitem">Esplora</a></li>
+            <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+            <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="otherHTMLs/character creation.html" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                    <li role="none"><a href="otherHTMLs/creazioneReport.html" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
+                    <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="otherHTMLs/Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="otherHTMLs/Approfondimenti/approfondimento_Report.html" role="menuitem" tabindex="-1">Report Sessione</a></li>
-                    <li role="none"><a href="otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                    <li role="none"><a href="otherHTMLs/Approfondimenti/approfondimento_esplora.html" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
                 </ul>
             </li>
         </ul>
@@ -107,16 +107,16 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
 <div id="copertina">
 
-    <img src="images/copertina.png" alt=""/>
+    <img src="../img/copertina.png" alt=""/>
     <div id="personaggiCoperina"></div>
 
     <header>
         <h1 id="titolo">Titolo del Sito</h1>
         <dl id="starFeature">
             <dt>Preparati per la sessione con la nostra..</dt>
-            <dd><a class="buttonLink" href="otherHTMLs/character creation.html">Scheda Giocatore</a></dd>
+            <dd><a class="buttonLink" href="../php/character_creation(FormAction).php">Scheda Giocatore</a></dd>
             <dt>Dai un seguito alla tua avventura con il..</dt>
-            <dd><a class="buttonLink" href="otherHTMLs/creazioneReport.html"><span xml:lang="en">Report</span> di Sessione</a></dd>
+            <dd><a class="buttonLink" href="../php/CreazioneReportPage.php"><span xml:lang="en">Report</span> di Sessione</a></dd>
         </dl>     
     </header>
 
@@ -134,7 +134,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
     <div>
     <ul id="features">
         <li>
-            <img src="images/features/personaggio.png" alt="Figura umana e testo simbolico da cui partono delle frecce che terminano sulla figura"/>
+            <img src="../img/features/personaggio.png" alt="Figura umana e testo simbolico da cui partono delle frecce che terminano sulla figura"/>
         
             <p><em>Crea e gestisci i tuoi personaggi</em> per avere sempre disponibili
                  schede aggiornate da stampare e usare nelle tue nuove avventure</p>
@@ -148,31 +148,31 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
         </li>
         -->
         <li>
-            <img src="images/features/utente.png" alt=""/>
+            <img src="../img/features/utente.png" alt=""/>
         
             <p>La <span xml:lang="en">community</span> aspetta solo di conoscerti! <em>Accedi alla tua 
                 Area Personale</em> e raccontaci che tipo di giocatore sei</p>                              <!--Area Riservata e altre keyword da mettere in enfasi oppure come href-->
         </li>
         <li>
-            <img src="images/features/trascrizioneIdee.png" alt=""/>
+            <img src="../img/features/trascrizioneIdee.png" alt=""/>
         
             <p>Sei un Master? Realizza il tuo personalissimo <em>Report di Sessione</em>,           <!--Report di Sessione come href?-->
                 cosicché nulla di vissuto durante il gioco venga perso</p>                 <!--Master e Report li mettiamo in inglese?-->
         </li>
         <li>
-            <img src="images/features/comunità.png" alt=""/>
+            <img src="../img/features/comunità.png" alt=""/>
         
             <p>Ogni Report di Sessione costituisce un micro cosmo in cui potrai 
                 <em>aprire conversazioni private </em> con i tuoi intimi compagni di avventura</p>
         </li>
         <li>
-            <img src="images/features/globo.png" alt=""/>
+            <img src="../img/features/globo.png" alt=""/>
         
             <p >A tua discrezione potrai <em>rendere publici i tuoi report</em>, avventurieri 
                 di tutta Italia potranno ispirarsi e interagire con il tuo gruppo</p>
         </li>
         <li>
-            <img src="images/features/dashboard.png" alt=""/>
+            <img src="../img/features/dashboard.png" alt=""/>
 
             <p><em>La <span xml:lang="en">dashboard</span> </em> permetterà di tenere traccia
                 dei report che hai pubblicato da Master e di quelli che ti riguardano come giocatore</p>
@@ -187,10 +187,10 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 <div id="argomenti">                  <!--All'interno è meglio mettere <section> che div?-->
 
 <div id="aboutReport" class="about">
-    <img src="images/argomenti/aboutReport.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
+    <img src="../img/argomenti/aboutReport.jpg" alt=""/>              <!--Trovare o meglio realizzare la foto-->
 
     <div class="testoArgomento">
-    <h2>Report di sessione <span> <a class="puntoInterrogativo" href="otherHTMLs/Approfondimenti/approfondimento_Report.html">?</a></span></h2>
+    <h2>Report di sessione <span> <a class="puntoInterrogativo" href="../php/Approf_esplora.php">?</a></span></h2>
 
     <section>
         <p>Le esperienze vissute durante una sessione di gioco sono troppo preziose 
@@ -215,7 +215,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
 <div id="howToReport" class="howTo">
    
-    <img src="images/argomenti/howToReport.png" alt=""/>                <!--INSERISCI IMMAGINE-->
+    <img src="../img/argomenti/howToReport.png" alt=""/>                <!--INSERISCI IMMAGINE-->
     
     <div class="testoArgomento">
     <h2>Come realizzare il tuo Report di Sessione</h2>
@@ -225,17 +225,17 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
             <li>Riporta un riassunto testuale della sessione ed eventuali momenti salienti</li>
             <li>Aggiungi alla gallery eventuali foto di momenti che ti piacerebbe conservare</li>
         </ol>
-        <a href="otherHTMLs/creazioneReport.html" class="buttonLink">Progetta il tuo Report di Sessione</a>
+        <a href="../php/CreazioneReportPage.php" class="buttonLink">Progetta il tuo Report di Sessione</a>
     </div>
 </div>
 
 
 <div id="aboutPersonaggio" class="about">
 
-    <img src="images/argomenti/aboutPersonaggio.png" alt=""/>              <!--Trovare o meglio realizzare la foto-->
+    <img src="../img/argomenti/aboutPersonaggio.png" alt=""/>              <!--Trovare o meglio realizzare la foto-->
 
     <div class="testoArgomento">
-    <h2>Prova le nostre schede giocatore<span> <a class="puntoInterrogativo" href="otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h2>
+    <h2>Prova le nostre schede giocatore<span> <a class="puntoInterrogativo" href="../php/Approf_personaggio.php">?</a></span></h2>
 
     <p>Siete pronti per l’azione? Un attimo.. avete con voi la scheda giocatore? …No?!
         <br/>
@@ -251,7 +251,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
 
 
 <div id="howToPersonaggio" class="howTo">
-    <img src="images/argomenti/howToPersonaggio.png" alt=""/>                <!--INSERISCI IMMAGINE-->
+    <img src="../img/argomenti/howToPersonaggio.png" alt=""/>                <!--INSERISCI IMMAGINE-->
 
     <div class="testoArgomento">
     <h2>Come realizzare la tua Scheda Giocatore</h2>
@@ -261,7 +261,7 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
         <li>Visualizza il risultato in formato di stampa in ogni momento</li>
         <li>Stampa la tua scheda giocatore</li>
     </ol>
-    <a class="buttonLink" href="otherHTMLs/character creation.html">Progetta la tua Scheda Giocatore</a>
+    <a class="buttonLink" href="../php/character_creation(FormAction).php">Progetta la tua Scheda Giocatore</a>
     </div>
 </div>
 
@@ -274,10 +274,10 @@ Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
     <h2>Approfondimenti</h2>                                                       <!--Da aggiungere gli href-->
     <p>Ti sfugge qualcosa? Scopri di più sulle <strong>principali tematiche</strong> che trattiamo</p>
     <ul>
-        <li><a href="otherHTMLs/Approfondimenti/Approfondimento_Dungeon&Dragon.html" id="toApprDeD"><span xml:lang="en">Dungeons &amp; Dragons</span></a></li>
-        <li><a href="otherHTMLs/Approfondimenti/approfondimento_Report.html" id="toApprRep"><span><span xml:lang="en">Report</span> di Sessione</span></a></li>
-        <li><a href="otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html" id="toApprSche"><span>Scheda giocatore</span></a></li>
-        <li><a href="otherHTMLs/Approfondimenti/approfondimento_esplora.html" id="toApprEsp"><span>Sezione "Esplora"</span></a></li>
+        <li><a href="../php/Approf_D&D.php" id="toApprDeD"><span xml:lang="en">Dungeons &amp; Dragons</span></a></li>
+        <li><a href="../php/Approf_report.php" id="toApprRep"><span><span xml:lang="en">Report</span> di Sessione</span></a></li>
+        <li><a href="../php/Approf_personaggio.php" id="toApprSche"><span>Scheda giocatore</span></a></li>
+        <li><a href="../php/Approf_esplora.php" id="toApprEsp"><span>Sezione "Esplora"</span></a></li>
     </ul>
 </div>
 

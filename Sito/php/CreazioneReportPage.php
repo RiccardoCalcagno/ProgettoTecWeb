@@ -57,7 +57,7 @@
 
     staged_session();
 
-    $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'otherHTMLs'.DIRECTORY_SEPARATOR.'creazioneReport.html');
+    $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'creazioneReport.html');
     $html = setup($html);
     $toModify = isset( $_SESSION['ModificaReport']) &&  $_SESSION['ModificaReport'];
     $html = preparePage($html,$toModify);

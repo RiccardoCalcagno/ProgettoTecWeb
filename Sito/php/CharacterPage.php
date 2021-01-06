@@ -9,7 +9,7 @@ $_SESSION['character_id'] = 47;
 
 function characterSheet($html = '') {
 
-    $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "otherHTMLs" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
+    $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
     $html = setup($html);
 
     //$_SESSION['username'] = 'user';    // testing

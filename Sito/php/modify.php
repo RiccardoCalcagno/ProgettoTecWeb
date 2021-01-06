@@ -63,7 +63,7 @@
         {
             $_SESSION["err"] = $err;
             $_SESSION["result"] = false;
-            header("Location : modify_user.php");
+            header("Location: modify_user.php");
         }
         else
         {
@@ -80,11 +80,11 @@
 
                 $_SESSION['banners']= "modifica_utente_confermata";
 
-                header("Location : modify_user.php");
+                header("Location: modify_user.php");
             }
             else
             {
-                header("Location : 404.php");
+                header("Location: 404.php");
                 exit();
             }
         }
@@ -93,7 +93,7 @@
 
 
     } catch(Exception $e) {
-        header("Location : error.php");
+        header("Location: Errore.php");
         exit();
     }
 

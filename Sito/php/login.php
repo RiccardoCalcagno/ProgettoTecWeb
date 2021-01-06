@@ -9,11 +9,11 @@
 
     $username = ""; 
 
-    $html = file_get_contents("..". DIRECTORY_SEPARATOR . "otherHTMLs". DIRECTORY_SEPARATOR . "login.html");
+    $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "login.html");
     $html = setup($html);   //setup_clear() ?
 
     if(isset($_SESSION['beforeAccess'])){
-        $html = str_replace('<a href="../Home.html" class="annulla">ANNULLA</a>',"<a href='".$_SESSION['beforeAccess']."' class='annulla'>ANNULLA</a>");
+        $html = str_replace('<a href="../index.php" class="annulla">ANNULLA</a>',"<a href='".$_SESSION['beforeAccess']."' class='annulla'>ANNULLA</a>");
     }
 
     if(isset($_SESSION['login']) && !$_SESSION['login'])

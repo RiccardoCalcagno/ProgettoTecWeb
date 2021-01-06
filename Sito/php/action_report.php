@@ -118,7 +118,7 @@
     if(isset($_POST["FtAct_DeleteReport"]))
     {
         $_SESSION['banners']="confermare_eliminazione_report";
-        header("Location: ReportPage.html");
+        header("Location: ReportPage.php");
     }
 
     if(isset($_POST["FtAct_PublicReport"]))

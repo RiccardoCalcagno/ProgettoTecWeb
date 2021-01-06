@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
     <link rel="stylesheet" href="../style/printStyle.css" media="print" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="../scripts.js"></script> 
+    <script type="text/javascript" src="../js/scripts.js"></script> 
 </head>
 
 <body id="visualizzaReport" class="documentoBody">
@@ -28,7 +28,7 @@
         </ul>
 
         <div id="access">
-            <form action="php/action.php" method="get">
+            <form action="../php/action.php" method="get">
                 <input type="text" class="hidden" name="beforeAccess" value="ReportPage.php"/>
                 <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
                 <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
@@ -38,26 +38,26 @@
         <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" class="externalLink"><a href="../Home.html" role="menuitem">Home</a></li>
-            <li role="none" class="externalLink"><a href="Esplora.html" role="menuitem">Esplora</a></li>
+            <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+            <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="character creation.html" role="menuitem" tabindex="-1">Crea Scheda
+                    <li role="none"><a href="../php/character_creation(FormAction).php creation.html" role="menuitem" tabindex="-1">Crea Scheda
                             Giocatore</a></li>
-                    <li role="none"><a href="creazioneReport.html" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="Approfondimenti/Approfondimento_Dungeon&Dragon.html" role="menuitem"
+                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem"
                             tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="Approfondimenti/approfondimento_Report.html" role="menuitem"
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem"
                             tabindex="-1">Report Sessione</a></li>
-                    <li role="none"><a href="Approfondimenti/approfondimento_scheda_giocatore.html" role="menuitem"
+                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem"
                             tabindex="-1">Scheda Giocatore</a></li>
-                    <li role="none"><a href="Approfondimenti/approfondimento_esplora.html" role="menuitem"
+                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem"
                             tabindex="-1">Sezione Esplora</a></li>
                 </ul>
             </li>
@@ -68,7 +68,7 @@
 
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../Home.html" xml:lang="en">Home</a></li>
+            <li><a href="../index.php" xml:lang="en">Home</a></li>
             <li id="breadCCurrent">Report di Sessione</li>
         </ul>
     </nav>

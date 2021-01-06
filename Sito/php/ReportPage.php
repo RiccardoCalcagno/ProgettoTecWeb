@@ -6,7 +6,7 @@ require_once("GeneralPurpose.php");
 require_once("banners.php");
 
 //prelevo Report.html
-$html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs' . DIRECTORY_SEPARATOR . 'Report.html');
+$html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Report.html');
 $html = setup($html);
 
 $dbInterface = new DBinterface();
@@ -35,7 +35,7 @@ for ($i = 0; i < count($commentsArray);$i++){
 $dbInterface->closeConnection();
 
 if($connection == false){
-    header("Location : 404.php");
+    header("Location: 404.php");
 }
 else{
 

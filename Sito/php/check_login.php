@@ -46,7 +46,7 @@
     
     } catch (Exception $e)  {
         session_destroy();
-        header("Location : error.php");
+        header("Location: Errore.php");
         exit();
     }
 

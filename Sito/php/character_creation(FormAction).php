@@ -61,7 +61,7 @@
 //    unset($_SESSION["username"]);
     staged_session();
 
-    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'otherHTMLs'. DIRECTORY_SEPARATOR . 'character creation.html');
+    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html'. DIRECTORY_SEPARATOR . 'character creation.html');
     $html = setup($html);
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
     $html = preparePage($html, $toModify);
