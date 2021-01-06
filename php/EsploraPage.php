@@ -1,7 +1,7 @@
 <?php
 
 //require
-require_once("DBinterface");
+require_once("DBinterface.php");
 
 //prelevo Esplora.html
 
