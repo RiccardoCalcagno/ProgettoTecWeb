@@ -185,7 +185,22 @@
     $html = str_replace('<valueContent/>',$contenuto,$html);
 
     //TODO string replace per giocatori linkati e condivisibile!!!
+    /*
+
     
+
+
+    <li>
+        <div class="badgeUtente">
+            <div>
+                <img src="../img/icone_razze/nano.png" alt="" />
+                <p class="textVariable">Nome Giocatore</p>
+            </div>
+            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="1">X</button>
+        </div>
+    </li>
+    <valueLinkedUser />
+    */
 
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
