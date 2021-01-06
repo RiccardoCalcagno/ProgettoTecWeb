@@ -74,7 +74,6 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
     $html = setup($html);
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
     $html = preparePage($html, $toModify);
-    /*
 
     if ( isset($_POST['salvaPers']) ) {
 
@@ -177,7 +176,7 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
         }
     }
     else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
-
+        /*
         $db = new DBinterface();
         $openConnection = $db->openConnection();
 
@@ -201,9 +200,8 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
         else {
             // ERROR PAGE ?
         }
+        */
     }
-
-    */
 
 $html = str_replace("<messaggioForm />", $messaggioForm, $html);
 
