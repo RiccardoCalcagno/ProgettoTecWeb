@@ -1,7 +1,6 @@
 <?php
 
 //require
-echo "Error: " . $sql . "hey what fuck" . mysqli_error($con);
 require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
