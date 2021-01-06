@@ -12,7 +12,7 @@ require_once("report_data.php");
 $db = new DBinterface();
 $connection = $db->openConnection();
 
-echo "HEYYYY ". ($db->countReport("QueenAdministrator") < (($db->countReport("QueenAdministrator")-1)/5)*5). $db->countReport("QueenAdministrator");
+echo "HEYYYY ". $db->countReport("QueenAdministrator");
 
 if($connection == false){
     header("Location: Errore.php");
