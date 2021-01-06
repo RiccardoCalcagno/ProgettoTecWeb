@@ -1,6 +1,7 @@
 <?php
 require_once("GeneralPurpose.php");
 require_once("banners.php");
+require_once("DBinterface.php");
 
 clearSession();
 
@@ -107,7 +108,7 @@ else if($_SESSION["login"])
         else
         {
 
-            $html = str_replace("../images/icone_razze/dragonide.png", $_SESSION["img"], $html);
+            $html = str_replace("../img/icone_razze/dragonide.png", $_SESSION["img"], $html);
             $html = str_replace("_user_", $_SESSION["username"], $html);
             $html = str_replace("_name_", $_SESSION["name_surname"], $html);
             $html = str_replace("_mail_", $_SESSION["email"], $html);
