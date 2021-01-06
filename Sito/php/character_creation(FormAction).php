@@ -21,7 +21,7 @@
             <meta name="keywords" content="modifica personaggio, Dungeons and Dragons character" />';
 
             $header = '<header id="intestazionePagina">
-                <h1>Modifica Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+                <h1>Modifica Scheda Giocatore<span> <a class="puntoInterrogativo" href="../php/Approf_personaggio.php">?</a></span></h1>
                 </header>';
 
                 $p = 'Concludi la modifica salvando la nuova versione della Scheda Giocatore';
@@ -36,7 +36,7 @@
                 <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" />';
 
             $header = '<header id="intestazionePagina">
-                <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../otherHTMLs/Approfondimenti/approfondimento_scheda_giocatore.html">?</a></span></h1>
+                <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" href="../php/Approf_personaggio.php">?</a></span></h1>
                 <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
                 <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
                 </header>';

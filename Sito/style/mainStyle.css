@@ -68,7 +68,7 @@ h3{
 
 html{
     background-color: #1F1A19;
-    background-image: url("../images/sfondo.png");
+    background-image: url("../img/sfondo.png");
     background-repeat: repeat;
 }
 body{
@@ -678,7 +678,7 @@ body{
     display: block;
     width: 600px;
     height: 280px;
-    background-image: url(../images/personaggi_copertina.png);
+    background-image: url(../img/personaggi_copertina.png);
     background-size: 600px 280px;
     position: relative;
     margin-top: 10%;
@@ -832,10 +832,10 @@ body{
     left: -1em;
     top:-0.2em;
 }
-.howTo li:nth-child(1):before {content:  url(../images/numeri_lista/uno.png);}
-.howTo li:nth-child(2):before {content:  url(../images/numeri_lista/due.png);}
-.howTo li:nth-child(3):before {content:  url(../images/numeri_lista/tre.png);}
-.howTo li:nth-child(4):before {content:  url(../images/numeri_lista/quattro.png);}
+.howTo li:nth-child(1):before {content:  url(../img/numeri_lista/uno.png);}
+.howTo li:nth-child(2):before {content:  url(../img/numeri_lista/due.png);}
+.howTo li:nth-child(3):before {content:  url(../img/numeri_lista/tre.png);}
+.howTo li:nth-child(4):before {content:  url(../img/numeri_lista/quattro.png);}
 
 .howTo h2{
     text-align: center;
@@ -915,7 +915,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     content: "";
     display: block;
     border-radius: 1em;
-    background-image: url(../images/sfondo_approfondimenti.png);
+    background-image: url(../img/sfondo_approfondimenti.png);
     background-position: center;
     height: 100%;
     z-index: -1;   
@@ -971,7 +971,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     left: -3em;
     width: 2.5em; 
     height: 2.5em; 
-    background-image: url(../images/icona_close.png);
+    background-image: url(../img/icona_close.png);
     background-size: 2.5em 7.5em;
     background-color: transparent;
     border:none;
@@ -1197,7 +1197,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     top:0.35em;
     width: 2em;
     height: 2em; 
-    background-image: url(../images/icona_elimina.png);
+    background-image: url(../img/icona_elimina.png);
     background-size: 2em 6em;
     background-color: transparent;
     border:none;
@@ -1287,7 +1287,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     display: block;
     width: 100%; 
     height: 197px; 
-    background-image: url(../images/pergamena/pergamena_head.png);
+    background-image: url(../img/pergamena/pergamena_head.png);
     background-size: 100% 197px;
     position: relative;
     top: -80px;
@@ -1299,7 +1299,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     padding-top:1em;
     margin-top:80px;
     width: 100%; 
-    background-image: url(../images/pergamena/pergamena_body.png);
+    background-image: url(../img/pergamena/pergamena_body.png);
     background-size: 100% 448px;
     background-repeat: repeat-y;
     margin-bottom: calc(1em + 20px);
@@ -1315,7 +1315,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
     display: block;
     width: 100%; 
     height: 145px;
-    background-image: url(../images/pergamena/pergamena_foot.png);
+    background-image: url(../img/pergamena/pergamena_foot.png);
     background-size: 100% 145px;
     position: relative;
     top: 40px;
@@ -1422,7 +1422,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 
 #contentPersonaggio.scheda > div{
     position: relative;
-    background: url(../images/CharSheet.png) no-repeat; /* TO FIX-------SIZE (MB) !!!!!!!!------------------------------------------------------------------ */
+    background: url(../img/CharSheet.png) no-repeat; /* TO FIX-------SIZE (MB) !!!!!!!!------------------------------------------------------------------ */
     background-size: contain;
     height: 0;
     padding-bottom: 129.41%; /* 850 x 1100 */
@@ -2151,7 +2151,7 @@ p.campiObbligatori{
     height: 13em;
     margin: 1em 5px 1.2em 1em;
     background-color: #f8d38d;
-    background-image: url(../images/sfondo_card_personaggi.png);
+    background-image: url(../img/sfondo_card_personaggi.png);
     border: 11px ridge #915f14cc;
 }
 #personaggiUtente .cardPersonaggio button{
@@ -2571,7 +2571,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 }
 
 #loginBody > div{
-    background-image: url(../images/decorazione_login/1.png), url(../images/decorazione_login/2.png);
+    background-image: url(../img/decorazione_login/1.png), url(../img/decorazione_login/2.png);
     background-size: 15em 15em, 7.9em 25em;
     background-repeat: no-repeat, no-repeat;
     background-position-x: left, right;
@@ -2836,7 +2836,7 @@ body.errorPage section, body.errorPage header{
     content: "";
     width: 6em;
     height: 4.5em;
-    background: transparent url('../images/404_img.png') no-repeat;
+    background: transparent url('../img/404_img.png') no-repeat;
     background-size: 6em 4.5em;
     border-radius: 0.2em;
     margin: 0.1em auto 0.3em;

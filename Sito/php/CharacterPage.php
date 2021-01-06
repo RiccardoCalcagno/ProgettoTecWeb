@@ -51,7 +51,7 @@ function characterSheet($html = '') {
             
             if ($character->get_author() == $_SESSION['username']) {
                 $html = str_replace("<nameValue />", $character->get_name(), $html);
-                $html = str_replace("<imgPath />", "../images/razze/" . strtolower($character->get_race()) . ".png", $html);
+                $html = str_replace("<imgPath />", "../img/razze/" . strtolower($character->get_race()) . ".png", $html);
                 $html = str_replace("<raceValue />", $character->get_race(), $html);
                 $html = str_replace("<classValue />", $character->get_class(), $html);
                 $html = str_replace("<backgroundValue />", $character->get_background(), $html);

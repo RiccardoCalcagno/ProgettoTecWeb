@@ -727,7 +727,7 @@ form#datiPassword .submitForm {
     display: block;
     width: 100%; 
     height: 197px; 
-    background-image: url(../images/pergamena/pergamena_head.png);
+    background-image: url(../img/pergamena/pergamena_head.png);
     background-size: 100% 197px;
     position: relative;
     top: -80px;
@@ -737,7 +737,7 @@ form#datiPassword .submitForm {
     max-width: 58em;
     margin: 83px auto 0;
     width: 100%; 
-    background-image: url(../images/pergamena/pergamena_body.png);
+    background-image: url(../img/pergamena/pergamena_body.png);
     background-size: 100% 448px;
     background-repeat: repeat-y;
 }
@@ -752,7 +752,7 @@ form#datiPassword .submitForm {
     display: block;
     width: 100%; 
     height: 135px;
-    background-image: url(../images/pergamena/pergamena_foot.png);
+    background-image: url(../img/pergamena/pergamena_foot.png);
     background-size: 100% 135px;
     position: relative;
     top: 40px;
@@ -856,7 +856,7 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.scheda {
     position: relative;
-    background: url(../images/CharSheet.png); /* TO FIX-------SIZE !!!!!!!!------------------------------------------------------------------ */
+    background: url(../img/CharSheet.png); /* TO FIX-------SIZE !!!!!!!!------------------------------------------------------------------ */
     background-size: 210mm 297mm;
     width: 210mm;
     height: 290mm;

@@ -181,7 +181,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     display: block;
     width: 433px;
     height: 204px;
-    background-image: url(../images/personaggi_copertina.png);
+    background-image: url(../img/personaggi_copertina.png);
     background-size: 433px 204px;
     position: relative;
     margin-top: 13%;
@@ -314,7 +314,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     content: "";
     display: block;
     border-radius: 1em;
-    background-image: url(../images/sfondo_approfondimenti.png);
+    background-image: url(../img/sfondo_approfondimenti.png);
     background-position: center;
     height: 100%;
     z-index: -1;   
