@@ -9,8 +9,8 @@ require_once("report_data.php");
 
 
 
-$dbInterface = new DBinterface();
-$connection = $dbInterface->openConnection();
+$db = new DBinterface();
+$connection = $db->openConnection();
 
 if($connection == false){
     header("Location: Errore.php");
@@ -23,7 +23,7 @@ else{
 
     $_SESSION["username"]="Barb";
     $_SESSION["passwd"]="12345678Aa";
-    
+
     $_SESSION["vai_avanti_esplora"] = false;
     $_SESSION["vai_indietro_esplora"] = false;
     $_SESSION["count_esplora"] = 1;
