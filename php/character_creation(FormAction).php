@@ -6,7 +6,7 @@
 
 //---------------------------------- UTILITY FUNCTIONs
 
-/*
+
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
     }
@@ -59,7 +59,6 @@
         return $htmlPage;
     }
 
-*/
 
  //---------------------------------------------------------------------
 //    $_SESSION["username"] = "user"; // FOR TESTING
@@ -71,10 +70,11 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
     staged_session();
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html'. DIRECTORY_SEPARATOR . 'character creation.html');
+
+    $html = preparePage($html, $toModify);
     /*
     $html = setup($html);
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
-    $html = preparePage($html, $toModify);
 
 
     if ( isset($_POST['salvaPers']) ) {
