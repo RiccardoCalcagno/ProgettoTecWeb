@@ -404,7 +404,7 @@ function updateProfileImg()
     var img_path = document.getElementById("imgProfilo").value;
     var img = document.getElementsById("immagine_profilo");
 
-    img.classList.remove("hidden");
+    //img.classList.remove("hidden");
 
     if(img_path)
     {
@@ -414,4 +414,9 @@ function updateProfileImg()
     {
         img.src(" ");
     }
+}
+
+function removeHidden(id_name)
+{
+    var element = document.getElementById(id_name.toString()).classList.remove("hidden");
 }
