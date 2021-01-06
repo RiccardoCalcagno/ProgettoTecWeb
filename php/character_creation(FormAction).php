@@ -76,7 +76,6 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
     $html = preparePage($html, $toModify);
 
     if ( isset($_POST['salvaPers']) ) {
-
         /*
         $name = $_POST['cname'];    //estraggo dal post della form le informazioni contenute
         $race = $_POST['crace'];
@@ -87,7 +86,6 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
         $ideals = $_POST['cideals'];
         $bonds = $_POST['cbonds'];
         $flaws = $_POST['cflaws'];
-*/
         //Fare i controlli sugli input
         //Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
         $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
@@ -150,7 +148,6 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
             }
         }
         else{
-            /*
             //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
             $messaggioForm = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
 
@@ -175,8 +172,8 @@ $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits 
                 }
             }
             $messaggioForm .= '</ul></div>';
-            */
         }
+        */
     }
     else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
         $db = new DBinterface();
