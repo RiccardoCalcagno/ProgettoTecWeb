@@ -1,7 +1,9 @@
 <?php
 
 //require
-require_once("DBinterface");
+require_once("DBinterface.php");
+require_once("GeneralPurpose.php");
+require_once("banners.php");
 
 //prelevo Esplora.html
 

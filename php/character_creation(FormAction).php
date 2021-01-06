@@ -5,10 +5,12 @@
     require_once("banners.php");
 
 //---------------------------------- UTILITY FUNCTIONs
+
+
     function checkText($text) {
         return preg_match("/^.{10,}$/", $text); // clean_input dopo
     }
-    
+ 
     function preparePage($htmlPage, $toModify) {
 
         $title = ''; $header = ''; $p = ''; $button = '';
@@ -56,22 +58,24 @@
 
         return $htmlPage;
     }
+
+
  //---------------------------------------------------------------------
 //    $_SESSION["username"] = "user"; // FOR TESTING
 //    unset($_SESSION["username"]);
+
+$messaggioForm = "";
+$name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
+
     staged_session();
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html'. DIRECTORY_SEPARATOR . 'character creation.html');
+
     $html = setup($html);
     $toModify = isset($_SESSION['modificaChar']) && $_SESSION['modificaChar'];
     $html = preparePage($html, $toModify);
 
-    $messaggioForm = "";
-    $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
-
-
     if ( isset($_POST['salvaPers']) ) {
-
         $name = $_POST['cname'];    //estraggo dal post della form le informazioni contenute
         $race = $_POST['crace'];
         $class = $_POST['cclass'];
@@ -81,9 +85,9 @@
         $ideals = $_POST['cideals'];
         $bonds = $_POST['cbonds'];
         $flaws = $_POST['cflaws'];
-
         //Fare i controlli sugli input
         //Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
+
         $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
         //$check_race = ;            //provengono da select, non possono essere sbagliati, no?
         //$check_class = ;
@@ -171,7 +175,6 @@
         }
     }
     else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
-
         $db = new DBinterface();
         $openConnection = $db->openConnection();
 

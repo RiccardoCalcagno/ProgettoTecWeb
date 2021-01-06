@@ -1,5 +1,7 @@
 <?php
 require_once("GeneralPurpose.php");
+require_once("banners.php");
+require_once("DBinterface.php");
 
 clearSession();
 

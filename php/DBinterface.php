@@ -12,9 +12,9 @@
 
     class DBinterface {
         private const HOST = "localhost";
-        private const USERNAME = "apirolo";
-        private const PASSWORD = "";
-        private const DB_NAME = "apirolo";
+        private const USERNAME = "rcalcagn";
+        private const PASSWORD = "ein2neipieShahpe";
+        private const DB_NAME = "rcalcagn";
         
         private $connection;
 
@@ -790,8 +790,6 @@
                 */
             }
         }
-        }
 
     }
-
 ?>
