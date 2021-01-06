@@ -87,6 +87,7 @@
         $sottotitolo = $_POST['sottotitolo'];
         $contenuto = $_POST['contenuto'];
         $condividi = $_POST['condividi'];
+        array_push($_POST['lista_giocatori'],$lista_giocatori);
         */
 
         // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
