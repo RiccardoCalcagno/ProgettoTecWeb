@@ -5,12 +5,14 @@ echo "Error: " . $sql . "hey what fuck" . mysqli_error($con);
 require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
+require_once("report_data.php");
 
 //prelevo Esplora.html
 
 $dbInterface = new DBinterface();
 $connection = $dbInterface->openConnection();
 
+/*
 if($connection == false){
     header("Location: Errore.php");
     exit();
@@ -31,6 +33,31 @@ else{
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
     }
+
+    $db->closeConnection();
+*/
+
+
+
+    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
+    $html = setup($html);
+    $_SESSION["vai_avanti_esplora"] = false;
+    $_SESSION["vai_indietro_esplora"] = false;
+    $_SESSION["count_esplora"] = 1;
+    $_SESSION["num_report_esplora"] = 1;      // DA METTERE
+    $_SESSION["report_data"] = new ReportData(1,'Iniziare una Locanda','Il modo più classico di iniziare una campagna può essere inaspettato?','Potete Appena Ci siamolocanda alla fine è rimasto ben poco LOL','Grog',true,['hey','gio','come','stai']);
+    $numero_pag_esplora = 2;
+
+    for($i = 0; $i < $numero_pag_esplora; $i++)
+    {
+        $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = 3;
+    }
+
+
+
+
+
+
 
     /** controllo se si può andare avanti o indietro */
     if(isset($_SESSION["vai_avanti_esplora"]) && $_SESSION["vai_avanti_esplora"])
@@ -90,8 +117,9 @@ else{
     $html = str_replace("<totPagReport/>", $numero_pag_esplora, $html);
 
 
-$html = addPossibleBanner($html, "EsploraPage.php");
+    $html = addPossibleBanner($html, "EsploraPage.php");
 
-echo $html;
+    echo $html;
+    //}
 
 ?>
