@@ -12,8 +12,6 @@ require_once("report_data.php");
 $db = new DBinterface();
 $connection = $db->openConnection();
 
-echo "HEYYYY ". $db->countReport("QueenAdministrator");
-
 if($connection == false){
     header("Location: Errore.php");
     exit();

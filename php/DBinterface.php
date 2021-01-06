@@ -524,7 +524,7 @@
             $username = clean_input($username);
             $query = "SELECT COUNT(Report.id) ".
                      "FROM Report ". 
-                     "WHERE Report.autore = '" . $username . "';";
+                     "WHERE Report.author = '" . $username . "';";
 
             $count = (int) mysqli_query($this->connection, $query);
             return $count;
