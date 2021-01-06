@@ -538,7 +538,7 @@
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
                      "INNER JOIN Users ". 
-                     "ON report_giocatore.user = Users.id ". 
+                     "ON report_giocatore.author = Users.id ". 
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
