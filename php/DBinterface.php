@@ -550,8 +550,11 @@
             $query = "SELECT COUNT(Report.id) ".
             "FROM Report ".  "WHERE Report.isExplorable = true";
             $n = mysqli_query($this->connection, $query);
-            if($n)
-                $count = $n;
+
+            $row = mysqli_fetch_array($n, 'MYSQLI_ASSOC');
+            $count = $row['quantity'];
+
+            echo "cout". $n . "row" . $row . "count" . $count;
 
             return $count;
         }
