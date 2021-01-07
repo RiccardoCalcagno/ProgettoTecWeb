@@ -1,6 +1,5 @@
 <?php
     require_once("GeneralPurpose.php");
-    require_once("CharPagesUtil.php");
     require_once("DBinterface.php");
 
     if( session_status() == PHP_SESSION_NONE ) {
