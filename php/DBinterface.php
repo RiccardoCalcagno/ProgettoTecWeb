@@ -514,6 +514,7 @@
                      "WHERE Report.author = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
+            $stringa=" -hey: ";
             $reports = array();
             if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
@@ -527,9 +528,11 @@
                                              DBinterface::getALLForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
+                    $stringa.=" -ID:".$report->get_id();
                     array_push($reports, $report);
                 } 
             }
+            return $stringa;
             return $reports;
         }
 
