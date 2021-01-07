@@ -440,7 +440,7 @@
                       FROM Report  WHERE Report.isExplorable = true
                       ORDER BY Report.last_modified DESC;";
 
-            $query_result = $db->mysqli_query($this->connection, $query);
+            $query_result = mysqli_query($this->connection, $query);
 
             $reports = array();
 
@@ -556,7 +556,7 @@
             "FROM Report ".  "WHERE Report.isExplorable = true";
             $n = mysqli_query($this->connection, $query);
             if($n)
-                $count = (int) $n;
+                $count = $n;
 
             return $count;
         }
