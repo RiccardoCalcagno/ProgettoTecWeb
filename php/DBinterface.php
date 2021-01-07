@@ -514,7 +514,6 @@
                      "WHERE Report.author = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
-            $stringa=" -heyy: ";
             $reports = array();
             if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
@@ -529,10 +528,8 @@
                                              $row["img_path"], 
                                              $row["last_modified"]);
                     array_push($reports, $report);
-                    $stringa.= " -ID".$row["id"]."TITL".$row["title"];
                 } 
             }
-            return $stringa;
             return $reports;
         }
 
