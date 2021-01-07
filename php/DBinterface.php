@@ -506,11 +506,10 @@
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username". 
                      "WHERE Report.author = '" . $username . "';";
+            
+            $stringa="hey".(DBinterface::openConnection() == false);
 
             $query_result = mysqli_query($this->connection, $query);
-
-            $stringa="hey".(openConnection() == false);
-            return $stringa;
 
             if(($query_result)&&($query_result->num_rows)){
                 $reports = array();
