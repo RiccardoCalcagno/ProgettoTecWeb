@@ -57,7 +57,12 @@
             else 
             {
                 $user_data = $query_result->fetch_array();
-                return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["birthdate"], $user_data["img_path"]);
+                return new UserData($user_data["username"], 
+                                    $user_data["name_surname"], 
+                                    $user_data["email"], 
+                                    $user_data["passwd"], 
+                                    $user_data["birthdate"], 
+                                    $user_data["img_path"]);
             }  
         }
 
@@ -316,14 +321,14 @@
             }
             else {
                 $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
-                return new ReportData($row["Report.id"], 
-                                        $row["Report.title"], 
-                                        $row["Report.subtitle"], 
-                                        $row["Report.content"], 
-                                        $row["Report.author"], 
-                                        $row["Report.isExplorable"], 
-                                        $row["Users.img_path"], 
-                                        $row["Report.last_modified"]);
+                return new ReportData($row["id"], 
+                                        $row["title"], 
+                                        $row["subtitle"], 
+                                        $row["content"], 
+                                        $row["author"], 
+                                        $row["isExplorable"], 
+                                        $row["img_path"], 
+                                        $row["last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
 
