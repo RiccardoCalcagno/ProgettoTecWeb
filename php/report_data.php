@@ -19,7 +19,7 @@
     
         public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified)
         {
-            $this->$id=$_id;
+            $this->$id="vaffanculo";
             $this->set_title($_title);
             $this->set_subtitle($_subtitle);
             $this->set_content($_content);
