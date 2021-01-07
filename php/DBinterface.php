@@ -67,7 +67,7 @@
                      "FROM Users ". 
                      "WHERE username = '" . $username . "';";
 
-            $exist = (bool) mysqli_query($this->connection, $query);
+            $exist =   mysqli_query($this->connection, $query);
             return $exist;
         }
 
@@ -77,7 +77,7 @@
                      "FROM Users ". 
                      "WHERE email = '" . $email . "';";
 
-            $exist = (bool) mysqli_query($this->connection, $query);
+            $exist =   mysqli_query($this->connection, $query);
             return $exist;
         }
 
@@ -91,7 +91,7 @@
                      "    img_path = '" . $user_data->get_img_path() . "', ".
                      "WHERE username = '" . $username . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -101,7 +101,7 @@
                      "SET passwd = '" . $user->get_passwd() . "', ". 
                      "WHERE username = '" . $user->get_username() . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -115,7 +115,7 @@
                               "'" . $userdata->get_birthdate() . "', ".
                               "'" . $userdata->get_img_path() . "');";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -124,7 +124,7 @@
             $username = clean_input($username);
             $query = "DELETE FROM User WHERE username = '" . $username . "';";
             
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -248,7 +248,7 @@
             $id = clean_input($id);
             $query = "DELETE FROM Characters WHERE id = '" . $id . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -267,7 +267,7 @@
                      "    flaws = '" . $character_data->get_flaws() . "'".
                      "WHERE id = '" . $id . "';"; //"WHERE author = '" . $id . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -286,7 +286,7 @@
                               "'" . $character_data->get_author() . "'".
                               ");";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -348,7 +348,7 @@
                               "'" . $report_data->get_author() . "', ".
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -364,7 +364,7 @@
                      "    last_modified = '" . $report_data->get_last_modified() . "' ";
                      "WHERE id = '" . $report_data->get_id() . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -373,7 +373,7 @@
         {
             $id = clean_input($id);
             $query = "DELETE FROM Report WHERE id = '" . $id . "';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -381,7 +381,7 @@
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
             $num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
-            $num_query_Result = (int) mysqli_query($this->connection, $num_query);
+            $num_query_Result =   mysqli_query($this->connection, $num_query);
             return $num_query_Result;
         }
 
@@ -551,7 +551,7 @@
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
 
-            $count = (int) mysqli_query($this->connection, $query);
+            $count =   mysqli_query($this->connection, $query);
             return $count;
         }
 
@@ -581,7 +581,7 @@
                      "SET isExplorable = '" . $isExplorable . "' ".
                      "WHERE id = '" . $report_id . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done = mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -628,7 +628,7 @@
         {
             $id_comments = clean_input($id_comments);
             $query = "DELETE FROM Comments WHERE Comments.id = '" . $id_comments . "';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -638,7 +638,7 @@
                      "VALUES ('" . $comments->get_text() . "', ".  
                              "'" . $comments->get_author() . "', ". 
                              "'" . $comments->get_report() . "');" ;
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -672,7 +672,7 @@
                         "'" . $photo_data.get_img_path() . "', ".
                         "'" . $photo_data.get_report() . "');";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -681,7 +681,7 @@
         {
             $id = clean_input($id);
             $query = "DELETE FROM Photo WHERE id = '" . $id . "';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -709,7 +709,7 @@
           $query = "INSERT INTO report_giocatore (user, report) ". 
                      "VALUES ('" . $user->get_id() . "', ".  
                              "'" . $report->get_id() . "');" ;
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -717,7 +717,7 @@
         public function deleteUserFromReport(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "' AND report = '".$report->get_id()."';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -732,7 +732,7 @@
         public function deleteReportMention(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE report = '".$report->get_id()."';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
