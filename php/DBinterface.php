@@ -510,7 +510,7 @@
             $stringa="hey".(mysqli_query(mysqli_connect( DBinterface::HOST, 
                             DBinterface::USERNAME, 
                             DBinterface::PASSWORD, 
-                            DBinterface::DB_NAME), $query)!=null);
+                            DBinterface::DB_NAME), $query)==null);
 
             $query_result = mysqli_query($this->connection, $query);
 
