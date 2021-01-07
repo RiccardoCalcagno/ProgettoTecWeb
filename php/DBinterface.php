@@ -528,7 +528,7 @@
                                              DBinterface::getALLForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
-                    $stringa.=" -ID:".$report->get_if()."DAFUK:".$row["id"];
+                    $stringa.=" -ID:".$report->get_subtitle()."DAFUK:".$row["id"];
                     array_push($reports, $report);
                 } 
             }
