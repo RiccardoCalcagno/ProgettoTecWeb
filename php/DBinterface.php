@@ -458,6 +458,7 @@
                                             $row["Report.last_modified"]);
                     array_push($reports, $report);
                     echo "Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
+                    die();
                 }
             }
             return $reports;
