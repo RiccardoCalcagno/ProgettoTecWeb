@@ -443,6 +443,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             $reports = array();
+            $stringa="";
 
             if((($query_result)&&($query_result->num_rows)) ){
                 while($row = mysqli_fetch_assoc($query_result))
@@ -457,11 +458,11 @@
                                             $row["Users.img_path"], 
                                             $row["Report.last_modified"]);
                     array_push($reports, $report);
-                    echo "Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
-                    die();
+                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
                 }
             }
-            return $reports;
+            //return $reports;
+            return $stringa;
         }
 
         public function getReportList($username) 

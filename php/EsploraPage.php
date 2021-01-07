@@ -30,6 +30,8 @@ else{
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
     $_SESSION["report_data"] = $db->getReportExplorable();     // DA METTERE
 
+    echo $_SESSION["report_data"];
+
     /*for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
