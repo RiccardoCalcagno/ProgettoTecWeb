@@ -67,7 +67,7 @@
                      "FROM Users ". 
                      "WHERE username = '" . $username . "';";
 
-            $exist = (bool) mysqli_query($this->connection, $query);
+            $exist =   mysqli_query($this->connection, $query);
             return $exist;
         }
 
@@ -77,7 +77,7 @@
                      "FROM Users ". 
                      "WHERE email = '" . $email . "';";
 
-            $exist = (bool) mysqli_query($this->connection, $query);
+            $exist =   mysqli_query($this->connection, $query);
             return $exist;
         }
 
@@ -91,7 +91,7 @@
                      "    img_path = '" . $user_data->get_img_path() . "', ".
                      "WHERE username = '" . $username . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -101,7 +101,7 @@
                      "SET passwd = '" . $user->get_passwd() . "', ". 
                      "WHERE username = '" . $user->get_username() . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -115,7 +115,7 @@
                               "'" . $userdata->get_birthdate() . "', ".
                               "'" . $userdata->get_img_path() . "');";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -124,7 +124,7 @@
             $username = clean_input($username);
             $query = "DELETE FROM User WHERE username = '" . $username . "';";
             
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -242,7 +242,7 @@
             $id = clean_input($id);
             $query = "DELETE FROM Characters WHERE id = '" . $id . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -261,7 +261,7 @@
                      "    flaws = '" . $character_data->get_flaws() . "'".
                      "WHERE id = '" . $id . "';"; //"WHERE author = '" . $id . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -280,7 +280,7 @@
                               "'" . $character_data->get_author() . "'".
                               ");";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -342,7 +342,7 @@
                               "'" . $report_data->get_author() . "', ".
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -358,7 +358,7 @@
                      "    last_modified = '" . $report_data->get_last_modified() . "' ";
                      "WHERE id = '" . $report_data->get_id() . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -367,7 +367,7 @@
         {
             $id = clean_input($id);
             $query = "DELETE FROM Report WHERE id = '" . $id . "';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -375,7 +375,7 @@
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
             $num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
-            $num_query_Result = (int) mysqli_query($this->connection, $num_query);
+            $num_query_Result =   mysqli_query($this->connection, $num_query);
             return $num_query_Result;
         }
 
@@ -436,35 +436,34 @@
 
         public function getReportExplorable()
         {
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report  WHERE Report.isExplorable = true
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified 
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
                       ORDER BY Report.last_modified DESC;";
+                      
 
-            $query_result = $db->mysqli_query($this->connection, $query);
+            $query_result = mysqli_query($this->connection, $query);
 
             $reports = array();
+            $stringa="hey".$query_result;
 
-            if(!$query_result->num_rows)
-            {
-                return false;
-            }
-            else
-            {
+            if((($query_result)&&($query_result->num_rows)) ){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
-                                             $row["Report.titolo"], 
-                                             $row["Report.sottotitolo"], 
-                                             $row["Report.contenuto"], 
-                                             $row["Report.autore"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                                            $row["Report.title"], 
+                                            $row["Report.subtitle"], 
+                                            $row["Report.content"], 
+                                            $row["Report.author"], 
+                                            $row["Report.isExplorable"], 
+                                            DBinterface::getALLForReport($row["Report.id"]),
+                                            $row["Users.img_path"], 
+                                            $row["Report.last_modified"]);
                     array_push($reports, $report);
+                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
                 }
             }
-            return $reports;
+            //return $reports;
+            return $stringa;
         }
 
         public function getReportList($username) 
@@ -472,11 +471,11 @@
             $reports=array();
             $username = clean_input($username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
-                     "FROM Report ". 
+                     "FROM Users ". 
                      "INNER JOIN report_giocatore ".
-                     "ON Report.id = report_giocatore.report ". 
-                     "INNER JOIN Users ". 
-                     "ON report_giocatore.user = Users.id ". 
+                     "ON Users.id = report_giocatore.user ". 
+                     "INNER JOIN Report ". 
+                     "ON report_giocatore.report = Report.id ". 
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -504,21 +503,18 @@
         public function getReportAuthor($username) 
         {
             $username = clean_input($username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path Report.last_modified ".
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username". 
                      "WHERE Report.author = '" . $username . "';";
+            
+            $stringa="hey".(mysqli_query(mysqli_connect( DBinterface::HOST, 
+                            DBinterface::USERNAME, 
+                            DBinterface::PASSWORD, 
+                            DBinterface::DB_NAME), $query)==null);
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result) {
-                return null;
-            }
-            else if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
+            if(($query_result)&&($query_result->num_rows)){
                 $reports = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
@@ -532,36 +528,47 @@
                                              $row["Users.img_path"], 
                                              $row["Report.last_modified"]);
                     array_push($reports, $report);
+                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
                 } 
-                return $reports;
             }
-            
+
+            return $stringa;
+            //return $reports;
         }
 
         public function countReportAuthor($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
-
-            $count = (int) mysqli_query($this->connection, $query);
+            $query_result =   mysqli_query($this->connection, $query);
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
             return $count;
         }
 
         public function countReportExplorable()
         {
-            $query = "SELECT COUNT(Report.id) 
-            FROM Report  WHERE Report.isExplorable = true";
+            $count=0;
+            $query = "SELECT Report.id ".
+            "FROM Report ".  "WHERE Report.isExplorable = true";
+            $query_result = mysqli_query($this->connection, $query);
 
-            $count = (int) mysqli_query($this->connection, $query);
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
+
             return $count;
         }
 
         public function countReport($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
@@ -570,12 +577,12 @@
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
-            if($query_result) {
-                return $query_result->fetch_array()['COUNT(Report.id)'];
+
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
             }
-            else {
-                return 0;
-            }
+
+            return $count;
         }
 
         public function setExplorable($report_id, $isExplorable = true)
@@ -584,7 +591,7 @@
                      "SET isExplorable = '" . $isExplorable . "' ".
                      "WHERE id = '" . $report_id . "';";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done = mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -631,7 +638,7 @@
         {
             $id_comments = clean_input($id_comments);
             $query = "DELETE FROM Comments WHERE Comments.id = '" . $id_comments . "';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -641,7 +648,7 @@
                      "VALUES ('" . $comments->get_text() . "', ".  
                              "'" . $comments->get_author() . "', ". 
                              "'" . $comments->get_report() . "');" ;
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -675,7 +682,7 @@
                         "'" . $photo_data.get_img_path() . "', ".
                         "'" . $photo_data.get_report() . "');";
 
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -684,7 +691,7 @@
         {
             $id = clean_input($id);
             $query = "DELETE FROM Photo WHERE id = '" . $id . "';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -712,7 +719,7 @@
           $query = "INSERT INTO report_giocatore (user, report) ". 
                      "VALUES ('" . $user->get_id() . "', ".  
                              "'" . $report->get_id() . "');" ;
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -720,7 +727,7 @@
         public function deleteUserFromReport(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "' AND report = '".$report->get_id()."';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
@@ -735,7 +742,7 @@
         public function deleteReportMention(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE report = '".$report->get_id()."';";
-            $done = (bool) mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
