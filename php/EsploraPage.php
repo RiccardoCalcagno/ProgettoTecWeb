@@ -30,15 +30,19 @@ else{
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
     $_SESSION["report_data"] = $db->getReportExplorable();     // DA METTERE
 
-    for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
+    /*for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
-    }
+    }*/
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
     echo "num_report_esplora" . $_SESSION["num_report_esplora"] . "report_data" . $_SESSION["report_data"];
-/*
+
+
+
+
+    /*
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
     $_SESSION["vai_avanti_esplora"] = false;
