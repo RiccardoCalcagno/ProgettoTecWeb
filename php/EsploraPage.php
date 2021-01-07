@@ -30,16 +30,10 @@ else{
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
     $_SESSION["report_data"] = $db->getReportAuthor("QueenAdministrator");// getReportExplorable();     // DA METTERE
 
-
-
-
-
+/*
     echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION['report_data'] ."</h1></body></html>";
     exit();
-
-
-
-
+*/
 
     for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
