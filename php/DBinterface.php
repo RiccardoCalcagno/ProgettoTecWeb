@@ -436,8 +436,8 @@
 
         public function getReportExplorable()
         {
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified" .  
+                      "FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
                       ORDER BY Report.last_modified DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -448,14 +448,14 @@
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
-                                             $row["Report.titolo"], 
-                                             $row["Report.sottotitolo"], 
-                                             $row["Report.contenuto"], 
-                                             $row["Report.autore"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                                            $row["Report.title"], 
+                                            $row["Report.subtitle"], 
+                                            $row["Report.content"], 
+                                            $row["Report.author"], 
+                                            $row["Report.isExplorable"], 
+                                            DBinterface::getALLForReport($row["Report.id"]),
+                                            $row["Users.img_path"], 
+                                            $row["Report.last_modified"]);
                     array_push($reports, $report);
                 }
             }
