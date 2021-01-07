@@ -509,7 +509,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            $stringa="hey".$query_result;
+            $stringa="hey".($query_result == false);
 
             if(($query_result)&&($query_result->num_rows)){
                 $reports = array();
