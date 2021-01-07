@@ -436,9 +436,10 @@
 
         public function getReportExplorable()
         {
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified" .  
-                      "FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified 
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
                       ORDER BY Report.last_modified DESC;";
+                      
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -508,15 +509,9 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result) {
-                return null;
-            }
-            else if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
+            $stringa="hey".$query_result;
+
+            if(($query_result)&&($query_result->num_rows)){
                 $reports = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
@@ -530,10 +525,12 @@
                                              $row["Users.img_path"], 
                                              $row["Report.last_modified"]);
                     array_push($reports, $report);
+                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
                 } 
-                return $reports;
             }
-            
+
+            return $stringa;
+            //return $reports;
         }
 
         public function countReportAuthor($username)

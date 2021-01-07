@@ -28,18 +28,25 @@ else{
     $_SESSION["vai_indietro_esplora"] = false;
     $_SESSION["count_esplora"] = 1;
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
-    $_SESSION["report_data"] = $db->getReportExplorable();     // DA METTERE
+    $_SESSION["report_data"] = $db->getReportAuthor("QueenAdministrator");// getReportExplorable();     // DA METTERE
 
 
-    /*for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
-    {
-        $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
-    }*/
-    $db->closeConnection();
-    $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
+
+
 
     echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION['report_data'] ."</h1></body></html>";
     exit();
+
+
+
+
+
+    for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
+    {
+        $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
+    }
+    $db->closeConnection();
+    $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
 
     /*
@@ -75,7 +82,6 @@ else{
 
     $_schede_report_esplora = "";
 
-    /*
     for($i = ($_SESSION["count_esplora"]-1)*5 ; $i < $limit = ($_SESSION["num_report_esplora"] < $numero_pag_esplora*5 ? $_SESSION["num_report_esplora"] : 5*$_SESSION["count_esplora"]) ; $i++)
         {
         $_schede_report_esplora .=   
@@ -96,7 +102,6 @@ else{
         </button>
         </li>\n";
         }  
-        */
         
     if($_SESSION["count_esplora"] == 1)
         {
