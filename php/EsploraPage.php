@@ -38,7 +38,8 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
-
+    echo $_SESSION['report_data'] ;
+    exit();
 
 
     /*
@@ -100,7 +101,7 @@ else{
     if($_SESSION["count_esplora"] == 1)
         {
         $html = str_replace("<li><label id=\"LblEsploraPrecedente\" for=\"esploraPrecedente\">precedente</label></li>
-        <li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>",  $_SESSION['report_data'] , $html);
+        <li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>", " ", $html);
         }
 
     if($_SESSION["count_esplora"] == $numero_pag_esplora)
