@@ -4,10 +4,7 @@ require_once("character.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
-$_SESSION['username'] = 'user';
-$_SESSION['character_id'] = 47;
-
-function characterSheet($html = '') {
+function characterSheet($charID) {
 
     $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
     $html = setup($html);
@@ -16,7 +13,7 @@ function characterSheet($html = '') {
     //$_SESSION['character_id'] = 47;   // testing
 
 
-    if(isset($_SESSION['documento'])){
+ /*   if(isset($_SESSION['documento'])){
         header("Location: CharacterPage.php");
         if($_SESSION['documento']=="ELIMINA"){
 
@@ -37,7 +34,7 @@ function characterSheet($html = '') {
             }
         }
         exit();
-    }
+    }*/
 
     $db = new DBinterface();
     $openConnection = $db->openConnection();
@@ -60,6 +57,7 @@ function characterSheet($html = '') {
                 $html = str_replace("<idealsValue />", $character->get_ideals(), $html);
                 $html = str_replace("<bondsValue />", $character->get_bonds(), $html);
                 $html = str_replace("<flawsValue />", $character->get_flaws(), $html);
+                $html = str_replace("<charIDValue />", $charID, $html);
             }
             else {  // User sta cercando di accedere ad un personaggio non suo
                 error("WAITTHATSILLEGAL");
@@ -89,16 +87,23 @@ else if ( !isset($_SESSION['username']) ) {
 
     error("Errore ..."); // header("Location: login.php"); ?
 }
-else if ( !isset($_SESSION['character_id'] )) {
+// else if ( !isset($_SESSION['character_id'] )) {
 
-    error("Errore ..."); // header("Location: login.php"); ?
+//     error("Errore ..."); // header("Location: login.php"); ?
+// }
+else if ( isset($_POST['charID']) || isset($_SESSION['character_id']) ) {   // NO POST TO FIX
+// TO FIX WORK IN PROGRESS !!!
+    if( isset($_POST['charID']) ) {
+        $charID = $_POST['charID'];
+    }
+    else {
+        $charID = $_SESSION['character_id'];
+    }
+
+    $html = characterSheet($charID);
+    $html = addPossibleBanner($html, "CharacterPage.php");
+
+    echo $html;
 }
-else  {
-    echo characterSheet();
-}
-
-$html = addPossibleBanner($html, "CharacterPage.php");
-
-echo $html;
 
 ?>
