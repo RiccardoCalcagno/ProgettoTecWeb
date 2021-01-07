@@ -57,8 +57,6 @@ else{
 
 
 
-
-
     /** controllo se si può andare avanti o indietro */
     if(isset($_SESSION["vai_avanti_esplora"]) && $_SESSION["vai_avanti_esplora"])
     {

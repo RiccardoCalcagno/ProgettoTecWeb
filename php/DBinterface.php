@@ -12,9 +12,9 @@
 
     class DBinterface {
         private const HOST = "localhost";
-        private const USERNAME = "rcalcagn";
-        private const PASSWORD = "ein2neipieShahpe";
-        private const DB_NAME = "rcalcagn";
+        private const USERNAME = "nsertori";
+        private const PASSWORD = "AeP3hae1chaeM6zo";
+        private const DB_NAME = "nsertori";
         
         private $connection;
 
@@ -454,15 +454,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result) {
-                // TO FIX ERROR
-            }
-            else if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
+            if(($query_result)&&($query_result->num_rows)) {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
@@ -492,7 +484,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result) {
-                // TO FIX ERROR
+                return null;
             }
             else if(!$query_result->num_rows) 
             {
@@ -538,7 +530,7 @@
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
                      "INNER JOIN Users ". 
-                     "ON report_giocatore.author = Users.id ". 
+                     "ON report_giocatore.author = Users.username ". 
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -546,7 +538,7 @@
                 return $query_result->fetch_array()['COUNT(Report.id)'];
             }
             else {
-                // TO FIX ERROR
+                return 0;
             }
         }
 
