@@ -509,7 +509,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            $query_result = mysqli_query($this->connection, "SELECT *");
+            $query_result = $this->connection;
             $stringa="hey".($query_result == false);
             return $stringa;
 
