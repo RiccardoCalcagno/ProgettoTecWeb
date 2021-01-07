@@ -290,10 +290,10 @@
 
     //modifico il checkbox    
     if(condividi){
-        str_replace('{check_placeholder}','checked="checked"',$html);
+        $html = str_replace('{check_placeholder}','checked="checked"',$html);
     }
     else{
-        str_replace('{check_placeholder}','',$html);
+        $html = str_replace('{check_placeholder}','',$html);
     }
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
