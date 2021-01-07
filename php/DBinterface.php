@@ -507,7 +507,10 @@
                      "FROM Report INNER JOIN Users ON Report.author = Users.username". 
                      "WHERE Report.author = '" . $username . "';";
             
-            $stringa="hey".(DBinterface::openConnection() == false);
+            $stringa="hey".(mysqli_connect( DBinterface::HOST, 
+                            DBinterface::USERNAME, 
+                            DBinterface::PASSWORD, 
+                            DBinterface::DB_NAME) == false);
 
             $query_result = mysqli_query($this->connection, $query);
 
