@@ -1,6 +1,6 @@
 <?php
 
-    require_once "GeneralPurpose.php";
+    require_once("GeneralPurpose.php");
 
     class ReportData {
         
@@ -17,7 +17,7 @@
 
         private $last_modified;
     
-        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified = null)
+        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified)
         {
             $this->set_id($_id);
             $this->set_title($_title);

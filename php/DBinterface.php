@@ -514,7 +514,7 @@
                      "WHERE Report.author = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
-
+            $stringa=" -hey: ";
             $reports = array();
             if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
@@ -528,9 +528,11 @@
                                              DBinterface::getALLForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
+                    $stringa.=" -ID:".$report->get_if()."DAFUK:".$row["id"];
                     array_push($reports, $report);
                 } 
             }
+            return $stringa;
             return $reports;
         }
 
@@ -763,10 +765,10 @@
         }
 
         // Restituisce tutti gli utenti (user) legati ad un report
-        public function getALLForReport($report){
+        public function getALLForReport($report_id){
             $usersINreport = array();
-          $report = clean_input($report);
-          $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report."';";
+          $report_id = clean_input($report_id);
+          $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report_id."';";
           $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result->num_rows){
