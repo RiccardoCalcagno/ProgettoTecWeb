@@ -166,10 +166,12 @@
                     <h1>Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
-                    <form id='linkVelociPostConferma' method='POST' action='../php/action_character.php'>
-                        <a class='annulla' href='../php/CharacterPage.php'>ANNULLA</a>
+                    <form id='linkVelociPostConferma' method='POST' action='action_character.php'>
+                        <a class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
                         <input type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                        <input type='hidden' id='charID' name='charID' value=".$_SESSION['banners_ID']." />
                     </form>";
+                    unset($_SESSION['banners_ID']);
                 break;
                 case "confermare_eliminazione_report":
                     $htmlBanner .= "

@@ -8,9 +8,9 @@
 
     if ( isset($_GET['charLayout']) ) {    // SUBMIT AVVIENE SOLO SE JS NON FUNZIONA
 
-//        $_GET['charLayout'] == 'scheda' ?
+        //$_GET['charLayout'] == 'scheda' ?
         redirect_GET("CharacterPage.php", $_GET);
- //       header("Location: CharacterPage.php?Personaggio=".$_GET['charID']);
+        //header("Location: CharacterPage.php?Personaggio=".$_GET['charID']);
     }
 
     if ( isset($_GET["Personaggio"]) ) {   // AreaPersonale (Character card) 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
@@ -39,10 +39,11 @@
            redirect_GET("character_creation(FormAction).php", $_GET);
         }
 
-        if($_POST['charAction'] == "ELIMINA") {
+        if($_GET['charAction'] == "ELIMINA") {
 
             $_SESSION['banners']="confermare_eliminazione_personaggio";
-            header("Location: CharacterPage.php");
+            $_SESSION['banners_ID'] = $_GET['charID'];
+            header("Location: CharacterPage.php?charID=".$_GET['charID']);  // Ignora ELIMINA on Page Refresh (voluto)
         }
     }
 
@@ -54,13 +55,30 @@
             header("Location: character_creation(FormAction).php"); // TO FIX KEEP IT LIKE THIS ?
         }
         else {  // $_POST['salvaPers'] == 'SALVA MODIFICA'
-            print "AAAAAAAAA";
             header("Location: character_creation(FormAction).php?charAction=MODIFICA&charID=".$_POST['charID']);    //// TO FIX ok like this OR <hiddenCharAction /> ????
         }
     }
 
     if (isset($_POST['documento']) ) {
-        // Delete Character, feedback?
+    // Serve una pagina solo per questo ? o anche solo una function ? .
+        $db = new DBinterface();
+        if($db->openConnection()) {
+
+            $done = $db->deleteCharacter($_POST['charID']);
+            $db->closeConnection();
+    
+            if ($done) {
+                // FEEDBACK? like $_SESSION['AP_message'] = 'Cancellazione Riuscita.'; // e poi metterlo in AreaP
+                header("Location: area_personale.php");
+            }
+            else {
+                errorPage("Cancellazione personaggio non riuscita. Riprovare piu' tardi.");
+            }
+        }
+        else {
+            errorPage("Connessione DB non riuscita.");
+        }
+
     }
 
     if(isset($_POST["espandi"]) && $_POST["espandi"] == "Pers")
