@@ -547,14 +547,13 @@
         public function countReportExplorable()
         {
             $count=0;
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
             "FROM Report ".  "WHERE Report.isExplorable = true";
-            $n = mysqli_query($this->connection, $query);
+            $query_result = mysqli_query($this->connection, $query);
 
-            $row = mysqli_fetch_array($n, 'MYSQLI_ASSOC');
-            $count = $row['quantity'];
-
-            echo "cout". $n . "row" . $row . "count" . $count;
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
 
             return $count;
         }
