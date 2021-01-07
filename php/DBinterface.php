@@ -47,7 +47,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result) {
-                // TO FIX ERROR
+                return null;
             }
             else if(mysqli_num_rows($query_result) == 0) 
             {
@@ -140,7 +140,7 @@
         public function getCharacterOfUser($char_id, $username)
         {
             $username = clean_input($username);
-
+            $character=null;
             $query = "SELECT * ".
                      "FROM Characters ". 
                      "WHERE author = '" . $username . "' " . 
@@ -148,13 +148,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result) {
-                // ERROR?
-            }
-            else if(!$query_result->num_rows) {
-                return null;
-            }
-            else {
+            if(($query_result)&&($query_result->num_rows)){
                 $row = $query_result->fetch_assoc();
                 $character = new Character($row["id"], 
                                             $row["name"], 
@@ -169,8 +163,8 @@
                                             $row["author"], 
                                             $row["creation_date"]);
                                             
-                return $character;
             }
+            return $character;
         }
 
         public function getCharactersByUser($username)
