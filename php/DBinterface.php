@@ -535,12 +535,15 @@
 
         public function countReportAuthor($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
-
-            $count =   mysqli_query($this->connection, $query);
+            $query_result =   mysqli_query($this->connection, $query);
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
             return $count;
         }
 
@@ -560,8 +563,9 @@
 
         public function countReport($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
@@ -570,12 +574,12 @@
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
-            if($query_result) {
-                return $query_result->fetch_array()['COUNT(Report.id)'];
+
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
             }
-            else {
-                return 0;
-            }
+
+            return $count;
         }
 
         public function setExplorable($report_id, $isExplorable = true)

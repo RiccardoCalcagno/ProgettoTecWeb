@@ -37,7 +37,7 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
-
+    echo "num_report_esplora" . $_SESSION["num_report_esplora"] . "report_data" . $_SESSION["report_data"];
 /*
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
@@ -71,6 +71,7 @@ else{
 
     $_schede_report_esplora = "";
 
+    /*
     for($i = ($_SESSION["count_esplora"]-1)*5 ; $i < $limit = ($_SESSION["num_report_esplora"] < $numero_pag_esplora*5 ? $_SESSION["num_report_esplora"] : 5*$_SESSION["count_esplora"]) ; $i++)
         {
         $_schede_report_esplora .=   
@@ -91,6 +92,7 @@ else{
         </button>
         </li>\n";
         }  
+        */
         
     if($_SESSION["count_esplora"] == 1)
         {
