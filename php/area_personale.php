@@ -162,8 +162,11 @@ else if($_SESSION["login"])
                         {
                             $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
                         }
-                        $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>
-                        </footer>
+                        else
+                        {
+                            $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
+                        }
+                        $_schede_report_master .= "</footer>
                     </button>
                     <div class=\"publicazione\">";
                     if($_SESSION["author_report_data"][$i]->get_isExplorable() == false)    
@@ -216,9 +219,16 @@ else if($_SESSION["login"])
                             <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
                             <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
-                    <footer>
-                        <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>
-                    </footer>
+                    <footer>";
+                    if($_SESSION["report_data"][$i]->get_isExplorable() == true)
+                    {
+                        $_schede_report .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
+                    }
+                    else
+                    {
+                        $_schede_report .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>";
+                    }
+                    $_schede_report .= "</footer>
                     </button>
                 </li>\n";
                 }
