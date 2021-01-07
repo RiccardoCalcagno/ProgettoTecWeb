@@ -467,11 +467,11 @@
             $reports=array();
             $username = clean_input($username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
-                     "FROM Report ". 
+                     "FROM Users ". 
                      "INNER JOIN report_giocatore ".
-                     "ON Report.id = report_giocatore.report ". 
-                     "INNER JOIN Users ". 
-                     "ON report_giocatore.user = Users.id ". 
+                     "ON Users.id = report_giocatore.user ". 
+                     "INNER JOIN Report ". 
+                     "ON report_giocatore.report = Report.id ". 
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
