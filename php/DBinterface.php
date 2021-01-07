@@ -320,7 +320,7 @@
                 return null;
             }
             else {
-                $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
+                $report_data = $query->fetch_assoc();
                 return new ReportData($row["id"], 
                                         $row["title"], 
                                         $row["subtitle"], 
@@ -379,9 +379,13 @@
         //funzione per ricavare il numero di utenti linkati ad un report come "partecipanti"
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
-            $num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
-            $num_query_Result =   mysqli_query($this->connection, $num_query);
-            return $num_query_Result;
+            $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
+            $query_result =   mysqli_query($this->connection, $query);
+            
+            if($query_result)
+                return $query_result->num_rows;
+            else
+                return 0;
         }
 
         //funzione per ricavare i dati di un determinato numero di Cards, in base ad una lista di report.id
@@ -454,17 +458,17 @@
             if((($query_result)&&($query_result->num_rows)) ){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["Report.id"], 
-                                            $row["Report.title"], 
-                                            $row["Report.subtitle"], 
-                                            $row["Report.content"], 
-                                            $row["Report.author"], 
-                                            $row["Report.isExplorable"], 
-                                            DBinterface::getALLForReport($row["Report.id"]),
-                                            $row["Users.img_path"], 
-                                            $row["Report.last_modified"]);
+                    $report = new ReportData($row["id"], 
+                                            $row["title"], 
+                                            $row["subtitle"], 
+                                            $row["content"], 
+                                            $row["author"], 
+                                            $row["isExplorable"], 
+                                            DBinterface::getALLForReport($row["id"]),
+                                            $row["img_path"], 
+                                            $row["last_modified"]);
                     array_push($reports, $report);
-                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
+                    $stringa.= " -  Report.id" . $row["id"] . "img_path" . $row["img_path"];
                 }
             }
             //return $reports;
@@ -488,15 +492,15 @@
             if(($query_result)&&($query_result->num_rows)) {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["Report.id"], 
-                                             $row["Report.title"], 
-                                             $row["Report.subtitle"], 
-                                             $row["Report.content"], 
-                                             $row["Report.author"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                    $report = new ReportData($row["id"], 
+                                             $row["title"], 
+                                             $row["subtitle"], 
+                                             $row["content"], 
+                                             $row["author"], 
+                                             $row["isExplorable"], 
+                                             DBinterface::getALLForReport($row["id"]),
+                                             $row["img_path"], 
+                                             $row["last_modified"]);
                     array_push($reports, $report);
                 }
             }
@@ -523,17 +527,17 @@
                 $reports = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["Report.id"], 
-                                             $row["Report.title"], 
-                                             $row["Report.subtitle"], 
-                                             $row["Report.content"], 
-                                             $row["Report.author"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                    $report = new ReportData($row["id"], 
+                                             $row["title"], 
+                                             $row["subtitle"], 
+                                             $row["content"], 
+                                             $row["author"], 
+                                             $row["isExplorable"], 
+                                             DBinterface::getALLForReport($row["id"]),
+                                             $row["img_path"], 
+                                             $row["last_modified"]);
                     array_push($reports, $report);
-                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
+                    $stringa.= " -  Report.id" . $row["id"] . "img_path" . $row["img_path"];
                 } 
             }
 
@@ -631,7 +635,7 @@
             {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $comment = new Comments($row["Comments.id"], $row["Comments.testo"], $row["Comments.data_ora"], $row["Comments.author"], $row["Comments.report"]);          
+                    $comment = new Comments($row["id"], $row["testo"], $row["data_ora"], $row["author"], $row["report"]);          
                     array_push($comments, $comment);
                 }
             }
@@ -740,7 +744,8 @@
         public function deleteUserFromALL(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "';";
-            return mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
+            return $done;
         }
 
         //elimina tutte le mention ad un determinato Report
@@ -761,7 +766,7 @@
             if($query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report_id = $row["report_giocatore.report"];         
+                    $report_id = $row["report"];         
                     array_push($reportsWITHuser, $report_id);
                 }
             }
@@ -778,7 +783,7 @@
             if(!$query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $user_id = $row["report_giocatore.user"];         
+                    $user_id = $row["user"];         
                     array_push($usersINreport, $user_id);
                 }
             }
@@ -803,15 +808,15 @@
                 return null;
             }
             else {
-                $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
-                return new ReportData($row["Report.id"], 
-                                        $row["Report.titolo"], 
-                                        $row["Report.sottotitolo"], 
-                                        $row["Report.contenuto"], 
-                                        $row["Report.autore"], 
-                                        $row["Report.isExplorable"], 
-                                        $row["Users.img_path"], 
-                                        $row["Report.last_modified"]);
+                $report_data = $query->fetch_assoc();
+                return new ReportData($row["id"], 
+                                        $row["titolo"], 
+                                        $row["sottotitolo"], 
+                                        $row["contenuto"], 
+                                        $row["autore"], 
+                                        $row["isExplorable"], 
+                                        $row["img_path"], 
+                                        $row["last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
 
