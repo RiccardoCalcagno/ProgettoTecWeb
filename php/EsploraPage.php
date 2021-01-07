@@ -31,7 +31,7 @@ else{
     $_SESSION["report_data"] = $db->getReportAuthor("QueenAdministrator");// getReportExplorable();     // DA METTERE
 
 
-    echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION['report_data'] ."</h1></body></html>";
+    echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION['report_data'][0] ."</h1></body></html>";
     exit();
 
 
