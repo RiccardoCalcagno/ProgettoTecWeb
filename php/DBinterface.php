@@ -551,10 +551,13 @@
 
         public function countReportExplorable()
         {
-            $query = "SELECT COUNT(Report.id) 
-            FROM Report  WHERE Report.isExplorable = true";
+            $count=0;
+            $query = "SELECT COUNT(Report.id) ".
+            "FROM Report ".  "WHERE Report.isExplorable = true";
+            $n = mysqli_query($this->connection, $query);
+            if($n)
+                $count = (int) $n;
 
-            $count = (int) mysqli_query($this->connection, $query);
             return $count;
         }
 
