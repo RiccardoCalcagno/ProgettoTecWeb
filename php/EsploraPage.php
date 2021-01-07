@@ -21,8 +21,8 @@ else{
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
 
-    $_SESSION["username"]="Barb";
-    $_SESSION["passwd"]="12345678Aa";
+    $_SESSION["username"]="QueenAdministrator";
+    $_SESSION["passwd"]="1000BimbiFucsia";
 
     $_SESSION["vai_avanti_esplora"] = false;
     $_SESSION["vai_indietro_esplora"] = false;
@@ -30,13 +30,12 @@ else{
     $_SESSION["num_report_esplora"] = $db->countReport($_SESSION["username"]);      // DA METTERE
     $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);     // DA METTERE
 
-    for($i = 0; $i < $num_report_esplora; $i++)
+    for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
     }
     $db->closeConnection();
-    $numero_pag_esplora = $_SESSION["num_report_esplora"] / 5;
-
+    $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
 
 /*
@@ -49,7 +48,7 @@ else{
     $_SESSION["report_data"] = array(new ReportData(1,'Iniziare una Locanda','Il modo più classico di iniziare una campagna può essere inaspettato?','Potete Appena Ci siamolocanda alla fine è rimasto ben poco LOL','Grog',true,['hey','gio','come','stai']));
     $numero_pag_esplora = 2;
 
-    for($i = 0; $i < $num_report_esplora; $i++)
+    for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = 3;
     }
@@ -74,7 +73,7 @@ else{
 
     $_schede_report_esplora = "";
 
-    for($i = ($_SESSION["count_esplora"]-1)*5 ; $i < $limit = $_SESSION["num_report_esplora"] < $numero_pag_esplora ? $limit = $_SESSION["num_report_esplora"] : $limit = 5*$_SESSION["count_esplora"] ; $i++)
+    for($i = ($_SESSION["count_esplora"]-1)*5 ; $i < $limit = ($_SESSION["num_report_esplora"] < $numero_pag_esplora*5 ? $_SESSION["num_report_esplora"] : 5*$_SESSION["count_esplora"]) ; $i++)
         {
         $_schede_report_esplora .=   
         "<li class=\"cardReport\" class=\"cardReportEsplora\">
