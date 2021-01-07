@@ -57,7 +57,12 @@
             else 
             {
                 $user_data = $query_result->fetch_array();
-                return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["birthdate"], $user_data["img_path"]);
+                return new UserData($user_data["username"], 
+                                    $user_data["name_surname"], 
+                                    $user_data["email"], 
+                                    $user_data["passwd"], 
+                                    $user_data["birthdate"], 
+                                    $user_data["img_path"]);
             }  
         }
 
@@ -305,7 +310,7 @@
         public function getReport($id_report, $username) {
             $id_report = clean_input($id_report);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report INNER JOIN Users ON Report.author = Users.username
+                      FROM Report INNER JOIN Users ON Report.author = Users.username 
                       WHERE Report.id = '".$id_report."' AND Report.author = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -315,15 +320,15 @@
                 return null;
             }
             else {
-                $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
-                return new ReportData($row["Report.id"], 
-                                        $row["Report.title"], 
-                                        $row["Report.subtitle"], 
-                                        $row["Report.content"], 
-                                        $row["Report.author"], 
-                                        $row["Report.isExplorable"], 
-                                        $row["Users.img_path"], 
-                                        $row["Report.last_modified"]);
+                $report_data = $query->fetch_assoc();
+                return new ReportData($row["id"], 
+                                        $row["title"], 
+                                        $row["subtitle"], 
+                                        $row["content"], 
+                                        $row["author"], 
+                                        $row["isExplorable"], 
+                                        $row["img_path"], 
+                                        $row["last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
 
@@ -374,9 +379,13 @@
         //funzione per ricavare il numero di utenti linkati ad un report come "partecipanti"
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
-            $num_query = "SELECT count(*) FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
-            $num_query_Result =   mysqli_query($this->connection, $num_query);
-            return $num_query_Result;
+            $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
+            $query_result =   mysqli_query($this->connection, $query);
+            
+            if($query_result)
+                return $query_result->num_rows;
+            else
+                return 0;
         }
 
         //funzione per ricavare i dati di un determinato numero di Cards, in base ad una lista di report.id
@@ -436,9 +445,10 @@
 
         public function getReportExplorable()
         {
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report  WHERE Report.isExplorable = true
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified 
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true 
                       ORDER BY Report.last_modified DESC;";
+                      
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -447,15 +457,15 @@
             if((($query_result)&&($query_result->num_rows)) ){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["Report.id"], 
-                                             $row["Report.titolo"], 
-                                             $row["Report.sottotitolo"], 
-                                             $row["Report.contenuto"], 
-                                             $row["Report.autore"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                    $report = new ReportData($row["id"], 
+                                            $row["title"], 
+                                            $row["subtitle"], 
+                                            $row["content"], 
+                                            $row["author"], 
+                                            $row["isExplorable"], 
+                                            DBinterface::getALLForReport($row["id"]),
+                                            $row["img_path"], 
+                                            $row["last_modified"]);
                     array_push($reports, $report);
                 }
             }
@@ -479,15 +489,15 @@
             if(($query_result)&&($query_result->num_rows)) {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["Report.id"], 
-                                             $row["Report.title"], 
-                                             $row["Report.subtitle"], 
-                                             $row["Report.content"], 
-                                             $row["Report.author"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                    $report = new ReportData($row["id"], 
+                                             $row["title"], 
+                                             $row["subtitle"], 
+                                             $row["content"], 
+                                             $row["author"], 
+                                             $row["isExplorable"], 
+                                             DBinterface::getALLForReport($row["id"]),
+                                             $row["img_path"], 
+                                             $row["last_modified"]);
                     array_push($reports, $report);
                 }
             }
@@ -499,67 +509,64 @@
         public function getReportAuthor($username) 
         {
             $username = clean_input($username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path Report.last_modified ".
-                     "FROM Report INNER JOIN Users ON Report.author = Users.username". 
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
+                     "FROM Report INNER JOIN Users ON Report.author = Users.username ". 
                      "WHERE Report.author = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result) {
-                return null;
-            }
-            else if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
-                $reports = array();
+            $reports = array();
+            if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["Report.id"], 
-                                             $row["Report.title"], 
-                                             $row["Report.subtitle"], 
-                                             $row["Report.content"], 
-                                             $row["Report.author"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                    $report = new ReportData($row["id"], 
+                                             $row["title"], 
+                                             $row["subtitle"], 
+                                             $row["content"], 
+                                             $row["author"], 
+                                             $row["isExplorable"], 
+                                             DBinterface::getALLForReport($row["id"]),
+                                             $row["img_path"], 
+                                             $row["last_modified"]);
                     array_push($reports, $report);
                 } 
-                return $reports;
             }
-            
+            return $reports;
         }
 
         public function countReportAuthor($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
-
-            $count =   mysqli_query($this->connection, $query);
+            $query_result =   mysqli_query($this->connection, $query);
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
             return $count;
         }
 
         public function countReportExplorable()
         {
             $count=0;
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
             "FROM Report ".  "WHERE Report.isExplorable = true";
-            $n = mysqli_query($this->connection, $query);
-            if($n)
-                $count = $n;
+            $query_result = mysqli_query($this->connection, $query);
+
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
 
             return $count;
         }
 
         public function countReport($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
@@ -568,12 +575,12 @@
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
-            if($query_result) {
-                return $query_result->fetch_array()['COUNT(Report.id)'];
+
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
             }
-            else {
-                return 0;
-            }
+
+            return $count;
         }
 
         public function setExplorable($report_id, $isExplorable = true)
@@ -604,10 +611,10 @@
             $comments = array();
             $id_report = clean_input($id_report);
             $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
-                     "FROM Comments". 
+                     "FROM Comments ". 
                      "WHERE Comments.report = '" . $id_report . "';";
 
-            $query_result = mysql_query($this->connection, $query);
+            $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result->num_rows) 
             {
@@ -617,7 +624,7 @@
             {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $comment = new Comments($row["Comments.id"], $row["Comments.testo"], $row["Comments.data_ora"], $row["Comments.author"], $row["Comments.report"]);          
+                    $comment = new Comments($row["id"], $row["testo"], $row["data_ora"], $row["author"], $row["report"]);          
                     array_push($comments, $comment);
                 }
             }
@@ -726,7 +733,8 @@
         public function deleteUserFromALL(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "';";
-            return mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
+            return $done;
         }
 
         //elimina tutte le mention ad un determinato Report
@@ -742,12 +750,12 @@
             $reportsWITHuser = array();
           $user = clean_input($user);
           $query = "SELECT * FROM report_giocatore RG WHERE RG.user = '".$user."';";
-          $query_result = mysql_query($this->connection, $query);
+          $query_result = mysqli_query($this->connection, $query);
 
             if($query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report_id = $row["report_giocatore.report"];         
+                    $report_id = $row["report"];         
                     array_push($reportsWITHuser, $report_id);
                 }
             }
@@ -759,12 +767,12 @@
             $usersINreport = array();
           $report = clean_input($report);
           $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report."';";
-          $query_result = mysql_query($this->connection, $query);
+          $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $user_id = $row["report_giocatore.user"];         
+                    $user_id = $row["user"];         
                     array_push($usersINreport, $user_id);
                 }
             }
@@ -789,15 +797,16 @@
                 return null;
             }
             else {
-                $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
-                return new ReportData($row["Report.id"], 
-                                        $row["Report.titolo"], 
-                                        $row["Report.sottotitolo"], 
-                                        $row["Report.contenuto"], 
-                                        $row["Report.autore"], 
-                                        $row["Report.isExplorable"], 
-                                        $row["Users.img_path"], 
-                                        $row["Report.last_modified"]);
+                $report_data = $query->fetch_assoc();
+                return new ReportData($row["id"], 
+                                        $row["title"], 
+                                        $row["subtitle"], 
+                                        $row["content"], 
+                                        $row["author"], 
+                                        $row["isExplorable"], 
+                                        DBinterface::getALLForReport($row["id"]),
+                                        $row["img_path"], 
+                                        $row["last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
 

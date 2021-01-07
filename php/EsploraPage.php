@@ -1,7 +1,7 @@
 <?php
 
 
-//require_once("DBinterface.php");                              !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+require_once("DBinterface.php"); 
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 require_once("report_data.php");
@@ -28,7 +28,12 @@ else{
     $_SESSION["vai_indietro_esplora"] = false;
     $_SESSION["count_esplora"] = 1;
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
-    $_SESSION["report_data"] = $db->getReportExplorable();     // DA METTERE
+    $_SESSION["report_data"] = $db->getReportAuthor("QueenAdministrator");// getReportExplorable();     // DA METTERE
+
+/*
+    echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION['report_data'] ."</h1></body></html>";
+    exit();
+*/
 
     for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
@@ -38,7 +43,7 @@ else{
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
 
-/*
+    /*
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
     $_SESSION["vai_avanti_esplora"] = false;
