@@ -441,30 +441,34 @@
 
         public function getReportExplorable()
         {
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report  WHERE Report.isExplorable = true
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified 
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
                       ORDER BY Report.last_modified DESC;";
+                      
 
             $query_result = mysqli_query($this->connection, $query);
 
             $reports = array();
+            $stringa="hey".$query_result;
 
             if((($query_result)&&($query_result->num_rows)) ){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
-                                             $row["Report.titolo"], 
-                                             $row["Report.sottotitolo"], 
-                                             $row["Report.contenuto"], 
-                                             $row["Report.autore"], 
-                                             $row["Report.isExplorable"], 
-                                             DBinterface::getALLForReport($row["Report.id"]),
-                                             $row["Users.img_path"], 
-                                             $row["Report.last_modified"]);
+                                            $row["Report.title"], 
+                                            $row["Report.subtitle"], 
+                                            $row["Report.content"], 
+                                            $row["Report.author"], 
+                                            $row["Report.isExplorable"], 
+                                            DBinterface::getALLForReport($row["Report.id"]),
+                                            $row["Users.img_path"], 
+                                            $row["Report.last_modified"]);
                     array_push($reports, $report);
+                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
                 }
             }
-            return $reports;
+            //return $reports;
+            return $stringa;
         }
 
         public function getReportList($username) 
@@ -504,21 +508,18 @@
         public function getReportAuthor($username) 
         {
             $username = clean_input($username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path Report.last_modified ".
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username". 
                      "WHERE Report.author = '" . $username . "';";
+            
+            $stringa="hey".(mysqli_query(mysqli_connect( DBinterface::HOST, 
+                            DBinterface::USERNAME, 
+                            DBinterface::PASSWORD, 
+                            DBinterface::DB_NAME), $query)==null);
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result) {
-                return null;
-            }
-            else if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
+            if(($query_result)&&($query_result->num_rows)){
                 $reports = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
@@ -532,39 +533,47 @@
                                              $row["Users.img_path"], 
                                              $row["Report.last_modified"]);
                     array_push($reports, $report);
+                    $stringa.= " -  Report.id" . $row["Report.id"] . "img_path" . $row["Users.img_path"];
                 } 
-                return $reports;
             }
-            
+
+            return $stringa;
+            //return $reports;
         }
 
         public function countReportAuthor($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
-
-            $count =   mysqli_query($this->connection, $query);
+            $query_result =   mysqli_query($this->connection, $query);
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
             return $count;
         }
 
         public function countReportExplorable()
         {
             $count=0;
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
             "FROM Report ".  "WHERE Report.isExplorable = true";
-            $n = mysqli_query($this->connection, $query);
-            if($n)
-                $count = $n;
+            $query_result = mysqli_query($this->connection, $query);
+
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
+            }
 
             return $count;
         }
 
         public function countReport($username)
         {
+            $count=0;
             $username = clean_input($username);
-            $query = "SELECT COUNT(Report.id) ".
+            $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
@@ -573,12 +582,12 @@
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
-            if($query_result) {
-                return $query_result->fetch_array()['COUNT(Report.id)'];
+
+            if(($query_result)&&($query_result->num_rows)) {
+                $count=$query_result->num_rows;
             }
-            else {
-                return 0;
-            }
+
+            return $count;
         }
 
         public function setExplorable($report_id, $isExplorable = true)
