@@ -323,10 +323,10 @@
             else {
                 $report_data = $query->mysqli_assoc(MYSQLI_ASSOC);
                 return new ReportData($row["Report.id"], 
-                                        $row["Report.titolo"], 
-                                        $row["Report.sottotitolo"], 
-                                        $row["Report.contenuto"], 
-                                        $row["Report.autore"], 
+                                        $row["Report.title"], 
+                                        $row["Report.subtitle"], 
+                                        $row["Report.content"], 
+                                        $row["Report.author"], 
                                         $row["Report.isExplorable"], 
                                         $row["Users.img_path"], 
                                         $row["Report.last_modified"]);
@@ -440,6 +440,39 @@
 
         }*/
 
+        public function getReportExplorable()
+        {
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
+                      ORDER BY Report.last_modified DESC;";
+
+            $query_result = $db->mysqli_query($this->connection, $query);
+
+            $reports = array();
+
+            if(!$query_result->num_rows)
+            {
+                return false;
+            }
+            else
+            {
+                while($row = mysqli_fetch_assoc($query_result))
+                {
+                    $report = new ReportData($row["Report.id"], 
+                                             $row["Report.titolo"], 
+                                             $row["Report.sottotitolo"], 
+                                             $row["Report.contenuto"], 
+                                             $row["Report.autore"], 
+                                             $row["Report.isExplorable"], 
+                                             DBinterface::getALLForReport($row["Report.id"]),
+                                             $row["Users.img_path"], 
+                                             $row["Report.last_modified"]);
+                    array_push($reports, $report);
+                }
+            }
+            return $reports;
+        }
+
         public function getReportList($username) 
         {
             $username = clean_input($username);
@@ -453,6 +486,8 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
+            $reports = array();
+
             if(!$query_result) {
                 // TO FIX ERROR
             }
@@ -462,14 +497,14 @@
             }
             else
             {
-                $reports = array();
+                
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
-                                             $row["Report.titolo"], 
-                                             $row["Report.sottotitolo"], 
-                                             $row["Report.contenuto"], 
-                                             $row["Report.autore"], 
+                                             $row["Report.title"], 
+                                             $row["Report.subtitle"], 
+                                             $row["Report.content"], 
+                                             $row["Report.author"], 
                                              $row["Report.isExplorable"], 
                                              DBinterface::getALLForReport($row["Report.id"]),
                                              $row["Users.img_path"], 
@@ -504,10 +539,10 @@
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
-                                             $row["Report.titolo"], 
-                                             $row["Report.sottotitolo"], 
-                                             $row["Report.contenuto"], 
-                                             $row["Report.autore"], 
+                                             $row["Report.title"], 
+                                             $row["Report.subtitle"], 
+                                             $row["Report.content"], 
+                                             $row["Report.author"], 
                                              $row["Report.isExplorable"], 
                                              DBinterface::getALLForReport($row["Report.id"]),
                                              $row["Users.img_path"], 
@@ -764,7 +799,7 @@
                             "ON Report.id = report_giocatore.report ". 
                             "INNER JOIN Users ". 
                             "ON report_giocatore.user = Users.id ". 
-                            "WHERE Users.username = '" . $username . "' AND Report.id = '" . $id_report . "';";
+                            "WHERE Users.username = '" . $partecipant . "' AND Report.id = '" . $id_report . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
