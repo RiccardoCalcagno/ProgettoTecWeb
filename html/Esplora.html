@@ -84,31 +84,14 @@
                 </header>
                 <div class="box">
                 <ul class="cards">
-                    <li class="cardReport" class="cardReportEsplora">
-                        <button name="ReportEsplora" value="1">
-                            <div class="testoCardRep">
-                                <h4 class="textVariable">Titolo Report di Sessione</h4>
-                                <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                    lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                            </div>
-                            <div  class="badgeUtente">
-                                <h5>Autore</h5>
-                                <img src="../img/icone_razze/nano.png" alt="" /> 
-                                <p class="textVariable">Nome Autore</p>
-                            </div>
-                        <footer>
-                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                        </footer>
-                        </button>
-                    </li>
+                    <reports/>
                 </ul>
                 </div>
                 <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                     <ul>
                           <li><label id="LblEsploraPrecedente" for="esploraPrecedente">precedente</label></li>
                           <li class="inputMove"><input type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente"></li>                     
-                          <li><span><abbr>Pag</abbr></span>. <span id="numPagEsplora">1</span>/<span id="totNumPagEsplora">2</span></li>
+                          <li><span><abbr>Pag</abbr></span>. <span id="numPagEsplora"><currentPageReport/></span>/<span id="totNumPagEsplora"><totPagReport/></span></li>
                           <li class="inputMove"><input type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo"></li> 
                           <li><label id="LblEsploraSuccessivo" for="esploraSuccessivo">successiva</label></li>
                     </ul> 

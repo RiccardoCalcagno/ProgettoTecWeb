@@ -1,7 +1,6 @@
 <?php
 require_once("GeneralPurpose.php");
 require_once("banners.php");
-require_once("DBinterface.php");
 
 clearSession();
 
@@ -42,8 +41,7 @@ else if($_SESSION["login"])
             $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
             $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
             $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
-
-            //$num_report =  $_SESSION["num_report"]; TO FIX ADD ?
+            $num_report =  $_SESSION["num_report"];
             
             for($i = 0; $i < $num_report; $i++)
             {
@@ -61,8 +59,8 @@ else if($_SESSION["login"])
         }
 
         // calcolo numero delle pagine di report
-        $numero_pag_report = $_SESSION["num_report"] / 5;
-        $numero_pag_master = $_SESSION["num_report_master"] / 5;
+        $numero_pag_report = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report"] -1) / 5 +1);
+        $numero_pag_master = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_master"] -1) / 5 +1);
 
 
         /** controllo se si può andare avanti o indietro */
@@ -149,7 +147,7 @@ else if($_SESSION["login"])
 
                 $_schede_report_master = "";
 
-                for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = $_SESSION["num_report_master"] < $numero_pag_master ? $limit = $_SESSION["num_report_master"] : $limit = 5*$_SESSION["count_master"] ; $i++)
+                for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $numero_pag_master*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                 {
                     $_schede_report_master .= "<li class=\"cardReport\" class=\"cardReportMaster\">
                     <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
@@ -184,7 +182,7 @@ else if($_SESSION["login"])
                 if($_SESSION["count_rep"] == 1)
                 {
                     $html = str_replace("<li><label id=\"LblPartecPrecedente\" for=\"partecPrecedente\">precedente</label></li>
-                    <li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li> ", " ", $html);
+                    <li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li>", " ", $html);
                 }
 
                 if($_SESSION["count_rep"] == $numero_pag_report)
@@ -205,7 +203,7 @@ else if($_SESSION["login"])
 
                 $_schede_report = "";
 
-                for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = $_SESSION["num_report"] < $numero_pag_master ? $limit = $_SESSION["num_report"] : $limit = 5*$_SESSION["count_master"] ; $i++)
+                for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $numero_pag_master*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_master"]); $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
@@ -232,7 +230,7 @@ else if($_SESSION["login"])
                 if($_SESSION["count_master"] == 1)
                 {
                     $html = str_replace("<li><label id=\"LblMasterPrecedente\" for=\"masterPrecedente\">precedente</label></li>
-                    <li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>  ", " ", $html);
+                    <li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>", " ", $html);
                 }
 
                 if($_SESSION["count_master"] == $numero_pag_master)

@@ -297,10 +297,10 @@
                      "FROM Characters ". 
                      "WHERE Characters.author = '".$username."';";
 
-            if($query)
+            if($query){
                 $query_result = mysqli_query($this->connection, $query)->fetch_array();
-
-            return $query_result["COUNT(Characters.id)"];
+                return $query_result["COUNT(Characters.id)"];}
+                else{return 0;}
         }
 
         
@@ -475,6 +475,7 @@
 
         public function getReportList($username) 
         {
+            $reports=array();
             $username = clean_input($username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report ". 
@@ -497,7 +498,10 @@
             }
             else
             {
+<<<<<<< HEAD
                 
+=======
+>>>>>>> 5f72ebac39cc69a91ee2256e6d2e101d09a9799b
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
@@ -559,7 +563,7 @@
             $username = clean_input($username);
             $query = "SELECT COUNT(Report.id) ".
                      "FROM Report ". 
-                     "WHERE Report.autore = '" . $username . "';";
+                     "WHERE Report.author = '" . $username . "';";
 
             $count = (int) mysqli_query($this->connection, $query);
             return $count;
@@ -573,7 +577,7 @@
                      "INNER JOIN report_giocatore ".
                      "ON Report.id = report_giocatore.report ". 
                      "INNER JOIN Users ". 
-                     "ON report_giocatore.user = Users.id ". 
+                     "ON report_giocatore.author = Users.id ". 
                      "WHERE Users.username = '" . $username . "';";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -610,6 +614,7 @@
 
         public function getComments($id_report)
         {
+            $comments = array();
             $id_report = clean_input($id_report);
             $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
                      "FROM Comments". 
@@ -623,7 +628,6 @@
             }
             else
             {
-                $comments = array();
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $comment = new Comments($row["Comments.id"], $row["Comments.testo"], $row["Comments.data_ora"], $row["Comments.author"], $row["Comments.report"]);          
@@ -748,46 +752,36 @@
 
         // Restituisce tutti i report (id) legati ad un utente
         public function getALLForUser($user){
+            $reportsWITHuser = array();
           $user = clean_input($user);
           $query = "SELECT * FROM report_giocatore RG WHERE RG.user = '".$user."';";
           $query_result = mysql_query($this->connection, $query);
 
-            if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
-                $reportsWITHuser = array();
+            if($query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report_id = $row["report_giocatore.report"];         
                     array_push($reportsWITHuser, $report_id);
                 }
-                return $reportsWITHuser;
             }
+            return $reportsWITHuser;
         }
 
         // Restituisce tutti gli utenti (user) legati ad un report
         public function getALLForReport($report){
+            $usersINreport = array();
           $report = clean_input($report);
           $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report."';";
           $query_result = mysql_query($this->connection, $query);
 
-            if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
-                $usersINreport = array();
+            if(!$query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $user_id = $row["report_giocatore.user"];         
                     array_push($usersINreport, $user_id);
                 }
-                return $usersINreport;
             }
+            return $usersINreport;
         }
 
         public function getReportForPertecipant($id_report, $partecipant)
