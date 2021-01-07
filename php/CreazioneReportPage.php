@@ -81,15 +81,18 @@
 
     if(isset($_POST['salvaRep'])){
 
-        /*
-        HO SOTITUITO QUESTO CON QUELLO SOTTO:
+        
+        //QUESTO E' QUELLO CORRETTO
         $titolo = $_POST['titolo'];
         $sottotitolo = $_POST['sottotitolo'];
         $contenuto = $_POST['contenuto'];
-        $condividi = $_POST['condividi'];
-        array_push($_POST['lista_giocatori'],$lista_giocatori);
-        */
+        $condividi = (isset($_POST['condividi']));
+        if($_SESSION['report_in_creazione']){
+            $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
+        }
 
+        
+        /*
         // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
         $rep = $_SESSION['report_in_creazione'];
         $titolo = $rep->get_titolo();
@@ -97,14 +100,15 @@
         $contenuto = $rep->get_contenuto();
         $condividi = $rep->get_condividi();
         $lista_giocatori = $rep->get_lista_giocatori();
+        */
 
         //controlli
         if(strlen($titolo) != 0 && strlen($sottotitolo) != 0 && strlen($contenuto) != 0) {
 
             //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-            //$rep = new ReportData($idRep, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+            $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
             //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
-            //$_SESSION['report_in_creazione'] = $rep;
+            $_SESSION['report_in_creazione'] = $rep;
 
             if(isset($_SESSION['username'])) {
                 
@@ -156,6 +160,75 @@
         }
         
     }
+    else if(isset($_POST['aggiungiGiocatore'])){
+        //se ho cliccato su AGGIUNGI per inserire un giocatore nel report, 
+        //ora prendo il valore inserito, lo cerco nel database e lo inserisco se esiste,
+        //riportando poi il caricamento della form
+        
+        //devo tenere anche i dati già inseriti, if any
+        $titolo = $_POST['titolo'];
+        $sottotitolo = $_POST['sottotitolo'];
+        $contenuto = $_POST['contenuto'];
+        $condividi = (isset($_POST['condividi']));
+
+
+        $dbInterface = new DBinterface();
+        $connection = $dbInterface->openConnection();
+
+        if($connection){
+            if($dbInterface->existUser($_POST['usernameGiocatore'])){
+                //aggiungo il giocatore alla lista
+                array_push($lista_giocatori,$_POST['usernameGiocatore']);
+
+                $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
+                $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
+            }
+            else{
+                $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
+                $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
+            }
+        }
+        else {
+            $message = '<div id="errori"><p>Errore nella connessione. Riprovare.</p></div>';
+	    {
+
+        $dbInterface->closeConnection();
+
+    }
+    else if(isset($_POST['deletePlayer'])){
+        //se ho cliccato sulla X che elimina un giocatore devo toglierlo dalla lista
+        
+        //devo tenere anche i dati già inseriti, if any
+        $titolo = $_POST['titolo'];
+        $sottotitolo = $_POST['sottotitolo'];
+        $contenuto = $_POST['contenuto'];
+        $condividi = (isset($_POST['condividi']));
+
+        $dbInterface = new DBinterface();
+        $connection = $dbInterface->openConnection();
+
+        $playerToDelete = '<li>
+                                <div class="badgeUtente">
+                                    <div>
+                                        <img src="'.$dbInterface->getUserPic($_POST['deletePlayer']);.'" alt="Immagine di Profilo" />
+                                        <p class="textVariable">'.$_POST['deletePlayer'].'</p>
+                                    </div>
+                                    <button title="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$_POST['deletePlayer'].'">X</button>
+                                </div>
+                            </li>';
+        $dbInterface->closeConnection();
+
+        //rimuovo dall'html il giocatore
+        str_replace($playerToDelete,'',$html);
+
+        //rimuovo dalla lista dei giocatori il giocatore
+        $key = array_search($_POST['deletePlayer'],$lista_giocatori);
+        unset($lista_giocatori[$key]);
+
+        //aggiorno la lista nell'oggetto report_in_creazione
+        $_SESSION['report_in_creazione']->set_lista_giocatori($lista_giocatori);
+
+    }
     else if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
 
         $dbInterface = new DBinterface();
@@ -168,6 +241,7 @@
                 $sottotitolo = $rep->get_sottotitolo();
                 $contenuto = $rep->get_contenuto();
                 $condividi = $rep->get_condividi();
+                //stampare tutta la lista, foreach
                 $lista_giocatori = $rep->get_lista_giocatori();
             }
             else {
@@ -177,31 +251,50 @@
         else {
             // ERROR PAGE ?
         }
+
+        $dbInterface->closeConnection();
     }
 
-    //il contenuto delle textarea viene settato qui
-    $html = str_replace('<valueTitle/>',$titolo,$html);
-    $html = str_replace('<valueSubtitle/>',$sottotitolo,$html);
-    $html = str_replace('<valueContent/>',$contenuto,$html);
+    //--------------------------------------------------------------------
+    //il contenuto della pagina viene settato qui
+    $html = str_replace('<valueTitle />',$titolo,$html);
+    $html = str_replace('<valueSubtitle />',$sottotitolo,$html);
+    $html = str_replace('<valueContent />',$contenuto,$html);
 
-    //TODO string replace per giocatori linkati e condivisibile!!!
-    /*
+    $dbInterface = new DBinterface();
+    $connection = $dbInterface->openConnection();
+    //controllo if($connection) TODO
 
-    
+    $stringa_giocatori = '';
+    foreach($lista_giocatori as $singleUser){
+        $stringa_giocatori .= '<li>
+                                    <div class="badgeUtente">
+                                        <div>
+                                            <img src="'.$dbInterface->getUserPic($singleUser);.'" alt="Immagine di Profilo" />
+                                            <p class="textVariable">'.$singleUser.'</p>
+                                        </div>
+                                        <button title="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
+                                    </div>
+                                </li>
+                                <listaGiocatori />';
+    }
 
+    $dbInterface->closeConnection();
 
-    <li>
-        <div class="badgeUtente">
-            <div>
-                <img src="../img/icone_razze/nano.png" alt="" />
-                <p class="textVariable">Nome Giocatore</p>
-            </div>
-            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="1">X</button>
-        </div>
-    </li>
-    <valueLinkedUser />
-    */
+    $html = str_replace('<listaGiocatori />',$stringa_giocatori,$html);
 
+    //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
+    $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+    //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
+    $_SESSION['report_in_creazione'] = $rep;
+
+    //modifico il checkbox    
+    if(condividi){
+        str_replace('{check_placeholder}','checked="checked"',$html);
+    }
+    else{
+        str_replace('{check_placeholder}','',$html);
+    }
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
