@@ -437,7 +437,7 @@
         public function getReportExplorable()
         {
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report  WHERE Report.isExplorable = true
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true
                       ORDER BY Report.last_modified DESC;";
 
             $query_result = mysqli_query($this->connection, $query);

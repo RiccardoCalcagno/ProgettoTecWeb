@@ -37,7 +37,7 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
-    echo "num_report_esplora" . $_SESSION["num_report_esplora"] . "report_data" . size($_SESSION["report_data"]);
+    echo "num_report_esplora" . $_SESSION["num_report_esplora"] . "report_data" . $_SESSION["report_data"][0]->get_id();
 
 
 
