@@ -519,7 +519,7 @@
             if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData((string)$row["id"], 
+                    $report = new ReportData($row["id"], 
                                              $row["title"], 
                                              $row["subtitle"], 
                                              $row["content"], 
@@ -528,7 +528,7 @@
                                              DBinterface::getALLForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
-                    $stringa.=" -ID:".$report->get_id()."DAFUK:".$row["id"];
+                    $stringa.=" -ID:".$report->get_if()."DAFUK:".$row["id"];
                     array_push($reports, $report);
                 } 
             }
