@@ -509,8 +509,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            $query_result = $this->connection;
-            $stringa="hey".($query_result == false);
+            $stringa="hey".(openConnection() == false);
             return $stringa;
 
             if(($query_result)&&($query_result->num_rows)){
