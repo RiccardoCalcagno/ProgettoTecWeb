@@ -503,7 +503,7 @@
         public function getReportAuthor($username) 
         {
             $username = clean_input($username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path Report.last_modified ".
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username". 
                      "WHERE Report.author = '" . $username . "';";
 
