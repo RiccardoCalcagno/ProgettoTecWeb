@@ -79,7 +79,7 @@
 
         public function get_id()
         {
-            return $this->id;
+            return $id;
         }
 
         public function get_title()
