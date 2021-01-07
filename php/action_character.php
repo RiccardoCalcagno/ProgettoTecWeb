@@ -6,23 +6,22 @@
         session_start();
     }
 
-    if ( isset($_POST['charLayout']) ) {
-        $_SESSION['charLayout'] = $_POST['charLayout'];
-        $_POST['charLayout'] == 'scheda' ?
-        header("Location: CharacterPageSwitchLayout.php"):
-        header("Location: CharacterPage.php");
+    if ( isset($_GET['charLayout']) ) {    // SUBMIT AVVIENE SOLO SE JS NON FUNZIONA
+
+//        $_GET['charLayout'] == 'scheda' ?
+        redirect_GET("CharacterPage.php", $_GET);
+ //       header("Location: CharacterPage.php?Personaggio=".$_GET['charID']);
     }
 
-    if ( isset($_POST["Personaggio"]) ) {   // AreaPersonale (Character card) 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
-        $_SESSION["character_id"] = $_POST["Personaggio"];
+    if ( isset($_GET["Personaggio"]) ) {   // AreaPersonale (Character card) 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
 
         /* controllo che il personaggio sia di questo utente */
         $db = new DBinterface();
         $db->openConnection();
-        if($db->getCharacterOfUser($_SESSION["character_id"], $_SESSION["username"]))
+        if($db->getCharacterOfUser($_GET["Personaggio"], $_SESSION["username"]))
         {
             $db->closeConnection();
-            header("Location: CharacterPage.php");
+            header("Location: CharacterPage.php?Personaggio=".$_GET["Personaggio"]);
             exit();
         }
         else
@@ -33,15 +32,14 @@
         }
     }
 
-    if( isset($_POST['personaggio']) ) {    // SchedaGiocatore 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
+    if( isset($_GET['charAction']) ) {
         
-        if($_POST['personaggio'] == "MODIFICA") {
-            //$_SESSION["character_id"] settato prima
-            $_SESSION['CharToEdit'] = $_POST['charID'];
-            header("Location: character_edit(FormAction).php");
+        if($_GET['charAction'] == "MODIFICA") {
+
+           redirect_GET("character_creation(FormAction).php", $_GET);
         }
 
-        if($_POST['personaggio'] == "ELIMINA") {
+        if($_POST['charAction'] == "ELIMINA") {
 
             $_SESSION['banners']="confermare_eliminazione_personaggio";
             header("Location: CharacterPage.php");
@@ -53,10 +51,11 @@
         $_SESSION['CharFormPOST'] = $_POST;
         
         if ( $_POST['salvaPers'] == 'SALVA SCHEDA' ) {
-            header("Location: character_creation(FormAction).php");
+            header("Location: character_creation(FormAction).php"); // TO FIX KEEP IT LIKE THIS ?
         }
         else {  // $_POST['salvaPers'] == 'SALVA MODIFICA'
-            header("Location: character_edit(FormAction).php");
+            print "AAAAAAAAA";
+            header("Location: character_creation(FormAction).php?charAction=MODIFICA&charID=".$_POST['charID']);    //// TO FIX ok like this OR <hiddenCharAction /> ????
         }
     }
 

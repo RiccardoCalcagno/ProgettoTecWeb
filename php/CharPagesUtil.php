@@ -4,6 +4,106 @@ require_once("character.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
+// ------------------------------------------------- CharacterPage ----------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------
+
+function characterPage($charID) {
+
+    $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");
+    $html = setup($html);
+
+    //$_SESSION['username'] = 'user';    // testing
+    //$_SESSION['character_id'] = 47;   // testing
+
+
+ /*   if(isset($_SESSION['documento'])){
+        header("Location: CharacterPage.php");
+        if($_SESSION['documento']=="ELIMINA"){
+
+            $db = new DBinterface();
+            $openConnection = $db->openConnection();
+        
+            if ($openConnection) {
+                $result= $db->deleteCharacter($_SESSION['character_id']);
+                if(isset($result)){
+                    header("Location: area_personale.php");
+                }else{
+                    // Can't get data from DB
+                    // ERROR PAGE ? // (ERRORE LATO DB)       
+                }
+            }else{
+                // Can't get data from DB
+                // ERROR PAGE ? // (ERRORE LATO DB)
+            }
+        }
+        exit();
+    }*/
+
+    $db = new DBinterface();
+    $openConnection = $db->openConnection();
+
+    if ($openConnection) {
+
+        $character = $db->getCharactersById($charID);
+        $db->closeConnection();
+
+        if(isset($character)) {
+            
+            if ($character->get_author() == $_SESSION['username']) {
+                $html = str_replace("<nameValue />", $character->get_name(), $html);
+                $html = str_replace("<imgPath />", "../img/razze/" . strtolower($character->get_race()) . ".png", $html);
+                $html = str_replace("<raceValue />", $character->get_race(), $html);
+                $html = str_replace("<classValue />", $character->get_class(), $html);
+                $html = str_replace("<backgroundValue />", $character->get_background(), $html);
+                $html = str_replace("<alignmentValue />", $character->get_alignment(), $html);
+                $html = str_replace("<traitsValue />", $character->get_traits(), $html);
+                $html = str_replace("<idealsValue />", $character->get_ideals(), $html);
+                $html = str_replace("<bondsValue />", $character->get_bonds(), $html);
+                $html = str_replace("<flawsValue />", $character->get_flaws(), $html);
+                $html = str_replace("<charIDValue />", $charID, $html);
+            }
+            else {  // User sta cercando di accedere ad un personaggio non suo
+                error("WAITTHATSILLEGAL");
+                // ERROR PAGE ?
+
+            }
+        }
+        else {
+        // Can't get data from DB
+            // ERROR PAGE ? // (ERRORE LATO DB)
+        }
+    }
+    else {
+        // Non serve chiudere la connessione qui se non si e' neanche aperta (no ?)
+    // Can't connect to DB
+        // ERROR PAGE ? // (ERRORE LATO Server)
+    }
+
+    $html = addPossibleBanner($html, "CharacterPage.php");
+
+    return $html;
+}
+
+function changeCharLayout($html) {
+
+    // Modifica bottoni
+    $html = str_replace(
+      '<button id="pergamena" class="disabled" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)" disabled="disabled">PERGAMENA</button>', 
+      '<button id="pergamena" class="active" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)">PERGAMENA</button>', $html
+    );
+    $html = str_replace(
+      '<button id="scheda" class="active" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)">STANDARD D&D</button>',
+      '<button id="scheda" class="disabled" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)" disabled="disabled">STANDARD D&amp;D</button>', $html
+    );
+
+    // Modifica Layout
+    $html = str_replace('id="contentPersonaggio" class="pergamena"', 'id="contentPersonaggio" class="scheda"', $html);
+
+    return $html;
+}
+
+// ------------------------------------------------- Character Form ---------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------
  function checkText($text) {
     return preg_match("/^.{10,}$/", $text); // clean_input dopo
 }
@@ -27,7 +127,7 @@ function preparePage($htmlPage, $toEdit) {
 
             $button = 'SALVA MODIFICA';
 
-            $hiddenCharID = '<input type="hidden" id="charID" name="charID" value="'.$_SESSION["CharToEdit"].'" />';
+            $hiddenCharID = '<input type="hidden" id="charID" name="charID" value="'.$_GET['charID'].'" />';     // toEdit => get 
     }
     else  {
 
@@ -61,11 +161,6 @@ function preparePage($htmlPage, $toEdit) {
     return $htmlPage;
 }
 
-
-//---------------------------------------------------------------------
-//    $_SESSION["username"] = "user"; // FOR TESTING
-//    unset($_SESSION["username"]);
-
 function Char_Form($toEdit) {
         
     $messaggioForm = "";
@@ -78,7 +173,7 @@ function Char_Form($toEdit) {
     $html = setup($html);
     $html = preparePage($html, $toEdit);
 
-    if ( isset($_SESSION['CharFormPOST']) ) {
+    if ( isset($_SESSION['CharFormPOST']) ) {   // $_SESSION['CharFormPOST'] == $_POST prima del redirect
         $name = $_SESSION['CharFormPOST']['cname'];    //estraggo dal post della form le informazioni contenute
         $race = $_SESSION['CharFormPOST']['crace'];
         $class = $_SESSION['CharFormPOST']['cclass'];
@@ -131,7 +226,9 @@ function Char_Form($toEdit) {
                         "creazione_documento_confermata";
 
                         $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
-                    //   header("Location: character_creation(FormAction).php");
+                        unset($_SESSION['CharFormPOST']);
+                        header("Location: area_personale.php");
+                        exit();
                     }
                     else {
                         // Can't insert in DB
@@ -178,12 +275,12 @@ function Char_Form($toEdit) {
             $messaggioForm .= '</ul></div>';
         }
     }
-    else if ($toEdit) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
+    else if ($toEdit) {   // Effettuato solo la prima volta, poi POST avra' valore
         $db = new DBinterface();
         $openConnection = $db->openConnection();
 
         if ($openConnection == true) {
-            $character = $db->getCharacterOfUser($_SESSION["CharToEdit"], $_SESSION['username']);
+            $character = $db->getCharacterOfUser($_GET['charID'], $_SESSION['username']);
             if($character) {
                 $name = $character->get_name();
                 $race = $character->get_race();
@@ -220,7 +317,7 @@ function Char_Form($toEdit) {
 
     $html = addPossibleBanner($html, "character_creation(FormAction).php");
 
-    unset($_SESSION['CharFormPOST']);
+    // unset($_SESSION['CharFormPOST']);   // Chiudo (come fosse POST) forse no, page refresh
 
     return $html;
 }

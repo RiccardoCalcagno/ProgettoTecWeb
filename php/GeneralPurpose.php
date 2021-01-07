@@ -81,4 +81,17 @@
         error($errorMessage);
     }
 
+    function redirect_GET($path, $get) {   // Dato il path, esegue il redirect come se action fosse su quella pagina
+
+        $path .= '?';
+
+        foreach($get as $key => $value) {
+            $path .= $key . '=' . $value . '&';
+        }
+        $path = rtrim($path, '&');
+
+        header("Location: $path");
+        exit();
+    }
+
 ?>

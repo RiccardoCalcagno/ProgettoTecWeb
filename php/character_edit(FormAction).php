@@ -1,6 +1,6 @@
 <?php
-    require_once("CharPagesUtil.php");
+    // require_once("CharPagesUtil.php");
 
-    echo Char_Form(true);
+    // echo Char_Form(true);
 
 ?>

@@ -29,7 +29,7 @@
             </ul>
     
             <div id="access">
-                <form action="../php/action.php" method="get">
+                <form action="../php/action.php" method="GET">
                     <input type="text" class="hidden" name="beforeAccess" value="CharacterPage.php"/>
                     <input id="Accedi" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
                     <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
@@ -68,7 +68,7 @@
                 <li id="breadCCurrent">Scheda Giocatore</li>
             </ul>
         </nav>
-        <form id="DocumentActions" method="POST" action="../php/action_character.php">
+        <form id="DocumentActions" method="GET" action="../php/action_character.php">
 
         <div id="content">
             <div id="setLayout">
@@ -138,13 +138,13 @@
 
         <ul id="footAction">
             <li>
-                <input type="submit" name="personaggio" value="ELIMINA" class="buttonLink"/>    
+                <input type="submit" name="charAction" value="ELIMINA" class="buttonLink"/>    
             </li>
             <li>
-                <input type="button" name="personaggio" value="STAMPA" class="buttonLink" onclick="window.print()"/>   <!-- NO JS ???????????????-->
+                <input type="button" name="charAction" value="STAMPA" class="buttonLink" onclick="window.print()"/>   <!-- NO JS ???????????????-->
             </li>
             <li>
-                <input type="submit" name="personaggio" value="MODIFICA" class="buttonLink"/>
+                <input type="submit" name="charAction" value="MODIFICA" class="buttonLink"/>
             </li>
         </ul>
 
