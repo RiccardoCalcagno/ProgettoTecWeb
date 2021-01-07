@@ -45,14 +45,14 @@ else if($_SESSION["login"])
             
             for($i = 0; $i < $num_report; $i++)
             {
-                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_title()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
+                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]));
             }
 
             $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
 
             for($i = 0; $i < $num_report; $i++)
             {
-                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_title()] = count($db->getALLForReport($_SESSION["author_report_data"][$i]));
+                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["author_report_data"][$i]));
             }
 
             $db->closeConnection();
@@ -162,7 +162,7 @@ else if($_SESSION["login"])
                         {
                             $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
                         }
-                        $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_title()] . "</span> giocatori</p>
+                        $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>
                         </footer>
                     </button>
                     <div class=\"publicazione\">";
@@ -217,7 +217,7 @@ else if($_SESSION["login"])
                             <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
                     <footer>
-                        <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_title()] . "</span> giocatori</p>
+                        <p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>
                     </footer>
                     </button>
                 </li>\n";
