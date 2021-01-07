@@ -38,7 +38,7 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_esplora"] -1) / 5 +1);
 
-    echo $_SESSION['report_data'] ;
+    echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION['report_data'] ."</h1></body></html>";
     exit();
 
 
