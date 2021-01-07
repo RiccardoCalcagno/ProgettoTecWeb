@@ -30,7 +30,6 @@ else{
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
     $_SESSION["report_data"] = $db->getReportExplorable();     // DA METTERE
 
-    echo $_SESSION["report_data"];
 
     /*for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
@@ -101,7 +100,7 @@ else{
     if($_SESSION["count_esplora"] == 1)
         {
         $html = str_replace("<li><label id=\"LblEsploraPrecedente\" for=\"esploraPrecedente\">precedente</label></li>
-        <li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>", " ", $html);
+        <li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>",  $_SESSION['report_data'] , $html);
         }
 
     if($_SESSION["count_esplora"] == $numero_pag_esplora)
