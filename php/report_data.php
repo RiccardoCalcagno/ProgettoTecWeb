@@ -19,7 +19,7 @@
     
         public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified)
         {
-            $this->$id="vaffanculo";
+            $this->set_id($_id);
             $this->set_title($_title);
             $this->set_subtitle($_subtitle);
             $this->set_content($_content);
@@ -79,47 +79,47 @@
 
         public function get_id()
         {
-            return $this->id;
+            return $this->$id;
         }
 
         public function get_title()
         {
-            return $this->title;
+            return $this->$title;
         }
 
         public function get_subtitle()
         {
-            return $this->subtitle;
+            return $this->$subtitle;
         }
 
         public function get_content()
         {
-            return $this->content;
+            return $this->$content;
         }
 
         public function get_author()
         {
-            return $this->author;
+            return $this->$author;
         }
 
         public function get_isExplorable()
         {
-            return $this->isExplorable;
+            return $this->$isExplorable;
         }
         
         public function get_lista_giocatori()
         {
-            return $this->lista_giocatori;
+            return $this->$lista_giocatori;
         }
 
         public function get_author_img()
         {
-            return $this->author_img;
+            return $this->$author_img;
         }
 
         public function get_last_modified() 
         {
-            return $this->last_modified;
+            return $this->$last_modified;
         }
     }
 
