@@ -443,7 +443,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             $reports = array();
-            $stringa="";
+            $stringa=$query_result;
 
             if((($query_result)&&($query_result->num_rows)) ){
                 while($row = mysqli_fetch_assoc($query_result))
