@@ -519,7 +519,7 @@
             if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $report = new ReportData($row["id"], 
+                    $report = new ReportData((string)$row["id"], 
                                              $row["title"], 
                                              $row["subtitle"], 
                                              $row["content"], 
