@@ -498,10 +498,7 @@
             }
             else
             {
-<<<<<<< HEAD
                 
-=======
->>>>>>> 5f72ebac39cc69a91ee2256e6d2e101d09a9799b
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report = new ReportData($row["Report.id"], 
