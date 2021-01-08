@@ -17,6 +17,8 @@
         
         $db->openConnection();
 
+	
+
         if(strlen(trim($username)) > 0)
         {
             $err["user_empty"] = false;
@@ -67,8 +69,9 @@
         }
         else
         {
-            $modify_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $username, $img_path);
-            if($db->setUser($modify_user, $username))
+	    $db->openConnection();
+            $modify_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img_path);
+            if($db->setUser($modify_user, $_SESSION["username"]))
             {
                 $_SESSION["username"] = $username;
                 $_SESSION["name_surname"] = $name_surname;
@@ -79,11 +82,12 @@
                 $_SESSION["result"] = true;
 
                 $_SESSION['banners']= "modifica_utente_confermata";
-
+		$db->closeConnection();
                 header("Location: modify_user.php");
             }
             else
             {
+		$db->closeConnection();
                 header("Location: 404.php");
                 exit();
             }
