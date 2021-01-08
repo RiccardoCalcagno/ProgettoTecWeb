@@ -17,7 +17,7 @@
 
         private $last_modified;
     
-        public function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified)
+        function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified)
         {
             $id="vaffanculo";
             $this->set_title($_title);
@@ -32,7 +32,7 @@
                 else $this->set_last_modified(data());  // inserire data odierna
         }
 
-        public function set_id($var) 
+        function set_id($var) 
         {
             $id = $var;
         }
@@ -77,7 +77,7 @@
             $last_modified = $var;
         }
 
-        public function get_id()
+        function get_id()
         {
             return $id;
         }
