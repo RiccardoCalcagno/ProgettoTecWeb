@@ -30,7 +30,7 @@
             case 0: break;
         }
 
-        header("Location: area_personale.php"); 
+        header("Location: 404.php"); 
         exit();
     }
     else
