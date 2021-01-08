@@ -115,7 +115,6 @@ else if($_SESSION["login"])
 
             $_schede_personaggio = "";
 
-            echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>LOOOOOOLLLLLLLLL</h1></body></html>";
             for($i = 0; $i < $_SESSION["num_pers"] ; $i++)
             {
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
@@ -134,8 +133,6 @@ else if($_SESSION["login"])
                 </button>
                 </li>\n";
             }
-            echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
-            exit();
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
@@ -256,6 +253,8 @@ else if($_SESSION["login"])
                     $html = str_replace("<nav class=\"espandi\"> {report master}", "<nav class=\"espandi\" class=\"hidden\">", $html);
                 }
 
+                echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
+                exit();
 
                 $html = addPossibleBanner($html, "area_personale.php");
 
