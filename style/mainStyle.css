@@ -2457,6 +2457,7 @@ form#datiPassword fieldset{
     margin-bottom: 2em;
 }
 form#datiUtenza fieldset{
+    margin-top: 0.1em;
     margin-bottom: 3em;
 }
 #modificaPassword{
