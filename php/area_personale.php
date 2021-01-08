@@ -11,6 +11,9 @@ if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 }
 else if($_SESSION["login"])
 {
+    echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
+    exit();
+
     require_once("DBinterface.php");
     
     $db = new DBinterface();
