@@ -32,6 +32,8 @@
         
         if(isset($_SESSION['beforeAccess'])){
             header("Location: ".$_SESSION['beforeAccess']); 
+            header("Location: Errore.php");
+            exit();
         }else{
             header("Location: area_personale.php"); 
         }
