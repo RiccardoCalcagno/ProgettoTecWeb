@@ -4,9 +4,11 @@ require_once("banners.php");
 
 clearSession();
 
+/*
 $_SESSION["username"]="QueenAdministrator";
 $_SESSION["passwd"]="1000BimbiFucsia";
 $_SESSION["login"]=true;
+*/
 
 if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
@@ -66,8 +68,8 @@ else if($_SESSION["login"])
         }
 
         // calcolo numero delle pagine di report
-        $numero_pag_report = ($_SESSION["num_report_esplora"]==0)? 0 : ((int)(($_SESSION["num_report"] -1) / 5) +1);
-        $numero_pag_master = ($_SESSION["num_report_esplora"]==0)? 0 : ((int)(($_SESSION["num_report_master"] -1) / 5) +1);
+        $numero_pag_report = ($_SESSION["num_report"]==0)? 0 : ((int)(($_SESSION["num_report"] -1) / 5) +1);
+        $numero_pag_master = ($_SESSION["num_report_master"]==0)? 0 : ((int)(($_SESSION["num_report_master"] -1) / 5) +1);
 
 
         /** controllo se si può andare avanti o indietro */
@@ -119,11 +121,11 @@ else if($_SESSION["login"])
 
             $_schede_personaggio = "";
 
-            for($i = 0; $i < $_SESSION["num_pers"] ; $i++)
+            for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
             {
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
                 <button name=\"Personaggio\" value=\"" . $_SESSION["character_data"][$i]->get_id() . "\">
-                    <img src=\"" . $_SESSION["character_data"][$i]->get_img() . "\" alt=\"\" /> 
+                    <img src=\"" . null . "\" alt=\"\" />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
                     <ul>
                         <li><h5>Razza </h5><p classe=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</p></li>        
