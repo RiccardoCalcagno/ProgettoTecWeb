@@ -2366,9 +2366,7 @@ p.campiObbligatori{
     margin-right: 0.5em;
 }
 
-.lableRepPublico{                                                         /*da eliminare alla fine*/
-    display: none;
-}
+
 button[name="RemoveRep"]{                                                 /*da eliminare alla fine*/
     display: none;
 }
@@ -2419,14 +2417,6 @@ button[name="RemoveRep"]{                                                 /*da e
     border-top-right-radius: 2em;
     border-bottom-left-radius: 0.5em;
 }
-.report .cardReport footer .lableRepPublico{
-    background-color: #440f5c;
-    color: #FFF8E6;
-}
-.report .cardReport footer .lableRepPrivato{
-    background-color: #fff5df;
-}
-
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
