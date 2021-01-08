@@ -397,21 +397,21 @@ body{
 }
 
 #access #Accesso{
-    background-color:#816545;
-    color: #7F582C;
-    margin-right: 6%;
+    background-color:#8f5b20;
+    color: #FFF0D4;
+    margin-right: 5%;
 }
 #access #Iscrizione{
-    background-color: #8f5b20;
+    background-color: #41208f;
     color: #FFF0D4;
 }
 #access #Iscrizione:hover{
-    background-color: #a36a28;
+    background-color: #5722d3;
     box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
 }
 #access #Iscrizione:active{
-    background-color: rgba(163, 106, 40, 0.644);
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+    background-color: rgba(40, 52, 163, 0.644);
+    box-shadow: inset 0 0 0 2px rgba(0, 41, 117, 0.397);
 }
 
 #areaPersonale #access input[value="Area Personale"]{
