@@ -10,8 +10,6 @@ if(isset($_GET["accesso"]))
 
     if($_GET["accesso"] == "Accedi")
     {
-        $_SESSION['beforeAccess']=$_GET["BeforeAccess"];
-
         header("Location: login.php");
         exit();
     }
@@ -29,7 +27,6 @@ if(isset($_GET["accesso"]))
 
     if($_GET["accesso"] == "Iscrizione")
     {
-        $_SESSION['beforeAccess']=$_GET["BeforeAccess"];
         
         header("Location: register.php");
         exit();

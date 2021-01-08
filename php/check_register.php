@@ -105,7 +105,6 @@
                     $_SESSION["img"] = $img;
                     $_SESSION["login"] = true;
                     $_SESSION['banners']="creazione_utente_confermata";
-                
                 }
                 else
                 {
@@ -117,6 +116,7 @@
                 $db->closeConnection();
                 
                 header("Location: register.php");
+                exit();
             }
 
         }

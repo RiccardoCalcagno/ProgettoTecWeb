@@ -29,12 +29,9 @@
             case 1: $_SESSION['banner']="elementi_salvati"; break;
             case 0: break;
         }
-        
-        if(isset($_SESSION['beforeAccess'])){
-            header("Location: ".$_SESSION['beforeAccess']); 
-        }else{
-            header("Location: area_personale.php"); 
-        }
+
+        header("Location: area_personale.php"); 
+        exit();
     }
     else
     {
