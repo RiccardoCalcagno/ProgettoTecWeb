@@ -180,6 +180,8 @@ else if($_SESSION["login"])
                     $_schede_report_master .= "</div>
                         </li>\n";
                 }
+                echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
+                exit();
 
                 if($_SESSION["count_rep"] == 1)
                 {
@@ -252,9 +254,6 @@ else if($_SESSION["login"])
                 {
                     $html = str_replace("<nav class=\"espandi\"> {report master}", "<nav class=\"espandi\" class=\"hidden\">", $html);
                 }
-
-                echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
-                exit();
 
                 $html = addPossibleBanner($html, "area_personale.php");
 
