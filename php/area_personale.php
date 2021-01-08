@@ -59,8 +59,8 @@ else if($_SESSION["login"])
         }
 
         // calcolo numero delle pagine di report
-        $numero_pag_report = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report"] -1) / 5 +1);
-        $numero_pag_master = ($_SESSION["num_report_esplora"]==0)? 0 : (($_SESSION["num_report_master"] -1) / 5 +1);
+        $numero_pag_report = ($_SESSION["num_report_esplora"]==0)? 0 : ((int)(($_SESSION["num_report"] -1) / 5) +1);
+        $numero_pag_master = ($_SESSION["num_report_esplora"]==0)? 0 : ((int)(($_SESSION["num_report_master"] -1) / 5) +1);
 
 
         /** controllo se si può andare avanti o indietro */

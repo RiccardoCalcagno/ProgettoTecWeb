@@ -17,7 +17,7 @@
 
         private $last_modified;
     
-        function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $author_img, $last_modified)
+        public function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $author_img, $last_modified)
         {
             $this->id=$id;
             $this->title=$title;
@@ -31,7 +31,7 @@
             $this->last_modified=$last_modified;
         }
 
-        function set_id($var) 
+        public function set_id($var) 
         {
             $id = $var;
         }

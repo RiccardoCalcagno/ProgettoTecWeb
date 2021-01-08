@@ -2310,7 +2310,7 @@ p.campiObbligatori{
     background-color: #5a5a5a11;
 }
 .report .cardReport > button:hover footer p{
-    background-color: #f7e4b142;
+    background-color: #ffebc6;
 }
 .report .cardReport > button:active{
     background-color: #ffffff;
@@ -2320,7 +2320,7 @@ p.campiObbligatori{
     border: 5px solid #633800;
 }
 .report .cardReport > button footer p{
-    background-color: #ffe4b3;
+    background-color: #FFF0D4;
 }
 
 .report .cards li{
