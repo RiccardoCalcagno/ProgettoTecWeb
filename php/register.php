@@ -20,67 +20,52 @@
         $err = $_SESSION["err"];
 
         if($err["user_already_exist"])
-	{
+    {
             $html = str_replace("<p id='UserAlreadyExists' class='hidden'>","<p id='UserAlreadyExists'>", $html);
-<<<<<<< HEAD
-=======
-//		echo "utente esistente";
->>>>>>> 586447182e94c406d9167ad89f9254dfec64a397
-	}
+//        echo "utente esistente";
+    }
 
 
         if($err["user_empty"])   
         { 
-	   $html = str_replace("<p id='UserEmpty' class='hidden'>","<p id='UserEmpty'>", $html);
-<<<<<<< HEAD
-=======
-//		echo "utente vuoto";
->>>>>>> 586447182e94c406d9167ad89f9254dfec64a397
-	}
+       $html = str_replace("<p id='UserEmpty' class='hidden'>","<p id='UserEmpty'>", $html);
+//        echo "utente vuoto";
+    }
 
         if($err["empty_passwd"])
         { 
-	   $html = str_replace("<p id='PasswordEmpty' class='hidden'>","<p id='PasswordEmpty'>", $html);
-<<<<<<< HEAD
-=======
-//		echo "password vuota";
->>>>>>> 586447182e94c406d9167ad89f9254dfec64a397
-	}
+       $html = str_replace("<p id='PasswordEmpty' class='hidden'>","<p id='PasswordEmpty'>", $html);
+//        echo "password vuota";
+    }
 
 
         if($err["rep_passwd_err"])
-	{
+    {
             $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
-<<<<<<< HEAD
-=======
-//		echo "password ripetuta errata";
->>>>>>> 586447182e94c406d9167ad89f9254dfec64a397
-	}
+//        echo "password ripetuta errata";
+    }
 
 
         if($err["email_err"])
-	{
+    {
             $html = str_replace("<p id='EmailErr' class='hidden'>","<p id='EmailErr'>", $html);
-<<<<<<< HEAD
-=======
-//		echo "email err";
->>>>>>> 586447182e94c406d9167ad89f9254dfec64a397
-	}         
+//        echo "email err";
+    }         
    
         if($err["email_already_exist"])
-	{
+    {
             $html = str_replace("<p id='MailAlreadyExists' class='hidden'>","<p id=MailAlreadyExists'>", $html);
-//		echo "email esistente";
-	}
+//        echo "email esistente";
+    }
 
         if($err["empty_name"])
-	{
+    {
             $html = str_replace("<p id='NameEmpty' class='hidden'>","<p id='NameEmpty'>", $html);
-//		echo "nome vuoto";
-	}
+//        echo "nome vuoto";
+    }
 
 
-	unset($_SESSION);
+    unset($_SESSION);
         session_destroy();      
     }
 
@@ -94,7 +79,7 @@
 
     if(isset($_SESSION['banners']) && $_SESSION['banners']=="creazione_utente_confermata"){
 
-//	echo "banner";
+//    echo "banner";
         unset($_SESSION["err"]);
         unset($_POST);
 
