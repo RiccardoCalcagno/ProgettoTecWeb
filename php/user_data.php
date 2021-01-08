@@ -11,15 +11,15 @@
         private $birthdate;
         private $img_path;
     
-        public function __constructor($_username, $_name_surname, $_email, $_passwd, $_birthdate, $_img_path = null) 
+        public function __construct($username, $name_surname, $email, $passwd, $birthdate, $img_path = null) 
         {
-            $this->set_id($_id);
-            $this->set_username($_username);
-            $this->set_name_surname($_name_surname);
-            $this->set_email($_email);
-            $this->set_password($_passwd);
-            $this->set_birthdate($_birthdate);
-            $this->set_img_path($_img_path);
+            $this->id=$id;
+            $this->username=$username;
+            $this->name_surname=$name_surname;
+            $this->email=$email;
+            $this->passwd=$passwd;
+            $this->birthdate=$birthdate;
+            $this->img_path=$img_path;
         }
 
         public function set_username($var) 

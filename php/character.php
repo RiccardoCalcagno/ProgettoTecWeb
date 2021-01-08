@@ -25,21 +25,20 @@
         private static $background_arr = array('Accolito', 'Artigiano', 'Ciarlatano', 'Criminale', 'Eremita', 'Eroe', 'Forestiero', 'Intrattenitore', 'Marinaio', 'Monello', 'Nobile', 'Sapiente', 'Soldato');
         private static $alignment_arr = array('Legale Buono', 'Neutrale Buono', 'Caotico Buono', 'Legale Neutrale', 'Neutrale Puro', 'Caotico Neutrale', 'Legale Malvagio', 'Neutrale Malvagio', 'Caotico Malvagio');
 
-        public function __construct($_id, $_name, $_race, $_class, $_background, $_alignment, $_traits, $_ideals, $_bonds, $_flaws, $_author = null)
+        public function __construct($id, $name, $race, $class, $background, $alignment, $traits, $ideals, $bonds, $flaws, $author = null)
         {
-            $this->id = $_id;
-            $this->set_name($_name);
-            $this->set_race($_race);
-            $this->set_class($_class);
-            $this->set_background($_background);
-            $this->set_alignment($_alignment);
-            $this->set_traits($_traits);
-            $this->set_ideals($_ideals);
-            $this->set_bonds($_bonds);
-            $this->set_flaws($_flaws);
-            if ($_author != null) { // Not logged in
-                $this->set_author($_author);
-            }
+            $this->id = $id;
+            $this->name=$name;
+            $this->race=$race;
+            $this->class=$class;
+            $this->background=$background;
+            $this->alignment=$alignment;
+            $this->traits=$traits;
+            $this->ideals=$ideals;
+            $this->bonds=$bonds;
+            $this->flaws=$flaws;
+            
+            $this->author=$author;
                 
     //        $this ->set_creation_date($_creation_date);
 

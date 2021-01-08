@@ -10,15 +10,15 @@
         private $author;
         private $author_img;
     
-        public function __constructor($_id, $_title, $_subtitle, $_num_players, $_isExplorable, $_author, $_author_img) 
+        public function __construct($id, $title, $subtitle, $num_players, $isExplorable, $author, $author_img) 
         {
-            $this->set_id($_id);
-            $this->set_title($_title);
-            $this->set_subtitle($_subtitle);
-            $this->set_num_players($_num_players);
-            $this->set_isExplorable($_isExplorable);
-            $this->set_author($_author);
-            $this->set_author_img($_author_img);
+            $this->id=$id;
+            $this->title=$title;
+            $this->subtitle=$subtitle;
+            $this->num_players=$num_players;
+            $this->isExplorable=$isExplorable;
+            $this->author=$author;
+            $this->author_img=$author_img;
             
         }
 

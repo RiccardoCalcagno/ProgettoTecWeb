@@ -8,13 +8,13 @@
         private $author;
         private $report;
 
-        public function __constructor($_id, $_text, $_date, $_author, $_report)
+        public function __construct($id, $text, $date, $author, $report)
         {
-            $this->id = $_id;
-            $this->author = $_author;
-            $this->date = $_date;
-            $this->report = $_report;
-            $this->set_text($_text);
+            $this->id = $id;
+            $this->author = $author;
+            $this->date = $date;
+            $this->report = $report;
+            $this->text=$text;
         }
 
 

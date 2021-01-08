@@ -7,10 +7,10 @@
         private $user;
         private $report;
     
-        public function __constructor($_user, $_report) 
+        public function __construct($user, $report) 
         {
-            $this->set_user($_user);
-            $this->set_report($_report);
+            $this->user=$user;
+            $this->report=$report;
         }
 
         public function set_user($var) 
