@@ -186,7 +186,7 @@
             }
 
             $htmlBanner .= "</div></div>";
-            if($returnPage="index.php"){$htmlBanner =str_replace("../","",$htmlBanner);}
+            //if($returnPage="index.php"){$htmlBanner =str_replace("../","",$htmlBanner);}
             $htmlBanner =str_replace("PLACEHOLDER",$returnPage,$htmlBanner);
         }
 
