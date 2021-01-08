@@ -19,11 +19,17 @@
     try {
         $db = new DBinterface();
         
-        $db->openConnection();
+        $conn = $db->openConnection();
+	echo $conn;
+
+//	echo "Arrivato qui, dopo connessione db";
 
         if(session_status() == PHP_SESSION_NONE)
         {
-            session_start();
+//	echo "dopo controllo sessione";
+           session_start();
+	}
+	echo "dopo session start";
             if(strlen(trim($username)) > 0)
             {
                 $err["user_empty"] = false;
@@ -32,6 +38,8 @@
                     $err["user_already_exist"] = true;
                 else
                     $err["user_already_exist"] = false;
+	echo "dopo controllo utente";
+	echo $err["user_already_exist"];
 
             }
             else
@@ -68,6 +76,7 @@
                 else
                     $err["email_already_exist"] = false;
     
+		echo "dopo controllo email";
             }
             else
             {
@@ -85,6 +94,8 @@
 
             $db->closeConnection();
 
+	    echo "dopo chiusura db";
+
             if(in_array(true, $err))
             {
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
@@ -95,8 +106,13 @@
             {
                 $db->openConnection();
                 $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $username, $img_path);
-                if($db->addUser($new_user))
+                
+		echo "dopo creazione Userdata";
+	echo $new_user->get_username();	
+
+		if($db->addUser($new_user))
                 {
+			echo "dopo addUser";
                     $_SESSION["username"] = $username;
                     $_SESSION["name_surname"] = $name_surname;
                     $_SESSION["email"] = $email;
@@ -119,7 +135,8 @@
                 exit();
             }
 
-        }
+	 
+
 
     } catch(Exception $e) {
         header("Location: Errore.php");

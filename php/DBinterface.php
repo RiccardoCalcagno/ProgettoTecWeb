@@ -73,7 +73,10 @@
                      "WHERE username = '" . $username . "';";
 
             $exist =   mysqli_query($this->connection, $query);
-            return $exist;
+	    if($exist->num_rows > 0)
+            	return $exist;
+	    else
+		return null;
         }
 
         public function existMail($email) 
@@ -83,7 +86,10 @@
                      "WHERE email = '" . $email . "';";
 
             $exist =   mysqli_query($this->connection, $query);
-            return $exist;
+	    if($exist->num_rows > 0) 
+           	return $exist;
+	    else
+		return null;
         }
 
         public function setUser(UserData $user_data, $username) 
