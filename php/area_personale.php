@@ -4,7 +4,7 @@ require_once("banners.php");
 
 clearSession();
 
-
+/*
 $_SESSION["username"]="QueenAdministrator";
 $_SESSION["passwd"]="1000BimbiFucsia";
 $_SESSION["login"]=true;
@@ -12,7 +12,7 @@ $_SESSION["img"]="../img/icone_razze/dragonide.png";
 $_SESSION["name_surname"]="HEyla";
 $_SESSION["email"]="lollolooll@gmail.com";
 $_SESSION["birthdate"]="1999-06-12";
-
+*/
 
 if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
