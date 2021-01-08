@@ -140,7 +140,7 @@
         <p class="campiObbligatori"> : campo obbligatorio</p>
         
         <div class="userFields">
-            <form id="datiUtenza" autocomplete="on" class="creazioneFields"; onsubmit="return validateChangeUserData();">
+            <form id="datiUtenza" autocomplete="on" class="creazioneFields"; onsubmit="return validateChangeUserData();" action="../php/modify.php" method="post">
             <div>
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
@@ -220,7 +220,7 @@
             </form>
             <div id="modificaPassword"> 
             <p class="campiObbligatori"> : campo obbligatorio</p>
-            <form id="datiPassword" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserPassword();">
+            <form id="datiPassword" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserPassword();" action="../php/modify_password.php" action="post">
 
 
 
@@ -289,7 +289,7 @@
                 <p>Salva la nuova password</p>
                 <div>
                     <a href="../index.php" class="annulla">ANNULLA</a>
-                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password"/>  
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password" />  
                 </div>        
             </div>
             <!--            

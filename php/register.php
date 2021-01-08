@@ -23,46 +23,46 @@
         if($err["user_already_exist"])
 	{
             $html = str_replace("<p id='UserAlreadyExists' class='hidden'>","<p id='UserAlreadyExists'>", $html);
-		echo "utente esistente";
+//		echo "utente esistente";
 	}
 
 
         if($err["user_empty"])   
         { 
 	   $html = str_replace("<p id='UserEmpty' class='hidden'>","<p id='UserEmpty'>", $html);
-		echo "utente vuoto";
+//		echo "utente vuoto";
 	}
 
         if($err["empty_passwd"])
         { 
 	   $html = str_replace("<p id='PasswordEmpty' class='hidden'>","<p id='PasswordEmpty'>", $html);
-		echo "password vuota";
+//		echo "password vuota";
 	}
 
 
         if($err["rep_passwd_err"])
 	{
             $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
-		echo "password ripetuta errata";
+//		echo "password ripetuta errata";
 	}
 
 
         if($err["email_err"])
 	{
             $html = str_replace("<p id='EmailErr' class='hidden'>","<p id='EmailErr'>", $html);
-		echo "email err";
+//		echo "email err";
 	}         
    
         if($err["email_already_exist"])
 	{
             $html = str_replace("<p id='MailAlreadyExists' class='hidden'>","<p id=MailAlreadyExists'>", $html);
-		echo "email esistente";
+//		echo "email esistente";
 	}
 
         if($err["empty_name"])
 	{
             $html = str_replace("<p id='NameEmpty' class='hidden'>","<p id='NameEmpty'>", $html);
-		echo "nome vuoto";
+//		echo "nome vuoto";
 	}
 
 
@@ -81,7 +81,7 @@
 
     if(isset($_SESSION['banners']) && $_SESSION['banners']=="creazione_utente_confermata"){
 
-	echo "banner";
+//	echo "banner";
         unset($_SESSION["err"]);
         unset($_POST);
 
