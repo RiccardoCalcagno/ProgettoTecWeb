@@ -58,6 +58,9 @@ else if($_SESSION["login"])
             }
 
             $db->closeConnection();
+
+            echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>OOOOOOOO</h1></body></html>";
+            exit();
         }
 
         // calcolo numero delle pagine di report
@@ -94,13 +97,12 @@ else if($_SESSION["login"])
         }
 
 
-        echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
-        exit();
-
         /* fine controllo */
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
         $html = setup($html);
+        echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
+        exit();
         if(!$html) 
         {
             header("Location: 404.php");
