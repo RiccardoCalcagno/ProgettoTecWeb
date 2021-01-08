@@ -48,7 +48,7 @@
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
 
-    if(isset($_SESSION['banner']) && $_SESSION['banner']=="creazione_utente_confermata"){
+    if(isset($_SESSION['banners']) && $_SESSION['banners']=="creazione_utente_confermata"){
 
         unset($_SESSION["err"]);
         unset($_POST);
@@ -56,8 +56,8 @@
         $html = addPossibleBanner($html, "area_personale.php");
 
         switch( saveStaged() ){
-            case -1: $_SESSION['banner']="elementi_salvati_errore"; break;
-            case 1: $_SESSION['banner']="elementi_salvati"; break;
+            case -1: $_SESSION['banners']="elementi_salvati_errore"; break;
+            case 1: $_SESSION['banners']="elementi_salvati"; break;
             case 0: break;
         }
     }else{

@@ -25,8 +25,8 @@
         $db->closeConnection();
         
         switch( saveStaged() ){
-            case -1: $_SESSION['banner']="elementi_salvati_errore"; break;
-            case 1: $_SESSION['banner']="elementi_salvati"; break;
+            case -1: $_SESSION['banners']="elementi_salvati_errore"; break;
+            case 1: $_SESSION['banners']="elementi_salvati"; break;
             case 0: break;
         }
 

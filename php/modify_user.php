@@ -1,4 +1,5 @@
 <?php
+    require_once("banners.php");
     require_once("GeneralPurpose.php");
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
