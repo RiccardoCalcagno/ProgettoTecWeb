@@ -3,7 +3,8 @@
 
     if(isset($_SESSION['login']) && $_SESSION['login'])
     {
-        header("Location: area_personale.php");
+        //header("Location: area_personale.php");
+        header("Location: Errore.php");
         exit();
     }
 
