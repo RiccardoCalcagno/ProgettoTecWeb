@@ -4,9 +4,10 @@ require_once("banners.php");
 
 clearSession();
 
-if(!isset($_SESSION["login"]) ||  !$_SESSION["login"])
+if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
     header("Location: login.php");
+    exit();
 }
 else if($_SESSION["login"])
 {
