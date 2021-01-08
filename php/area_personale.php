@@ -59,8 +59,6 @@ else if($_SESSION["login"])
 
             $db->closeConnection();
 
-            echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>OOOOOOOO</h1></body></html>";
-            exit();
         }
 
         // calcolo numero delle pagine di report
@@ -101,8 +99,6 @@ else if($_SESSION["login"])
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
         $html = setup($html);
-        echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
-        exit();
         if(!$html) 
         {
             header("Location: 404.php");
@@ -117,10 +113,9 @@ else if($_SESSION["login"])
             $html = str_replace("_mail_", $_SESSION["email"], $html);
             $html = str_replace("_date_", $_SESSION["birthdate"], $html);
 
-
-
             $_schede_personaggio = "";
 
+            echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>LOOOOOOLLLLLLLLL</h1></body></html>";
             for($i = 0; $i < $_SESSION["num_pers"] ; $i++)
             {
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
@@ -139,6 +134,8 @@ else if($_SESSION["login"])
                 </button>
                 </li>\n";
             }
+            echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
+            exit();
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
