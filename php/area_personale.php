@@ -148,11 +148,11 @@ else if($_SESSION["login"])
 
                 for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $numero_pag_master*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                 {
-                    $_schede_report_master .= "<li class=\"cardReport\" class=\"cardReportMaster\">
-                    <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">";
+                    $_schede_report_master .= "<li class=\"cardReport\" class=\"cardReportMaster\">";
                     echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>HEYYYYYYY</h1></body></html>";
                     exit();
-                        "<div>
+                    "<button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
+                        <div>
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
                             <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
