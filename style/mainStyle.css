@@ -2319,6 +2319,9 @@ p.campiObbligatori{
 .report .cardReport > button:active footer p{
     border: 5px solid #633800;
 }
+.report .cardReport > button footer p{
+    background-color: #ffe4b3;
+}
 
 .report .cards li{
     width: 95%;
