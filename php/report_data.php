@@ -4,7 +4,7 @@
 
     class ReportData {
         
-        public $id;
+        private $id;
         private $title;
         private $subtitle;
         private $content;
@@ -17,19 +17,18 @@
 
         private $last_modified;
     
-        function __constructor($_id, $_title, $_subtitle, $_content, $_author, $_isExplorable, $_lista_giocatori, $_author_img, $_last_modified)
+        function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $author_img, $last_modified)
         {
-            $id="vaffanculo";
-            $this->set_title($_title);
-            $this->set_subtitle($_subtitle);
-            $this->set_content($_content);
-            $this->set_author($_author);
-            $this->set_isExplorable($_isExplorable);
-            $this->set_author_img($_author_img);
-            $this->set_lista_giocatori($_lista_giocatori);
-            if($_last_modified)
-                $this->set_last_modified($_last_modified);
-                else $this->set_last_modified(data());  // inserire data odierna
+            $this->id=$id;
+            $this->title=$title;
+            $this->subtitle=$subtitle;
+            $this->content=$content;
+            $this->author=$author;
+            $this->isExplorable=$isExplorable;
+            $this->author_img=$author_img;
+            $this->lista_giocatori=$lista_giocatori;
+
+            $this->last_modified=$last_modified;
         }
 
         function set_id($var) 
@@ -79,7 +78,7 @@
 
         function get_id()
         {
-            return $id;
+            return $this->id;
         }
 
         public function get_title()
