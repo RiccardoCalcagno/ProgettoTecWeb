@@ -25,11 +25,11 @@
         $db->closeConnection();
         
         switch( saveStaged() ){
-            case -1: echo "HEYYYY QUESTO È ---------11111111"; $_SESSION['banners']="elementi_salvati_errore"; break;
-            case 1: echo "HEYYYY QUESTO È 11111111"; $_SESSION['banners']="elementi_salvati"; break;
-            case 0: echo "HEYYYY QUESTO È 00000000000000"; break;
+            case -1: header("Location: 404.php"); $_SESSION['banners']="elementi_salvati_errore"; break;
+            case 1: header("Location: area_personale.php"); $_SESSION['banners']="elementi_salvati"; break;
+            case 0: header("Location: Errore.php"); break;
         }
-        
+        exit();
         
         
 
