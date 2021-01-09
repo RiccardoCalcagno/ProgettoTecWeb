@@ -10,11 +10,11 @@
 //-------------------------- UTILITY
     
     //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
-    function preparePage($html, $toModify){
+    function preparePage($html, $toEdit){
         
         $headTitle = ''; $header = ''; $p = ''; $button = '';
         
-        if($toModify){
+        if($toEdit){
             $headTitle = '<title>Modifica Report di Sessione</title>
             <meta name="title" content="Modifica Report di Sessione" />
             <meta name="description" content="Modifica il tuo report di sessione" />
@@ -59,10 +59,15 @@
 
     staged_session();
 
+    $toEdit = false;
+
+    if ( isset($_GET['reportAction']) && $_GET['reportAction'] == 'MODIFICA' ) {
+        $toEdit =  true;
+    }
+
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'creazioneReport.html');
     $html = setup($html);
-    $toModify = ( isset( $_SESSION['ModificaReport']) &&  $_SESSION['ModificaReport'] );
-    $html = preparePage($html,$toModify);
+    $html = preparePage($html,$toEdit);
 
 
 
@@ -121,10 +126,10 @@
                 $connection = $dbInterface->openConnection();
 
                 if($connection){
-                    $result = $toModify ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
+                    $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
 
                     if($result){
-                        $_SESSION['banners']= $toModify ? "modifica_documento_confermata" : "creazione_documento_confermata";
+                        $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                         //azzero la form
                         $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
                         unset($_SESSION['salvaRep']);
@@ -223,7 +228,7 @@
         }
 
     }else{
-        if ($toModify) {   // Effettuato solo la prima volta, poi $_GET['salvaPers'] avra' valore
+        if ($toEdit) {   // Effettuato solo la prima volta, poi $_GET['salvaPers'] avra' valore
 
         $dbInterface = new DBinterface();
         $connection = $dbInterface->openConnection();

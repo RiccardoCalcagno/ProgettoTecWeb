@@ -23,36 +23,18 @@
         header("Location: area_personale.php");
     }
 
-    if(isset($_POST["ReportMaster"]))
+    if(isset($_GET["ReportMaster"]))
     {
-        $_SESSION["report_id"] = $_POST["ReportMaster"];
         
-        if($_SESSION["report_id"])
-        {
-            header("Location: ReportPage.php");
-            exit();
-        }
-        else
-        {
-            header("Location: 404.php");
-            exit();
-        }
+        header("Location: ReportPage.php?ReportMaster=".$_GET["ReportMaster"]);
+        exit();
     }
 
-    if(isset($_POST["ReportPartecip"]))
+    if(isset($_GET["ReportPartecip"]))
     {
-        $_SESSION["report_id"] = $_POST["ReportPartecip"];
-
-        if($_SESSION["report_id"])
-        {
-            header("Location: ReportPage.php");
-            exit();
-        }
-        else
-        {
-            header("Location: 404.php");
-            exit();
-        }
+        
+        header("Location: ReportPage.php?ReportMaster=".$_GET["ReportPartecip"]);
+        exit();
     }
 
     if(isset($_POST["ReportEsplora"]))
