@@ -136,7 +136,7 @@ else if($_SESSION["login"])
 
             for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
             {
-                $urlImgRace="../img/icone_razze";
+                $urlImgRace="../img/icone_razze/";
                 switch($_SESSION["character_data"][$i]->get_race()){
                 case 'Umano': $urlImgRace.="umano.png\" alt='volto di una giovane donna di colore ornata di gioielli'";break;
                 case 'Elfo': $urlImgRace.="elfo.png\" alt='volto di elfo incappucciato con una faccia truce e scura'";break;
