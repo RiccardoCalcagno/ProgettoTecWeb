@@ -10,11 +10,6 @@ if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
     clearSession();
 }
 
-if(isset($_SESSION["espandiPers"])){
-    header("Location: 404.php");
-    exit();
-}
-
 
 /*
 $_SESSION["username"]="QueenAdministrator";
@@ -120,7 +115,22 @@ else if($_SESSION["login"])
         /* fine controllo */
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
+
+
+
+        if(isset($_SESSION["espandiPers"])){
+            header("Location: 404.php");
+        }
         $html = setup($html);
+        if(isset($_SESSION["espandiPers"])){
+            header("Location: Errore.php");
+            exit();
+        }
+        header("Location: area_personale.php");
+
+
+
+        
         if(!$html) 
         {
             header("Location: 404.php");
