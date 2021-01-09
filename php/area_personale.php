@@ -285,10 +285,10 @@ else if($_SESSION["login"])
                     $html = str_replace("<li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\">successiva</label></li>", " ", $html);
                 }
 
+                $html = str_replace("<body>","<body><h1>HEIIIIIIIIII".$numero_pag_report."</h1>", $html);
                 if($numero_pag_report <= 1)
                 {
                     $html = str_replace("<nav class=\"espandi\" id='report_normale'>", "<nav class=\"espandi\" id='report_normale' class=\"hidden\">", $html);
-                    $html = str_replace("<body>","<body><h1>HEIIIIIIIIII</h1>", $html);
                 }
 
                 $html = str_replace("<report/>", $_schede_report, $html);
