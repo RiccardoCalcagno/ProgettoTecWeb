@@ -84,6 +84,7 @@
     if(isset($_POST["espandi"]) && $_POST["espandi"] == "Pers")
     {
         $_SESSION["espandiPers"] = true;
+        header("Location: area_personale.php");
     }
 
 ?>
