@@ -93,7 +93,7 @@
                 }else{
                     $htmlBanner .="  
                     </ul>
-                    <p>Li puoi trovare nella tua <a href='../php/area_personale.php'>Area Personale</a></p>
+                    <p>Li puoi trovare nella tua Area Personale</p>
                     </fieldset>";
                 }
 
