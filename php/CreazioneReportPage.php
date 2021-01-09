@@ -176,17 +176,19 @@
         $connection = $dbInterface->openConnection();
 
         if($connection){
-            if($dbInterface->existUser($_POST['usernameGiocatore'])){
+            if($dbInterface->existUser($_POST['usernameGiocatore']) && array_search($_POST['usernameGiocatore'],$lista_giocatori) === false){
                 //aggiungo il giocatore alla lista
                 array_push($lista_giocatori,$_POST['usernameGiocatore']);
 
                 $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
-                $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
+            }
+            else if(!(array_search($_POST['usernameGiocatore'],$lista_giocatori) === false)){
+                $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
             }
             else{
                 $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
-                $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
             }
+            $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
         }
         else {
             $message = '<div id="errori"><p>Errore nella connessione. Riprovare.</p></div>';
