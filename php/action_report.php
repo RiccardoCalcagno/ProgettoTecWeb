@@ -31,6 +31,7 @@
         
         if($_SESSION["report_id"])
         {
+            echo $_SESSION["report_id"]; //debug comment
             header("Location: ReportPage.php");
             exit();
         }
