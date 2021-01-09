@@ -132,122 +132,12 @@ Note DI CORREZIONE:
         </header>
         <div class="box">
         <form action="../php/action_character.php" method="GET">                                   <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <ul class="cards" Personaggi>
+            <ul class="cards" id='Personaggi'>
 
-                {form_personaggi}
-     <!--     <li class="cardPersonaggio">
-            <button name="Personaggio" value="47">
-                <img src="../img/icone_razze/halfing.png" alt="" /> 
-                <h4 class="textVariable">Nome Personaggio</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>             
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li>
-
-             <li class="cardPersonaggio">
-            <button name="Personaggio" value="48">
-                <img src="../img/icone_razze/mezzorco.png" alt="" /> 
-                <h4 class="textVariable">Nome Corto</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li>
-
-             <li class="cardPersonaggio">
-            <button name="Personaggio" value="3">
-                <img src="../img/icone_razze/dragonide.png" alt="" /> 
-                <h4 class="textVariable">Nome Personaggio più lungo</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li>
-
-            <li class="cardPersonaggio">
-            <button name="Personaggio" value="4">
-                <img src="../img/icone_razze/gnomo.png" alt="" /> 
-                <h4 class="textVariable">Nome Personaggio</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li>
-
-            <li class="cardPersonaggio">
-            <button name="Personaggio" value="5">
-                <img src="../img/icone_razze/elfo.png" alt="" /> 
-                <h4 class="textVariable">Nome Personaggio</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li>
-
-            <li class="cardPersonaggio">
-            <button name="Personaggio" value="6">
-                <img src="../img/icone_razze/nano.png" alt="" /> 
-                <h4 class="textVariable">Nome Personaggio</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li>
-
-            <li class="cardPersonaggio">
-            <button name="Personaggio" value="7">
-                <img src="../img/icone_razze/umano.png" alt="" /> 
-                <h4 class="textVariable">Nome Personaggio</h4>
-                <ul>
-                    <li><h5>Razza </h5><p classe="persRazza">Razza</p></li>
-                    <li><h5>Classe </h5><p classe="persClasse">Classe</p></li>
-                    <li id="allineamento">
-                        <fieldset><legend>Allineamento</legend>
-                            <p classe="persAllineamento">Allineamento</p>
-                        </fieldset>
-                    </li>
-                </ul>
-            </button>
-            </li-->   
+                <form_personaggi/>
+  
             </ul>
-        <nav class="espandi"> {espandi pers}                          <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
+        <nav class="espandi" id='espandi_pers'>                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
             <label for="espandiPers">Vedi di Più</label>
             <input type="submit" id="espandiPers" name="espandi" value="Pers">     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
         </nav>
@@ -273,116 +163,18 @@ Note DI CORREZIONE:
             <div class="box">
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul class="cards">
-                {report_author}
-                <!--li class="cardReport" class="cardReportMaster">
-                    <button name="ReportMaster" value="1">
-                        <div>
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        </div>
-                        <footer>
-                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                        </footer>
-                    </button>
-                    <div class="publicazione">                     
-                        <button name="PostRep" value="1">Publica in "Esplora"</button>                      
-                        <button name="RemoveRep" value="1">Rimuovi da "Esplora"</button>
-                    </div>
-                </li>
-    
-                <li class="cardReport" class="cardReportMaster">
-                    <button name="ReportMaster" value="2">
-                        <div>
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        </div>
-                        <footer>
-                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                        </footer>
-                    </button>
-                    <div class="publicazione">                     
-                        <button name="PostRep" value="2">Publica in "Esplora"</button>                      
-                        <button name="RemoveRep" value="2">Rimuovi da "Esplora"</button>
-                    </div>
-                </li>
-    
-                <li class="cardReport" class="cardReportMaster">
-                    <button name="ReportMaster" value="3">
-                        <div>
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        </div>
-                        <footer>
-                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                        </footer>
-                    </button>
-                    <div class="publicazione">                     
-                        <button name="PostRep" value="3">Publica in "Esplora"</button>                      
-                        <button name="RemoveRep" value="3">Rimuovi da "Esplora"</button>
-                    </div>
-                </li>
-    <!--
-                <li class="cardReport" class="cardReportMaster">
-                    <button name="ReportMaster" value="4">
-                        <div>
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        </div>
-                        <footer>
-                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                        </footer>
-                    </button>
-                    <div class="publicazione">                     
-                        <button name="PostRep" value="4">Publica in "Esplora"</button>                      
-                        <button name="RemoveRep" value="4">Rimuovi da "Esplora"</button>
-                    </div>
-                </li>
 
-                <li class="cardReport" class="cardReportMaster">
-                    <button name="ReportMaster" value="5">
-                        <div>
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        </div>
-                        <footer>
-                            <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                            <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                        </footer>
-                    </button>
-                    <div class="publicazione">                     
-                        <button name="PostRep" value="5">Publica in "Esplora"</button>                      
-                        <button name="RemoveRep" value="5">Rimuovi da "Esplora"</button>
-                    </div>
-                </li>
--->
+                <report_author/>
+
             </ul>
             </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <nav class="espandi"> {report master}                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+            <nav class="espandi" id='report_master'>                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                 <ul>
                   <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
-                  <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagMaster">{numero attuale master}</span>/<span id="totNumPagMaster">{numero di master}</span></li>
+                  <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagMaster"><numero_attuale_master/></span>/<span id="totNumPagMaster"><numero_di_master/></span></li>
                   <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
                   <li><label id="LblMasterSuccessivo" for="masterSuccessivo">successiva</label></li>
                 </ul> 
@@ -398,112 +190,19 @@ Note DI CORREZIONE:
             <div class="box">
             <form action="../php/action_report.php" method="post">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul class="cards">
-                {report}
-                <!--li class="cardReport" class="cardReportPartecipante">
-                    <button name="ReportPartecip" value="1">
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        <div class="badgeUtente">
-                            <h5>Autore</h5>
-                            <img src="../img/icone_razze/nano.png" alt="" /> 
-                            <p class="textVariable">Nome Autore</p>
-                        </div>
-                    <footer>
-                        <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                        <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                    </footer>
-                    </button>
-                </li>
-    
-                <li class="cardReport" class="cardReportPartecipante">
-                    <button name="ReportPartecip" value="2">
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        <div class="badgeUtente">
-                            <h5>Autore</h5>
-                            <img src="../img/icone_razze/nano.png" alt="" /> 
-                            <p class="textVariable">Nome Autore</p>
-                        </div>
-                    <footer>
-                        <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                        <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                    </footer>
-                    </button>
-                </li>
-    
-                <li class="cardReport" class="cardReportPartecipante">
-                    <button name="ReportPartecip" value="3">
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        <div class="badgeUtente">
-                            <h5>Autore</h5>
-                            <img src="../img/icone_razze/nano.png" alt="" /> 
-                            <p class="textVariable">Nome Autore</p>
-                        </div>
-                    <footer>
-                        <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                        <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                    </footer>
-                    </button>
-                </li>
-    
-                <li class="cardReport" class="cardReportPartecipante">
-                    <button name="ReportPartecip" value="4">
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        <div class="badgeUtente">
-                            <h5>Autore</h5>
-                            <img src="../img/icone_razze/nano.png" alt="" /> 
-                            <p class="textVariable">Nome Autore</p>
-                        </div>
-                    <footer>
-                        <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                        <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                    </footer>
-                    </button>
-                </li>
-    
-                <li class="cardReport" class="cardReportPartecipante">
-                    <button name="ReportPartecip" value="5">
-                        <div class="testoCardRep">
-                            <h4 class="textVariable">Titolo Report di Sessione</h4>
-                            <p>Introduzione al report di sessione, questo testo potrà contenere un numero massimo di
-                                lettere perchè ha la sola funzionalità di dare un sottotitolo identificativo al report</p>
-                        </div>
-                        <div class="badgeUtente">
-                            <h5>Autore</h5>
-                            <img src="../img/icone_razze/nano.png" alt="" /> 
-                            <p class="textVariable">Nome Autore</p>
-                        </div>
-                    <footer>
-                        <p class="lableRepPublico"><span xml:lang="en">Report</span> publico</p>
-                        <p class="lableRepPrivato"><span xml:lang="en">Report</span> condiviso a <span class="numCondivisioni">4</span> giocatori</p>
-                    </footer>
-                    </button>
-                </li-->
-               
+
+                <report/>
+
             </ul>
 
             </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    
-            <nav class="espandi"> {report normale}                      
+            <nav class="espandi" id='report_normale'>                      
                 <ul>
                   <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente"></li>                     
-                  <li><span><abbr title="pagina">Pag</abbr></span>. <span id="numPagPartec">{numero attuale report}</span>/<span id="totNumPagPartec">{numero di report}</span></li>
+                  <li><span><abbr title="pagina">Pag</abbr></span>. <span id="numPagPartec"><numero_attuale_report/></span>/<span id="totNumPagPartec"><numero_di_report/></span></li>
                   <li class="inputMove"><input type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo"></li>  
                   <li><label id="LblPartecSuccessivo" for="partecSuccessivo">successiva</label></li>
                 </ul>
