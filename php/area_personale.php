@@ -176,6 +176,8 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
+                $SESSION["espandiPers"] = true;
+
                 echo "COSA EEEEEEE'". isset($SESSION["espandiPers"]);
                 if((isset($SESSION["espandiPers"])) || $_SESSION["num_pers"] <= 4)
                 {
