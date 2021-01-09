@@ -13,7 +13,11 @@
     $passwd = $_POST["newPasswd"];
     $rep_passwd = $_POST["PasswdAgan"];
     $birthdate = $_POST["birthdate"];
-    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
+    
+    if(!$_FILES["imgProfilo"])
+	$img = null;
+    else
+    	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
 
 
     try {
@@ -86,24 +90,31 @@
                 $err["empty_name"] = true;
             }
 
-	    $err["img_err"] = GeneralPurpose::validateImg($img, $_FILES["imgProfilo"]);
 
-	    if(!$err["img_err"])
+	    if($img)
 	    {
-		if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img)
-		{
-		    // fa niente
-		}
-		else
-		{
-		    header("Location: Errore.php");
-		    exit();
-		}
-	    else
-	    {
-		header("Location: Errore.php");
-		exit();
-	    }
+		$err["img_err"] = GeneralPurpose::validateImg($img, $_FILES["imgProfilo"]);
+
+	    	if(!$err["img_err"])
+	    	{
+		    if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img)
+		    {
+		    	$err["img_err"] = false;
+		    }
+		    else
+		    {
+		    	header("Location: Errore.php");
+		    	exit();
+		    }
+	    	else
+	    	{
+		    $img = null;
+	    	}
+	   }
+	   else
+	   {
+		$err["img_err"] = false;
+	   }
 
 
             $db->closeConnection();
