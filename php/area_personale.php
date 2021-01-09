@@ -153,9 +153,9 @@ else if($_SESSION["login"])
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
-                if(isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
+                if((isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true) || $_SESSION["num_pers"] <= 4)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"hidden\">", $html);
                     $html = str_replace("<ul class=\"cards\" Personaggi>", "<ul class=\"expanded\">", $html);
                     $_SESSION["espandiPers"] = false;
                 }
@@ -216,7 +216,7 @@ else if($_SESSION["login"])
 
                 if($_SESSION["count_rep"] <= 5)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {report normali}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\"> {report normale}", "<nav class=\"hidden\">", $html);
                 }
 
                 $html = str_replace("{report_author}", $_schede_report_master, $html);
@@ -275,7 +275,7 @@ else if($_SESSION["login"])
 
                 if($_SESSION["count_master"] <= 5)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {report master}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\"> {report master}", "<nav class=\"hidden\">", $html);
                 }
 
                 $html = addPossibleBanner($html, "area_personale.php");
