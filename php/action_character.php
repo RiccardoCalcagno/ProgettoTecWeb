@@ -89,6 +89,7 @@
         }else{
             header("Location: Errore.php");
         }
+        exit();
         header("Location: area_personale.php");
         exit();
     }
