@@ -2550,7 +2550,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     margin:auto;
 }
 
-#UserAlreadyExists, #UserEmpty, #EmailErr, #MailAlreadyExists, #NameEmpty, #OldPasswdErr, #NewPasswdEmpty, #RepPasswdErr, #loginError {
+#UserAlreadyExists, #ImgErr, #UserEmpty, #EmailErr, #MailAlreadyExists, #NameEmpty, #OldPasswdErr, #NewPasswdEmpty, #RepPasswdErr, #loginError {
     font-weight: bold;
     color: red;
 }

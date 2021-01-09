@@ -19,6 +19,10 @@
 
         $err = $_SESSION["err"];
 
+	if($err["img_err"])
+	{
+	    $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+
         if($err["user_already_exist"])
     {
             $html = str_replace("<p id='UserAlreadyExists' class='hidden'>","<p id='UserAlreadyExists'>", $html);
