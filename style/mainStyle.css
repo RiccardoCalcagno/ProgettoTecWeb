@@ -2107,7 +2107,7 @@ p.campiObbligatori{
 /*----------------------- CARDS GENERICHE --------------------------
 */
 
-.cards > li{
+.cards > li, .expanded > li{
     border-radius: 0.5em;
     box-shadow: 5px 5px 3px #74747488;
     overflow: hidden;
@@ -2161,7 +2161,7 @@ p.campiObbligatori{
     width: calc(100% - 1em);
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
+    overflow: auto;
     justify-content: center;
 }
 
