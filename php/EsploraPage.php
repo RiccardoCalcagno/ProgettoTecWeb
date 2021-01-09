@@ -96,19 +96,19 @@ else{
         
     if($_SESSION["count_esplora"] == 1)
         {
-        $html = str_replace("<li><label id=\"LblEsploraPrecedente\" for=\"esploraPrecedente\">precedente</label></li>
-        <li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>", " ", $html);
+        $html = str_replace("<li><label id=\"LblEsploraPrecedente\" for=\"esploraPrecedente\">precedente</label></li>", " ", $html);
+        $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>", " ", $html);
         }
 
     if($_SESSION["count_esplora"] == $numero_pag_esplora)
         {
-        $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"esploraSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"esploraSuccessivo\"></li> 
-        <li><label id=\"LblEsploraSuccessivo\" for=\"esploraSuccessivo\">successiva</label></li>", " ", $html);
+        $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"esploraSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"esploraSuccessivo\"></li>", " ", $html); 
+        $html = str_replace("<li><label id=\"LblEsploraSuccessivo\" for=\"esploraSuccessivo\">successiva</label></li>", " ", $html); 
         }
 
-    if($_SESSION["count_esplora"] <= 5)
+    if($numero_pag_esplora <= 1)
         {
-        $html = str_replace("<nav class=\"espandi\">", "<nav class=\"espandi\" class=\"hidden\">", $html);
+        $html = str_replace("<nav class=\"espandi\">", "<nav class=\"hidden\">", $html);
         }
 
 
