@@ -3,7 +3,9 @@
     require_once("GeneralPurpose.php");
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
-    $html = setup($html);   // setup_clear() ?
+    //$html = setup($html);   // setup_clear() ?
+
+
 
     $username = $_SESSION["username"];
     $name_surname = $_SESSION["name_surname"];
@@ -13,6 +15,7 @@
 
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
+//	echo "trovati errori";
 
         $username = $_POST["future_username"];
         $name_surname = $_POST["NomeCognome"];
@@ -46,7 +49,10 @@
         if($err["rep_passwd_err"])
             str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
     
+	unset($_SESSION["err"]);
     }
+
+	echo "fatto";
 
     /*if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
     {

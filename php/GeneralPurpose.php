@@ -54,7 +54,7 @@
         }
 
         if(isset($_SESSION["login"])&&($_SESSION["login"])) {
-            $html = str_replace('<input id="Accedi" type="submit" name="accesso" value="Accedi">', '<input id="Accesso" name="accesso" type="submit" value="Esci">', $html);
+            $html = str_replace('<input id="Accesso" type="submit" name="accesso" value="Accedi">', '<input id="Accesso" name="accesso" type="submit" value="Esci">', $html);
             $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale">', $html);
         }
 

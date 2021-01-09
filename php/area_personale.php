@@ -143,6 +143,9 @@ else if($_SESSION["login"])
                 </button>
                 </li>\n";
             }
+            if($_SESSION["num_pers"]==0){
+                $_schede_personaggio .= "<p class='mancanoCards' >Qui verranno inserite le schede giocatore che realizzerai</p>";
+            }
 
                 $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
 
@@ -189,6 +192,10 @@ else if($_SESSION["login"])
                     
                     $_schede_report_master .= "</div>
                         </li>\n";
+                }
+
+                if($_SESSION["num_report_master"]==0){
+                    $_schede_report_master .= "<p class='mancanoCards' >Qui verranno inseriti i report di sessione che realizzerai</p>";
                 }
 
                 if($_SESSION["count_rep"] == 1)
@@ -240,6 +247,10 @@ else if($_SESSION["login"])
                     $_schede_report .= "</footer>
                     </button>
                 </li>\n";
+                }
+
+                if($_SESSION["num_report"]==0){
+                    $_schede_report .= "<p class='mancanoCards' >Non appena verrai citato come giocatore in qualche report di sessione vedrai apparire qui quei report</p>";
                 }
 
                 $html = str_replace("{report}", $_schede_report, $html);

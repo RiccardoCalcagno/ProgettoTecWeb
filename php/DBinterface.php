@@ -122,7 +122,7 @@
                      "VALUES ('" . $userdata->get_username() . "', ".
                               "'" . $userdata->get_name_surname() . "', ".
                               "'" . $userdata->get_email() . "', ".
-                              "'" . $userdata->get_password() . "', ".
+                              "'" . $userdata->get_passwd() . "', ".
                               "'" . $userdata->get_birthdate() . "', ".
                               "'" . $userdata->get_img_path() . "');";
 
