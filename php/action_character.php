@@ -83,6 +83,7 @@
 
     if(isset($_GET["espandi"]) && $_GET["espandi"] == "Pers")
     {
+        echo "EHI MONAAA";
         $_SESSION["espandiPers"] = true;
         header("Location: area_personale.php");
     }
