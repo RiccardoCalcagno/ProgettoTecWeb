@@ -229,6 +229,8 @@ function Char_Form($toEdit) {
     return $html;
 }
 
+unset($_SESSION["first_logged"]);
+
 $toEdit = false;
 
 if ( isset($_GET['charAction']) && $_GET['charAction'] == 'MODIFICA' ) {

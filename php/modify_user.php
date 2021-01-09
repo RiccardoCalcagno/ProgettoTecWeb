@@ -4,7 +4,7 @@
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     //$html = setup($html);   // setup_clear() ?
-
+    unset($_SESSION["first_logged"]);
 
 
     $username = $_SESSION["username"];
@@ -15,7 +15,7 @@
 
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
-	echo "trovati errori";
+    echo "trovati errori";
 
         $username = $_POST["future_username"];
         $name_surname = $_POST["NomeCognome"];
@@ -26,50 +26,50 @@
         $err = $_SESSION["err"];
 
         if($err["user_already_exist"])
-	{
+    {
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">","<p id=\"UserAlreadyExists\">", $html);
-	}
-
-        if($err["user_empty"])
-	{   
-            $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
-	}
-
-        if($err["email_err"])
-	{
-            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
-	}        
-    
-        if($err["email_already_exist"])
-	{
-            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
-	}
-
-        if($err["empty_name"])
-	{
-            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
-	}
-
-        if($err["old_password_err"])
-	{
-echo "errore vecchia password";
-            $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\">", $html);
-	}
-
-        if($err["new_password_empty"])
-	{
-            $html = str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
-	}
-
-        if($err["rep_passwd_err"])
-	{
-            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
-	}    
-
-	unset($_SESSION["err"]);
     }
 
-	echo "fatto";
+        if($err["user_empty"])
+    {   
+            $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
+    }
+
+        if($err["email_err"])
+    {
+            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
+    }        
+    
+        if($err["email_already_exist"])
+    {
+            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
+    }
+
+        if($err["empty_name"])
+    {
+            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
+    }
+
+        if($err["old_password_err"])
+    {
+echo "errore vecchia password";
+            $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\">", $html);
+    }
+
+        if($err["new_password_empty"])
+    {
+            $html = str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
+    }
+
+        if($err["rep_passwd_err"])
+    {
+            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
+    }    
+
+    unset($_SESSION["err"]);
+    }
+
+    echo "fatto";
 
     /*if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
     {

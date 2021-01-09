@@ -9,7 +9,6 @@ if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
     clearSession();
 }
 
-
 /*
 $_SESSION["username"]="QueenAdministrator";
 $_SESSION["passwd"]="1000BimbiFucsia";

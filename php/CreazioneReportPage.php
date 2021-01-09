@@ -5,6 +5,8 @@
     require_once("GeneralPurpose.php");
     require_once("banners.php");
 
+    unset($_SESSION["first_logged"]);
+
 //-------------------------- UTILITY
     
     //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
