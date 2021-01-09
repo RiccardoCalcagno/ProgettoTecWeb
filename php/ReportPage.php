@@ -14,21 +14,21 @@ $connection = $dbInterface->openConnection();
 
 //prelevo l'oggetto report
 session_start();
-$report_info = getReport($_SESSION["report_id"]);
+$report_info = $dbInterface->getReport($_SESSION["report_id"]);
 
 //faccio subito le richieste al DB per poter chiudere la connessione
-$usernameArray = getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
+$usernameArray = $dbInterface->getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
 
 $userPic = array();
 for ($i = 0; i < count($usernameArray);$i++){
-    $userPic[$i] = getUserPic($usernameArray[$i]);
+    $userPic[$i] = $dbInterface->getUserPic($usernameArray[$i]);
 }
 
-$commentsArray = getComments($report_info.get_id());
+$commentsArray = $dbInterface->getComments($report_info.get_id());
 
 $commenterPic = array();
 for ($i = 0; i < count($commentsArray);$i++){
-    $commenterPic[$i] = getUserPic($commentsArray[$i].get_author());
+    $commenterPic[$i] = $dbInterface->getUserPic($commentsArray[$i].get_author());
 }
 
 //chiudo la connessione
