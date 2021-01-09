@@ -62,8 +62,12 @@
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            if((strpos($_SESSION['banners'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
+            echo "ORCO, ci sono salvati? ".strpos($_SESSION['banners'],'elementi_salvati')." , ci sono effettiv. Personaggi? ".(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi']));
+            exit();
 
+
+            
+            if((strpos($_SESSION['banners'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
                     <fieldset id='bannerSalvataggio'>
                     <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
