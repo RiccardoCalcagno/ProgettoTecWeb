@@ -27,14 +27,14 @@
         <div>
 
             <h1>Accesso</h1>
-            <form autocomplete="on" onsubmit="return validateLogin();" method="POST" action="../php/check_login.php">
+            <form onsubmit="return validateLogin();" method="POST" action="../php/check_login.php">
                 
                 <label for="username">Username</label>
                 <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
                 <span><input type="text" 
                         name="username" 
                         id="username"
-                        value=""
+                        value="" <!--username-->
                         placeholder="Inserisci il tuo username"/></span>
 
                 <label for="password">Password</label>
