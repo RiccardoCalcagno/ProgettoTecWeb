@@ -2,7 +2,13 @@
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
-clearSession();
+if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
+    clearSession();
+    $_SESSION["first_logged"]=true;
+}else{
+    clearSession();
+}
+
 
 /*
 $_SESSION["username"]="QueenAdministrator";
