@@ -17,7 +17,7 @@
 
         private $last_modified;
     
-        public function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $author_img, $last_modified)
+        public function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $author_img = null, $last_modified = null)
         {
             $this->id=$id;
             $this->title=$title;
