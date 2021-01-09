@@ -83,8 +83,6 @@
 
     if(isset($_GET["espandi"]) && $_GET["espandi"])
     {
-        header("Location: 404.php");
-        exit();
         $_SESSION["espandiPers"] = true;
         header("Location: area_personale.php");
     }
