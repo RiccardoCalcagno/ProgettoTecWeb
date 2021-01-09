@@ -133,7 +133,7 @@ function Char_Form($toEdit) {
                 clean_input($traits), 
                 clean_input($ideals), 
                 clean_input($bonds), 
-                clean_input($flaws),
+                clean_input($flaws)
             );
 
             if(isset($_SESSION['username'])) {
