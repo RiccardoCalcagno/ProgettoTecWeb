@@ -126,8 +126,6 @@
                         //azzero la form
                         $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
                         unset($_SESSION['salvaRep']);
-                        header("Location: area_personale.php");
-                        exit();
                     }else{
                         //messaggi di errore inserimento nel DB
                         $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
