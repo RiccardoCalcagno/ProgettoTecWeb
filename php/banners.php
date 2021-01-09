@@ -64,17 +64,10 @@
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
             if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
-
-
-
-                echo "HEY SIAMO IN BANNERS ".$_SESSION['banners']. " con personaggi? ".(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi']));
-
-                
-
                 $htmlBanner="
                     <fieldset id='bannerSalvataggio'>
                     <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
-                if($_SESSION['banners']="elementi_salvati_errore"){
+                if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner.="<p id='titoloAvviso'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
                     $htmlBanner.="<p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p><ul>";
@@ -92,7 +85,7 @@
                         $htmlBanner .="<li>Personaggio: " . $personaggio->get_name() . "</li>";
                     }
                 }
-                if($_SESSION['banners']="elementi_salvati_errore"){
+                if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner .="  
                     </ul>
                     <p>Ci spiace al momento i nostri server sembrano non funzionare</p>
