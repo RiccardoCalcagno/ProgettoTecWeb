@@ -119,10 +119,6 @@ else if($_SESSION["login"])
 
 
         $html = setup($html);
-        if(isset($_SESSION["espandiPers"])){
-            header("Location: Errore.php");
-            exit();
-        }
 
 
 
@@ -143,6 +139,12 @@ else if($_SESSION["login"])
             $html = str_replace("_name_", $_SESSION["name_surname"], $html);
             $html = str_replace("_mail_", $_SESSION["email"], $html);
             $html = str_replace("_date_", $_SESSION["birthdate"], $html);
+
+            
+            if(isset($_SESSION["espandiPers"])){
+                header("Location: 404.php");
+                exit();
+            }
 
 
             //  ---------------------------------------------------------------------------------------------------------------------------
