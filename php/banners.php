@@ -62,7 +62,7 @@
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            echo "ORCO, ci sono salvati? ".strpos($_SESSION['banners'],'elementi_salvati')." , ci sono effettiv. Personaggi? ".(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi']));
+            echo $_SESSION['banners'];
             exit();
 
 
