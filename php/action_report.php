@@ -25,13 +25,10 @@
 
     if(isset($_POST["ReportMaster"]))
     {
-        $db->openConnection();
-        $_SESSION["report_id"] = $db->getReport($_POST["ReportMaster"], $_SESSION["username"]);
-        $db->closeConnection();
+        $_SESSION["report_id"] = $_POST["ReportMaster"];
         
         if($_SESSION["report_id"])
         {
-            echo $_SESSION["report_id"]; //debug comment
             header("Location: ReportPage.php");
             exit();
         }
@@ -44,9 +41,7 @@
 
     if(isset($_POST["ReportPartecip"]))
     {
-        $db->openConnection();
-        $_SESSION["report_id"] = $db->getReportForPertecipant($_POST["ReportPartecip"], $_SESSION["username"]);
-        $db->closeConnection();
+        $_SESSION["report_id"] = $_POST["ReportPartecip"];
 
         if($_SESSION["report_id"])
         {

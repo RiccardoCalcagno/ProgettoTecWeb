@@ -313,11 +313,11 @@
         //-----------------------------------------------------------------------------------------------------------------
         // FUNZIONI RELATIVE AI REPORT
         //-----------------------------------------------------------------------------------------------------------------
-        public function getReport($id_report, $username) {
+        public function getReport($id_report) {
             $id_report = clean_input($id_report);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified  
-                      FROM Report INNER JOIN Users ON Report.author = Users.username 
-                      WHERE Report.id = '".$id_report."' AND Report.author = '" . $username . "';";
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Report.author_img, Report.last_modified  
+                      FROM Report 
+                      WHERE Report.id = '".$id_report."';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -333,7 +333,7 @@
                                         $row["content"], 
                                         $row["author"], 
                                         $row["isExplorable"], 
-                                        $row["img_path"], 
+                                        $row["author_img"], 
                                         $row["last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
