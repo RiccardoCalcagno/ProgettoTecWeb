@@ -72,7 +72,7 @@
             EFFETTO LATO PHP del PULSANTE MODIFICA nella visualizzazione del REPORT:                (Lo stesso vale per i personaggi)
                     - $_SESSION['report_in_creazione'] inizializzato a $_SESSION["report_id"]
             
-            I QUESTO FILE PRIMA DELL' IF: if(isset($_POST['salvaRep'])) vanno messe le sostituzioni HTML per creare il giusto documento: creazione o modifica
+            I QUESTO FILE PRIMA DELL' IF: if(isset($_GET['salvaRep'])) vanno messe le sostituzioni HTML per creare il giusto documento: creazione o modifica
 
         ----------------------------------------------------------------------------------------------------------------
     */
@@ -81,16 +81,16 @@
 
 
 
-    if(   (isset($_POST['salvaRep']))  ||  (isset($_POST['aggiungiGiocatore']))  ||  (isset($_POST['deletePlayer']))   ){
+    if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
-        if(isset($_POST['salvaRep'])){
+        if(isset($_GET['salvaRep'])){
 
         
             //QUESTO E' QUELLO CORRETTO
-            $titolo = $_POST['titolo'];
-            $sottotitolo = $_POST['sottotitolo'];
-            $contenuto = $_POST['contenuto'];
-            $condividi = (isset($_POST['condividi']));
+            $titolo = $_GET['titolo'];
+            $sottotitolo = $_GET['sottotitolo'];
+            $contenuto = $_GET['contenuto'];
+            $condividi = (isset($_GET['condividi']));
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
@@ -159,16 +159,16 @@
         unset($_SESSION['salvaRep']);
         }
     
-        if(isset($_POST['aggiungiGiocatore'])){
+        if(isset($_GET['aggiungiGiocatore'])){
             //se ho cliccato su AGGIUNGI per inserire un giocatore nel report, 
             //ora prendo il valore inserito, lo cerco nel database e lo inserisco se esiste,
             //riportando poi il caricamento della form
         
             //devo tenere anche i dati già inseriti, if any
-            $titolo = $_POST['titolo'];
-            $sottotitolo = $_POST['sottotitolo'];
-            $contenuto = $_POST['contenuto'];
-            $condividi = (isset($_POST['condividi']));
+            $titolo = $_GET['titolo'];
+            $sottotitolo = $_GET['sottotitolo'];
+            $contenuto = $_GET['contenuto'];
+            $condividi = (isset($_GET['condividi']));
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
@@ -178,14 +178,14 @@
             $connection = $dbInterface->openConnection();
 
             if($connection){
-                if($dbInterface->existUser($_POST['usernameGiocatore']) && array_search($_POST['usernameGiocatore'],$lista_giocatori) === false){
+                if($dbInterface->existUser($_GET['usernameGiocatore']) && array_search($_GET['usernameGiocatore'],$lista_giocatori) === false){
                     //aggiungo il giocatore alla lista
-                    array_push($lista_giocatori,$_POST['usernameGiocatore']);
+                    array_push($lista_giocatori,$_GET['usernameGiocatore']);
                     $_SESSION['report_in_creazione']->set_lista_giocatori($lista_giocatori);
 
                     $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
                 }
-                else if(!(array_search($_POST['usernameGiocatore'],$lista_giocatori) === false)){
+                else if(!(array_search($_GET['usernameGiocatore'],$lista_giocatori) === false)){
                     $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
                 }
                 else{
@@ -201,21 +201,21 @@
 
         }
     
-        if(isset($_POST['deletePlayer'])){
+        if(isset($_GET['deletePlayer'])){
             //se ho cliccato sulla X che elimina un giocatore devo toglierlo dalla lista
         
             //devo tenere anche i dati già inseriti, if any
-            $titolo = $_POST['titolo'];
-            $sottotitolo = $_POST['sottotitolo'];
-            $contenuto = $_POST['contenuto'];
-            $condividi = (isset($_POST['condividi']));
+            $titolo = $_GET['titolo'];
+            $sottotitolo = $_GET['sottotitolo'];
+            $contenuto = $_GET['contenuto'];
+            $condividi = (isset($_GET['condividi']));
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
         
 
             //rimuovo dalla lista dei giocatori il giocatore
-            $key = array_search($_POST['deletePlayer'],$lista_giocatori);
+            $key = array_search($_GET['deletePlayer'],$lista_giocatori);
             unset($lista_giocatori[$key]);
 
             //aggiorno la lista nell'oggetto report_in_creazione
@@ -223,7 +223,7 @@
         }
 
     }else{
-        if ($toModify) {   // Effettuato solo la prima volta, poi $_POST['salvaPers'] avra' valore
+        if ($toModify) {   // Effettuato solo la prima volta, poi $_GET['salvaPers'] avra' valore
 
         $dbInterface = new DBinterface();
         $connection = $dbInterface->openConnection();
