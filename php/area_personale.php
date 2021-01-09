@@ -187,13 +187,12 @@ else if($_SESSION["login"])
 
 
 
-                if( isset($SESSION["espandiPers"]) || $_SESSION["num_pers"] <= 4)
+                if(isset($_SESSION["espandiPers"]) || $_SESSION["num_pers"] <= 4)
                 {
-                    echo  "HOOOOOOOOOO  OMMMMMMOOOOOOOO";
                     $html = str_replace("<nav class='espandi' id='espandi_pers'>", "<nav class='hidden' id='espandi_pers'>", $html);
                     $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
 
-                    //unset($_SESSION["espandiPers"]);
+                    unset($_SESSION["espandiPers"]);
                 }
 
 
