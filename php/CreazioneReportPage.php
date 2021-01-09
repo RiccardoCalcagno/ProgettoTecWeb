@@ -125,8 +125,9 @@
                         $_SESSION['banners']= $toModify ? "modifica_documento_confermata" : "creazione_documento_confermata";
                         //azzero la form
                         $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
-                            
-                        //devo fare unset di parametri particolari?
+                        unset($_SESSION['salvaRep']);
+                        header("Location: area_personale.php");
+                        exit();
                     }else{
                         //messaggi di errore inserimento nel DB
                         $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
@@ -155,7 +156,7 @@
             }
             $message .= '</ul></div>';
             }
-        
+        unset($_SESSION['salvaRep']);
         }
     
         if(isset($_POST['aggiungiGiocatore'])){
