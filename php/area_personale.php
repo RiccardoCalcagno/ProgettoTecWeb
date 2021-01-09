@@ -2,7 +2,10 @@
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
-echo "COSA EEEEEEE'". isset($SESSION["espandiPers"]);
+if(isset($_SESSION["espandiPers"])){
+    header("Location: 404.php");
+    exit();
+}
 
 if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
     clearSession();
