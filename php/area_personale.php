@@ -308,13 +308,6 @@ else if($_SESSION["login"])
                 $html = str_replace("<numero_di_report/>", $numero_pag_report, $html);
 
 
-
-
-                echo "HEY SIAMO IN AREA ".$_SESSION['banners'];
-                $_SESSION['banners']=null;
-                exit();
-
-
                 $html = addPossibleBanner($html, "area_personale.php");
 
                 echo $html;

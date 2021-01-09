@@ -60,6 +60,10 @@
 
     function createPossibleBanner($returnPage) {
         $htmlBanner="";
+        echo "HEY SIAMO IN BANNERS ".$_SESSION['banners'];
+        $_SESSION['banners']=null;
+        exit();
+
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
             if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
