@@ -2056,7 +2056,7 @@ p.campiObbligatori{
 ------------------------------------------------------------------------------------------------------------
 */
 
-p.mancanoCards {
+#areaPersonale .mancanoCards{
     display: block;
     font-weight: 500;
     text-align: center;
@@ -2069,6 +2069,10 @@ p.mancanoCards {
 
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
+
+#dashboard{
+    padding-bottom: 3em;
+}
 
 #dashboard h3{
     font-size: 2em;
