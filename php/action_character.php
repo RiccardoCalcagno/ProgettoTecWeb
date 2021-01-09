@@ -81,7 +81,7 @@
 
     }
 
-    if(isset($_GET["espandi"]) && $_GET["espandi"])
+    if(isset($_GET["espandi"]))
     {
         $_SESSION["espandiPers"] = true;
         if(isset($_SESSION["espandiPers"])){
