@@ -31,7 +31,9 @@
         }
         exit();
         
-        
+        echo "HEY SIAMO IN ESPLORA ".$_SESSION['banners'];
+        $_SESSION['banners']=null;
+        exit();
 
         header("Location: area_personale.php"); 
         exit();

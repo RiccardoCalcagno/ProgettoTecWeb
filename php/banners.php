@@ -39,7 +39,7 @@
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
     }
-    if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'elementi_salvati')){
+    if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'lementi_salvati')){
         if(isset($_SESSION['stagedReports'])){
             $_SESSION['stagedReports']=null;
         }
@@ -62,13 +62,13 @@
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            echo $_SESSION['banners'];
-            unset($_SESSION['banners']);
+            echo "HEY SIAMO NEI BANNERS".$_SESSION['banners'];
+            $_SESSION['banners']=null;
             exit();
 
 
             
-            if((strpos($_SESSION['banners'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
+            if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
                     <fieldset id='bannerSalvataggio'>
                     <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
