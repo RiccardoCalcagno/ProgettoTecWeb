@@ -39,7 +39,7 @@
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
     }
-    if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'elementi_salvati')){
+    if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'lementi_salvati')){
         if(isset($_SESSION['stagedReports'])){
             $_SESSION['stagedReports']=null;
         }
@@ -60,14 +60,14 @@
 
     function createPossibleBanner($returnPage) {
         $htmlBanner="";
+
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            if((strpos($_SESSION['banners'],'elementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
-
+            if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
                     <fieldset id='bannerSalvataggio'>
                     <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
-                if($_SESSION['banners']="elementi_salvati_errore"){
+                if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner.="<p id='titoloAvviso'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
                     $htmlBanner.="<p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p><ul>";
@@ -85,7 +85,7 @@
                         $htmlBanner .="<li>Personaggio: " . $personaggio->get_name() . "</li>";
                     }
                 }
-                if($_SESSION['banners']="elementi_salvati_errore"){
+                if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner .="  
                     </ul>
                     <p>Ci spiace al momento i nostri server sembrano non funzionare</p>
@@ -93,7 +93,7 @@
                 }else{
                     $htmlBanner .="  
                     </ul>
-                    <p>Li puoi trovare nella tua <a href='../php/area_personale.php'>Area Personale</a></p>
+                    <p>Li puoi trovare nella tua Area Personale</p>
                     </fieldset>";
                 }
 
@@ -106,7 +106,7 @@
                     <h1>Salvataggio Pendente</h1>
                     <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
                     <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
-                        verrà automaticamente salvato nella tua <a href='../php/area_personale.php'>Area Personale</a></p>
+                        verrà automaticamente salvato nella tua Area Personale</p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/login.php'>ACCESSO</a>
                         <a class='buttonLink' href='../php/register.php'>ISCRIZIONE</a>

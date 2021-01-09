@@ -29,6 +29,7 @@
             case 1: $_SESSION['banners']="elementi_salvati"; break;
             case 0: break;
         }
+        
 
         header("Location: area_personale.php"); 
         exit();

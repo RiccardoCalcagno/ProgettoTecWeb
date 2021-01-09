@@ -66,7 +66,7 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }
-
+        unset($_SESSION["first_logged"]);
         unset($_SESSION["character_id"]);
         unset($_SESSION['modificaChar']);
     }

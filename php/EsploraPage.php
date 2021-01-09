@@ -12,6 +12,8 @@ require_once("report_data.php");
 $db = new DBinterface();
 $connection = $db->openConnection();
 
+unset($_SESSION["first_logged"]);
+
 if($connection == false){
     header("Location: Errore.php");
     exit();

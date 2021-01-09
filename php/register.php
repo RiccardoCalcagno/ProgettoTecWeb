@@ -5,6 +5,7 @@
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "register.html");
     $html = setup($html);   // setup_clear () ?  Ha poco senso questa fuznzione, se accedo alla pagina di registrazione io non sono loggato. Non lascio accedere a questa pagina un utente loggato, quindi i pulsati del menù rimangono invariati
 
+    unset($_SESSION["first_logged"]);
 
     $username = ""; $name_surname = ""; $img = ""; $birthdate = ""; $email = "";
 
@@ -19,10 +20,10 @@
 
         $err = $_SESSION["err"];
 
-	if($err["img_err"])
-	{
-	    $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
-	}
+    if($err["img_err"])
+    {
+        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+    }
 
         if($err["user_already_exist"])
     {

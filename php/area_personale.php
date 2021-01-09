@@ -2,7 +2,14 @@
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
-clearSession();
+
+if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
+    clearSession();
+    $_SESSION["first_logged"]=true;
+}else{
+    clearSession();
+}
+
 
 /*
 $_SESSION["username"]="QueenAdministrator";
@@ -108,7 +115,13 @@ else if($_SESSION["login"])
         /* fine controllo */
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
+
+
+
         $html = setup($html);
+
+
+
         if(!$html) 
         {
             header("Location: 404.php");
@@ -128,6 +141,7 @@ else if($_SESSION["login"])
             $html = str_replace("_date_", $_SESSION["birthdate"], $html);
 
 
+
             //  ---------------------------------------------------------------------------------------------------------------------------
             //                                                  SCHEDE GIOCATORE
             // ----------------------------------------------------------------------------------------------------------------------------
@@ -143,7 +157,7 @@ else if($_SESSION["login"])
                 case 'Nano': $urlImgRace.="nano.png\" alt='volto di una nano fantasy con capelli rossi e con un espressione arrabbiata'";break;
                 case 'Halfling': $urlImgRace.="halfing.png\" alt='volto di una piccola donna che sta ridendo, ha un naso a punta e sopracciglia maliziose'";break;
                 case 'Gnome': $urlImgRace.="gnomo.png\" alt='volto di un piccolo essere dai lineamenti femminili orecchie a punta capelli lunghi al vento'";break;
-                case 'Tiefling': $urlImgRace.="tiefling.png\" alt='volto di donna con pelle di colore rossastro capelli lunghi neri e orecchie a punta, in abito nobile'";break;
+                case 'Tiefling': $urlImgRace.="tiefilng.png\" alt='volto di donna con pelle di colore rossastro capelli lunghi neri e orecchie a punta, in abito nobile'";break;
                 case 'Dragonide': $urlImgRace.="dragonide.png\" alt='essere dal volto simile a quello di un drago con squame rosse'";break;
                 case 'Mezzelfo': $urlImgRace.="mezzelfo.png\" alt='volto di un umano sereno con una corona in testa e orecchie a punta non accentuata'";break;
                 case 'Mezzorco': $urlImgRace.="mezzorco.png\" alt='volto di un orchessa con lunghi capelli marroni, pelle violacea, piccole zanne alla bocca e orecchie a punta'";break;
@@ -171,12 +185,14 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
-                if((isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true) || $_SESSION["num_pers"] <= 4)
+
+
+                if(isset($_SESSION["espandiPers"]) || $_SESSION["num_pers"] <= 4)
                 {
-                    $html = str_replace("<nav class=\"espandi\" id='espandi_pers'>", "<nav class=\"hidden\">", $html);
+                    $html = str_replace("<nav class='espandi' id='espandi_pers'>", "<nav class='hidden' id='espandi_pers'>", $html);
                     $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
 
-                    $_SESSION["espandiPers"] = false;
+                    unset($_SESSION["espandiPers"]);
                 }
 
 
@@ -306,11 +322,6 @@ else if($_SESSION["login"])
                 $html = str_replace("<report/>", $_schede_report, $html);
                 $html = str_replace("<numero_attuale_report/>", $_SESSION["count_rep"], $html);
                 $html = str_replace("<numero_di_report/>", $numero_pag_report, $html);
-
-
-
-
-
 
 
                 $html = addPossibleBanner($html, "area_personale.php");

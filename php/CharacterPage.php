@@ -4,6 +4,8 @@ require_once("GeneralPurpose.php");
 require_once("character.php");
 require_once("banners.php");
 
+unset($_SESSION["first_logged"]);
+
 function characterPage($charID) {
 
     $html = file_get_contents(".." . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "SchedaGiocatore.html");

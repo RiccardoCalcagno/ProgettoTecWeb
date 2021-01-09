@@ -8,6 +8,7 @@ require_once("banners.php");
 //prelevo Report.html
 $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Report.html');
 $html = setup($html);
+unset($_SESSION["first_logged"]);
 
 $dbInterface = new DBinterface();
 $connection = $dbInterface->openConnection();
