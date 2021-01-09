@@ -13,8 +13,14 @@
     $passwd = $_POST["newPasswd"];
     $rep_passwd = $_POST["PasswdAgan"];
     $birthdate = $_POST["birthdate"];
-    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
 
+	echo "poco prima dell'inserimento img";
+    
+    if(!isset($_FILES["imgProfilo"]) || !$_FILES["imgProfilo"])
+	$img = null;
+    else
+    	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
+  echo " controlla che ci sia qualcosa in Files ";
 
     try {
         $db = new DBinterface();
@@ -86,27 +92,42 @@
                 $err["empty_name"] = true;
             }
 
-	    $err["img_err"] = GeneralPurpose::validateImg($img, $_FILES["imgProfilo"]);
 
-	    if(!$err["img_err"])
+	    $db->closeConnection();
+
+
+	    if($img)
 	    {
-		if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img)
-		{
-		    // fa niente
-		}
-		else
-		{
-		    header("Location: Errore.php");
-		    exit();
-		}
-	    else
-	    {
-		header("Location: Errore.php");
-		exit();
-	    }
+	echo " Controllo img non null passato ";
+		$err["img_err"] = GeneralPurpose::validateImg($img, $_FILES["imgProfilo"]);
+echo " fa validazione img ";
+
+	    	if(!$err["img_err"])
+	    	{
+	echo " non ci sono errori";
+		    if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img)
+		    {
+			echo "upload avvenuto correttamente ";
+		    	$err["img_err"] = false;
+		    }
+		    else
+		    {
+		    	header("Location: Errore.php");
+		    	exit();
+		    }
+	    	else
+	    	{
+echo " ci sono errori ";
+		    $img = null;
+	    	}
+	   }
+	   else
+	   {
+echo " img nulla";
+		$err["img_err"] = false;
+	   }
 
 
-            $db->closeConnection();
 
             if(in_array(true, $err))
             {

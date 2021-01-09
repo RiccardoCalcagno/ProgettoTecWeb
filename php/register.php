@@ -22,6 +22,7 @@
 	if($err["img_err"])
 	{
 	    $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+	}
 
         if($err["user_already_exist"])
     {
