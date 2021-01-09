@@ -155,8 +155,6 @@ function Char_Form($toEdit) {
 
                         $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
                         unset($_SESSION['CharFormPOST']);
-                        header("Location: area_personale.php");
-                        exit();
                     }
                     else {
                         // Can't insert in DB
