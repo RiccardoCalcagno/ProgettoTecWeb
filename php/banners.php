@@ -62,12 +62,6 @@
         $htmlBanner="";
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
-            echo "HEY SIAMO NEI BANNERS".$_SESSION['banners'];
-            $_SESSION['banners']=null;
-            exit();
-
-
-            
             if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
                     <fieldset id='bannerSalvataggio'>

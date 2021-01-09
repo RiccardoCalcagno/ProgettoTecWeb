@@ -310,7 +310,9 @@ else if($_SESSION["login"])
 
 
 
-
+                echo "HEY SIAMO IN AREA ".$_SESSION['banners'];
+                $_SESSION['banners']=null;
+                exit();
 
 
                 $html = addPossibleBanner($html, "area_personale.php");

@@ -29,11 +29,7 @@
             case 1: $_SESSION['banners']="elementi_salvati"; break;
             case 0: break;
         }
-        exit();
         
-        echo "HEY SIAMO IN ESPLORA ".$_SESSION['banners'];
-        $_SESSION['banners']=null;
-        exit();
 
         header("Location: area_personale.php"); 
         exit();
