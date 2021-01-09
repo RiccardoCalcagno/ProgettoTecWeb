@@ -120,17 +120,16 @@ else if($_SESSION["login"])
 
         if(isset($_SESSION["espandiPers"])){
             header("Location: 404.php");
+            exit();
         }
         $html = setup($html);
         if(isset($_SESSION["espandiPers"])){
             header("Location: Errore.php");
             exit();
         }
-        header("Location: area_personale.php");
 
 
 
-        
         if(!$html) 
         {
             header("Location: 404.php");
