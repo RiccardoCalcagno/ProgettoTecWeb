@@ -314,26 +314,27 @@
         // FUNZIONI RELATIVE AI REPORT
         //-----------------------------------------------------------------------------------------------------------------
         public function getReport($id_report) {
-            $id_report = clean_input($id_report);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Report.author_img, Report.last_modified  
+            $id_report = clean_input($id_report);       // Report.author_img
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Report.last_modified  
                       FROM Report 
                       WHERE Report.id = '".$id_report."';";
+                      print $query;
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(mysqli_num_rows($query_result) == 0) {
+            if(!$query_result || mysqli_num_rows($query_result) == 0) {
                 echo "Spiacenti! Report non trovato";
                 return null;
             }
             else {
-                $report_data = $query->fetch_assoc();
+                $row = $query_result->fetch_assoc();
                 return new ReportData($row["id"], 
                                         $row["title"], 
                                         $row["subtitle"], 
                                         $row["content"], 
                                         $row["author"], 
                                         $row["isExplorable"], 
-                                        $row["author_img"], 
+                 //                       $row["author_img"],  TO FIX
                                         $row["last_modified"]);
                 /*
                 return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
