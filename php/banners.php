@@ -106,7 +106,7 @@
                     <h1>Salvataggio Pendente</h1>
                     <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
                     <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
-                        verrà automaticamente salvato nella tua <a href='../php/area_personale.php'>Area Personale</a></p>
+                        verrà automaticamente salvato nella tua Area Personale</p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/login.php'>ACCESSO</a>
                         <a class='buttonLink' href='../php/register.php'>ISCRIZIONE</a>
