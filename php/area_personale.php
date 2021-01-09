@@ -140,11 +140,6 @@ else if($_SESSION["login"])
             $html = str_replace("_mail_", $_SESSION["email"], $html);
             $html = str_replace("_date_", $_SESSION["birthdate"], $html);
 
-            
-            if(isset($_SESSION["espandiPers"])){
-                header("Location: 404.php");
-                exit();
-            }
 
 
             //  ---------------------------------------------------------------------------------------------------------------------------
@@ -190,8 +185,13 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
+                
+                if(isset($_SESSION["espandiPers"])){
+                    header("Location: 404.php");
+                    exit();
+                }
 
-                if((isset($SESSION["espandiPers"])) || $_SESSION["num_pers"] <= 4)
+                if( isset($SESSION["espandiPers"]) || $_SESSION["num_pers"] <= 4)
                 {
                     echo  "HOOOOOOOOOO  OMMMMMMOOOOOOOO";
                     $html = str_replace("<nav class='espandi' id='espandi_pers'>", "<nav class='hidden' id='espandi_pers'>", $html);
