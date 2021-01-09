@@ -17,7 +17,7 @@
 
         private $last_modified;
     
-        public function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $author_img = null, $last_modified = null)
+        public function __construct($id, $title, $subtitle, $content, $author, $isExplorable, $lista_giocatori, $last_modified = null)
         {
             $this->id=$id;
             $this->title=$title;
@@ -25,7 +25,7 @@
             $this->content=$content;
             $this->author=$author;
             $this->isExplorable=$isExplorable;
-            $this->author_img=$author_img;
+        //    $this->author_img=$author_img;     TO FIX ?
             $this->lista_giocatori=$lista_giocatori;
 
             $this->last_modified=$last_modified;

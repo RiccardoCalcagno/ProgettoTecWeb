@@ -31,31 +31,40 @@ else {
     $dbInterface = new DBinterface();
     $connection = $dbInterface->openConnection();
 
+    $report_info = null;
+    $usernameArray = null;
+    $userPic = null;
+    $commentsArray = null;
+    $commenterPic = null;
+
     if ($connection === true) {
 
         //prelevo l'oggetto report
         $report_info = $dbInterface->getReport($reportID);
 
         //faccio subito le richieste al DB per poter chiudere la connessione
-        $usernameArray = $dbInterface->getALLForReport($report_info.get_id()); //si tratta di un array di username, sono i giocatori collegati al report
+        $usernameArray = $dbInterface->getALLForReport($report_info->get_id()); //si tratta di un array di username, sono i giocatori collegati al report
 
         $userPic = array();
-        for ($i = 0; i < count($usernameArray);$i++){
+        for ($i = 0; $i < count($usernameArray);$i++){
             $userPic[$i] = $dbInterface->getUserPic($usernameArray[$i]);
         }
 
-        $commentsArray = $dbInterface->getComments($report_info.get_id());
+        $commentsArray = $dbInterface->getComments($report_info->get_id());
 
-        $commenterPic = array();
-        for ($i = 0; i < count($commentsArray);$i++){
-            $commenterPic[$i] = $dbInterface->getUserPic($commentsArray[$i].get_author());
+        if ( isset($commentsArray) ) {  // Se ci sono commenti
+            $commenterPic = array();
+            for ($i = 0; $i < count($commentsArray);$i++){
+                $commenterPic[$i] = $dbInterface->getUserPic($commentsArray[$i]->get_author());
+            }
         }
+        
     }
 
     //chiudo la connessione
     $dbInterface->closeConnection();
 
-    if( !isset($report_info) || !isset($usernameArray) || !isset($userPic) || !isset($commentsArray) || !isset($commenterPic) ){
+    if( !isset($report_info) ) {    // Resto non serve necessariamente ?
         
         errorPage("Can't connect to DB.");
     }
@@ -94,19 +103,19 @@ else {
         //ATTENZIONE, sopra è un alternativa, segue invece come se questa pagina ricevesse direttamente l'oggetto report, $report_info
 
         //titolo e sottotitolo
-        $replacer = '<h1>'.$report_info.get_title().'</h1>'.'<p>'.$report_info.get_subtitle().'</p>';
+        $replacer = '<h1>'.$report_info->get_title().'</h1>'.'<p>'.$report_info->get_subtitle().'</p>';
         $html = str_replace("<TitleAndSub_placeholder/>", $replacer, $html);
 
         //autore e img
         $replacer = '<h2>Autore</h2>';
         $replacer .= '<div class="badgeUtente">';
-        $replacer .= '<img src="'.$report_info.get_author_img().'" alt="Immagine profilo" />';
-        $replacer .= '<p class="textVariable">'.$report_info.get_author().'</p>';
+        $replacer .= '<img src="'.$report_info->get_author_img().'" alt="Immagine profilo" />';
+        $replacer .= '<p class="textVariable">'.$report_info->get_author().'</p>';
         $replacer .= '</div>';
         $html = str_replace("<author_placeholder/>", $replacer, $html);
         
         //ultima modifica
-        $replacer = '<h2>Ultima modifica</h2>'.'<p>'.$report_info.get_last_modified().'</p>';
+        $replacer = '<h2>Ultima modifica</h2>'.'<p>'.$report_info->get_last_modified().'</p>';
         $html = str_replace("<date_placeholder/>", $replacer, $html);
 
         //giocatori presenti
@@ -136,7 +145,7 @@ else {
 
         //contenuto del report
         $replacer = '<h2>Descrizione della sessione</h2>';
-        $replacer .= '<p>'.$report_info.get_content().'</p>';
+        $replacer .= '<p>'.$report_info->get_content().'</p>';
         $html = str_replace("<content_placeholder/>", $replacer, $html);
 
         //aggiungi un commento/registrati per commentare
@@ -157,15 +166,18 @@ else {
         //lista dei commenti
         //devo mostrare il commento con tutti i suoi dati, oltre che l'immagine del giocatore (non è un dato del commento)
         $replacer = '<ul id="listaCommenti">';
-        for($i = 0; i < count($commentsArray);$i++){
-            $replacer .= '<li class="commento"><div class="badgeUtente">';
-            $replacer .= '<img src="'.$commenterPic[$i].'" alt="Immagine profilo" />';
-            $replacer .= '<p class="textVariable">'.$commentsArray[$i].get_author().'</p></div>';
-            $replacer .= '<div class="testoCommento">';
-            $replacer .= '<p>'.$commentsArray[$i].get_text().'</p>';
-            $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i].get_date().'</p></div>';
-            if($commentsArray[$i].get_author()==$_SESSION["username"]){
-                $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i].get_id().'"/></li>';
+        if ( isset($commentsArray) ) {
+
+            for($i = 0; $i < count($commentsArray);$i++){
+                $replacer .= '<li class="commento"><div class="badgeUtente">';
+                $replacer .= '<img src="'.$commenterPic[$i].'" alt="Immagine profilo" />';
+                $replacer .= '<p class="textVariable">'.$commentsArray[$i]->get_author().'</p></div>';
+                $replacer .= '<div class="testoCommento">';
+                $replacer .= '<p>'.$commentsArray[$i]->get_text().'</p>';
+                $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i]->get_date().'</p></div>';
+                if($commentsArray[$i]->get_author()==$_SESSION["username"]){
+                    $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i].get_id().'"/></li>';
+                }
             }
         }
         /*OLD VERSION
@@ -190,12 +202,12 @@ else {
         ////costruisco un if per controllare se l'utente logged in è l'author, se si mostro i tasti
             //ESPLORA
             //controllo che l'utente sia il creatore come prima, ma controllo anche che il report non sia già segnato come pubblico
-        if($_SESSION["username"]==$report_info.get_author()){
+        if($_SESSION["username"]==$report_info->get_author()){
             $replacer = '<ul id="footAction">
                             <li>
                                 <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink"/>
                             </li>';
-            if(!$report_info.get_isExplorable()){
+            if(!$report_info->get_isExplorable()){
                 $replacer .= '<li>
                                 <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink"/> 
                             </li>';
