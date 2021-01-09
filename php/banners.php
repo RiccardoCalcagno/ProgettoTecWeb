@@ -62,7 +62,6 @@
         $htmlBanner="";
         echo "HEY SIAMO IN BANNERS ".$_SESSION['banners'];
         $_SESSION['banners']=null;
-        exit();
 
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
