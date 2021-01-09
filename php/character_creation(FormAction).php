@@ -180,6 +180,7 @@ function Char_Form($toEdit) {
             //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
             getErrors($messaggioForm);
         }
+        unset($_SESSION['CharFormPOST']);
     }
     else if ($toEdit) {   // Effettuato solo la prima volta, poi POST avra' valore
         $db = new DBinterface();
