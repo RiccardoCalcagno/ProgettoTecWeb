@@ -161,7 +161,7 @@ else if($_SESSION["login"])
 
                 if(isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
-                    $html = str_replace("<nav class=\"espandi\" id='espandi_pers'>", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='espandi_pers'>", "<nav class=\"hidden\">", $html);
                     $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
                     $_SESSION["espandiPers"] = false;
                 }
@@ -227,7 +227,7 @@ else if($_SESSION["login"])
 
                 if($numero_pag_master <= 1)
                 {
-                    $html = str_replace("<nav class=\"espandi\" id='report_master'>", "<nav class=\"espandi\" id='report_master' class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='report_master'>", "<nav id='report_master' class=\"hidden\">", $html);
                 }
 
                 $html = str_replace("<report_author/>", $_schede_report_master, $html);
@@ -285,10 +285,9 @@ else if($_SESSION["login"])
                     $html = str_replace("<li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\">successiva</label></li>", " ", $html);
                 }
 
-                $html = str_replace("<body id=\"areaPersonale\">","<body id=\"areaPersonale\"><h1>HEIIIIIIIIII".$numero_pag_report."poi".($numero_pag_report <= 1)."</h1>", $html);
                 if($numero_pag_report <= 1)
                 {
-                    $html = str_replace("<nav class=\"espandi\" id='report_normale'>", "<nav class=\"espandi\" id='report_normale' class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='report_normale'>", "<nav id='report_normale' class=\"hidden\">", $html);
                 }
 
                 $html = str_replace("<report/>", $_schede_report, $html);
