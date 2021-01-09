@@ -63,6 +63,7 @@
         if (isset($_SESSION['banners'])&&($_SESSION['banners'])){
 
             echo $_SESSION['banners'];
+            unset($_SESSION['banners']);
             exit();
 
 
