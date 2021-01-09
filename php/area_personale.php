@@ -2,10 +2,6 @@
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
-if(isset($_SESSION["espandiPers"])){
-    header("Location: 404.php");
-    exit();
-}
 
 if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
     clearSession();
@@ -13,6 +9,12 @@ if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
 }else{
     clearSession();
 }
+
+if(isset($_SESSION["espandiPers"])){
+    header("Location: 404.php");
+    exit();
+}
+
 
 /*
 $_SESSION["username"]="QueenAdministrator";
