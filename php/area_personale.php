@@ -116,6 +116,10 @@ else if($_SESSION["login"])
         }
         else
         {
+            if($_SESSION["img"] == "")
+            {
+                $_SESSION["img"] = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "img_profilo_mancante.png";
+            }
 
             $html = str_replace("../img/icone_razze/dragonide.png", $_SESSION["img"], $html);
             $html = str_replace("_user_", $_SESSION["username"], $html);
