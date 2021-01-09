@@ -2142,6 +2142,7 @@ p.mancanoCards {
     margin: 2em auto 2em auto;
     padding-top: 0.3em;
     padding-bottom: 0.3em;
+    min-height: 14em;
 }
 #personaggiUtente .cards{
     width: calc(100% - 1em);

@@ -94,20 +94,20 @@
         exit();
     }
 
-    public function validateImg($target, $img)
+    function validateImg($target, $img)
     {
-	$uploadOk = true;
-	// Vedere se un file è veramente una img oppure una fake img
-	$check = getimagesize($img["tmp_name"]);
-	if($check |== false)
-		$uploadOk = true;
-	else
-		$uploadOk = false;
+    $uploadOk = true;
+    // Vedere se un file è veramente una img oppure una fake img
+    $check = getimagesize($img["tmp_name"]);
+    if($check != false)
+        $uploadOk = true;
+    else
+        $uploadOk = false;
 
-	// Vedere se il file esiste già
-	$uploadOk = file_exists($target);
+    // Vedere se il file esiste già
+    $uploadOk = file_exists($target);
 
-	return $uploadOk;
+    return $uploadOk;
     }
 
 ?>
