@@ -127,6 +127,12 @@ else if($_SESSION["login"])
             $html = str_replace("_mail_", $_SESSION["email"], $html);
             $html = str_replace("_date_", $_SESSION["birthdate"], $html);
 
+
+            //  ---------------------------------------------------------------------------------------------------------------------------
+            //                                                  SCHEDE GIOCATORE
+            // ----------------------------------------------------------------------------------------------------------------------------
+
+
             $_schede_personaggio = "";
 
             for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
@@ -151,14 +157,19 @@ else if($_SESSION["login"])
                 $_schede_personaggio .= "<p class='mancanoCards' >Qui verranno inserite le schede giocatore che realizzerai</p>";
             }
 
-                $html = str_replace("{form_personaggi}", $_schede_personaggio, $html);
+                $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
                 if(isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {espandi pers}", "<nav class=\"espandi\" class=\"hidden\">", $html);
-                    $html = str_replace("<ul class=\"cards\" Personaggi>", "<ul class=\"expanded\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='espandi_pers'>", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
                     $_SESSION["espandiPers"] = false;
                 }
+
+
+                //  ---------------------------------------------------------------------------------------------------------------------------
+                //                                                  REPORT MASTER
+                // ----------------------------------------------------------------------------------------------------------------------------
 
 
                 $_schede_report_master = "";
@@ -202,26 +213,31 @@ else if($_SESSION["login"])
                     $_schede_report_master .= "<p class='mancanoCards' >Qui verranno inseriti i report di sessione che realizzerai</p>";
                 }
 
-                if($_SESSION["count_rep"] == 1)
+                if($_SESSION["count_master"] == 1)
                 {
-                    $html = str_replace("<li><label id=\"LblPartecPrecedente\" for=\"partecPrecedente\">precedente</label></li>
-                    <li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li>", " ", $html);
+                    $html = str_replace("<li><label id=\"LblMasterPrecedente\" for=\"masterPrecedente\">precedente</label></li>", " ", $html);
+                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>", " ", $html);
                 }
 
-                if($_SESSION["count_rep"] == $numero_pag_report)
+                if($_SESSION["count_master"] == $numero_pag_master)
                 {
-                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"partecSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"partecSuccessivo\"></li>  
-                    <li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\">successiva</label></li>", " ", $html);
+                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"masterSuccessivo\"></li>", " ", $html);
+                    $html = str_replace("<li><label id=\"LblMasterSuccessivo\" for=\"masterSuccessivo\">successiva</label></li>", " ", $html);
                 }
 
-                if($_SESSION["count_rep"] <= 5)
+                if($numero_pag_master <= 1)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {report normali}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='report_master'>", "<nav class=\"espandi\" id='report_master' class=\"hidden\">", $html);
                 }
 
-                $html = str_replace("{report_author}", $_schede_report_master, $html);
-                $html = str_replace("{numero attuale master}", $_SESSION["count_master"], $html);
-                $html = str_replace("{numero di master}", $numero_pag_master, $html);
+                $html = str_replace("<report_author/>", $_schede_report_master, $html);
+                $html = str_replace("<numero_attuale_master/>", $_SESSION["count_master"], $html);
+                $html = str_replace("<numero_di_master/>", $numero_pag_master, $html);
+
+
+                //  ---------------------------------------------------------------------------------------------------------------------------
+                //                                                  REPORT PARTECIPANTE
+                // ----------------------------------------------------------------------------------------------------------------------------
 
 
                 $_schede_report = "";
@@ -257,30 +273,34 @@ else if($_SESSION["login"])
                     $_schede_report .= "<p class='mancanoCards' >Non appena verrai citato come giocatore in qualche report di sessione vedrai apparire qui quei report</p>";
                 }
 
-                $html = str_replace("{report}", $_schede_report, $html);
-                $html = str_replace("{numero attuale report}", $_SESSION["count_rep"], $html);
-                $html = str_replace("{numero di report}", $numero_pag_report, $html);
-
-                if($_SESSION["count_master"] == 1)
+                if($_SESSION["count_rep"] == 1)
                 {
-                    $html = str_replace("<li><label id=\"LblMasterPrecedente\" for=\"masterPrecedente\">precedente</label></li>
-                    <li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>", " ", $html);
+                    $html = str_replace("<li><label id=\"LblPartecPrecedente\" for=\"partecPrecedente\">precedente</label></li>", " ", $html);
+                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li>", " ", $html);
                 }
 
-                if($_SESSION["count_master"] == $numero_pag_master)
+                if($_SESSION["count_rep"] == $numero_pag_report)
                 {
-                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"masterSuccessivo\"></li> 
-                    <li><label id=\"LblMasterSuccessivo\" for=\"masterSuccessivo\">successiva</label></li>", " ", $html);
+                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"partecSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"partecSuccessivo\"></li>", " ", $html);
+                    $html = str_replace("<li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\">successiva</label></li>", " ", $html);
                 }
 
-                if($_SESSION["count_master"] <= 5)
+                if($numero_pag_report <= 1)
                 {
-                    $html = str_replace("<nav class=\"espandi\"> {report master}", "<nav class=\"espandi\" class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='report_normale'>", "<nav class=\"espandi\" id='report_normale' class=\"hidden\">", $html);
                 }
+
+                $html = str_replace("<report/>", $_schede_report, $html);
+                $html = str_replace("<numero_attuale_report/>", $_SESSION["count_rep"], $html);
+                $html = str_replace("<numero_di_report/>", $numero_pag_report, $html);
+
+
+
+
+
+
 
                 $html = addPossibleBanner($html, "area_personale.php");
-
-
 
                 echo $html;
 
