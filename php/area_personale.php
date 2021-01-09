@@ -2,6 +2,8 @@
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
+echo "COSA EEEEEEE'". isset($SESSION["espandiPers"]);
+
 if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
     clearSession();
     $_SESSION["first_logged"]=true;
@@ -176,9 +178,7 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
-                $SESSION["espandiPers"] = true;
 
-                echo "COSA EEEEEEE'". isset($SESSION["espandiPers"]);
                 if((isset($SESSION["espandiPers"])) || $_SESSION["num_pers"] <= 4)
                 {
                     echo  "HOOOOOOOOOO  OMMMMMMOOOOOOOO";
