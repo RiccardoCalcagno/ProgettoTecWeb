@@ -159,10 +159,11 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
-                if(isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
+                if((isset($SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true) || $_SESSION["num_pers"] <= 4)
                 {
                     $html = str_replace("<nav class=\"espandi\" id='espandi_pers'>", "<nav class=\"hidden\">", $html);
                     $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
+
                     $_SESSION["espandiPers"] = false;
                 }
 

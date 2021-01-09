@@ -54,8 +54,8 @@
         else
         {
             $db->openConnection();
-            $modify_user = new UserData($username, $name_surname, $email, $new_password, $birthdate, $username, $img_path);
-            if($db->setUser($modify_user, $username))
+            $modify_user = new UserData($username, $name_surname, $email, $new_password, $birthdate, $img_path);
+            if($db->setPassword($modify_user))
             {
                 $db->closeConnection();
                 $_SESSION["username"] = $username;

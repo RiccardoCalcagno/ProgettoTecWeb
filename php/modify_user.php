@@ -15,7 +15,7 @@
 
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
-//	echo "trovati errori";
+	echo "trovati errori";
 
         $username = $_POST["future_username"];
         $name_surname = $_POST["NomeCognome"];
@@ -26,29 +26,46 @@
         $err = $_SESSION["err"];
 
         if($err["user_already_exist"])
-            str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">","<p id=\"UserAlreadyExists\">", $html);
+	{
+            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">","<p id=\"UserAlreadyExists\">", $html);
+	}
 
-        if($err["user_empty"])   
-            str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
+        if($err["user_empty"])
+	{   
+            $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
+	}
 
         if($err["email_err"])
-            str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
-            
+	{
+            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
+	}        
+    
         if($err["email_already_exist"])
-            str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
+	{
+            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
+	}
 
         if($err["empty_name"])
-            str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
+	{
+            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
+	}
 
         if($err["old_password_err"])
-            str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">","<p id=\"OldPasswdErr\">", $html);
+	{
+echo "errore vecchia password";
+            $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\">", $html);
+	}
 
         if($err["new_password_empty"])
-            str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
+	{
+            $html = str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
+	}
 
         if($err["rep_passwd_err"])
-            str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
-    
+	{
+            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
+	}    
+
 	unset($_SESSION["err"]);
     }
 
