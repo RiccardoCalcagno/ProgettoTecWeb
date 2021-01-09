@@ -132,14 +132,26 @@ else if($_SESSION["login"])
             //                                                  SCHEDE GIOCATORE
             // ----------------------------------------------------------------------------------------------------------------------------
 
-
             $_schede_personaggio = "";
 
             for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
             {
+                $urlImgRace="../img/icone_razze";
+                switch($_SESSION["character_data"][$i]->get_race()){
+                case 'Umano': $urlImgRace.="umano.png\" alt='volto di una giovane donna di colore ornata di gioielli'";break;
+                case 'Elfo': $urlImgRace.="elfo.png\" alt='volto di elfo incappucciato con una faccia truce e scura'";break;
+                case 'Nano': $urlImgRace.="nano.png\" alt='volto di una nano fantasy con capelli rossi e con un espressione arrabbiata'";break;
+                case 'Halfling': $urlImgRace.="halfing.png\" alt='volto di una piccola donna che sta ridendo, ha un naso a punta e sopracciglia maliziose'";break;
+                case 'Gnome': $urlImgRace.="gnomo.png\" alt='volto di un piccolo essere dai lineamenti femminili orecchie a punta capelli lunghi al vento'";break;
+                case 'Tiefling': $urlImgRace.="tiefling.png\" alt='volto di donna con pelle di colore rossastro capelli lunghi neri e orecchie a punta, in abito nobile'";break;
+                case 'Dragonide': $urlImgRace.="dragonide.png\" alt='essere dal volto simile a quello di un drago con squame rosse'";break;
+                case 'Mezzelfo': $urlImgRace.="mezzelfo.png\" alt='volto di un umano sereno con una corona in testa e orecchie a punta non accentuata'";break;
+                case 'Mezzorco': $urlImgRace.="mezzorco.png\" alt='volto di un orchessa con lunghi capelli marroni, pelle violacea, piccole zanne alla bocca e orecchie a punta'";break;
+                }
+
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
                 <button name=\"Personaggio\" value=\"" . $_SESSION["character_data"][$i]->get_id() . "\">
-                    <img src=\"" . null . "\" alt=\"\" />                 
+                    <img src=\"" . $urlImgRace . " />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
                     <ul>
                         <li><h5>Razza </h5><p classe=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</p></li>        
