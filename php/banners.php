@@ -185,6 +185,19 @@
                     </form>";
                     unset($_SESSION['banners_ID']);
                 break;
+                case "confermare_eliminazione_commento":
+                    $htmlBanner .= "
+                    <h1>Confermare Eliminazione</h1>
+                    <h2>Sei sicuro di voler eliminare questo commento?</h2>
+                    <p>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
+                    <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
+                        <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
+                        <input type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO'/>
+                        <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']['ReportID']." />
+                        <input type='hidden' id='CommentID' name='CommentID' value=".$_SESSION['banners_ID']['CommentID']." />
+                    </form>";
+                    unset($_SESSION['banners_ID']);
+                break;
             }
 
             $htmlBanner .= "</div></div>";
