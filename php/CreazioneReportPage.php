@@ -92,24 +92,19 @@
  
 
             if(isset($_GET['salvaRep'])){
-
-                echo " -titolo :". $titolo . " -sottotitolo :". $sottotitolo ." -condividi :". $condividi . " -listaGioc:".$lista_giocatori;
     
                 if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
     
                 if(isset($_SESSION['username'])) {
 
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
-                    
+
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
-                    
-                    echo "";
     
                     if($connection){
                         $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
-    
-                        echo " -RISULATO_AGGIUNT :". $result;
+
                         if($result){
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                             //azzero la form
