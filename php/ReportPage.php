@@ -243,6 +243,8 @@ else {
                         </ul>
                         <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />
                     </form>';
+
+            $hiddenReportID = ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
         }
         else if ($report_info->get_isExplorable()) {    // commenti anche se non autore
             $hiddenReportID = ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
