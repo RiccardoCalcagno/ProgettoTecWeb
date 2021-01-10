@@ -60,6 +60,9 @@
             $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale">', $html);
         }
 
+        if(!isset($_SESSION["stagedPersonaggi"])) {$_SESSION["stagedPersonaggi"]=array();}
+        if(!isset($_SESSION["stagedReports"])) {$_SESSION["stagedReports"]=array();}
+
         return $html;
     }
     
