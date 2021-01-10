@@ -6,23 +6,11 @@
     $_SESSION['stagedReports']=array();
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
+    $_POST["username"]="user";
+    $_POST["password"]="user";
 
-    if(isset($_SESSION['stagedReports'])){
-        echo " -NotNUllBefClear: ".$_SESSION['stagedReports']==null;
-        if ($_SESSION['stagedReports']){
-            echo " -titleBefClear: ".$_SESSION['stagedReports'][0]->get_title();
-        }
-    }
-    echo "preparato";
+
     clearSession(); // ok ?
-    echo "superato";
-    if(isset($_SESSION['stagedReports'])){
-        echo " -NotNUllAftClear: ".$_SESSION['stagedReports']==null;
-        if ($_SESSION['stagedReports']){
-            echo " -titleAftClear: ".$_SESSION['stagedReports'][0]->get_title();
-        }
-    }
-    exit();
 
     $db = new DBinterface();
 
