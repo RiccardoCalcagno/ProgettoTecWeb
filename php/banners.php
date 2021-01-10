@@ -179,9 +179,11 @@
                     <h2>Sei sicuro di voler eliminare questo report di sessione?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
-                        <a class='annulla' href='../php/ReportPage.php'>ANNULLA</a>
+                        <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
                         <input type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                        <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
                     </form>";
+                    unset($_SESSION['banners_ID']);
                 break;
             }
 

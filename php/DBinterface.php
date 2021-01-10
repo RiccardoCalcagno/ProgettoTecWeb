@@ -376,7 +376,14 @@
         public function deleteReport($id)
         {
             $id = clean_input($id);
+            $this->deleteAllComments($id);
             $query = "DELETE FROM Report WHERE id = '" . $id . "';";
+            $done =   mysqli_query($this->connection, $query);
+            return $done;
+        }
+
+        public function deleteAllComments($id) {
+            $query = "DELETE FROM Comments WHERE report = '" . $id . "';";
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }

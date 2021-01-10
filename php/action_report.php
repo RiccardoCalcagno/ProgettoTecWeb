@@ -83,19 +83,42 @@
         header("Location: ReportPage.php");
     }
 
-    if(isset($_GET["eliminaCommento"]))
+    if(isset($_POST["eliminaCommento"]))
     { 
+        // conferma? feedback?
         $db->openConnection();
         $db->deleteComments($_GET["eliminaCommento"]);
         $db->closeConnection();
         header("Location: ReportPage.php");
     }
 
-    if(isset($_GET["FtAct_DeleteReport"]))
-    {
+    if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {
         $_SESSION['banners']="confermare_eliminazione_report";
-        header("Location: ReportPage.php");
+        $_SESSION['banners_ID'] = $_GET['ReportID'];    // PASSAGGIO PER CAMPO HIDDEN
+        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']);
     }
+
+    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA' ) {
+        // Serve una pagina solo per questo ? o anche solo una function ? .
+            $db = new DBinterface();
+            if($db->openConnection()) {
+    
+                $done = $db->deleteReport($_POST['ReportID']);
+                $db->closeConnection();
+        
+                if ($done) {
+                    // FEEDBACK? like $_SESSION['AP_message'] = 'Cancellazione Riuscita.'; // e poi metterlo in AreaP
+                    header("Location: area_personale.php");
+                }
+                else {
+                    errorPage("Cancellazione Report non riuscita. Riprovare piu' tardi.");
+                }
+            }
+            else {
+                errorPage("Connessione DB non riuscita.");
+            }
+    
+        }
 
     if(isset($_GET["FtAct_PublicReport"]))
     {

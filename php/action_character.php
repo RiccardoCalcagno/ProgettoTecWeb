@@ -42,7 +42,7 @@
         if($_GET['charAction'] == "ELIMINA") {
 
             $_SESSION['banners']="confermare_eliminazione_personaggio";
-            $_SESSION['banners_ID'] = $_GET['charID'];
+            $_SESSION['banners_ID'] = $_GET['charID'];  // PASSAGGIO PER CAMPO HIDDEN
             header("Location: CharacterPage.php?charID=".$_GET['charID']);  // Ignora ELIMINA on Page Refresh (voluto)
         }
     }
@@ -59,7 +59,7 @@
         }
     }
 
-    if (isset($_POST['documento']) ) {
+    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA' ) {
     // Serve una pagina solo per questo ? o anche solo una function ? .
         $db = new DBinterface();
         if($db->openConnection()) {
