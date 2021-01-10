@@ -8,11 +8,11 @@
         private $author;
         private $report;
 
-        public function __construct($text, $author, $report, $id = null)
+        public function __construct($text, $author, $report, $id = null, $date = null)
         {
-        //    $this->id = $id;
+            $this->id = $id;
             $this->author = $author;
-        //    $this->date = $date;
+            $this->date = $date;
             $this->report = $report;
             $this->text=$text;
         }
@@ -30,8 +30,7 @@
 
         public function get_date()
         {
-          //  return $this->date;
-          return "(sistemare date commento)";
+          return $this->date;
         }
 
         public function get_author()

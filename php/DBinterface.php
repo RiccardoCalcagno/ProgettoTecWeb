@@ -326,7 +326,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result || mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! getReport";
+                echo "Spiacenti! Report non trovato";
                 return null;
             }
             else {
@@ -628,7 +628,7 @@
             {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $comment = new Comments($row["testo"], $row["author"], $row["report"], $row['id']);          
+                    $comment = new Comments($row["testo"], $row["author"], $row["report"], $row['id'], $row['data_ora']);          
                     array_push($comments, $comment);
                 }
             }
@@ -797,7 +797,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             if(mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! getReportForPertecipant";
+                echo "Spiacenti! Report non trovato";
                 return null;
             }
             else {
