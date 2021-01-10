@@ -43,6 +43,7 @@ else {
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Report.html');
     $html = setup($html);
     unset($_SESSION["first_logged"]);
+    unset($_SESSION["listaGiocatori"]);
 
     $dbInterface = new DBinterface();
     $connection = $dbInterface->openConnection();
@@ -194,9 +195,9 @@ else {
                 $replacer .= '<p class="textVariable">'.$commentsArray[$i]->get_author().'</p></div>';
                 $replacer .= '<div class="testoCommento">';
                 $replacer .= '<p>'.$commentsArray[$i]->get_text().'</p>';
-                $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i]->get_date().'</p></div>';
+                $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i]->get_date().'</p></div>';      // TO FIX __________________----------------------------------------------------------------------------------------------------------------------
                 if($commentsArray[$i]->get_author()==$_SESSION["username"]){
-                    $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i].get_id().'"/></li>';
+                    $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i]->get_id().'"/></li>';
                 }
             }
         }

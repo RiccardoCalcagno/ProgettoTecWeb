@@ -5,6 +5,7 @@ require_once("character.php");
 require_once("banners.php");
 
 unset($_SESSION["first_logged"]);
+unset($_SESSION["listaGiocatori"]);
 
 function characterPage($charID) {
 

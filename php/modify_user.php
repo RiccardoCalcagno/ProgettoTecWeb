@@ -4,9 +4,10 @@
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     if(!$html)
-	header("Location: 404.php");
+    header("Location: 404.php");
     //$html = setup($html);   // setup_clear() ?
     unset($_SESSION["first_logged"]);
+    unset($_SESSION["listaGiocatori"]);
 
 
     $username = $_SESSION["username"];
@@ -27,10 +28,10 @@
 
         $err = $_SESSION["err"];
 
-	if($err["img_err"])
-	{
-	    $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
-	}
+    if($err["img_err"])
+    {
+        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+    }
 
         if($err["user_already_exist"])
     {

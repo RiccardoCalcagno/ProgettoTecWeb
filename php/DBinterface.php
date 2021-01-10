@@ -40,7 +40,7 @@
             $name = clean_input($name);
             $password = clean_input($password);
 
-            $query = "SELECT username, name_surname, email, passwd, birthdate, img_path
+            $query = "SELECT username, name_surname, email, passwd, birthdate, img_path, id 
                       FROM Users
                       WHERE Users.username = '".$name."' AND Users.passwd = '".$password."';";
 
@@ -62,7 +62,8 @@
                                     $user_data["email"], 
                                     $user_data["passwd"], 
                                     $user_data["birthdate"], 
-                                    $user_data["img_path"]);
+                                    $user_data["img_path"],
+                                    $user_data["id"]);
             }  
         }
 
@@ -313,11 +314,14 @@
         //-----------------------------------------------------------------------------------------------------------------
         // FUNZIONI RELATIVE AI REPORT
         //-----------------------------------------------------------------------------------------------------------------
+
         public function getReport($id_report) {
             $id_report = clean_input($id_report);       // Report.author_img
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Report.last_modified  
-                      FROM Report 
-                      WHERE Report.id = '".$id_report."';";
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
+                    "FROM Report ". 
+                    "INNER JOIN Users ".
+                    "ON Users.id = Report.author ". 
+                    "WHERE Report.id = '" . $id_report . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -328,25 +332,20 @@
             else {
                 $row = $query_result->fetch_assoc();
                 return new ReportData($row["id"], 
-                                        $row["title"], 
-                                        $row["subtitle"], 
-                                        $row["content"], 
-                                        $row["author"], 
-                                        $row["isExplorable"], 
-                 //                       $row["author_img"],  TO FIX
-                                        $row["last_modified"]);
-                /*
-                return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
-
-                $row_arr = $query->mysqli_fetch_assoc(MYSQLI_ASSOC);
-                return $row_arr;
-                */
+                                    $row["title"], 
+                                    $row["subtitle"], 
+                                    $row["content"], 
+                                    $row["author"], 
+                                    $row["isExplorable"], 
+                                    DBinterface::getALLForReport($row["id"]),
+                                    $row["img_path"], 
+                                    $row["last_modified"]);
             }
         }
 
         // aggiunta di un report
         public function addReport(ReportData $report_data){
-            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified)".
+            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified) ".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
@@ -365,7 +364,7 @@
                      "    content         = '" . $report_data->get_content() . "', ".
                      "    author         = '" . $report_data->get_author() . "', ".
                      "    isExplorable     = '" . $report_data->get_isExplorable() . "', ".
-                     "    author_img     = '" . $report_data->get_isExplorable() . "', ".
+                     "    author_img     = '" . $report_data->get_author_img() . "', ".
                      "    last_modified = '" . $report_data->get_last_modified() . "' ";
                      "WHERE id = '" . $report_data->get_id() . "';";
 
@@ -615,7 +614,7 @@
         {
             $comments = array();
             $id_report = clean_input($id_report);
-            $query = "SELECT Comments.id, Comments.tex, Comments.date_time, Comments.author, Comments.report ".
+            $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
                      "FROM Comments ". 
                      "WHERE Comments.report = '" . $id_report . "';";
 
@@ -629,7 +628,7 @@
             {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $comment = new Comments($row["id"], $row["testo"], $row["data_ora"], $row["author"], $row["report"]);          
+                    $comment = new Comments($row["testo"], $row["author"], $row["report"], $row['id']);          
                     array_push($comments, $comment);
                 }
             }
@@ -774,7 +773,7 @@
           $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report_id."';";
           $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result->num_rows){
+            if($query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $user_id = $row["user"];         

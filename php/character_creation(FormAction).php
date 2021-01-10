@@ -230,6 +230,7 @@ function Char_Form($toEdit) {
 }
 
 unset($_SESSION["first_logged"]);
+unset($_SESSION["listaGiocatori"]);
 
 $toEdit = false;
 
