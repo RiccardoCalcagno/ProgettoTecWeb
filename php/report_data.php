@@ -53,7 +53,7 @@
 
         public function set_author($var) 
         {
-            $author = $var;
+            $author =  "user";  //$var;
         }
 
         public function set_isExplorable($var) 
