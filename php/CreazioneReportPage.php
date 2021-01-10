@@ -101,6 +101,8 @@
     
                 if(isset($_SESSION['username'])) {
     
+                    $rep->set_author($_SESSION['username']);
+
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
                     
