@@ -140,7 +140,7 @@
         <p class="campiObbligatori"> : campo obbligatorio</p>
         
         <div class="userFields">
-            <form id="datiUtenza" autocomplete="on" class="creazioneFields"; onsubmit="return validateChangeUserData();" action="../php/modify.php" method="post">
+            <form id="datiUtenza" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserData();" action="../php/modify.php" method="post" enctype="multipart/form-data">
             <div>
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
@@ -148,6 +148,7 @@
                     <img class="hidden"  id="immagine_profilo" alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="<img>" onload="removeHidden('immagine_profilo');">
                     <label for="imgProfilo">Immagine profilo</label>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();"/>
+		    <p id="ImgErr" class="hidden"> L'immagine esiste già o ha un formato sbagliato </p>
                     </li>
                     <li>
             

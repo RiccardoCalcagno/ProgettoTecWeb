@@ -3,6 +3,8 @@
     require_once("GeneralPurpose.php");
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
+    if(!$html)
+	header("Location: 404.php");
     //$html = setup($html);   // setup_clear() ?
     unset($_SESSION["first_logged"]);
 

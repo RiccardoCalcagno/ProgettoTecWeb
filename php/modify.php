@@ -120,7 +120,7 @@
             else
             {
 		$db->closeConnection();
-                header("Location: 404.php");
+                header("Location: Errore.php");
                 exit();
             }
         }
