@@ -14,7 +14,7 @@
 
     if($user_data)
     {
-        session_start();
+        $_SESSION['userID'] = $user_data->get_id();     // TO FIX Forse 
         $_SESSION["username"] = $user_data->get_username();
         $_SESSION["name_surname"] = $user_data->get_name_surname();
         $_SESSION["email"] = $user_data->get_email();

@@ -4,6 +4,7 @@
 
     class UserData {
         
+        private $id;
         private $username;
         private $name_surname;
         private $email;
@@ -11,7 +12,7 @@
         private $birthdate;
         private $img_path;
     
-        public function __construct($username, $name_surname, $email, $passwd, $birthdate, $img_path = null) 
+        public function __construct($username, $name_surname, $email, $passwd, $birthdate, $img_path = null, $id=null) 
         {
             $this->id=$id;
             $this->username=$username;
@@ -52,6 +53,11 @@
         public function set_img_path($var) 
         {
             $img_path = $var;
+        }
+
+        public function get_id()
+        {
+            return $this->id;
         }
 
         public function get_username()
