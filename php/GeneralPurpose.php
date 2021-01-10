@@ -32,14 +32,8 @@
             }
             if($_SESSION['stagedReports']){
                 foreach ($_SESSION['stagedReports'] as &$report){
-                    echo "hoooooooi";
-                    exit();
-                    echo "user: ".$_SESSION['username']. " -funct:".$report->set_author($_SESSION['username']);
-                    echo " -actual: ".$report->get_author();
-                    $result = $db->addReport($report);  
-                    echo " -risultatoAggiunta:".$result;
-                    exit();
-
+                    $report->set_author($_SESSION['username']);
+                    $result = $db->addReport($report);
                     if(!$result){
                         $report->set_title("Errore di Salvataggio");
                         return -1;
