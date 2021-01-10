@@ -790,6 +790,23 @@
             return $usersINreport;
         }
 
+        public function getALLUsernamesForReport($report_id){
+            $usersINreport = array();
+          $report_id = clean_input($report_id);
+          $query = "SELECT Users.username FROM report_giocatore RG JOIN Users ON RG.user = Users.id WHERE RG.report = '".$report_id."';";
+          $query_result = mysqli_query($this->connection, $query);
+
+            if($query_result->num_rows){
+                while($row = mysqli_fetch_assoc($query_result))
+                {
+                    $username = $row["username"];         
+                    array_push($usersINreport, $username);
+                }
+            }
+
+            return $usersINreport;
+        }
+
         public function getReportForPertecipant($id_report, $partecipant)
         {
             $id_report = clean_input($id_report);
