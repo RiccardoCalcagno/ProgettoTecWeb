@@ -4,13 +4,29 @@
     if( session_status() == PHP_SESSION_NONE ) {
         session_start();
     }
-    if(isset($_POST["PostRep"]))
-    {
-        $_POST["PostRep"]->set_isExplorable(true);
-        $db->openConnection();
-        $db->setExplorable($_POST["PostRep"]->get_id(), true);
-        $db->closeConnection();
+
+    if(isset($_GET["PostRep"])) {   // Pubblica in esplora, da AreaPersonale
+        $_SESSION['banners'] = "confermare_pubblica_esplora";
+        $_SESSION['banners_ID'] = $_GET['PostRep'];    // PASSAGGIO PER CAMPO HIDDEN
+        //header("Location: area_personale.php");
+        header("Location: ReportPage.php?ReportID=".$_GET['PostRep']);
+        exit();
+    }
+
+    if ( isset($_POST['documento']) && $_POST['documento'] == 'PUBBLICA') {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+        $db = new DBinterface();
+        if( $db->openConnection() ) {
+            if (!$db->setExplorable($_POST['ReportID']) ) {
+                errorPage("Pubblicazione fallita. Riprovare piu' tardi");
+            }
+            $db->closeConnection();
+        }
+        else {
+            errorPage("Can't connect to DB");
+        }
+// feedback?
         header("Location: area_personale.php");
+        exit();
     }
 
     if(isset($_POST["RemoveRep"]))
@@ -87,8 +103,6 @@
         $_SESSION['banners']="confermare_eliminazione_commento";
         $_SESSION['banners_ID'] = array("ReportID" => $_POST['ReportID'], "CommentID" => $_POST['eliminaCommento']);    // PASSAGGIO PER CAMPO HIDDEN
         header("Location: ReportPage.php?ReportID=".$_POST['ReportID']);
-        
-        
     }
 
     if(isset($_POST["documento"]) && $_POST['documento'] == 'ELIMINA COMMENTO') {   // Eliminazione commento, da banner conferma_eliminazine in ReportPage.php
@@ -107,13 +121,13 @@
         header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]);
     }
 
-    if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {    // Eliminazione Report, da banner conferma_eliminazine in ReportPage.php
+    if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {    // Eliminazione Report, da ReportPage.php 
         $_SESSION['banners']="confermare_eliminazione_report";
         $_SESSION['banners_ID'] = $_GET['ReportID'];    // PASSAGGIO PER CAMPO HIDDEN
         header("Location: ReportPage.php?ReportID=".$_GET['ReportID']);
     }
 
-    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA' ) {  // Eliminazione Report, da ReportPage.php
+    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA' ) {  // Eliminazione Report, da banner conferma_eliminazine in ReportPage.php
         // Serve una pagina solo per questo ? o anche solo una function ? .
             $db = new DBinterface();
             if($db->openConnection()) {
