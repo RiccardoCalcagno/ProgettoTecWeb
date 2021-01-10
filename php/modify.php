@@ -1,7 +1,8 @@
 <?php 
 
     require_once("DBinterface.php");
-    
+    require_once("Errore.php");
+
     $modify_user = null;
     $err = array();
 
@@ -11,11 +12,10 @@
     $passwd = $_SESSION["passwd"];
     $birthdate = $_POST["birthdate"];
 
-    if(!$_FILES["imgProfilo"])
-	$img = null;
-    else
+    if( !empty($_FILES["imgProfilo"]["name"]))
 	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
-    
+    else
+	$img = $_SESSION["img"];
 
     try {
         $db = new DBinterface();
@@ -120,7 +120,7 @@
             else
             {
 		$db->closeConnection();
-                header("Location: Errore.php");
+		error("Spiacenti! Qualcosa è andato storto"); 
                 exit();
             }
         }

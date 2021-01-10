@@ -116,12 +116,6 @@ else if($_SESSION["login"])
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
 
-
-
-        $html = setup($html);
-
-
-
         if(!$html) 
         {
             header("Location: 404.php");
@@ -129,7 +123,7 @@ else if($_SESSION["login"])
         }
         else
         {
-            if($_SESSION["img"] == "")
+            if($_SESSION["img"] == "" || !file_exists($_SESSION["img"]))
             {
                 $_SESSION["img"] = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "img_profilo_mancante.png";
             }
