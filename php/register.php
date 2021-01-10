@@ -6,6 +6,7 @@
     $html = setup($html);   // setup_clear () ?  Ha poco senso questa fuznzione, se accedo alla pagina di registrazione io non sono loggato. Non lascio accedere a questa pagina un utente loggato, quindi i pulsati del menù rimangono invariati
 
     unset($_SESSION["first_logged"]);
+    unset($_SESSION["listaGiocatori"]);
 
     $username = ""; $name_surname = ""; $img = ""; $birthdate = ""; $email = "";
 
@@ -71,7 +72,7 @@
     }
 
 
-    	unset($_SESSION);
+        unset($_SESSION);
         session_destroy();      
     }
 

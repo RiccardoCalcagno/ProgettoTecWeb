@@ -5,6 +5,7 @@
     require_once("GeneralPurpose.php");
 
     unset($_SESSION["first_logged"]);
+    unset($_SESSION["listaGiocatori"]);
 
     $new_user = null;
     $err = array();
@@ -17,12 +18,12 @@
     $birthdate = $_POST["birthdate"];
 
 
-//	echo "poco prima dell'inserimento img";
+//    echo "poco prima dell'inserimento img";
 //    echo $_FILES;    
     if(!$_FILES["imgProfilo"])
-	$img = null;
+    $img = null;
     else
-    	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
+        $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
 //  echo " controlla che ci sia qualcosa in Files ";
 
 
@@ -100,37 +101,37 @@
         $db->closeConnection();
 
 
-	    if($img)
-	    {
-//	echo " Controllo img non null passato ";
-		$err["img_err"] = validateImg($img, $_FILES["imgProfilo"]);
+        if($img)
+        {
+//    echo " Controllo img non null passato ";
+        $err["img_err"] = validateImg($img, $_FILES["imgProfilo"]);
 //echo " fa validazione img ";
 
-	    	if(!$err["img_err"])
-	    	{
-//	echo " non ci sono errori";
-		    if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
-		    {
-//			echo "upload avvenuto correttamente ";
-		    	$err["img_err"] = false;
-		    }
-		    else
-		    {
-		    	header("Location: Errore.php");
-		    	exit();
-		    }
-		}
-	    	else
-	    	{
-//			echo " ci sono errori ";
-		    $img = null;
-	    	}
-	   }
-	   else
-	   {
+            if(!$err["img_err"])
+            {
+//    echo " non ci sono errori";
+            if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+            {
+//            echo "upload avvenuto correttamente ";
+                $err["img_err"] = false;
+            }
+            else
+            {
+                header("Location: Errore.php");
+                exit();
+            }
+        }
+            else
+            {
+//            echo " ci sono errori ";
+            $img = null;
+            }
+       }
+       else
+       {
 //echo " img nulla";
-		$err["img_err"] = false;
-	   }
+        $err["img_err"] = false;
+       }
 
 
             if(in_array(true, $err))

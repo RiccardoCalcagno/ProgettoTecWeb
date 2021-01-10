@@ -71,181 +71,138 @@
 
 
 
-    /*
-            IMPORTANTE !!!!!!!!!!!!!!!
-
-            EFFETTO LATO PHP del PULSANTE MODIFICA nella visualizzazione del REPORT:                (Lo stesso vale per i personaggi)
-                    - $_SESSION['report_in_creazione'] inizializzato a $_SESSION["report_id"]
-            
-            I QUESTO FILE PRIMA DELL' IF: if(isset($_GET['salvaRep'])) vanno messe le sostituzioni HTML per creare il giusto documento: creazione o modifica
-
-        ----------------------------------------------------------------------------------------------------------------
-    */
-
-    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
 
 
-    echo "La var: ".$_GET['salvaRep']. " - ";
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();  $id_report=null;
 
-    if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
+    if(isset($_SESSION['listaGiocatori'])){
 
-        if(isset($_GET['salvaRep'])){
+        if($toEdit){
+            $id_report= $_SESSION['report_id'];
+        }
+        $lista_giocatori = $_SESSION['listaGiocatori'];
 
+        if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
             $condividi = (isset($_GET['condividi']));
-            if($_SESSION['report_in_creazione']){
-                $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
+    
+ 
+
+            if(isset($_GET['salvaRep'])){
+    
+                if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
+    
+                $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
+    
+                if(isset($_SESSION['username'])) {
+    
+                    $dbInterface = new DBinterface();
+                    $connection = $dbInterface->openConnection();
+    
+                    if($connection){
+                        $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
+    
+                        if($result){
+                            $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
+                            //azzero la form
+                            $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
+                        }else{
+                            //messaggi di errore inserimento nel DB
+                            $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                        }
+                    }
+                    else{
+                        //errore di connessione al DB
+                        $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                    }
+                    $dbInterface->closeConnection();
+                }else{
+                    array_push($_SESSION['stagedReports'], $rep);
+                    $_SESSION['banners']= "salvataggio_pendente";
+                }
+    
+                }else{
+                $message = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
+                if (strlen($titolo) == 0) {
+                    $message.='<li>titolo troppo corto</li>';
+                }
+                if (strlen($sottotitolo) == 0) {
+                    $message .='<li>sottotitolo troppo corto</li>';
+                }
+                if (strlen($contenuto) == 0) {
+                    $message.='<li>contenuto troppo corto</li>';
+                }
+                $message .= '</ul></div>';
+                }
+    
+                unset($_SESSION['listaGiocatori']);
             }
+    
 
-            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
-            exit();
-        
-            /*
-            // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
-            $rep = $_SESSION['report_in_creazione'];
-            $titolo = $rep->get_titolo();
-            $sottotitolo = $rep->get_sottotitolo();
-            $contenuto = $rep->get_contenuto();
-            $condividi = $rep->get_condividi();
-            $lista_giocatori = $rep->get_lista_giocatori();
-            */
 
-            if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
-
-            //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-            $rep = new ReportData(null, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
-            //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
-            $_SESSION['report_in_creazione'] = $rep;
-
-            if($toEdit) $rep->set_id($_SESSION['report_id']);
-
-            if(isset($_SESSION['username'])) {
-                
-                $rep->set_author($_SESSION['username']); 
+            if(isset($_GET['aggiungiGiocatore'])){
 
                 $dbInterface = new DBinterface();
                 $connection = $dbInterface->openConnection();
-
+    
                 if($connection){
-                    $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
-
-                    if($result){
-                        $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
-                        //azzero la form
-                        $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
-                        unset($_SESSION['salvaRep']);
-                    }else{
-                        //messaggi di errore inserimento nel DB
-                        $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                    if( ($dbInterface->existUser($_GET['usernameGiocatore'])) && (array_search($_GET['usernameGiocatore'],$lista_giocatori) === false) ){
+                        //aggiungo il giocatore alla lista
+                        array_push($lista_giocatori,$_GET['usernameGiocatore']);
+                        $_SESSION['listaGiocatori'] = $lista_giocatori;
+    
+                        $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
                     }
+                    else if(!(array_search($_GET['usernameGiocatore'],$lista_giocatori) === false)){
+                        $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
+                    }
+                    else{
+                        $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
+                    }
+    
+                    $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
                 }
-                else{
-                    //errore di connessione al DB
-                    $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                else {
+                    $message = '<div id="errori"><p>Errore nella connessione. Riprovare.</p></div>';
                 }
+    
                 $dbInterface->closeConnection();
-            }else{
-                array_push($_SESSION['stagedReports'], $rep);
-                $_SESSION['banners']= "salvataggio_pendente";
-            }
-
-            }else{
-            $message = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
-            if (strlen($titolo) == 0) {
-                $message.='<li>titolo troppo corto</li>';
-            }
-            if (strlen($sottotitolo) == 0) {
-                $message .='<li>sottotitolo troppo corto</li>';
-            }
-            if (strlen($contenuto) == 0) {
-                $message.='<li>contenuto troppo corto</li>';
-            }
-            $message .= '</ul></div>';
-            }
-        unset($_SESSION['salvaRep']);
-        }
     
-        if(isset($_GET['aggiungiGiocatore'])){
-            //se ho cliccato su AGGIUNGI per inserire un giocatore nel report, 
-            //ora prendo il valore inserito, lo cerco nel database e lo inserisco se esiste,
-            //riportando poi il caricamento della form
-        
-            //devo tenere anche i dati già inseriti, if any
-            $titolo = $_GET['titolo'];
-            $sottotitolo = $_GET['sottotitolo'];
-            $contenuto = $_GET['contenuto'];
-            $condividi = (isset($_GET['condividi']));
-            if($_SESSION['report_in_creazione']){
-                $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
 
 
-            $dbInterface = new DBinterface();
-            $connection = $dbInterface->openConnection();
 
-            if($connection){
-                if($dbInterface->existUser($_GET['usernameGiocatore']) && array_search($_GET['usernameGiocatore'],$lista_giocatori) === false){
-                    //aggiungo il giocatore alla lista
-                    array_push($lista_giocatori,$_GET['usernameGiocatore']);
-                    $_SESSION['report_in_creazione']->set_lista_giocatori($lista_giocatori);
+            if(isset($_GET['deletePlayer'])){
 
-                    $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
-                }
-                else if(!(array_search($_GET['usernameGiocatore'],$lista_giocatori) === false)){
-                    $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
-                }
-                else{
-                    $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
-                }
-                $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
-            }
-            else {
-                $message = '<div id="errori"><p>Errore nella connessione. Riprovare.</p></div>';
-            }
-
-            $dbInterface->closeConnection();
-
-        }
+                $key = array_search($_GET['deletePlayer'],$lista_giocatori);
+                unset($lista_giocatori[$key]);
     
-        if(isset($_GET['deletePlayer'])){
-            //se ho cliccato sulla X che elimina un giocatore devo toglierlo dalla lista
-        
-            //devo tenere anche i dati già inseriti, if any
-            $titolo = $_GET['titolo'];
-            $sottotitolo = $_GET['sottotitolo'];
-            $contenuto = $_GET['contenuto'];
-            $condividi = (isset($_GET['condividi']));
-            if($_SESSION['report_in_creazione']){
-                $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
+                $_SESSION['listaGiocatori']=$lista_giocatori;
             }
-        
 
-            //rimuovo dalla lista dei giocatori il giocatore
-            $key = array_search($_GET['deletePlayer'],$lista_giocatori);
-            unset($lista_giocatori[$key]);
-
-            //aggiorno la lista nell'oggetto report_in_creazione
-            $_SESSION['report_in_creazione']->set_lista_giocatori($lista_giocatori);
         }
 
     }else{
-        if ($toEdit) {   // Effettuato solo la prima volta, poi $_GET['salvaPers'] avra' valore
+        $_SESSION['listaGiocatori']= array();
+
+        if ($toEdit) {  
 
         $dbInterface = new DBinterface();
         $connection = $dbInterface->openConnection();
 
         if ($connection) {
-            $rep = $_SESSION['report_in_creazione'];
+            $rep = $dbInterface->getReport();
             if($rep) {
                 $titolo = $rep->get_titolo();
                 $sottotitolo = $rep->get_sottotitolo();
                 $contenuto = $rep->get_contenuto();
                 $condividi = $rep->get_condividi();
-                //stampare tutta la lista, foreach
-                $lista_giocatori = $rep->get_lista_giocatori();
+                
+                $_SESSION['listaGiocatori']= $rep->get_lista_giocatori();
+                $lista_giocatori = $_SESSION['listaGiocatori'];
             }
             else {
                 // ERROR PAGE ?
@@ -258,6 +215,9 @@
         $dbInterface->closeConnection();
     }
     }
+
+
+
 
     //--------------------------------------------------------------------
     //il contenuto della pagina viene settato qui

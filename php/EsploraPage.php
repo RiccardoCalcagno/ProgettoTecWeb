@@ -13,6 +13,7 @@ $db = new DBinterface();
 $connection = $db->openConnection();
 
 unset($_SESSION["first_logged"]);
+unset($_SESSION["listaGiocatori"]);
 
 if($connection == false){
     header("Location: Errore.php");

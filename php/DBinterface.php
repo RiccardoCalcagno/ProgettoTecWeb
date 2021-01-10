@@ -313,11 +313,14 @@
         //-----------------------------------------------------------------------------------------------------------------
         // FUNZIONI RELATIVE AI REPORT
         //-----------------------------------------------------------------------------------------------------------------
+
         public function getReport($id_report) {
             $id_report = clean_input($id_report);       // Report.author_img
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Report.last_modified  
-                      FROM Report 
-                      WHERE Report.id = '".$id_report."';";
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
+                    "FROM Report ". 
+                    "INNER JOIN Users ".
+                    "ON Users.id = Report.author ". 
+                    "WHERE Report.id = '" . $id_report . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -328,19 +331,14 @@
             else {
                 $row = $query_result->fetch_assoc();
                 return new ReportData($row["id"], 
-                                        $row["title"], 
-                                        $row["subtitle"], 
-                                        $row["content"], 
-                                        $row["author"], 
-                                        $row["isExplorable"], 
-                 //                       $row["author_img"],  TO FIX
-                                        $row["last_modified"]);
-                /*
-                return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
-
-                $row_arr = $query->mysqli_fetch_assoc(MYSQLI_ASSOC);
-                return $row_arr;
-                */
+                                    $row["title"], 
+                                    $row["subtitle"], 
+                                    $row["content"], 
+                                    $row["author"], 
+                                    $row["isExplorable"], 
+                                    DBinterface::getALLForReport($row["id"]),
+                                    $row["img_path"], 
+                                    $row["last_modified"]);
             }
         }
 

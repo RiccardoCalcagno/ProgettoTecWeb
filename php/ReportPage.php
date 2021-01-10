@@ -43,6 +43,7 @@ else {
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Report.html');
     $html = setup($html);
     unset($_SESSION["first_logged"]);
+    unset($_SESSION["listaGiocatori"]);
 
     $dbInterface = new DBinterface();
     $connection = $dbInterface->openConnection();
