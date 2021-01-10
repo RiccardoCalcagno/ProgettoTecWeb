@@ -326,7 +326,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             if(!$query_result || mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! Report non trovato";
+                echo "Spiacenti! getReport";
                 return null;
             }
             else {
@@ -797,7 +797,7 @@
             $query_result = mysqli_query($this->connection, $query);
 
             if(mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! Report non trovato";
+                echo "Spiacenti! getReportForPertecipant";
                 return null;
             }
             else {
