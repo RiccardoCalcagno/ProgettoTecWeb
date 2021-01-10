@@ -32,9 +32,10 @@
             }
             if($_SESSION['stagedReports']){
                 foreach ($_SESSION['stagedReports'] as &$report){
+                    echo "hoooooooi";
+                    exit();
                     echo "user: ".$_SESSION['username']. " -funct:".$report->set_author($_SESSION['username']);
                     echo " -actual: ".$report->get_author();
-                    exit();
                     $result = $db->addReport($report);  
                     echo " -risultatoAggiunta:".$result;
                     exit();
