@@ -3,6 +3,9 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
+    array_push($_SESSION['stagedReports'], $rep);
+
     if(isset($_SESSION['stagedReports'])){
         echo " -NotNUllBefClear: ".$_SESSION['stagedReports']==null;
         if ($_SESSION['stagedReports']){
