@@ -85,17 +85,13 @@
     $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
 
 
-
-$_GET['salvaRep']="SALVA REPORT";
-
-
+    echo "La var: ".$_GET['salvaRep']. " - ";
 
     if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
         if(isset($_GET['salvaRep'])){
 
-        
-            /*
+
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
@@ -103,16 +99,9 @@ $_GET['salvaRep']="SALVA REPORT";
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
-            */
 
-            $titolo = 'Daiiiiii'; $sottotitolo = 'ad wd awdawdawddawdawdaww awd awda '; $contenuto = 'w dawdawdahdawd awd aw dawdawdawdaw'; 
-            $condividi = false; $lista_giocatori = array();
-
-
-
-
-
-
+            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
+            exit();
         
             /*
             // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
@@ -127,9 +116,11 @@ $_GET['salvaRep']="SALVA REPORT";
             if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
 
             //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-            $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+            $rep = new ReportData(null, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
             //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
             $_SESSION['report_in_creazione'] = $rep;
+
+            if($toEdit) $rep->set_id($_SESSION['report_id']);
 
             if(isset($_SESSION['username'])) {
                 
