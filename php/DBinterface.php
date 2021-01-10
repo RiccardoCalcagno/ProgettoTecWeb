@@ -350,7 +350,7 @@
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
                               "'" . $report_data->get_author() . "', ".
-                              "'" . $report_data->get_isExplorable() . "', ".
+                              "'" . (int)$report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -364,7 +364,7 @@
                      "    content         = '" . $report_data->get_content() . "', ".
                      "    author         = '" . $report_data->get_author() . "', ".
                      "    isExplorable     = '" . $report_data->get_isExplorable() . "', ".
-                     "    author_img     = '" . $report_data->get_isExplorable() . "', ".
+                     "    author_img     = '" . $report_data->get_author_img() . "', ".
                      "    last_modified = '" . $report_data->get_last_modified() . "' ";
                      "WHERE id = '" . $report_data->get_id() . "';";
 
