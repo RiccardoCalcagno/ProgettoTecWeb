@@ -39,7 +39,7 @@
 
     if ( isset($_POST['report']) ) {
         if ($_POST['report'] == 'COMMENTA') {
-            
+
             $_SESSION['RepCommentPOST'] = $_POST;
             header("Location: ReportWriteComment.php");
         }
