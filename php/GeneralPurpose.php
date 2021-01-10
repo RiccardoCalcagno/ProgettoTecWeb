@@ -78,8 +78,8 @@
         unset($_SESSION["character_id"]);
         unset($_SESSION['modificaChar']);
 
-        if(!isset($_SESSION["stagedPersonaggi"])|| $_SESSION["stagedPersonaggi"]==null) {$_SESSION["stagedPersonaggi"]=array();}
-        if(!isset($_SESSION["stagedReports"]) || $_SESSION["stagedReports"]==null) {echo "ciaaooooo";$_SESSION["stagedReports"]=array();}
+        if(!isset($_SESSION["stagedPersonaggi"])){$_SESSION["stagedPersonaggi"]=array();}
+        if(!isset($_SESSION["stagedReports"])){echo "ciaaooooo";$_SESSION["stagedReports"]=array();}
     }
 
     function setup_clear($html) { // Setup generico e clearSession
