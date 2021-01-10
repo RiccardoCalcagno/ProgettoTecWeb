@@ -128,6 +128,8 @@ $_GET['salvaRep']="SALVA REPORT";
 
             //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
             $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+            echo "l'ID è: ".$rep->get_id();
+            exit();
             //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
             $_SESSION['report_in_creazione'] = $rep;
 
