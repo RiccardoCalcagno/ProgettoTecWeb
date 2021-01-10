@@ -226,9 +226,10 @@ else {
         $footerAction = '';
         $hiddenReportID = '';
 
-        if($_SESSION["username"]==$report_info->get_author()){
+        if($_SESSION["username"]==$report_info->get_author()){  // user e' autore report
 
-            $footerAction = '<ul id="footAction">
+            $footerAction = '<form method="GET" action="../php/action_report.php"> 
+                            <ul id="footAction">
                             <li> <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink"/> </li>';
 
             if(!$report_info->get_isExplorable()){
@@ -239,8 +240,11 @@ else {
             $footerAction .=     '<li>
                                 <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink"/> 
                             </li>
-                        </ul>';
-            
+                        </ul>
+                        <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />
+                    </form>';
+        }
+        else if ($report_info->get_isExplorable()) {    // commenti anche se non autore
             $hiddenReportID = ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
         }
         
