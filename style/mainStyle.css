@@ -1806,6 +1806,7 @@ p.campiObbligatori{
 
 #conclusione #submitReport{
     flex: 1 1 25em;
+    margin-bottom: 4em;
 }
 
 
@@ -1831,9 +1832,6 @@ p.campiObbligatori{
 }
 #creazionePersonaggio .fieldss div:last-child{
     flex: 1 1 18em;
-}
-#creazionePersonaggio{
-    padding-bottom: 5em;
 }
 #creazionePersonaggio ol{
     width: 85%;
@@ -1890,6 +1888,7 @@ p.campiObbligatori{
 #submitPersonaggio{
     margin:auto;
     margin-top: 4em;
+    margin-bottom: 4em;
     padding:1.5em;
 }
 #submitPersonaggio p{
@@ -2056,7 +2055,7 @@ p.campiObbligatori{
 ------------------------------------------------------------------------------------------------------------
 */
 
-p.mancanoCards {
+#areaPersonale .mancanoCards{
     display: block;
     font-weight: 500;
     text-align: center;
@@ -2069,6 +2068,10 @@ p.mancanoCards {
 
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
+
+#dashboard{
+    padding-bottom: 3em;
+}
 
 #dashboard h3{
     font-size: 2em;
@@ -2103,7 +2106,7 @@ p.mancanoCards {
 /*----------------------- CARDS GENERICHE --------------------------
 */
 
-.cards > li{
+.cards > li, .expanded > li{
     border-radius: 0.5em;
     box-shadow: 5px 5px 3px #74747488;
     overflow: hidden;
@@ -2157,7 +2160,7 @@ p.mancanoCards {
     width: calc(100% - 1em);
     display: flex;
     flex-wrap: wrap;
-    overflow: hidden;
+    overflow: auto;
     justify-content: center;
 }
 

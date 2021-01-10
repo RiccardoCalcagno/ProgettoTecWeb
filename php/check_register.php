@@ -4,6 +4,8 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    unset($_SESSION["first_logged"]);
+
     $new_user = null;
     $err = array();
 
@@ -14,6 +16,7 @@
     $rep_passwd = $_POST["PasswdAgan"];
     $birthdate = $_POST["birthdate"];
 
+<<<<<<< HEAD
 	echo "poco prima dell'inserimento img";
 //    echo $_FILES;    
     if(!$_FILES["imgProfilo"])
@@ -22,18 +25,19 @@
     	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
 //  echo " controlla che ci sia qualcosa in Files ";
 
+
     try {
         $db = new DBinterface();
         
         $conn = $db->openConnection();
 
-//	echo "Arrivato qui, dopo connessione db";
+//    echo "Arrivato qui, dopo connessione db";
 
         if(session_status() == PHP_SESSION_NONE)
         {
-//	echo "dopo controllo sessione";
+//    echo "dopo controllo sessione";
            session_start();
-	}
+    }
             if(strlen(trim($username)) > 0)
             {
                 $err["user_empty"] = false;
@@ -93,9 +97,10 @@
             }
 
 
-	    $db->closeConnection();
+        $db->closeConnection();
 
 
+<<<<<<< HEAD
 	    if($img)
 	    {
 //	echo " Controllo img non null passato ";
@@ -129,7 +134,6 @@
 	   }
 
 
-
             if(in_array(true, $err))
             {
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
@@ -141,7 +145,7 @@
                 $db->openConnection();
                 $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img);
 
-		if($db->addUser($new_user))
+        if($db->addUser($new_user))
                 {
                     $_SESSION["username"] = $username;
                     $_SESSION["name_surname"] = $name_surname;
@@ -165,7 +169,7 @@
                 exit();
             }
 
-	 
+     
 
 
     } catch(Exception $e) {

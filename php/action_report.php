@@ -4,7 +4,6 @@
     if( session_status() == PHP_SESSION_NONE ) {
         session_start();
     }
-    
     if(isset($_POST["PostRep"]))
     {
         $_POST["PostRep"]->set_isExplorable(true);
@@ -23,51 +22,19 @@
         header("Location: area_personale.php");
     }
 
-    if(isset($_POST["ReportMaster"]))
-    {
-        $db->openConnection();
-        $_SESSION["report_id"] = $db->getReport($_POST["ReportMaster"], $_SESSION["username"]);
-        $db->closeConnection();
-        
-        if($_SESSION["report_id"])
-        {
-            echo $_SESSION["report_id"]; //debug comment
-            header("Location: ReportPage.php");
-            exit();
-        }
-        else
-        {
-            header("Location: 404.php");
-            exit();
-        }
+    if( isset($_GET["ReportMaster"]) ) {
+        header("Location: ReportPage.php?ReportID=".$_GET["ReportMaster"]);
+        exit();
     }
 
-    if(isset($_POST["ReportPartecip"]))
-    {
-        $db->openConnection();
-        $_SESSION["report_id"] = $db->getReportForPertecipant($_POST["ReportPartecip"], $_SESSION["username"]);
-        $db->closeConnection();
-
-        if($_SESSION["report_id"])
-        {
-            header("Location: ReportPage.php");
-            exit();
-        }
-        else
-        {
-            header("Location: 404.php");
-            exit();
-        }
+    if(isset($_GET["ReportPartecip"])) {
+        header("Location: ReportPage.php?ReportID=".$_GET["ReportPartecip"]);
+        exit();
     }
 
-    if(isset($_POST["ReportEsplora"]))
-    {
-        if(!isset($_SESSION))
-            session_start();
-
-        $_SESSION["report_id"] = $_POST["ReportEsplora"];
-
-        header("Location: ReportPage.php");
+    if(isset($_GET["ReportEsplora"])) {
+        header("Location: ReportPage.php?ReportID=".$_GET["ReportEsplora"]);
+        exit();
     }
 
     if(isset($_POST["espandi"]))
@@ -98,31 +65,31 @@
 
     }
 
-    if(isset($_POST["contenutoCommento"]))
+    if(isset($_GET["contenutoCommento"]))
     {
         //create comment from data
-        $comment = new Comments(0,$_POST["contenutoCommento"],0,$_SESSION["username"],$_SESSION["report_id"]);
+        $comment = new Comments(0,$_GET["contenutoCommento"],0,$_SESSION["username"],$_SESSION["report_id"]);
         $db->openConnection();
         $db->addComments($comment);
         $db->closeConnection();
         header("Location: ReportPage.php");
     }
 
-    if(isset($_POST["eliminaCommento"]))
+    if(isset($_GET["eliminaCommento"]))
     { 
         $db->openConnection();
-        $db->deleteComments($_POST["eliminaCommento"]);
+        $db->deleteComments($_GET["eliminaCommento"]);
         $db->closeConnection();
         header("Location: ReportPage.php");
     }
 
-    if(isset($_POST["FtAct_DeleteReport"]))
+    if(isset($_GET["FtAct_DeleteReport"]))
     {
         $_SESSION['banners']="confermare_eliminazione_report";
         header("Location: ReportPage.php");
     }
 
-    if(isset($_POST["FtAct_PublicReport"]))
+    if(isset($_GET["FtAct_PublicReport"]))
     {
         $db->openConnection();
         $db->setExplorable($_SESSION["report_id"]);
@@ -130,11 +97,18 @@
         header("Location: ReportPage.php");
     }
 
-    if(isset($_POST["FtAct_ModReport"]))
+    if(isset($_GET["FtAct_ModReport"]))
     {
         $_SESSION['ModificaReport'] = true;
         //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
         header("Location: CreazioneReportPage.php");
     }
+
+    /*
+    if(isset($_GET['salvaRep']))
+    {
+
+    }
+    */
 
 ?>

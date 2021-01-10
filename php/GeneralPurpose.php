@@ -66,7 +66,7 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }
-
+        unset($_SESSION["first_logged"]);
         unset($_SESSION["character_id"]);
         unset($_SESSION['modificaChar']);
     }
@@ -96,21 +96,21 @@
 
     function validateImg($target, $img)
     {
-echo " entrato in  validateImg";
+//echo " entrato in  validateImg";
     	$uploadOk = true;
     	// Vedere se un file è veramente una img oppure una fake img
     	$check = getimagesize($img["tmp_name"]);
-echo "fatto get img size";
+//echo "fatto get img size";
     	if($check !==  false)
         	$uploadOk = true;
     	else
         	$uploadOk = false;
 
-	echo "fatto check ed è $uploadOk";
+//	echo "fatto check ed è $uploadOk";
     	// Vedere se il file esiste già
     	$uploadOk = file_exists($target);
 
-	echo "controllo esistenza file";
+//	echo "controllo esistenza file";
     	return $uploadOk;
     }
 

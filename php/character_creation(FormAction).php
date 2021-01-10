@@ -155,8 +155,6 @@ function Char_Form($toEdit) {
 
                         $name = ""; $race = ""; $class = ""; $background = ""; $alignment = ""; $traits = ""; $ideals = ""; $bonds = ""; $flaws = "";
                         unset($_SESSION['CharFormPOST']);
-                        header("Location: area_personale.php");
-                        exit();
                     }
                     else {
                         // Can't insert in DB
@@ -180,6 +178,7 @@ function Char_Form($toEdit) {
             //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
             getErrors($messaggioForm);
         }
+        unset($_SESSION['CharFormPOST']);
     }
     else if ($toEdit) {   // Effettuato solo la prima volta, poi POST avra' valore
         $db = new DBinterface();
@@ -229,6 +228,8 @@ function Char_Form($toEdit) {
 
     return $html;
 }
+
+unset($_SESSION["first_logged"]);
 
 $toEdit = false;
 

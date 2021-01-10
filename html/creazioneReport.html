@@ -97,7 +97,7 @@
 
         <p class="campiObbligatori"> : campo obbligatorio</p>
 
-        <form id="areaCreazione" autocomplete="on" class="creazioneFields" onsubmit="return validateReport();" action="../php/action_report.php">
+        <form id="areaCreazione" autocomplete="on" class="creazioneFields" onsubmit="return validateReport();" action="../php/CreazioneReportPage.php" method="get">
 
             <ol>
                 <li>
@@ -139,54 +139,8 @@
                         </p>
                         <div id="selezionamentoGiocatori">
                             <div>
-                                <!-- ESEMPIO -->
                                 <ul>
                                     <listaGiocatori />
-                                    <li>
-                                        <div class="badgeUtente">
-                                            <div>
-                                                <img src="../img/icone_razze/nano.png" alt="" />
-                                                <p class="textVariable">Nome Giocatore</p>
-                                            </div>
-                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="1">X</button>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="badgeUtente">
-                                            <div>
-                                                <img src="../img/icone_razze/tiefilng.png" alt="" />
-                                                <p class="textVariable">Nome Giocatore</p>
-                                            </div>
-                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="2">X</button>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="badgeUtente">
-                                            <div>
-                                                <img src="../img/icone_razze/elfo.png" alt="" />
-                                                <p class="textVariable">Nome Giocatore</p>
-                                            </div>
-                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="3">X</button>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="badgeUtente">
-                                            <div>
-                                                <img src="../img/icone_razze/gnomo.png" alt="" />
-                                                <p class="textVariable">Nome Giocatore</p>
-                                            </div>
-                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="4">X</button>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="badgeUtente">
-                                            <div>
-                                                <img src="../img/icone_razze/dragonide.png" alt="" />
-                                                <p class="textVariable">Nome Giocatore</p>
-                                            </div>
-                                            <button title="rimuovi giocatore" class="deleteButton" name="delete" value="5">X</button>
-                                        </div>
-                                    </li>
                                 </ul>
                             </div>
 
@@ -253,6 +207,25 @@
 
         </form>
 
+        <footer>
+            <a href="#intestazioneSito" id="tornaSuFooter">Torna su</a> <!-- button scrollTo(0,0); :o) -->
+        
+            <div id="footerContent">
+                <h2>NomeSito</h2>
+                <dl id="footerList">    
+                    <dt><button type="button" onclick="openDD(0)">Privacy</a></dt>
+                    <dd class="footer-dd">Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</dd>
+        
+                    <dt><button type="button" onclick="openDD(1)">Contattaci</a></dt>
+                    <dd class="footer-dd">Contattaci se hai consigli, feedback o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></dd>
+        
+                    <dt><button type="button" onclick="openDD(2)">Ringraziamenti</a></dt>
+                    <dd class="footer-dd">Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</dd>
+                </dl>
+            </div>
+        
+            <p id="disclaimer">Salvo diversa indicazione, i contenuti di questa pagina hanno licenza <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a></p>
+        </footer>
     </body>
 
 
