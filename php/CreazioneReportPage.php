@@ -127,22 +127,24 @@ $_GET['salvaRep']="SALVA REPORT";
             if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
 
             //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-            $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+            $rep = new ReportData(null, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
             //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
             $_SESSION['report_in_creazione'] = $rep;
+
+            if($toEdit) $rep->set_id($_SESSION['report_id']);
 
             if(isset($_SESSION['username'])) {
                 
                 $rep->set_author($_SESSION['username']); 
+
+                echo "Il Risulatao è:  id: ".$rep->get_id()." titolo: ". $rep->get_title()." author: ".$rep->get_author();
+                exit();
 
                 $dbInterface = new DBinterface();
                 $connection = $dbInterface->openConnection();
 
                 if($connection){
                     $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
-
-                    echo "Il Risulatao è: ".$result;
-                    exit();
 
                     if($result){
                         $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
