@@ -140,7 +140,7 @@ $_GET['salvaRep']="SALVA REPORT";
                 $dbInterface = new DBinterface();
                 $connection = $dbInterface->openConnection();
 
-                echo "Il Risulatao è:  id: ".$rep->get_id()." titolo: ". $rep->get_title()." author: ".$rep->get_author();
+                echo "Il Risulatao è:  connessione: ".$connection." titolo: ". $rep->get_title()." author: ".$rep->get_author();
                 exit();
 
                 if($connection){
