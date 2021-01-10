@@ -140,11 +140,11 @@ $_GET['salvaRep']="SALVA REPORT";
                 $dbInterface = new DBinterface();
                 $connection = $dbInterface->openConnection();
 
-                echo "Il Risulatao è:  connessione: ".$connection." titolo: ". $rep->get_title()." author: ".$rep->get_author();
-                exit();
-
                 if($connection){
                     $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
+
+                    echo "Il Risulatao è:  risultato: ".$result." titolo: ". $rep->get_title()." author: ".$rep->get_author();
+                    exit();
 
                     if($result){
                         $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
