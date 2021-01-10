@@ -349,7 +349,7 @@
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
-                              "'user', ".
+                              "'" . $report_data->get_author() . "', ".
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);

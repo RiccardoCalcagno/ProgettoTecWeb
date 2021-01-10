@@ -106,7 +106,7 @@
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
                     
-                    echo " -RISULATO_CONNESS :". $connection;
+                    echo " -effAutor:".$_SESSION['username']." -Autor:".$rep->get_author();
     
                     if($connection){
                         $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
