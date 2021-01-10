@@ -73,7 +73,7 @@
 
 
 
-    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();  $id_report=null;
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $lista_giocatori = array();  $id_report=null;
 
     if(isset($_SESSION['listaGiocatori'])){
 
@@ -87,7 +87,7 @@
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
-            $condividi = (isset($_GET['condividi']));
+            $condividi = (int)(isset($_GET['condividi']));
     
  
 
@@ -115,7 +115,7 @@
                         if($result){
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                             //azzero la form
-                            $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
+                            $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $lista_giocatori = array();
                         }else{
                             //messaggi di errore inserimento nel DB
                             $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
