@@ -89,7 +89,6 @@
 
         if(isset($_GET['salvaRep'])){
 
-
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
@@ -99,6 +98,8 @@
             }
 
 
+            echo "Il Risulatao è:  risultato: ".$titolo." titolo: ". $condividi." author: ".$lista_giocatori;
+            exit();
         
             /*
             // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
