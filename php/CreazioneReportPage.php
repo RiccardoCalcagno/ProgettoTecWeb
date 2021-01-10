@@ -143,9 +143,6 @@ $_GET['salvaRep']="SALVA REPORT";
                 if($connection){
                     $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
 
-                    echo "Il Risulatao è:  risultato: ".$result." titolo: ". $rep->get_title()." author: ".$rep->get_author();
-                    exit();
-
                     if($result){
                         $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                         //azzero la form
