@@ -53,7 +53,7 @@
 
         public function set_author($author) 
         {
-            $this->author =$author; 
+            $this->author = $author; 
         }
 
         public function set_isExplorable($isExplorable) 

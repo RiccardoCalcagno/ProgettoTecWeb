@@ -10,6 +10,11 @@
     try{
         $db->openConnection();
 
+
+        $_POST["username"]="user";
+        $_POST["password"]="user";
+
+
     $user_data = $db->getUser(trim($_POST["username"]), $_POST["password"]);
 
     if($user_data)
@@ -24,6 +29,9 @@
         $_SESSION["login"] = true;
         $db->closeConnection();
         
+        $rep = new ReportData(null, "uououuo", "ytytytyt", "vcvcvcvcvcvcccv", "user", "1", null);
+        array_push($_SESSION['stagedReports'], $rep);
+
         switch( saveStaged() ){
             case -1: $_SESSION['banners']="elementi_salvati_errore"; break;
             case 1: $_SESSION['banners']="elementi_salvati"; break;
