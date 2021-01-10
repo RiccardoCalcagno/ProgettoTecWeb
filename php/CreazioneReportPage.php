@@ -97,12 +97,10 @@
     
                 if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
     
-                $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
-    
                 if(isset($_SESSION['username'])) {
-    
-                    echo " -Autor:".$rep->set_author($_SESSION['username']);
 
+                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+                    
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
                     
@@ -127,6 +125,7 @@
                     }
                     $dbInterface->closeConnection();
                 }else{
+                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
                     array_push($_SESSION['stagedReports'], $rep);
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
