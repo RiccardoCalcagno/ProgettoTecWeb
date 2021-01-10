@@ -136,8 +136,8 @@ else {
 
         //giocatori presenti
         //servirà prelevare le info degli utenti collegati con il report
-        $replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';
-        for ($i = 0; $i < count($usernameArray);$i++){
+        $replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';    
+        for ($i = 0; $i < count($usernameArray);$i++){// if ==0 => "non ci sono giocatori"
             $replacer .= '<li>';
             $replacer .= '<div class="badgeUtente">';
             $replacer .= '<img src="'.$userPic[$i].'" alt="Immagine profilo" />';

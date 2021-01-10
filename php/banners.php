@@ -198,6 +198,18 @@
                     </form>";
                     unset($_SESSION['banners_ID']);
                 break;
+                case "confermare_pubblica_esplora":
+                    $htmlBanner .= "
+                    <h1>Confermare Pubblicazione</h1>
+                    <h2>Sei sicuro di voler condividere questo Report?</h2>
+                    <p>Una volta pubblicato il Report sara' visibile a tutti</p>
+                    <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
+                        <a class='annulla' href='../php/area_personale.php'>ANNULLA</a>
+                        <input type='submit' class='buttonLink' name='documento' value='PUBBLICA'/>
+                        <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
+                    </form>";
+                    unset($_SESSION['banners_ID']);
+                break;
             }
 
             $htmlBanner .= "</div></div>";
