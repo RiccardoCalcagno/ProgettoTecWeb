@@ -3,21 +3,22 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
-    echo "IssetBefclear: ". isset($_SESSION['stagedReports']);
     if(isset($_SESSION['stagedReports'])){
         echo " -NotNUllBefClear: ".$_SESSION['stagedReports']==null;
         if ($_SESSION['stagedReports']){
             echo " -titleBefClear: ".$_SESSION['stagedReports'][0]->get_title();
         }
     }
+    echo "preparato";
     clearSession(); // ok ?
-    echo "IssetAfrclear: ". isset($_SESSION['stagedReports']);
+    echo "superato";
     if(isset($_SESSION['stagedReports'])){
         echo " -NotNUllAftClear: ".$_SESSION['stagedReports']==null;
         if ($_SESSION['stagedReports']){
             echo " -titleAftClear: ".$_SESSION['stagedReports'][0]->get_title();
         }
     }
+    exit();
 
     $db = new DBinterface();
 
