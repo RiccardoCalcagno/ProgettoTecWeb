@@ -37,6 +37,14 @@
         exit();
     }
 
+    if ( isset($_POST['report']) ) {
+        if ($_POST['report'] == 'COMMENTA') {
+            
+            $_SESSION['RepCommentPOST'] = $_POST;
+            header("Location: ReportWriteComment.php");
+        }
+    }
+
     if(isset($_POST["espandi"]))
     {
         if($_POST["espandi"] == "masterPrecedente")

@@ -40,7 +40,7 @@
             $name = clean_input($name);
             $password = clean_input($password);
 
-            $query = "SELECT username, name_surname, email, passwd, birthdate, img_path
+            $query = "SELECT username, name_surname, email, passwd, birthdate, img_path, id 
                       FROM Users
                       WHERE Users.username = '".$name."' AND Users.passwd = '".$password."';";
 
@@ -62,7 +62,8 @@
                                     $user_data["email"], 
                                     $user_data["passwd"], 
                                     $user_data["birthdate"], 
-                                    $user_data["img_path"]);
+                                    $user_data["img_path"],
+                                    $user_data["id"]);
             }  
         }
 
@@ -615,7 +616,7 @@
         {
             $comments = array();
             $id_report = clean_input($id_report);
-            $query = "SELECT Comments.id, Comments.tex, Comments.date_time, Comments.author, Comments.report ".
+            $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
                      "FROM Comments ". 
                      "WHERE Comments.report = '" . $id_report . "';";
 
@@ -629,7 +630,7 @@
             {
                 while($row = mysqli_fetch_assoc($query_result))
                 {
-                    $comment = new Comments($row["id"], $row["testo"], $row["data_ora"], $row["author"], $row["report"]);          
+                    $comment = new Comments($row["testo"], $row["author"], $row["report"], $row['id']);          
                     array_push($comments, $comment);
                 }
             }
@@ -774,7 +775,7 @@
           $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report_id."';";
           $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result->num_rows){
+            if($query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $user_id = $row["user"];         
