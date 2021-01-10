@@ -96,13 +96,12 @@
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
             $condividi = (isset($_GET['condividi']));
-
-            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
-            exit();
-            
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
+
+            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
+            exit();
         
             /*
             // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
