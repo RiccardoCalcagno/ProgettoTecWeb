@@ -19,7 +19,7 @@
 
 //	echo "poco prima dell'inserimento img";
 //    echo $_FILES;    
-    if(!$_FILES["imgProfilo"])
+    if( empty($_FILES["imgProfilo"]["name"]))
 	$img = null;
     else
     	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
@@ -135,6 +135,11 @@
 
             if(in_array(true, $err))
             {
+		$_SESSION["tmpUser"]["username"] = $username;
+		$_SESSION["tmpUser"]["NomeCognome"] = $name_surname;
+		$_SESSION["tmpUser"]["email"] = $email;
+		$_SESSION["tmpUser"]["birthdate"] = $birthdate;
+		$_SESSION["tmpUser"]["img"] = $img;
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
                 $_SESSION["err"] = $err;
                 header("Location: register.php");
