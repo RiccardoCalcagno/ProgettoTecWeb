@@ -122,6 +122,9 @@
                 }else{
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
                     array_push($_SESSION['stagedReports'], $rep);
+                    echo "ID:".$rep->get_id()." -title:".$rep->get_title();
+                    echo "arrayID:".$_SESSION['stagedReports'][0]->get_id()." -ArrayTitle:".$_SESSION['stagedReports'][0]->get_title();
+                    exit();
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
     
