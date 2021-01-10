@@ -85,9 +85,15 @@
     $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
 
 
+    echo "La var: ".$_GET['salvaRep']. " - ";
+
     if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
         if(isset($_GET['salvaRep'])){
+
+
+            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
+            exit();
 
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
@@ -96,10 +102,6 @@
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
-
-
-            echo "Il Risulatao è:  risultato: ".$titolo." titolo: ". $condividi." author: ".$lista_giocatori;
-            exit();
         
             /*
             // PRIMA ALLA CREAZIONE DI report_in_creazione SI È INSERITO IL CORRETTO ID e AUTOR = $_SESSION['username'] ANCHE SE È NULL
