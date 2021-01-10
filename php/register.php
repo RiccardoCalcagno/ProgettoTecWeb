@@ -12,11 +12,11 @@
     if(isset(($_SESSION)['err']) && $_SESSION["err"])
     {  
 
-        $username = $_POST["username"];
-        $name_surname = $_POST["NomeCognome"];
-        $email = $_POST["email"];
-        $birthdate = $_POST["birthdate"];
-        $img = $_POST["img"];
+        $username = $_SESSION["tmpUser"]["username"];
+        $name_surname = $_SESSION["tmpUser"]["NomeCognome"];
+        $email = $_SESSION["tmpUser"]["email"];
+        $birthdate = $_SESSION["tmpUser"]["birthdate"];
+        $img = $_SESSION["tmpUser"]["img"];
 
         $err = $_SESSION["err"];
 
@@ -87,6 +87,7 @@
 
 //    echo "banner";
         unset($_SESSION["err"]);
+	unset($_SESSION["tmpUser"]);
         unset($_POST);
 
         $html = addPossibleBanner($html, "area_personale.php");

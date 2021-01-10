@@ -74,10 +74,10 @@
                      "WHERE username = '" . $username . "';";
 
             $exist =   mysqli_query($this->connection, $query);
-	    if($exist->num_rows > 0)
-            	return $exist;
-	    else
-		return null;
+        if($exist->num_rows > 0)
+                return $exist;
+        else
+        return null;
         }
 
         public function existMail($email) 
@@ -87,10 +87,10 @@
                      "WHERE email = '" . $email . "';";
 
             $exist =   mysqli_query($this->connection, $query);
-	    if($exist->num_rows > 0) 
-           	return $exist;
-	    else
-		return null;
+        if($exist->num_rows > 0) 
+               return $exist;
+        else
+        return null;
         }
 
         public function setUser(UserData $user_data, $username) 
@@ -346,7 +346,7 @@
         }
 
         // aggiunta di un report
-        public function addReport(ReprotData $report_data){
+        public function addReport(ReportData $report_data){
             $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified)".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
