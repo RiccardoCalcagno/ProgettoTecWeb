@@ -345,7 +345,7 @@
 
         // aggiunta di un report
         public function addReport(ReportData $report_data){
-            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified)".
+            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified) ".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
