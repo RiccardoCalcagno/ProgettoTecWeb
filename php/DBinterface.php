@@ -318,7 +318,6 @@
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Report.last_modified  
                       FROM Report 
                       WHERE Report.id = '".$id_report."';";
-                      print $query;
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -616,13 +615,13 @@
         {
             $comments = array();
             $id_report = clean_input($id_report);
-            $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
+            $query = "SELECT Comments.id, Comments.tex, Comments.date_time, Comments.author, Comments.report ".
                      "FROM Comments ". 
                      "WHERE Comments.report = '" . $id_report . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result->num_rows) 
+            if(!$query_result || !$query_result->num_rows) 
             {
                 return null;
             }

@@ -5,6 +5,27 @@ require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
+function hasAccess ($report, $usernameArray) {  // True IFF utente ha permessi per visualizzare report (autore, isExplorable o "taggato")
+
+    $hasAccess = false;
+
+    if ( $report->get_author() === $_SESSION['username'] ) {
+        $hasAccess = true;
+    }
+
+    if ( !$hasAccess && $report->get_isExplorable() ) {
+        $hasAccess = true;
+    }
+
+    for($i = 0; $i < count($usernameArray) && !$hasAccess; $i++) {
+        if ($usernameArray[$i] === $_SESSION['username']) {
+            $hasAccess = true;
+        }
+    }
+
+    return $hasAccess;
+}
+
 if ( session_status() == PHP_SESSION_NONE ) {
     session_start();
 }
@@ -14,19 +35,14 @@ if ( !isset($_SESSION['username']) ) {
     header("Location: login.php");
     exit();
 }
-else if ( !isset($_GET['ReportPartecip']) && !isset($_GET['ReportMaster']) ) {
+else if ( !isset($_GET['ReportID']) ) {
     errorPage('No GET');
 }
-
 else {
     //prelevo Report.html
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Report.html');
     $html = setup($html);
     unset($_SESSION["first_logged"]);
-
-    $reportID = isset($_GET['ReportPartecip']) ?
-    $_GET['ReportPartecip'] :
-    $_GET['ReportMaster'];
 
     $dbInterface = new DBinterface();
     $connection = $dbInterface->openConnection();
@@ -40,7 +56,7 @@ else {
     if ($connection === true) {
 
         //prelevo l'oggetto report
-        $report_info = $dbInterface->getReport($reportID);
+        $report_info = $dbInterface->getReport($_GET['ReportID']);
 
         //faccio subito le richieste al DB per poter chiudere la connessione
         $usernameArray = $dbInterface->getALLForReport($report_info->get_id()); //si tratta di un array di username, sono i giocatori collegati al report
@@ -63,6 +79,10 @@ else {
 
     //chiudo la connessione
     $dbInterface->closeConnection();
+
+    if ( !hasAccess($report_info, $usernameArray) ) {
+        errorPage("Non hai i permessi per visualizzare questo report!");
+    }
 
     if( !isset($report_info) ) {    // Resto non serve necessariamente ?
         
@@ -202,25 +222,26 @@ else {
         ////costruisco un if per controllare se l'utente logged in è l'author, se si mostro i tasti
             //ESPLORA
             //controllo che l'utente sia il creatore come prima, ma controllo anche che il report non sia già segnato come pubblico
+        $footerAction = '';
         if($_SESSION["username"]==$report_info->get_author()){
-            $replacer = '<ul id="footAction">
-                            <li>
-                                <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink"/>
-                            </li>';
+
+            $footerAction = '<ul id="footAction">
+                            <li> <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink"/> </li>';
+
             if(!$report_info->get_isExplorable()){
-                $replacer .= '<li>
-                                <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink"/> 
-                            </li>';
-            }         
-            $replacer .=     '<li>
+
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink"/> </li>';              
+            }      
+
+            $footerAction .=     '<li>
                                 <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink"/> 
                             </li>
                         </ul>';
-            $html = str_replace("<footerAction_placeholder/>", $replacer, $html);
+            
+            $footerAction .= ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
         }
-        else{
-            $html = str_replace("<footerAction_placeholder/>", "", $html);
-        }
+        
+        $html = str_replace("<footerAction_placeholder/>", $footerAction, $html);
 
         $html = addPossibleBanner($html, "ReportPage.php");
 

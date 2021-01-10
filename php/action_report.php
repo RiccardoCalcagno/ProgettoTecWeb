@@ -4,7 +4,6 @@
     if( session_status() == PHP_SESSION_NONE ) {
         session_start();
     }
-    
     if(isset($_POST["PostRep"]))
     {
         $_POST["PostRep"]->set_isExplorable(true);
@@ -23,28 +22,19 @@
         header("Location: area_personale.php");
     }
 
-    if(isset($_GET["ReportMaster"]))
-    {
-        
-        header("Location: ReportPage.php?ReportMaster=".$_GET["ReportMaster"]);
+    if( isset($_GET["ReportMaster"]) ) {
+        header("Location: ReportPage.php?ReportID=".$_GET["ReportMaster"]);
         exit();
     }
 
-    if(isset($_GET["ReportPartecip"]))
-    {
-        
-        header("Location: ReportPage.php?ReportMaster=".$_GET["ReportPartecip"]);
+    if(isset($_GET["ReportPartecip"])) {
+        header("Location: ReportPage.php?ReportID=".$_GET["ReportPartecip"]);
         exit();
     }
 
-    if(isset($_POST["ReportEsplora"]))
-    {
-        if(!isset($_SESSION))
-            session_start();
-
-        $_SESSION["report_id"] = $_POST["ReportEsplora"];
-
-        header("Location: ReportPage.php");
+    if(isset($_GET["ReportEsplora"])) {
+        header("Location: ReportPage.php?ReportID=".$_GET["ReportEsplora"]);
+        exit();
     }
 
     if(isset($_POST["espandi"]))
