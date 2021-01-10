@@ -10,7 +10,12 @@
     $email = $_POST["future_email"];
     $passwd = $_SESSION["passwd"];
     $birthdate = $_POST["birthdate"];
-    $img = $_POST["imgProfilo"];
+
+    if(!$_FILES["imgProfilo"])
+	$img = null;
+    else
+	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
+    
 
     try {
         $db = new DBinterface();
@@ -61,6 +66,32 @@
 
         $db->closeConnection();
 
+	if($img)
+	{
+	    $err["img_err"] = validateImg($img, $_FILES["imgProfilo"]);
+
+	    if(!$err["img_err"])
+	    {
+		if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+		{
+		    $err["img_err"] = false;
+		}
+		else
+		{
+		    header("Location: Errore.php");
+		    exit();
+		}
+	    }
+	    else
+	    {
+		$img = null;
+	    }
+	}
+	else
+	{
+	    $err["img_err"] = false;
+	}
+
         if(in_array(true, $err))
         {
             $_SESSION["err"] = $err;
@@ -70,7 +101,8 @@
         else
         {
 	    $db->openConnection();
-            $modify_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img_path);
+            $modify_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img);
+
             if($db->setUser($modify_user, $_SESSION["username"]))
             {
                 $_SESSION["username"] = $username;

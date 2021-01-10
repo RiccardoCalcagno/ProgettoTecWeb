@@ -16,8 +16,8 @@
     $rep_passwd = $_POST["PasswdAgan"];
     $birthdate = $_POST["birthdate"];
 
-<<<<<<< HEAD
-	echo "poco prima dell'inserimento img";
+
+//	echo "poco prima dell'inserimento img";
 //    echo $_FILES;    
     if(!$_FILES["imgProfilo"])
 	$img = null;
@@ -100,7 +100,6 @@
         $db->closeConnection();
 
 
-<<<<<<< HEAD
 	    if($img)
 	    {
 //	echo " Controllo img non null passato ";
