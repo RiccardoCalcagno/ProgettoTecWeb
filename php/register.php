@@ -70,7 +70,7 @@
     }
 
 
-    unset($_SESSION);
+    	unset($_SESSION);
         session_destroy();      
     }
 

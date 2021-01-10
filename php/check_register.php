@@ -15,12 +15,12 @@
     $birthdate = $_POST["birthdate"];
 
 	echo "poco prima dell'inserimento img";
-    
-    if(!isset($_FILES["imgProfilo"]) || !$_FILES["imgProfilo"])
+//    echo $_FILES;    
+    if(!$_FILES["imgProfilo"])
 	$img = null;
     else
     	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
-  echo " controlla che ci sia qualcosa in Files ";
+//  echo " controlla che ci sia qualcosa in Files ";
 
     try {
         $db = new DBinterface();
@@ -98,16 +98,16 @@
 
 	    if($img)
 	    {
-	echo " Controllo img non null passato ";
-		$err["img_err"] = GeneralPurpose::validateImg($img, $_FILES["imgProfilo"]);
-echo " fa validazione img ";
+//	echo " Controllo img non null passato ";
+		$err["img_err"] = validateImg($img, $_FILES["imgProfilo"]);
+//echo " fa validazione img ";
 
 	    	if(!$err["img_err"])
 	    	{
-	echo " non ci sono errori";
-		    if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img)
+//	echo " non ci sono errori";
+		    if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
 		    {
-			echo "upload avvenuto correttamente ";
+//			echo "upload avvenuto correttamente ";
 		    	$err["img_err"] = false;
 		    }
 		    else
@@ -115,15 +115,16 @@ echo " fa validazione img ";
 		    	header("Location: Errore.php");
 		    	exit();
 		    }
+		}
 	    	else
 	    	{
-echo " ci sono errori ";
+//			echo " ci sono errori ";
 		    $img = null;
 	    	}
 	   }
 	   else
 	   {
-echo " img nulla";
+//echo " img nulla";
 		$err["img_err"] = false;
 	   }
 
@@ -138,7 +139,7 @@ echo " img nulla";
             else
             {
                 $db->openConnection();
-                $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img_path);
+                $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img);
 
 		if($db->addUser($new_user))
                 {
@@ -147,7 +148,7 @@ echo " img nulla";
                     $_SESSION["email"] = $email;
                     $_SESSION["passwd"] = $passwd;
                     $_SESSION["birthdate"] = $birthdate;
-                    $_SESSION["img"] = $img_path;
+                    $_SESSION["img"] = $img;
                     $_SESSION["login"] = true;
                     $_SESSION['banners']="creazione_utente_confermata";
                 }

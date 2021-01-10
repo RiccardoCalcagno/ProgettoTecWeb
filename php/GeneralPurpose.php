@@ -96,18 +96,22 @@
 
     function validateImg($target, $img)
     {
-    $uploadOk = true;
-    // Vedere se un file è veramente una img oppure una fake img
-    $check = getimagesize($img["tmp_name"]);
-    if($check != false)
-        $uploadOk = true;
-    else
-        $uploadOk = false;
+echo " entrato in  validateImg";
+    	$uploadOk = true;
+    	// Vedere se un file è veramente una img oppure una fake img
+    	$check = getimagesize($img["tmp_name"]);
+echo "fatto get img size";
+    	if($check !==  false)
+        	$uploadOk = true;
+    	else
+        	$uploadOk = false;
 
-    // Vedere se il file esiste già
-    $uploadOk = file_exists($target);
+	echo "fatto check ed è $uploadOk";
+    	// Vedere se il file esiste già
+    	$uploadOk = file_exists($target);
 
-    return $uploadOk;
+	echo "controllo esistenza file";
+    	return $uploadOk;
     }
 
 ?>
