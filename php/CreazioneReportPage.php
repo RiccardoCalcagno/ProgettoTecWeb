@@ -113,7 +113,7 @@
     
                         echo " -RISULATO_AGGIUNT :". $result;
                         if($result){
-                            $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
+                            //$_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                             //azzero la form
                             $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $lista_giocatori = array();
                         }else{
