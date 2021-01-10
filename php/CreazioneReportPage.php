@@ -92,13 +92,14 @@
         if(isset($_GET['salvaRep'])){
 
 
-            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
-            exit();
-
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
             $condividi = (isset($_GET['condividi']));
+
+            echo "Il Risulatao è:  risultato: ".$_GET['titolo']." titolo: ". $condividi." author: ".$lista_giocatori;
+            exit();
+            
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
