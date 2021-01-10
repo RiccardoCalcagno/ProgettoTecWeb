@@ -320,7 +320,7 @@
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                     "FROM Report ". 
                     "INNER JOIN Users ".
-                    "ON Users.id = Report.author ". 
+                    "ON Users.username = Report.author ".   /// TO FIX
                     "WHERE Report.id = '" . $id_report . "';";
 
             $query_result = mysqli_query($this->connection, $query);
