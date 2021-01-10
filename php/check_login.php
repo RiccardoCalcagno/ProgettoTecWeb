@@ -3,6 +3,7 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    $_SESSION['stagedReports']=array();
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
 
