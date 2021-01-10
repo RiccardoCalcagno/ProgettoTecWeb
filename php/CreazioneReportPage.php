@@ -101,12 +101,12 @@
     
                 if(isset($_SESSION['username'])) {
     
-                    $rep->set_author($_SESSION['username']);
+                    echo " -Autor:".$rep->set_author($_SESSION['username']);
 
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
                     
-                    echo " -effAutor:".$_SESSION['username']." -Autor:".$rep->get_author();
+                    echo "";
     
                     if($connection){
                         $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
