@@ -223,6 +223,8 @@ else {
             //ESPLORA
             //controllo che l'utente sia il creatore come prima, ma controllo anche che il report non sia già segnato come pubblico
         $footerAction = '';
+        $hiddenReportID = '';
+
         if($_SESSION["username"]==$report_info->get_author()){
 
             $footerAction = '<ul id="footAction">
@@ -238,10 +240,11 @@ else {
                             </li>
                         </ul>';
             
-            $footerAction .= ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
+            $hiddenReportID = ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
         }
         
         $html = str_replace("<footerAction_placeholder/>", $footerAction, $html);
+        $html = str_replace("<hiddenReportID />", $hiddenReportID, $html);
 
         $html = addPossibleBanner($html, "ReportPage.php");
 
