@@ -3,7 +3,21 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    echo "IssetBefclear: ". isset($_SESSION['stagedReports']);
+    if(isset($_SESSION['stagedReports'])){
+        echo " -NotNUllBefClear: ".$_SESSION['stagedReports']==null;
+        if ($_SESSION['stagedReports']){
+            echo " -titleBefClear: ".$_SESSION['stagedReports'][0]->get_title();
+        }
+    }
     clearSession(); // ok ?
+    echo "IssetAfrclear: ". isset($_SESSION['stagedReports']);
+    if(isset($_SESSION['stagedReports'])){
+        echo " -NotNUllAftClear: ".$_SESSION['stagedReports']==null;
+        if ($_SESSION['stagedReports']){
+            echo " -titleAftClear: ".$_SESSION['stagedReports'][0]->get_title();
+        }
+    }
 
     $db = new DBinterface();
 
@@ -25,6 +39,13 @@
         $_SESSION["login"] = true;
         $db->closeConnection();
 
+        echo "Issetsave: ". isset($_SESSION['stagedReports']);
+        if(isset($_SESSION['stagedReports'])){
+            echo " -NotNUllsave: ".$_SESSION['stagedReports']==null;
+            if ($_SESSION['stagedReports']){
+                echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
+            }
+        }
         switch( saveStaged() ){
             case -1: $_SESSION['banners']="elementi_salvati_errore"; break;
             case 1: $_SESSION['banners']="elementi_salvati"; break;
