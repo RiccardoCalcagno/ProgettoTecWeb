@@ -85,17 +85,11 @@
     $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = false; $lista_giocatori = array();
 
 
-
-$_GET['salvaRep']="SALVA REPORT";
-
-
-
     if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
         if(isset($_GET['salvaRep'])){
 
-        
-            /*
+
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
             $contenuto = $_GET['contenuto'];
@@ -103,14 +97,6 @@ $_GET['salvaRep']="SALVA REPORT";
             if($_SESSION['report_in_creazione']){
                 $lista_giocatori = $_SESSION['report_in_creazione']->get_lista_giocatori();
             }
-            */
-
-            $titolo = 'Daiiiiii'; $sottotitolo = 'ad wd awdawdawddawdawdaww awd awda '; $contenuto = 'w dawdawdahdawd awd aw dawdawdawdaw'; 
-            $condividi = false; $lista_giocatori = array();
-
-
-
-
 
 
         
