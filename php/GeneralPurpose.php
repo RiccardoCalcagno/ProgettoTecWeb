@@ -32,6 +32,9 @@
                 } 
             }
             if($_SESSION['stagedReports']){
+                echo "ora riporto";
+                echo $_SESSION['stagedReports'][0]->get_title();
+                exit();
                 foreach ($_SESSION['stagedReports'] as &$report){
                     $report->set_author($_SESSION['username']);
                     $result = $db->addReport($report);
