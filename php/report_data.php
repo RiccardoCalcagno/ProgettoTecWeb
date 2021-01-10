@@ -31,49 +31,49 @@
             $this->last_modified=$last_modified;
         }
 
-        public function set_id($var) 
+        public function set_id($id) 
         {
-            $id = $var;
+            $this->id = $id;
         }
 
-        public function set_title($var) 
+        public function set_title($title) 
         {
-            $title = $var;
+            $this->title = $title;
         }
 
-        public function set_subtitle($var) 
+        public function set_subtitle($subtitle) 
         {
-            $subtitle = $var;
+            $this->subtitle = $subtitle;
         }
 
-        public function set_content($var) 
+        public function set_content($content) 
         {
-            $content = $var;
+            $this->content = $content;
         }
 
-        public function set_author($var) 
+        public function set_author($author) 
         {
-            $author =  "user";  //$var;
+            $this->author =  $author; 
         }
 
-        public function set_isExplorable($var) 
+        public function set_isExplorable($isExplorable) 
         {
-            $isExplorable = $var;
+            $this->isExplorable = $isExplorable;
         }
         
-        public function set_lista_giocatori($var) 
+        public function set_lista_giocatori($lista_giocatori) 
         {
-            $lista_giocatori = $var;
+            $this->lista_giocatori = $lista_giocatori;
         }
 
-        public function set_author_img($var)
+        public function set_author_img($author_img)
         {
-            $author_img = $var;
+            $this->author_img = $author_img;
         }
 
-        public function set_last_modified($var) 
+        public function set_last_modified($last_modified) 
         {
-            $last_modified = $var;
+            $this->last_modified = $last_modified;
         }
 
         function get_id()

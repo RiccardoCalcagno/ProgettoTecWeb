@@ -2,6 +2,7 @@
     require_once("DBinterface.php");
     require_once("character.php");
     require_once("Errore.php");
+    require_once("report_data.php");
 
     function clean_input($var) {   
         $var = htmlentities($var);
@@ -33,7 +34,7 @@
             if($_SESSION['stagedReports']){
                 foreach ($_SESSION['stagedReports'] as &$report){
                     $report->set_author($_SESSION['username']);
-                    $result = $db->addReport($report);  
+                    $result = $db->addReport($report);
                     if(!$result){
                         $report->set_title("Errore di Salvataggio");
                         return -1;
