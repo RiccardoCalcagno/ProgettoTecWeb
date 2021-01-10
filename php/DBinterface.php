@@ -349,13 +349,11 @@
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
-                              "'" . $report_data->get_author() . "', ".
+                              "'user', ".
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
-            /*$done =   mysqli_query($this->connection, $query);
+            $done =   mysqli_query($this->connection, $query);
             return $done;
-            */
-            return $query;
         }
 
         // modifica report
