@@ -122,15 +122,13 @@
                 }else{
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
                     if(!isset($_SESSION['stagedReports']) || empty($_SESSION['stagedReports'])){
-                        $_SESSION['stagedReports']=array();
+                        
                     }
+                    $_SESSION['stagedReports']=array();
                     array_push($_SESSION['stagedReports'], $rep);
-                    foreach ($_SESSION['stagedReports'] as &$report){
-                        echo "tit:".$report->get_title();
-                    }
-                    exit();
-                    header("Location: check_login.php"); 
-                    exit();
+                   // foreach ($_SESSION['stagedReports'] as &$report){
+                    //    echo "tit:".$report->get_title();
+                   // }
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
     

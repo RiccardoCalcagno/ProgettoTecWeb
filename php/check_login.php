@@ -3,6 +3,8 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+
+        /*
     if(!isset($_SESSION['stagedReports'])){
         header("Location: Error.php"); 
         exit();
@@ -29,9 +31,8 @@
     foreach ($_SESSION['stagedReports'] as &$report){
         echo "tit:".$report->get_title();
     }
-    exit();
 
-    /*
+
     $_SESSION['stagedReports']=array();
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);

@@ -19,7 +19,7 @@
         if ($openConnection == false) {
             return false;
         }else{
-            if($_SESSION['stagedPersonaggi']){
+            if((isset($_SESSION['stagedPersonaggi'])) &&(!empty($_SESSION['stagedPersonaggi']))){
                 foreach ($_SESSION['stagedPersonaggi'] as &$personaggio){
                     $personaggio->set_author($_SESSION['username']);
                     $result = $db->addCharacter($personaggio);  
@@ -31,7 +31,7 @@
                     }
                 } 
             }
-            if($_SESSION['stagedReports']){
+            if((isset($_SESSION['stagedReports'])) &&(!empty($_SESSION['stagedReports']))){
                 foreach ($_SESSION['stagedReports'] as &$report){
                     $report->set_author($_SESSION['username']);
                     $result = $db->addReport($report);
