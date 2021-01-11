@@ -3,37 +3,6 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
-    if(!isset($_SESSION['stagedReports'])){
-        header("Location: Error.php"); 
-        exit();
-    }
-
-    if(!$_SESSION['stagedReports']){
-        header("Location: Error.php"); 
-        exit();
-    }
-
-    if($_SESSION['stagedReports']==null){
-        header("Location: 404.php"); 
-        exit();
-    }
-
-    if($_SESSION['stagedReports']==array()){
-        header("Location: 404.php"); 
-        exit();
-    }
-    echo " -size: ".count($_SESSION['stagedReports']);
-    exit();
-
-    /*
-    $_SESSION['stagedReports']=array();
-    $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
-    array_push($_SESSION['stagedReports'], $rep);
-    $_POST["username"]="user";
-    $_POST["password"]="user";
-    */
-
-
     clearSession(); // ok ?
 
     $db = new DBinterface();
