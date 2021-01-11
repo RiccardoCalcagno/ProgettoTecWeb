@@ -110,7 +110,7 @@
         public function setPassword(UserData $user)
         {
             $query = "UPDATE Users ".
-                     "SET passwd = '" . $user->get_passwd() . "', ". 
+                     "SET passwd = '" . $user->get_passwd() . "' ". 
                      "WHERE username = '" . $user->get_username() . "';";
 
             $done =   mysqli_query($this->connection, $query);

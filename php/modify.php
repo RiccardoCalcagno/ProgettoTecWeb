@@ -94,6 +94,11 @@
 
         if(in_array(true, $err))
         {
+	    $_SESSION["tmpUser"]["username"] = $username;
+	    $_SESSION["tmpUser"]["name_surname"] = $name_surname;
+	    $_SESSION["tmpUser"]["email"] = $email;
+	    $_SESSION["tmpUser"]["birthdate"] = $birthdate;
+	    $_SESSION["tmpUser"]["img"] = $img; 
             $_SESSION["err"] = $err;
             $_SESSION["result"] = false;
             header("Location: modify_user.php");

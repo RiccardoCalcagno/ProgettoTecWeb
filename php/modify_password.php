@@ -18,7 +18,9 @@
     try {
         $db = new DBinterface();
 
-        if($old_password == $_SESSION["passwd"])
+	$_SESSION["old_passwd"] = $old_passwd;
+
+        if($old_passwd == $_SESSION["passwd"])
         {
             $err["old_password_err"] = false;
 
@@ -47,6 +49,12 @@
 
         if(in_array(true, $err))
         {
+	    $_SESSION["tmpUser"]["username"] = $username;
+	    $_SESSION["tmpUser"]["name_surname"] = $name_surname;
+	    $_SESSION["tmpUser"]["email"] = $email;
+	    $_SESSION["tmpUser"]["birthdate"] = $birthdate;
+	    $_SESSION["tmpUser"]["img"] = $img;
+
             $_SESSION["err"] = $err;
             $_SESSION["result"] = false;
             header("Location: modify_user.php");

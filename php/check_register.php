@@ -136,7 +136,7 @@
 
             if(in_array(true, $err))
             {
-        $_SESSION["tmpUser"]["username"] = $username;
+	        $_SESSION["tmpUser"]["username"] = $username;
         $_SESSION["tmpUser"]["NomeCognome"] = $name_surname;
         $_SESSION["tmpUser"]["email"] = $email;
         $_SESSION["tmpUser"]["birthdate"] = $birthdate;

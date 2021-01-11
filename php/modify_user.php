@@ -18,62 +18,62 @@
 
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
-    echo "trovati errori";
+//    echo "trovati errori";
 
-        $username = $_POST["future_username"];
-        $name_surname = $_POST["NomeCognome"];
-        $email = $_POST["future_email"];
-        $birthdate = $_POST["birthdate"];
-        $img = $_POST["imgProfilo"];
+        $username = $_SESSION["tmpUser"]["username"];
+        $name_surname = $_SESSION["tmpUser"]["name_surname"];
+        $email = $_SESSION["tmpUser"]["email"];
+        $birthdate = $_SESSION["tmpUser"]["birthdate"];
+        $img = $_SESSION["tmpUser"]["img"];
 
         $err = $_SESSION["err"];
 
-    if($err["img_err"])
-    {
-        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
-    }
+    	if($err["img_err"])
+    	{
+            $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+    	}
 
         if($err["user_already_exist"])
-    {
+    	{
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">","<p id=\"UserAlreadyExists\">", $html);
-    }
+    	}
 
         if($err["user_empty"])
-    {   
+    	{   
             $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
-    }
+    	}
 
         if($err["email_err"])
-    {
+	{
             $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
-    }        
+    	}        
     
         if($err["email_already_exist"])
-    {
+    	{
             $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
-    }
+    	}
 
         if($err["empty_name"])
-    {
+    	{
             $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
-    }
+    	}
 
         if($err["old_password_err"])
-    {
-echo "errore vecchia password";
+    	{
             $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\">", $html);
-    }
+    	}
 
         if($err["new_password_empty"])
-    {
+    	{
             $html = str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
-    }
+    	}
 
         if($err["rep_passwd_err"])
-    {
+    	{
             $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
-    }    
+    	}    
 
+	unset($_SESSION["tmpUser"]);
     }
     unset($_SESSION["result"]);
     unset($_SESSION["err"]);
