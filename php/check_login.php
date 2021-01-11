@@ -22,7 +22,7 @@
         header("Location: 404.php"); 
         exit();
     }
-    echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
+    echo " -size: ".count($_SESSION['stagedReports']);
     exit();
 
     /*
