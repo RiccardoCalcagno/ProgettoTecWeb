@@ -38,8 +38,10 @@
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
     */
+    var_dump($_SESSION);
+    exit();
     foreach ($_SESSION['stagedReports'] as &$report){
-        var_dump($report->get_title());
+        var_dump($report);
    }
    exit();
 
