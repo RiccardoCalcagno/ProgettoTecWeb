@@ -38,7 +38,7 @@
     array_push($_SESSION['stagedReports'], $rep);
     */
     echo "provo";
-    foreach ($_SESSION['stagedReports'] as &$report){
+    foreach ($_SESSION['stagedReportss'] as &$report){
         echo "titbef:".$report->get_title();
    }
    exit();
