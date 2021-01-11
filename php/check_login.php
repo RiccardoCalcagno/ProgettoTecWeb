@@ -9,16 +9,16 @@
     }
 
     if(!$_SESSION['stagedReports']){
+        header("Location: Error.php"); 
+        exit();
+    }
+
+    if($_SESSION['stagedReports']==null){
         header("Location: 404.php"); 
         exit();
     }
     echo "oiiiiiiii";
     exit();
-    
-    if($_SESSION['stagedReports']==null){
-        header("Location: EsploraPage.php"); 
-        exit();
-    }
     if($_SESSION['stagedReports']==array()){
         header("Location: CreazioneReportPage.php"); 
         exit();
