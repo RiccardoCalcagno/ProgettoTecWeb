@@ -15,14 +15,12 @@
     if( !empty($_FILES["imgProfilo"]["name"]))
 	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
     else
-	$img = $_SESSION["img"];
+	$img = null;
 
     try {
         $db = new DBinterface();
         
-        $db->openConnection();
-
-	
+        $db->openConnection();	
 
         if(strlen(trim($username)) > 0)
         {
@@ -90,7 +88,9 @@
 	else
 	{
 	    $err["img_err"] = false;
+	    $img = $_SESSION["img"];
 	}
+
 
         if(in_array(true, $err))
         {

@@ -100,7 +100,7 @@
                      "    name_surname = '" . $user_data->get_name_surname() . "', " .
                      "    email = '" . $user_data->get_email() . "', ".
                      "    birthdate = '" . $user_data->get_birthdate() . "', ".
-                     "    img_path = '" . $user_data->get_img_path() . "', ".
+                     "    img_path = '" . $user_data->get_img_path() . "' ".
                      "WHERE username = '" . $username . "';";
 
             $done =   mysqli_query($this->connection, $query);

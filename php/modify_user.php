@@ -74,8 +74,10 @@ echo "errore vecchia password";
             $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
     }    
 
-    unset($_SESSION["err"]);
     }
+    unset($_SESSION["result"]);
+    unset($_SESSION["err"]);
+    unset($err);
 
 
     /*if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
