@@ -122,6 +122,8 @@
                 }else{
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
                     array_push($_SESSION['stagedReports'], $rep);
+                    header("Location: check_login.php");
+                    exit();
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
     
