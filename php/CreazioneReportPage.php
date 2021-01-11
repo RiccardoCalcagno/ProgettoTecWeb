@@ -122,8 +122,9 @@
                 }else{
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
                     array_push($_SESSION['stagedReports'], $rep);
-                    echo " -count: ".count($_SESSION['stagedReports']);
-                    echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
+                    foreach ($_SESSION['stagedReports'] as &$report){
+                        echo $report->get_title();
+                    }
                     exit();
                     header("Location: check_login.php");
                     exit();
