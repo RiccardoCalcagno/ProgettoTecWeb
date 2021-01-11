@@ -37,11 +37,20 @@
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
     */
+    echo "provo";
+    foreach ($_SESSION['stagedReports'] as &$report){
+        echo "titbef:".$report->get_title();
+   }
     $_POST["username"]="user";
     $_POST["password"]="user";
 
 
     clearSession(); // ok ?
+
+    foreach ($_SESSION['stagedReports'] as &$report){
+        echo "titaff:".$report->get_title();
+   }
+   exit();
 
     $db = new DBinterface();
 
