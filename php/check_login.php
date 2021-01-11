@@ -39,7 +39,7 @@
     array_push($_SESSION['stagedReports'], $rep);
     */
     foreach ($_SESSION['stagedReports'] as &$report){
-        var_dump($report);
+        var_dump($report->get_title());
    }
    exit();
 
