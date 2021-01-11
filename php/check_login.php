@@ -38,10 +38,8 @@
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
     */
-    echo "provo";
-    var_dump($_SESSION);
     foreach ($_SESSION['stagedReports'] as &$report){
-        echo "titbef:".$report->get_title();
+        var_dump($report);
    }
    exit();
 
