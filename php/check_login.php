@@ -3,11 +3,24 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    if(!isset($_SESSION['stagedReports'])){
+        header("Location: Error.php"); 
+        exit();
+    }
+    if(!$_SESSION['stagedReports']){
+        header("Location: 404.php"); 
+        exit();
+    }
+    echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
+    exit();
+
+    /*
     $_SESSION['stagedReports']=array();
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
     $_POST["username"]="user";
     $_POST["password"]="user";
+    */
 
 
     clearSession(); // ok ?
@@ -32,13 +45,6 @@
         $_SESSION["login"] = true;
         $db->closeConnection();
 
-        echo "Issetsave: ". isset($_SESSION['stagedReports']);
-        if(isset($_SESSION['stagedReports'])){
-            echo " -NotNUllsave: ".$_SESSION['stagedReports']==null;
-            if ($_SESSION['stagedReports']){
-                echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
-            }
-        }
         switch( saveStaged() ){
             case -1: $_SESSION['banners']="elementi_salvati_errore"; break;
             case 1: $_SESSION['banners']="elementi_salvati"; break;

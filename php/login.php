@@ -10,7 +10,7 @@
     $username = ""; 
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "login.html");
-    //$html = setup_clear($html);   //setup() ?
+    $html = setup_clear($html);   //setup() ?
 
     if(isset($_SESSION['login']) && !$_SESSION['login'])
     {
