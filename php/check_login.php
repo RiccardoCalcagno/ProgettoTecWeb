@@ -17,12 +17,13 @@
         header("Location: 404.php"); 
         exit();
     }
-    echo "oiiiiiiii";
-    exit();
+
     if($_SESSION['stagedReports']==array()){
-        header("Location: CreazioneReportPage.php"); 
+        header("Location: 404.php"); 
         exit();
     }
+    echo "oiiiiiiii";
+    exit();
     echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
     exit();
 
