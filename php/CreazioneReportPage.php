@@ -124,13 +124,24 @@
                     if(!isset($_SESSION['stagedReports']) || empty($_SESSION['stagedReports'])){
                         
                     }
+
+
+
+
                     $_SESSION['stagedReports']=array();
                     array_push($_SESSION['stagedReports'], $rep);
-                  foreach ($_SESSION['stagedReports'] as &$report){
-                         echo "tit:".$report->get_title();
-                    }
+
+
+                    
                     header("Location: check_login.php"); 
                     exit();
+
+
+
+
+
+
+
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
     

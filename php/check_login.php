@@ -4,6 +4,7 @@
     require_once("GeneralPurpose.php");
     require_once("report_data.php");
 
+    session_start();
         /*
     if(!isset($_SESSION['stagedReports'])){
         header("Location: Error.php"); 
@@ -42,6 +43,14 @@
         echo "titbef:".$report->get_title();
    }
    exit();
+
+
+
+
+
+
+
+
     $_POST["username"]="user";
     $_POST["password"]="user";
 
