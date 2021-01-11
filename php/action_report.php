@@ -8,7 +8,6 @@
     if(isset($_GET["PostRep"])) {   // Pubblica in esplora, da AreaPersonale
         $_SESSION['banners'] = "confermare_pubblica_esplora";
         $_SESSION['banners_ID'] = $_GET['PostRep'];    // PASSAGGIO PER CAMPO HIDDEN
-        unset($_SESSION["first_logged"]);
         header("Location: area_personale.php");
         //header("Location: ReportPage.php?ReportID=".$_GET['PostRep']);
         exit();
@@ -19,6 +18,8 @@
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_POST['ReportID']) ) {
                 errorPage("Pubblicazione fallita. Riprovare piu' tardi");
+            }else{
+                unset($_SESSION["first_logged"]);
             }
             $db->closeConnection();
         }
