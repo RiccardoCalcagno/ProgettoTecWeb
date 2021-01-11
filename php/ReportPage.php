@@ -136,26 +136,20 @@ else {
 
         //giocatori presenti
         //servirà prelevare le info degli utenti collegati con il report
-        $replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';    
-        for ($i = 0; $i < count($usernameArray);$i++){// if ==0 => "non ci sono giocatori"
-            $replacer .= '<li>';
-            $replacer .= '<div class="badgeUtente">';
-            $replacer .= '<img src="'.$userPic[$i].'" alt="Immagine profilo" />';
-            $replacer .= '<p class="textVariable">'.$usernameArray[$i].'</p>';
-            $replacer .= '</div>';
-            $replacer .= '</li>';
+        if(count($usernameArray)>0){
+            $replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';    
+            for ($i = 0; $i < count($usernameArray);$i++){// if ==0 => "non ci sono giocatori"
+                $replacer .= '<li>';
+                $replacer .= '<div class="badgeUtente">';
+                $replacer .= '<img src="'.$userPic[$i].'" alt="Immagine profilo" />';
+                $replacer .= '<p class="textVariable">'.$usernameArray[$i].'</p>';
+                $replacer .= '</div>';
+                $replacer .= '</li>';
+            }
+            $replacer .= '</ul>';
+        }else{
+            $replacer = '<p>Non sono stati trovati gicatori associati a questo report</p>'; 
         }
-        /*OLD VERSION
-        foreach ($usernameArray as $linked_user){
-            $replacer .= '<li>';
-            $replacer .= '<div class="badgeUtente">';
-            $replacer .= '<img src="'.getUserPic($linked_user).'" alt="Immagine profilo" />';
-            $replacer .= '<p class="textVariable">'.$linked_user.'</p>';
-            $replacer .= '</div>';
-            $replacer .= '</li>';
-        }
-        */
-        $replacer .= '</ul>';
 
         $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
 
