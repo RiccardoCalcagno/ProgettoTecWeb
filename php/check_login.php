@@ -4,6 +4,7 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+
     session_start();
         /*
     if(!isset($_SESSION['stagedReports'])){
@@ -38,12 +39,10 @@
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
     */
-    var_dump($_SESSION);
-    exit();
+    echo "provo";
     foreach ($_SESSION['stagedReports'] as &$report){
-        var_dump($report);
+        echo "titbef:".$report->get_title();
    }
-   exit();
 
 
 
@@ -61,7 +60,6 @@
     foreach ($_SESSION['stagedReports'] as &$report){
         echo "titaff:".$report->get_title();
    }
-   exit();
 
     $db = new DBinterface();
 
