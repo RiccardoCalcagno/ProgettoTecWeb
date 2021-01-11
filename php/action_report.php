@@ -9,7 +9,6 @@
         $_SESSION['banners'] = "confermare_pubblica_esplora";
         $_SESSION['banners_ID'] = $_GET['PostRep'];    // PASSAGGIO PER CAMPO HIDDEN
         header("Location: area_personale.php");
-        //header("Location: ReportPage.php?ReportID=".$_GET['PostRep']);
         exit();
     }
 
