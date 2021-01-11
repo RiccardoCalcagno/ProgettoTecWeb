@@ -33,15 +33,6 @@ else if($_SESSION["login"])
     
     $db = new DBinterface();
 
-        /*$character_data = null;
-        $report_data = null;
-        $author_report_data = null;
-        $num_pers = 0;
-        $num_report_master = 0;
-        $num_report = 0;
-        $array_num_part_rep = array();
-        $array_num_part_rep_master = array();*/
-
     try {
 
         if(!isset($_SESSION["first_logged"]))
@@ -59,17 +50,16 @@ else if($_SESSION["login"])
             $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSION["username"]);
             $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
             $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
-            $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
-            $num_report =  $_SESSION["num_report"];
+            $_SESSION["report_data"] = $db->getReportList($_SESSION["username"]);
             
-            for($i = 0; $i < $num_report; $i++)
+            for($i = 0; $i < $_SESSION["num_report"]; $i++)
             {
                 $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]->get_id()));
             }
 
             $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
 
-            for($i = 0; $i < $num_report; $i++)
+            for($i = 0; $i < $_SESSION["num_report_master"]; $i++)
             {
                 $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["author_report_data"][$i]->get_id()));
             }
@@ -265,7 +255,7 @@ else if($_SESSION["login"])
 
                 $_schede_report = "";
 
-                for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] <= $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
+                for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
@@ -321,15 +311,6 @@ else if($_SESSION["login"])
                 $html = addPossibleBanner($html, "area_personale.php");
 
                 echo $html;
-
-                /*$character_data->free();
-                $report_data->free();
-                $author_report_data->free();
-                $num_pers->free();
-                $num_report_master->free();
-                $num_report->free();
-                $array_num_part_rep->free();
-                $array_num_part_rep_master->free();*/
 
             }
 

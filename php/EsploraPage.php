@@ -23,9 +23,7 @@ else{
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
     $html = setup($html);
-
-    $_SESSION["vai_avanti_esplora"] = false;
-    $_SESSION["vai_indietro_esplora"] = false;
+    
     $_SESSION["count_esplora"] = 1;
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
     $_SESSION["report_data"] = $db->getReportExplorable();// getReportExplorable();     // DA METTERE
