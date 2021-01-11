@@ -136,8 +136,9 @@ else {
 
         //giocatori presenti
         //servirà prelevare le info degli utenti collegati con il report
+        $replacer = '<h2>Giocatori presenti</h2>';
         if(count($usernameArray)>0){
-            $replacer = '<h2>Giocatori presenti</h2><ul id="boxGiocatori">';    
+            $replacer .= '<ul id="boxGiocatori">';    
             for ($i = 0; $i < count($usernameArray);$i++){// if ==0 => "non ci sono giocatori"
                 $replacer .= '<li>';
                 $replacer .= '<div class="badgeUtente">';
@@ -148,7 +149,7 @@ else {
             }
             $replacer .= '</ul>';
         }else{
-            $replacer = '<p>Non sono stati trovati gicatori associati a questo report</p>'; 
+            $replacer .= '<p>Non sono stati trovati gicatori associati a questo report</p>'; 
         }
 
         $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
