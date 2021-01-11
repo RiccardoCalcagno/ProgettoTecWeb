@@ -1,8 +1,8 @@
 <?php
-    require_once("DBinterface.php");
-    require_once("character.php");
-    require_once("Errore.php");
     require_once("report_data.php");
+    require_once("character.php");
+    require_once("DBinterface.php");
+    require_once("Errore.php");
 
     function clean_input($var) {   
         $var = htmlentities($var);
