@@ -11,6 +11,14 @@
         header("Location: 404.php"); 
         exit();
     }
+    if($_SESSION['stagedReports']==null){
+        header("Location: EsploraPage.php"); 
+        exit();
+    }
+    if($_SESSION['stagedReports']==array()){
+        header("Location: CreazioneReportPage.php"); 
+        exit();
+    }
     echo " -titlesave: ".$_SESSION['stagedReports'][0]->get_title();
     exit();
 
