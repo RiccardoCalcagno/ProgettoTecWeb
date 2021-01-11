@@ -125,6 +125,10 @@
                         $_SESSION['stagedReports']=array();
                     }
                     array_push($_SESSION['stagedReports'], $rep);
+                    foreach ($_SESSION['stagedReports'] as &$report){
+                        echo "tit:".$report->get_title();
+                    }
+                    exit();
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
     
