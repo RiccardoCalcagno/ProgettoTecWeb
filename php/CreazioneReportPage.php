@@ -121,10 +121,6 @@
                     $dbInterface->closeConnection();
                 }else{
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
-                    /*if(!isset($_SESSION['stagedReports']) || empty($_SESSION['stagedReports'])){
-                        
-                    }
-                    $_SESSION['stagedReports']=array();*/
                     array_push($_SESSION['stagedReports'], $rep);
                     $_SESSION['banners']= "salvataggio_pendente";
                 }

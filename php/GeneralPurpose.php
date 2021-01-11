@@ -59,9 +59,6 @@
             $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale">', $html);
         }
 
-        if(!isset($_SESSION["stagedPersonaggi"])) {$_SESSION["stagedPersonaggi"]=array();}
-        if(!isset($_SESSION["stagedReports"])) {$_SESSION["stagedReports"]=array();}
-
         return $html;
     }
     
@@ -74,9 +71,6 @@
         unset($_SESSION["first_logged"]);
         unset($_SESSION["character_id"]);
         unset($_SESSION['modificaChar']);
-
-        if(!isset($_SESSION["stagedPersonaggi"])){$_SESSION["stagedPersonaggi"]=array();}
-        if(!isset($_SESSION["stagedReports"])){$_SESSION["stagedReports"]=array();}
     }
 
     function setup_clear($html) { // Setup generico e clearSession
