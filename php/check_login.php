@@ -36,9 +36,9 @@
     $_SESSION['stagedReports']=array();
     $rep = new ReportData(null, "heyyyy", null, null, null, null, null);
     array_push($_SESSION['stagedReports'], $rep);
+    */
     $_POST["username"]="user";
     $_POST["password"]="user";
-    */
 
 
     clearSession(); // ok ?
