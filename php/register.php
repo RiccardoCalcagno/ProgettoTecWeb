@@ -21,27 +21,27 @@
 
         $err = $_SESSION["err"];
 
-    if($err["img_err"])
-    {
+    	if($err["img_err"])
+    	{
         $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
-    }
+    	}
 
         if($err["user_already_exist"])
-    {
-            $html = str_replace("<p id='UserAlreadyExists' class='hidden'>","<p id='UserAlreadyExists'>", $html);
-//        echo "utente esistente";
-    }
+    	{
+            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\">", $html);
+        echo "utente esistente";
+    	}
 
 
         if($err["user_empty"])   
         { 
-       $html = str_replace("<p id='UserEmpty' class='hidden'>","<p id='UserEmpty'>", $html);
-//        echo "utente vuoto";
+       $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
+        echo "utente vuoto";
     }
 
         if($err["empty_passwd"])
         { 
-       $html = str_replace("<p id='PasswordEmpty' class='hidden'>","<p id='PasswordEmpty'>", $html);
+       $html = str_replace("<p id=\"PasswordEmpty\" class=\"hidden\">","<p id=\"PasswordEmpty\">", $html);
 //        echo "password vuota";
     }
 
@@ -55,19 +55,19 @@
 
         if($err["email_err"])
     {
-            $html = str_replace("<p id='EmailErr' class='hidden'>","<p id='EmailErr'>", $html);
+            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
 //        echo "email err";
     }         
    
         if($err["email_already_exist"])
     {
-            $html = str_replace("<p id='MailAlreadyExists' class='hidden'>","<p id=MailAlreadyExists'>", $html);
+            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
 //        echo "email esistente";
     }
 
         if($err["empty_name"])
     {
-            $html = str_replace("<p id='NameEmpty' class='hidden'>","<p id='NameEmpty'>", $html);
+            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
 //        echo "nome vuoto";
     }
 
