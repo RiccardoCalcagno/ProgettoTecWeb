@@ -41,6 +41,7 @@
     foreach ($_SESSION['stagedReports'] as &$report){
         echo "titbef:".$report->get_title();
    }
+   exit();
     $_POST["username"]="user";
     $_POST["password"]="user";
 

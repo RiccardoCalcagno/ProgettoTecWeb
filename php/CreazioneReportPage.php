@@ -129,7 +129,6 @@
                   foreach ($_SESSION['stagedReports'] as &$report){
                          echo "tit:".$report->get_title();
                     }
-                    exit();
                     header("Location: check_login.php"); 
                     exit();
                     $_SESSION['banners']= "salvataggio_pendente";
