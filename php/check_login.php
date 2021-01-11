@@ -3,6 +3,9 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    echo "oiiiiiiii";
+    exit();
+
     if(!isset($_SESSION['stagedReports'])){
         header("Location: Error.php"); 
         exit();
