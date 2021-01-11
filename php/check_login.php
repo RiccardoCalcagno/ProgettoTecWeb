@@ -1,7 +1,7 @@
 <?php 
-    require_once("DBinterface.php");
-    require_once("banners.php");
-    require_once("GeneralPurpose.php");
+    //require_once("DBinterface.php");
+    //require_once("banners.php");
+    //require_once("GeneralPurpose.php");
 
 
         /*
@@ -38,7 +38,7 @@
     array_push($_SESSION['stagedReports'], $rep);
     */
     echo "provo";
-    foreach ($_SESSION['stagedReportss'] as &$report){
+    foreach ($_SESSION['stagedReports'] as &$report){
         echo "titbef:".$report->get_title();
    }
    exit();
