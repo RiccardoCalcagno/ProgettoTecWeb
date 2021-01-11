@@ -50,7 +50,7 @@ else if($_SESSION["login"])
             $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSION["username"]);
             $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
             $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
-            $_SESSION["report_data"] = $db->getReportList($_SESSION["username"], $_SESSION["passwd"]);
+            $_SESSION["report_data"] = $db->getReportList($_SESSION["username"]);
             
             for($i = 0; $i < $_SESSION["num_report"]; $i++)
             {
