@@ -7,13 +7,14 @@
         header("Location: Error.php"); 
         exit();
     }
-    echo "oiiiiiiii";
-    exit();
-    
+
     if(!$_SESSION['stagedReports']){
         header("Location: 404.php"); 
         exit();
     }
+    echo "oiiiiiiii";
+    exit();
+    
     if($_SESSION['stagedReports']==null){
         header("Location: EsploraPage.php"); 
         exit();
