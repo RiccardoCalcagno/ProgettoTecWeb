@@ -202,13 +202,13 @@
                 case "pubblica_esplora_eplora_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                    <a href='PLACEHOLDER#reportMaster' ></a>                          
+                    <a href='PLACEHOLDER' ></a>                          
                     </div>
                         <h1>Pubblicazione Confermata</h1>
                         <p>Confermiamo che la pubblicazion del report nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
                         <p>Dai subito un'occhiata al tuo Report nella sezione Esplora</p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='PLACEHOLDER#reportMaster'>CHIUDI</a>
+                        <a class='buttonLink' href='PLACEHOLDER'>CHIUDI</a>
                         <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
                     </div>";
                     unset($_SESSION['banners_ID']);
