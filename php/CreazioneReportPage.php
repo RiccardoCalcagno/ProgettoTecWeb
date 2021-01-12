@@ -7,6 +7,16 @@
 
     unset($_SESSION["first_logged"]);
 
+
+
+
+    $_SESSION['id_report_modifica'] = 2;
+
+
+
+
+
+
 //-------------------------- UTILITY
     
     //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
