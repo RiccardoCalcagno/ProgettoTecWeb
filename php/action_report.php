@@ -170,6 +170,7 @@
         if($db->openConnection()) {
             $db->setExplorable($_GET['ReportID']);
             $db->closeConnection();
+            $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{
             errorPage("Connessione DB non riuscita.");

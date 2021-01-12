@@ -206,9 +206,9 @@
                     </div>
                         <h1>Pubblicazione Confermata</h1>
                         <p>Confermiamo che la pubblicazion del report nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
-                    <div id='linkVelociPostConferma'>
                         <p>Dai subito un'occhiata al tuo Report nella sezione Esplora</p>
-                        <a class='buttonLink' href='../php/area_personale.php'>CHIUDI</a>
+                    <div id='linkVelociPostConferma'>
+                        <a class='buttonLink' href='PLACEHOLDER'>CHIUDI</a>
                         <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
                     </div>";
                     unset($_SESSION['banners_ID']);

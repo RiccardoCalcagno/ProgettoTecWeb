@@ -198,7 +198,7 @@ else if($_SESSION["login"])
                         </div>
                         </div>
                         <footer>";
-                        if($_SESSION["author_report_data"][$i]->get_isExplorable() == true)
+                        if($_SESSION["author_report_data"][$i]->get_isExplorable() == 1)
                         {
                             $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
                         }
@@ -209,7 +209,7 @@ else if($_SESSION["login"])
                         $_schede_report_master .= "</footer>
                     </button>
                     <div class=\"publicazione\">";
-                    if($_SESSION["author_report_data"][$i]->get_isExplorable() == false)    
+                    if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
                     { 
                         $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Publica in \"Esplora\"</button>";
                     }
