@@ -149,7 +149,7 @@
             "FROM Report ". 
             "INNER JOIN Users ".
             "ON Users.username = Report.author ".   /// TO FIX
-            "WHERE Users.username = '" . $username . "';";
+            "WHERE Users.username = 'Barb';";
             $user_pic = mysqli_query($this->connection, $query);
             echo var_dump($user_pic);
             exit();
