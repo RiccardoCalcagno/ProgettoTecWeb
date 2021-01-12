@@ -186,21 +186,13 @@ function switchCharLayout(clickedButton) {
 
     var content = document.getElementById("contentPersonaggio");
     var otherButton;
-    var campiTesto=[document.getElementById("campitesto0"),document.getElementById("campitesto1"),document.getElementById("campitesto2"),document.getElementById("campitesto3") ];
-
     if (clickedButton.id == "pergamena") {
         otherButton = document.getElementById("scheda");
         content.className = "pergamena";
-        for (var i =0; i<4; i++) {
-            if(campiTesto[i]){ campiTesto[i].setAttribute("class", ""); }
-        }
     }
     else {
         otherButton = document.getElementById("pergamena");
         content.className = "scheda";
-        for (var i =0; i<4; i++) {
-            if(campiTesto[i]){ campiTesto[i].setAttribute("class", "hidden"); }
-        }
     }
     
     clickedButton.className = "disabled";
@@ -210,11 +202,6 @@ function switchCharLayout(clickedButton) {
 }
 
 function CharSheet_JS_ON() {
-    var campiTesto=[document.getElementById("pers-traits"),document.getElementById("ideals"),document.getElementById("bonds"),document.getElementById("flaws") ];
-    for (var i =0; i<4; i++) {
-        if(campiTesto[i].length>150)
-            campiTesto[i].innerHTML = campiTesto[i].substring(0,150) + "<span id='campitesto"+i+"' class=''>" + campiTesto[i].substring(151,campiTesto[i].length)+ "</span>";
-    }
     
     var scrollButton = document.getElementById("pergamena");
     var sheetButton = document.getElementById("scheda");
