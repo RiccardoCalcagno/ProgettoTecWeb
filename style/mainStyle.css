@@ -2010,6 +2010,11 @@ p.campiObbligatori{
     overflow: hidden;
 }
 
+.espandi ul {
+    display: flex;
+    justify-content: center;
+}
+
 #anchorPartecipante, #anchorMaster, #anchorEsplora{
     position: relative;
     top: -70vh;
