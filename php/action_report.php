@@ -8,7 +8,7 @@
     if(isset($_GET["PostRep"])) {   // Pubblica in esplora, da AreaPersonale
         $_SESSION['banners'] = "confermare_pubblica_esplora";
         $_SESSION['banners_ID'] = $_GET['PostRep'];    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: area_personale.php");
+        header("Location: area_personale.php#reportMaster");
         exit();
     }
 
@@ -25,8 +25,7 @@
         else {
             errorPage("Can't connect to DB");
         }
-// feedback?
-        header("Location: area_personale.php");
+        header("Location: area_personale.php#reportMaster");
         exit();
     }
 
@@ -36,7 +35,7 @@
         $db->openConnection();
         $db->setExplorable($_POST["RemoveRep"]->get_id(), false);
         $db->closeConnection();
-        header("Location: area_personale.php");
+        header("Location: area_personale.php#reportMaster");
     }
 
     if( isset($_GET["ReportMaster"]) ) {    // Report creato da user, Da AreaPersonale.php
