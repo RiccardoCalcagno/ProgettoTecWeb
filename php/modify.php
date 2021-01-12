@@ -73,6 +73,7 @@
 		if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
 		{
 		    $err["img_err"] = false;
+		    unlink($_SESSION["img"]);
 		}
 		else
 		{
