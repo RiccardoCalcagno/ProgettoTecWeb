@@ -38,36 +38,34 @@
 
 
         public function escapeReport(ReportData $rep){
-            echo var_dump(mysqli_real_escape_string ( $this->connection , $title));
-            exit();
-            $rep->set_title(mysqli_real_escape_string ( $this->connection , $title));
-            $rep->set_subtitle(mysqli_real_escape_string ( $this->connection , $subtitle));
-            $rep->set_content(mysqli_real_escape_string ( $this->connection , $content));
-            $rep->set_author(mysqli_real_escape_string ( $this->connection , $author));
+            $rep->set_title(mysqli_real_escape_string ( $this->connection , $rep->get_title()));
+            $rep->set_subtitle(mysqli_real_escape_string ( $this->connection , $rep->get_subtitle()));
+            $rep->set_content(mysqli_real_escape_string ( $this->connection , $rep->get_content()));
+            $rep->set_author(mysqli_real_escape_string ( $this->connection , $rep->get_author()));
             return $rep;
         }
 
         public function escapeCharacter(Character $char){
-            $char->set_name(mysqli_real_escape_string ( $this->connection , $name));
-            $char->set_traits(mysqli_real_escape_string ( $this->connection , $traits));
-            $char->set_ideals(mysqli_real_escape_string ( $this->connection , $ideals));
-            $char->set_bonds(mysqli_real_escape_string ( $this->connection , $bonds));
-            $char->set_flaws(mysqli_real_escape_string ( $this->connection , $flaws));
-            $char->set_author(mysqli_real_escape_string ( $this->connection , $author));
+            $char->set_name(mysqli_real_escape_string ( $this->connection , $char->get_name()));
+            $char->set_traits(mysqli_real_escape_string ( $this->connection , $char->get_traits()));
+            $char->set_ideals(mysqli_real_escape_string ( $this->connection , $char->get_ideals()));
+            $char->set_bonds(mysqli_real_escape_string ( $this->connection , $char->get_bonds()));
+            $char->set_flaws(mysqli_real_escape_string ( $this->connection , $char->get_flaws()));
+            $char->set_author(mysqli_real_escape_string ( $this->connection , $char->get_author()));
             return $char;
         }
 
         public function escapeUser(UserData $user){
-            $user->set_username(mysqli_real_escape_string ( $this->connection , $username));
-            $user->set_name_surname(mysqli_real_escape_string ( $this->connection , $name_surname));
-            $user->set_email(mysqli_real_escape_string ( $this->connection , $email));
-            $user->set_passwd(mysqli_real_escape_string ( $this->connection , $passwd));
+            $user->set_username(mysqli_real_escape_string ( $this->connection , $user->get_username()));
+            $user->set_name_surname(mysqli_real_escape_string ( $this->connection , $user->get_name_surname()));
+            $user->set_email(mysqli_real_escape_string ( $this->connection , $user->get_email()));
+            $user->set_passwd(mysqli_real_escape_string ( $this->connection , $user->get_passwd()));
             return $user;
         }
 
         public function escapeComment(Comments $comm){
-            $comm->set_author(mysqli_real_escape_string ( $this->connection , $author));
-            $comm->set_text(mysqli_real_escape_string ( $this->connection , $text));
+            $comm->set_author(mysqli_real_escape_string ( $this->connection , $comm->get_author()));
+            $comm->set_text(mysqli_real_escape_string ( $this->connection , $text()));
             return $comm;
         }
 
