@@ -14,6 +14,8 @@ function onLoadModificaDati(){
     
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("birthdate").setAttribute("max", today);    
+
+    updateCounterTextarea(3);
 }
 
 
@@ -40,22 +42,22 @@ function updateCounterTextarea(numCount){
         case 4:
             IDText="ctraits";
             IDCurrent="currentCountTraits";
-            max=200;
+            max=150;
             break;
         case 5:
             IDText="cideals";
             IDCurrent="currentCountIdeals";
-            max=200;
+            max=150;
             break;
         case 6:
             IDText="cbonds";
             IDCurrent="currentCountBonds";
-            max=200;
+            max=150;
             break;
         case 7:
             IDText="cflaws";
             IDCurrent="currentCountFlaws";
-            max=200;
+            max=150;
             break;
     }
     var characterCount=document.getElementById(IDText).value.length;
@@ -69,10 +71,20 @@ function updateCounterTextarea(numCount){
 
 }
 
+function onLoadCreaReport(){
+    updateCounterTextarea(1);
+    updateCounterTextarea(2);
+}
+
 function onLoadCreaPersonaggio(){
     setDescCaratteristica(0);
     setDescCaratteristica(1);
     setDescCaratteristica(2);
+
+    updateCounterTextarea(4);
+    updateCounterTextarea(5);
+    updateCounterTextarea(6);
+    updateCounterTextarea(7);
 }
 
 function setDescCaratteristica(num){

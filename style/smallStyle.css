@@ -920,16 +920,9 @@ form#datiUtenza{
     margin-top: 1.5em;
 }
 
-#contentPersonaggio.scheda h1 {
-    font-size: 4.7mm;
-}
 
 #contentPersonaggio.scheda #infoBreviPersonaggio {
     font-size: 2.3mm;
-}
-
-#contentPersonaggio.scheda #sezTestualiPersonaggio {
-    font-size: 1.4mm;
 }
 
 /*

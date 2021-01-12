@@ -13,7 +13,9 @@ function onLoadModificaDati(){
         } 
     
     today = yyyy+'-'+mm+'-'+dd;
-    document.getElementById("birthdate").setAttribute("max", today);    
+    document.getElementById("birthdate").setAttribute("max", today);  
+    
+    updateCounterTextarea(3);
 }
 
 
@@ -60,7 +62,7 @@ function updateCounterTextarea(numCount){
     }
     var characterCount=document.getElementById(IDText).value.length;
     var obj1=document.getElementById(IDCurrent);
-    obj1.innerHTML=characterCount;
+    obj1.innerHTML=  "heyy";   //characterCount;
     if(characterCount>=max){
        obj1.style = "color: red;";
     } else if(characterCount == 0){
@@ -68,11 +70,20 @@ function updateCounterTextarea(numCount){
     }else{obj1.style = "color: black;";}
 
 }
+function onLoadCreaReport(){
+    updateCounterTextarea(1);
+    updateCounterTextarea(2);
+}
 
 function onLoadCreaPersonaggio(){
     setDescCaratteristica(0);
     setDescCaratteristica(1);
     setDescCaratteristica(2);
+
+    updateCounterTextarea(4);
+    updateCounterTextarea(5);
+    updateCounterTextarea(6);
+    updateCounterTextarea(7);
 }
 
 function setDescCaratteristica(num){
