@@ -29,11 +29,11 @@
         exit();
     }
 
-    if(isset($_POST["RemoveRep"]))
+    if(isset($_GET["RemoveRep"]))
     {
-        $_POST["RemoveRep"]->set_isExplorable(false);
+        $db = new DBinterface();
         $db->openConnection();
-        $db->setExplorable($_POST["RemoveRep"]->get_id(), false);
+        $db->setExplorable($_POST["RemoveRep"], false);
         $db->closeConnection();
         header("Location: area_personale.php#reportMaster");
     }
@@ -174,7 +174,7 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            $db->setExplorable($_SESSION["report_id"]);
+            $db->setExplorable(1);//$_SESSION["report_id"]);
             $db->closeConnection();
             header("Location: ReportPage.php#footAction");
         }else{
