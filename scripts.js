@@ -13,7 +13,9 @@ function onLoadModificaDati(){
         } 
     
     today = yyyy+'-'+mm+'-'+dd;
-    document.getElementById("birthdate").setAttribute("max", today);    
+    document.getElementById("birthdate").setAttribute("max", today);  
+    
+    updateCounterTextarea(3);
 }
 
 
@@ -68,11 +70,20 @@ function updateCounterTextarea(numCount){
     }else{obj1.style = "color: black;";}
 
 }
+function onLoadCreaReport(){
+    updateCounterTextarea(1);
+    updateCounterTextarea(2);
+}
 
 function onLoadCreaPersonaggio(){
     setDescCaratteristica(0);
     setDescCaratteristica(1);
     setDescCaratteristica(2);
+
+    updateCounterTextarea(4);
+    updateCounterTextarea(5);
+    updateCounterTextarea(6);
+    updateCounterTextarea(7);
 }
 
 function setDescCaratteristica(num){
