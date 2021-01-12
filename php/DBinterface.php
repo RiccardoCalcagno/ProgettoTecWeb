@@ -359,7 +359,7 @@
         //-----------------------------------------------------------------------------------------------------------------
 
         public function getReport($id_report) {
-            $id_report = clean_input($id_report);       // Report.author_img
+            $id_report = clean_input($id_report);    
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                     "FROM Report ". 
                     "INNER JOIN Users ".
@@ -408,11 +408,8 @@
                      "    content         = '" . $report_data->get_content() . "', ".
                      "    author         = '" . $report_data->get_author() . "', ".
                      "    isExplorable     = '" . $report_data->get_isExplorable() . "', ".
-                     "    author_img     = '" . $report_data->get_author_img() . "', ".
-                     "    last_modified = '" . $report_data->get_last_modified() . "' ";
+                     "    last_modified = '" . $report_data->get_last_modified() . "' ".
                      "WHERE id = '" . $report_data->get_id() . "';";
-            echo $query;
-            exit();
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
