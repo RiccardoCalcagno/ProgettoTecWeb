@@ -182,6 +182,18 @@
         }
         exit();
     }
+    if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="Rimuovi da ESPLORA"))
+    {
+        $db = new DBinterface();
+        if($db->openConnection()) {
+            $db->setExplorable($_GET['ReportID'], 0);
+            $db->closeConnection();
+            header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
+        }else{
+            errorPage("Connessione DB non riuscita.");
+        }
+        exit();
+    }
 
     if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="MODIFICA"))
     {

@@ -226,7 +226,9 @@ else {
             if(!$report_info->get_isExplorable()){
 
                 $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink"/> </li>';              
-            }      
+            }else{
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Rimuovi da ESPLORA" class="buttonLink"/> </li>';
+            }
 
             $footerAction .=     '<li>
                                 <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink"/> 
