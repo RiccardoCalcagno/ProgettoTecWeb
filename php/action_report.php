@@ -172,10 +172,14 @@
 
     if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="Pubblica in ESPLORA"))
     {
-        $db->openConnection();
-        $db->setExplorable($_SESSION["report_id"]);
-        $db->closeConnection();
-        header("Location: ReportPage.php#footAction");
+        $db = new DBinterface();
+        if($db->openConnection()) {
+            $db->setExplorable($_SESSION["report_id"]);
+            $db->closeConnection();
+            header("Location: ReportPage.php#footAction");
+        }else{
+            errorPage("Connessione DB non riuscita.");
+        }
         exit();
     }
 
