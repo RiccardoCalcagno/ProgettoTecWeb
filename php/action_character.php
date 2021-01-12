@@ -43,7 +43,7 @@
 
             $_SESSION['banners']="confermare_eliminazione_personaggio";
             $_SESSION['banners_ID'] = $_GET['charID'];  // PASSAGGIO PER CAMPO HIDDEN
-            header("Location: CharacterPage.php?charID=".$_GET['charID']);  // Ignora ELIMINA on Page Refresh (voluto)
+            header("Location: CharacterPage.php#footAction?charID=".$_GET['charID']);  // Ignora ELIMINA on Page Refresh (voluto)
         }
     }
 
