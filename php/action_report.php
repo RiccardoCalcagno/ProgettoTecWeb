@@ -170,4 +170,21 @@
             exit();
         }
 
+    if(isset($_GET["reportAction"]))
+    {
+        $db->openConnection();
+        $db->setExplorable($_SESSION["report_id"]);
+        $db->closeConnection();
+        header("Location: ReportPage.php#footAction");
+        exit();
+    }
+
+    if(isset($_GET["reportAction"]))
+    {
+        $_SESSION['ModificaReport'] = true;
+        //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
+        header("Location: CreazioneReportPage.php");
+        exit();
+    }
+
 ?>
