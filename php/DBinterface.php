@@ -460,7 +460,7 @@
         public function getReportExplorable()
         {
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified 
-                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true 
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = 1 
                       ORDER BY Report.last_modified DESC;";
                       
 
@@ -568,7 +568,7 @@
         {
             $count=0;
             $query = "SELECT Report.id ".
-            "FROM Report ".  "WHERE Report.isExplorable = true";
+            "FROM Report ".  "WHERE Report.isExplorable = 1";
             $query_result = mysqli_query($this->connection, $query);
 
             if(($query_result)&&($query_result->num_rows)) {
@@ -600,7 +600,7 @@
             return $count;
         }
 
-        public function setExplorable($report_id, $isExplorable = true)
+        public function setExplorable($report_id, $isExplorable = 1)
         {
             $query = "UPDATE Report ". 
                      "SET isExplorable = '" . $isExplorable . "' ".
