@@ -219,9 +219,6 @@
     }
     }
 
-    echo var_dump($rep);
-    exit();
-
 
     //--------------------------------------------------------------------
     //il contenuto della pagina viene settato qui
@@ -265,6 +262,9 @@
     else{
         $html = str_replace('{check_placeholder}','',$html);
     }
+
+    echo var_dump($_SESSION);
+    exit();
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
