@@ -40,9 +40,9 @@
             $email = $var;
         }
 
-        public function set_password($var) 
+        public function set_passwd($var) 
         {
-            $password = $var;
+            $passwd = $var;
         }
 
         public function set_birthdate($var) 

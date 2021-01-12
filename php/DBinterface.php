@@ -133,7 +133,7 @@
 
         public function setUser(UserData $user_data, $username) 
         {
-            //$user_data=DBinterface::escapeUser($user_data);
+            $user_data=DBinterface::escapeUser($user_data);
 
             $query = "UPDATE Users ".
                      "SET username = '" . $user_data->get_username() . "', " .
