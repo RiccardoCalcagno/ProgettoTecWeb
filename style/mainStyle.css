@@ -1416,6 +1416,10 @@ ul#listaCommenti {
 .pergamena #sezTestualiPersonaggio dd{
     font-weight: 400;
     font-size: 1.3em;
+    overflow-wrap: break-word;        
+    word-wrap: break-word;
+    hyphens: auto;
+}
 }
 .pergamena #sezTestualiPersonaggio dl > div{
     max-width: 38em;
