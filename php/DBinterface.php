@@ -144,7 +144,6 @@
         public function getUserPic($username)
         {
             $username = clean_input($username);
-            openConnection();
             $query = "SELECT Users.img_path FROM Users WHERE Users.username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
             echo var_dump($user_pic);
