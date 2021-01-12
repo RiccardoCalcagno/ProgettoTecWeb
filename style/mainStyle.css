@@ -1461,10 +1461,10 @@ ul#listaCommenti {
 
 #contentPersonaggio.scheda h1 {
     position: absolute;
-    top: 7.1%;
+    top: 7.5%;
     left: 7.5%;
     width: 34%;
-    font-size: 8mm;
+    font-size: 6mm;
 }
 
 #contentPersonaggio.scheda #infoBreviPersonaggio {
