@@ -76,7 +76,6 @@
             $exist =   mysqli_query($this->connection, $query);
         if($exist->num_rows > 0)
                 return $exist;
-        else
         return null;
         }
 
@@ -146,9 +145,11 @@
             $username = clean_input($username);
             $query = "SELECT Users.img_path FROM Users WHERE Users.username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
-            $row = $user_pic->fetch_assoc();
-            echo var_dump($row['img_path']);
-            exit();
+            $ritorno=null;
+            if(($query_result)&&($query_result->num_rows)){
+                $row = $user_pic->fetch_assoc();
+                $ritorno=$row['img_path'];
+            }
             return $user_pic;
         }
 
