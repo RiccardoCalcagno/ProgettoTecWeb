@@ -203,10 +203,12 @@
         $dbInterface = new DBinterface();
         $connection = $dbInterface->openConnection();
 
-        echo var_dump($_SESSION);
-        exit();
         if ($connection) {
             $rep = $dbInterface->getReport($_SESSION['id_report_modifica']);
+            
+            echo var_dump($rep);
+            exit();
+
             if($rep) {
                 $titolo = $rep->get_titolo();
                 $sottotitolo = $rep->get_sottotitolo();
