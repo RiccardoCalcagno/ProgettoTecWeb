@@ -16,6 +16,9 @@
     $birthdate = $_SESSION["birthdate"];
     $img = $_SESSION["img"];
 
+    echo $img; 
+    exit();
+
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
 //    echo "trovati errori";
