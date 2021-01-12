@@ -1157,7 +1157,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 ul#listaCommenti {
     max-height: 21.7em;
     overflow: scroll;
-    background-color: #f5ead7;
+    background-color: #fffbf5;
     border-radius: 0.5em;
 }
 
