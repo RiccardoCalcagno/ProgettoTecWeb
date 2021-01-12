@@ -4,9 +4,6 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
-    unset($_SESSION["first_logged"]);
-    unset($_SESSION["listaGiocatori"]);
-
     $new_user = null;
     $err = array();
 
@@ -136,7 +133,7 @@
 
             if(in_array(true, $err))
             {
-	        $_SESSION["tmpUser"]["username"] = $username;
+            $_SESSION["tmpUser"]["username"] = $username;
         $_SESSION["tmpUser"]["NomeCognome"] = $name_surname;
         $_SESSION["tmpUser"]["email"] = $email;
         $_SESSION["tmpUser"]["birthdate"] = $birthdate;

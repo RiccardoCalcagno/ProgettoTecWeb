@@ -62,24 +62,24 @@
     staged_session();
 
     $toEdit = false;
-
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; 
     if ( isset($_SESSION['id_report_modifica']) ) {
         $toEdit =  true;
+        $id_report = $_SESSION['id_report_modifica'];
+    }else{
+        $id_report=null;
     }
+
 
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'creazioneReport.html');
     $html = setup($html);
     $html = preparePage($html,$toEdit);
+    if(isset($id_report)&&($id_report!==null))
+        $_SESSION['id_report_modifica']=$id_report;
 
 
-
-    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $id_report=null;
 
     if(isset($_SESSION['listaGiocatori'])){
-
-        if($toEdit){
-            $id_report= $_SESSION['id_report_modifica'];
-        }
 
         if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
@@ -196,7 +196,7 @@
         $connection = $dbInterface->openConnection();
 
         if ($connection) {
-            $rep = $dbInterface->getReport($_SESSION['id_report_modifica']);
+            $rep = $dbInterface->getReport($id_report);
 
             if($rep) {
 

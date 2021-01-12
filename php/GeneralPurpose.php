@@ -58,6 +58,7 @@
             $html = str_replace('<input id="Accesso" type="submit" name="accesso" value="Accedi">', '<input id="Accesso" name="accesso" type="submit" value="Esci">', $html);
             $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale">', $html);
         }
+        unset($_SESSION['id_report_modifica']);
 
         return $html;
     }
@@ -67,6 +68,7 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }
+        unset($_SESSION['id_report_modifica']);
         unset($_SESSION["listaGiocatori"]);
         unset($_SESSION["first_logged"]);
         unset($_SESSION["character_id"]);
