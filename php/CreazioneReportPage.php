@@ -77,7 +77,8 @@
     if(isset($id_report)&&($id_report!==null))
         $_SESSION['id_report_modifica']=$id_report;
 
-
+        echo var_dump($_SESSION);
+        exit();
 
     if(isset($_SESSION['listaGiocatori'])){
 
@@ -196,8 +197,6 @@
         $connection = $dbInterface->openConnection();
 
         if ($connection) {
-            echo var_dump($_SESSION);
-            exit();
             $rep = $dbInterface->getReport($id_report);
             echo var_dump($rep);
             exit();
