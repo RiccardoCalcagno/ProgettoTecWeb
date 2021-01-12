@@ -170,7 +170,7 @@
             exit();
         }
 
-    if(isset($_GET["reportAction"]))
+    if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="Pubblica in ESPLORA"))
     {
         $db->openConnection();
         $db->setExplorable($_SESSION["report_id"]);
@@ -179,7 +179,7 @@
         exit();
     }
 
-    if(isset($_GET["reportAction"]))
+    if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="MODIFICA"))
     {
         $_SESSION['ModificaReport'] = true;
         //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
