@@ -30,48 +30,71 @@
 
     	if($err["img_err"])
     	{
-            $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+            $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\" class=\"text-errore\">", $html);
+            $html = str_replace("name=\"imgProfilo\"", "name=\"imgProfilo\" class=\"input-errore\"", $html);
     	}
 
         if($err["user_already_exist"])
     	{
-            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">","<p id=\"UserAlreadyExists\">", $html);
+            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
+	        $html = str_replace("name=\"future_username\"", "name=\"future_username\" class=\"input-errore\"", $html);
+  //      echo "utente esistente";
     	}
 
-        if($err["user_empty"])
-    	{   
-            $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
-    	}
+
+        if($err["user_empty"])   
+        { 
+            $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\">", $html);
+            $html = str_replace("name=\"future_username\"", "name=\"future_username\" class=\"input-errore\"", $html);
+//        echo "utente vuoto";
+        }
+
+        if($err["rep_passwd_err"])
+        {
+            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\" class=\"text-errore\">", $html);
+            $html = str_replace("name=\"PasswdAgan\"", "name=\"PasswdAgan\" class=\"input-errore\"", $html);
+            $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
+
+//        echo "password ripetuta errata";
+        }
+
 
         if($err["email_err"])
-	{
-            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
-    	}        
-    
+        {
+            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\" class=\"text-errore\">", $html);
+            $html = str_replace("name=\"future_email\"", "name=\"future_email\" class=\"input-errore\"", $html);
+
+//        echo "email err";
+        }         
+   
         if($err["email_already_exist"])
-    	{
-            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
-    	}
+        {
+            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\" class=\"text-errore\">", $html);
+            $html = str_replace("name=\"future_email\"", "name=\"future_email\" class=\"input-errore\"", $html);
+
+//        echo "email esistente";
+        }
 
         if($err["empty_name"])
-    	{
-            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
-    	}
+        {
+            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\" class=\"text-errore\">", $html);
+            $html = str_replace("name=\"NomeCognome\"", "name=\"NomeCognome\" class=\"input-errore\"", $html);
 
+//        echo "nome vuoto";
+        } 
+        
         if($err["old_password_err"])
     	{
             $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\">", $html);
+            $html = str_replace("name=\"password\"", "name=\"password\" class=\"input-errore\"", $html);
+
     	}
 
         if($err["new_password_empty"])
     	{
             $html = str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
-    	}
-
-        if($err["rep_passwd_err"])
-    	{
-            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
-    	}    
+            $html = str_replace("name=\"NewPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
+        }
 
 	unset($_SESSION["tmpUser"]);
     }
