@@ -40,7 +40,7 @@
             $name = clean_input($name);
             $password = clean_input($password);
 
-            $query = "SELECT username, name_surname, email, passwd, birthdate, img_path, id 
+            $query = "SELECT Users.username, Users.name_surname, Users.email, Users.passwd, Users.birthdate, Users.img_path, Users.id 
                       FROM Users
                       WHERE Users.username = '".$name."' AND Users.passwd = '".$password."';";
 
@@ -71,7 +71,7 @@
         {
             $query = "SELECT * ". 
                      "FROM Users ". 
-                     "WHERE username = '" . $username . "';";
+                     "WHERE Users.username = '" . $username . "';";
 
             $exist =   mysqli_query($this->connection, $query);
         if($exist->num_rows > 0)
@@ -134,7 +134,7 @@
         public function deleteUser($username) 
         {
             $username = clean_input($username);
-            $query = "DELETE FROM Users WHERE username = '" . $username . "';";
+            $query = "DELETE FROM Users WHERE Users.username = '" . $username . "';";
             
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -144,8 +144,7 @@
         public function getUserPic($username)
         {
             $username = clean_input($username);
-            //$query = "SELECT Users.img_path FROM Users WHERE username = '" . $username . "';";
-            $query = "SELECT Users.img_path FROM Users WHERE username = 'Will.I.Am.';";
+            $query = "SELECT Users.img_path FROM Users WHERE Users.username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
             echo var_dump($user_pic);
             exit();
@@ -158,8 +157,8 @@
             $character=null;
             $query = "SELECT * ".
                      "FROM Characters ". 
-                     "WHERE author = '" . $username . "' " . 
-                     "AND id = '" . $char_id . "';";
+                     "WHERE Characters.author = '" . $username . "' " . 
+                     "AND Characters.id = '" . $char_id . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -225,7 +224,7 @@
             $id = clean_input($id);
             $query = "SELECT * ".
                     "FROM Characters ". 
-                    "WHERE id = '" . $id . "' ". 
+                    "WHERE Characters.id = '" . $id . "' ". 
                     "ORDER BY creation_date DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -255,7 +254,7 @@
         public function deleteCharacter($id)
         {
             $id = clean_input($id);
-            $query = "DELETE FROM Characters WHERE id = '" . $id . "';";
+            $query = "DELETE FROM Characters WHERE Characters.id = '" . $id . "';";
 
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -380,13 +379,13 @@
         {
             $id = clean_input($id);
             $this->deleteAllComments($id);
-            $query = "DELETE FROM Report WHERE id = '" . $id . "';";
+            $query = "DELETE FROM Report WHERE Report.id = '" . $id . "';";
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
         public function deleteAllComments($id) {
-            $query = "DELETE FROM Comments WHERE report = '" . $id . "';";
+            $query = "DELETE FROM Comments WHERE Comments.report = '" . $id . "';";
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
