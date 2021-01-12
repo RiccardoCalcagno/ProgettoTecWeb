@@ -35,6 +35,45 @@
             mysqli_close($this->connection);
         }
 
+
+
+        public function escapeReport(ReportData $rep){
+            $rep->set_title(mysqli_real_escape_string ( $this->connection , $title));
+            $rep->set_subtitle(mysqli_real_escape_string ( $this->connection , $subtitle));
+            $rep->set_content(mysqli_real_escape_string ( $this->connection , $content));
+            $rep->set_author(mysqli_real_escape_string ( $this->connection , $author));
+            return $rep;
+        }
+
+        public function escapeCharacter(Character $char){
+            $char->set_name(mysqli_real_escape_string ( $this->connection , $name));
+            $char->set_traits(mysqli_real_escape_string ( $this->connection , $traits));
+            $char->set_ideals(mysqli_real_escape_string ( $this->connection , $ideals));
+            $char->set_bonds(mysqli_real_escape_string ( $this->connection , $bonds));
+            $char->set_flaws(mysqli_real_escape_string ( $this->connection , $flaws));
+            $char->set_author(mysqli_real_escape_string ( $this->connection , $author));
+            return $char;
+        }
+
+        public function escapeUser(UserData $user){
+            $user->set_username(mysqli_real_escape_string ( $this->connection , $username));
+            $user->set_name_surname(mysqli_real_escape_string ( $this->connection , $name_surname));
+            $user->set_email(mysqli_real_escape_string ( $this->connection , $email));
+            $user->set_passwd(mysqli_real_escape_string ( $this->connection , $passwd));
+            return $user;
+        }
+
+        public function escapeComment(Comments $comm){
+            $comm->set_author(mysqli_real_escape_string ( $this->connection , $author));
+            $comm->set_text(mysqli_real_escape_string ( $this->connection , $text));
+            return $comm;
+        }
+
+
+
+
+
+
         public function getUser($name, $password) 
         {
             $name = clean_input($name);
@@ -362,6 +401,7 @@
 
         // modifica report
         public function setReport(ReportData $report_data){
+            $report_data=DBinterface::escapeReport($report_data);
             $query = "UPDATE Report ".
                      "SET title         = '" . $report_data->get_title() . "', " .
                      "    subtitle         = '" . $report_data->get_subtitle() . "', ".
@@ -371,7 +411,6 @@
                      "    author_img     = '" . $report_data->get_author_img() . "', ".
                      "    last_modified = '" . $report_data->get_last_modified() . "' ";
                      "WHERE id = '" . $report_data->get_id() . "';";
-            $query=mysqli_real_escape_string ( $this->connection, "cos \'ciao' b");
             echo $query;
             exit();
             $done =   mysqli_query($this->connection, $query);
