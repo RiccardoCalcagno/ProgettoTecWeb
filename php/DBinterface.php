@@ -144,10 +144,10 @@
         public function getUserPic($username)
         {
             $username = clean_input($username);
-            $query = "SELECT Users.img_path FROM Users WHERE username = '" . $username . "';";
-            echo var_dump($query);
+            //$query = "SELECT Users.img_path FROM Users WHERE username = '" . $username . "';";
+            $query = "SELECT Users.img_path FROM Users WHERE username = 'Will.I.Am.';";
             $user_pic = mysqli_query($this->connection, $query);
-            echo "oooooooooooooooooooooooooo ".var_dump($user_pic);
+            echo var_dump($user_pic);
             exit();
             return $user_pic;
         }
