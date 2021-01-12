@@ -29,7 +29,7 @@
 
             $p = '<p>Concludi la modifica salvando la nuova versione del report nella tua Area Personale</p>';
 
-            $button = '<input class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA"/>';
+            $button = '<input class="buttonLink" type="submit" name="salvaRep" onclick="trasforma" value="SALVA MODIFICA"/>';
         }
         else {
             $headTitle = '<title>Creazione Report di Sessione</title>
@@ -46,7 +46,7 @@
 
             $p = '<p>Concludi la creazione salvando il nuovo report nella tua Area Personale</p>';
 
-            $button = '<input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>';
+            $button = '<input class="buttonLink" type="submit" name="salvaRep" onclick="trasforma" value="SALVA REPORT"/>';
         }
 
         $html = str_replace('<headTitle_placeholder />',$headTitle,$html);
