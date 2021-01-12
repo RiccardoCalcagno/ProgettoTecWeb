@@ -30,7 +30,7 @@
     	{
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
 	    $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
-//        echo "utente esistente";
+        echo "utente esistente";
     	}
 
 
@@ -73,7 +73,7 @@
     }
 
 
-        unset($_SESSION);
+        unset($_SESSION["err"]);
         session_destroy();      
     }
 
