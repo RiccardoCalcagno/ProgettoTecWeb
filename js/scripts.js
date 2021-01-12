@@ -38,8 +38,6 @@ function updateCounterTextarea(numCount){
             IDText="username";
             IDCurrent="currentCountUser";
             max=20;
-            var obj1=document.getElementById("datiAnagrafici");
-            obj1.innerHTML="awdawdawdwadd";
             break;
         case 4:
             IDText="ctraits";
