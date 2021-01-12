@@ -23,51 +23,51 @@
 
     	if($err["img_err"])
     	{
-        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\">", $html);
+        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\" class=\"text-errore\">", $html);
     	}
 
         if($err["user_already_exist"])
     	{
-            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\">", $html);
+            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
         echo "utente esistente";
     	}
 
 
         if($err["user_empty"])   
         { 
-       $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\">", $html);
+       $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\">", $html);
         echo "utente vuoto";
     }
 
         if($err["empty_passwd"])
         { 
-       $html = str_replace("<p id=\"PasswordEmpty\" class=\"hidden\">","<p id=\"PasswordEmpty\">", $html);
+       $html = str_replace("<p id=\"PasswordEmpty\" class=\"hidden\">","<p id=\"PasswordEmpty\" class=\"text-errore\">", $html);
 //        echo "password vuota";
     }
 
 
         if($err["rep_passwd_err"])
     {
-            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\">", $html);
+            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\" class=\"text-errore\">", $html);
 //        echo "password ripetuta errata";
     }
 
 
         if($err["email_err"])
     {
-            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\">", $html);
+            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\" class=\"text-errore\">", $html);
 //        echo "email err";
     }         
    
         if($err["email_already_exist"])
     {
-            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\">", $html);
+            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\" class=\"text-errore\">", $html);
 //        echo "email esistente";
     }
 
         if($err["empty_name"])
     {
-            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\">", $html);
+            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\" class=\"text-errore\">", $html);
 //        echo "nome vuoto";
     }
 

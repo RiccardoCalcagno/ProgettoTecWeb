@@ -343,7 +343,7 @@ var userDataValues = {
 };
 passwordRegex = /^.{3,}$/; // Non serve ?
 var newPasswordValue = {
-    "newPasswd": [passwordRegex, "Password non Valida (DA sistemare REGEX)"],
+    "newPasswd": [passwordRegex, "Password non Valida"],
 };
 
 function validateUserData() {
