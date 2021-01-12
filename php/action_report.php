@@ -176,7 +176,7 @@
         if($db->openConnection()) {
             $db->setExplorable($_SESSION["report_id"]);
             $db->closeConnection();
-            header("Location: ReportPage.php#footAction");
+            header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{
             errorPage("Connessione DB non riuscita.");
         }
@@ -185,8 +185,7 @@
 
     if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="MODIFICA"))
     {
-        $_SESSION['ModificaReport'] = true;
-        //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
+        $_SESSION['id_report_modifica'] = $_GET['ReportID'];
         header("Location: CreazioneReportPage.php");
         exit();
     }
