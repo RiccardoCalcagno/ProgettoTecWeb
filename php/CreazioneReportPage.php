@@ -263,10 +263,11 @@
         $html = str_replace('{check_placeholder}','',$html);
     }
 
-    echo var_dump($_SESSION);
-    exit();
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
+
+    echo var_dump($_SESSION);
+    exit();
 
     echo $html;
 
