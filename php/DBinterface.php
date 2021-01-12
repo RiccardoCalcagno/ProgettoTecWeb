@@ -606,8 +606,6 @@
             $query = "UPDATE Report ". 
                      "SET isExplorable = '" . $isExplorable . "' ".
                      "WHERE id = '" . $report_id . "';";
-            echo $query;
-            exit();
             $done = mysqli_query($this->connection, $query);
             return $done;
         }
