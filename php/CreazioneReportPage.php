@@ -97,6 +97,9 @@
 
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
 
+                    echo var_dump($rep);
+                    exit();
+
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
     
