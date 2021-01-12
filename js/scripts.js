@@ -408,20 +408,14 @@ function validateChangeUserPassword() {
 
 function updateProfileImg()
 {   
-    //var img_path = document.getElementById("imgProfilo").value;
+    var img_input = document.getElementById("imgProfilo");
     var img = document.getElementById("immagine_profilo");
 
-        if (img.files && img.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                img.setAttribute('src', e.target.result);
-            }
-            reader.readAsDataURL(img.files[0]);
-        }
+        if (img_input.files && img_input.files[0]) {
 
-    if(! e.target.result)
-        {
-            img.setAttribute("src", "../img/img_profilo_mancante.png");
+            img.src=URL.createObjectURL(img_input.files[0]);
+        }else{
+            img.src="../img/img_profilo_mancante.png";
         }
 }
 
