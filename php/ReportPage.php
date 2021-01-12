@@ -153,18 +153,6 @@ else {
         }
 
 
-
-
-
-        echo var_dump($usernameArray);
-        exit();
-
-
-
-
-
-
-
         $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
 
         //contenuto del report
