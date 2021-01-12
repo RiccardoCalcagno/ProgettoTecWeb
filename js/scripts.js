@@ -328,6 +328,10 @@ function trasforma(e){
     }
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("buttonPartecip").addEventListener("click",trasforma);
+})
+
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------
 // ---------------------------------------------------------------------------------
