@@ -36,7 +36,7 @@ if ( !(trim($commentText) == '') ) {
     }
 }
 
-header("Location: ReportPage.php?ReportID=". $reportID."#commentiField");
+header("Location: ReportPage.php?ReportID=". $reportID."#InserimentoCommento");
 exit();
 
 
