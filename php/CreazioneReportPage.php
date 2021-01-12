@@ -207,14 +207,12 @@
             $rep = $dbInterface->getReport($_SESSION['id_report_modifica']);
 
             if($rep) {
-                $titolo = $rep->get_titolo();
-                $sottotitolo = $rep->get_sottotitolo();
-                $contenuto = $rep->get_contenuto();
-                $condividi = $rep->get_condividi();
 
+                $titolo = $rep->get_title();
+                $sottotitolo = $rep->get_subtitle();
+                $contenuto = $rep->get_content();
+                $condividi = $rep->get_isExplorable();
 
-    echo var_dump($_SESSION['listaGiocatori']);
-    exit();
                 
                 $_SESSION['listaGiocatori']= $rep->get_lista_giocatori();
             }
