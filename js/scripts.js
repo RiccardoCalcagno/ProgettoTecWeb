@@ -402,6 +402,7 @@ function updateProfileImg()
     if(img_path)
     {
         img.setAttribute("src", img_path);
+        img.setAttribute("alt", "immagine dell'utente");
     }
     else
     {

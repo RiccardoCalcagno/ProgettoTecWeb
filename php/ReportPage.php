@@ -68,6 +68,8 @@ else {
             $commenterPic = array();
             for ($i = 0; $i < count($commentsArray);$i++){
                 $commenterPic[$i] = $dbInterface->getUserPic($commentsArray[$i]->get_author());
+                echo $commenterPic[$i];
+                exit();
             }
         }
         
