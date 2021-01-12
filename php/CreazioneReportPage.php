@@ -1,4 +1,7 @@
 <?php
+
+echo var_dump($_SESSION);
+exit();
     //require
     require_once("DBinterface.php");
     require_once("report_data.php");
@@ -69,8 +72,6 @@
     }else{
         $id_report=null;
     }
-    echo var_dump($_SESSION);
-    exit();
 
 
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'creazioneReport.html');
