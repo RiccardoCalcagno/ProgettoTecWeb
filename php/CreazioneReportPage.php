@@ -205,9 +205,6 @@
 
         if ($connection) {
             $rep = $dbInterface->getReport($_SESSION['id_report_modifica']);
-            
-            echo var_dump($rep);
-            exit();
 
             if($rep) {
                 $titolo = $rep->get_titolo();
@@ -229,7 +226,8 @@
     }
     }
 
-
+    echo var_dump($_SESSION['listaGiocatori']);
+    exit();
 
 
     //--------------------------------------------------------------------
