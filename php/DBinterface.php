@@ -38,12 +38,12 @@
 
 
         public function escapeReport(ReportData $rep){
-            echo var_dump($rep);
-            exit();
             $rep->set_title(mysqli_real_escape_string ( $this->connection , $title));
             $rep->set_subtitle(mysqli_real_escape_string ( $this->connection , $subtitle));
             $rep->set_content(mysqli_real_escape_string ( $this->connection , $content));
             $rep->set_author(mysqli_real_escape_string ( $this->connection , $author));
+            echo var_dump($rep);
+            exit();
             return $rep;
         }
 
