@@ -320,6 +320,9 @@ function validateReport() {
 }
 
 function trasforma(e){
+    var varinput=document.getElementById("var");
+    varinput.name=document.getElementById("buttonPartecip").name;
+    varinput.value=document.getElementById("buttonPartecip").value;
     e.preventDefault();
     e.stopImmediatePropagation();
     if(validateForm(reportValues)){
