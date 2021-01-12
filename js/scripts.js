@@ -323,7 +323,7 @@ function trasforma(e){
     e.preventDefault();
     e.stopImmediatePropagation();
     if(validateForm(reportValues)){
-        document.getElementById("buttonPartecip").submit();
+        document.getElementById("areaCreazione").submit();
     }
 }
 
