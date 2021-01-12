@@ -149,7 +149,7 @@ else {
             }
             $replacer .= '</ul>';
         }else{
-            $replacer .= '<p>Non sono stati trovati gicatori associati a questo report</p>'; 
+            $replacer .= '<p>Non è stato trovato alcun giocatore associato a questo report</p>'; 
         }
 
         $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
