@@ -5,8 +5,8 @@ require_once("DBinterface.php");
 require_once("GeneralPurpose.php");
 require_once("banners.php");
 
-function hasAccess ($report, $usernameArray) {  // True IFF utente ha permessi per visualizzare report (autore, isExplorable o "taggato")
-
+function hasAccess ($report) {  // True IFF utente ha permessi per visualizzare report (autore, isExplorable o "taggato")
+    $usernameArray=$report_info->get_lista_giocatori();
     $hasAccess = false;
 
     if ( $report->get_author() === $_SESSION['username'] ) {
@@ -54,12 +54,9 @@ else {
         //prelevo l'oggetto report
         $report_info = $dbInterface->getReport($_GET['ReportID']);
 
-        //faccio subito le richieste al DB per poter chiudere la connessione
-        $usernameArray = $dbInterface->getALLUsernamesForReport($report_info->get_id()); //si tratta di un array di username, sono i giocatori collegati al report
-
         $userPic = array();
-        for ($i = 0; $i < count($usernameArray);$i++){
-            $userPic[$i] = $dbInterface->getUserPic($usernameArray[$i]);
+        for ($i = 0; $i < count($report_info->get_lista_giocatori());$i++){
+            $userPic[$i] = $dbInterface->getUserPic($report_info->get_lista_giocatori()[$i]);
         }
 
         $commentsArray = $dbInterface->getComments($report_info->get_id());
@@ -76,7 +73,7 @@ else {
     //chiudo la connessione
     $dbInterface->closeConnection();
 
-    if ( !hasAccess($report_info, $usernameArray) ) {
+    if ( !hasAccess($report_info) ) {
         errorPage("Non hai i permessi per visualizzare questo report!");
     }
 

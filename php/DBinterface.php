@@ -341,7 +341,7 @@
                                     $row["content"], 
                                     $row["author"], 
                                     $row["isExplorable"], 
-                                    DBinterface::getALLForReport($row["id"]),
+                                    DBinterface::getALLUsernamesForReport($row["id"]),
                                     $row["img_path"], 
                                     $row["last_modified"]);
             }
@@ -479,7 +479,7 @@
                                             $row["content"], 
                                             $row["author"], 
                                             $row["isExplorable"], 
-                                            DBinterface::getALLForReport($row["id"]),
+                                            DBinterface::getALLUsernamesForReport($row["id"]),
                                             $row["img_path"], 
                                             $row["last_modified"]);
                     array_push($reports, $report);
@@ -511,7 +511,7 @@
                                              $row["content"], 
                                              $row["author"], 
                                              $row["isExplorable"], 
-                                             DBinterface::getALLForReport($row["id"]),
+                                             DBinterface::getALLUsernamesForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
                     array_push($reports, $report);
@@ -540,7 +540,7 @@
                                              $row["content"], 
                                              $row["author"], 
                                              $row["isExplorable"], 
-                                             DBinterface::getALLForReport($row["id"]),
+                                             DBinterface::getALLUsernamesForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
                     array_push($reports, $report);
@@ -777,23 +777,6 @@
             return $reportsWITHuser;
         }
 
-        // Restituisce tutti gli utenti (user) legati ad un report
-        public function getALLForReport($report_id){
-            $usersINreport = array();
-          $report_id = clean_input($report_id);
-          $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report_id."';";
-          $query_result = mysqli_query($this->connection, $query);
-
-            if($query_result->num_rows){
-                while($row = mysqli_fetch_assoc($query_result))
-                {
-                    $user_id = $row["user"];         
-                    array_push($usersINreport, $user_id);
-                }
-            }
-            return $usersINreport;
-        }
-
         public function getALLUsernamesForReport($report_id){
             $usersINreport = array();
           $report_id = clean_input($report_id);
@@ -836,7 +819,7 @@
                                         $row["content"], 
                                         $row["author"], 
                                         $row["isExplorable"], 
-                                        DBinterface::getALLForReport($row["id"]),
+                                        DBinterface::getALLUsernamesForReport($row["id"]),
                                         $row["img_path"], 
                                         $row["last_modified"]);
                 /*

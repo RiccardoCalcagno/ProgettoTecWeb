@@ -54,14 +54,14 @@ else if($_SESSION["login"])
             
             for($i = 0; $i < $_SESSION["num_report"]; $i++)
             {
-                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]->get_id()));
+                $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLUsernamesForReport($_SESSION["report_data"][$i]->get_id()));
             }
 
             $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
 
             for($i = 0; $i < $_SESSION["num_report_master"]; $i++)
             {
-                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["author_report_data"][$i]->get_id()));
+                $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] = count($db->getALLUsernamesForReport($_SESSION["author_report_data"][$i]->get_id()));
             }
 
             $db->closeConnection();
