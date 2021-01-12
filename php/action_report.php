@@ -25,7 +25,7 @@
     if ( isset($_GET["RemoveRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
         $db = new DBinterface();
         if( $db->openConnection() ) {
-            if (!$db->setExplorable($_GET["RemoveRep"]) ) {
+            if (!$db->setExplorable($_GET["RemoveRep"],0) ) {
                 errorPage("Rimozione fallita. Riprovare piu' tardi");
             }else{
                 unset($_SESSION["first_logged"]);
