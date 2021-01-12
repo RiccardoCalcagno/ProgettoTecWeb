@@ -16,6 +16,9 @@ function onLoadModificaDati(){
     document.getElementById("birthdate").setAttribute("max", today);    
 
     updateCounterTextarea(3);
+
+    removeHidden('immagine_profilo');
+    updateProfileImg();
 }
 
 
@@ -394,21 +397,20 @@ function validateChangeUserPassword() {
 function updateProfileImg()
 {   
     var img_path = document.getElementById("imgProfilo").value;
-    var img = document.getElementsById("immagine_profilo");
-
-    //img.classList.remove("hidden");
+    var img = document.getElementById("immagine_profilo");
 
     if(img_path)
     {
-        img.src(img_path);
+        img.setAttribute("src", img_path);
     }
     else
     {
-        img.src(" ");
+        img.setAttribute("src", "../img/img_profilo_mancante.png");
     }
 }
 
 function removeHidden(id_name)
 {
-    var element = document.getElementById(id_name.toString()).classList.remove("hidden");
+    var element = document.getElementById(id_name.toString());
+    element.setAttribute("class", "");    
 }

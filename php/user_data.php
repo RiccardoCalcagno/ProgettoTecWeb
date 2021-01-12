@@ -20,7 +20,11 @@
             $this->email=$email;
             $this->passwd=$passwd;
             $this->birthdate=$birthdate;
-            $this->img_path=$img_path;
+            if(empty($img_path)){
+                $this->img_path="../img/img_profilo_mancante.png";
+            }else{
+                $this->img_path=$img_path;
+            }
         }
 
         public function set_username($var) 
@@ -50,9 +54,13 @@
             $birthdate = $var;
         }
 
-        public function set_img_path($var) 
+        public function set_img_path($img_path) 
         {
-            $img_path = $var;
+            if(empty($var)){
+                $this->img_path="../img/img_profilo_mancante.png";
+            }else{
+                $this->img_path=$img_path;
+            }
         }
 
         public function get_id()
