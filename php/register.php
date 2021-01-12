@@ -29,14 +29,15 @@
         if($err["user_already_exist"])
     	{
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
-        echo "utente esistente";
+	    $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
+//        echo "utente esistente";
     	}
 
 
         if($err["user_empty"])   
         { 
        $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\">", $html);
-        echo "utente vuoto";
+//        echo "utente vuoto";
     }
 
         if($err["empty_passwd"])
