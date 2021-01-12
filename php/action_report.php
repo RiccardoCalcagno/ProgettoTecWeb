@@ -174,8 +174,7 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            echo $db->setExplorable($_SESSION["report_id"]);
-            exit();
+            $db->setExplorable($_SESSION["report_id"]);
             $db->closeConnection();
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{

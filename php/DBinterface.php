@@ -602,10 +602,12 @@
 
         public function setExplorable($report_id, $isExplorable = 1)
         {
+            $isExplorable=(int)$isExplorable;
             $query = "UPDATE Report ". 
                      "SET isExplorable = '" . $isExplorable . "' ".
                      "WHERE id = '" . $report_id . "';";
-
+            echo $query;
+            exit();
             $done = mysqli_query($this->connection, $query);
             return $done;
         }
