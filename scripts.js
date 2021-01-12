@@ -62,7 +62,7 @@ function updateCounterTextarea(numCount){
     }
     var characterCount=document.getElementById(IDText).value.length;
     var obj1=document.getElementById(IDCurrent);
-    obj1.innerHTML=characterCount;
+    obj1.innerHTML=  "heyy";   //characterCount;
     if(characterCount>=max){
        obj1.style = "color: red;";
     } else if(characterCount == 0){
