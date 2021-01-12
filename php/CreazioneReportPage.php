@@ -103,9 +103,6 @@
                     if($connection){
                         $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
 
-                        echo var_dump($result);
-                        exit();
-
                         if($result){
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                             //azzero la form
