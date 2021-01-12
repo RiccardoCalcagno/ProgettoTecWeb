@@ -146,11 +146,11 @@
             $query = "SELECT Users.img_path FROM Users WHERE Users.username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
             $ritorno=null;
-            if(($query_result)&&($query_result->num_rows)){
+            if(($user_pic)&&($user_pic->num_rows)){
                 $row = $user_pic->fetch_assoc();
                 $ritorno=$row['img_path'];
             }
-            return $user_pic;
+            return $ritorno;
         }
 
         public function getCharacterOfUser($char_id, $username)
