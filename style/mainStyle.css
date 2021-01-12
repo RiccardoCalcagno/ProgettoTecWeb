@@ -1158,6 +1158,7 @@ ul#listaCommenti {
     max-height: 21.7em;
     overflow: scroll;
     background-color: #e7ddcc;
+    border-radius: 0.5em;
 }
 
 #commentiField{
