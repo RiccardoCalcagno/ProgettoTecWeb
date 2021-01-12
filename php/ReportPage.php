@@ -56,13 +56,13 @@ else {
 
         //faccio subito le richieste al DB per poter chiudere la connessione
         $usernameArray = $report_info->get_lista_giocatori(); //si tratta di un array di username, sono i giocatori collegati al report
-        echo var_dump($usernameArray);
-        exit();
 
         $userPic = array();
         for ($i = 0; $i < count($usernameArray);$i++){
             $userPic[$i] = $dbInterface->getUserPic($usernameArray[$i]);
         }
+        echo var_dump($usernameArray);
+        exit();
 
         $commentsArray = $dbInterface->getComments($report_info->get_id());
 
