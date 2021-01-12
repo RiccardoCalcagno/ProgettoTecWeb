@@ -69,6 +69,8 @@
     }else{
         $id_report=null;
     }
+    echo var_dump($_SESSION);
+    exit();
 
 
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'creazioneReport.html');
@@ -77,8 +79,6 @@
     if(isset($id_report)&&($id_report!==null))
         $_SESSION['id_report_modifica']=$id_report;
 
-        echo var_dump($_SESSION);
-        exit();
 
     if(isset($_SESSION['listaGiocatori'])){
 
