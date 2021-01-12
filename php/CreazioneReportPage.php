@@ -9,14 +9,6 @@
 
 
 
-
-    $_SESSION['id_report_modifica'] = 34;
-
-
-
-
-
-
 //-------------------------- UTILITY
     
     //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
