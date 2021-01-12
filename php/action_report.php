@@ -5,17 +5,10 @@
         session_start();
     }
 
-    if(isset($_GET["PostRep"])) {   // Pubblica in esplora, da AreaPersonale
-        $_SESSION['banners'] = "confermare_pubblica_esplora";
-        $_SESSION['banners_ID'] = $_GET['PostRep'];    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: area_personale.php#reportMaster");
-        exit();
-    }
-
-    if ( isset($_POST['documento']) && $_POST['documento'] == 'PUBBLICA') {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+    if ( isset($_GET["PostRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
         $db = new DBinterface();
         if( $db->openConnection() ) {
-            if (!$db->setExplorable($_POST['ReportID']) ) {
+            if (!$db->setExplorable($_GET["PostRep"]) ) {
                 errorPage("Pubblicazione fallita. Riprovare piu' tardi");
             }else{
                 unset($_SESSION["first_logged"]);
@@ -25,6 +18,7 @@
         else {
             errorPage("Can't connect to DB");
         }
+        $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
         header("Location: area_personale.php#reportMaster");
         exit();
     }
