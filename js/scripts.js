@@ -18,7 +18,6 @@ function onLoadModificaDati(){
     updateCounterTextarea(3);
 
     removeHidden('immagine_profilo');
-    updateProfileImg();
 }
 
 
