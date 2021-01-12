@@ -71,14 +71,12 @@
 
 
 
-
-
-
         public function getUser($name, $password) 
         {
             $name = clean_input($name);
             $password = clean_input($password);
-
+            $password=mysqli_real_escape_string ( $this->connection , $password);
+            
             $query = "SELECT Users.username, Users.name_surname, Users.email, Users.passwd, Users.birthdate, Users.img_path, Users.id 
                       FROM Users
                       WHERE Users.username = '".$name."' AND Users.passwd = '".$password."';";
@@ -108,6 +106,7 @@
 
         public function existUser($username) 
         {
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT * ". 
                      "FROM Users ". 
                      "WHERE Users.username = '" . $username . "';";
@@ -120,6 +119,7 @@
 
         public function existMail($email) 
         {
+            $email=mysqli_real_escape_string ( $this->connection , $email);
             $query = "SELECT * ". 
                      "FROM Users ". 
                      "WHERE email = '" . $email . "';";
@@ -135,6 +135,7 @@
         {
             $user_data=DBinterface::escapeUser($user_data);
 
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "UPDATE Users ".
                      "SET username = '" . $user_data->get_username() . "', " .
                      "    name_surname = '" . $user_data->get_name_surname() . "', " .
@@ -176,6 +177,7 @@
         public function deleteUser($username) 
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "DELETE FROM Users WHERE Users.username = '" . $username . "';";
             
             $done =   mysqli_query($this->connection, $query);
@@ -186,6 +188,7 @@
         public function getUserPic($username)
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Users.img_path FROM Users WHERE Users.username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
             $ritorno=null;
@@ -199,6 +202,7 @@
         public function getCharacterOfUser($char_id, $username)
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $character=null;
             $query = "SELECT * ".
                      "FROM Characters ". 
@@ -229,6 +233,7 @@
         public function getCharactersByUser($username)
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT * ".
                      "FROM Characters ". 
                      "WHERE author = '" . $username . "' ". 
@@ -348,6 +353,7 @@
         public function contaPersonaggi($username) 
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT COUNT(Characters.id)". 
                      "FROM Characters ". 
                      "WHERE Characters.author = '".$username."';";
@@ -484,6 +490,7 @@
         {
             $reports=array();
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Users ". 
                      "INNER JOIN report_giocatore ".
@@ -517,6 +524,7 @@
         public function getReportAuthor($username) 
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username ". 
                      "WHERE Report.author = '" . $username . "';";
@@ -545,6 +553,7 @@
         {
             $count=0;
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
@@ -573,6 +582,7 @@
         {
             $count=0;
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "INNER JOIN report_giocatore ".
