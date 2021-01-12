@@ -134,7 +134,7 @@
         public function deleteUser($username) 
         {
             $username = clean_input($username);
-            $query = "DELETE FROM User WHERE username = '" . $username . "';";
+            $query = "DELETE FROM Users WHERE username = '" . $username . "';";
             
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -144,8 +144,7 @@
         public function getUserPic($username)
         {
             $username = clean_input($username);
-            $query = "SELECT User.img_path FROM User WHERE username = '" . $username . "';";
-            var_dump($query);
+            $query = "SELECT Users.img_path FROM Users WHERE username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
             return $user_pic;
         }
