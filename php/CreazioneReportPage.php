@@ -211,6 +211,10 @@
                 $sottotitolo = $rep->get_sottotitolo();
                 $contenuto = $rep->get_contenuto();
                 $condividi = $rep->get_condividi();
+
+
+    echo var_dump($_SESSION['listaGiocatori']);
+    exit();
                 
                 $_SESSION['listaGiocatori']= $rep->get_lista_giocatori();
             }
@@ -225,9 +229,6 @@
         $dbInterface->closeConnection();
     }
     }
-
-    echo var_dump($_SESSION['listaGiocatori']);
-    exit();
 
 
     //--------------------------------------------------------------------
