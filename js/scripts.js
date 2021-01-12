@@ -396,18 +396,21 @@ function validateChangeUserPassword() {
 
 function updateProfileImg()
 {   
-    var img_path = document.getElementById("imgProfilo").value;
+    //var img_path = document.getElementById("imgProfilo").value;
     var img = document.getElementById("immagine_profilo");
 
-    if(img_path)
-    {
-        img.setAttribute("src", img_path);
-        img.setAttribute("alt", "immagine dell'utente");
-    }
-    else
-    {
-        img.setAttribute("src", "../img/img_profilo_mancante.png");
-    }
+        if (img.files && img.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                img.setAttribute('src', e.target.result);
+            }
+            reader.readAsDataURL(img.files[0]);
+        }
+
+    if(! e.target.result)
+        {
+            img.setAttribute("src", "../img/img_profilo_mancante.png");
+        }
 }
 
 function removeHidden(id_name)

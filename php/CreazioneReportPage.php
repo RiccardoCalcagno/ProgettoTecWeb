@@ -156,9 +156,6 @@
                         $_SESSION['listaGiocatori'] = $lista_giocatori;
     
                         $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
-                        /*"?titolo=aaa&sottotitolo=aaa&contenuto=aaa&usernameGiocatore=The_Emperor&condividi=false&salvaRep=SALVA+REPORT#giocatoriRepo"
-                        header("Location: CreazioneReportPage.php#giocatoriRepo");
-                        exit();*/
                     }
                     else if(!(array_search($_GET['usernameGiocatore'],$lista_giocatori) === false)){
                         $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
