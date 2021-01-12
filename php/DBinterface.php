@@ -145,6 +145,7 @@
         {
             $username = clean_input($username);
             $query = "SELECT User.img_path FROM User WHERE username = '" . $username . "';";
+            var_dump($query);
             $user_pic = mysqli_query($this->connection, $query);
             return $user_pic;
         }
