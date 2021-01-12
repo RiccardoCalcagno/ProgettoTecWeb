@@ -196,7 +196,11 @@
         $connection = $dbInterface->openConnection();
 
         if ($connection) {
+            echo var_dump($_SESSION);
+            exit();
             $rep = $dbInterface->getReport($id_report);
+            echo var_dump($rep);
+            exit();
 
             if($rep) {
 
