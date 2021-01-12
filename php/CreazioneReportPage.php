@@ -97,14 +97,14 @@
 
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
 
-                    echo var_dump($rep);
-                    exit();
-
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
     
                     if($connection){
                         $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
+
+                        echo var_dump($rep);
+                        exit();
 
                         if($result){
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
