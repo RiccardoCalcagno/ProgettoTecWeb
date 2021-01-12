@@ -371,6 +371,7 @@
                      "    author_img     = '" . $report_data->get_author_img() . "', ".
                      "    last_modified = '" . $report_data->get_last_modified() . "' ";
                      "WHERE id = '" . $report_data->get_id() . "';";
+            $query=mysqli_real_escape_string ( $this->connection, $query);
             echo $query;
             exit();
             $done =   mysqli_query($this->connection, $query);
