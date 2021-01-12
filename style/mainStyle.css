@@ -2943,3 +2943,8 @@ body.errorPage section, body.errorPage header{
     color: red;
     margin: 0 auto 0.5em;
 }
+
+#ImgErr, #UserEmpty, #UserAlreadyExists, #NameEmpty, #EmailErr, #MailAlreadyExists, #NewPasswdEmpty, #RepPasswdErr
+{
+    padding: 0 !important;
+}

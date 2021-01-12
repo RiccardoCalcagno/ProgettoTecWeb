@@ -87,13 +87,13 @@
                     <li>
                     <img class="hidden" id = "immagine_profilo" alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src=" <img_profilo> " onload="removeHidden('immagine_profilo');">
                     <label for="imgProfilo">Immagine profilo</label>
-		    <p id="ImgErr" class="hidden"> L'immagine esiste già o ha un formato sbagliato </p>
+                    <p id="ImgErr" class="hidden"> L'immagine esiste già o ha un formato sbagliato </p>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();">
                     </li>
                     <li>
                     <label for="username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
                     <p id="UserEmpty" class="hidden">  Username vuoto o troppo lungo </p>
-                    <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
+                    <p id="UserAlreadyExists" class="text-errore">  Utente già esistente  </p>
                     <span><input type="text"  aria-required="true" required="required"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
@@ -111,8 +111,9 @@
             <fieldset id="datiAnagrafici">  <legend><h2>Dati anagrafici</h2></legend>
                 <ul>
                     <li>
-                    <p id="NameEmpty" class="hidden">  Inserisci un nome  </p>
+                    
                     <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
+                    <p id="NameEmpty" class="hidden">  Inserisci un nome  </p>
                     <span><input type="text"  aria-required="true" required="required"
                         name="NomeCognome" 
                         id="NomeCognome"
@@ -120,9 +121,10 @@
                         placeholder="Inserisci il tuo nome e il tuo cognome"/></span>
                     </li>
                     <li>
+                    
+                    <label for="email" class="campiObbligatori">E-mail</label>
                     <p id="EmailErr" class="hidden"> Non hai inserito una email valida </p>
 		    <p id="MailAlreadyExists" class="hidden"> Email già esistente </p>
-                    <label for="email" class="campiObbligatori">E-mail</label>
                 <span><input type="text"  aria-required="true" required="required"
                         name="email" 
                         id="email"
@@ -147,9 +149,10 @@
             <fieldset>  <legend><h2>Password</h2></legend> 
                 <ul>
                     <li>
+                        
+                        <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
                         <p id="NewPasswdEmpty" class="hidden">  Non è accettata la password vuota </p>
                         <p id="RepPasswdErr" class="hidden">  Le password non corrispondono  </p>
-                        <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
                     <span><input type="password"  aria-required="true" required="required"
                             name="newPasswd" 
                             id="newPasswd"
@@ -158,8 +161,9 @@
 
                     </li>
                     <li>
-                        <p id="RepPasswdErr" class="hidden">  Le password non corrispondono </p>
                         <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
+                        <p id="RepPasswdErr" class="hidden">  Le password non corrispondono </p>
+
                     <span><input type="password"  aria-required="true" required="required"
                             name="PasswdAgan" 
                             id="PasswdAgan"
