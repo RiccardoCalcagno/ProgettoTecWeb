@@ -838,13 +838,13 @@ body{
     width: 85%;
 }
 .howTo li{
-    padding-bottom: 1.5em;
+    padding-bottom: 1.2em;
 }
 .howTo li:before{
     float: left;
     position: relative;
     left: -1em;
-    top:-0.2em;
+    top:-0.1em;
 }
 .howTo li:nth-child(1):before {content:  url(../img/numeri_lista/uno.png);}
 .howTo li:nth-child(2):before {content:  url(../img/numeri_lista/due.png);}
@@ -1476,6 +1476,9 @@ ul#listaCommenti {
 
 #contentPersonaggio.scheda dd {
     position: absolute;
+    overflow-wrap: break-word;        
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 #contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
