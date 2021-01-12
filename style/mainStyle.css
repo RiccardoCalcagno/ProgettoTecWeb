@@ -2431,11 +2431,6 @@ p.campiObbligatori{
     margin-right: 0.5em;
 }
 
-
-button[name="RemoveRep"]{                                                 /*da eliminare alla fine*/
-    display: none;
-}
-
 .report #reportMaster button > div{
     height: 100%;
 }
