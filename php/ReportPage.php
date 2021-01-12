@@ -61,8 +61,6 @@ else {
         for ($i = 0; $i < count($usernameArray);$i++){
             $userPic[$i] = $dbInterface->getUserPic($usernameArray[$i]);
         }
-        echo var_dump($usernameArray);
-        exit();
 
         $commentsArray = $dbInterface->getComments($report_info->get_id());
 
@@ -153,6 +151,19 @@ else {
         }else{
             $replacer .= '<p>Non è stato trovato alcun giocatore associato a questo report</p>'; 
         }
+
+
+
+
+
+        echo var_dump($usernameArray);
+        exit();
+
+
+
+
+
+
 
         $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
 
