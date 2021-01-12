@@ -54,10 +54,8 @@ else {
         //prelevo l'oggetto report
         $report_info = $dbInterface->getReport($_GET['ReportID']);
 
-        echo var_dump($report_info);
-        exit();
         //faccio subito le richieste al DB per poter chiudere la connessione
-        $usernameArray = $dbInterface->getALLUsernamesForReport($report_info->get_id()); //si tratta di un array di username, sono i giocatori collegati al report
+        $usernameArray = $report_info->get_lista_giocatori(); //si tratta di un array di username, sono i giocatori collegati al report
         echo var_dump($usernameArray);
         exit();
 
