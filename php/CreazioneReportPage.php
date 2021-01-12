@@ -266,9 +266,6 @@
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
-    echo var_dump($_SESSION);
-    exit();
-
     echo $html;
 
 ?>
