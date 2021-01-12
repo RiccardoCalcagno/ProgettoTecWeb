@@ -12,16 +12,33 @@
                 errorPage("Pubblicazione fallita. Riprovare piu' tardi");
             }else{
                 unset($_SESSION["first_logged"]);
+                $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
             }
             $db->closeConnection();
         }
         else {
             errorPage("Can't connect to DB");
         }
-        $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
         header("Location: area_personale.php#reportMaster");
         exit();
     }
+    if ( isset($_GET["RemoveRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+        $db = new DBinterface();
+        if( $db->openConnection() ) {
+            if (!$db->setExplorable($_GET["RemoveRep"]) ) {
+                errorPage("Rimozione fallita. Riprovare piu' tardi");
+            }else{
+                unset($_SESSION["first_logged"]);
+            }
+            $db->closeConnection();
+        }
+        else {
+            errorPage("Can't connect to DB");
+        }
+        header("Location: area_personale.php#reportMaster");
+        exit();
+    }
+    
 
     if(isset($_GET["RemoveRep"]))
     {
