@@ -65,7 +65,7 @@
 
         public function escapeComment(Comments $comm){
             $comm->set_author(mysqli_real_escape_string ( $this->connection , $comm->get_author()));
-            $comm->set_text(mysqli_real_escape_string ( $this->connection , $text()));
+            $comm->set_text(mysqli_real_escape_string ( $this->connection , $comm->get_text()));
             return $comm;
         }
 
