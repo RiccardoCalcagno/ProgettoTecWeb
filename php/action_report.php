@@ -170,21 +170,4 @@
             exit();
         }
 
-    if(isset($_GET["FtAct_PublicReport"]))
-    {
-        $db->openConnection();
-        $db->setExplorable($_SESSION["report_id"]);
-        $db->closeConnection();
-        header("Location: ReportPage.php");
-        exit();
-    }
-
-    if(isset($_GET["FtAct_ModReport"]))
-    {
-        $_SESSION['ModificaReport'] = true;
-        //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
-        header("Location: CreazioneReportPage.php");
-        exit();
-    }
-
 ?>
