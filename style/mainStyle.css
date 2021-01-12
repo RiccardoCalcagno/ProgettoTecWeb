@@ -1486,6 +1486,7 @@ ul#listaCommenti {
     overflow-wrap: break-word;        
     word-wrap: break-word;
     hyphens: auto;
+    overflow:hidden;
 }
 
 #contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
