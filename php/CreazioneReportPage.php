@@ -1,7 +1,4 @@
 <?php
-
-echo var_dump($_SESSION);
-exit();
     //require
     require_once("DBinterface.php");
     require_once("report_data.php");
@@ -199,8 +196,6 @@ exit();
 
         if ($connection) {
             $rep = $dbInterface->getReport($id_report);
-            echo var_dump($rep);
-            exit();
 
             if($rep) {
 
