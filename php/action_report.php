@@ -120,7 +120,7 @@
     if(isset($_POST["eliminaCommento"])) {  // Eliminazione commento, da ReportPage.php
         $_SESSION['banners']="confermare_eliminazione_commento";
         $_SESSION['banners_ID'] = array("ReportID" => $_POST['ReportID'], "CommentID" => $_POST['eliminaCommento']);    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: ReportPage.php?ReportID=".$_POST['ReportID']);
+        header("Location: ReportPage.php?ReportID=".$_POST['ReportID']."#anchorComment");
         exit();
     }
 
@@ -137,14 +137,14 @@
             errorPage("Can't connect to DB");
         }
 // feedback?
-        header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]);
+        header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]."#anchorComment");
         exit();
     }
 
     if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {    // Eliminazione Report, da ReportPage.php 
         $_SESSION['banners']="confermare_eliminazione_report";
         $_SESSION['banners_ID'] = $_GET['ReportID'];    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']);
+        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         exit();
     }
 
