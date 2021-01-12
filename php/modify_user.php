@@ -16,9 +16,6 @@
     $birthdate = $_SESSION["birthdate"];
     $img = $_SESSION["img"];
 
-    echo $img; 
-    exit();
-
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
 //    echo "trovati errori";
@@ -110,6 +107,8 @@
     {
         str_replace("<p id=\"Successful\" class=\"hidden\">", "<p id=\"Successful\">", $html);
     }*/
+    echo $img; 
+    exit();
 
     $html = str_replace("src=\" <img_profilo> \"", "src=\"" . $img ."\"", $html) ;
     $html = str_replace("value=\"<username>\"", "value=\"" . $username . "\"", $html);
