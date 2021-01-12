@@ -38,6 +38,8 @@
 
         public function set_title($title) 
         {
+            echo $title;
+            exit();
             $this->title = $title;
         }
 
