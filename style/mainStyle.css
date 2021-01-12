@@ -1420,6 +1420,9 @@ ul#listaCommenti {
     word-wrap: break-word;
     hyphens: auto;
 }
+.pergamena #sezTestualiPersonaggio dl > div {
+    width: 80%;
+    display: inline-block;
 }
 .pergamena #sezTestualiPersonaggio dl > div{
     max-width: 38em;
@@ -1965,7 +1968,7 @@ p.campiObbligatori{
     padding-bottom: 0.3em;
 }
 #traitsWrapper textarea{
-    height: 8em;
+    height: 6.5em;
 }
 .traitsCard {
     margin: 0 0.7em 2em 0.7em;

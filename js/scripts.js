@@ -42,22 +42,22 @@ function updateCounterTextarea(numCount){
         case 4:
             IDText="ctraits";
             IDCurrent="currentCountTraits";
-            max=200;
+            max=150;
             break;
         case 5:
             IDText="cideals";
             IDCurrent="currentCountIdeals";
-            max=200;
+            max=150;
             break;
         case 6:
             IDText="cbonds";
             IDCurrent="currentCountBonds";
-            max=200;
+            max=150;
             break;
         case 7:
             IDText="cflaws";
             IDCurrent="currentCountFlaws";
-            max=200;
+            max=150;
             break;
     }
     var characterCount=document.getElementById(IDText).value.length;
