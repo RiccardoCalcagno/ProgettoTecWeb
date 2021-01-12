@@ -133,6 +133,7 @@
 
         public function setUser(UserData $user_data, $username) 
         {
+            $user_data=DBinterface::escapeUser($user_data);
             $query = "UPDATE Users ".
                      "SET username = '" . $user_data->get_username() . "', " .
                      "    name_surname = '" . $user_data->get_name_surname() . "', " .
@@ -147,6 +148,7 @@
 
         public function setPassword(UserData $user)
         {
+            $user=DBinterface::escapeUser($user);
             $query = "UPDATE Users ".
                      "SET passwd = '" . $user->get_passwd() . "' ". 
                      "WHERE username = '" . $user->get_username() . "';";
@@ -157,6 +159,7 @@
 
         public function addUser(UserData $userdata) 
         {
+            $userdata=DBinterface::escapeUser($userdata);
             $query = "INSERT INTO Users (username, name_surname, email, passwd, birthdate, img_path) ". 
                      "VALUES ('" . $userdata->get_username() . "', ".
                               "'" . $userdata->get_name_surname() . "', ".
@@ -303,6 +306,7 @@
 
         public function setCharacter(Character $character_data, $id) 
         {
+            $character_data=DBinterface::escapeCharacter($character_data);
             $id = clean_input($id);
             $query = "UPDATE Characters ".
                      "SET name = '" . $character_data->get_name() . "', " .
@@ -322,6 +326,7 @@
 
         public function addCharacter(Character $character_data)
         {
+            $character_data=DBinterface::escapeCharacter($character_data);
             $query = "INSERT INTO Characters (name, race, class, background, alignment, traits, ideals, bonds, flaws, author) ". 
                      "VALUES ('" . $character_data->get_name() . "', ".
                               "'" . $character_data->get_race() . "', ".
@@ -388,6 +393,7 @@
 
         // aggiunta di un report
         public function addReport(ReportData $report_data){
+            $report_data=DBinterface::escapeReport($report_data);
             $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified) ".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
@@ -442,60 +448,7 @@
                 return 0;
         }
 
-        //funzione per ricavare i dati di un determinato numero di Cards, in base ad una lista di report.id
-        /*public function getReportCard($IDs_arr) {
-          $IDs_arr = clean_input($IDs_arr);
-            $CardData_List = array();
-            foreach($IDs_arr as $repo_id){
-                $query = "SELECT * FROM Report WHERE Report.id = '".$repo_id."';";
-                $queryResult = mysqli_query($this->connection, $query);
 
-                if(!$row = mysqli_fetch_assoc($queryResult)){
-                    echo "Spiacenti! Report n.".$repo_id."non trovato";
-                }
-                else{
-                    // Cerco l'immagine dell'autore
-                    $img_query = "SELECT User.imgpath FROM Users, Report WHERE Users.username = Report.author AND Report.id ='".$row['id']."';";
-                    $img_query_Result = mysqli_query($this->connection, $img_query);
-
-                    // Compongo l'array della singola card
-                  $singleCard = new ReportCard($row['id'], $row['title'], $row['subtitle'], linkedUsersCounter($row['id']), $row['isExplorable'], $row['author'], $img_query_Result);
-
-                    array_push($CardData_List,$singleCard);
-                }
-            }
-               return $CardData_List;
-        }*/
-
-
-        // funzione che estrae gli esatti report.id per le card desiderate, in base alla pagina
-        // temporaneamente uso un numero per identificare i tipi CardType : MyDashboard=0, ImPlayer=1, Esplora=2
-        /*public function getIDsReport($CardType,$currentUser){
-          $CardType = clean_input($CardType);
-          $currentUser = clean_input($currentUser);
-            //se CardType = 0, MyDashboard
-            if($CardType == 0 && $currentUser){
-                $query = "SELECT Report.id FROM Report WHERE Report.author = '".$currentUser."' ORDER BY Report.creation_date DESC;";
-                $queryresult = mysqli_query($this->connection, $query);
-                return $queryResult;
-            }
-            //se CardType = 1, ImPlayer
-            else if($CardType == 1 && $currentUser){
-                $query = "SELECT RG.report FROM report_giocatore RG, Report WHERE RG.user = '".$currentUser."' AND RG.report = Report.id ORDER BY Report.creation_date DESC;";
-                $queryresult = mysqli_query($this->connection, $query);
-                return $queryResult;
-            }
-            //se CardType = 2, Esplora
-            else if($CardType == 2){
-                $query = "SELECT Report.id FROM Report WHERE Report.isExplorable = 1 ORDER BY Report.creation_date DESC;";
-                $queryresult = mysqli_query($this->connection, $query);
-                return $queryResult;
-            }
-            else{
-                echo "Qualcosa è andato storto! Anteprima non disponibile";
-            }
-
-        }*/
 
         public function getReportExplorable()
         {
@@ -695,6 +648,7 @@
 
         public function addComments(Comments $comments)
         {
+            $comments=DBinterface::escapeComment($comments);
             $query = "INSERT INTO Comments (testo, author, report) ". 
                      "VALUES ('" . $comments->get_text() . "', ".  
                              "'" . $comments->get_author() . "', ". 
