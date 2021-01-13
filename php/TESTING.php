@@ -5,7 +5,11 @@
 	 $dbInterface = new DBinterface();
 	 $connection = $dbInterface->openConnection();
 
-	 echo var_dump($dbInterface->ALUsimplified('5',$dbInterface->getHighestRepId()));
+	 $lista = array();
+	 array_push($lista,'Grog');
+	 $rep = new ReportData(null, 'aaa', 'bbb', 'cazz', $_SESSION['username'], false, $lista);
+
+	 echo var_dump(dbInterface->addReport($rep));
 
 	 $dbInterface->closeConnection();
 
