@@ -1,5 +1,9 @@
 <?php
 	 require_once("DBinterface.php");
-	 echo getUserId($_SESSION['username']);
+
+	 $dbInterface = new DBinterface();
+	 $connection = $dbInterface->openConnection();
+	 echo $dbInterface->getUserId($_SESSION['username']);
+	 $dbInterface->closeConnection();
 
 ?>
