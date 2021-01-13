@@ -63,6 +63,10 @@ else{
     /** controllo se si può andare avanti o indietro */
     if(isset($_SESSION["vai_avanti_esplora"]) && $_SESSION["vai_avanti_esplora"])
     {
+        if($_SESSION["count_esplora"]==2){
+            var_dump($_SESSION);
+            exit();
+        }
         $_SESSION["count_esplora"] == $numero_pag_esplora ? $_SESSION["count_esplora"] = $numero_pag_esplora : $_SESSION["count_esplora"]++;
         $_SESSION["vai_avanti_esplora"] = false;
     }
