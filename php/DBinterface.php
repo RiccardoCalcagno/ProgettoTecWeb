@@ -441,7 +441,7 @@
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);
             
-            if(done){
+            if($done){
                 $isAdded = true;
                 foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
                     if($isAdded){
