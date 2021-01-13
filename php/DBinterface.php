@@ -211,7 +211,7 @@
                 $row = $user_id->fetch_assoc();
                 $ritorno=$row['id'];
             }
-            return $ritorno;
+            return $user_id;
         }
 
         public function getCharacterOfUser($char_id, $username)
