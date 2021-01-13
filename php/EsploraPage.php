@@ -22,9 +22,14 @@ if($connection == false){
 else{
 
     $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
+
+    $temp = 1;
+    if(isset($_SESSION["count_esplora"])){
+        $temp=$_SESSION["count_esplora"];
+    }
     $html = setup($html);
+    $_SESSION["count_esplora"] = $temp;
     
-    $_SESSION["count_esplora"] = 1;
     $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
     $_SESSION["report_data"] = $db->getReportExplorable();// getReportExplorable();     // DA METTERE
 
@@ -61,10 +66,6 @@ else{
 
 
     /** controllo se si può andare avanti o indietro */
-    if($_SESSION["count_esplora"]==2){
-        echo var_dump($_SESSION);
-        exit();
-    }
     if(isset($_SESSION["vai_avanti_esplora"]) && $_SESSION["vai_avanti_esplora"])
     {
         $_SESSION["count_esplora"] == $numero_pag_esplora ? $_SESSION["count_esplora"] = $numero_pag_esplora : $_SESSION["count_esplora"]++;
