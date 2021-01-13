@@ -267,6 +267,6 @@
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
     //echo $html;
-    echo getUserId($_SESSION['username']);
+    echo $dbInterface->getUserId($_SESSION['username']);
 
 ?>
