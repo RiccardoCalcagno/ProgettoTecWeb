@@ -8,7 +8,7 @@
     unset($_SESSION["first_logged"]);
     unset($_SESSION["listaGiocatori"]);
 
-    $username = ""; $name_surname = ""; $img = ""; $birthdate = ""; $email = "";
+    $username = ""; $name_surname = ""; $birthdate = ""; $email = "";
 
     if(isset(($_SESSION)['err']) && $_SESSION["err"])
     {  
@@ -17,7 +17,6 @@
         $name_surname = $_SESSION["tmpUser"]["NomeCognome"];
         $email = $_SESSION["tmpUser"]["email"];
         $birthdate = $_SESSION["tmpUser"]["birthdate"];
-        $img = $_SESSION["tmpUser"]["img"];
 
         $err = $_SESSION["err"];
 
@@ -91,8 +90,7 @@
         unset($_SESSION["err"]);
         session_destroy();      
     }
-
-    $html = str_replace("src=\" <img_profilo> \"", "src=\"" . $img ."\"", $html) ;
+    
     $html = str_replace("value=\"<username>\"", "value=\"" . $username . "\"", $html);
     $html = str_replace("value=\"<name>\"", "value=\"" . $name_surname . "\"", $html);
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
