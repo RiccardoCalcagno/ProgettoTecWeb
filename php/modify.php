@@ -73,7 +73,8 @@
         if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
         {
             $err["img_err"] = false;
-            unlink($_SESSION["img"]);
+	    if($_SESSION["img"] != "../img/img_profilo_mancante.png")
+            	unlink($_SESSION["img"]);
         }
         else
         {
