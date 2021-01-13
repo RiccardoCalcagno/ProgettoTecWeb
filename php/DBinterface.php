@@ -452,10 +452,13 @@
                      "WHERE id = '" . $report_data->get_id() . "';";
             $done =   mysqli_query($this->connection, $query);
             $isCleared = DBinterface::deleteReportMention_by_id($report_data->get_id());
+            $isAdded = true;
             foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
-                $isAdded = true;
-                while($isAdded){
+                if($isAdded){
                     $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
+                }
+                else{
+                    break;
                 }
             }
             return ($done && $isCleared && $isAdded);
