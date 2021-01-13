@@ -47,11 +47,14 @@ else if($_SESSION["login"])
             $_SESSION["count_master"] = 1;
             $_SESSION["first_logged"] = true;
             $_SESSION["character_data"] = $db->getCharactersByUser($_SESSION["username"]);
-            $_SESSION["num_pers"] = count($_SESSION["character_data"]);
+            $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSION["username"]);
+            $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
+            $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
             $_SESSION["report_data"] = $db->getReportList($_SESSION["username"]);
-            $_SESSION["num_report"] = count($_SESSION["report_data"]);
 
-            echo "NUMERO REP: - - ".var_dump($_SESSION["num_report"])." - REPORT: - -".var_dump($_SESSION["report_data"]);
+            //$_SESSION["num_pers"] = count($_SESSION["character_data"]);
+            //$_SESSION["num_report"] = count($_SESSION["report_data"]);
+            //$_SESSION["num_report_master"]= count($_SESSION["author_report_data"]);
             
             for($i = 0; $i < $_SESSION["num_report"]; $i++)
             {
@@ -59,7 +62,6 @@ else if($_SESSION["login"])
             }
 
             $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
-            $_SESSION["num_report_master"]= count($_SESSION["author_report_data"]);
 
             for($i = 0; $i < $_SESSION["num_report_master"]; $i++)
             {
