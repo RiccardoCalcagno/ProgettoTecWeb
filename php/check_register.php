@@ -36,7 +36,7 @@
 //    echo "dopo controllo sessione";
            session_start();
     }
-            if(strlen(trim($username)) > 0)
+            if(preg_match("/^.{1,}$/", trim($username)) )
             {
                 $err["user_empty"] = false;
 
@@ -51,7 +51,7 @@
                 $err["user_empty"] = true;
             }
 
-            if(strlen($passwd) == 0)
+            if(!preg_match("/^.{3,}$/", $passwd))
             {
                 $err["empty_passwd"] = true;
             }
@@ -85,7 +85,7 @@
                 $err["email_err"] = true;
             }
 
-            if(strlen(trim($name_surname)) > 0)
+            if(strlen(trim($name_surname)) > 0 && pregmatch)
             {
                 $err["empty_name"] = false;
             }

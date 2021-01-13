@@ -41,6 +41,7 @@
     else
     {
         $_SESSION["login"] = false;
+	$_SESSION["tmp"] = $_POST["username"];
         unset($_POST["password"]);
         header("Location: login.php");
     }

@@ -14,9 +14,11 @@
 
     if(isset($_SESSION['login']) && !$_SESSION['login'])
     {
-    echo "errore trovato";
-        $username = $_POST["username"];
-        $html = str_replace("<p id=\"loginError\" class=\"hidden\">","<p id=\"loginError\">", $html);
+    //echo "errore trovato";
+        $username = $_SESSION["tmp"];
+        $html = str_replace("<p id=\"loginError\" class=\"hidden\">","<p id=\"loginError\" class=\"text-errore\">", $html);
+	$html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
+	$html = str_replace("name=\"password\"", "name=\"password\" class=\"input-errore\"", $html);
         session_destroy();
     }
 
