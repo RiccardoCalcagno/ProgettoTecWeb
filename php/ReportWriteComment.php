@@ -4,10 +4,7 @@ require_once("GeneralPurpose.php");
 require_once("comments.php");
 require_once("banners.php");
 
-// SESSION['RepCommentPOST'] == POST
 
-echo var_dump($_SESSION['RepCommentPOST']);
-exit();
 if ( !isset($_SESSION['RepCommentPOST']) ) {
     errorPage("NO RepCommnetPOST");
 }
