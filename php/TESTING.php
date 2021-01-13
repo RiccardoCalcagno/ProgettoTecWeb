@@ -9,7 +9,7 @@
 	 array_push($lista,'Grog');
 	 $rep = new ReportData(null, 'aaa', 'bbb', 'ccc', 'ShinigamiVII', false, $lista);
 
-	 echo var_dump($dbInterface->addReport($rep));
+	 echo $rep->get_id();
 
 	 $dbInterface->closeConnection();
 
