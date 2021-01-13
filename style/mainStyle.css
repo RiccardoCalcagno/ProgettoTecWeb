@@ -1081,6 +1081,9 @@ li #toApprEsp:active{background-color:#732ab8be;}
 #giocatoriReport{
     padding-top: 2.1em;
 }
+#testoReport p {
+    white-space: pre-wrap;
+}
 #giocatoriReport ul{
     clear: both;
     overflow: hidden;
@@ -1423,6 +1426,7 @@ ul#listaCommenti {
 .pergamena #sezTestualiPersonaggio dd{
     font-weight: 400;
     font-size: 1.3em;
+    white-space: pre-wrap;
     overflow-wrap: break-word;        
     word-wrap: break-word;
     hyphens: auto;
