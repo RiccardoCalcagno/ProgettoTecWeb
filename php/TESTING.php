@@ -5,7 +5,7 @@
 	 $dbInterface = new DBinterface();
 	 $connection = $dbInterface->openConnection();
 
-	 
+	 $dbInterface->ALUsimplified('7',$dbInterface->getHighestRepId());
 	 echo var_dump($dbInterface->getHighestRepId());
 
 	 $dbInterface->closeConnection();
