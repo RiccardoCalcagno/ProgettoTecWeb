@@ -136,6 +136,7 @@ else {
 
         //giocatori presenti
         //servirà prelevare le info degli utenti collegati con il report
+        echo count($usernameArray); //REMOVEEEEE
         $replacer = '<h2>Giocatori presenti</h2>';
         if(count($usernameArray)>0){
             $replacer .= '<ul id="boxGiocatori">';    
