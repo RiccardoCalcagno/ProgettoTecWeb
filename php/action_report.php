@@ -102,21 +102,25 @@
             header("Location: area_personale.php#anchorPartecipante");
             exit();
         }
+    }
 
-        if($_POST["espandi"] == "esploraPrecedente")
+    if(isset($_GET["espandi"])){
+        if($_GET["espandi"] == "esploraPrecedente")
         {
             $_SESSION["vai_indietro_esplora"] = true;
             header("Location: EsploraPage.php#anchorEsplora");
             exit();
         }
-
-        if($_POST["espandi"] == "esploraSuccessivo")
+    
+        if($_GET["espandi"] == "esploraSuccessivo")
         {
             $_SESSION["vai_avanti_esplora"] = true;
             header("Location: EsploraPage.php#anchorEsplora");
             exit();
         }
     }
+
+
 
     // if(isset($_GET["contenutoCommento"]))
     // {
