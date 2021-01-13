@@ -249,7 +249,8 @@ else {
 
         $html = addPossibleBanner($html, "ReportPage.php");
 
-        echo ($html);
+        //echo ($html);
+        echo count($usernameArray); //REMOVEEEEE
     }
 }
 
