@@ -426,7 +426,8 @@
             $done =   mysqli_query($this->connection, $query);
             
             $isAdded = true;
-            foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
+            $lista = $report_data->get_lista_giocatori();
+            foreach($lista as $singleLinkedUser){
                 if($isAdded){
                     $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
                 }else{
