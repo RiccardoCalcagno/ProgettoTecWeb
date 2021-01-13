@@ -199,6 +199,21 @@
             return $ritorno;
         }
 
+        //in base allo username restituisce l'id
+        public function getUserId($username)
+        {
+            $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
+            $query = "SELECT Users.id FROM Users WHERE Users.username = '" . $username . "';";
+            $user_id = mysqli_query($this->connection, $query);
+            $ritorno=null;
+            if(($user_id)&&($user_id->num_rows)){
+                $row = $user_id->fetch_assoc();
+                $ritorno=$row['id'];
+            }
+            return $ritorno;
+        }
+
         public function getCharacterOfUser($char_id, $username)
         {
             $username = clean_input($username);
@@ -413,7 +428,7 @@
             $isAdded = true;
             foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
                 if($isAdded){
-                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
+                    $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
                 }else{
                     break;
                 }
@@ -437,7 +452,7 @@
             foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
                 $isAdded = true;
                 while($isAdded){
-                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
+                    $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
                 }
             }
             return ($done && $isCleared && $isAdded);
