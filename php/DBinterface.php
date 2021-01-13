@@ -427,6 +427,7 @@
             
             $isAdded = true;
             $lista = $report_data->get_lista_giocatori();
+            /*
             foreach($lista as $singleLinkedUser){
                 if($isAdded){
                     $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
@@ -434,7 +435,9 @@
                     break;
                 }
             }
-            return $isAdded; //$done && 
+            */
+            return $lista;
+            //return $isAdded; //$done && 
         }
 
         // modifica report
