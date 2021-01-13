@@ -79,8 +79,8 @@ else if($_SESSION["login"])
 
         if(isset($_SESSION["vai_avanti_master"]) && $_SESSION["vai_avanti_master"])
         {
-            echo var_dump($_SESSION);
             $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
+            echo $_SESSION["count_master"]." - ";
             $_SESSION["vai_avanti_master"] = false;
         }
 
@@ -95,6 +95,8 @@ else if($_SESSION["login"])
             $_SESSION["count_master"] == 1 ? $_SESSION["count_master"] = 1 : $_SESSION["count_master"]--;
             $_SESSION["vai_indietro_master"] = false;
         }
+
+        echo $_SESSION["count_master"]." - ";
 
         if(isset($_SESSION["vai_indietro_rep"]) && $_SESSION["vai_indietro_rep"])
         {
@@ -223,6 +225,8 @@ else if($_SESSION["login"])
                         </li>\n";
                 }
 
+                echo $_SESSION["count_master"]." - ";
+
                 if($_SESSION["num_report_master"]==0){
                     $_schede_report_master .= "<p class='mancanoCards' >Qui verranno inseriti i report di sessione che realizzerai</p>";
                 }
@@ -247,6 +251,8 @@ else if($_SESSION["login"])
                 $html = str_replace("<report_author/>", $_schede_report_master, $html);
                 $html = str_replace("<numero_attuale_master/>", $_SESSION["count_master"], $html);
                 $html = str_replace("<numero_di_master/>", $numero_pag_master, $html);
+
+                echo $_SESSION["count_master"]." - ";
 
 
                 //  ---------------------------------------------------------------------------------------------------------------------------
