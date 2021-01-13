@@ -419,7 +419,7 @@
         //restituisce il più alto id di report
         public function getHighestRepId()
         {
-            $query = "SELECT Report.id FROM Report DESC;";
+            $query = "SELECT Report.id FROM Report ORDER BY id DESC;";
             $user_id = mysqli_query($this->connection, $query);
             $ritorno=null;
             if(($user_id)&&($user_id->num_rows)){
