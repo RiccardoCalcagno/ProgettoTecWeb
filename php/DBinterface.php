@@ -445,7 +445,7 @@
                 $isAdded = true;
                 foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
                     if($isAdded){
-                        $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),getHighestRepId());
+                        $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),DBinterface::getHighestRepId());
                     }else{
                         break;
                     }
