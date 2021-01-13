@@ -412,7 +412,7 @@
             foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
                 $isAdded = true;
                 while($isAdded){
-                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id())
+                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
                 }
             }
             return $done && $isAdded;
