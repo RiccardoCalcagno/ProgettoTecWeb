@@ -430,7 +430,14 @@
                      "    last_modified = '" . $report_data->get_last_modified() . "' ".
                      "WHERE id = '" . $report_data->get_id() . "';";
             $done =   mysqli_query($this->connection, $query);
-            return $done;
+            $isCleared = DBinterface::deleteReportMention_by_id($report_data->get_id());
+            foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
+                $isAdded = true;
+                while($isAdded){
+                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
+                }
+            }
+            return ($done && $isCleared && $isAdded);
         }
 
         // elimina report
@@ -774,6 +781,14 @@
         public function deleteReportMention(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE report = '".$report->get_id()."';";
+            $done =   mysqli_query($this->connection, $query);
+            return $done;
+        }
+
+        //elimina tutte le mention ad un report, semplificata al solo report id
+        public function deleteReportMention_by_id($report_id)
+        {
+            $query = "DELETE FROM report_giocatore WHERE report = '".$report_id."';";
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
