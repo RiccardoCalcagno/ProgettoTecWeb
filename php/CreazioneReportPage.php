@@ -266,7 +266,6 @@
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 
-    //echo $html;
-    echo $dbInterface->getUserId('ShinigamiVII');
+    echo $html;
 
 ?>
