@@ -433,7 +433,7 @@
                     break;
                 }
             }
-            return $done&& $isAdded;
+            return $isAdded; //$done && 
         }
 
         // modifica report
