@@ -211,6 +211,7 @@
                 $row = $user_id->fetch_assoc();
                 $ritorno=$row['id'];
             }
+            echo $ritorno;
             return $ritorno;
         }
 
