@@ -87,6 +87,8 @@
 
         public function get_img_path()
         {
+            if($this->img_path==null || $this->img_path=="")
+                return "../img/img_profilo_mancante.png";
             return $this->img_path;
         }
 

@@ -47,17 +47,17 @@ else if($_SESSION["login"])
             $_SESSION["count_master"] = 1;
             $_SESSION["first_logged"] = true;
             $_SESSION["character_data"] = $db->getCharactersByUser($_SESSION["username"]);
-            $_SESSION["num_pers"] = $db->contaPersonaggi($_SESSION["username"]);
-            $_SESSION["num_report"] = $db->countReport($_SESSION["username"]);
-            $_SESSION["num_report_master"] = $db->countReportAuthor($_SESSION["username"]);
             $_SESSION["report_data"] = $db->getReportList($_SESSION["username"]);
+            $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
+
+            $_SESSION["num_pers"] = count($_SESSION["character_data"]);
+            $_SESSION["num_report_master"]= count($_SESSION["author_report_data"]);
+            $_SESSION["num_report"] = count($_SESSION["report_data"]);
             
             for($i = 0; $i < $_SESSION["num_report"]; $i++)
             {
                 $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLUsernamesForReport($_SESSION["report_data"][$i]->get_id()));
             }
-
-            $_SESSION["author_report_data"] = $db->getReportAuthor($_SESSION["username"]);
 
             for($i = 0; $i < $_SESSION["num_report_master"]; $i++)
             {
@@ -76,16 +76,15 @@ else if($_SESSION["login"])
         /** controllo se si può andare avanti o indietro */
 
 
-
         if(isset($_SESSION["vai_avanti_master"]) && $_SESSION["vai_avanti_master"])
         {
-            $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
+            $_SESSION["count_master"] == $numero_pag_master ? $_SESSION["count_master"] = $numero_pag_master : $_SESSION["count_master"]++;
             $_SESSION["vai_avanti_master"] = false;
         }
 
         if(isset($_SESSION["vai_avanti_rep"]) && $_SESSION["vai_avanti_rep"])
         {
-            $_SESSION["count_rep"] == $numero_pag_master ? $_SESSION["count_rep"] = $numero_pag_master : $_SESSION["count_rep"]++;
+            $_SESSION["count_rep"] == $numero_pag_report ? $_SESSION["count_rep"] = $numero_pag_report : $_SESSION["count_rep"]++;
             $_SESSION["vai_avanti_rep"] = false;
         }
 
@@ -251,7 +250,6 @@ else if($_SESSION["login"])
                 //  ---------------------------------------------------------------------------------------------------------------------------
                 //                                                  REPORT PARTECIPANTE
                 // ----------------------------------------------------------------------------------------------------------------------------
-
 
                 $_schede_report = "";
 

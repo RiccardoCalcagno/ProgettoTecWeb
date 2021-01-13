@@ -199,6 +199,23 @@
             return $ritorno;
         }
 
+        //in base allo username restituisce l'id
+        public function getUserId($username)
+        {
+            $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
+            $query = "SELECT Users.id FROM Users WHERE Users.username = '" . $username . "';";
+            $user_id = mysqli_query($this->connection, $query);
+            $ritorno=null;
+            if(($user_id)&&($user_id->num_rows)){
+                $row = $user_id->fetch_assoc();
+                $ritorno=$row['id'];
+            }
+            return $ritorno;
+        }
+
+
+
         public function getCharacterOfUser($char_id, $username)
         {
             $username = clean_input($username);
@@ -398,6 +415,20 @@
             }
         }
 
+        
+        //restituisce il più alto id di report
+        public function getHighestRepId()
+        {
+            $query = "SELECT Report.id FROM Report ORDER BY id DESC;";
+            $user_id = mysqli_query($this->connection, $query);
+            $ritorno=null;
+            if(($user_id)&&($user_id->num_rows)){
+                $row = $user_id->fetch_assoc();
+                $ritorno=$row['id'];
+            }
+            return $ritorno;
+        }
+
         // aggiunta di un report
         public function addReport(ReportData $report_data){
             $report_data=DBinterface::escapeReport($report_data);
@@ -409,17 +440,22 @@
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);
-
-            echo var_dump($report_data->get_lista_giocatori());
-            $isAdded = true;
-            foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
-                if($isAdded){
-                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
-                }else{
-                    break;
+            
+            if($done){
+                $isAdded = true;
+                foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
+                    if($isAdded){
+                        $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),DBinterface::getHighestRepId());
+                    }else{
+                        break;
+                    }
                 }
+                
+                return $isAdded;
+            }else{
+                return $done;
             }
-            return $done && $isAdded;
+            //return $isAdded; //$done && 
         }
 
         // modifica report
@@ -435,10 +471,13 @@
                      "WHERE id = '" . $report_data->get_id() . "';";
             $done =   mysqli_query($this->connection, $query);
             $isCleared = DBinterface::deleteReportMention_by_id($report_data->get_id());
+            $isAdded = true;
             foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
-                $isAdded = true;
-                while($isAdded){
-                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
+                if($isAdded){
+                    $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
+                }
+                else{
+                    break;
                 }
             }
             return ($done && $isCleared && $isAdded);
