@@ -59,6 +59,7 @@
             $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale">', $html);
         }
         unset($_SESSION['id_report_modifica']);
+        unset($_SESSION["count_esplora"]);
 
         return $html;
     }
@@ -73,6 +74,7 @@
         unset($_SESSION["first_logged"]);
         unset($_SESSION["character_id"]);
         unset($_SESSION['modificaChar']);
+        unset($_SESSION["count_esplora"]);
     }
 
     function setup_clear($html) { // Setup generico e clearSession
