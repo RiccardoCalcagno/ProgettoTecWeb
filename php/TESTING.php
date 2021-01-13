@@ -6,7 +6,7 @@
 	 $connection = $dbInterface->openConnection();
 
 	 
-	 echo $dbInterface->getHighestRepId();
+	 echo var_dump($dbInterface->getHighestRepId());
 
 	 $dbInterface->closeConnection();
 
