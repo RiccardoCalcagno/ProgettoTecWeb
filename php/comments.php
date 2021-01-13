@@ -48,12 +48,16 @@
 
         public function set_text($var)
         {
-            $text = $var;
+            $this->text = $var;
         }
 
         // non ha senso settare la data
 
-        // non ha senso cambiare l'autore o il report
+        public function set_author($var)
+        {
+            $this->author = $var;
+        }
+        // non ha senso cambiare il report
     }
 
 ?>

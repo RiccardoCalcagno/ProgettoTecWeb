@@ -85,7 +85,7 @@
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
                     <li>
-                    <img class="hidden" id = "immagine_profilo" alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src=" <img_profilo> " onload="removeHidden('immagine_profilo');">
+                    <img class="hidden" id = "immagine_profilo" alt="immagine segnaposto sfondo grigio con scritta: immagine profilo mancante" src="">
                     <label for="imgProfilo">Immagine profilo</label>
                     <p id="ImgErr" class="hidden"> L'immagine esiste già o ha un formato sbagliato </p>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();">
@@ -124,7 +124,7 @@
                     
                     <label for="email" class="campiObbligatori">E-mail</label>
                     <p id="EmailErr" class="hidden"> Inserisci una email valida </p>
-		    <p id="MailAlreadyExists" class="hidden"> Email già esistente </p>
+            <p id="MailAlreadyExists" class="hidden"> Email già esistente </p>
                 <span><input type="text"  aria-required="true" required="required"
                         name="email" 
                         id="email"

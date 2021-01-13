@@ -21,19 +21,19 @@
 
         $err = $_SESSION["err"];
 
-    	if($err["img_err"])
-    	{
+        if($err["img_err"])
+        {
 
         $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\" class=\"text-errore\">", $html);
         $html = str_replace("name=\"imgProfilo\"", "name=\"imgProfilo\" class=\"input-errore\"", $html);
-    	}
+        }
 
         if($err["user_already_exist"])
-    	{
+        {
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
-	    $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
+        $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
   //      echo "utente esistente";
-    	}
+        }
 
 
         if($err["user_empty"])   
@@ -41,7 +41,7 @@
        $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\">", $html);
        $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
 //        echo "utente vuoto";
-    	}
+        }
 
         if($err["empty_passwd"])
         {
@@ -50,7 +50,7 @@
 
 
 //        echo "password vuota";
-    	}
+        }
 
 
         if($err["rep_passwd_err"])
@@ -104,7 +104,7 @@
 
 //    echo "banner";
         unset($_SESSION["err"]);
-	unset($_SESSION["tmpUser"]);
+    unset($_SESSION["tmpUser"]);
         unset($_POST);
 
         $html = addPossibleBanner($html, "area_personale.php");

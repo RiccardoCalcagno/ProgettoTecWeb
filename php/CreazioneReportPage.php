@@ -7,6 +7,8 @@
 
     unset($_SESSION["first_logged"]);
 
+
+
 //-------------------------- UTILITY
     
     //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
@@ -27,7 +29,7 @@
 
             $p = '<p>Concludi la modifica salvando la nuova versione del report nella tua Area Personale</p>';
 
-            $button = '<input class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA"/>';
+            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA"/>';
         }
         else {
             $headTitle = '<title>Creazione Report di Sessione</title>
@@ -44,7 +46,7 @@
 
             $p = '<p>Concludi la creazione salvando il nuovo report nella tua Area Personale</p>';
 
-            $button = '<input class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>';
+            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>';
         }
 
         $html = str_replace('<headTitle_placeholder />',$headTitle,$html);
@@ -60,27 +62,23 @@
     staged_session();
 
     $toEdit = false;
-
-    if ( isset($_GET['reportAction']) && $_GET['reportAction'] == 'MODIFICA' ) {
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; 
+    if ( isset($_SESSION['id_report_modifica']) ) {
         $toEdit =  true;
+        $id_report = $_SESSION['id_report_modifica'];
+    }else{
+        $id_report=null;
     }
+
 
     $html = file_get_contents('..'.DIRECTORY_SEPARATOR.'html'.DIRECTORY_SEPARATOR.'creazioneReport.html');
     $html = setup($html);
     $html = preparePage($html,$toEdit);
+    if(isset($id_report)&&($id_report!==null))
+        $_SESSION['id_report_modifica']=$id_report;
 
-
-
-
-
-    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $lista_giocatori = array();  $id_report=null;
 
     if(isset($_SESSION['listaGiocatori'])){
-
-        if($toEdit){
-            $id_report= $_SESSION['report_id'];
-        }
-        $lista_giocatori = $_SESSION['listaGiocatori'];
 
         if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
@@ -97,7 +95,7 @@
     
                 if(isset($_SESSION['username'])) {
 
-                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
 
                     $dbInterface = new DBinterface();
                     $connection = $dbInterface->openConnection();
@@ -108,7 +106,7 @@
                         if($result){
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                             //azzero la form
-                            $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $lista_giocatori = array();
+                            $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
                         }else{
                             //messaggi di errore inserimento nel DB
                             $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
@@ -120,7 +118,7 @@
                     }
                     $dbInterface->closeConnection();
                 }else{
-                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $lista_giocatori);
+                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
                     array_push($_SESSION['stagedReports'], $rep);
                     $_SESSION['banners']= "salvataggio_pendente";
                 }
@@ -150,14 +148,13 @@
                 $connection = $dbInterface->openConnection();
     
                 if($connection){
-                    if( ($dbInterface->existUser($_GET['usernameGiocatore'])) && (array_search($_GET['usernameGiocatore'],$lista_giocatori) === false) ){
+                    if( ($dbInterface->existUser($_GET['usernameGiocatore'])) && (array_search($_GET['usernameGiocatore'],$_SESSION['listaGiocatori']) === false) ){
                         //aggiungo il giocatore alla lista
-                        array_push($lista_giocatori,$_GET['usernameGiocatore']);
-                        $_SESSION['listaGiocatori'] = $lista_giocatori;
+                        array_push($_SESSION['listaGiocatori'],$_GET['usernameGiocatore']);
     
                         $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
                     }
-                    else if(!(array_search($_GET['usernameGiocatore'],$lista_giocatori) === false)){
+                    else if(!(array_search($_GET['usernameGiocatore'],$_SESSION['listaGiocatori']) === false)){
                         $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
                     }
                     else{
@@ -178,13 +175,16 @@
 
             if(isset($_GET['deletePlayer'])){
 
-                $key = array_search($_GET['deletePlayer'],$lista_giocatori);
-                unset($lista_giocatori[$key]);
-    
-                $_SESSION['listaGiocatori']=$lista_giocatori;
+                $key = array_search($_GET['deletePlayer'],$_SESSION['listaGiocatori']);
+                unset($_SESSION['listaGiocatori'][$key]);
             }
 
         }
+
+        ////wd awdhawhjdg djh abdbah bdjhawbdhjawbdhjbadjhba hjdbahbwdh d
+        // wdh jwdja djbaw dbawjhbd ahdhbawhdb ajwhd awdjabhdj abdhahbwd awd 
+
+        //a wkjdjkaw bdab bawdkba bdabw baw bdaw daw anw dnabnb
 
     }else{
         $_SESSION['listaGiocatori']= array();
@@ -195,15 +195,17 @@
         $connection = $dbInterface->openConnection();
 
         if ($connection) {
-            $rep = $dbInterface->getReport();
+            $rep = $dbInterface->getReport($id_report);
+
             if($rep) {
-                $titolo = $rep->get_titolo();
-                $sottotitolo = $rep->get_sottotitolo();
-                $contenuto = $rep->get_contenuto();
-                $condividi = $rep->get_condividi();
+
+                $titolo = $rep->get_title();
+                $sottotitolo = $rep->get_subtitle();
+                $contenuto = $rep->get_content();
+                $condividi = $rep->get_isExplorable();
+
                 
                 $_SESSION['listaGiocatori']= $rep->get_lista_giocatori();
-                $lista_giocatori = $_SESSION['listaGiocatori'];
             }
             else {
                 // ERROR PAGE ?
@@ -218,8 +220,6 @@
     }
 
 
-
-
     //--------------------------------------------------------------------
     //il contenuto della pagina viene settato qui
     $html = str_replace('<valueTitle />',$titolo,$html);
@@ -231,7 +231,7 @@
     //controllo if($connection) TODO
 
     $stringa_giocatori = '';
-    foreach($lista_giocatori as $singleUser){
+    foreach($_SESSION['listaGiocatori'] as $singleUser){
         $stringa_giocatori .= '<li>
                                     <div class="badgeUtente">
                                         <div>
@@ -248,10 +248,12 @@
 
     $html = str_replace('<listaGiocatori />',$stringa_giocatori,$html);
 
+    /*
     //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-    $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $lista_giocatori);
+    $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
     //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
     $_SESSION['report_in_creazione'] = $rep;
+    */
 
     //modifico il checkbox    
     if($condividi){
@@ -260,6 +262,7 @@
     else{
         $html = str_replace('{check_placeholder}','',$html);
     }
+
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 

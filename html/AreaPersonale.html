@@ -158,7 +158,7 @@ Note DI CORREZIONE:
         <div id="reportMaster">
             <header>
                 <h3>I tuoi <span xlm:lang="en">Report</span></h3>
-                <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
+                <p>La <span xlm:lang="en">dashboard</span> seguente raccoglie tutti i <span xlm:lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
             <form action="../php/action_report.php" method="GET">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
@@ -172,7 +172,7 @@ Note DI CORREZIONE:
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <nav class="espandi" id='report_master'>                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                 <ul>
-                  <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
+                  <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li><div id="anchorMaster"></div>
                   <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
                   <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagMaster"><numero_attuale_master/></span>/<span id="totNumPagMaster"><numero_di_master/></span></li>
                   <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
@@ -185,7 +185,7 @@ Note DI CORREZIONE:
         <div id="reportPartecipante">
             <header>
                 <h3><span xlm:lang="en">Report</span> condivisi con te</h3>
-                <p>Sottotitolo</p>                                     <!--Da compilare Sottotitolo-->
+                <p>Questa <span xlm:lang="en">dashboard</span> riporta tutti i <span xlm:lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
             <form action="../php/action_report.php" method="GET">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
@@ -200,7 +200,7 @@ Note DI CORREZIONE:
             <form action="../php/action_report.php" method="post">                                    
             <nav class="espandi" id='report_normale'>                      
                 <ul>
-                  <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li>
+                  <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li><div id="anchorPartecipante"></div>
                   <li class="inputMove"><input type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente"></li>                     
                   <li><span><abbr title="pagina">Pag</abbr></span>. <span id="numPagPartec"><numero_attuale_report/></span>/<span id="totNumPagPartec"><numero_di_report/></span></li>
                   <li class="inputMove"><input type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo"></li>  

@@ -55,7 +55,7 @@ else {
         $report_info = $dbInterface->getReport($_GET['ReportID']);
 
         //faccio subito le richieste al DB per poter chiudere la connessione
-        $usernameArray = $dbInterface->getALLUsernamesForReport($report_info->get_id()); //si tratta di un array di username, sono i giocatori collegati al report
+        $usernameArray = $report_info->get_lista_giocatori(); //si tratta di un array di username, sono i giocatori collegati al report
 
         $userPic = array();
         for ($i = 0; $i < count($usernameArray);$i++){
@@ -152,6 +152,7 @@ else {
             $replacer .= '<p>Non è stato trovato alcun giocatore associato a questo report</p>'; 
         }
 
+
         $html = str_replace("<LinkedPlayers_placeholder/>", $replacer, $html);
 
         //contenuto del report
@@ -225,7 +226,9 @@ else {
             if(!$report_info->get_isExplorable()){
 
                 $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink"/> </li>';              
-            }      
+            }else{
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Rimuovi da ESPLORA" class="buttonLink"/> </li>';
+            }
 
             $footerAction .=     '<li>
                                 <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink"/> 

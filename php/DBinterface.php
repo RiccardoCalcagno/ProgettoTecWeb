@@ -35,12 +35,49 @@
             mysqli_close($this->connection);
         }
 
+
+
+        public function escapeReport(ReportData $rep){
+            $rep->set_title(mysqli_real_escape_string ( $this->connection , $rep->get_title()));
+            $rep->set_subtitle(mysqli_real_escape_string ( $this->connection , $rep->get_subtitle()));
+            $rep->set_content(mysqli_real_escape_string ( $this->connection , $rep->get_content()));
+            $rep->set_author(mysqli_real_escape_string ( $this->connection , $rep->get_author()));
+            return $rep;
+        }
+
+        public function escapeCharacter(Character $char){
+            $char->set_name(mysqli_real_escape_string ( $this->connection , $char->get_name()));
+            $char->set_traits(mysqli_real_escape_string ( $this->connection , $char->get_traits()));
+            $char->set_ideals(mysqli_real_escape_string ( $this->connection , $char->get_ideals()));
+            $char->set_bonds(mysqli_real_escape_string ( $this->connection , $char->get_bonds()));
+            $char->set_flaws(mysqli_real_escape_string ( $this->connection , $char->get_flaws()));
+            $char->set_author(mysqli_real_escape_string ( $this->connection , $char->get_author()));
+            return $char;
+        }
+
+        public function escapeUser(UserData $user){
+            $user->set_username(mysqli_real_escape_string ( $this->connection , $user->get_username()));
+            $user->set_name_surname(mysqli_real_escape_string ( $this->connection , $user->get_name_surname()));
+            $user->set_email(mysqli_real_escape_string ( $this->connection , $user->get_email()));
+            $user->set_passwd(mysqli_real_escape_string ( $this->connection , $user->get_passwd()));
+            return $user;
+        }
+
+        public function escapeComment(Comments $comm){
+            $comm->set_author(mysqli_real_escape_string ( $this->connection , $comm->get_author()));
+            $comm->set_text(mysqli_real_escape_string ( $this->connection , $comm->get_text()));
+            return $comm;
+        }
+
+
+
         public function getUser($name, $password) 
         {
             $name = clean_input($name);
             $password = clean_input($password);
-
-            $query = "SELECT username, name_surname, email, passwd, birthdate, img_path, id 
+            $password=mysqli_real_escape_string ( $this->connection , $password);
+            
+            $query = "SELECT Users.username, Users.name_surname, Users.email, Users.passwd, Users.birthdate, Users.img_path, Users.id 
                       FROM Users
                       WHERE Users.username = '".$name."' AND Users.passwd = '".$password."';";
 
@@ -69,19 +106,20 @@
 
         public function existUser($username) 
         {
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT * ". 
                      "FROM Users ". 
-                     "WHERE username = '" . $username . "';";
+                     "WHERE Users.username = '" . $username . "';";
 
             $exist =   mysqli_query($this->connection, $query);
         if($exist->num_rows > 0)
                 return $exist;
-        else
         return null;
         }
 
         public function existMail($email) 
         {
+            $email=mysqli_real_escape_string ( $this->connection , $email);
             $query = "SELECT * ". 
                      "FROM Users ". 
                      "WHERE email = '" . $email . "';";
@@ -95,6 +133,9 @@
 
         public function setUser(UserData $user_data, $username) 
         {
+            $user_data=DBinterface::escapeUser($user_data);
+
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "UPDATE Users ".
                      "SET username = '" . $user_data->get_username() . "', " .
                      "    name_surname = '" . $user_data->get_name_surname() . "', " .
@@ -109,6 +150,7 @@
 
         public function setPassword(UserData $user)
         {
+            $user=DBinterface::escapeUser($user);
             $query = "UPDATE Users ".
                      "SET passwd = '" . $user->get_passwd() . "' ". 
                      "WHERE username = '" . $user->get_username() . "';";
@@ -119,6 +161,7 @@
 
         public function addUser(UserData $userdata) 
         {
+            $userdata=DBinterface::escapeUser($userdata);
             $query = "INSERT INTO Users (username, name_surname, email, passwd, birthdate, img_path) ". 
                      "VALUES ('" . $userdata->get_username() . "', ".
                               "'" . $userdata->get_name_surname() . "', ".
@@ -134,7 +177,8 @@
         public function deleteUser($username) 
         {
             $username = clean_input($username);
-            $query = "DELETE FROM User WHERE username = '" . $username . "';";
+            $username=mysqli_real_escape_string ( $this->connection , $username);
+            $query = "DELETE FROM Users WHERE Users.username = '" . $username . "';";
             
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -144,19 +188,26 @@
         public function getUserPic($username)
         {
             $username = clean_input($username);
-            $query = "SELECT User.img_path FROM User WHERE username = '" . $username . "';";
+            $username=mysqli_real_escape_string ( $this->connection , $username);
+            $query = "SELECT Users.img_path FROM Users WHERE Users.username = '" . $username . "';";
             $user_pic = mysqli_query($this->connection, $query);
-            return $user_pic;
+            $ritorno=null;
+            if(($user_pic)&&($user_pic->num_rows)){
+                $row = $user_pic->fetch_assoc();
+                $ritorno=$row['img_path'];
+            }
+            return $ritorno;
         }
 
         public function getCharacterOfUser($char_id, $username)
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $character=null;
             $query = "SELECT * ".
                      "FROM Characters ". 
-                     "WHERE author = '" . $username . "' " . 
-                     "AND id = '" . $char_id . "';";
+                     "WHERE Characters.author = '" . $username . "' " . 
+                     "AND Characters.id = '" . $char_id . "';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -182,6 +233,7 @@
         public function getCharactersByUser($username)
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT * ".
                      "FROM Characters ". 
                      "WHERE author = '" . $username . "' ". 
@@ -222,7 +274,7 @@
             $id = clean_input($id);
             $query = "SELECT * ".
                     "FROM Characters ". 
-                    "WHERE id = '" . $id . "' ". 
+                    "WHERE Characters.id = '" . $id . "' ". 
                     "ORDER BY creation_date DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -252,7 +304,7 @@
         public function deleteCharacter($id)
         {
             $id = clean_input($id);
-            $query = "DELETE FROM Characters WHERE id = '" . $id . "';";
+            $query = "DELETE FROM Characters WHERE Characters.id = '" . $id . "';";
 
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -260,6 +312,7 @@
 
         public function setCharacter(Character $character_data, $id) 
         {
+            $character_data=DBinterface::escapeCharacter($character_data);
             $id = clean_input($id);
             $query = "UPDATE Characters ".
                      "SET name = '" . $character_data->get_name() . "', " .
@@ -279,6 +332,7 @@
 
         public function addCharacter(Character $character_data)
         {
+            $character_data=DBinterface::escapeCharacter($character_data);
             $query = "INSERT INTO Characters (name, race, class, background, alignment, traits, ideals, bonds, flaws, author) ". 
                      "VALUES ('" . $character_data->get_name() . "', ".
                               "'" . $character_data->get_race() . "', ".
@@ -299,6 +353,7 @@
         public function contaPersonaggi($username) 
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT COUNT(Characters.id)". 
                      "FROM Characters ". 
                      "WHERE Characters.author = '".$username."';";
@@ -316,7 +371,7 @@
         //-----------------------------------------------------------------------------------------------------------------
 
         public function getReport($id_report) {
-            $id_report = clean_input($id_report);       // Report.author_img
+            $id_report = clean_input($id_report);    
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                     "FROM Report ". 
                     "INNER JOIN Users ".
@@ -337,7 +392,7 @@
                                     $row["content"], 
                                     $row["author"], 
                                     $row["isExplorable"], 
-                                    DBinterface::getALLForReport($row["id"]),
+                                    DBinterface::getALLUsernamesForReport($row["id"]),
                                     $row["img_path"], 
                                     $row["last_modified"]);
             }
@@ -345,6 +400,7 @@
 
         // aggiunta di un report
         public function addReport(ReportData $report_data){
+            $report_data=DBinterface::escapeReport($report_data);
             $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified) ".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
@@ -358,16 +414,15 @@
 
         // modifica report
         public function setReport(ReportData $report_data){
+            $report_data=DBinterface::escapeReport($report_data);
             $query = "UPDATE Report ".
                      "SET title         = '" . $report_data->get_title() . "', " .
                      "    subtitle         = '" . $report_data->get_subtitle() . "', ".
                      "    content         = '" . $report_data->get_content() . "', ".
                      "    author         = '" . $report_data->get_author() . "', ".
                      "    isExplorable     = '" . $report_data->get_isExplorable() . "', ".
-                     "    author_img     = '" . $report_data->get_author_img() . "', ".
-                     "    last_modified = '" . $report_data->get_last_modified() . "' ";
+                     "    last_modified = '" . $report_data->get_last_modified() . "' ".
                      "WHERE id = '" . $report_data->get_id() . "';";
-
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
@@ -377,13 +432,13 @@
         {
             $id = clean_input($id);
             $this->deleteAllComments($id);
-            $query = "DELETE FROM Report WHERE id = '" . $id . "';";
+            $query = "DELETE FROM Report WHERE Report.id = '" . $id . "';";
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
 
         public function deleteAllComments($id) {
-            $query = "DELETE FROM Comments WHERE report = '" . $id . "';";
+            $query = "DELETE FROM Comments WHERE Comments.report = '" . $id . "';";
             $done =   mysqli_query($this->connection, $query);
             return $done;
         }
@@ -400,65 +455,12 @@
                 return 0;
         }
 
-        //funzione per ricavare i dati di un determinato numero di Cards, in base ad una lista di report.id
-        /*public function getReportCard($IDs_arr) {
-          $IDs_arr = clean_input($IDs_arr);
-            $CardData_List = array();
-            foreach($IDs_arr as $repo_id){
-                $query = "SELECT * FROM Report WHERE Report.id = '".$repo_id."';";
-                $queryResult = mysqli_query($this->connection, $query);
 
-                if(!$row = mysqli_fetch_assoc($queryResult)){
-                    echo "Spiacenti! Report n.".$repo_id."non trovato";
-                }
-                else{
-                    // Cerco l'immagine dell'autore
-                    $img_query = "SELECT User.imgpath FROM Users, Report WHERE Users.username = Report.author AND Report.id ='".$row['id']."';";
-                    $img_query_Result = mysqli_query($this->connection, $img_query);
-
-                    // Compongo l'array della singola card
-                  $singleCard = new ReportCard($row['id'], $row['title'], $row['subtitle'], linkedUsersCounter($row['id']), $row['isExplorable'], $row['author'], $img_query_Result);
-
-                    array_push($CardData_List,$singleCard);
-                }
-            }
-               return $CardData_List;
-        }*/
-
-
-        // funzione che estrae gli esatti report.id per le card desiderate, in base alla pagina
-        // temporaneamente uso un numero per identificare i tipi CardType : MyDashboard=0, ImPlayer=1, Esplora=2
-        /*public function getIDsReport($CardType,$currentUser){
-          $CardType = clean_input($CardType);
-          $currentUser = clean_input($currentUser);
-            //se CardType = 0, MyDashboard
-            if($CardType == 0 && $currentUser){
-                $query = "SELECT Report.id FROM Report WHERE Report.author = '".$currentUser."' ORDER BY Report.creation_date DESC;";
-                $queryresult = mysqli_query($this->connection, $query);
-                return $queryResult;
-            }
-            //se CardType = 1, ImPlayer
-            else if($CardType == 1 && $currentUser){
-                $query = "SELECT RG.report FROM report_giocatore RG, Report WHERE RG.user = '".$currentUser."' AND RG.report = Report.id ORDER BY Report.creation_date DESC;";
-                $queryresult = mysqli_query($this->connection, $query);
-                return $queryResult;
-            }
-            //se CardType = 2, Esplora
-            else if($CardType == 2){
-                $query = "SELECT Report.id FROM Report WHERE Report.isExplorable = 1 ORDER BY Report.creation_date DESC;";
-                $queryresult = mysqli_query($this->connection, $query);
-                return $queryResult;
-            }
-            else{
-                echo "Qualcosa è andato storto! Anteprima non disponibile";
-            }
-
-        }*/
 
         public function getReportExplorable()
         {
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified 
-                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = true 
+                      FROM Report INNER JOIN Users ON Report.author = Users.username WHERE Report.isExplorable = 1 
                       ORDER BY Report.last_modified DESC;";
                       
 
@@ -475,7 +477,7 @@
                                             $row["content"], 
                                             $row["author"], 
                                             $row["isExplorable"], 
-                                            DBinterface::getALLForReport($row["id"]),
+                                            DBinterface::getALLUsernamesForReport($row["id"]),
                                             $row["img_path"], 
                                             $row["last_modified"]);
                     array_push($reports, $report);
@@ -488,6 +490,7 @@
         {
             $reports=array();
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Users ". 
                      "INNER JOIN report_giocatore ".
@@ -507,7 +510,7 @@
                                              $row["content"], 
                                              $row["author"], 
                                              $row["isExplorable"], 
-                                             DBinterface::getALLForReport($row["id"]),
+                                             DBinterface::getALLUsernamesForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
                     array_push($reports, $report);
@@ -521,6 +524,7 @@
         public function getReportAuthor($username) 
         {
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username ". 
                      "WHERE Report.author = '" . $username . "';";
@@ -536,7 +540,7 @@
                                              $row["content"], 
                                              $row["author"], 
                                              $row["isExplorable"], 
-                                             DBinterface::getALLForReport($row["id"]),
+                                             DBinterface::getALLUsernamesForReport($row["id"]),
                                              $row["img_path"], 
                                              $row["last_modified"]);
                     array_push($reports, $report);
@@ -549,6 +553,7 @@
         {
             $count=0;
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "WHERE Report.author = '" . $username . "';";
@@ -563,7 +568,7 @@
         {
             $count=0;
             $query = "SELECT Report.id ".
-            "FROM Report ".  "WHERE Report.isExplorable = true";
+            "FROM Report ".  "WHERE Report.isExplorable = 1";
             $query_result = mysqli_query($this->connection, $query);
 
             if(($query_result)&&($query_result->num_rows)) {
@@ -577,6 +582,7 @@
         {
             $count=0;
             $username = clean_input($username);
+            $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id ".
                      "FROM Report ". 
                      "INNER JOIN report_giocatore ".
@@ -594,12 +600,12 @@
             return $count;
         }
 
-        public function setExplorable($report_id, $isExplorable = true)
+        public function setExplorable($report_id, $isExplorable = 1)
         {
+            $isExplorable=(int)$isExplorable;
             $query = "UPDATE Report ". 
                      "SET isExplorable = '" . $isExplorable . "' ".
                      "WHERE id = '" . $report_id . "';";
-
             $done = mysqli_query($this->connection, $query);
             return $done;
         }
@@ -653,6 +659,7 @@
 
         public function addComments(Comments $comments)
         {
+            $comments=DBinterface::escapeComment($comments);
             $query = "INSERT INTO Comments (testo, author, report) ". 
                      "VALUES ('" . $comments->get_text() . "', ".  
                              "'" . $comments->get_author() . "', ". 
@@ -773,23 +780,6 @@
             return $reportsWITHuser;
         }
 
-        // Restituisce tutti gli utenti (user) legati ad un report
-        public function getALLForReport($report_id){
-            $usersINreport = array();
-          $report_id = clean_input($report_id);
-          $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$report_id."';";
-          $query_result = mysqli_query($this->connection, $query);
-
-            if($query_result->num_rows){
-                while($row = mysqli_fetch_assoc($query_result))
-                {
-                    $user_id = $row["user"];         
-                    array_push($usersINreport, $user_id);
-                }
-            }
-            return $usersINreport;
-        }
-
         public function getALLUsernamesForReport($report_id){
             $usersINreport = array();
           $report_id = clean_input($report_id);
@@ -832,7 +822,7 @@
                                         $row["content"], 
                                         $row["author"], 
                                         $row["isExplorable"], 
-                                        DBinterface::getALLForReport($row["id"]),
+                                        DBinterface::getALLUsernamesForReport($row["id"]),
                                         $row["img_path"], 
                                         $row["last_modified"]);
                 /*

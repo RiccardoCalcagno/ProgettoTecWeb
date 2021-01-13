@@ -24,22 +24,22 @@
         $name_surname = $_SESSION["tmpUser"]["name_surname"];
         $email = $_SESSION["tmpUser"]["email"];
         $birthdate = $_SESSION["tmpUser"]["birthdate"];
-        $img = $_SESSION["tmpUser"]["img"];
+        //$img = $_SESSION["tmpUser"]["img"];
 
         $err = $_SESSION["err"];
 
-    	if($err["img_err"])
-    	{
+        if($err["img_err"])
+        {
             $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"imgProfilo\"", "name=\"imgProfilo\" class=\"input-errore\"", $html);
-    	}
+        }
 
         if($err["user_already_exist"])
-    	{
+        {
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
-	        $html = str_replace("name=\"future_username\"", "name=\"future_username\" class=\"input-errore\"", $html);
+            $html = str_replace("name=\"future_username\"", "name=\"future_username\" class=\"input-errore\"", $html);
   //      echo "utente esistente";
-    	}
+        }
 
 
         if($err["user_empty"])   
@@ -84,19 +84,19 @@
         } 
         
         if($err["old_password_err"])
-    	{
+        {
             $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\">", $html);
             $html = str_replace("name=\"password\"", "name=\"password\" class=\"input-errore\"", $html);
 
-    	}
+        }
 
         if($err["new_password_empty"])
-    	{
+        {
             $html = str_replace("<p id=\"NewPasswdEmpty\" class=\"hidden\">","<p id=\"NewPasswdEmpty\">", $html);
             $html = str_replace("name=\"NewPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
         }
 
-	unset($_SESSION["tmpUser"]);
+    unset($_SESSION["tmpUser"]);
     }
     unset($_SESSION["result"]);
     unset($_SESSION["err"]);
@@ -107,8 +107,7 @@
     {
         str_replace("<p id=\"Successful\" class=\"hidden\">", "<p id=\"Successful\">", $html);
     }*/
-
-    $html = str_replace("src=\" <img_profilo> \"", "src=\"" . $img ."\"", $html) ;
+    $html = str_replace("src=\"../img/img_profilo_mancante.png\"", "src=\"" . $img ."\"", $html) ;
     $html = str_replace("value=\"<username>\"", "value=\"" . $username . "\"", $html);
     $html = str_replace("value=\"<name>\"", "value=\"" . $name_surname . "\"", $html);
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);

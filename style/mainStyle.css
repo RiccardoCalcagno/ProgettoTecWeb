@@ -1054,6 +1054,11 @@ li #toApprEsp:active{background-color:#732ab8be;}
     border-radius: 2em;
 }
 
+#anchorComment{
+    position: relative;
+    top:-8em;
+}
+
 /*
 --------------------------------------- HEADER REPO ----------------------------------------------
 */
@@ -1150,8 +1155,10 @@ li #toApprEsp:active{background-color:#732ab8be;}
 */
 
 ul#listaCommenti {
-    max-height: 20.7em;
+    max-height: 21.7em;
     overflow: scroll;
+    background-color: #fffbf5;
+    border-radius: 0.5em;
 }
 
 #commentiField{
@@ -2005,6 +2012,16 @@ p.campiObbligatori{
     overflow: hidden;
 }
 
+.espandi ul {
+    display: flex;
+    justify-content: center;
+}
+
+#anchorPartecipante, #anchorMaster, #anchorEsplora{
+    position: relative;
+    top: -70vh;
+}
+
 
 /*
 ------------------------------------------------------------------------------------------------------------
@@ -2412,11 +2429,6 @@ p.campiObbligatori{
     width: calc(27% - 1.7em);
     height: 100%;
     margin-right: 0.5em;
-}
-
-
-button[name="RemoveRep"]{                                                 /*da eliminare alla fine*/
-    display: none;
 }
 
 .report #reportMaster button > div{

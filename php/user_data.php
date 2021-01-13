@@ -25,34 +25,34 @@
 
         public function set_username($var) 
         {
-            $username = clean_input($var);
+            $this->username = clean_input($var);
         }
 
         public function set_name_surname($var) 
         {
 
-            $name_surname = $var;
+            $this->name_surname = $var;
         }
 
         public function set_email($var) 
         {
             $var = clean_input($var);
-            $email = $var;
+            $this->email = $var;
         }
 
-        public function set_password($var) 
+        public function set_passwd($var) 
         {
-            $password = $var;
+            $this->passwd = $var;
         }
 
         public function set_birthdate($var) 
         {
-            $birthdate = $var;
+            $this->birthdate = $var;
         }
 
-        public function set_img_path($var) 
+        public function set_img_path($img_path) 
         {
-            $img_path = $var;
+            $this->img_path=$img_path;
         }
 
         public function get_id()

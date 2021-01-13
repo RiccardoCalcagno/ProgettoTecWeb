@@ -5,18 +5,28 @@
         session_start();
     }
 
-    if(isset($_GET["PostRep"])) {   // Pubblica in esplora, da AreaPersonale
-        $_SESSION['banners'] = "confermare_pubblica_esplora";
-        $_SESSION['banners_ID'] = $_GET['PostRep'];    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: area_personale.php");
-        exit();
-    }
-
-    if ( isset($_POST['documento']) && $_POST['documento'] == 'PUBBLICA') {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+    if ( isset($_GET["PostRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
         $db = new DBinterface();
         if( $db->openConnection() ) {
-            if (!$db->setExplorable($_POST['ReportID']) ) {
+            if (!$db->setExplorable($_GET["PostRep"]) ) {
                 errorPage("Pubblicazione fallita. Riprovare piu' tardi");
+            }else{
+                unset($_SESSION["first_logged"]);
+                $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
+            }
+            $db->closeConnection();
+        }
+        else {
+            errorPage("Can't connect to DB");
+        }
+        header("Location: area_personale.php#reportMaster");
+        exit();
+    }
+    if ( isset($_GET["RemoveRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+        $db = new DBinterface();
+        if( $db->openConnection() ) {
+            if (!$db->setExplorable($_GET["RemoveRep"],0) ) {
+                errorPage("Rimozione fallita. Riprovare piu' tardi");
             }else{
                 unset($_SESSION["first_logged"]);
             }
@@ -25,18 +35,18 @@
         else {
             errorPage("Can't connect to DB");
         }
-// feedback?
-        header("Location: area_personale.php");
+        header("Location: area_personale.php#reportMaster");
         exit();
     }
+    
 
-    if(isset($_POST["RemoveRep"]))
+    if(isset($_GET["RemoveRep"]))
     {
-        $_POST["RemoveRep"]->set_isExplorable(false);
+        $db = new DBinterface();
         $db->openConnection();
-        $db->setExplorable($_POST["RemoveRep"]->get_id(), false);
+        $db->setExplorable($_POST["RemoveRep"], false);
         $db->closeConnection();
-        header("Location: area_personale.php");
+        header("Location: area_personale.php#reportMaster");
     }
 
     if( isset($_GET["ReportMaster"]) ) {    // Report creato da user, Da AreaPersonale.php
@@ -68,42 +78,42 @@
         if($_POST["espandi"] == "masterPrecedente")
         {
             $_SESSION["vai_indietro_master"] = true;
-            header("Location: area_personale.php");
+            header("Location: area_personale.php#anchorMaster");
             exit();
         }
 
         if($_POST["espandi"] == "masterSuccessivo")
         {
             $_SESSION["vai_avanti_master"] = true;
-            header("Location: area_personale.php");
+            header("Location: area_personale.php#anchorMaster");
             exit();
         }
 
         if($_POST["espandi"] == "partecPrecedente")
         {
             $_SESSION["vai_indietro_rep"] = true;
-            header("Location: area_personale.php");
+            header("Location: area_personale.php#anchorPartecipante");
             exit();
         }
 
         if($_POST["espandi"] == "partecSuccessivo")
         {
             $_SESSION["vai_avanti_rep"] = true;
-            header("Location: area_personale.php");
+            header("Location: area_personale.php#anchorPartecipante");
             exit();
         }
 
         if($_POST["espandi"] == "esploraPrecedente")
         {
             $_SESSION["vai_indietro_esplora"] = true;
-            header("Location: EsploraPage.php");
+            header("Location: EsploraPage.php#anchorEsplora");
             exit();
         }
 
         if($_POST["espandi"] == "esploraSuccessivo")
         {
             $_SESSION["vai_avanti_esplora"] = true;
-            header("Location: EsploraPage.php");
+            header("Location: EsploraPage.php#anchorEsplora");
             exit();
         }
     }
@@ -121,7 +131,7 @@
     if(isset($_POST["eliminaCommento"])) {  // Eliminazione commento, da ReportPage.php
         $_SESSION['banners']="confermare_eliminazione_commento";
         $_SESSION['banners_ID'] = array("ReportID" => $_POST['ReportID'], "CommentID" => $_POST['eliminaCommento']);    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: ReportPage.php?ReportID=".$_POST['ReportID']);
+        header("Location: ReportPage.php?ReportID=".$_POST['ReportID']."#anchorComment");
         exit();
     }
 
@@ -138,14 +148,14 @@
             errorPage("Can't connect to DB");
         }
 // feedback?
-        header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]);
+        header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]."#anchorComment");
         exit();
     }
 
     if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {    // Eliminazione Report, da ReportPage.php 
         $_SESSION['banners']="confermare_eliminazione_report";
         $_SESSION['banners_ID'] = $_GET['ReportID'];    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']);
+        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         exit();
     }
 
@@ -171,19 +181,35 @@
             exit();
         }
 
-    if(isset($_GET["FtAct_PublicReport"]))
+    if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="Pubblica in ESPLORA"))
     {
-        $db->openConnection();
-        $db->setExplorable($_SESSION["report_id"]);
-        $db->closeConnection();
-        header("Location: ReportPage.php");
+        $db = new DBinterface();
+        if($db->openConnection()) {
+            $db->setExplorable($_GET['ReportID']);
+            $db->closeConnection();
+            $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
+            header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
+        }else{
+            errorPage("Connessione DB non riuscita.");
+        }
+        exit();
+    }
+    if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="Rimuovi da ESPLORA"))
+    {
+        $db = new DBinterface();
+        if($db->openConnection()) {
+            $db->setExplorable($_GET['ReportID'], 0);
+            $db->closeConnection();
+            header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
+        }else{
+            errorPage("Connessione DB non riuscita.");
+        }
         exit();
     }
 
-    if(isset($_GET["FtAct_ModReport"]))
+    if((isset($_GET["reportAction"]))&&($_GET["reportAction"]=="MODIFICA"))
     {
-        $_SESSION['ModificaReport'] = true;
-        //$_SESSION['report_in_creazione'] = $_SESSION["report_id"]
+        $_SESSION['id_report_modifica'] = $_GET['ReportID'];
         header("Location: CreazioneReportPage.php");
         exit();
     }

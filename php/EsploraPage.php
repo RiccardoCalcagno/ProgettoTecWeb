@@ -35,7 +35,7 @@ else{
 
     for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
-        $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLForReport($_SESSION["report_data"][$i]->get_id()));
+        $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLUsernamesForReport($_SESSION["report_data"][$i]->get_id()));
     }
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : ((int)(($_SESSION["num_report_esplora"] -1) / 5) +1);

@@ -16,6 +16,8 @@ function onLoadModificaDati(){
     document.getElementById("birthdate").setAttribute("max", today);    
 
     updateCounterTextarea(3);
+
+    removeHidden('immagine_profilo');
 }
 
 
@@ -317,6 +319,21 @@ function validateReport() {
     return validateForm(reportValues);
 }
 
+function trasforma(e){
+    var varinput=document.getElementById("var");
+    varinput.name=document.getElementById("buttonPartecip").name;
+    varinput.value=document.getElementById("buttonPartecip").value;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    if(validateForm(reportValues)){
+        document.getElementById("areaCreazione").submit();
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("buttonPartecip").addEventListener("click",trasforma);
+})
+
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------
 // ---------------------------------------------------------------------------------
@@ -393,22 +410,19 @@ function validateChangeUserPassword() {
 
 function updateProfileImg()
 {   
-    var img_path = document.getElementById("imgProfilo").value;
-    var img = document.getElementsById("immagine_profilo");
+    var img_input = document.getElementById("imgProfilo");
+    var img = document.getElementById("immagine_profilo");
 
-    //img.classList.remove("hidden");
+        if (img_input.files && img_input.files[0]) {
 
-    if(img_path)
-    {
-        img.src(img_path);
-    }
-    else
-    {
-        img.src(" ");
-    }
+            img.src=URL.createObjectURL(img_input.files[0]);
+        }else{
+            img.src="../img/img_profilo_mancante.png";
+        }
 }
 
 function removeHidden(id_name)
 {
-    var element = document.getElementById(id_name.toString()).classList.remove("hidden");
+    var element = document.getElementById(id_name.toString());
+    element.setAttribute("class", "");    
 }
