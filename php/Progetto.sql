@@ -40,7 +40,7 @@ CREATE TABLE Report (
   isExplorable boolean NOT NULL,
   last_modified date NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (author) REFERENCES Users (username)
+  FOREIGN KEY (author) REFERENCES Users (username) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -78,7 +78,7 @@ CREATE TABLE Characters (
   author varchar(50) NOT NULL,
   creation_date timestamp NOT NULL DEFAULT current_timestamp,
   PRIMARY KEY (id),
-  FOREIGN KEY (author) REFERENCES Users (username)
+  FOREIGN KEY (author) REFERENCES Users (username) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -94,8 +94,8 @@ CREATE TABLE Comments (
   author varchar(50) NOT NULL,
   report int(50) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (author) REFERENCES Users (username),
-  FOREIGN KEY (report) REFERENCES Report (id)
+  FOREIGN KEY (author) REFERENCES Users (username) ON DELETE CASCADE,
+  FOREIGN KEY (report) REFERENCES Report (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -107,6 +107,6 @@ CREATE TABLE report_giocatore (
   author varchar(50) NOT NULL,
   report int(50) NOT NULL,
   PRIMARY KEY (author, report),
-  FOREIGN KEY (author) REFERENCES Users (username),
-  FOREIGN KEY (report) REFERENCES Report (id)
+  FOREIGN KEY (author) REFERENCES Users (username) ON DELETE CASCADE,
+  FOREIGN KEY (report) REFERENCES Report (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
