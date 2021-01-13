@@ -360,7 +360,7 @@ var userDataValues = {
 };
 passwordRegex = /^.{3,}$/; // Non serve ?
 var newPasswordValue = {
-    "newPasswd": [passwordRegex, "Password non Valida"],
+    "newPasswd": [passwordRegex, "Inserisci una password valida"],
 };
 
 function validateUserData() {

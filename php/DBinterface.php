@@ -409,7 +409,13 @@
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);
-            return $done;
+            foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
+                $isAdded = true;
+                while($isAdded){
+                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id())
+                }
+            }
+            return $done && $isAdded;
         }
 
         // modifica report
@@ -739,6 +745,15 @@
             return $done;
         }
 
+        // Aggiunge una riga, ma usa il singolo dato e non l'intero oggetto
+        public function ALUsimplified ($username, $report_id){
+          $query = "INSERT INTO report_giocatore (user, report) ". 
+                     "VALUES ('" . $username . "', ".  
+                             "'" . $report_id . "');" ;
+            $done =   mysqli_query($this->connection, $query);
+            return $done;
+        }
+
         //elimina un singolo utente da un determinato report
         public function deleteUserFromReport(UserData $user, ReportData $report)
         {
@@ -747,7 +762,7 @@
             return $done;
         }
 
-        //elimina un singolo utente da un determinato report
+        //elimina un singolo utente da tutti i report
         public function deleteUserFromALL(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "';";
