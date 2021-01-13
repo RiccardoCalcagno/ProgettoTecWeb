@@ -29,9 +29,9 @@ else{
     }
     $html = setup($html);
     $_SESSION["count_esplora"] = $temp;
-    
-    $_SESSION["num_report_esplora"] = $db->countReportExplorable();      // DA METTERE
+
     $_SESSION["report_data"] = $db->getReportExplorable();// getReportExplorable();     // DA METTERE
+    $_SESSION["num_report_esplora"] = count($_SESSION["report_data"]);
 
 
     //echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION["num_report_esplora"]." -rep: ".$_SESSION['report_data']."</h1></body></html>";

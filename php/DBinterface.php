@@ -416,7 +416,7 @@
         }
 
         
-        //restituisce il più alto id di report
+        //restituisce il piï¿½ alto id di report
         public function getHighestRepId()
         {
             $query = "SELECT Report.id FROM Report ORDER BY id DESC;";
@@ -547,13 +547,15 @@
             $reports=array();
             $username = clean_input($username);
             $username=mysqli_real_escape_string ( $this->connection , $username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
-                     "FROM Users ". 
-                     "INNER JOIN report_giocatore ".
-                     "ON Users.id = report_giocatore.user ". 
-                     "INNER JOIN Report ". 
-                     "ON report_giocatore.report = Report.id ". 
-                     "WHERE Users.username = '" . $username . "';";
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, U2.img_path, Report.last_modified 
+                FROM Users U1 
+                INNER JOIN report_giocatore 
+                ON U1.id = report_giocatore.user 
+                INNER JOIN Report 
+                ON report_giocatore.report = Report.id 
+                INNER JOIN Users U2 
+                ON U2.username = Report.author 
+                WHERE U1.username = '".$username."';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -605,6 +607,7 @@
             return $reports;
         }
 
+        /*
         public function countReportAuthor($username)
         {
             $count=0;
@@ -619,7 +622,9 @@
             }
             return $count;
         }
+        */
 
+        /*
         public function countReportExplorable()
         {
             $count=0;
@@ -633,19 +638,23 @@
 
             return $count;
         }
+        */
 
+        /*
         public function countReport($username)
         {
             $count=0;
             $username = clean_input($username);
             $username=mysqli_real_escape_string ( $this->connection , $username);
-            $query = "SELECT Report.id ".
-                     "FROM Report ". 
-                     "INNER JOIN report_giocatore ".
-                     "ON Report.id = report_giocatore.report ". 
-                     "INNER JOIN Users ". 
-                     "ON report_giocatore.user = Users.username ". 
-                     "WHERE Users.username = '" . $username . "';";
+            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, U2.img_path, Report.last_modified 
+            FROM Users U1 
+            INNER JOIN report_giocatore 
+            ON U1.id = report_giocatore.user 
+            INNER JOIN Report 
+            ON report_giocatore.report = Report.id 
+            INNER JOIN Users U2 
+            ON U2.username = Report.author 
+            WHERE U1.username = '".$username."';";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -655,6 +664,7 @@
 
             return $count;
         }
+        */
 
         public function setExplorable($report_id, $isExplorable = 1)
         {
