@@ -214,6 +214,8 @@
             return $ritorno;
         }
 
+
+
         public function getCharacterOfUser($char_id, $username)
         {
             $username = clean_input($username);
@@ -413,6 +415,20 @@
             }
         }
 
+        
+        //restituisce il più alto id di report
+        public function getHighestRepId()
+        {
+            $query = "SELECT Report.id FROM Report DESC;";
+            $user_id = mysqli_query($this->connection, $query);
+            $ritorno=null;
+            if(($user_id)&&($user_id->num_rows)){
+                $row = $user_id->fetch_assoc();
+                $ritorno=$row['id'];
+            }
+            return $ritorno;
+        }
+
         // aggiunta di un report
         public function addReport(ReportData $report_data){
             $report_data=DBinterface::escapeReport($report_data);
@@ -425,17 +441,19 @@
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);
             
-            $isAdded = true;
-            $lista = $report_data->get_lista_giocatori();
-            
-            foreach($lista as $singleLinkedUser){
-                if($isAdded){
-                    $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$report_data->get_id());
-                }else{
-                    break;
+            if(done){
+                $isAdded = true;
+                foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
+                    if($isAdded){
+                        $isAdded = DBinterface::ALUsimplified(DBinterface::getUserId($singleLinkedUser),$/*highest id of report*/);
+                    }else{
+                        break;
+                    }
+                    return $isAdded;
                 }
+            }else{
+                return $done;
             }
-            return $singleLinkedUser;
             //return $isAdded; //$done && 
         }
 
