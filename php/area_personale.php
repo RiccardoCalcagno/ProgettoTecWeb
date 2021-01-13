@@ -34,7 +34,6 @@ else if($_SESSION["login"])
     $db = new DBinterface();
 
     try {
-        echo "settata?: ".(isset($_SESSION["first_logged"]))." - ";
 
         if(!isset($_SESSION["first_logged"]))
         {
@@ -79,14 +78,13 @@ else if($_SESSION["login"])
 
         if(isset($_SESSION["vai_avanti_master"]) && $_SESSION["vai_avanti_master"])
         {
-            echo var_dump($_SESSION);
-            $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
+            $_SESSION["count_master"] == $numero_pag_master ? $_SESSION["count_master"] = $numero_pag_master : $_SESSION["count_master"]++;
             $_SESSION["vai_avanti_master"] = false;
         }
 
         if(isset($_SESSION["vai_avanti_rep"]) && $_SESSION["vai_avanti_rep"])
         {
-            $_SESSION["count_rep"] == $numero_pag_master ? $_SESSION["count_rep"] = $numero_pag_master : $_SESSION["count_rep"]++;
+            $_SESSION["count_rep"] == $numero_pag_report ? $_SESSION["count_rep"] = $numero_pag_report : $_SESSION["count_rep"]++;
             $_SESSION["vai_avanti_rep"] = false;
         }
 
