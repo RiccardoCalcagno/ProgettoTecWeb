@@ -449,8 +449,9 @@
                     }else{
                         break;
                     }
-                    return $isAdded;
                 }
+                
+                return $isAdded;
             }else{
                 return $done;
             }
