@@ -2208,7 +2208,7 @@ p.campiObbligatori{
 */
 
 #personaggiUtente .cardPersonaggio{
-    flex: 0 0 10.2em;
+    flex: 0 0 10.25em;
     height: 13em;
     margin: 1em 5px 1.2em 1em;
     background-color: #f8d38d;
