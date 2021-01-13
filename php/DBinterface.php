@@ -409,15 +409,10 @@
                               "'" . $report_data->get_isExplorable() . "', ".
                               "'" . $report_data->get_last_modified() . "');";
             $done =   mysqli_query($this->connection, $query);
-
-            echo var_dump($report_data->get_lista_giocatori());
+            
             $isAdded = true;
-            foreach($report_data->get_lista_giocatori() as $singleLinkedUser){
-                if($isAdded){
-                    $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
-                }else{
-                    break;
-                }
+            for($i = 0; $i < count($report_data->get_lista_giocatori()) && $isAdded; $i++){
+                $isAdded = DBinterface::ALUsimplified($report_data->get_lista_giocatori()[$i],$report_data->get_id());
             }
             return $done && $isAdded;
         }
