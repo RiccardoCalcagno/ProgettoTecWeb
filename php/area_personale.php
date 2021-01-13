@@ -79,7 +79,7 @@ else if($_SESSION["login"])
 
         if(isset($_SESSION["vai_avanti_master"]) && $_SESSION["vai_avanti_master"])
         {
-            echo var_dump($_SESSION["count_master"]);
+            echo var_dump($_SESSION);
             $_SESSION["count_master"] == $numero_pag_report ? $_SESSION["count_master"] = $numero_pag_report : $_SESSION["count_master"]++;
             $_SESSION["vai_avanti_master"] = false;
         }
