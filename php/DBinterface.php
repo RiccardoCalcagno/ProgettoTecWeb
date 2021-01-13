@@ -415,7 +415,7 @@
                     $isAdded = DBinterface::ALUsimplified($singleLinkedUser,$report_data->get_id());
                 }
             }
-            return ($done && $isAdded);
+            return $done;// && $isAdded
         }
 
         // modifica report
