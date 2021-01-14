@@ -368,15 +368,19 @@ var userDataValues = {
     "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
     "future_email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"]
 };
-passwordRegex = /^.{3,}$/; // Non serve ?
-var newPasswordValue = {
-    "newPasswd": [passwordRegex, "Inserisci una password valida"],
+var newUserDataValues = {
+    // ID: ["TestDaEseguire", "MessaggioErrore"]
+    "username": [/^.{1,}$/, "Inserisci il tuo username"],
+    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
+    "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"],
+    "newPasswd": [/^.{3,}$/, "Inserisci una password di almeno 3 caratteri"]
 };
 
-function validateUserData() {
 
-    return validateForm(userDataValues) && validateForm(newPasswordValue) && checkPasswordMatch();
+function validateUserData() {
+    return validateForm(newUserDataValues) && checkPasswordMatch();
 }
+
 /* TO FIX MAKE BETTER */
 function checkPasswordMatch() {
 
@@ -406,7 +410,7 @@ function checkPasswordMatch() {
 // ------------------------------- Change Data ------------------------------------------
 
 var oldPasswordValue = {
-    "password": [/^.{3,}$/, "Inserisci la tua Password corrente"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
+    "password": [/^.{3,}$/, "Non corrispponde alla password corrente"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
 };
 
 function validateChangeUserData() {
