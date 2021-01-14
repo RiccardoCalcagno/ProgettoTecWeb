@@ -81,12 +81,14 @@ function onLoadCreaReport(){
     updateCounterTextarea(1);
     updateCounterTextarea(2);
     if(document.getElementById("errori")){  
-        document.getElementById("errori").class="hidden";
-        console.log("HEYY");
+        document.getElementById("errori").setAttribute("class", "hidden");
     }
 }
 
 function onLoadCreaPersonaggio(){
+    if(document.getElementById("errori")){  
+        document.getElementById("errori").setAttribute("class", "hidden");
+    }
     setDescCaratteristica(0);
     setDescCaratteristica(1);
     setDescCaratteristica(2);
@@ -96,7 +98,6 @@ function onLoadCreaPersonaggio(){
     updateCounterTextarea(6);
     updateCounterTextarea(7);
     updateCounterTextarea(8);
-    document.getElementById("errori").class="hidden";
 }
 
 function setDescCaratteristica(num){
