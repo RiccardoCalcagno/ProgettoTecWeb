@@ -327,23 +327,21 @@ function validateReport() {
 }
 
 function trasforma(e){
-    var varinput = document.createElement("input");
-    document.getElementById("submitReport").appendChild(varinput);
-    varinput.class="hidden";
+    var varinput=document.getElementById("var");
     varinput.name=document.getElementById("buttonPartecip").name;
     varinput.value=document.getElementById("buttonPartecip").value;
     e.preventDefault();
     e.stopImmediatePropagation();
-    var b=validateReport();
-    if(b){
+    if(validateForm(reportValues)){
         document.getElementById("areaCreazione").submit();
     }
 }
 if(document.getElementById("creazioneReport")){
-    document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("buttonPartecip").addEventListener("click",trasforma);
 })
-    }
+
+}
 
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------
@@ -436,9 +434,4 @@ function removeHidden(id_name)
 {
     var element = document.getElementById(id_name.toString());
     element.setAttribute("class", "");    
-}
-
-function goBack()
-{
-    window.history.back();
 }
