@@ -138,8 +138,6 @@
                 }
                 $message .= '</ul></div>';
                 }
-    
-                unset($_SESSION['listaGiocatori']);
             }
     
 
