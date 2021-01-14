@@ -77,11 +77,12 @@
     if(isset($id_report)&&($id_report!==null))
         $_SESSION['id_report_modifica']=$id_report;
 
-    echo var_dump($_SESSION);
-    
+
     if(isset($_SESSION['listaGiocatori'])){
 
         if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
+
+            echo "sessione".var_dump($_SESSION)." - - GET: ".var_dump($_GET);
 
             $titolo = $_GET['titolo'];
             $sottotitolo = $_GET['sottotitolo'];
