@@ -334,7 +334,8 @@ function trasforma(e){
     varinput.value=document.getElementById("buttonPartecip").value;
     e.preventDefault();
     e.stopImmediatePropagation();
-    if(validateForm(reportValues)){
+    var b=validateReport();
+    if(b){
         document.getElementById("areaCreazione").submit();
     }
 }
