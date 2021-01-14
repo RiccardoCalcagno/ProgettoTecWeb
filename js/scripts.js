@@ -61,6 +61,10 @@ function updateCounterTextarea(numCount){
             IDCurrent="currentCountFlaws";
             max=150;
             break;
+        case 8:
+            IDText="cname";
+            IDCurrent="currentCountNome";
+            max=20;
     }
     var characterCount=document.getElementById(IDText).value.length;
     var obj1=document.getElementById(IDCurrent);
@@ -87,6 +91,7 @@ function onLoadCreaPersonaggio(){
     updateCounterTextarea(5);
     updateCounterTextarea(6);
     updateCounterTextarea(7);
+    updateCounterTextarea(8);
 }
 
 function setDescCaratteristica(num){
