@@ -326,7 +326,6 @@ function validateReport() {
     return validateForm(reportValues);
 }
 
-if(document.getElementById("buttonPartecip")){
 function trasforma(e){
     e.preventDefault();
     e.stopImmediatePropagation();
@@ -341,9 +340,9 @@ function trasforma(e){
     }
 }
     document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("buttonPartecip").addEventListener("click",trasforma);
+        if(document.getElementById("buttonPartecip"))
+            document.getElementById("buttonPartecip").addEventListener("click",trasforma);
 })
-}
 
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------
