@@ -80,7 +80,10 @@ function updateCounterTextarea(numCount){
 function onLoadCreaReport(){
     updateCounterTextarea(1);
     updateCounterTextarea(2);
-    document.getElementById("errori").class="hidden";
+    if(document.getElementById("errori")){  
+        document.getElementById("errori").class="hidden";
+        console.log("HEYY");
+    }
 }
 
 function onLoadCreaPersonaggio(){
