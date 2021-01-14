@@ -2888,7 +2888,6 @@ body.errorPage section, body.errorPage header{
 .errorPage h1 {
     font-size: 5em;
     font-weight: bold;
-    padding-top: 2%;
 }
 
 #body404 h1::after {
