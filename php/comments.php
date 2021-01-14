@@ -12,7 +12,7 @@
         {
             $this->id = $id;
             $this->author = $author;
-            $this->date = $date;
+            $this->date = substr($date,0,16);
             $this->report = $report;
             $this->text=$text;
         }
