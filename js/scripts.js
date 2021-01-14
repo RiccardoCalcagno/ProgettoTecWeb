@@ -80,6 +80,8 @@ function updateCounterTextarea(numCount){
 function onLoadCreaReport(){
     updateCounterTextarea(1);
     updateCounterTextarea(2);
+    var x = document.getElementsByClassName("messs");
+    x[0].class="";x[1].class="";
 }
 
 function onLoadCreaPersonaggio(){

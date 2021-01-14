@@ -218,7 +218,7 @@
 
     //--------------------------------------------------------------------
     //il contenuto della pagina viene settato qui
-    $html = str_replace("<messaggioForm />", $message, $html);
+    $html = str_replace("<messaggioForm class=\"messs\"/>", $message, $html);
     $html = str_replace('<valueTitle />',$titolo,$html);
     $html = str_replace('<valueSubtitle />',$sottotitolo,$html);
     $html = str_replace('<valueContent />',$contenuto,$html);
