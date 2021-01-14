@@ -26,6 +26,9 @@
                                                 DBinterface::USERNAME, 
                                                 DBinterface::PASSWORD, 
                                                 DBinterface::DB_NAME);
+            
+            $query = "SET time_zone = '+01:00';";
+            mysqli_query($this->connection, $query);
 
             return !$this->connection ? false : true;
         }
@@ -136,7 +139,7 @@
             $user_data = DBinterface::escapeUser($user_data);
 
             $username = mysqli_real_escape_string ( $this->connection , $username);
-	    
+        
             $query = "UPDATE Users ".
                      "SET username = '" . $user_data->get_username() . "', " .
                      "    name_surname = '" . $user_data->get_name_surname() . "', " .
