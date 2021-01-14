@@ -103,7 +103,10 @@
             $htmlBanner = "<div id='bannerPage' class='transitorio'><div>";
             switch($_SESSION['banners']){
                 case "salvataggio_pendente":
-                    $htmlBanner .= "        
+                    $htmlBanner .= "      
+                    <div id='closeDirettamente'>
+                    <a href='PLACEHOLDER' ></a>                          
+                    </div>  
                     <h1>Salvataggio Pendente</h1>
                     <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
                     <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 

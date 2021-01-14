@@ -61,7 +61,7 @@ function preparePage($htmlPage, $toEdit) {
     return $htmlPage;
 }
 
-function getErrors() {
+function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws) {
     $messaggioForm = '<div id="errori" class=""><ul>'; // TO FIX
 
     if(!$check_name) {
@@ -176,7 +176,7 @@ function Char_Form($toEdit) {
         }
         else{
             //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
-            $messaggioForm=getErrors();
+            $messaggioForm=getErrors($name, $check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws);
         }
         unset($_SESSION['CharFormPOST']);
     }
