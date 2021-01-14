@@ -171,13 +171,15 @@
             <fieldset id="datiAnagrafici">  <legend><h2>Dati anagrafici</h2></legend>
                 <ul>
                     <li>
-                    <span><label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
+                    <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
                     <p id="NameEmpty" class="hidden">  Inserisci il tuo nome e cognome  </p>
-                    <input type="text"  aria-required="true" required="required"
+                    <span>
+                        <input type="text"  aria-required="true" required="required"
                         name="NomeCognome" 
                         id="NomeCognome"
                         value="<name>" 
-                        placeholder="Inserisci il tuo nome e cognome"/></span>
+                        placeholder="Inserisci il tuo nome e cognome"/>
+                    </span>
                         
 
                     </li>
@@ -185,7 +187,7 @@
                     <label for="future_email" class="campiObbligatori">E-mail</label>
                     <p id="EmailErr" class="hidden"> Inserisci una email valida </p>
                     <p id="MailAlreadyExists" class="hidden"> Email già esistente  </p>
-                <span><input type="text"  aria-required="true" required="required"
+                    <span><input type="text"  aria-required="true" required="required"
                         name="future_email" 
                         id="future_email"
                         value="<email>"
@@ -195,12 +197,14 @@
                     </li>
                     <li>
                     <label for="birthdate" class="campiObbligatori">Data di nascita</label>
+                    <span>
                     <input type="date"  aria-required="true" required="required"
                         name="birthdate" 
                         id="birthdate"
                         value="<birthdate>"
                         max=""
                         placeholder="Seleziona la tua data di nascita"/>
+                    </span>
                     </li>
                 </ul>
 
