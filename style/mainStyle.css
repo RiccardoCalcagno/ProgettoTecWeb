@@ -1165,11 +1165,13 @@ section#testoReport {
 */
 
 ul#listaCommenti {
-    padding-top: 1em;
     max-height: 21.7em;
     overflow: scroll;
     background-color: #fffbf5;
     border-radius: 0.5em;
+}
+ul#listaCommenti :first-child{
+    padding-top: 1em;
 }
 
 #commentiField{
