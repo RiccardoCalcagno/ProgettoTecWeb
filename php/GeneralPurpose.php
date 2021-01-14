@@ -104,7 +104,7 @@
         exit();
     }
 
-    function validateImg($target, $img)
+    function validateImg($img)
     {
 //echo " entrato in  validateImg";
         $uploadOk = true;
@@ -118,10 +118,25 @@
 
 //    echo "fatto check ed è $uploadOk";
         // Vedere se il file esiste già
-        $uploadOk = file_exists($target);
+       
 
 //    echo "controllo esistenza file";
         return $uploadOk;
+    }
+
+    function check_file_name($img, $name)
+    {
+	$i = 1;
+	while(file_exists($img))
+	{
+	    $name_arr = explode('.', $name);
+	    $name_arr[0] .= $i;
+	    $name = implode('.', $name_arr);
+	    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . $name;
+	    $i++; 
+	}
+	return $img;
+
     }
 
 ?>

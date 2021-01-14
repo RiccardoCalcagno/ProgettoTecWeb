@@ -101,34 +101,35 @@
         if($img)
         {
 //    echo " Controllo img non null passato ";
-        $err["img_err"] = validateImg($img, $_FILES["imgProfilo"]);
+    //        $err["img_err"] = validateImg($_FILES["imgProfilo"]);
 //echo " fa validazione img ";
 
             if(!$err["img_err"])
             {
 //    echo " non ci sono errori";
-            if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
-            {
+		$img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
+               	if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+                {
 //            echo "upload avvenuto correttamente ";
-                $err["img_err"] = false;
-            }
-            else
-            {
-                header("Location: Errore.php");
-                exit();
-            }
-        }
-            else
-            {
+                    $err["img_err"] = false;
+            	}
+            	else
+            	{
+                    header("Location: Errore.php");
+                    exit();
+            	}
+             }
+             else
+             {
 //            echo " ci sono errori ";
-            $img = null;
-            }
-       }
-       else
-       {
+             	$img = null;
+             }
+        }
+        else
+        {
 //echo " img nulla";
-        $err["img_err"] = false;
-       }
+            $err["img_err"] = false;
+        }
 
 
             if(in_array(true, $err))

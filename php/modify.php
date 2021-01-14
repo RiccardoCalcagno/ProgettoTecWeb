@@ -66,25 +66,27 @@
 
     if($img)
     {
-        $err["img_err"] = validateImg($img, $_FILES["imgProfilo"]);
+        //$err["img_err"] = validateImg($_FILES["imgProfilo"]);
 
         if(!$err["img_err"])
         {
-        if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
-        {
-            $err["img_err"] = false;
-	    if($_SESSION["img"] != "../img/img_profilo_mancante.png")
-            	unlink($_SESSION["img"]);
+	    $img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
+
+            if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+            {
+            	$err["img_err"] = false;
+	    	if($_SESSION["img"] != "../img/img_profilo_mancante.png")
+            	    unlink($_SESSION["img"]);
+            }
+            else
+            {
+            	errorPage("errore upload img");
+            	exit();
+            }
         }
         else
         {
-            header("Location: Errore.php");
-            exit();
-        }
-        }
-        else
-        {
-        $img = null;
+            $img = null;
         }
     }
     else
@@ -121,13 +123,13 @@
                 $_SESSION["result"] = true;
 
                 $_SESSION['banners']= "modifica_utente_confermata";
-        $db->closeConnection();
+        	$db->closeConnection();
                 header("Location: modify_user.php");
             }
             else
             {
-        $db->closeConnection();
-        error("Spiacenti! Qualcosa è andato storto"); 
+        	$db->closeConnection();
+        	errorPage("Spiacenti! Qualcosa è andato storto"); 
                 exit();
             }
         }
@@ -136,7 +138,7 @@
 
 
     } catch(Exception $e) {
-        header("Location: Errore.php");
+        errorPage("errore try catch");
         exit();
     }
 
