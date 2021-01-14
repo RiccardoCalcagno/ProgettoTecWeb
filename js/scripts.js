@@ -448,5 +448,5 @@ function goBack()
 
 function js_on_approf(){
     var backLink = document.getElementById("ritorna");
-    backLink.removeAttribute("hidden");
+    backLink.classList.remove("hidden");
 }
