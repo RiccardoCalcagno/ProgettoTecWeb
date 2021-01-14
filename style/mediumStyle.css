@@ -831,7 +831,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
     width: 7.5em;
 }
 
-#creazioneReport #selezionamentoGiocatori > div{
+#creazioneReport #selezionamentoGiocatori > div:first-child{
     padding: 0.5em;
     width: 100%;
 } 
@@ -839,9 +839,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"]{
 #creazioneReport #selezionamentoGiocatori ul{
     width: 90%;
     margin: auto;
-}
-div#inserimentoGiocatori > div {
-    display: flex;
 }
 
 #creazioneReport #selezionamentoGiocatori ul li{

@@ -80,15 +80,9 @@ function updateCounterTextarea(numCount){
 function onLoadCreaReport(){
     updateCounterTextarea(1);
     updateCounterTextarea(2);
-    if(document.getElementById("errori")){  
-        document.getElementById("errori").setAttribute("class", "hidden");
-    }
 }
 
 function onLoadCreaPersonaggio(){
-    if(document.getElementById("errori")){  
-        document.getElementById("errori").setAttribute("class", "hidden");
-    }
     setDescCaratteristica(0);
     setDescCaratteristica(1);
     setDescCaratteristica(2);
@@ -333,6 +327,7 @@ function validateReport() {
 }
 
 function trasforma(e){
+    console.log("ooooo");
     var varinput = document.createElement("input");
     document.getElementById("submitReport").appendChild(varinput);
     varinput.class="hidden";
@@ -345,11 +340,9 @@ function trasforma(e){
         document.getElementById("areaCreazione").submit();
     }
 }
-if(document.getElementById("creazioneReport")){
     document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("buttonPartecip").addEventListener("click",trasforma);
 })
-    }
 
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------

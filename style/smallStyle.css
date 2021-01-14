@@ -684,9 +684,6 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
     overflow: hidden;
     margin: 1em auto;
 }
-div#inserimentoGiocatori > div {
-    display: block;
-}
 
 #creazioneReport #selezionamentoGiocatori ul li{
     width: 100%;
