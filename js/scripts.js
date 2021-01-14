@@ -437,7 +437,16 @@ function removeHidden(id_name)
     element.setAttribute("class", "");    
 }
 
+// ---------------------------------------------------------------------------------
+// ------------------------------- Approfondimenti ------------------------------------------
+// ---------------------------------------------------------------------------------
+
 function goBack()
 {
     window.history.back();
+}
+
+function js_on_approf(){
+    var backLink = document.getElementById("ritorna");
+    backLink.removeAttribute("hidden");
 }
