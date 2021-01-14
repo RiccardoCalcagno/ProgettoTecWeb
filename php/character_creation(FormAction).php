@@ -61,8 +61,8 @@ function preparePage($htmlPage, $toEdit) {
     return $htmlPage;
 }
 
-function getErrors($messaggioForm) {
-    $messaggioForm = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
+function getErrors() {
+    $messaggioForm = '<div id="errori"><ul>'; // TO FIX
 
     if(!$check_name) {
         $namelen = strlen($name);
@@ -176,7 +176,7 @@ function Char_Form($toEdit) {
         }
         else{
             //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
-            getErrors($messaggioForm);
+            $messaggioForm=getErrors();
         }
         unset($_SESSION['CharFormPOST']);
     }

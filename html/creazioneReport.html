@@ -1,23 +1,4 @@
-﻿
-<!--
-    ATTENZIONE:
-
-    QUESTO HTML CONTIENE IL NECESSARIO SIA PER CREARE SIA PER MODIFICARE UN REPORT MA..
-    BISOGNA SCAMBIARE I SEGUENTI ELEMENTI:
-
-    1) <head>
-    2) <header> intestazionePagina
-    3) <p> nell'ultimo submitForm
-    4) <input> per il bottone che conferma il salvataggio/modifica
--->
-
-
-<!-- RICORDARSI DI TOGLIERE L'ATTENZIONE SULL' HEADER SE L'UTENTE HA GIÀ FATTO L'AUTENTICAZIONE-->
-
-
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -98,6 +79,7 @@
         <p class="campiObbligatori"> : campo obbligatorio</p>
 
         <form id="areaCreazione" autocomplete="on" class="creazioneFields" action="../php/CreazioneReportPage.php#giocatoriRepo" method="get">
+            <messaggioForm />
             <ol>
                 <li>
                     <fieldset id="titoloRepo" class="fieldss">
@@ -151,16 +133,6 @@
                                 </div>
 
                             <feedback_placeholder />
-                                <!--POSSIBILI MESSAGGI DI FEED BACK
-                            <p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>
-
-                             ALTRIMENTI,  SE NON È STATO TROVATO NESSUN GIOCATORE
-
-                            <p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>
-                            -->
-
-
-
 
                             </div>
                         </div>
@@ -179,8 +151,9 @@
             -->
             </ol>
 
+            <messaggioForm />
+
             <div id="conclusione">
-                <input id="var" class="hidden"/>
                 <div id="condivisione">
                     <h3>Desideri condividere il tuo report alla community registrata in questo portale?</h3>
                     <p>permetterai a molta più gente di vederlo e commentarlo</p>
