@@ -61,19 +61,19 @@ function preparePage($htmlPage, $toEdit) {
     return $htmlPage;
 }
 
-function getErrors() {
-    $messaggioForm = '<div id="errori"><ul>'; // TO FIX
+function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws) {
+    $messaggioForm = '<div id="errori" class=""><ul>'; // TO FIX
 
     if(!$check_name) {
         $namelen = strlen($name);
         if ($namelen < 3) { 
-            $messaggioForm .= '<li>Nome personaggio deve avere almeno 3 caratteri</li>';
+            $messaggioForm .= '<li>Il campo Nome personaggio deve avere almeno 3 caratteri</li>';
         }
         else if ($namelen > 20) {
-            $messaggioForm .= '<li>Nome personaggio deve avere al massimo 20 caratteri</li>';
+            $messaggioForm .= '<li>Il campo Nome personaggio deve avere al massimo 20 caratteri</li>';
         }
         else {
-            $messaggioForm .= '<li>Formato Nome non valido: utilizzare solo lettere, spazi, virgole, punti e hypen</li>';
+            $messaggioForm .= '<li>Il formato del campo Nome non è valido: utilizzare solo lettere, spazi, virgole, punti e <span xml:lang="en">hypen</span></li>';
         }
     }
 
@@ -81,7 +81,7 @@ function getErrors() {
     $checkCharTraits = array($check_traits, $check_ideals, $check_bonds, $check_flaws);
     for ($i = 0; $i < 4; $i++) {
         if(!$checkCharTraits[$i]) {
-            $messaggioForm .= '<li>Descrizione per "' . $charTraits[$i]. '" deve essere almeno 10 caratteri </li>';
+            $messaggioForm .= '<li>Il campo: "' . $charTraits[$i]. '" deve contenere almeno 10 caratteri </li>';
         }
     }
     $messaggioForm .= '</ul></div>';
@@ -158,12 +158,12 @@ function Char_Form($toEdit) {
                     }
                     else {
                         // Can't insert in DB
-                        $messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare.</p></div>'; // (ERRORE LATO DB)
+                        errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                     }
                 }
                 else {
                     // Can't connect to DB
-                    $messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare</p></div>'; // (ERRORE LATO Server)
+                    errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                 }
 
                 $db->closeConnection();
@@ -176,7 +176,7 @@ function Char_Form($toEdit) {
         }
         else{
             //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
-            $messaggioForm=getErrors();
+            $messaggioForm=getErrors($name, $check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws);
         }
         unset($_SESSION['CharFormPOST']);
     }

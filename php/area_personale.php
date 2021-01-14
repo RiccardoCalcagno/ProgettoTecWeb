@@ -168,7 +168,11 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
-
+                if($_SESSION["num_pers"] <= 4)
+                {
+                    $html = str_replace("<nav class='espandi' id='espandi_pers'>", "<nav class='hidden' id='espandi_pers'>", $html);
+                    $_SESSION["espandiPers"] = true;
+                }
 
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
@@ -177,11 +181,6 @@ else if($_SESSION["login"])
                     $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", $html);
 
                     unset($_SESSION["espandiPers"]);
-                }
-
-                if($_SESSION["num_pers"] <= 4)
-                {
-                    $html = str_replace("<nav class='espandi' id='espandi_pers'>", "<nav class='hidden' id='espandi_pers'>", $html);
                 }
 
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == false)

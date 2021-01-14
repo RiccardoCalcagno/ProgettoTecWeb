@@ -657,11 +657,6 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 /*
 ------------------------------------- BOX GIOCATORI ------------------------------------
 */
-
-#creazioneReport #selezionamentoGiocatori > div{
-    padding: 0;
-} 
-
 #inserimentoGiocatori{
     width: 100%;
 }
@@ -684,7 +679,6 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 
 #creazioneReport #selezionamentoGiocatori ul{
     width: calc(100% - 1em);
-    height: auto;
     padding: 0;
     border: 6px inset #dfdfdf;
     overflow: hidden;

@@ -28,7 +28,7 @@
             $this->author_img=$author_img;
             $this->lista_giocatori=$lista_giocatori;
 
-            $this->last_modified=$last_modified;
+            $this->last_modified=substr($last_modified,0,10);
         }
 
         public function set_id($id) 

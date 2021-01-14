@@ -433,13 +433,12 @@
         // aggiunta di un report
         public function addReport(ReportData $report_data){
             $report_data=DBinterface::escapeReport($report_data);
-            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable,last_modified) ".
+            $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable) ".
                      "VALUES ('" . $report_data->get_title() . "', ".
                               "'" . $report_data->get_subtitle() . "', ".
                               "'" . $report_data->get_content() . "', ".
                               "'" . $report_data->get_author() . "', ".
-                              "'" . $report_data->get_isExplorable() . "', ".
-                              "'" . $report_data->get_last_modified() . "');";
+                              "'" . $report_data->get_isExplorable() . "');";
             $done =   mysqli_query($this->connection, $query);
             
             if($done){
@@ -467,8 +466,7 @@
                      "    subtitle         = '" . $report_data->get_subtitle() . "', ".
                      "    content         = '" . $report_data->get_content() . "', ".
                      "    author         = '" . $report_data->get_author() . "', ".
-                     "    isExplorable     = '" . $report_data->get_isExplorable() . "', ".
-                     "    last_modified = '" . $report_data->get_last_modified() . "' ".
+                     "    isExplorable     = '" . $report_data->get_isExplorable() . "' ".
                      "WHERE id = '" . $report_data->get_id() . "';";
             $done =   mysqli_query($this->connection, $query);
             $isCleared = DBinterface::deleteReportMention_by_id($report_data->get_id());
