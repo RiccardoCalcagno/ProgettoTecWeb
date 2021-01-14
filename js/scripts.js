@@ -366,7 +366,7 @@ var userDataValues = {
     // ID: ["TestDaEseguire", "MessaggioErrore"]
     "username": [/^.{1,}$/, "Inserisci il tuo username"],
     "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
-    "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"]
+    "future_email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"]
 };
 passwordRegex = /^.{3,}$/; // Non serve ?
 var newPasswordValue = {
