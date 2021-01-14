@@ -88,4 +88,11 @@
         exit();
     }
 
+    if(isset($_GET["riduci"]))
+    {
+        $_SESSION["espandiPers"] = false;
+        header("Location: area_personale.php#personaggiUtente");
+        exit();
+    }
+
 ?>

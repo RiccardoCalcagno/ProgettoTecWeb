@@ -170,10 +170,23 @@ else if($_SESSION["login"])
 
 
 
-                if(isset($_SESSION["espandiPers"]) || $_SESSION["num_pers"] <= 4)
+                if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
+                {
+                    $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
+                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", $html);
+
+                    unset($_SESSION["espandiPers"]);
+                }
+
+                if($_SESSION["num_pers"] <= 4)
                 {
                     $html = str_replace("<nav class='espandi' id='espandi_pers'>", "<nav class='hidden' id='espandi_pers'>", $html);
-                    $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
+                }
+
+                if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == false)
+                {
+                    $html = str_replace("<ul class=\"expanded\">", "<ul class=\"cards\" id='Personaggi'>", $html);
+                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", $html);
 
                     unset($_SESSION["espandiPers"]);
                 }
