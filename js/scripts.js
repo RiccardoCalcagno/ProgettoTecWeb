@@ -80,8 +80,7 @@ function updateCounterTextarea(numCount){
 function onLoadCreaReport(){
     updateCounterTextarea(1);
     updateCounterTextarea(2);
-    var x = document.getElementsByClassName("messs");
-    x[0].class="";x[1].class="";
+    document.getElementById("errori").class="hidden";
 }
 
 function onLoadCreaPersonaggio(){
@@ -94,6 +93,7 @@ function onLoadCreaPersonaggio(){
     updateCounterTextarea(6);
     updateCounterTextarea(7);
     updateCounterTextarea(8);
+    document.getElementById("errori").class="hidden";
 }
 
 function setDescCaratteristica(num){
