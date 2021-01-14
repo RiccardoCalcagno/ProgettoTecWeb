@@ -1165,7 +1165,6 @@ section#testoReport {
 */
 
 ul#listaCommenti {
-    padding-top: 1em;
     max-height: 21.7em;
     overflow: scroll;
     background-color: #fffbf5;
@@ -1205,7 +1204,7 @@ ul#listaCommenti {
 #commentiField li{
     clear: both;
     overflow: hidden;
-    padding-bottom: 1em;
+    padding-top: 1em;
 }
 #commentiField li .badgeUtente{
     padding:0.5em;
