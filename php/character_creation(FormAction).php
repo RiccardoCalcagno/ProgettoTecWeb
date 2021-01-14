@@ -62,7 +62,7 @@ function preparePage($htmlPage, $toEdit) {
 }
 
 function getErrors() {
-    $messaggioForm = '<div id="errori"><ul>'; // TO FIX
+    $messaggioForm = '<div id="errori" class=""><ul>'; // TO FIX
 
     if(!$check_name) {
         $namelen = strlen($name);
@@ -158,12 +158,12 @@ function Char_Form($toEdit) {
                     }
                     else {
                         // Can't insert in DB
-                        $messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare.</p></div>'; // (ERRORE LATO DB)
+                        errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                     }
                 }
                 else {
                     // Can't connect to DB
-                    $messaggioForm = '<div id="errori"><p>Errore nella creazione del personaggio. Riprovare</p></div>'; // (ERRORE LATO Server)
+                    errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                 }
 
                 $db->closeConnection();

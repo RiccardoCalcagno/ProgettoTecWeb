@@ -122,7 +122,7 @@
                 }
     
                 }else{
-                $message = '<div id="errori"><ul>'; // TO FIX
+                $message = '<div id="errori" class=""><ul>'; // TO FIX
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
                     $message.='<li>titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
                 }
