@@ -229,6 +229,10 @@ input[type="file"]:hover{
     color:#680000;
 }
 
+#errori{
+    text-align: center; color: rgb(216, 0, 0); background-color: #FFFFFF; padding: 1em;
+}
+
 
 
 /*                                                      

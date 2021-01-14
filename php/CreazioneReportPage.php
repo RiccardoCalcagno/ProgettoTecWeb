@@ -91,7 +91,7 @@
 
             if(isset($_GET['salvaRep'])){
     
-                if(  (strlen($titolo) != 0) && (strlen($sottotitolo) != 0) && (strlen($contenuto) != 0)  ){
+                if( strlen($titolo) <= 30 && strlen($titolo)>=3 && strlen($sottotitolo) <= 120 && strlen($sottotitolo)>=3 && strlen($contenuto) >=3  ){
     
                 if(isset($_SESSION['username'])) {
 
@@ -109,12 +109,11 @@
                             $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
                         }else{
                             //messaggi di errore inserimento nel DB
-                            $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                            errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                         }
                     }
                     else{
-                        //errore di connessione al DB
-                        $message = '<div id="errori"><p>Errore nella creazione del report. Riprovare.</p></div>';
+                        errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                     }
                     $dbInterface->closeConnection();
                 }else{
@@ -124,15 +123,15 @@
                 }
     
                 }else{
-                $message = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
-                if (strlen($titolo) == 0) {
-                    $message.='<li>titolo troppo corto</li>';
+                $message = '<div id="errori"><ul>'; // TO FIX
+                if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
+                    $message.='<li>titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
                 }
-                if (strlen($sottotitolo) == 0) {
-                    $message .='<li>sottotitolo troppo corto</li>';
+                if ((strlen($sottotitolo) > 120 || strlen($sottotitolo)<3)) {
+                    $message .='<li>sottotitolo deve avere una lunghezza compresa tra i 3 e 120 caratteri</li>';
                 }
-                if (strlen($contenuto) == 0) {
-                    $message.='<li>contenuto troppo corto</li>';
+                if (strlen($contenuto) < 3) {
+                    $message.='<li>contenuto deve avere almeno 3 caratteri</li>';
                 }
                 $message .= '</ul></div>';
                 }
@@ -164,7 +163,7 @@
                     $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
                 }
                 else {
-                    $message = '<div id="errori"><p>Errore nella connessione. Riprovare.</p></div>';
+                    errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
                 }
     
                 $dbInterface->closeConnection();

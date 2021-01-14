@@ -62,7 +62,7 @@ function preparePage($htmlPage, $toEdit) {
 }
 
 function getErrors() {
-    $messaggioForm = '<div id="errori" style="text-align: center; color: red; background-color: yellow; padding: 1em; border: 3px solid black;"><ul>'; // TO FIX
+    $messaggioForm = '<div id="errori"><ul>'; // TO FIX
 
     if(!$check_name) {
         $namelen = strlen($name);
