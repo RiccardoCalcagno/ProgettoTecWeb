@@ -4,11 +4,10 @@
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     if(!$html)
-    header("Location: 404.php");
+    	header("Location: 404.php");
     //$html = setup($html);   // setup_clear() ?
     unset($_SESSION["first_logged"]);
     unset($_SESSION["listaGiocatori"]);
-
 
     $username = $_SESSION["username"];
     $name_surname = $_SESSION["name_surname"];
@@ -38,7 +37,7 @@
         {
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"future_username\"", "name=\"future_username\" class=\"input-errore\"", $html);
-  //      echo "utente esistente";
+        echo "utente esistente";
         }
 
 
@@ -46,7 +45,7 @@
         { 
             $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"future_username\"", "name=\"future_username\" class=\"input-errore\"", $html);
-//        echo "utente vuoto";
+        echo "utente vuoto";
         }
 
         if($err["rep_passwd_err"])
@@ -55,7 +54,7 @@
             $html = str_replace("name=\"PasswdAgan\"", "name=\"PasswdAgan\" class=\"input-errore\"", $html);
             $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
-//        echo "password ripetuta errata";
+        echo "password ripetuta errata";
         }
 
 
@@ -64,7 +63,7 @@
             $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"future_email\"", "name=\"future_email\" class=\"input-errore\"", $html);
 
-//        echo "email err";
+        echo "email err";
         }         
    
         if($err["email_already_exist"])
@@ -72,7 +71,7 @@
             $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"future_email\"", "name=\"future_email\" class=\"input-errore\"", $html);
 
-//        echo "email esistente";
+        echo "email esistente";
         }
 
         if($err["empty_name"])
@@ -80,7 +79,7 @@
             $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"NomeCognome\"", "name=\"NomeCognome\" class=\"input-errore\"", $html);
 
-//        echo "nome vuoto";
+        echo "nome vuoto";
         } 
         
         if($err["old_password_err"])
@@ -101,7 +100,6 @@
     unset($_SESSION["result"]);
     unset($_SESSION["err"]);
     unset($err);
-
 
     /*if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
     {

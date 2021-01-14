@@ -133,9 +133,10 @@
 
         public function setUser(UserData $user_data, $username) 
         {
-            $user_data=DBinterface::escapeUser($user_data);
+            $user_data = DBinterface::escapeUser($user_data);
 
-            $username=mysqli_real_escape_string ( $this->connection , $username);
+            $username = mysqli_real_escape_string ( $this->connection , $username);
+	    
             $query = "UPDATE Users ".
                      "SET username = '" . $user_data->get_username() . "', " .
                      "    name_surname = '" . $user_data->get_name_surname() . "', " .
@@ -144,7 +145,7 @@
                      "    img_path = '" . $user_data->get_img_path() . "' ".
                      "WHERE username = '" . $username . "';";
 
-            $done =   mysqli_query($this->connection, $query);
+            $done = mysqli_query($this->connection, $query);
             return $done;
         }
 

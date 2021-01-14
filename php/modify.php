@@ -1,7 +1,8 @@
 <?php 
 
     require_once("DBinterface.php");
-    require_once("Errore.php");
+    require_once("GeneralPurpose.php");
+    require_once("banners.php");
 
     $modify_user = null;
     $err = array();
@@ -12,10 +13,11 @@
     $passwd = $_SESSION["passwd"];
     $birthdate = $_POST["birthdate"];
 
+
     if( !empty($_FILES["imgProfilo"]["name"]))
-    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
+    	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
     else
-    $img = null;
+    	$img = null;
 
     try {
         $db = new DBinterface();
@@ -64,45 +66,45 @@
 
         $db->closeConnection();
 
-    if($img)
-    {
-        //$err["img_err"] = validateImg($_FILES["imgProfilo"]);
-
-        if(!$err["img_err"])
+        if($img)
         {
-	    $img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
-
-            if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+        //$err["img_err"] = validateImg($_FILES["imgProfilo"]);
+	$err["img_err"] = false;
+            if(!$err["img_err"])
             {
-            	$err["img_err"] = false;
-	    	if($_SESSION["img"] != "../img/img_profilo_mancante.png")
-            	    unlink($_SESSION["img"]);
+	    	$img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
+
+            	if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+            	{
+            	    $err["img_err"] = false;
+	    	    if($_SESSION["img"] != "../img/img_profilo_mancante.png")
+            	    	unlink($_SESSION["img"]);
+            	}
+            	else
+            	{
+            	    errorPage("errore upload img");
+            	    exit();
+            	}
             }
             else
             {
-            	errorPage("errore upload img");
-            	exit();
+            	$img = null;
             }
-        }
-        else
-        {
-            $img = null;
-        }
-    }
-    else
-    {
-        $err["img_err"] = false;
-        $img = $_SESSION["img"];
-    }
+     	}
+    	else
+    	{
+            $err["img_err"] = false;
+            $img = $_SESSION["img"];
+    	}
 
 
         if(in_array(true, $err))
         {
-        $_SESSION["tmpUser"]["username"] = $username;
-        $_SESSION["tmpUser"]["name_surname"] = $name_surname;
-        $_SESSION["tmpUser"]["email"] = $email;
-        $_SESSION["tmpUser"]["birthdate"] = $birthdate;
-        $_SESSION["tmpUser"]["img"] = $img; 
+            $_SESSION["tmpUser"]["username"] = $username;
+            $_SESSION["tmpUser"]["name_surname"] = $name_surname;
+            $_SESSION["tmpUser"]["email"] = $email;
+            $_SESSION["tmpUser"]["birthdate"] = $birthdate;
+            $_SESSION["tmpUser"]["img"] = $img; 
             $_SESSION["err"] = $err;
             $_SESSION["result"] = false;
             header("Location: modify_user.php");
@@ -114,7 +116,7 @@
 
             if($db->setUser($modify_user, $_SESSION["username"]))
             {
-                $_SESSION["username"] = $username;
+		$_SESSION["username"] = $username;
                 $_SESSION["name_surname"] = $name_surname;
                 $_SESSION["email"] = $email;
                 $_SESSION["passwd"] = $passwd;
@@ -129,7 +131,7 @@
             else
             {
         	$db->closeConnection();
-        	errorPage("Spiacenti! Qualcosa è andato storto"); 
+        	//errorPage("Spiacenti! Qualcosa è andato storto"); 
                 exit();
             }
         }
@@ -138,7 +140,7 @@
 
 
     } catch(Exception $e) {
-        errorPage("errore try catch");
+        //errorPage("errore try catch");
         exit();
     }
 
