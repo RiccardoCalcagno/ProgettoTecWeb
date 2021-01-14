@@ -326,23 +326,24 @@ function validateReport() {
     return validateForm(reportValues);
 }
 
+if(document.getElementById("buttonPartecip")){
 function trasforma(e){
-    console.log("ooooo");
-    var varinput = document.createElement("input");
-    document.getElementById("submitReport").appendChild(varinput);
-    varinput.class="hidden";
-    varinput.name=document.getElementById("buttonPartecip").name;
-    varinput.value=document.getElementById("buttonPartecip").value;
     e.preventDefault();
     e.stopImmediatePropagation();
     var b=validateReport();
     if(b){
+        var varinput = document.createElement("input");
+        document.getElementById("submitReport").appendChild(varinput);
+        varinput.setAttribute("class", "hidden");
+        varinput.name=document.getElementById("buttonPartecip").name;
+        varinput.value=document.getElementById("buttonPartecip").value;
         document.getElementById("areaCreazione").submit();
     }
 }
     document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("buttonPartecip").addEventListener("click",trasforma);
 })
+}
 
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------
