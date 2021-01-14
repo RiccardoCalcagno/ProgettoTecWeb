@@ -192,19 +192,6 @@ else {
                 }
             }
         }
-        /*OLD VERSION
-        foreach($commentsArray as $singleComment){
-            $replacer .= '<li class="commento"><div class="badgeUtente">';
-            $replacer .= '<img src="'.getUserPic($singleComment.get_author()).'" alt="Immagine profilo" />';
-            $replacer .= '<p class="textVariable">'.$singleComment.get_author().'</p></div>';
-            $replacer .= '<div class="testoCommento">';
-            $replacer .= '<p>'.$singleComment.get_text().'</p>';
-            $replacer .= '<p class="dateTimeCommento">'.$singleComment.get_date().'</p></div>';
-            $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="IDCommento"/></li>';
-            //quest'ultimo è il tasto per eliminare il commento.
-            //TODO controllare quando mostrarlo e quando no.
-        }
-        */
         $replacer .= '</ul>';
 
         $html = str_replace("<comments_placeholder/>", $replacer, $html);
