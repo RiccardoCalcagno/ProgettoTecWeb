@@ -434,6 +434,10 @@ body{
 ---------------------------------------------------------------------------------------------
 */
 
+/* body > footer {
+    margin-top: 5%;
+} */
+
 #tornaSuFooter {
     display: block;
     padding: 0.2em auto;
@@ -1084,6 +1088,9 @@ section#testoReport {
 #giocatoriReport{
     padding-top: 2.1em;
 }
+#testoReport p {
+    white-space: pre-wrap;
+}
 #giocatoriReport ul{
     clear: both;
     overflow: hidden;
@@ -1427,6 +1434,7 @@ ul#listaCommenti {
 .pergamena #sezTestualiPersonaggio dd{
     font-weight: 400;
     font-size: 1.3em;
+    white-space: pre-wrap;
     overflow-wrap: break-word;        
     word-wrap: break-word;
     hyphens: auto;
@@ -2212,8 +2220,7 @@ p.campiObbligatori{
 */
 
 #personaggiUtente .cardPersonaggio{
-    flex: 0 0 calc(10em);
-    width: 9em;
+    flex: 0 0 10.25em;
     height: 13em;
     margin: 1em 5px 1.2em 1em;
     background-color: #f8d38d;
@@ -2223,9 +2230,6 @@ p.campiObbligatori{
 #personaggiUtente .cardPersonaggio button{
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
     background-color: transparent;
     border: none;
 }
@@ -2247,7 +2251,7 @@ p.campiObbligatori{
 #personaggiUtente .cardPersonaggio img{
     display: block;
     width: 3.5em;
-    margin: 0.3em auto 0.2em auto;
+    margin: 0.3em auto 0.4em auto;
     border-radius: 0.3em;
 }
 #personaggiUtente .cardPersonaggio ul{
@@ -2258,7 +2262,7 @@ p.campiObbligatori{
     height: 1.4em;
 }
 #personaggiUtente .cardPersonaggio #allineamento *{
-    width: 80%;
+    width: 90%;
     margin: auto;
     text-align: center;
     border-radius: 0.2em;
@@ -2869,15 +2873,25 @@ form#datiUtenza > div:first-child fieldset:first-child{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+body.errorPage {
+    min-height: 92.8vh;
+    position: relative;
+}
+
+body.errorPage > footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
 body.errorPage section, body.errorPage header{
     text-align: center;
 }
 
-
 .errorPage h1 {
     font-size: 5em;
     font-weight: bold;
-    padding-top: 2%;
 }
 
 #body404 h1::after {
@@ -2904,22 +2918,23 @@ body.errorPage section, body.errorPage header{
     padding: 2em;
 }
 
-.errorPage h2 {
+.errorPage header h2 {
     background-color: #FFF0D4;
     font-weight: bold;
     border-radius: 1em 1em 0 0;
 }
 
-#body404 h2 {
+#body404 header h2 {
     font-size: 1.3em;
     width: 4.5em;
     padding: 0.4em 0.4em 0;
     margin-left: 15%;
 }
 
-#errorBody h2 {
+#errorBody header h2 {
     display: inline-block;
     padding: 0.2em 0.6em 0;
+    margin-top: 1em;
 }
 
 #body404 section h3 {

@@ -5,7 +5,7 @@ require_once("character.php");
 require_once("banners.php");
 
 function checkText($text) {
-    return preg_match("/^.{10,}$/", $text); // clean_input dopo
+    return preg_match("/^[\s\S]{10,}$/", $text); // clean_input dopo
 }
 
 function preparePage($htmlPage, $toEdit) {

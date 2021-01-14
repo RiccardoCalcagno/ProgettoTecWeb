@@ -2,7 +2,6 @@
     require_once("report_data.php");
     require_once("character.php");
     require_once("DBinterface.php");
-    require_once("Errore.php");
 
     function clean_input($var) {   
         $var = htmlentities($var);
@@ -84,7 +83,12 @@
     }
 
     function errorPage($errorMessage) {
-        error($errorMessage);
+        if( session_status() == PHP_SESSION_NONE ) {
+            session_start();
+        }
+        $_SESSION['errorMessage'] = $errorMessage;
+        header("Location: Errore.php");
+        exit();
     }
 
     function redirect_GET($path, $get) {   // Dato il path, esegue il redirect come se action fosse su quella pagina

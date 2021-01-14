@@ -290,7 +290,7 @@ function mostraErrore(input, inputArray) {
 // ------------------------------------------------------------------------------------
 
 // NameSpace ?
-var charCreationTextRegex = /^.{10,}$/;
+var charCreationTextRegex = /^[\s\S]{10,}$/;
 var charCreationTextErrorMessage = "Inserisci almeno 10 caratteri";
 var charCreationValues = {
     "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Il nome deve essere da 3 a 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e <span xml:lang=\"en\">hypens</span>"],
@@ -312,7 +312,7 @@ function validateCharCreation() {
 var reportValues = {
     "titoloReport": [/^.{3,30}$/, "Inserisci dai 3 ai 30 caratteri"],
     "sottoTRepo": [/^.{3,120}$/, "Inserisci dai 3 ai 120 caratteri"],
-    "contRepo": [/^.{3,}$/, "Inserisci almeno 3 caratteri"],
+    "contRepo": [/^[\s\S]{3,}$/, "Inserisci almeno 3 caratteri"],
 };
 
 function validateReport() {
