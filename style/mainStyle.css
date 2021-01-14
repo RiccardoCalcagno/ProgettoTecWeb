@@ -1044,6 +1044,9 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+section#testoReport {
+    margin-top: 0.8em;
+}
 
 #contentRepo{
     background-color: #FFFFFF;
@@ -1155,6 +1158,7 @@ li #toApprEsp:active{background-color:#732ab8be;}
 */
 
 ul#listaCommenti {
+    padding-top: 1em;
     max-height: 21.7em;
     overflow: scroll;
     background-color: #fffbf5;
