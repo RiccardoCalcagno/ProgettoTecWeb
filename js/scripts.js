@@ -214,7 +214,7 @@ function openDD(nth_dd) {
         
         else {  // Un dd era aperto, chiudilo e apri il nuovo
             var dds = dl.querySelectorAll("dd");
-            for(i = 0; i < 3; i++) {
+            for(i = 0; i < 4; i++) {
                 var dd_i = dds[i];
                 if (dd_i.className === "footer-open-dd") {
                     dd_i.className = "";    // Chiudi dd aperto
@@ -229,6 +229,10 @@ function openDD(nth_dd) {
     }
     
     window.scrollTo(0, document.body.scrollHeight);
+}
+
+function tornaSu() {
+    window.scrollTo(0, 0);
 }
 
 // ---------------------------------------------------------------------------------

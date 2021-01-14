@@ -284,19 +284,27 @@ ACCESSIBILITÀ CHECK LIST
 </div>
 
 <footer>
-    <a href="#intestazioneSito" id="tornaSuFooter">Torna su</a> <!-- button scrollTo(0,0); :o) -->
+    <a href="javascript:void(0)" id="tornaSuFooter" onclick="tornaSu()">Torna su</a> <!-- button scrollTo(0,0); :o) -->
 
     <div id="footerContent">
         <h2>NomeSito</h2>
-        <dl id="footerList">    
-            <dt><button type="button" onclick="openDD(0)">Privacy</a></dt>
-            <dd class="footer-dd">Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</dd>
+        <dl id="footerList">  
+            <dt><button type="button" onclick="openDD(0)">Terms of Use</a></dt>
+            <dd class="footer-dd" aria-live="polite">Il tuo account Canva ti dà accesso ai servizi e alle funzionalità che possiamo stabilire e mantenere di volta in volta e a nostra esclusiva discrezione. 
+                Ti impegni ad utilizzare il servizio in modo responsabile evitando di nuocere alla sensibilità degli altri utenti evitando di danneggiare il servizio introducendo malware ed evitando di introdurre un carico irragionevole o sproporzionato sulla nostra infrastruttura.
+                </dd>
+            
+            <dt><button type="button" onclick="openDD(1)">Privacy</a></dt>
+            <dd class="footer-dd" aria-live="polite">L’unico tipo di Informazioni che raccogliamo su di te sono informazioni che ci fornisci direttamente come: le informazioni che caratterizzano la tua identità digitale presso questo sito e i contenuti che hai deciso di condividere.
+                Il sito non utilizza la tecnologia Cookies.
+                </dd>
 
-            <dt><button type="button" onclick="openDD(1)">Contattaci</a></dt>
-            <dd class="footer-dd">Contattaci se hai consigli, feedback o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></dd>
+            <dt><button type="button" onclick="openDD(2)">Contattaci</a></dt>
+            <dd class="footer-dd" aria-live="polite">Se hai consigli, feedback, lamentele da rivolgerci o semplicemente per salutarci non indugiare contattaci subito e saremo felici di aiutarti.<a>nomeSito@mail.com</a></dd>
 
-            <dt><button type="button" onclick="openDD(2)">Ringraziamenti</a></dt>
-            <dd class="footer-dd">Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</dd>
+            <dt><button type="button" onclick="openDD(3)">Ringraziamenti</a></dt>
+            <dd class="footer-dd" aria-live="polite">Ringraziamo Valentina Bizzotto che con la sua cura nella realizzazione della grafica di copertina del sito ci ha dato modo di rendere veramente personale e piacevole l’introduzione al nostro servizio. 
+                Ringraziamo inoltre il Web Designer Filippo Lessio per averci dato la consulenza ideale al momento giusto.</dd>
         </dl>
     </div>
 

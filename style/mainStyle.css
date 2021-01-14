@@ -493,18 +493,19 @@ body{
 }
 
 #footerContent dl dd {
+    font-size: 0.9em;
     display: none;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 92%;
-    height: 3em;
+    min-height: 4em;
     margin: 0 4% 2%;
 }
 
 #footerContent dl dd a {
     display: block;
-    margin-top: 0.7em;
+    margin-top: 1em;
     text-indent: -3%;
 }
 

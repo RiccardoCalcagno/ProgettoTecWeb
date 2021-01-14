@@ -115,11 +115,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 
 #footerContent dl dd {
-    height: auto;
-}
-
-#footerContent dl dd a {
-    margin-top: 0.1em;
+    min-height: 40%;
 }
 
 #footerContent dl {
@@ -131,7 +127,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 
 #footerContent dl.open-footer {
-    padding-bottom: 5em;
+    padding-bottom: calc(17em - 23%);
  }
 
 /*
