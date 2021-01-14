@@ -320,12 +320,16 @@ var reportValues = {
     "contRepo": [/^[\s\S]{3,}$/, "Inserisci almeno 3 caratteri"],
 };
 
+
+
 function validateReport() {
     return validateForm(reportValues);
 }
 
 function trasforma(e){
-    var varinput=document.getElementById("var");
+    var varinput = document.createElement("input");
+    document.getElementById("submitReport").appendChild(varinput);
+    varinput.class="hidden";
     varinput.name=document.getElementById("buttonPartecip").name;
     varinput.value=document.getElementById("buttonPartecip").value;
     e.preventDefault();
@@ -334,10 +338,11 @@ function trasforma(e){
         document.getElementById("areaCreazione").submit();
     }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
+if(document.getElementById("creazioneReport")){
+    document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("buttonPartecip").addEventListener("click",trasforma);
 })
+    }
 
 // ---------------------------------------------------------------------------------
 // ------------------------------- log-in ------------------------------------------
