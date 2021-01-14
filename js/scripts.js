@@ -436,3 +436,8 @@ function removeHidden(id_name)
     var element = document.getElementById(id_name.toString());
     element.setAttribute("class", "");    
 }
+
+function goBack()
+{
+    window.history.back();
+}
