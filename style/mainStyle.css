@@ -454,7 +454,7 @@ body{
 }
 
 #footerContent {
-    padding: 1em 1em 0;
+    padding: 0 1em 0;
     background-color: rgb(48, 44, 44);
     color: rgb(241, 245, 245);
 }
@@ -464,7 +464,7 @@ body{
 }
 
 #footerContent h2 {
-    padding-bottom: 0.5em;
+    padding-bottom: 0.1em;
     text-align: center;
 }
 
