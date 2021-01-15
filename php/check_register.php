@@ -85,7 +85,7 @@
                 $err["email_err"] = true;
             }
 
-            if(strlen(trim($name_surname)) > 0 && pregmatch)
+            if(preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name_surname))
             {
                 $err["empty_name"] = false;
             }
@@ -101,7 +101,7 @@
         if($img)
         {
 //    echo " Controllo img non null passato ";
-    //        $err["img_err"] = validateImg($_FILES["imgProfilo"]);
+           $err["img_err"] = validate_img($_FILES["imgProfilo"], $img);
 //echo " fa validazione img ";
 
             if(!$err["img_err"])

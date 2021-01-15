@@ -24,7 +24,7 @@
         
         $db->openConnection();    
 
-        if(strlen(trim($username)) > 0)
+        if(preg_match("/^.{1,}$/", trim($username)) )
         {
             $err["user_empty"] = false;
 
@@ -55,7 +55,7 @@
             $err["email_err"] = true;
         }
 
-        if(strlen(trim($name_surname)) > 0)
+        if(preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name_surname))
         {
             $err["empty_name"] = false;
         }
@@ -68,8 +68,8 @@
 
         if($img)
         {
-        //$err["img_err"] = validateImg($_FILES["imgProfilo"]);
-	$err["img_err"] = false;
+            $err["img_err"] = validate_img($_FILES["imgProfilo"], $img);
+
             if(!$err["img_err"])
             {
 	    	$img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));

@@ -24,7 +24,7 @@
         {
             $err["old_password_err"] = false;
 
-            if(strlen($new_password) > 0)
+            if(preg_match("/^.{3,}$/", $new_password))
             {
                 $err["new_passwd_empty"] = false;
 

@@ -104,21 +104,20 @@
         exit();
     }
 
-    function validateImg($img)
+    function validate_img($img, $path)
     {
 //echo " entrato in  validateImg";
         $uploadOk = true;
-        // Vedere se un file è veramente una img oppure una fake img
-        $check = getimagesize($img["tmp_name"]);
-//echo "fatto get img size";
-        if($check !==  false)
-            $uploadOk = true;
-        else
+        if ($img["size"] > 1000000) 
+        {
             $uploadOk = false;
-
-//    echo "fatto check ed è $uploadOk";
-        // Vedere se il file esiste già
-       
+        }
+          
+        $imageFileType = strtolower( pathinfo( $path,PATHINFO_EXTENSION));
+        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) 
+        {
+            $uploadOk = false;
+        }
 
 //    echo "controllo esistenza file";
         return $uploadOk;

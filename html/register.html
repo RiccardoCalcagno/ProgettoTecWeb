@@ -87,7 +87,7 @@
                     <li>
                     <img class="hidden" id = "immagine_profilo" alt="" src="../img/img_profilo_mancante.png">
                     <label for="imgProfilo">Immagine profilo</label>
-                    <p id="ImgErr" class="hidden"> L'immagine esiste già o ha un formato sbagliato </p>
+                    <p id="ImgErr" class="hidden"> L'immagine ha un formato sbagliato non supportato o è troppo pesante </p>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();">
                     </li>
                     <li>
@@ -151,7 +151,7 @@
                     <li>
                         
                         <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
-                        <p id="NewPasswdEmpty" class="hidden"> Password troppo corta </p>
+                        <p id="NewPasswdEmpty" class="hidden"> Inserisci una password valida </p>
                         <p id="RepPasswdErr" class="hidden">  Le password devono coincidere  </p>
                     <span><input type="password"  aria-required="true" required="required"
                             name="newPasswd" 
