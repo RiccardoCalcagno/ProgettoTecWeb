@@ -1033,7 +1033,7 @@ form#datiUtenza{
 }
 
 .errorPage section {
-    width: calc(95% - 2em);
+    width: calc(98% - 4em);
     border-radius: 0 0 1em 1em;  /* 320px :'(*/
 }
 
