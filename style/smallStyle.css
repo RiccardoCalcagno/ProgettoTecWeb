@@ -821,7 +821,7 @@ form#datiUtenza{
 
 .documentoBody #content{
     width: 100%;    
-    padding: 0 0 1em;
+    padding: 1em 0;
 }
 
 /*
@@ -839,6 +839,87 @@ form#datiUtenza{
 
 #footAction :nth-child(3) {
     margin: 0 0.7em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                VISUALIZZA REPORT SESSIONE
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+#contentRepo{
+    width: calc(100% - 0.6em - 4px); /* Border 2px */
+    padding: 1.5em 0.3em;
+    text-align: center;
+}
+
+/*
+--------------------------------------- HEADER REPO ----------------------------------------------
+*/
+
+#contentRepo header{
+    padding-bottom: 0.3em;
+}
+
+/*
+--------------------------------------- SEZIONI REPO ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#giocatoriReport {
+    padding-top: 1em;
+}
+
+#giocatoriReport ul {
+    padding-bottom: 0.5em;
+}
+
+/*
+--------------------------------------- InfoDiCreazioni ----------------------------------------------
+*/
+
+/* TO FIX ? */
+#contentRepo #infoDiCreazione section :nth-child(1){
+    text-indent: 0;
+}
+/* TO FIX ? */
+#contentRepo #infoDiCreazione section :nth-child(2){
+    text-indent: 0;
+}
+
+#contentRepo #autore > h2{
+    top: -0.6em;
+}
+
+/*
+--------------------------------------- COMMENTI REPO ----------------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+#commentiField {
+    text-align: left;
+    width: calc(98% - 0.6em);
+    padding: 0 0.3em 0.3em;
+}
+
+#commentiField #InserimentoCommento input[type="text"]{
+    width: 90%;
+    margin: auto;
+}
+
+#visualizzaReport #footAction :nth-child(2) input{
+    width: 10.3em;
+    margin-top: 1.7em;
+}
+#footAction :nth-child(3) {
+    float: left;
+    display: block;
+    width: 50%;
+    margin: 0;
+}
+#visualizzaReport #footAction :nth-child(3) input{
+    margin-top: 1em;
 }
 
 /*
