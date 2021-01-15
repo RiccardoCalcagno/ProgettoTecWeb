@@ -1286,14 +1286,14 @@ form#datiUtenza{
 
 .errorPage h1 {
     font-size: 4em;
-    padding-top: 1%;
+    padding-top: 1em;
 }
 
 #body404 h1::after {
-    width: calc(72% + 110px);
+    width: 50%;
     height: 0;
-    padding-bottom: 65%;    /* Aspect Ratio*/
-    background-size: 100% 100%;
+    padding-bottom: 33.3%;    /* Aspect Ratio*/
+    margin-bottom: 5%;
 }
 
 .errorPage section {
