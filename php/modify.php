@@ -68,7 +68,7 @@
 
         if($img)
         {
-            $err["img_err"] = validate_img($_FILES["imgProfilo"], $img);
+            $err["img_err"] = !validate_img($_FILES["imgProfilo"], $img);
 
             if(!$err["img_err"])
             {
@@ -82,7 +82,7 @@
             	}
             	else
             	{
-            	    errorPage("errore upload img");
+            	    errorPage("Spiacenti! Errore nel caricamento dell'immagine");
             	    exit();
             	}
             }
@@ -131,7 +131,7 @@
             else
             {
         	$db->closeConnection();
-        	//errorPage("Spiacenti! Qualcosa è andato storto"); 
+        	errorPage("Spiacenti! Errore nella modifica dell'utente"); 
                 exit();
             }
         }
@@ -140,7 +140,7 @@
 
 
     } catch(Exception $e) {
-        //errorPage("errore try catch");
+        errorPage("Spiacenti! Qualcosa è andato storto :(");
         exit();
     }
 

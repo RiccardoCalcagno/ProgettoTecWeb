@@ -108,10 +108,10 @@
     {
 //echo " entrato in  validateImg";
         $uploadOk = true;
-        if ($img["size"] > 1000000) 
+        /*if($img["size"] > 1000000) 
         {
             $uploadOk = false;
-        }
+        }*/
           
         $imageFileType = strtolower( pathinfo( $path,PATHINFO_EXTENSION));
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) 

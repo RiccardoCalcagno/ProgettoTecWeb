@@ -101,8 +101,9 @@
         if($img)
         {
 //    echo " Controllo img non null passato ";
-           $err["img_err"] = validate_img($_FILES["imgProfilo"], $img);
+           $err["img_err"] = !validate_img($_FILES["imgProfilo"], $img);
 //echo " fa validazione img ";
+	   //$_FILES["imgProfilo"]["size"] > 1000000 ? $err["img_err"] = true : $err["img_err"] = false;
 
             if(!$err["img_err"])
             {
@@ -115,7 +116,7 @@
             	}
             	else
             	{
-                    header("Location: Errore.php");
+                    errorPage("Spiacenti! Errore nel caricamento dell'immagine");
                     exit();
             	}
              }
@@ -162,7 +163,7 @@
                 else
                 {
                     session_destroy();
-                    header("Location: 404.php");
+                    errorPage("Spiacenti! Errore nella registrazione di un nuovo utente");
                     exit();
                 }
                 
@@ -176,7 +177,7 @@
 
 
     } catch(Exception $e) {
-        header("Location: Errore.php");
+        errorPage("Spiacenti! Qualcosa è andato storto :(");
         exit();
     }
 ?>
