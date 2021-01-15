@@ -114,21 +114,9 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     padding-bottom: 0.3em;
 }
 
-#footerContent dl dd {
-    min-height: 40%;
+#footerContent dl dt {
+    margin: 0 3%;
 }
-
-#footerContent dl {
-    padding-left: 2.6%;
-}
-
-#footerContent dl dd + dt::before {
-    margin: 0 2.6%;
-}
-
-#footerContent dl.open-footer {
-    padding-bottom: calc(17em - 23%);
- }
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------

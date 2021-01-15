@@ -79,20 +79,6 @@ input[type="file"]{
     margin:auto;
 }
 
-#footerContent dl {
-    font-size: 0.9em;
-    padding-left: 0;
-}
-
-#footerContent dl dd {
-    min-height: 50%;
-}
-
-#footerContent dl dd + dt::before {
-    content: " | ";
-    margin: 0 0.5%;
-}
-
 .submitForm a, .submitForm input{
     width: 8em;
 }

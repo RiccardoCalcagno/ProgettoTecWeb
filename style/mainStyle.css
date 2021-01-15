@@ -454,8 +454,7 @@ body{
 }
 
 #footerContent {
-    position: relative;
-    padding: 1em;
+    padding: 1em 1em 0;
     background-color: rgb(48, 44, 44);
     color: rgb(241, 245, 245);
 }
@@ -470,13 +469,18 @@ body{
 }
 
 #footerContent dl {
-    padding: 0.5em 0 0.5em 3%;
-    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 0.5em 0 1.5em 3%;
+    margin: auto;
 }
 
 #footerContent dl dt {
     display: inline;
+    margin: 0 5%;
 }
 
 #footerContent dl dt button {
@@ -495,23 +499,14 @@ body{
 #footerContent dl dd {
     font-size: 0.9em;
     display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 92%;
-    min-height: 4em;
-    margin: 0 4% 2%;
+    width: 100%;
+    margin: 1.5em 4% 0;
 }
 
 #footerContent dl dd a {
     display: block;
     margin-top: 1em;
     text-indent: -3%;
-}
-
-#footerContent dl dd + dt::before {
-    content: " | ";
-    margin: 0 3%;
 }
 
 #disclaimer {
@@ -523,14 +518,9 @@ body{
     padding: 0 1em;
 }
 
-#footerContent dl.open-footer {
-    text-align: center;
-    padding-bottom: 6em;
- }
-
-
 #footerContent dl dd.footer-open-dd {
     display: block;
+    order: 4;
  }
 
 /*
