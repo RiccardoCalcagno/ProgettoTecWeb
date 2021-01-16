@@ -23,7 +23,7 @@
             <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />';
 
             $header = '<header id="intestazionePagina">
-            <h1>Modifica Report di Sessione <span> <a class="puntoInterrogativo" data-approf="Report"  
+            <h1>Modifica Report di Sessione <span> <a class="puntoInterrogativo" data-approf="Cos è Report"  
                 href="../php/Approf_report.php">?</a></span></h1>
             </header>';
 
@@ -38,7 +38,7 @@
             <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />';
 
             $header = '<header id="intestazionePagina">
-            <h1>Creazione Report di Sessione <span> <a class="puntoInterrogativo" data-approf="Report"  href="../php/Approf_report.php">?</a></span></h1>
+            <h1>Creazione Report di Sessione <span> <a class="puntoInterrogativo" data-approf="Cos è Report"  href="../php/Approf_report.php">?</a></span></h1>
             <p>Sei qui per realizzare il tuo primo report di sessione? Non temere, segui questi semplici 
                 passaggi e in breve il tuo ricordo sarà condensato in un report da mostrare a chi vorrai. </p>
             <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del report sarà necessaria una tua autenticazione)</p>
