@@ -783,7 +783,19 @@ body{
     text-decoration: none;
 }
 .puntoInterrogativo:hover{
-    background-color:#ffe3af;
+    background-color:inherit;
+    border-radius: 0;
+    display: inline;
+}
+.puntoInterrogativo:hover::before{
+    text-decoration: underline;
+    content:attr(data-approf);
+    vertical-align:middle;
+    display:inline-block;
+    width:4em;
+    font-size: 0.7em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
 }
 .puntoInterrogativo:active{
     background-color:#ffb26a;

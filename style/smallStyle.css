@@ -47,6 +47,22 @@ input[type="file"]{
     width: 20em;
 }
 
+.puntoInterrogativo{
+    background-color:inherit;
+    border-radius: 0;
+    display: inline;
+}
+.puntoInterrogativo::before{
+    text-decoration: underline;
+    content:attr(data-approf);
+    vertical-align:middle;
+    display:inline-block;
+    width:4em;
+    font-size: 0.7em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
 /*TO FIX */
 /* textarea,input[type="text"],input[type="date"],input[type="password"] {
     
