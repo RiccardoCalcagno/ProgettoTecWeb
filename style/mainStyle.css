@@ -3021,3 +3021,12 @@ body.errorPage section, body.errorPage header{
 */
 
 
+dl#contenutoInformativa dt {
+    margin-top: 3em;
+}
+
+dl#contenutoInformativa {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 2em;
+}
