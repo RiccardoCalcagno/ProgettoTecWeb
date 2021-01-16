@@ -771,6 +771,16 @@ body{
 }
 .puntoInterrogativo:hover{
     background-color:#ffe3af;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.puntoInterrogativo:hover::before{
+    content:attr(data-approf);
+    background-color:#ffe3af;
+    vertical-align:middle;
+    margin-left: 1em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
 }
 .puntoInterrogativo:active{
     background-color:#ffb26a;
