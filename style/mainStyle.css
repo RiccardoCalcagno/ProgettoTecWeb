@@ -75,7 +75,7 @@ body{
     background-color: #fff7e6;      /* ATTENZIONE MODIFICARE ANCHE HEADER IN: VISUALIZZA REPORT DI SESSIONE */
     max-width: 1200px;
     margin: auto;
-    min-height: 100vh;
+    /* min-height: 100vh; NECESSARY ? */
     margin-top: 4.5em;
 }
 
@@ -442,9 +442,13 @@ body{
     margin-top: 5%;
 } */
 
+#globalFooter {
+    margin-top: 2em;
+}
+
 #tornaSuFooter {
     display: block;
-    padding: 0.2em auto;
+    padding: 0.2em 0;
     text-align: center;
     /*text-decoration: none;*/
     font-size: 1.2em;
@@ -979,6 +983,10 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
+
+.documentoBody #globalFooter {
+    margin: 0;
+}
 
 .documentoBody > header{
     background-color: #fff7e6;
@@ -2133,9 +2141,9 @@ p.campiObbligatori{
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
 
-#dashboard{
+/* #dashboard{
     padding-bottom: 3em;
-}
+} */
 
 #dashboard h3{
     font-size: 2em;
@@ -2828,7 +2836,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     width: 70%;
     margin: auto;
     max-width: 800px;
-    padding-bottom: 10em;
+    padding-bottom: 3em;
 }
 
 .htmlApprofondimento p{

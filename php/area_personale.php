@@ -105,6 +105,10 @@ else if($_SESSION["login"])
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
 
+        $footer = file_get_contents(dirname(__DIR__) . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "Footer_Template.html");
+        $html = str_replace('<footerPH />', $footer, $html);
+
+
         if(!$html) 
         {
             header("Location: 404.php");
