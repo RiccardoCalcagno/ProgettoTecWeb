@@ -114,8 +114,12 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     padding-bottom: 0.3em;
 }
 
-#footerContent dl dt {
+#footerContent.interactive dl dt {
     margin: 0 3%;
+}
+
+#footerContent.static dl dd {
+    width: 98%;
 }
 
 /*
