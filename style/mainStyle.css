@@ -771,11 +771,15 @@ body{
 }
 .puntoInterrogativo:hover{
     background-color:inherit;
+    border-radius: 0;
+    display: inline;
 }
 .puntoInterrogativo:hover::before{
+    text-decoration: underline;
     content:attr(data-approf);
     vertical-align:middle;
     margin-left: 1em;
+    font-size: 0.8em;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
 }
