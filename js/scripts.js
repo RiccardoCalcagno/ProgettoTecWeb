@@ -199,6 +199,22 @@ function CharSheet_JS_ON() {
     sheetButton.setAttribute('type', 'button');
 }
 
+function footer_JS_ON() { // IF JS ON -> interactive footer
+
+    document.getElementById("tornaSuFooter").classList.remove("hidden");
+
+    var footerList = document.getElementById("footerContent"); 
+    footerList.className = "interactive";   // Switch class
+
+    var buttons = footerList.querySelectorAll("button");
+    for(i = 0; i < 4; i++) {
+
+        buttons[i].removeAttribute("disabled");
+    }
+}
+
+window.addEventListener('load', function() { footer_JS_ON();}, false) ;
+
 function openDD(nth_dd) {
 
     var dl = document.getElementById("footerList");

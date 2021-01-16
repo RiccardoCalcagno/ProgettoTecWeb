@@ -469,38 +469,51 @@ body{
 }
 
 #footerContent dl {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     padding: 0.5em 0 1.5em 3%;
     margin: auto;
 }
 
-#footerContent dl dt {
+#footerContent.interactive dl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#footerContent.interactive dl dt {
     display: inline;
     margin: 0 5%;
 }
 
 #footerContent dl dt button {
-    text-decoration: underline;
     background: none;
     border: none;
     padding: 0;
+}
+
+#footerContent.interactive dl dt button {
+    text-decoration: underline;
     cursor: pointer;
 }
+
 /* TO FIX MAYBE ?*/
-#footerContent dl dt button:focus {
+#footerContent.interactive dl dt button:focus {
     outline: 2px solid blue;
     outline-offset: 3px;
 }
 
 #footerContent dl dd {
     font-size: 0.9em;
+    width: 92%;
+    padding-bottom: 1em;
+    margin: 0 auto;
+}
+
+#footerContent.interactive dl dd {
     display: none;
-    width: 100%;
-    margin: 1.5em 4% 0;
+    padding-bottom: 0;
+    margin-top: 1.5em;
 }
 
 #footerContent dl dd a {
@@ -518,7 +531,7 @@ body{
     padding: 0 1em;
 }
 
-#footerContent dl dd.footer-open-dd {
+#footerContent.interactive dl dd.footer-open-dd {
     display: block;
     order: 4;
  }
