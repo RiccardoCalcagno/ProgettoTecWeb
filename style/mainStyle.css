@@ -75,7 +75,7 @@ body{
     background-color: #fff7e6;      /* ATTENZIONE MODIFICARE ANCHE HEADER IN: VISUALIZZA REPORT DI SESSIONE */
     max-width: 1200px;
     margin: auto;
-    /* min-height: 100vh; NECESSARY ? */
+    min-height: 100vh;
     margin-top: 4.5em;
 }
 
@@ -442,13 +442,9 @@ body{
     margin-top: 5%;
 } */
 
-#globalFooter {
-    margin-top: 2em;
-}
-
 #tornaSuFooter {
     display: block;
-    padding: 0.2em 0;
+    padding: 0.2em auto;
     text-align: center;
     /*text-decoration: none;*/
     font-size: 1.2em;
@@ -473,51 +469,38 @@ body{
 }
 
 #footerContent dl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 0.5em 0 1.5em 3%;
     margin: auto;
 }
 
-#footerContent.interactive dl {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-#footerContent.interactive dl dt {
+#footerContent dl dt {
     display: inline;
     margin: 0 5%;
 }
 
 #footerContent dl dt button {
+    text-decoration: underline;
     background: none;
     border: none;
     padding: 0;
-}
-
-#footerContent.interactive dl dt button {
-    text-decoration: underline;
     cursor: pointer;
 }
-
 /* TO FIX MAYBE ?*/
-#footerContent.interactive dl dt button:focus {
+#footerContent dl dt button:focus {
     outline: 2px solid blue;
     outline-offset: 3px;
 }
 
 #footerContent dl dd {
     font-size: 0.9em;
-    width: 92%;
-    padding-bottom: 1em;
-    margin: 0 auto;
-}
-
-#footerContent.interactive dl dd {
     display: none;
-    padding-bottom: 0;
-    margin-top: 1.5em;
+    width: 100%;
+    margin: 1.5em 4% 0;
 }
 
 #footerContent dl dd a {
@@ -535,7 +518,7 @@ body{
     padding: 0 1em;
 }
 
-#footerContent.interactive dl dd.footer-open-dd {
+#footerContent dl dd.footer-open-dd {
     display: block;
     order: 4;
  }
@@ -775,6 +758,14 @@ body{
 ------------------------------------------------------------------------------------------------
 */
 
+#avvisoMutazione{
+    display: block;
+    margin:auto;
+    font-size: 0.7em;
+    padding-top: 1em;
+}
+
+
 .puntoInterrogativo{
     width: 30px;
     font-size: 20px;
@@ -787,19 +778,7 @@ body{
     text-decoration: none;
 }
 .puntoInterrogativo:hover{
-    background-color:inherit;
-    border-radius: 0;
-    display: inline;
-}
-.puntoInterrogativo:hover::before{
-    text-decoration: underline;
-    content:attr(data-approf);
-    vertical-align:middle;
-    display:inline-block;
-    width:4em;
-    font-size: 0.7em;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
+    background-color:#ffe3af;
 }
 .puntoInterrogativo:active{
     background-color:#ffb26a;
@@ -983,10 +962,6 @@ li #toApprEsp:active{background-color:#732ab8be;}
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
-
-.documentoBody #globalFooter {
-    margin: 0;
-}
 
 .documentoBody > header{
     background-color: #fff7e6;
@@ -1882,13 +1857,6 @@ p.campiObbligatori{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#avvisoMutazione{
-    display: block;
-    margin:auto;
-    font-size: 0.7em;
-    padding-top: 1em;
-}
-
 #creazionePersonaggio .fieldss label{
     display: inline-block;
     width: 100%;
@@ -2148,9 +2116,9 @@ p.campiObbligatori{
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
 
-/* #dashboard{
+#dashboard{
     padding-bottom: 3em;
-} */
+}
 
 #dashboard h3{
     font-size: 2em;
@@ -2843,7 +2811,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     width: 70%;
     margin: auto;
     max-width: 800px;
-    padding-bottom: 3em;
+    padding-bottom: 10em;
 }
 
 .htmlApprofondimento p{
