@@ -125,7 +125,7 @@
                     <p>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'>Quando vorrai potrai recuperare questo speciale manufatto nella tua </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../index.php' xml:lang='en'>HOME</a>
+                        <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
                 case "modifica_documento_confermata":
@@ -149,7 +149,7 @@
                     <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../index.php' xml:lang='en'>HOME</a>
+                        <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
                 case "modifica_utente_confermata":
@@ -161,7 +161,7 @@
                     <p>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
-                        <a class='buttonLink' href='../index.php' xml:lang='en'>HOME</a>
+                        <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
                 case "confermare_eliminazione_personaggio":
@@ -181,7 +181,7 @@
                 case "confermare_eliminazione_report":
                     $htmlBanner .= "
                     <h1>Confermare Eliminazione</h1>
-                    <h2>Sei sicuro di voler eliminare questo report di sessione?</h2>
+                    <h2>Sei sicuro di voler eliminare questo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
                         <div>
@@ -213,8 +213,8 @@
                     <a href='PLACEHOLDER' ></a>                          
                     </div>
                         <h1>Pubblicazione Confermata</h1>
-                        <p>Confermiamo che la pubblicazion del report nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
-                        <p>Dai subito un'occhiata al tuo Report nella sezione Esplora</p>
+                        <p>Confermiamo che la pubblicazion del <span xml:lang=\"en\" lang=\"en\">report</span> nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
+                        <p>Dai subito un'occhiata al tuo <span xml:lang=\"en\" lang=\"en\">Report</span> nella sezione Esplora</p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='PLACEHOLDER'>CHIUDI</a>
                         <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
