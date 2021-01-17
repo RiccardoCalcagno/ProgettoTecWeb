@@ -81,14 +81,14 @@
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false" id="currentDirect">Crea</a>
                 <ul role="menu" class="dropdown-content">
                     <li role="none" id="currentLink">Crea Scheda Giocatore</li>
-                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea Report di Sessione</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
                     <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1">Report Sessione</a></li>
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1"><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
                     <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
                     <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
                 </ul>
@@ -98,7 +98,7 @@
 
     </header>
 
-    <nav id="breadcrumb">
+    <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
             <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
             <li>Crea</li>
@@ -107,26 +107,9 @@
     </nav>
 
     <headerValue />
-    <!-- <header id="intestazionePagina">
-        <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo"
-                    href="../php/Approf_personaggio.php">?</a></span></h1>
-        <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo
-            ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
-        <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
-    </header> -->
-
-<!--
-    QUESTO È L'HEADER CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
-
-    <header id="intestazionePagina">
-        <h1>Modifica Scheda Giocatore<span> <a class="puntoInterrogativo"
-                    href="./php/Approf_personaggio.php">?</a></span></h1>
-    </header>
--->
 
 
-
-    <p class="campiObbligatori"> : campo obbligatorio</p>
+    <p class="campiObbligatori" aria-label="i campi: nome, Carattere, legami, ideali, sono obbligatori"> : campo obbligatorio</p>
 
     <form id="ccForm" autocomplete="on" class="creazioneFields"  method="POST" action="../php/action_character.php" onsubmit="return validateCharCreation();">
 
@@ -142,7 +125,7 @@
                     <label id="ccName" for="cname" class="ccLabel">Scegli un <strong>nome</strong> per il tuo Personaggio di massimo 20 caratteri</label>
                     <span><input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome" maxlength="20" onkeyup="updateCounterTextarea(8);"
                         aria-required="true" value="<valoreNome />" /></span>
-                    <p class="counter"><span id="currentCountNome"></span>/20</p>
+                    <p class="counter" tabindex="-1"><span id="currentCountNome"></span>/20</p>
                     </div>
                 </fieldset>
             </li>
@@ -153,7 +136,7 @@
                     </legend>
                     <div id="razzaDesc"><p>La <strong>Razza</strong> rappresenta il popolo e l’etnia di cui fa parte il personaggio. Le razze influenzano 
                         le caratteristiche e le abilità che rendono unico ogni personaggio come il modo in cui potrebbe
-                         interagire con gli altri personaggi.</p></div>
+                        interagire con gli altri personaggi.</p></div>
                     <div>
                         <label for="crace" class="ccLabel">Scegli una <strong>Razza</strong> tra quelle proposte</label>
                         <select id="crace" name="crace" onchange="setDescCaratteristica(0)" aria-required="true">
@@ -270,28 +253,28 @@
                             <label for="ctraits" class="ccTraitsL">Carattere</label>
                             <span><textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40  onkeyup="updateCounterTextarea(4);"
                                 placeholder="Descrivi i tratti caratteriali del tuo personaggio"><valoreTraits /></textarea></span>
-                            <p class="counter" id="currentCountTraits"></p>
+                            <p class="counter" id="currentCountTraits" aria-label="numero caratteri scritti fin ora"></p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cideals" class="ccTraitsL">Ideali</label>
                             <span><textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40  onkeyup="updateCounterTextarea(5);"
                                 placeholder="Quali sono i suoi Ideali?"><valoreIdeals /></textarea></span>
-                            <p class="counter" id="currentCountIdeals"></p>
+                            <p class="counter" id="currentCountIdeals" aria-label="numero caratteri scritti fin ora"></p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cbonds" class="ccTraitsL">Legami</label>
                             <span><textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40  onkeyup="updateCounterTextarea(6);"
                                 placeholder="A chi è legato nel mondo di gioco?"><valoreBonds /></textarea></span>
-                            <p class="counter" id="currentCountBonds"></p>
+                            <p class="counter" id="currentCountBonds" aria-label="numero caratteri scritti fin ora"></p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cflaws" class="ccTraitsL">Difetti</label>
                             <span><textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40  onkeyup="updateCounterTextarea(7);"
                                 placeholder="Quali sono i suoi Difetti?"><valoreFlaws /></textarea></span>
-                            <p class="counter" id="currentCountFlaws"></p>
+                            <p class="counter" id="currentCountFlaws" aria-label="numero caratteri scritti fin ora"></p>
                         </li>
                     </ul>
                 </fieldset>
