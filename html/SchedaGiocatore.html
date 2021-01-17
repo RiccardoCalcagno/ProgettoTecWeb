@@ -11,13 +11,13 @@
         <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
     
         <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" /> 
-        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/> 
+        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
         <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
         <link rel="stylesheet" href="../style/printStyle.css" media="print" />
         <link rel="stylesheet" href="../style/printFullScreen.css" media="print" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="../scripts.js"></script> 
+        <script type="text/javascript" src="../js/scripts.js"></script> 
     </head>
 
     <body id="visualizzaScheda" class="documentoBody" onload="CharSheet_JS_ON()">
@@ -38,10 +38,10 @@
                 </form>
             </div>
 
-            <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
+            <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
             <ul id="menu" role="menubar">
-                <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+                <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
                 <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
                 <li role="none" class="externalLink">
                     <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
@@ -66,7 +66,7 @@
     
         <nav id="breadcrumb">
             <ul>
-                <li><a href="../index.php" xml:lang="en">Home</a></li>
+                <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
                 <li id="breadCCurrent">Scheda Giocatore</li>
             </ul>
         </nav>
@@ -74,7 +74,7 @@
 
         <div id="content">
             <div id="setLayout">
-                <p><span xml:lang="en">Layout</span> Scheda Personaggio</p>
+                <p><span xml:lang="en" lang="en">Layout</span> Scheda Personaggio</p>
                 <div id="pulsante">
 
 
@@ -104,7 +104,7 @@
                     <dd id="class"><classValue /></dd>
                 </div>
                 <div>
-                    <dt><h2><span xml:lang="en">Background</span></h2></dt>
+                    <dt><h2><span xml:lang="en" lang="en">Background</span></h2></dt>
                     <dd id="background"><backgroundValue /></dd>
                 </div>
                 <div>
@@ -116,19 +116,19 @@
             <div id="sezTestualiPersonaggio">
                 <dl>
                     <div>
-                        <dt><h2 xml:lang="en">Carattere</h2></dt>
+                        <dt><h2 xml:lang="en" lang="en">Carattere</h2></dt>
                         <dd id="pers-traits"><traitsValue /></dd>              
                     </div>
                     <div>
-                        <dt><h2 xml:lang="en">Ideali</h2></dt>
+                        <dt><h2 xml:lang="en" lang="en">Ideali</h2></dt>
                         <dd id="ideals"><idealsValue /></dd>                                    
                     </div>
                     <div>
-                        <dt><h2 xml:lang="en">Legami</h2></dt>
+                        <dt><h2 xml:lang="en" lang="en">Legami</h2></dt>
                         <dd id="bonds"><bondsValue /></dd>                            
                     </div>
                     <div>
-                        <dt><h2 xml:lang="en">Difetti</h2></dt>
+                        <dt><h2 xml:lang="en" lang="en">Difetti</h2></dt>
                         <dd id="flaws"><flawsValue /></dd>                     
                     </div>
                     </dl>
@@ -154,25 +154,9 @@
             <input type="hidden" id="charID" name="charID" value="<charIDValue />" />
         </div>
         </form>
-        <footer>
-            <a href="#intestazioneSito" id="tornaSuFooter">Torna su</a> <!-- button scrollTo(0,0); :o) -->
+
+        <footerPH />
         
-            <div id="footerContent">
-                <h2>NomeSito</h2>
-                <dl id="footerList">    
-                    <dt><button type="button" onclick="openDD(0)">Privacy</a></dt>
-                    <dd class="footer-dd">Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</dd>
-        
-                    <dt><button type="button" onclick="openDD(1)">Contattaci</a></dt>
-                    <dd class="footer-dd">Contattaci se hai consigli, feedback o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></dd>
-        
-                    <dt><button type="button" onclick="openDD(2)">Ringraziamenti</a></dt>
-                    <dd class="footer-dd">Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</dd>
-                </dl>
-            </div>
-        
-            <p id="disclaimer">Salvo diversa indicazione, i contenuti di questa pagina hanno licenza <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a></p>
-        </footer>
     </body>
 
 

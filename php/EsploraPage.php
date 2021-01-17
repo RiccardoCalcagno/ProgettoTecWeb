@@ -82,7 +82,7 @@ else{
     for($i = ($_SESSION["count_esplora"]-1)*5 ; $i < $limit = ($_SESSION["num_report_esplora"] < $_SESSION["count_esplora"]*5 ? $_SESSION["num_report_esplora"] : 5*$_SESSION["count_esplora"]) ; $i++)
         {
         $_schede_report_esplora .=   
-        "<li class=\"cardReport\" class=\"cardReportEsplora\">
+        "<li class=\"cardReport cardReportEsplora\">
         <button name=\"ReportEsplora\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
             <div class=\"testoCardRep\">
                 <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>

@@ -42,10 +42,10 @@
             </form>
         </div>
 
-        <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+            <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
@@ -58,7 +58,7 @@
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false"  id="currentDirect">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
                     <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD">Dungeons & Dragons</a></li>
-                    <li role="none" id="currentLink"><span xml:lang="en">Report</span> Sessione</li>
+                    <li role="none" id="currentLink"><span xml:lang="en" lang="en">Report</span> Sessione</li>
                     <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
                     <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
                 </ul>
@@ -68,24 +68,24 @@
     
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../index.php" xml:lang="en">Home</a></li>
+            <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
             <li>Approfondimenti</li>
-            <li id="breadCCurrent"><span xml:lang="en">Report</span> Sessione</li>
+            <li id="breadCCurrent"><span xml:lang="en" lang="en">Report</span> Sessione</li>
         </ul>
     </nav>
 
     <header id="intestazionePagina">
-        <h1>Cos’è un <span xml:lang="en">report</span> di sessione?</h1>
+        <h1>Cos’è un <span xml:lang="en" lang="en">report</span> di sessione?</h1>
     </header>
 
     <div id="contentReport" class="content">
         <section>
-            <h2>Un <span xml:lang="en">collage</span> di ricordi</h2>                                  
-            <p>Come sappiamo <strong class="D&D" xml:lang="en">Dungeons &amp; Dragons</strong>
+            <h2>Un <span xml:lang="en" lang="en">collage</span> di ricordi</h2>                                  
+            <p>Come sappiamo <strong class="D&D" xml:lang="en" lang="en">Dungeons &amp; Dragons</strong>
                 ci rende ricchi di <strong>momenti preziosi</strong> che non vorremmo dimenticare, ogni esperienza fatta 
                 giocandoci con i nostri amici è sempre nuova, fantasiosa e imprevedibile.
             </p>
-            <p><strong>Il <span xml:lang="en">report</span> di sessione</strong> è lo strumento adatto per conservare il ricordo della giocata 
+            <p><strong>Il <span xml:lang="en" lang="en">report</span> di sessione</strong> è lo strumento adatto per conservare il ricordo della giocata 
                 con i suoi momenti salienti e la trama che è venuta a crearsi. In esso potrai 
                 <strong>trascrivere</strong> l’evento nella forma narrativa che più ti ispira.
             </p>
@@ -108,29 +108,8 @@
         <a class="hidden" id="ritorna" onclick="goBack()">torna alla pagina precedente</a>
     </div>
     
-<footer>
-    
-</footer>
-    
-<footer>
-    <a href="#intestazioneSito" id="tornaSuFooter">Torna su</a> <!-- button scrollTo(0,0); :o) -->
+<footerPH />
 
-    <div id="footerContent">
-        <h2>NomeSito</h2>
-        <dl id="footerList">    
-            <dt><button type="button" onclick="openDD(0)">Privacy</a></dt>
-            <dd class="footer-dd">Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</dd>
-
-            <dt><button type="button" onclick="openDD(1)">Contattaci</a></dt>
-            <dd class="footer-dd">Contattaci se hai consigli, feedback o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></dd>
-
-            <dt><button type="button" onclick="openDD(2)">Ringraziamenti</a></dt>
-            <dd class="footer-dd">Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</dd>
-        </dl>
-    </div>
-
-    <p id="disclaimer">Salvo diversa indicazione, i contenuti di questa pagina hanno licenza <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a></p>
-</footer>
 </body>
 
 </html>

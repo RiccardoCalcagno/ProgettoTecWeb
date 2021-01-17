@@ -441,11 +441,29 @@ body{
 /* body > footer {
     margin-top: 5%;
 } */
+#globalFooter {
+    text-align: center;
+}
+
+#globalFooter.static {
+    border-top: 13px solid black;
+}
+
+#globalFooter.static #tornaSuFooter,  #globalFooter.static dl{
+    display: none;
+}
+
+#globalFooter.static #footerContent a {
+    display: inline-block;
+    padding-bottom: 0.5em;
+}
+
+#globalFooter.interactive #footerContent a {
+    display: none;
+}
 
 #tornaSuFooter {
     display: block;
-    padding: 0.2em auto;
-    text-align: center;
     /*text-decoration: none;*/
     font-size: 1.2em;
     border: 2px solid black;
@@ -464,8 +482,8 @@ body{
 }
 
 #footerContent h2 {
+    font-size: 2.5em;
     padding-bottom: 0.1em;
-    text-align: center;
 }
 
 #footerContent dl {
@@ -473,7 +491,6 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 0.5em 0 1.5em 3%;
     margin: auto;
 }
@@ -499,8 +516,8 @@ body{
 #footerContent dl dd {
     font-size: 0.9em;
     display: none;
-    width: 100%;
-    margin: 1.5em 4% 0;
+    width: 92%;
+    margin: 1.5em auto 0;
 }
 
 #footerContent dl dd a {
@@ -757,6 +774,14 @@ body{
 --------------------------------------- ARGOMENTI ----------------------------------------------
 ------------------------------------------------------------------------------------------------
 */
+
+#avvisoMutazione{
+    display: block;
+    margin:auto;
+    font-size: 0.7em;
+    padding-top: 1em;
+}
+
 
 .puntoInterrogativo{
     width: 30px;
@@ -1580,7 +1605,7 @@ ul#listaCommenti {
     border:none;
     border-radius: 0.5em;
     padding:0em 1em 1.5em 1em;
-    width: (100% - 2em);
+    width: calc(100% - 2em);
     margin:auto;
     margin-bottom: 2em;
     display: flex;
@@ -2240,7 +2265,7 @@ p.campiObbligatori{
     padding: 0 0.5em 0.45em 0.5em;
     line-height:1.2em;
     font-family: Georgia, Times, "Times New Roman", serif;
-    font-weight: 550;
+    font-weight: 600;
 }
 #personaggiUtente .cardPersonaggio img{
     display: block;
@@ -2255,14 +2280,14 @@ p.campiObbligatori{
 #personaggiUtente .cardPersonaggio li{
     height: 1.4em;
 }
-#personaggiUtente .cardPersonaggio #allineamento *{
+#personaggiUtente .cardPersonaggio .allineamento *{
     width: 90%;
     margin: auto;
     text-align: center;
     border-radius: 0.2em;
     border-color: #dbceb281;
 }
-#personaggiUtente .cardPersonaggio #allineamento legend{
+#personaggiUtente .cardPersonaggio .allineamento legend{
     padding: 0 0.3em 0 0.3em;
     font-weight: 500;
     font-size: 0.9em;
@@ -2685,6 +2710,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 
 #reportEsplora{
     padding-top:2em;
+    padding-bottom: 2em;
     margin: auto;
     margin-top: 0;
     flex: 1 1 65%;
@@ -2931,7 +2957,7 @@ body.errorPage section, body.errorPage header{
 
 #body404 section h3 {
     font-size: 1.7em;
-    font-weight: 550;
+    font-weight: 600;
 }
 
 .errorPage section p {
@@ -2970,4 +2996,23 @@ body.errorPage section, body.errorPage header{
 #ImgErr, #UserEmpty, #UserAlreadyExists, #NameEmpty, #EmailErr, #MailAlreadyExists, #NewPasswdEmpty, #RepPasswdErr
 {
     padding: 0 !important;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            INFO DA FOOTER
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+dl#contenutoInformativa dt {
+    margin-top: 3em;
+}
+
+dl#contenutoInformativa {
+    width: 80%;
+    margin: auto;
+    padding-bottom: 2em;
 }

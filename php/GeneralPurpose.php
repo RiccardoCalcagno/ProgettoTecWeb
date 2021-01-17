@@ -60,6 +60,13 @@
         unset($_SESSION['id_report_modifica']);
         unset($_SESSION["count_esplora"]);
 
+        $footer = '';
+        if (strpos($html, '<footerPH />')) {
+
+            $footer = file_get_contents(dirname(__DIR__) . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "Footer_Template.html"); 
+        }
+        $html = str_replace('<footerPH />', $footer, $html);
+
         return $html;
     }
     

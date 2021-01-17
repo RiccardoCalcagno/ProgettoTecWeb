@@ -155,7 +155,7 @@ function setDescCaratteristica(num){
             break;
     }
 
-    document.getElementById(doveScrivere).innerHTML = Descrizioni[num][soggetto];
+    document.getElementById(doveScrivere).innerHTML = Descrizioni[num][soggetto]+"<p id='avvisoMutazione'>Si avvisa l'utente che il testo sarà soggetto ad alterazione a seguito della selezione dell'opzione</p>";
 
 }
 
@@ -198,6 +198,13 @@ function CharSheet_JS_ON() {
     scrollButton.setAttribute('type', 'button');
     sheetButton.setAttribute('type', 'button');
 }
+
+function footer_JS_ON() { // IF JS ON -> interactive footer
+
+    document.getElementById("globalFooter").className = "interactive";
+}
+
+window.addEventListener('load', function() { footer_JS_ON();}, false) ;
 
 function openDD(nth_dd) {
 

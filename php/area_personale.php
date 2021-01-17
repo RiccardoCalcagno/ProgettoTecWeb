@@ -105,6 +105,10 @@ else if($_SESSION["login"])
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
 
+        $footer = file_get_contents(dirname(__DIR__) . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "Footer_Template.html");
+        $html = str_replace('<footerPH />', $footer, $html);
+
+
         if(!$html) 
         {
             header("Location: 404.php");
@@ -151,11 +155,11 @@ else if($_SESSION["login"])
                     <img src=\"" . $urlImgRace . " />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
                     <ul>
-                        <li><h5>Razza </h5><p classe=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</p></li>        
-                        <li><h5>Classe </h5><p classe=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</p></li>
-                        <li id=\"allineamento\">
+                        <li><h5>Razza </h5><p class=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</p></li>        
+                        <li><h5>Classe </h5><p class=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</p></li>
+                        <li class=\"allineamento\">
                             <fieldset><legend>Allineamento</legend>
-                                <p classe=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</p>
+                                <p class=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</p>
                             </fieldset>
                         </li>
                     </ul>
@@ -202,7 +206,7 @@ else if($_SESSION["login"])
 
                 for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                 {
-                    $_schede_report_master .= "<li class=\"cardReport\" class=\"cardReportMaster\">
+                    $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
                     <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
                         <div>
                         <div class=\"testoCardRep\">
@@ -213,11 +217,11 @@ else if($_SESSION["login"])
                         <footer>";
                         if($_SESSION["author_report_data"][$i]->get_isExplorable() == 1)
                         {
-                            $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
+                            $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\" lang=\"en\">Report</span> publico</p>";
                         }
                         else
                         {
-                            $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
+                            $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
                         }
                         $_schede_report_master .= "</footer>
                     </button>
@@ -269,7 +273,7 @@ else if($_SESSION["login"])
 
                 for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                 {
-                    $_schede_report .= "<li class=\"cardReport\" class=\"cardReportPartecipante\">
+                    $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
@@ -283,11 +287,11 @@ else if($_SESSION["login"])
                     <footer>";
                     if($_SESSION["report_data"][$i]->get_isExplorable() == true)
                     {
-                        $_schede_report .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> publico</p>";
+                        $_schede_report .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\" lang=\"en\">Report</span> publico</p>";
                     }
                     else
                     {
-                        $_schede_report .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>";
+                        $_schede_report .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>";
                     }
                     $_schede_report .= "</footer>
                     </button>

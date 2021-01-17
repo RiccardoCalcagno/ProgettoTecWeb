@@ -13,7 +13,7 @@
         <meta charset="utf-8" >
 
         <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>
-        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>     
+        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
         <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
@@ -42,10 +42,10 @@
             </form>
         </div>
 
-        <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+            <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
@@ -70,7 +70,7 @@
 
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../index.php" xml:lang="en">Home</a></li>
+            <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
             <li id="breadCCurrent">Area Personale</li>
         </ul>
     </nav>
@@ -201,25 +201,9 @@
     </section> 
 
     </div>
-    <footer>
-        <a href="#intestazioneSito" id="tornaSuFooter">Torna su</a> <!-- button scrollTo(0,0); :o) -->
-    
-        <div id="footerContent">
-            <h2>NomeSito</h2>
-            <dl id="footerList">    
-                <dt><button type="button" onclick="openDD(0)">Privacy</a></dt>
-                <dd class="footer-dd">Testo Sulla Privacy del sito che spiega cookies, dati raccolti ...</dd>
-    
-                <dt><button type="button" onclick="openDD(1)">Contattaci</a></dt>
-                <dd class="footer-dd">Contattaci se hai consigli, feedback o semplicemente per dirci ciao :)<a>nomeSito@mail.com</a></dd>
-    
-                <dt><button type="button" onclick="openDD(2)">Ringraziamenti</a></dt>
-                <dd class="footer-dd">Ringiraziamo Jhon Doe per aver fatto x e Emily per aver disegnato y, senza il loro aiuto il sito sarebbe [] ...</dd>
-            </dl>
-        </div>
-    
-        <p id="disclaimer">Salvo diversa indicazione, i contenuti di questa pagina hanno licenza <a href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a></p>
-    </footer>
+
+    <footerPH />
+
 </body>
 
 </html>
