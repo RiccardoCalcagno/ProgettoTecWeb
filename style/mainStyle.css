@@ -2660,7 +2660,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     text-align: center;
     padding-bottom: 0.4em;
 }
-#loginBody form span input{
+#loginBody form div input{
     width:20em;
     margin:0 calc(50% - 10.5em) 1.5em calc(50% - 10.5em);
 }
