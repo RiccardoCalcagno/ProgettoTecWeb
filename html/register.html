@@ -94,7 +94,7 @@
                     <label for="username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
                     <p id="UserEmpty" class="hidden">  Inserisci un username valido </p>
                     <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
-                    <span><input type="text"  aria-required="true" required="required"
+                    <span><input type="text"  aria-required="true"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
                             name="username" 
@@ -114,7 +114,7 @@
                     
                     <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
                     <p id="NameEmpty" class="hidden">  Inserisci il tuo Nome e Cognome </p>
-                    <span><input type="text"  aria-required="true" required="required"
+                    <span><input type="text"  aria-required="true"
                         name="NomeCognome" 
                         id="NomeCognome"
                         value="<name>" 
@@ -125,7 +125,7 @@
                     <label for="email" class="campiObbligatori">E-mail</label>
                     <p id="EmailErr" class="hidden"> Inserisci una email valida </p>
             <p id="MailAlreadyExists" class="hidden"> Email già esistente </p>
-                <span><input type="text"  aria-required="true" required="required"
+                <span><input type="text" aria-required="true"
                         name="email" 
                         id="email"
                         value="<email>"
@@ -134,12 +134,11 @@
                     </li>
                     <li>
                     <label for="birthdate" class="campiObbligatori">Data di nascita</label>
-                <span><input type="date"  aria-required="true" required="required"
+                <span><input type="date" required="required"
                         name="birthdate" 
                         id="birthdate"
                         value="<birthdate>"
-                        max=""
-                        placeholder="Seleziona la tua data di nascita"/></span>
+                         /></span> <!--max="" senza valore non valida --> 
                     </li>
                 </ul>
 
@@ -152,8 +151,8 @@
                         
                         <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
                         <p id="NewPasswdEmpty" class="hidden"> Inserisci una password valida </p>
-                        <p id="RepPasswdErr" class="hidden">  Le password devono coincidere  </p>
-                    <span><input type="password"  aria-required="true" required="required"
+                        <p class="RepPasswdErr hidden">  Le password devono coincidere  </p>
+                    <span><input type="password"  aria-required="true"
                             name="newPasswd" 
                             id="newPasswd"
                             value=""
@@ -162,9 +161,9 @@
                     </li>
                     <li>
                         <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
-                        <p id="RepPasswdErr" class="hidden">  Le password devono coincidere </p>
+                        <p class="RepPasswdErr hidden">  Le password devono coincidere </p>
 
-                    <span><input type="password"  aria-required="true" required="required"
+                    <span><input type="password"  aria-required="true"
                             name="PasswdAgan" 
                             id="PasswdAgan"
                             value=""
@@ -172,7 +171,7 @@
                     </li>
                 </ul>
             </fieldset>
-            <div id="sign-up_form"class="submitForm">
+            <div id="sign-up_form" class="submitForm">
                 <p>Salva la nuova registrazione</p>
                 <div>
                     <a href="../index.php" class="annulla">ANNULLA</a>
