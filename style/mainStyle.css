@@ -779,7 +779,7 @@ body{
 ------------------------------------------------------------------------------------------------
 */
 
-#avvisoMutazione{
+.avvisoMutazione{
     display: block;
     margin:auto;
     font-size: 0.7em;

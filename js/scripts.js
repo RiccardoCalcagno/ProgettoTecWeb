@@ -155,7 +155,7 @@ function setDescCaratteristica(num){
             break;
     }
 
-    document.getElementById(doveScrivere).innerHTML = Descrizioni[num][soggetto]+"<p id='avvisoMutazione'>Si avvisa l'utente che il testo sarà soggetto ad alterazione a seguito della selezione dell'opzione</p>";
+    document.getElementById(doveScrivere).innerHTML = Descrizioni[num][soggetto]+"<p class='avvisoMutazione'>Si avvisa l'utente che il testo sarà soggetto ad alterazione a seguito della selezione dell'opzione</p>";
 
 }
 
