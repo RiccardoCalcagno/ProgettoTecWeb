@@ -62,7 +62,7 @@ function preparePage($htmlPage, $toEdit) {
 }
 
 function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws) {
-    $messaggioForm = '<div id="errori" class=""><ul>'; // TO FIX
+    $messaggioForm = '<div id="errori" class="" tabindex="1"><ul>'; // TO FIX
 
     if(!$check_name) {
         $namelen = strlen($name);
