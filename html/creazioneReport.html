@@ -13,8 +13,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />     
-        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
-        <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)" />
+        <link rel="stylesheet" href="style/mediumStyle.css" media="screen and (max-width:768px), only screen and (max-width:768px)"/>    
+        <link rel="stylesheet" href="style/smallStyle.css" media="screen and (max-width:480px), only screen and (max-width:480px)"/>
         <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="../js/scripts.js"></script> 
@@ -39,7 +39,7 @@
             <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
             <ul id="menu" role="menubar">
-                <li role="none" xml:lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
+                <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
                 <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
                 <li role="none" class="externalLink">
                     <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false" id="currentDirect">Crea</a>
@@ -64,9 +64,9 @@
 
         <nav id="breadcrumb">
             <ul>
-                <li><a href="../index.php" xml:lang="en">Home</a></li>
+                <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
                 <li>Crea</li>
-                <li id="breadCCurrent">Crea <span xml:lang="en">Report</span> di Sessione</li>
+                <li id="breadCCurrent">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</li>
             </ul>
         </nav>
 
@@ -95,7 +95,7 @@
                 <li>
                     <fieldset id="sottotitoloRepo" class="fieldss">
                         <legend><h2 class="campiObbligatori">Sottotitolo</h2></legend>
-                        <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en">report</span></p>
+                        <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en" lang="en">report</span></p>
                         <div>
                             <p class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</p>
                             <span><textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"><valueSubtitle /></textarea></span>
@@ -105,7 +105,7 @@
                 </li>
                 <li>
                     <fieldset id="contenutoRepo" class="fieldss">
-                        <legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en">Report</span></h2> </legend>
+                        <legend><h2 class="campiObbligatori">Contenuto <span xml:lang="en" lang="en">Report</span></h2> </legend>
                         <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
                         <!-- TO FIX c'e' gia' un div, no span per js check (?)-->
                         <div><textarea id="contRepo" name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"><valueContent /></textarea></div>
@@ -115,7 +115,7 @@
                     <fieldset id="giocatoriRepo" class="fieldss">
                         <legend><h2>Giocatori Partecipanti</h2></legend>
                         <p>
-                            <strong>Registra</strong> all'interno del <span xml:lang="en">report</span> i <strong>giocatori che hanno partecipato</strong>
+                            <strong>Registra</strong> all'interno del <span xml:lang="en" lang="en">report</span> i <strong>giocatori che hanno partecipato</strong>
                             alla sessione, così che possano vedere la tua creazione e assime <strong>commentarla</strong>!
                         </p>
                         <div id="selezionamentoGiocatori">

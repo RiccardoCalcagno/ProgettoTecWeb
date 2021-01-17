@@ -15,8 +15,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>         
-        <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>  
-        <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+        <link rel="stylesheet" href="style/mediumStyle.css" media="screen and (max-width:768px), only screen and (max-width:768px)"/>    
+        <link rel="stylesheet" href="style/smallStyle.css" media="screen and (max-width:480px), only screen and (max-width:480px)"/>
         <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,7 +30,7 @@
             <form onsubmit="return validateLogin();" method="POST" action="../php/check_login.php">
                 
                 <label for="username">Username</label>
-                <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
+                <p id="loginError" class="hidden"> Utente o <span xml:lang="en" lang="en">password</span> scorretti</p>
                 <span><input type="text" 
                         name="username" 
                         id="username"
@@ -38,7 +38,7 @@
                         placeholder="Inserisci il tuo username"/></span>
 
                 <label for="password">Password</label>
-                <p id="loginError" class="hidden"> Utente o <span xml:lang="en">password</span> scorretti</p>
+                <p id="loginError" class="hidden"> Utente o <span xml:lang="en" lang="en">password</span> scorretti</p>
                 <span><input type="password" 
                         name="password" 
                         id="password"
