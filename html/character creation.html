@@ -18,7 +18,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="it">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -141,7 +141,7 @@
                     <div>
                     <label id="ccName" for="cname" class="ccLabel">Scegli un <strong>nome</strong> per il tuo Personaggio di massimo 20 caratteri</label>
                     <span><input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome" maxlength="20" onkeyup="updateCounterTextarea(8);"
-                        aria-required="true" required="required" value="<valoreNome />" /></span>
+                        aria-required="true" value="<valoreNome />" /></span>
                     <p class="counter"><span id="currentCountNome"></span>/20</p>
                     </div>
                 </fieldset>
@@ -156,7 +156,7 @@
                          interagire con gli altri personaggi.</p></div>
                     <div>
                         <label for="crace" class="ccLabel">Scegli una <strong>Razza</strong> tra quelle proposte</label>
-                        <select id="crace" name="crace" onchange="setDescCaratteristica(0)" aria-required="true" required="required">
+                        <select id="crace" name="crace" onchange="setDescCaratteristica(0)" aria-required="true">
                             <option value="Umano">Umano</option>
                             <option value="Elfo">Elfo</option>
                             <option value="Nano">Nano</option>
@@ -181,7 +181,7 @@
                          capacità magiche e impiegare abilità speciali e altro ancora.</p></div>
                     <div>
                         <label for="cclass" class="ccLabel">Scegli una <strong>Classe</strong> tra quelle proposte</label>
-                        <select id="cclass" name="cclass" onchange="setDescCaratteristica(1)" aria-required="true" required="required">
+                        <select id="cclass" name="cclass" onchange="setDescCaratteristica(1)" aria-required="true">
                             <option value="Bardo">Bardo</option>
                             <option value="Barbaro">Barbaro</option>
                             <option value="Druido">Druido</option>
@@ -209,7 +209,7 @@
                         adatto per introdurre il personaggio nell’azione.</p></div>
                     <div>
                         <label for="cbackground" class="ccLabel">Scegli un <strong xml:lang="en" lang="en">Background</strong> tra quelli proposti</label>
-                        <select id="cbackground" name="cbackground" onchange="setDescCaratteristica(2)" aria-required="true" required="required">
+                        <select id="cbackground" name="cbackground" onchange="setDescCaratteristica(2)" aria-required="true">
                             <option value="Accolito">Accolito</option>
                             <option value="Artigiano">Artigiano</option>
                             <option value="Ciarlatano">Ciarlatano</option>
@@ -224,6 +224,7 @@
                             <option value="Sapiente">Sapiente</option>
                             <option value="Soldato">Soldato</option>
                         </select>
+                    </div>
                 </fieldset>
             </li>
             <li>
@@ -237,7 +238,7 @@
                     <div>
                         <label for="calignment" class="ccLabel">Scegli un <strong>Allineamento</strong> tra quelli
                             proposti</label>
-                        <select id="calignment" name="calignment" aria-required="true" required="required">
+                        <select id="calignment" name="calignment" aria-required="true">
                             <option value="Legale Buono">Legale Buono</option>
                             <option value="Neutrale Buono">Neutrale Buono</option>
                             <option value="Caotico Buono">Caotico Buono</option>
