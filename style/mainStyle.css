@@ -1680,7 +1680,11 @@ p.campiObbligatori{
 #bannerPage .buttonLink, #bannerPage .annulla{
     margin-top: 1em;
     width: 13em;
-} 
+}
+
+.noborder {
+    border: none;
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
