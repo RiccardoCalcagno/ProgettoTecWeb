@@ -741,7 +741,7 @@ form#datiPassword .submitForm {
     background-size: 100% 448px;
     background-repeat: repeat-y;
 }
-#contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena h2, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena span{
+#contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena dt, #contentPersonaggio.pergamena span{
     font-family: Garamond, serif;
     font-weight: 600;
     color: #331e06;
@@ -775,12 +775,8 @@ form#datiPassword .submitForm {
     margin-bottom: 1em;
 }
 
-#contentPersonaggio.pergamena h2{
-    font-size: 1.8em;
-    padding-bottom: 0em;
-}
-
 #contentPersonaggio.pergamena dt{
+    font-size: 1.8em;
     padding-top: 2em;
     margin-right: 2em;
 }
