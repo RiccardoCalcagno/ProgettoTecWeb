@@ -550,6 +550,7 @@ body{
 
 .transitorio > div{
     max-width: 37em;
+    width: 80%;
     padding: 0 1.5em 0 1.5em;
     margin:auto;
     background-color: #fff7e6;
@@ -1680,7 +1681,7 @@ p.campiObbligatori{
 
 #bannerPage > div{
     position: absolute;
-    top: 50%;
+    top: calc(50% + 3em);
     left: 50%;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);

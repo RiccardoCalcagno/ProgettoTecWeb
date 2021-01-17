@@ -114,8 +114,7 @@
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/login.php'>ACCESSO</a>
                         <a class='buttonLink' href='../php/register.php'>ISCRIZIONE</a>
-                    </div>
-                    <a class='buttonLink' href='../index.php'>HOME</a>";
+                    </div>";
                 break;
                 case "creazione_documento_confermata":
                     $htmlBanner .= "    
