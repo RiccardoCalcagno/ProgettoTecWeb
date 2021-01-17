@@ -304,7 +304,7 @@ body{
     max-height: calc(3em - 1px);
 }
 #menu {
-    display: flex;
+    display: flex !important;
     align-items: center;
     font-size: 1.1em;
     list-style: none;
