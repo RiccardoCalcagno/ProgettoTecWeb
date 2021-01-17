@@ -559,10 +559,10 @@ body{
 .transitorio h1{
     display: block;
     text-align: center;
-    font-size: 2.6em;
+    font-size: 6vh;
     padding-top:0.5em;
     margin:auto;
-    margin-bottom: 0.5em;
+    margin-bottom: 1vh;
 }
 
 
@@ -1675,7 +1675,7 @@ p.campiObbligatori{
 
 
 #bannerPage h2{
-    font-size: 1.3em;
+    font-size: 3vh;
     text-align: center;
 }
 
