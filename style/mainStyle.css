@@ -2572,7 +2572,7 @@ form#datiUtenza{
 #datiUtenza label[for="imgProfilo"],.userFields label[for="password"], .userFields label[for="NomeCognome"] {
     margin-top: 0;
 }
-#datiUtenza #username{
+#datiUtenza #username, #datiUtenza #future_username {
     width: 20em;
     display: block;
     margin:auto;
