@@ -2263,14 +2263,14 @@ p.campiObbligatori{
 #personaggiUtente .cardPersonaggio li{
     height: 1.4em;
 }
-#personaggiUtente .cardPersonaggio #allineamento *{
+#personaggiUtente .cardPersonaggio .allineamento *{
     width: 90%;
     margin: auto;
     text-align: center;
     border-radius: 0.2em;
     border-color: #dbceb281;
 }
-#personaggiUtente .cardPersonaggio #allineamento legend{
+#personaggiUtente .cardPersonaggio .allineamento legend{
     padding: 0 0.3em 0 0.3em;
     font-weight: 500;
     font-size: 0.9em;
