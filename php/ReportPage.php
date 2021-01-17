@@ -222,12 +222,12 @@ else {
                             </li>
                         </ul>
                         <div>
-                            <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />
+                            <input type="hidden" name="ReportID" value="'. $_GET['ReportID'] . '" />
                         </div>
                     </form>';
         }
         
-        $hiddenReportID = ' <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />';
+        $hiddenReportID = ' <input type="hidden" name="ReportID" value="'. $_GET['ReportID'] . '" />';
         
         $html = str_replace("<footerAction_placeholder/>", $footerAction, $html);
         $html = str_replace("<hiddenReportID />", $hiddenReportID, $html);

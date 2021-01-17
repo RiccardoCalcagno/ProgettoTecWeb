@@ -237,8 +237,7 @@
                                         </div>
                                         <button title="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
                                     </div>
-                                </li>
-                                <listaGiocatori />';
+                                </li>';
     }
 
     $dbInterface->closeConnection();
