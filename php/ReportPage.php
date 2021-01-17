@@ -221,7 +221,9 @@ else {
                                 <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink"/> 
                             </li>
                         </ul>
-                        <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />
+                        <div>
+                            <input type="hidden" id="ReportID" name="ReportID" value="'. $_GET['ReportID'] . '" />
+                        </div>
                     </form>';
         }
         
