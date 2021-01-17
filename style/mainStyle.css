@@ -303,6 +303,9 @@ body{
     background-color: rgb(48, 44, 44);
     max-height: calc(3em - 1px);
 }
+#access input[value="Area Personale"] {
+    width: 70%;
+}
 #menu {
     display: flex;
     align-items: center;
@@ -324,7 +327,7 @@ body{
     color:#FFFFFF;
     display: inline-block;
     text-align: center;
-    padding: 0.6em;
+    padding: 0.5em;
 }
 
 #menu #currentLink {
