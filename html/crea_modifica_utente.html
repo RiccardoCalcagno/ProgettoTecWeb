@@ -137,7 +137,7 @@
 
 
 
-        <p class="campiObbligatori"> : campo obbligatorio</p>
+        <p class="campiObbligatori" aria-label="i campi: Username, Nome e Cognome, Email, data di Nascita, sono obbligatori"> : campo obbligatorio</p>
         
         <div class="userFields">
             <form id="datiUtenza" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserData();" action="../php/modify.php" method="post" enctype="multipart/form-data">
@@ -148,7 +148,7 @@
                     <img class="hidden"  id="immagine_profilo" alt="" src="../img/img_profilo_mancante.png">
                     <p id="ImgErr" class="hidden"> L'immagine ha un formato sbagliato non supportato o è troppo pesante</p>
                     <label for="imgProfilo">Immagine profilo</label>
-                    <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();"/>
+                    <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();" aria-label="carica un Immagine profilo"/>
                     </li>
                     <li>
             
@@ -162,7 +162,7 @@
                             id="future_username"
                             value="<username>"
                             placeholder="Digita l'username"/></span>
-                    <p class="counter"><span id="currentCountUser"></span>/20</p>
+                    <p class="counter" tabindex="-1"><span id="currentCountUser" tabindex="-1"></span>/20</p>
                     </li>
                 </ul>
             </fieldset>
@@ -219,12 +219,12 @@
                 <p>Salva i dati di utenza e anagrafici che hai modificato </p>
                 <div>
                     <a href="../php/area_personale.php" class="annulla">ANNULLA</a>
-                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati"/>  
+                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati"  aria-label="salva i dati di utenza"/>  
                 </div>      
             </div>
             </form>
             <div id="modificaPassword"> 
-            <p class="campiObbligatori"> : campo obbligatorio</p>
+            <p class="campiObbligatori"  aria-label="tutti i campi seguenti sono obbligatori"> : campo obbligatorio</p>
             <form id="datiPassword" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserPassword();" action="../php/modify_password.php" method="post">
 
 
@@ -271,7 +271,7 @@
                             name="PasswdAgan" 
                             id="PasswdAgan"
                             value=""
-                            placeholder="Digita nuovamente la password"/></span>
+                            placeholder="Digita nuovamente la password" aria-label="salva la password"/></span>
                             
 
                     </li>

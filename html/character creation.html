@@ -125,7 +125,7 @@
                     <label id="ccName" for="cname" class="ccLabel">Scegli un <strong>nome</strong> per il tuo Personaggio di massimo 20 caratteri</label>
                     <span><input type="text" id="cname" name="cname" class="ccWrite" placeholder="Digita il nome" maxlength="20" onkeyup="updateCounterTextarea(8);"
                         aria-required="true" value="<valoreNome />" /></span>
-                    <p class="counter" tabindex="-1"><span id="currentCountNome"></span>/20</p>
+                    <p class="counter" tabindex="-1"><span id="currentCountNome" tabindex="-1"></span>/20</p>
                     </div>
                 </fieldset>
             </li>
@@ -253,28 +253,28 @@
                             <label for="ctraits" class="ccTraitsL">Carattere</label>
                             <span><textarea id="ctraits" class="ccTraitsTA ccWrite" name="ctraits" rows=4 cols=40  onkeyup="updateCounterTextarea(4);"
                                 placeholder="Descrivi i tratti caratteriali del tuo personaggio"><valoreTraits /></textarea></span>
-                            <p class="counter" id="currentCountTraits" aria-label="numero caratteri scritti fin ora"></p>
+                            <p class="counter" id="currentCountTraits" tabindex="-1"></p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cideals" class="ccTraitsL">Ideali</label>
                             <span><textarea id="cideals" class="ccTraitsTA ccWrite" name="cideals" rows=4 cols=40  onkeyup="updateCounterTextarea(5);"
                                 placeholder="Quali sono i suoi Ideali?"><valoreIdeals /></textarea></span>
-                            <p class="counter" id="currentCountIdeals" aria-label="numero caratteri scritti fin ora"></p>
+                            <p class="counter" id="currentCountIdeals" tabindex="-1"></p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cbonds" class="ccTraitsL">Legami</label>
                             <span><textarea id="cbonds" class="ccTraitsTA ccWrite" name="cbonds" rows=4 cols=40  onkeyup="updateCounterTextarea(6);"
                                 placeholder="A chi è legato nel mondo di gioco?"><valoreBonds /></textarea></span>
-                            <p class="counter" id="currentCountBonds" aria-label="numero caratteri scritti fin ora"></p>
+                            <p class="counter" id="currentCountBonds" tabindex="-1"></p>
                         </li>
 
                         <li class="traitsCard">
                             <label for="cflaws" class="ccTraitsL">Difetti</label>
                             <span><textarea id="cflaws" class="ccTraitsTA ccWrite" name="cflaws" rows=4 cols=40  onkeyup="updateCounterTextarea(7);"
                                 placeholder="Quali sono i suoi Difetti?"><valoreFlaws /></textarea></span>
-                            <p class="counter" id="currentCountFlaws" aria-label="numero caratteri scritti fin ora"></p>
+                            <p class="counter" id="currentCountFlaws" tabindex="-1"></p>
                         </li>
                     </ul>
                 </fieldset>
@@ -296,7 +296,7 @@
 
             <div>
                 <a href="../index.php" class="annulla">ANNULLA</a>
-                <input class="buttonLink" type="submit" name="salvaPers" value="<buttonValue />"/>  
+                <input class="buttonLink" type="submit" name="salvaPers" value="<buttonValue />"  aria-label="salva la scheda giocatore"/>  
                 <!-- DA SCAMBIARE CON:
                     <input class="buttonLink" type="submit" name="salvaPers" value="SALVA MODIFICA"/>  
                 --> 

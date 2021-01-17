@@ -37,7 +37,7 @@ function preparePage($htmlPage, $toEdit) {
             <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" />';
 
         $header = '<header id="intestazionePagina">
-            <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" aria-label="Cos è Scheda Giocatore" href="../php/Approf_personaggio.php">?</a></span></h1>
+            <h1>Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" aria-label="Cosa è una Scheda Giocatore?" href="../php/Approf_personaggio.php">?</a></span></h1>
             <p> Sei qui per realizzare la tua prima scheda giocatore? Non temere, è facilissimo! Compila questo ridotto insieme di campi per conferire al tuo personaggio le principali caratteristiche.</p>
             <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
             </header>';
@@ -62,7 +62,7 @@ function preparePage($htmlPage, $toEdit) {
 }
 
 function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws) {
-    $messaggioForm = '<div id="errori" class="" tabindex="1"><ul>'; // TO FIX
+    $messaggioForm = '<div id="errori" class="" tabindex="10"><ul>'; 
 
     if(!$check_name) {
         $namelen = strlen($name);
