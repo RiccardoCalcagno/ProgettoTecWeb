@@ -302,7 +302,6 @@ body{
     font-size: 1.1em;
     background-color: rgb(48, 44, 44);
     max-height: calc(3em - 1px);
-    overflow: hidden;
 }
 #access input[value="Area Personale"] {
     width: 70%;
@@ -647,7 +646,7 @@ body{
 }
 #copertina header h1{
     font-family: Garamond, serif;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.5em;
     font-size: 4em;
     padding-left: 0.5em;
     padding-right: 1em;

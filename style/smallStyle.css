@@ -105,7 +105,6 @@ input[type="file"]{
 #intestazioneSito{
     max-height: 3.3em;
     z-index: 3;
-    overflow: visible;
 }
 #intestazioneSito #menu{
     width: calc(100% + 2px);
