@@ -1668,6 +1668,8 @@ p.campiObbligatori{
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
+
+
 #bannerPage h2{
     font-size: 1.3em;
     text-align: center;
@@ -1697,7 +1699,8 @@ p.campiObbligatori{
 #refAreaPersConf{
     padding-top: 0.5em;
 }
-#bannerPage #linkVelociPostConferma{
+#bannerPage #linkVelociPostConferma > div{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
