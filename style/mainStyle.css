@@ -1699,7 +1699,12 @@ p.campiObbligatori{
 #refAreaPersConf{
     padding-top: 0.5em;
 }
-#bannerPage #linkVelociPostConferma > div{
+#bannerPage div#linkVelociPostConferma{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+#bannerPage form#linkVelociPostConferma > div{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
