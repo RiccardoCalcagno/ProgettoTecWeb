@@ -130,7 +130,7 @@ input[type="file"]{
     font-weight: 400;
 }
 #intestazioneSito #menu > li:not(:last-child) li{
-    min-width: 16em;
+    min-width: 16.4em;
 }
 #intestazioneSito  #menu .dropdown-content{
     display: flex;
