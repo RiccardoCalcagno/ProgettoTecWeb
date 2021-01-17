@@ -374,6 +374,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 
 #viewInfoUser > div > div{
     width:8em;  
+    height: 8em;
     padding: 0.5em;
 }
 #viewInfoUser dl  {

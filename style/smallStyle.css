@@ -430,6 +430,17 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 #dashboard h2, #viewInfoUser h2{
     padding-bottom: 0.6em;
 }
+#viewInfoUser dt {
+    padding-bottom: 0;
+}
+#viewInfoUser dd{
+    float: none;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 0;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #cccccc;
+}
 #areaPersonale .listeReport{
     margin-top:0.8em;
 }
