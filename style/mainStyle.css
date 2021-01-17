@@ -444,7 +444,7 @@ body{
 
 #tornaSuFooter {
     display: block;
-    padding: 0.2em auto;
+    padding: 0.2em 0;
     text-align: center;
     /*text-decoration: none;*/
     font-size: 1.2em;
@@ -1588,7 +1588,7 @@ ul#listaCommenti {
     border:none;
     border-radius: 0.5em;
     padding:0em 1em 1.5em 1em;
-    width: (100% - 2em);
+    width: calc(100% - 2em);
     margin:auto;
     margin-bottom: 2em;
     display: flex;
@@ -2248,7 +2248,7 @@ p.campiObbligatori{
     padding: 0 0.5em 0.45em 0.5em;
     line-height:1.2em;
     font-family: Georgia, Times, "Times New Roman", serif;
-    font-weight: 550;
+    font-weight: 600;
 }
 #personaggiUtente .cardPersonaggio img{
     display: block;
@@ -2939,7 +2939,7 @@ body.errorPage section, body.errorPage header{
 
 #body404 section h3 {
     font-size: 1.7em;
-    font-weight: 550;
+    font-weight: 600;
 }
 
 .errorPage section p {
