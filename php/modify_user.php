@@ -111,6 +111,9 @@
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
 
+    $footer = file_get_contents(dirname(__DIR__) . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "Footer_Template.html");
+    $html = str_replace('<footerPH />', $footer, $html);
+    
     $html = addPossibleBanner($html, "modify_user.php");
 
     echo $html;

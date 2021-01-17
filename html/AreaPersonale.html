@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="it">
 
@@ -34,9 +34,11 @@
 
         <div id="access">
             <form action="../php/action.php" method="get">
-                <input type="text" class="hidden" name="beforeAccess" value="area_personale.php"/>
-                <input id="Accesso" type="submit" name="accesso" value="Esci">         <!-- altro valore possibile : "Esci" -->      
-                <input id="Iscrizione" disabled="disabled" type="submit" name="accesso" value="Area Personale">
+                <div>
+                    <input type="text" class="hidden" name="beforeAccess" value="area_personale.php" />
+                    <input id="Accesso" type="submit" name="accesso" value="Esci">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" disabled="disabled" type="submit" name="accesso" value="Area Personale">
+                </div>
             </form>
         </div>
 
@@ -78,7 +80,7 @@
         <h1>Benvenuto in Area Personale</h1>
         <p>In questa pagina troverai le <strong>informazioni</strong> che caratterizzano la tua 
             <strong>identità</strong> su questo sito, le <strong>schede utente</strong> e i 
-            <strong xlm:lang="en">report</strong> che hai creato oltre ai <span xlm:lang="en">report</span> 
+            <strong xml:lang="en" lang="en">report</strong> che hai creato oltre ai <span xml:lang="en" lang="en">report</span> 
             che ti citano come giocatore</p>
     </header>
 
@@ -137,14 +139,14 @@
 
     <section class="report">
         <header>
-            <h2><span xlm:lang="en">Report</span> Sessione</h2>
-            <a href="../php/CreazioneReportPage.php" class="buttonLink">Aggiungi <span xlm:lang="en">report</span> sessione</a>           <!--Da completare href-->
+            <h2><span xml:lang="en" lang="en">Report</span> Sessione</h2>
+            <a href="../php/CreazioneReportPage.php" class="buttonLink">Aggiungi <span xml:lang="en" lang="en">report</span> sessione</a>           <!--Da completare href-->
         </header>
         <div class="listeReport">
         <div id="reportMaster">
             <header>
-                <h3>I tuoi <span xlm:lang="en">Report</span></h3>
-                <p>La <span xlm:lang="en">dashboard</span> seguente raccoglie tutti i <span xlm:lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
+                <h3>I tuoi <span xml:lang="en" lang="en">Report</span></h3>
+                <p>La <span xml:lang="en" lang="en">dashboard</span> seguente raccoglie tutti i <span xml:lang="en" lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
             <form action="../php/action_report.php" method="GET">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
@@ -157,8 +159,9 @@
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <nav class="espandi" id='report_master'>                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+                <div id="anchorMaster"></div>
                 <ul>
-                  <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li><div id="anchorMaster"></div>
+                  <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
                   <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagMaster"><numero_attuale_master/></span>/<span id="totNumPagMaster"><numero_di_master/></span></li>
                   <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
@@ -170,8 +173,8 @@
 
         <div id="reportPartecipante">
             <header>
-                <h3><span xlm:lang="en">Report</span> condivisi con te</h3>
-                <p>Questa <span xlm:lang="en">dashboard</span> riporta tutti i <span xlm:lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
+                <h3><span xml:lang="en" lang="en">Report</span> condivisi con te</h3>
+                <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
             <form action="../php/action_report.php" method="GET">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
@@ -184,9 +187,10 @@
             </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    
-            <nav class="espandi" id='report_normale'>                      
+            <nav class="espandi" id='report_normale'>  
+                <div id="anchorPartecipante"></div>                    
                 <ul>
-                  <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li><div id="anchorPartecipante"></div>
+                  <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente"></li>                     
                   <li><span><abbr title="pagina">Pag</abbr></span>. <span id="numPagPartec"><numero_attuale_report/></span>/<span id="totNumPagPartec"><numero_di_report/></span></li>
                   <li class="inputMove"><input type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo"></li>  

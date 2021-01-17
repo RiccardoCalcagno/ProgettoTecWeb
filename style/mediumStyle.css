@@ -17,6 +17,7 @@
     font-size: 0.8em;
     height: 3.3em;
 }
+
 #intestazioneSito #menu li#currentLink{
     padding-top: 1em;
     height: 1.8em;
@@ -24,6 +25,9 @@
 #intestazioneSito #menu > li > a{
     padding-top: 1em;
     height:1.8em;
+}
+#intestazioneSito #menu > li:last-child > a {
+    padding-right: 0;
 }
 #intestazioneSito #access {
     width: 10.4em;
@@ -374,6 +378,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 
 #viewInfoUser > div > div{
     width:8em;  
+    height: 8em;
     padding: 0.5em;
 }
 #viewInfoUser dl  {
@@ -894,7 +899,7 @@ form#datiUtenza{
     margin: auto; /* can't remove ?????????????????????????????? */
 }
 
-#datiUtenza #username{
+#datiUtenza #username, #datiUtenza #future_username {
     width: 15em;
 }
 

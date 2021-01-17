@@ -1,4 +1,4 @@
-
+﻿
 
 <!--
 
@@ -30,12 +30,11 @@
 <html lang="it" >
 
     <head>
-
+        <meta charset="utf-8" >
         <title>Modifica Dati Utente</title>                                
         <meta name="title" content="Modifica dati utente" />
         <meta name="description" content="La pagina consente di modificare tutte le informazione connesse all'identità dell'utente nel sito"/>                   
         <meta name="keywords" content="" />
-
 
     <!-- QUESTO È L'HEAD CHE BISOGNA SCAMBIARE SE INVECE DI MODIFICARE SI CREA
         <title>Registrazione Utente</title>                                
@@ -49,7 +48,6 @@
 
         <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
         <meta name="language" content="italian it" />
-        <meta charset="utf-8" >
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -73,9 +71,11 @@
     
             <div id="access">
                 <form action="../php/action.php" method="get">
-                    <input type="text" class="hidden" name="beforeAccess" value="modify_user.php"/>
-                    <input id="Accesso" type="submit" name="accesso" value="Esci">         <!-- altro valore possibile : "Esci" -->      
-                    <input id="Iscrizione" type="submit" name="accesso" value="Area Personale">    <!-- altro valore possibile : "Area Personale" -->  
+                    <div>
+                        <input type="text" class="hidden" name="beforeAccess" value="modify_user.php" />
+                        <input id="Accesso" type="submit" name="accesso" value="Esci">         <!-- altro valore possibile : "Esci" -->
+                        <input id="Iscrizione" type="submit" name="accesso" value="Area Personale">    <!-- altro valore possibile : "Area Personale" -->
+                    </div>
                 </form>
             </div>
 
@@ -155,11 +155,11 @@
                     <label for="future_username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
                     <p id="UserEmpty" class="hidden">  Username vuoto o troppo lungo </p>
                     <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
-                    <span><input type="text"  aria-required="true" required="required"
+                    <span><input type="text"  aria-required="true"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
                             name="future_username" 
-                            id="username"
+                            id="future_username"
                             value="<username>"
                             placeholder="Digita l'username"/></span>
                     <p class="counter"><span id="currentCountUser"></span>/20</p>
@@ -174,7 +174,7 @@
                     <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
                     <p id="NameEmpty" class="hidden">  Inserisci il tuo nome e cognome  </p>
                     <span>
-                        <input type="text"  aria-required="true" required="required"
+                        <input type="text"  aria-required="true"
                         name="NomeCognome" 
                         id="NomeCognome"
                         value="<name>" 
@@ -187,7 +187,7 @@
                     <label for="future_email" class="campiObbligatori">E-mail</label>
                     <p id="EmailErr" class="hidden"> Inserisci una email valida </p>
                     <p id="MailAlreadyExists" class="hidden"> Email già esistente  </p>
-                    <span><input type="text"  aria-required="true" required="required"
+                    <span><input type="text"  aria-required="true"
                         name="future_email" 
                         id="future_email"
                         value="<email>"
@@ -198,12 +198,11 @@
                     <li>
                     <label for="birthdate" class="campiObbligatori">Data di nascita</label>
                     <span>
-                    <input type="date"  aria-required="true" required="required"
+                    <input type="date" required="required"
                         name="birthdate" 
                         id="birthdate"
                         value="<birthdate>"
-                        max=""
-                        placeholder="Seleziona la tua data di nascita"/>
+                        />  <!--max="" -->
                     </span>
                     </li>
                 </ul>
@@ -246,7 +245,7 @@
                         
                     <label for="password" class="campiObbligatori">Password corrente</label>
                     <p id="OldPasswdErr" class="hidden"> La password che hai inserito non corrisponde a quella del tuo account </p>
-                    <span><input type="password"  aria-required="true" required="required"
+                    <span><input type="password"  aria-required="true"
                         name="password" 
                         id="password"
                         value=""
@@ -263,8 +262,8 @@
                     <li>
                     <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
                     <p id="NewPasswdEmpty" class="hidden"> Inserisci una password valida </p>
-                    <p id="RepPasswdErr" class="hidden">  Le password non corrispondono  </p>
-                    <span><input type="password"  aria-required="true" required="required"
+                    <p class="RepPasswdErr hidden">  Le password non corrispondono  </p>
+                    <span><input type="password"  aria-required="true"
                         name="newPasswd" 
                         id="newPasswd"
                         value=""
@@ -272,8 +271,8 @@
                     </li>
                     <li>
                         <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
-                        <p id="RepPasswdErr" class="hidden">  Le password non corrispondono </p>
-                        <span><input type="password"  aria-required="true" required="required"
+                        <p class="RepPasswdErr hidden">  Le password non corrispondono </p>
+                        <span><input type="password"  aria-required="true"
                             name="PasswdAgan" 
                             id="PasswdAgan"
                             value=""

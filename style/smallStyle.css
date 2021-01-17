@@ -47,22 +47,6 @@ input[type="file"]{
     width: 20em;
 }
 
-.puntoInterrogativo{
-    background-color:inherit;
-    border-radius: 0;
-    display: inline;
-}
-.puntoInterrogativo::before{
-    text-decoration: underline;
-    content:attr(data-approf);
-    vertical-align:middle;
-    display:inline-block;
-    width:4em;
-    font-size: 0.7em;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 1em;
-}
-
 /*TO FIX */
 /* textarea,input[type="text"],input[type="date"],input[type="password"] {
     
@@ -107,6 +91,8 @@ input[type="file"]{
 --------------------------------------- HEADER ----------------------------------------------
 ---------------------------------------------------------------------------------------------
 */
+#hamburger{display: inline;}
+
 #intestazioneSito #menu > li:last-child{
     position: relative;
     width: 100%;
@@ -146,7 +132,7 @@ input[type="file"]{
     font-weight: 400;
 }
 #intestazioneSito #menu > li:not(:last-child) li{
-    min-width: 16em;
+    min-width: 16.4em;
 }
 #intestazioneSito  #menu .dropdown-content{
     display: flex;
@@ -446,6 +432,17 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 #dashboard h2, #viewInfoUser h2{
     padding-bottom: 0.6em;
 }
+#viewInfoUser dt {
+    padding-bottom: 0;
+}
+#viewInfoUser dd{
+    float: none;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 0;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #cccccc;
+}
 #areaPersonale .listeReport{
     margin-top:0.8em;
 }
@@ -693,8 +690,9 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
     width: calc(100% - 1em);
     padding: 0;
     border: 6px inset #dfdfdf;
-    overflow: hidden;
+    overflow: scroll;
     margin: 1em auto;
+    height: 11em;
 }
 
 #creazioneReport #selezionamentoGiocatori ul li{
@@ -956,6 +954,7 @@ form#datiUtenza{
 }
 
 #contentPersonaggio.pergamena dt{
+    font-size: 1.5em;
     padding-top: 0;
 }
 
@@ -970,10 +969,6 @@ form#datiUtenza{
 
 .pergamena #infoBreviPersonaggio dd{
     font-size: 1.2em;
-}
-
-#contentPersonaggio.pergamena h2 {
-    font-size: 1.5em;
 }
 
 /* TO FIX KEEP ? */

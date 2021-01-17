@@ -303,6 +303,9 @@ body{
     background-color: rgb(48, 44, 44);
     max-height: calc(3em - 1px);
 }
+#access input[value="Area Personale"] {
+    width: 70%;
+}
 #menu {
     display: flex;
     align-items: center;
@@ -324,7 +327,7 @@ body{
     color:#FFFFFF;
     display: inline-block;
     text-align: center;
-    padding: 0.6em;
+    padding: 0.5em;
 }
 
 #menu #currentLink {
@@ -369,10 +372,13 @@ body{
     border-top: 1px solid black;
 }
 
-#menu li:hover .dropdown-content {
+#menu li:hover .dropdown-content, #menu li:focus-within .dropdown-content {
     display: block;
 }
 
+#hamburger{
+    display: none;
+}
 
 
 
@@ -547,6 +553,7 @@ body{
 
 .transitorio > div{
     max-width: 37em;
+    width: 80%;
     padding: 0 1.5em 0 1.5em;
     margin:auto;
     background-color: #fff7e6;
@@ -555,10 +562,10 @@ body{
 .transitorio h1{
     display: block;
     text-align: center;
-    font-size: 2.6em;
+    font-size: 6vh;
     padding-top:0.5em;
     margin:auto;
-    margin-bottom: 0.5em;
+    margin-bottom: 1vh;
 }
 
 
@@ -643,7 +650,7 @@ body{
 }
 #copertina header h1{
     font-family: Garamond, serif;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.5em;
     font-size: 4em;
     padding-left: 0.5em;
     padding-right: 1em;
@@ -775,7 +782,7 @@ body{
 ------------------------------------------------------------------------------------------------
 */
 
-#avvisoMutazione{
+.avvisoMutazione{
     display: block;
     margin:auto;
     font-size: 0.7em;
@@ -1668,14 +1675,16 @@ p.campiObbligatori{
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
+
+
 #bannerPage h2{
-    font-size: 1.3em;
+    font-size: 3vh;
     text-align: center;
 }
 
 #bannerPage > div{
     position: absolute;
-    top: 50%;
+    top: calc(50% + 3em);
     left: 50%;
     transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
@@ -1697,7 +1706,13 @@ p.campiObbligatori{
 #refAreaPersConf{
     padding-top: 0.5em;
 }
-#bannerPage #linkVelociPostConferma{
+#bannerPage div#linkVelociPostConferma{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+#bannerPage form#linkVelociPostConferma > div{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -1705,7 +1720,7 @@ p.campiObbligatori{
 #bannerPage .buttonLink, #bannerPage .annulla{
     margin-top: 1em;
     width: 13em;
-} 
+}
 
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -2564,7 +2579,7 @@ form#datiUtenza{
 #datiUtenza label[for="imgProfilo"],.userFields label[for="password"], .userFields label[for="NomeCognome"] {
     margin-top: 0;
 }
-#datiUtenza #username{
+#datiUtenza #username, #datiUtenza #future_username {
     width: 20em;
     display: block;
     margin:auto;
@@ -2660,9 +2675,11 @@ form#datiUtenza > div:first-child fieldset:first-child{
     text-align: center;
     padding-bottom: 0.4em;
 }
-#loginBody form span input{
-    width:20em;
-    margin:0 calc(50% - 10.5em) 1.5em calc(50% - 10.5em);
+#loginBody form > div > input{
+    max-width: 20em;
+    display: block;
+    width: 80%;
+    margin: 0 auto 1.5em auto;
 }
 #loginBody form p:last-child{
     width: 100%;
@@ -2993,7 +3010,7 @@ body.errorPage section, body.errorPage header{
     margin: 0 auto 0.5em;
 }
 
-#ImgErr, #UserEmpty, #UserAlreadyExists, #NameEmpty, #EmailErr, #MailAlreadyExists, #NewPasswdEmpty, #RepPasswdErr
+#ImgErr, #UserEmpty, #UserAlreadyExists, #NameEmpty, #EmailErr, #MailAlreadyExists, #NewPasswdEmpty, .RepPasswdErr
 {
     padding: 0 !important;
 }
