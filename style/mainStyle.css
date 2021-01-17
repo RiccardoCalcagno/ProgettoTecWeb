@@ -25,7 +25,7 @@ strong{
 abbr{
     text-decoration: none;
 }
-p,h1,h2,h3,h4,h5,h6,dt,dd{
+p,h1,h2,h3,h4,h5,h6,dt,dd, label{
     color: #392D20;                /* ATTENZIONE COLORE TESTO ALTERATO*/
 }
 
@@ -1729,6 +1729,10 @@ p.campiObbligatori{
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
 */
+
+#creazioneReport label{
+    padding-bottom: 0.5em;
+}
 
 .campiObbligatori::before{
     content:"*";

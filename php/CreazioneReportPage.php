@@ -23,13 +23,13 @@
             <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />';
 
             $header = '<header id="intestazionePagina">
-            <h1>Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" data-approf="Cos è Report"  
+            <h1>Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  
                 href="../php/Approf_report.php">?</a></span></h1>
             </header>';
 
             $p = '<p>Concludi la modifica salvando la nuova versione del <span xml:lang=\"en\" lang=\"en\">report</span> nella tua Area Personale</p>';
 
-            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA"/>';
+            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA" aria-label="salva la modifica del report"/>';
         }
         else {
             $headTitle = '<title>Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione</title>
@@ -38,7 +38,7 @@
             <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />';
 
             $header = '<header id="intestazionePagina">
-            <h1>Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" data-approf="Cos è Report"  href="../php/Approf_report.php">?</a></span></h1>
+            <h1>Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  href="../php/Approf_report.php">?</a></span></h1>
             <p>Sei qui per realizzare il tuo primo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione? Non temere, segui questi semplici 
                 passaggi e in breve il tuo ricordo sarà condensato in un <span xml:lang=\"en\" lang=\"en\">report</span> da mostrare a chi vorrai. </p>
             <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del <span xml:lang=\"en\" lang=\"en\">report</span> sarà necessaria una tua autenticazione)</p>
@@ -46,7 +46,7 @@
 
             $p = '<p>Concludi la creazione salvando il nuovo <span xml:lang=\"en\" lang=\"en\">report</span> nella tua Area Personale</p>';
 
-            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT"/>';
+            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT" aria-label="salva il nuovo report"/>';
         }
 
         $html = str_replace('<headTitle_placeholder />',$headTitle,$html);
@@ -122,7 +122,7 @@
                 }
     
                 }else{
-                $message = '<div id="errori" class=""><ul>'; // TO FIX
+                $message = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; // TO FIX
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
                     $message.='<li>titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
                 }
@@ -148,13 +148,13 @@
                         //aggiungo il giocatore alla lista
                         array_push($_SESSION['listaGiocatori'],$_GET['usernameGiocatore']);
     
-                        $feedback_message = '<p id="feedbackAddGiocatore">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
                     }
                     else if(!(array_search($_GET['usernameGiocatore'],$_SESSION['listaGiocatori']) === false)){
-                        $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
                     }
                     else{
-                        $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
     
                 }
