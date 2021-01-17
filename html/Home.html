@@ -13,8 +13,8 @@
 <meta charset="utf-8" >
 
 <link rel="stylesheet" href="style/mainStyle.css" media="screen"/>      
-<link rel="stylesheet" href="style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>    
-<link rel="stylesheet" href="style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
+<link rel="stylesheet" href="style/mediumStyle.css" media="screen and (max-width:768px), only screen and (max-width:768px)"/>    
+<link rel="stylesheet" href="style/smallStyle.css" media="screen and (max-width:480px), only screen and (max-width:480px)"/>
 <link rel="stylesheet" href="style/printStyle.css" media="print"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="js/scripts.js"></script> 
@@ -77,10 +77,10 @@ ACCESSIBILITÀ CHECK LIST
             </form>
         </div>
 
-        <a hred="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" id="currentLink">Home</li>
+            <li role="none" xml:lang="en" lang="en" id="currentLink">Home</li>
             <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
                 <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
@@ -121,7 +121,7 @@ ACCESSIBILITÀ CHECK LIST
             <dt>Preparati per la sessione con la nostra..</dt>
             <dd><a class="buttonLink" href="php/character_creation(FormAction).php">Scheda Giocatore</a></dd>
             <dt>Dai un seguito alla tua avventura con il..</dt>
-            <dd><a class="buttonLink" href="php/CreazioneReportPage.php"><span xml:lang="en">Report</span> di Sessione</a></dd>
+            <dd><a class="buttonLink" href="php/CreazioneReportPage.php"><span xml:lang="en" lang="en">Report</span> di Sessione</a></dd>
         </dl>     
     </header>
 
@@ -131,7 +131,7 @@ ACCESSIBILITÀ CHECK LIST
 
     <div id="presentazioneFeatures">
 
-    <h2>La cornice adatta a <span class="DeD" xml:lang="en">Dungeons &amp; Dragons</span></h2>       <!--Mettere sempre class D&D in css metter con un after il sibolo: ® -->
+    <h2>La cornice adatta a <span class="DeD" xml:lang="en" lang="en">Dungeons &amp; Dragons</span></h2>       <!--Mettere sempre class D&D in css metter con un after il sibolo: ® -->
     <p>Contorna la tua esperienza di gioco dall’inizio 
         alla fine con un ambiente ideale per condividere 
         la tua passione con tutti i tuoi amici</p>
@@ -155,7 +155,7 @@ ACCESSIBILITÀ CHECK LIST
         <li>
             <img src="img/features/utente.png" alt=""/>
         
-            <p>La <span xml:lang="en">community</span> aspetta solo di conoscerti! <em>Accedi alla tua 
+            <p>La <span xml:lang="en" lang="en">community</span> aspetta solo di conoscerti! <em>Accedi alla tua 
                 Area Personale</em> e raccontaci che tipo di giocatore sei</p>                              <!--Area Riservata e altre keyword da mettere in enfasi oppure come href-->
         </li>
         <li>
@@ -179,7 +179,7 @@ ACCESSIBILITÀ CHECK LIST
         <li>
             <img src="img/features/dashboard.png" alt=""/>
 
-            <p><em>La <span xml:lang="en">dashboard</span> </em> permetterà di tenere traccia
+            <p><em>La <span xml:lang="en" lang="en">dashboard</span> </em> permetterà di tenere traccia
                 dei report che hai pubblicato da Master e di quelli che ti riguardano come giocatore</p>
         </li>
     </ul>
@@ -199,7 +199,7 @@ ACCESSIBILITÀ CHECK LIST
 
     <section>
         <p>Le esperienze vissute durante una sessione di gioco sono troppo preziose 
-            per essere dimenticate, per questa ragione il <strong><span xml:lang="en">report</span> di sessione</strong>  ti offre
+            per essere dimenticate, per questa ragione il <strong><span xml:lang="en" lang="en">report</span> di sessione</strong>  ti offre
             uno spazio dove <strong>custodire il tuo ricordo</strong> e costellarlo di elementi utili come:</p>
     </section>
     <ol>
@@ -208,7 +208,7 @@ ACCESSIBILITÀ CHECK LIST
         <li><strong>Area commenti</strong></li>
     </ol>
     <section>
-        <p>L’<span>area commenti</span> del <span xml:lang="en">report</span> ti permetterà di visualizzare la vostra avventura
+        <p>L’<span>area commenti</span> del <span xml:lang="en" lang="en">report</span> ti permetterà di visualizzare la vostra avventura
             dall’esterno e <strong>fantasticare sull’evoluzione del gioco</strong>, perché si sa: l’intuizione 
             geniale può arrivare da ogni dove, anche da un semplice commento…</p>
     </section>
@@ -276,8 +276,8 @@ ACCESSIBILITÀ CHECK LIST
     <h2>Approfondimenti</h2>                                                       <!--Da aggiungere gli href-->
     <p>Ti sfugge qualcosa? Scopri di più sulle <strong>principali tematiche</strong> che trattiamo</p>
     <ul>
-        <li><a href="php/Approf_D&D.php" id="toApprDeD"><span xml:lang="en">Dungeons &amp; Dragons</span></a></li>
-        <li><a href="php/Approf_report.php" id="toApprRep"><span><span xml:lang="en">Report</span> di Sessione</span></a></li>
+        <li><a href="php/Approf_D&D.php" id="toApprDeD"><span xml:lang="en" lang="en">Dungeons &amp; Dragons</span></a></li>
+        <li><a href="php/Approf_report.php" id="toApprRep"><span><span xml:lang="en" lang="en">Report</span> di Sessione</span></a></li>
         <li><a href="php/Approf_personaggio.php" id="toApprSche"><span>Scheda giocatore</span></a></li>
         <li><a href="php/Approf_esplora.php" id="toApprEsp"><span>Sezione "Esplora"</span></a></li>
     </ul>
