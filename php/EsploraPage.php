@@ -94,7 +94,7 @@ else{
                 <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
             </div>
         <footer>
-            <p class=\"lableRepPublico\"><span xml:lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>
+            <p class=\"lableRepPublico\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>
         </footer>
         </button>
         </li>\n";

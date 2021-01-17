@@ -82,7 +82,7 @@
         <section id="reportEsplora" class="report">
             <form action="../php/action_report.php" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
                 <header>
-                    <h2><span xlm:lang="en">Report</span> Globali</h2>
+                    <h2><span xml:lang="en" lang="en">Report</span> Globali</h2>
                 </header>
                 <div class="box">
                 <ul class="cards">
@@ -90,8 +90,9 @@
                 </ul>
                 </div>
                 <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+                    <div id="anchorEsplora"></div>
                     <ul>
-                          <li><label id="LblEsploraPrecedente" for="esploraPrecedente">precedente</label></li><div id="anchorEsplora"></div>
+                          <li><label id="LblEsploraPrecedente" for="esploraPrecedente">precedente</label></li>
                           <li class="inputMove"><input type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente"></li>                     
                           <li><span><abbr>Pag</abbr></span>. <span id="numPagEsplora"><currentPageReport/></span>/<span id="totNumPagEsplora"><totPagReport/></span></li>
                           <li class="inputMove"><input type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo"></li> 
@@ -133,7 +134,6 @@
                 </li>
             </ul>
         </aside>
-        </div>
     </div>
 
     <footerPH />
