@@ -54,7 +54,7 @@
 
         if($err["rep_passwd_err"])
     {
-            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\" class=\"text-errore\">", $html);
+            $html = str_replace("<p class=\"RepPasswdErr hidden\">","<p class=\"RepPasswdErr\" class=\"text-errore\">", $html);
             $html = str_replace("name=\"PasswdAgan\"", "name=\"PasswdAgan\" class=\"input-errore\"", $html);
             $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
