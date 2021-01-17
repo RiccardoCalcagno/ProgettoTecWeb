@@ -549,7 +549,7 @@ form#datiUtenza > div:first-child {
     text-align: center;
 }
 
-#datiUtenza #username{
+#datiUtenza #username, #datiUtenza #future_username {
     width: 20em;
     display: block;
 }
