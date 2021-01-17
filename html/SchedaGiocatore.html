@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -30,9 +30,11 @@
     
             <div id="access">
                 <form action="../php/action.php" method="GET">
-                    <input type="text" class="hidden" name="beforeAccess" value="CharacterPage.php"/>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->      
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->  
+                    <div>
+                        <input type="text" class="hidden" name="beforeAccess" value="CharacterPage.php" />
+                        <input id="Accesso" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->
+                        <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    </div>
                 </form>
             </div>
 
@@ -148,7 +150,9 @@
             </li>
         </ul>
 
-        <input type="hidden" id="charID" name="charID" value="<charIDValue />" />
+        <div>
+            <input type="hidden" id="charID" name="charID" value="<charIDValue />" />
+        </div>
         </form>
         <footer>
             <a href="#intestazioneSito" id="tornaSuFooter">Torna su</a> <!-- button scrollTo(0,0); :o) -->
