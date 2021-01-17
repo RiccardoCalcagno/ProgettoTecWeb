@@ -17,7 +17,7 @@
         $headTitle = ''; $header = ''; $p = ''; $button = '';
         
         if($toEdit){
-            $headTitle = '<title>Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione</title>
+            $headTitle = '<title>Modifica Report di Sessione</title>
             <meta name="title" content="Modifica Report di Sessione" />
             <meta name="description" content="Modifica il tuo report di sessione" />
             <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />';
@@ -32,7 +32,7 @@
             $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA" aria-label="salva la modifica del report"/>';
         }
         else {
-            $headTitle = '<title>Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione</title>
+            $headTitle = '<title>Creazione Report di Sessione</title>
             <meta name="title" content="Creazione Report di Sessione" />
             <meta name="description" content="Crea il tuo report di sessione" />
             <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />';
@@ -156,7 +156,7 @@
                     else{
                         $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
-    
+                    $html = str_replace("<altriAiutiDiNavigazione/>", '<li><a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a></li>', $html);
                 }
                 else {
                     errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
@@ -235,7 +235,7 @@
                                             <img src="'.$dbInterface->getUserPic($singleUser).'" alt="Immagine di Profilo" />
                                             <p class="textVariable">'.$singleUser.'</p>
                                         </div>
-                                        <button title="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
+                                        <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
                                     </div>
                                 </li>';
     }
