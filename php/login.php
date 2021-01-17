@@ -16,7 +16,7 @@
     {
     //echo "errore trovato";
         $username = $_SESSION["tmp"];
-        $html = str_replace("<p id=\"loginError\" class=\"hidden\">","<p id=\"loginError\" class=\"text-errore\">", $html);
+        $html = str_replace("<p class=\"loginError hidden\">","<p class=\"loginError text-errore\">", $html);
 	$html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
 	$html = str_replace("name=\"password\"", "name=\"password\" class=\"input-errore\"", $html);
         session_destroy();

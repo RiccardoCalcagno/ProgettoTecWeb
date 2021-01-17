@@ -1364,7 +1364,7 @@ ul#listaCommenti {
     background-repeat: repeat-y;
     margin-bottom: calc(1em + 20px);
 }
-#contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena h2, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena span{
+#contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena dt, #contentPersonaggio.pergamena span{
     font-family: Garamond, serif;
     font-weight: 600;
     color: #331e06;
@@ -1397,12 +1397,8 @@ ul#listaCommenti {
     margin-top: 0;
 }
 
-#contentPersonaggio.pergamena h2{
-    font-size: 1.8em;
-    padding-bottom: 0em;
-}
-
 #contentPersonaggio.pergamena dt{
+    font-size: 1.8em;
     padding-top: 2em;
     margin-right: 2em;
 }
@@ -2621,7 +2617,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     margin:auto;
 }
 
-#loginError {
+.loginError {
     margin:auto;
 }
 

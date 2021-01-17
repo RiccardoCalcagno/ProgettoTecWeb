@@ -952,6 +952,7 @@ form#datiUtenza{
 }
 
 #contentPersonaggio.pergamena dt{
+    font-size: 1.5em;
     padding-top: 0;
 }
 
@@ -966,10 +967,6 @@ form#datiUtenza{
 
 .pergamena #infoBreviPersonaggio dd{
     font-size: 1.2em;
-}
-
-#contentPersonaggio.pergamena h2 {
-    font-size: 1.5em;
 }
 
 /* TO FIX KEEP ? */
