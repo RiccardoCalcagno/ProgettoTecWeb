@@ -441,11 +441,29 @@ body{
 /* body > footer {
     margin-top: 5%;
 } */
+#globalFooter {
+    text-align: center;
+}
+
+#globalFooter.static {
+    border-top: 13px solid black;
+}
+
+#globalFooter.static #tornaSuFooter,  #globalFooter.static dl{
+    display: none;
+}
+
+#globalFooter.static #footerContent a {
+    display: inline-block;
+    padding-bottom: 0.5em;
+}
+
+#globalFooter.interactive #footerContent a {
+    display: none;
+}
 
 #tornaSuFooter {
     display: block;
-    padding: 0.2em 0;
-    text-align: center;
     /*text-decoration: none;*/
     font-size: 1.2em;
     border: 2px solid black;
@@ -464,8 +482,8 @@ body{
 }
 
 #footerContent h2 {
+    font-size: 2.5em;
     padding-bottom: 0.1em;
-    text-align: center;
 }
 
 #footerContent dl {
@@ -473,7 +491,6 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 0.5em 0 1.5em 3%;
     margin: auto;
 }
@@ -499,8 +516,8 @@ body{
 #footerContent dl dd {
     font-size: 0.9em;
     display: none;
-    width: 100%;
-    margin: 1.5em 4% 0;
+    width: 92%;
+    margin: 1.5em auto 0;
 }
 
 #footerContent dl dd a {
@@ -2693,6 +2710,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 
 #reportEsplora{
     padding-top:2em;
+    padding-bottom: 2em;
     margin: auto;
     margin-top: 0;
     flex: 1 1 65%;
