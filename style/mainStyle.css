@@ -2621,7 +2621,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
     margin:auto;
 }
 
-#loginError {
+.loginError {
     margin:auto;
 }
 
