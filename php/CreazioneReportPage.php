@@ -62,7 +62,7 @@
     staged_session();
 
     $toEdit = false;
-    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; 
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $message = ''; $feedback_message = '';
     if ( isset($_SESSION['id_report_modifica']) ) {
         $toEdit =  true;
         $id_report = $_SESSION['id_report_modifica'];
@@ -157,7 +157,6 @@
                         $feedback_message = '<p id="feedbackAddGiocatore"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
     
-                    $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
                 }
                 else {
                     errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
@@ -222,6 +221,7 @@
     $html = str_replace('<valueTitle />',$titolo,$html);
     $html = str_replace('<valueSubtitle />',$sottotitolo,$html);
     $html = str_replace('<valueContent />',$contenuto,$html);
+    $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
 
     $dbInterface = new DBinterface();
     $connection = $dbInterface->openConnection();
