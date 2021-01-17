@@ -17,6 +17,7 @@
     font-size: 0.8em;
     height: 3.3em;
 }
+
 #intestazioneSito #menu li#currentLink{
     padding-top: 1em;
     height: 1.8em;
@@ -24,6 +25,9 @@
 #intestazioneSito #menu > li > a{
     padding-top: 1em;
     height:1.8em;
+}
+#intestazioneSito #menu > li:last-child > a {
+    padding-right: 0;
 }
 #intestazioneSito #access {
     width: 10.4em;
