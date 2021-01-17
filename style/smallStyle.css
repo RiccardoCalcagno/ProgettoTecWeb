@@ -677,8 +677,9 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
     width: calc(100% - 1em);
     padding: 0;
     border: 6px inset #dfdfdf;
-    overflow: hidden;
+    overflow: scroll;
     margin: 1em auto;
+    height: 11em;
 }
 
 #creazioneReport #selezionamentoGiocatori ul li{
