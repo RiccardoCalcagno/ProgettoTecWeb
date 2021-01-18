@@ -69,9 +69,9 @@
                     <fieldset id='bannerSalvataggio'>
                     <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
                 if($_SESSION['banners']=="elementi_salvati_errore"){
-                    $htmlBanner.="<p id='titoloAvviso'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
+                    $htmlBanner.="<p id='titoloAvviso' tabindex='1'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
-                    $htmlBanner.="<p id='titoloAvviso'>Sono stati salvati i seguenti documenti</p><ul>";
+                    $htmlBanner.="<p id='titoloAvviso' tabindex='1'>Sono stati salvati i seguenti documenti</p><ul>";
                 }
 
                 if(isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports'])){
@@ -107,7 +107,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' ></a>                          
                     </div>  
-                    <h1>Salvataggio Pendente</h1>
+                    <h1 tabindex='1' aria-label='messaggio di conferma: salvataggio pendente'>Salvataggio Pendente</h1>
                     <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
                     <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
                         verrà automaticamente salvato nella tua Area Personale</p>
@@ -121,7 +121,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' ></a>                          
                     </div>
-                    <h1>Creazione Confermata</h1>
+                    <h1 tabindex='1' aria-label='messaggio di conferma: Creazione Confermata'>Creazione Confermata</h1>
                     <p>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'>Quando vorrai potrai recuperare questo speciale manufatto nella tua </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
@@ -133,7 +133,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' ></a>                          
                     </div>
-                        <h1>Modifica Confermata</h1>
+                        <h1 tabindex='1' aria-label='messaggio di conferma: Modifica confermata'>Modifica Confermata</h1>
                         <p>Confermiamo che la modifica del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
@@ -145,7 +145,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' ></a>                          
                     </div>
-                    <h1>Registrazione Confermata</h1>
+                    <h1 tabindex='1' aria-label='messaggio di conferma: Registrazione Confermata'>Registrazione Confermata</h1>
                     <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
@@ -157,7 +157,7 @@
                     <div id='closeDirettamente'>
                         <a href='PLACEHOLDER' ></a>                          
                     </div>
-                    <h1>Modifica utente confermata</h1>
+                    <h1 tabindex='1' aria-label='messaggio di conferma: Modifica utente confermata'>Modifica utente confermata</h1>
                     <p>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
@@ -166,7 +166,7 @@
                 break;
                 case "confermare_eliminazione_personaggio":
                     $htmlBanner .= "
-                    <h1>Confermare Eliminazione</h1>
+                    <h1 tabindex='1' aria-label='messaggio di richiesta di conferma: Confermare Eliminazione'>Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
                     <form id='linkVelociPostConferma' method='POST' action='action_character.php'>
@@ -180,7 +180,7 @@
                 break;
                 case "confermare_eliminazione_report":
                     $htmlBanner .= "
-                    <h1>Confermare Eliminazione</h1>
+                    <h1 tabindex='1' aria-label='messaggio di richiesta di conferma: confermare eliminazione'>Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
@@ -194,7 +194,7 @@
                 break;
                 case "confermare_eliminazione_commento":
                     $htmlBanner .= "
-                    <h1>Confermare Eliminazione</h1>
+                    <h1 tabindex='1' aria-label='messaggio di richiesta di conferma: confermare eliminazione'>Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questo commento?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
@@ -212,7 +212,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' ></a>                          
                     </div>
-                        <h1>Pubblicazione Confermata</h1>
+                        <h1 tabindex='1' aria-label='messaggio di conferma: Publicazione confermata'>Pubblicazione Confermata</h1>
                         <p>Confermiamo che la pubblicazion del <span xml:lang=\"en\" lang=\"en\">report</span> nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
                         <p>Dai subito un'occhiata al tuo <span xml:lang=\"en\" lang=\"en\">Report</span> nella sezione Esplora</p>
                     <div id='linkVelociPostConferma'>
