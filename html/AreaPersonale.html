@@ -26,10 +26,10 @@
     <header id="intestazioneSito">
 
         <ul class="AiutiNavigazione">
-            <li><a href="">Vai al Menù</a></li>
-            <li><a href="">Vai al Contenuto</a></li>
-            <li><a href="">Salta alla sezione Schede Giocatore</a></li>
-            <li><a href="">Salta alla sezione <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+            <li><a href="#menu">Vai al Menù</a></li>
+            <li><a href="#titolo">Vai al Contenuto</a></li>
+            <li><a href="#titolo_schede_giocatore">Salta alla sezione Schede Giocatore</a></li>
+            <li><a href="#titolo_schede_report">Salta alla sezione <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
         </ul>
 
         <div id="access">
@@ -77,7 +77,7 @@
 
     <div role="main">
     <header id="intestazionePagina">
-        <h1>Benvenuto in Area Personale</h1>
+        <h1 id="titolo">Benvenuto in Area Personale</h1>
         <p>In questa pagina troverai le <strong>informazioni</strong> che caratterizzano la tua 
             <strong>identità</strong> su questo sito, le <strong>schede utente</strong> e i 
             <strong xml:lang="en" lang="en">report</strong> che hai creato oltre ai <span xml:lang="en" lang="en">report</span> 
@@ -115,7 +115,7 @@
 
     <section id="personaggiUtente">
         <header>
-            <h2>Schede Giocatore</h2>
+            <h2 id="titolo_schede_giocatore">Schede Giocatore</h2>
             <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
         </header>
         <div class="box">
@@ -139,7 +139,7 @@
 
     <section class="report">
         <header>
-            <h2><span xml:lang="en" lang="en">Report</span> Sessione</h2>
+            <h2 id="titolo_schede_report"><span xml:lang="en" lang="en">Report</span> Sessione</h2>
             <a href="../php/CreazioneReportPage.php" class="buttonLink">Aggiungi <span xml:lang="en" lang="en">report</span> sessione</a>           <!--Da completare href-->
         </header>
         <div class="listeReport">
