@@ -152,7 +152,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 }
 #copertina #titolo::after{
     top: -1em;
-    left: calc(60vw - 10em);
     width: 20em;
     height: 6.54em;
     background-size: 20em 6.54em;
@@ -161,6 +160,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 #copertina header dl{
     width: 20em;
     margin-right: 2em;
+    left: calc(60vw - 10em);
     top:6em;
     padding: 0.5em;
     border-top-left-radius: 3em;
