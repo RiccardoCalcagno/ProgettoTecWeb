@@ -64,8 +64,8 @@ function changeCharLayout($html) {
       '<button id="pergamena" class="active" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)">PERGAMENA</button>', $html
     );
     $html = str_replace(
-      '<button id="scheda" class="active" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)">STANDARD D&D</button>',
-      '<button id="scheda" class="disabled" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)" disabled="disabled">STANDARD D&amp;D</button>', $html
+      '<button id="scheda" class="active" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)">STAN<span xml:lang="en" lang="en">STANDARD</span>DARD D&D</button>',
+      '<button id="scheda" class="disabled" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)" disabled="disabled"><span xml:lang="en" lang="en">STANDARD</span> D&amp;D</button>', $html
     );
 
     // Modifica Layout
