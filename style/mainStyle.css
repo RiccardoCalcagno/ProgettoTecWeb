@@ -624,9 +624,11 @@ body{
     color:#FFFFFF;
     text-decoration: underline;
 }
+#bannerSalvataggio a:visited{
+    color:#ffecac;
+}
 #bannerSalvataggio #chiusuraBanner{
     font-weight: 500;
-    color:#ffc8c8;
     cursor: pointer;
 }
 #bannerSalvataggio #chiusuraBanner:before{
