@@ -101,6 +101,10 @@
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
 
+    echo ini_get('upload_tmp_dir');
+    /*ini_set('upload_tmp_dir', '..\uploads');
+    echo ini_get('upload_tmp_dir');*/
+
     if(!empty($_SESSION["tmpUser"]["img"]))
         $html = str_replace("<imgValue>", $_FILES["imgProfilo"]["tmp_name"] , $html);
 
