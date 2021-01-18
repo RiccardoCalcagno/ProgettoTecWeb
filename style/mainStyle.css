@@ -505,9 +505,23 @@ body{
 }
 
 #footerContent h2 {
-    font-size: 2.5em;
+    font-size: 1em;
+    position: absolute;
+    left: -10000px;
     padding-bottom: 0.1em;
 }
+#footerContent h2::after{
+    content: " ";
+    position: relative;
+    left: calc(3em + 10000px);
+    top: -2em;
+    display: block;
+    width: 5em;
+    height: 1.633em;
+    background-image: url(../img/logo.png);
+    background-size: 5em 1.633em;
+}
+
 
 #footerContent dl {
     display: flex;
