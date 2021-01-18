@@ -269,6 +269,7 @@ function validazioneCampo(input, inputArray) {
 
     // Elimino messaggi precedenti per evitare ripetizione
    clearErrorStatus(input);
+   document.getElementById('content').focus();
 
     var regex = inputArray[0]; // Espressione regolare associata all' ID
     var text = input.value;
@@ -296,7 +297,6 @@ function mostraErrore(input, inputArray) {
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
     elemento.setAttribute("tabindex","10");
-    document.getElementById('breadContent').click();
     //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
     elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
     
