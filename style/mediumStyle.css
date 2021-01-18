@@ -150,9 +150,17 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     position: relative;
     left: calc(100% - 800px);
 }
+#copertina #titolo::after{
+    top: -1em;
+    width: 20em;
+    height: 6.54em;
+    background-size: 20em 6.54em;
+}
+
 #copertina header dl{
     width: 20em;
     margin-right: 2em;
+    top:6em;
     padding: 0.5em;
     border-top-left-radius: 3em;
     border-bottom-right-radius: 3em;

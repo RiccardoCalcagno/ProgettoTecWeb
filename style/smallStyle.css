@@ -237,11 +237,16 @@ input[type="file"]{
     position: relative;
     width: calc(100% - 1.5em);
     top: 2.8em;
+    left: 0;
     background-color: #ffecc4e3;
     float: none;
     clear: both;
     padding: 0.5em;
     border-radius: 2em;
+}
+#copertina #titolo::after{
+    top: -0.3em;
+    left: calc(10000px + 50vw - 2.5em);
 }
 #copertina header dl#starFeature > dt{
     width: 100%;
