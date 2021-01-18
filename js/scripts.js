@@ -261,6 +261,9 @@ function validateForm(testArray) {
             firstError = false;
         }
     }
+    if(!corretto){
+        location.reload();
+    }
 
     return corretto;
 }
@@ -269,7 +272,6 @@ function validazioneCampo(input, inputArray) {
 
     // Elimino messaggi precedenti per evitare ripetizione
    clearErrorStatus(input);
-   document.getElementById('content').focus();
 
     var regex = inputArray[0]; // Espressione regolare associata all' ID
     var text = input.value;
