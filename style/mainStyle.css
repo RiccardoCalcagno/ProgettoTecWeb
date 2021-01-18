@@ -2299,6 +2299,7 @@ p.campiObbligatori{
     margin: 1em 5px 1.2em 1em;
     background-color: #ffdfa4;
     background-image: url(../img/sfondo_card_personaggi.png);
+    background-size: 10.25em 13em;
     border: 11px ridge #915f14cc;
 }
 #personaggiUtente .cardPersonaggio button{
