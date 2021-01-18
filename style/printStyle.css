@@ -493,7 +493,7 @@ textarea {
     font-weight: 500;
     display: block;
     text-align: center;
-    padding-bottom: 0.4em;
+    padding: 0.4em 0;
 }
 
 #loginBody form > input{
@@ -506,7 +506,7 @@ textarea {
     width: 90%;
     display: flex;
     margin: auto;
-    padding-bottom: 0.4em;
+    padding: 1em;
 }
 
 #loginBody #submitLogin div >*{
