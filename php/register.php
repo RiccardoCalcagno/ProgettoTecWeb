@@ -18,11 +18,6 @@
         $email = $_SESSION["tmpUser"]["email"];
         $birthdate = $_SESSION["tmpUser"]["birthdate"];
 
-
-        if(!empty($_SESSION["tmpUser"]["img"]))
-            $_FILES["imgProfilo"]=$_SESSION["tmpUser"]["img"];
-
-
         $err = $_SESSION["err"];
 
         if($err["img_err"])
@@ -100,15 +95,6 @@
     $html = str_replace("value=\"<name>\"", "value=\"" . $name_surname . "\"", $html);
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
-
-    echo ini_get('upload_tmp_dir');
-    /*ini_set('upload_tmp_dir', '..\uploads');
-    echo ini_get('upload_tmp_dir');*/
-
-    if(!empty($_SESSION["tmpUser"]["img"]))
-        $html = str_replace("<imgValue>", $_FILES["imgProfilo"]["tmp_name"] , $html);
-
-
 
     if(isset($_SESSION['banners']) && $_SESSION['banners']=="creazione_utente_confermata"){
 

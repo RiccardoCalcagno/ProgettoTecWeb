@@ -141,10 +141,6 @@
         $_SESSION["tmpUser"]["birthdate"] = $birthdate;
 
 
-        $_SESSION["tmpUser"]["img"] = $_FILES["imgProfilo"];
-
-
-
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
                 $_SESSION["err"] = $err;
                 header("Location: register.php");

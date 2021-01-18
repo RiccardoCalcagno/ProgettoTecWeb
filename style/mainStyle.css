@@ -2538,6 +2538,10 @@ p.campiObbligatori{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+body#modificaDati #menu {
+    height: 2.7em;
+}
+
 #modificaDati #intestazionePagina{
     padding-bottom: 2.5em;
 }
