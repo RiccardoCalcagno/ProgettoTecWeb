@@ -825,6 +825,7 @@ body{
 
 .puntoInterrogativo{
     width: 30px;
+    color:#000000;
     font-size: 20px;
     vertical-align:middle;
     text-align: center;
@@ -834,11 +835,17 @@ body{
     border-radius: 1em;
     text-decoration: none;
 }
+.puntoInterrogativo:visited{
+    background-color:#769100;
+    color:#FFFFFF;
+}
 .puntoInterrogativo:hover{
-    background-color:#ffe3af;
+    background-color:#ffffff;
+    color:#db6a00;
 }
 .puntoInterrogativo:active{
-    background-color:#ffb26a;
+    background-color:#ffc291;
+    color:#bd5b00;
 }
 
 
@@ -1233,7 +1240,7 @@ section#testoReport {
 ul#listaCommenti {
     max-height: 21.7em;
     overflow: scroll;
-    background-color: #fffbf5;
+    background-color: #f7ecd4;
     border-radius: 0.5em;
 }
 
@@ -2301,7 +2308,7 @@ p.campiObbligatori{
     flex: 0 0 10.25em;
     height: 13em;
     margin: 1em 5px 1.2em 1em;
-    background-color: #f8d38d;
+    background-color: #ffdfa4;
     background-image: url(../img/sfondo_card_personaggi.png);
     border: 11px ridge #915f14cc;
 }
