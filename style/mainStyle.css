@@ -896,6 +896,11 @@ body{
 ------------------------------------------------------------------------------------------------
 */
 
+#ritorna{
+    margin-top: 1em;
+}
+
+
 #approfondimenti{
     margin: auto;
     text-align: center;
