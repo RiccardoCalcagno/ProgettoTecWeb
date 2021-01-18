@@ -666,13 +666,19 @@ body{
     padding-left: 5%;
 
 }
+#copertina #titolo{
+    font-size: 0;
+}
 #copertina #titolo::after{
     content:" ";
+    position: absolute;
+    top:5em;
+    left:10em;
     display: block;
-    width: 15em;
-    height: 4.9em;
+    width: 10em;
+    height: 3.268em;
     background-image:url(../img/logo.png);
-    background-size: 15em 4.9em;
+    background-size: 10em 3.268em;
 }
 
 #copertina header h1{
