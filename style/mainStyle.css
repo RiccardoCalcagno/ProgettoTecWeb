@@ -156,13 +156,13 @@ a.buttonLink {
 }
 
 a.buttonLink:visited,a.annulla:visited{
-    background-color: #99bb00 !important;
+    background-color: #7d9900 !important;
 }
 a.buttonLink:visited:hover, a.buttonLink:visited:focus, a.annulla:visited:hover, a.annulla:visited:focus{
-    background-color: #bbe800 !important;
+    background-color: #a1c900 !important;
 }
 a.buttonLink:visited:active, a.annulla:visited:active{
-    background-color: #89d500 !important;
+    background-color: #61b600 !important;
 }
 
 .annulla{
