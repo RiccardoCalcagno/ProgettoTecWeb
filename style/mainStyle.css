@@ -166,7 +166,7 @@ a.buttonLink:visited:active, a.annulla:visited:active{
 }
 
 .annulla{
-    background-color: #856603;
+    background-color: #bb7000;
     color: #FFF8E6;
     text-align: center;
     width:20em;
@@ -181,10 +181,10 @@ a.buttonLink:visited:active, a.annulla:visited:active{
     height: 2.15em;
 }
 .annulla:hover{
-    background-color: #9e7a04;
+    background-color: #ca7900;
 }
 .annulla:active{
-    background-color: #a56108;
+    background-color: #cf6f00;
 }
 
 .espandi{
