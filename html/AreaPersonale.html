@@ -161,11 +161,11 @@
             <nav class="espandi" id='report_master'>                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                 <div id="anchorMaster"></div>
                 <ul>
-                  <li><label id="LblMasterPrecedente" for="masterPrecedente">precedente</label></li>
+                  <li><label id="LblMasterPrecedente" for="masterPrecedente" aria-label="passa alla pagina precedente della dashboard: i tuoi report">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
                   <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagMaster"><numero_attuale_master/></span>/<span id="totNumPagMaster"><numero_di_master/></span></li>
                   <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
-                  <li><label id="LblMasterSuccessivo" for="masterSuccessivo">successiva</label></li>
+                  <li><label id="LblMasterSuccessivo" for="masterSuccessivo" aria-label="passa alla pagina successiva della dashboard: i tuoi report">successiva</label></li>
                 </ul> 
               </nav>
             </form>
@@ -190,11 +190,11 @@
             <nav class="espandi" id='report_normale'>  
                 <div id="anchorPartecipante"></div>                    
                 <ul>
-                  <li><label id="LblPartecPrecedente" for="partecPrecedente">precedente</label></li>
+                  <li><label id="LblPartecPrecedente" for="partecPrecedente" aria-label="passa alla pagina precedente della dashboard: report condivisi con te">precedente</label></li>
                   <li class="inputMove"><input type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente"/></li>                     
                   <li><span><abbr title="pagina">Pag</abbr></span>. <span id="numPagPartec"><numero_attuale_report/></span>/<span id="totNumPagPartec"><numero_di_report/></span></li>
                   <li class="inputMove"><input type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo"/></li>  
-                  <li><label id="LblPartecSuccessivo" for="partecSuccessivo">successiva</label></li>
+                  <li><label id="LblPartecSuccessivo" for="partecSuccessivo" aria-label="passa alla pagina successiva della dashboard: report condivisi con te">successiva</label></li>
                 </ul>
               </nav>
             </form>
