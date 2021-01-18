@@ -156,17 +156,17 @@ a.buttonLink {
 }
 
 a.buttonLink:visited,a.annulla:visited{
-    background-color: #80820b !important;
+    background-color: #7d9900 !important;
 }
 a.buttonLink:visited:hover, a.buttonLink:visited:focus, a.annulla:visited:hover, a.annulla:visited:focus{
-    background-color: #9c9e1f !important;
+    background-color: #a1c900 !important;
 }
 a.buttonLink:visited:active, a.annulla:visited:active{
-    background-color: #5c9e1f !important;
+    background-color: #61b600 !important;
 }
 
 .annulla{
-    background-color: #856603;
+    background-color: #bb7000;
     color: #FFF8E6;
     text-align: center;
     width:20em;
@@ -181,10 +181,10 @@ a.buttonLink:visited:active, a.annulla:visited:active{
     height: 2.15em;
 }
 .annulla:hover{
-    background-color: #9e7a04;
+    background-color: #ca7900;
 }
 .annulla:active{
-    background-color: #a56108;
+    background-color: #cf6f00;
 }
 
 .espandi{
@@ -426,34 +426,30 @@ body{
 
 #access #Accesso{
     background-color:#8f5b20;
-    color: #FFF0D4;
+    color: #FFFFFF;
     margin-right: 5%;
 }
+#access #Accesso:hover{
+    background-color:#a36a28;
+}
+#access #Accesso:active{
+    background-color:#ac5c00;
+}
 #access #Iscrizione{
-    background-color: #41208f;
-    color: #FFF0D4;
+    background-color: #7d9900;
+    color: #FFFFFF;
 }
 #access #Iscrizione:hover{
-    background-color: #5722d3;
-    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
+    background-color: #a1c900;
 }
 #access #Iscrizione:active{
-    background-color: rgba(40, 52, 163, 0.644);
-    box-shadow: inset 0 0 0 2px rgba(0, 41, 117, 0.397);
+    background-color: #61b600;
 }
 
 #areaPersonale #access input[value="Area Personale"]{
     cursor: default;
-    background-color:#FFF0D4;
-    color:black;
-}
-#areaPersonale #access input[value="Area Personale"]:hover{
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.1);
-    background-color:#FFF0D4;
-}
-#areaPersonale #access input[value="Area Personale"]:active{
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.1);
-    background-color:#FFF0D4;
+    background-color:#000000;
+    border-radius: 0;
 }
 
 
@@ -696,7 +692,9 @@ body{
     width: 22em;
     margin-right: 3em;
     display: block;
-    float: right;
+    position: relative;
+    left: 40vw;
+    top: 9em;
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;
