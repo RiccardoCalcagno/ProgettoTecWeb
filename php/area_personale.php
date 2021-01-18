@@ -203,11 +203,18 @@ else if($_SESSION["login"])
 
 
                 $_schede_report_master = "";
-
+                $countfirst=true;
                 for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                 {
+                    if($countfirst==true){
+                        $idfirstRep=" id='reportMaster1' ";
+                        $countfirst=false;
+                    }else{
+                        $idfirstRep="";
+                    }
+                    
                     $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
-                    <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
+                    <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() .$idfirstRep. "\">
                         <div>
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
@@ -271,10 +278,18 @@ else if($_SESSION["login"])
 
                 $_schede_report = "";
 
+                $countfirst=true;
                 for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                 {
+                        if($countfirst==true){
+                            $idfirstRep=" id='reportPartecipante1' ";
+                            $countfirst=false;
+                        }else{
+                            $idfirstRep="";
+                        }
+
                     $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
+                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() .$idfirstRep."\">
                         <div class=\"testoCardRep\">
                             <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
