@@ -103,11 +103,6 @@
         unset($_SESSION["tmpUser"]);
 
         $html = addPossibleBanner($html, "area_personale.php");
-        
-        echo var_dump($_SESSION['stagedReports']);
-        echo "HEYYYYYYYYYYYYYY";
-        echo var_dump($_SESSION['stagedPersonaggi']);
-        exit();
 
         switch( saveStaged() ){
             case -1: $_SESSION['banners']="elementi_salvati_errore"; break;
