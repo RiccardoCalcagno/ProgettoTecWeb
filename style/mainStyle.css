@@ -666,6 +666,15 @@ body{
     padding-left: 5%;
 
 }
+#copertina #titolo::after{
+    content:" ";
+    display: block;
+    width: 15em;
+    height: 4.9em;
+    background-image:url(../img/logo.png);
+    background-size: 15em 4.9em;
+}
+
 #copertina header h1{
     font-family: Garamond, serif;
     margin-bottom: 0.5em;
