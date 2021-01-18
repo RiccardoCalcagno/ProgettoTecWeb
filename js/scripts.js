@@ -375,11 +375,7 @@ var loginValues = {
 };
 
 function validateLogin() {
-    var b= validateForm(loginValues);
-    if(!b){
-        document.getElementById("submitiAccedi").setAttribute("aria-label","Accedi, Hai già risolto gli errori che ti abbiamo segnalato?");
-    }
-    return b;
+    return validateForm(loginValues);
 }
 
 // ---------------------------------------------------------------------------------
@@ -402,11 +398,7 @@ var newUserDataValues = {
 
 
 function validateUserData() {
-    var b= validateForm(newUserDataValues) && checkPasswordMatch();
-    if(!b){
-        document.getElementById("submitUtente").setAttribute("aria-label","Registrati, Hai già risolto gli errori che ti abbiamo segnalato?");
-    }
-    return b;
+    return validateForm(newUserDataValues) && checkPasswordMatch();
 }
 
 /* TO FIX MAKE BETTER */
@@ -443,19 +435,11 @@ var oldPasswordValue = {
 
 function validateChangeUserData() {
 //    validateForm(futureEmail) TO FIX !!!!!! ----------------------------------------------------------------------------------------------------------
-    var b= validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
-    if(!b){
-        document.getElementById("submitDatiUtente").setAttribute("aria-label","Salva Modifiche utente, Hai già risolto gli errori che ti abbiamo segnalato?");
-    }
-    return b;
+    return validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
 }
 
 function validateChangeUserPassword() {
-    var b= validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch();    
-    if(!b){
-        document.getElementById("submitNewPasswd").setAttribute("aria-label","Salva La nuova Password, Hai già risolto gli errori che ti abbiamo segnalato?");
-    }
-    return b;
+    return validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch();    
 }
 
 function updateProfileImg()
