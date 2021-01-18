@@ -39,7 +39,7 @@
     $banner = createPossibleBanner($returnPage);
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
-        $html = str_replace('</body', "</body tabindex='-1' ", $html);
+        $html = str_replace('<body', "<body tabindex='-1' ", $html);
     }
     if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'lementi_salvati')){
         if(isset($_SESSION['stagedReports'])){
