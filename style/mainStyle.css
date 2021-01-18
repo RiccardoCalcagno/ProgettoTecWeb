@@ -329,6 +329,9 @@ body{
     text-align: center;
     padding: 0.5em;
 }
+#menu a:visited{
+    color:#ffed86 !important;
+}
 
 #menu #currentLink {
     background-color:black;
