@@ -270,6 +270,11 @@ function validazioneCampo(input, inputArray) {
     // Elimino messaggi precedenti per evitare ripetizione
    clearErrorStatus(input);
 
+   var a=document.getElementsByClassName("text-errore");
+   for(var k in a){
+       k.className="hidden";
+   }
+
     var regex = inputArray[0]; // Espressione regolare associata all' ID
     var text = input.value;
     if (text.search(regex) != 0) {  // seartch match
