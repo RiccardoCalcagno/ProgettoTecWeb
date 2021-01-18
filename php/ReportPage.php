@@ -119,7 +119,7 @@ else {
         //ATTENZIONE, sopra è un alternativa, segue invece come se questa pagina ricevesse direttamente l'oggetto report, $report_info
 
         //titolo e sottotitolo
-        $replacer = '<h1>'.$report_info->get_title().'</h1>'.'<p>'.$report_info->get_subtitle().'</p>';
+        $replacer = '<h1 id="titolo">'.$report_info->get_title().'</h1>'.'<p>'.$report_info->get_subtitle().'</p>';
         $html = str_replace("<TitleAndSub_placeholder/>", $replacer, $html);
 
         //autore e img
@@ -163,7 +163,8 @@ else {
         //aggiungi un commento/registrati per commentare
         if(isset($_SESSION["username"])) {
             $replacer = '<div id="InserimentoCommento">
-                            <input type="text" placeholder="Lascia un commento.." name="contenutoCommento" />
+                            <label for="textComment" class="AiutiNavigazione">Digita un commento</label>
+                            <input type="text" id="textComment" placeholder="Lascia un commento.." name="contenutoCommento" />
                             <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
                         </div>';
             $html = str_replace("<InsertComment_placeholder/>", $replacer, $html);
@@ -188,7 +189,8 @@ else {
                 $replacer .= '<p>'.$commentsArray[$i]->get_text().'</p>';
                 $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i]->get_date().'</p></div>';      // TO FIX __________________----------------------------------------------------------------------------------------------------------------------
                 if($commentsArray[$i]->get_author()==$_SESSION["username"]){
-                    $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i]->get_id().'"/></li>';
+                    $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i]->get_id().'"
+                     aria-label="Elimina il commento: '.$commentsArray[$i]->get_text().'"/></li>';
                 }
             }
         }

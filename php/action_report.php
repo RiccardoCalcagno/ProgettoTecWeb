@@ -78,28 +78,28 @@
         if($_POST["espandi"] == "masterPrecedente")
         {
             $_SESSION["vai_indietro_master"] = true;
-            header("Location: area_personale.php#reportMaster1");
+            header("Location: area_personale.php#anchorMaster");
             exit();
         }
 
         if($_POST["espandi"] == "masterSuccessivo")
         {
             $_SESSION["vai_avanti_master"] = true;
-            header("Location: area_personale.php#reportMaster1");
+            header("Location: area_personale.php#anchorMaster");
             exit();
         }
 
         if($_POST["espandi"] == "partecPrecedente")
         {
             $_SESSION["vai_indietro_rep"] = true;
-            header("Location: area_personale.php#reportPartecipante1");
+            header("Location: area_personale.php#anchorPartecipante");
             exit();
         }
 
         if($_POST["espandi"] == "partecSuccessivo")
         {
             $_SESSION["vai_avanti_rep"] = true;
-            header("Location: area_personale.php#reportPartecipante1");
+            header("Location: area_personale.php#anchorPartecipante");
             exit();
         }
     }

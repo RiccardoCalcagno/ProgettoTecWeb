@@ -178,10 +178,14 @@ function switchCharLayout(clickedButton) {
     if (clickedButton.id == "pergamena") {
         otherButton = document.getElementById("scheda");
         content.className = "pergamena";
+        clickedButton.setAttribute("aria-label", "layout impostato: pergamena");
+        otherButton.setAttribute("aria-label", "clicca per impostare il layout a standard D&D");
     }
     else {
         otherButton = document.getElementById("pergamena");
         content.className = "scheda";
+        clickedButton.setAttribute("aria-label", "layout impostato: standard D&D");
+        otherButton.setAttribute("aria-label", "clicca per impostare il layout a pergamena");
     }
     
     clickedButton.className = "disabled";

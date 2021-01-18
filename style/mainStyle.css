@@ -108,9 +108,14 @@ body{
     /*color: ;                     DA CAMBIARE */
     content: ">\00a0";
 }
-
+#breadcrumb li a {
+    color: #FFFFFF;             /* DA CAMBIARE */
+  }
+#breadcrumb li a:visited {
+    color: #ffed86;             /* DA CAMBIARE */
+  } 
 #breadcrumb li a:hover {
-    color: #b4ceff;             /* DA CAMBIARE */
+    color: #ffd59f;             /* DA CAMBIARE */
   }
 
 .DeD::after {
@@ -132,7 +137,6 @@ button:focus{
     text-align: center;
     width:20em;
     height: 2.7em;
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.7);
     border-radius: 4px;
     border:none;
     cursor: pointer;
@@ -144,9 +148,25 @@ a.buttonLink {
     padding-top:0.55em;
     height: 2.15em;
 }
+.buttonLink:hover{
+    background-color: #a36a28 !important;
+}
+.buttonLink:active{
+    background-color: rgb(172, 91, 37);
+}
+
+a.buttonLink:visited,a.annulla:visited{
+    background-color: #80820b !important;
+}
+a.buttonLink:visited:hover, a.buttonLink:visited:focus, a.annulla:visited:hover, a.annulla:visited:focus{
+    background-color: #9c9e1f !important;
+}
+a.buttonLink:visited:active, a.annulla:visited:active{
+    background-color: #5c9e1f !important;
+}
 
 .annulla{
-    background-color: #8f5b20;
+    background-color: #856603;
     color: #FFF8E6;
     text-align: center;
     width:20em;
@@ -161,15 +181,11 @@ a.buttonLink {
     padding-top:0.55em;
     height: 2.15em;
 }
-
-
-.buttonLink:hover{
-    background-color: #a36a28;
-    box-shadow: inset 0 0 0 2px rgba(150, 91, 2, 0.637);
+.annulla:hover{
+    background-color: #9e7a04;
 }
-.buttonLink:active{
-    background-color: rgba(163, 106, 40, 0.644);
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.397);
+.annulla:active{
+    background-color: #a56108;
 }
 
 .espandi{
@@ -328,6 +344,9 @@ body{
     display: inline-block;
     text-align: center;
     padding: 0.5em;
+}
+#menu a:visited{
+    color:#ffed86 !important;
 }
 
 #menu #currentLink {
