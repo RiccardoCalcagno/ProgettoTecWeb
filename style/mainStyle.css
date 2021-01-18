@@ -472,6 +472,9 @@ body{
 #globalFooter.static #tornaSuFooter,  #globalFooter.static dl{
     display: none;
 }
+#tornaSuFooter:hover{
+    color:#ffb6b6;
+}
 
 #globalFooter.static #footerContent a {
     display: inline-block;
@@ -2314,9 +2317,9 @@ p.campiObbligatori{
     background-color: #f1f1f16b;
 }
 #personaggiUtente .cardPersonaggio button:active{
-    background-color: transparent;
-    border: 11px solid #633800;
+    background-color: #ffffff88;
 }
+
 
 #personaggiUtente .cardPersonaggio h4{
     text-align: center;
