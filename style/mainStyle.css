@@ -77,6 +77,7 @@ body{
     margin: auto;
     min-height: 100vh;
     margin-top: 4.5em;
+    overflow: hidden;
 }
 
 #breadcrumb {
@@ -668,6 +669,7 @@ body{
 }
 #copertina #titolo{
     font-size: 1em;
+    position: absolute;
     left:-10000px;
 }
 #copertina #titolo::after{
