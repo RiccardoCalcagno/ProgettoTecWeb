@@ -247,6 +247,8 @@ input[type="file"]{
 #copertina #titolo::after{
     top: -0.3em;
     left: calc(10000px + 50vw - 2.5em);
+    height: 1.64em;
+    background-size: 5em 1.64em;
 }
 #copertina header dl#starFeature > dt{
     width: 100%;
