@@ -65,37 +65,37 @@ ACCESSIBILITÀ CHECK LIST
     <header id="intestazioneSito">
 
         <ul class="AiutiNavigazione">
-            <li><a href="index.php#titolo" tabindex="0">Vai al Contenuto</a></li>
+            <li><a href="index.php#titolo" tabindex="11">Vai al Contenuto</a></li>
         </ul>
 
         <div id="access">
             <form action="php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi" tabindex="11">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione" tabindex="11">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a id="hamburger" href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù" tabindex="0"></a>
+        <a id="hamburger" href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù" tabindex="11"></a>
 
         <ul id="menu" role="menubar">
             <li role="none" xml:lang="en" lang="en" id="currentLink" tabindex="-1">Home</li>
-            <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem" tabindex="0">Esplora</a></li>
+            <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem" tabindex="11">Esplora</a></li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0">Crea</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="11">Crea</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="php/character_creation(FormAction).php" role="menuitem" tabindex="0">Crea Scheda Giocatore</a></li>
-                    <li role="none"><a href="php/CreazioneReportPage.php" role="menuitem" tabindex="0">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                    <li role="none"><a href="php/character_creation(FormAction).php" role="menuitem" tabindex="11">Crea Scheda Giocatore</a></li>
+                    <li role="none"><a href="php/CreazioneReportPage.php" role="menuitem" tabindex="11">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0">Approfondimenti</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="11">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="php/Approf_D&D.php" role="menuitem" class="DeD" tabindex="0">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="php/Approf_report.php" role="menuitem" tabindex="0" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                    <li role="none"><a href="php/Approf_personaggio.php" role="menuitem" tabindex="0" >Scheda Giocatore</a></li>
-                    <li role="none"><a href="php/Approf_esplora.php" role="menuitem" tabindex="0" >Sezione Esplora</a></li>
+                    <li role="none"><a href="php/Approf_D&D.php" role="menuitem" class="DeD" tabindex="11">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="php/Approf_report.php" role="menuitem" tabindex="11" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                    <li role="none"><a href="php/Approf_personaggio.php" role="menuitem" tabindex="11" >Scheda Giocatore</a></li>
+                    <li role="none"><a href="php/Approf_esplora.php" role="menuitem" tabindex="11" >Sezione Esplora</a></li>
                 </ul>
             </li>
         </ul>
@@ -105,7 +105,7 @@ ACCESSIBILITÀ CHECK LIST
 
     <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
-            <li id="breadCCurrent" xml:lang="en" lang="en" tabindex="0">Home</li>
+            <li id="breadCCurrent" xml:lang="en" lang="en" tabindex="9" aria-label="Ti trovi in Home">Home</li>
         </ul>
     </nav>
 
