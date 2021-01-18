@@ -318,7 +318,11 @@ var charCreationValues = {
 };
 
 function validateCharCreation() {
-    return validateForm(charCreationValues);
+    var b=validateForm(charCreationValues);
+    if(!b){
+        document.getElementById("submitSalvaScheda").setAttribute("aria-label","Salva Scheda, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 // ---------------------------------------------------------------------------------
@@ -335,7 +339,11 @@ var reportValues = {
 
 
 function validateReport() {
-    return validateForm(reportValues);
+    var b=validateForm(reportValues);
+    if(!b){
+        document.getElementById("buttonPartecip").setAttribute("aria-label","Salva Report, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 function trasforma(e){
@@ -367,7 +375,11 @@ var loginValues = {
 };
 
 function validateLogin() {
-    return validateForm(loginValues);
+    var b= validateForm(loginValues);
+    if(!b){
+        document.getElementById("submitiAccedi").setAttribute("aria-label","Accedi, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 // ---------------------------------------------------------------------------------
@@ -390,7 +402,11 @@ var newUserDataValues = {
 
 
 function validateUserData() {
-    return validateForm(newUserDataValues) && checkPasswordMatch();
+    var b= validateForm(newUserDataValues) && checkPasswordMatch();
+    if(!b){
+        document.getElementById("submitUtente").setAttribute("aria-label","Registrati, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 /* TO FIX MAKE BETTER */
@@ -427,11 +443,19 @@ var oldPasswordValue = {
 
 function validateChangeUserData() {
 //    validateForm(futureEmail) TO FIX !!!!!! ----------------------------------------------------------------------------------------------------------
-    return validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
+    var b= validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
+    if(!b){
+        document.getElementById("submitDatiUtente").setAttribute("aria-label","Salva Modifiche utente, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 function validateChangeUserPassword() {
-    return validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch(); 
+    var b= validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch();    
+    if(!b){
+        document.getElementById("submitNewPasswd").setAttribute("aria-label","Salva La nuova Password, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 function updateProfileImg()
