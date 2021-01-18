@@ -18,7 +18,7 @@ html, body {
     line-height: 1.5em; /* :( */
 }
 
-#intestazioneSito, #breadcrumb, .puntoInterrogativo, #closeDirettamente, img{ /*img in generale ? */
+#intestazioneSito, #breadcrumb, .puntoInterrogativo, #closeDirettamente, img, #ritorna{ /*img in generale ? */
     display: none;
 }
 
@@ -32,13 +32,13 @@ input, nav.espandi {
 */
 
 h1 {
-    font-size: 9mm; /* mm or em? */
-    margin: 5mm 0;
-    margin-bottom: 3mm;
+    font-size: 2.3em;
+    margin: 1em 0;
+    margin-bottom: 0.7em;
 }
 
 h2 {
-    font-size: 8mm;
+    font-size: 1.8em;
 /*    font-weight: normal;*/
 }
 
@@ -68,6 +68,10 @@ textarea {
     resize: none;
 }
 
+#globalFooter {
+    display: none;
+}
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -76,26 +80,30 @@ textarea {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#copertina img, #copertina #angoliCornice, #features img, .about img, .howTo img, #approfondimenti {
+#copertina img, #copertina #angoliCornice, #features img, .about img, .howTo img, #approfondimenti, #starFeature {
     display: none;
 }
 
+#bodyHome #argomenti div {
+    page-break-inside: avoid;
+}
+
 #bodyHome #intestazionePagina h1 {
-    margin: 0 0 1.5mm 3mm ;
+    margin: 0 0 0.3em 0.7em ;
 }
 
 #intestazionePagina h3 { /* change HTML to h2 ? */
-    font-size: 5mm;
+    font-size: 1em;
     font-weight: normal;
     font-style: italic;
-    margin-left: 10mm;
-    margin-bottom: 2.5mm;
+    margin-left: 2.35em;
+    margin-bottom: 0.6em;
 }
 
 #introduzione h2, #argomenti h2 {
     /* font-weight: normal; */
-    margin: 2mm 0;
-    margin-bottom: 0.5mm;
+    margin: 0.5em 0;
+    margin-bottom: 0.1em;
 }
 
 #presentazioneFeatures > p {
@@ -104,15 +112,11 @@ textarea {
 
 #bodyHome li {
     width: 95%;
-    margin: 0.5mm auto;
+    margin: 0.1em auto;
 }
 
 #aboutReport li, #aboutPersonaggio li {
     list-style-type: disc;
-}
-
-#bodyHome > footer {
-    display: none;
 }
 
 /*
@@ -129,25 +133,25 @@ textarea {
 }
 
 .htmlApprofondimento section {
-    margin: 8mm auto;
+    margin: 1.9em auto;
 }
 
 .htmlApprofondimento p {
-    margin: 2mm auto;
+    margin: 0.5em auto;
 }
 
 .htmlApprofondimento #contentPersonaggio p {
-    margin: 4mm auto;
+    margin: 0.9em auto;
 }
 
 .htmlApprofondimento #whatsDeD p:nth-of-type(3) {
     text-align: center;
-    text-indent: -40mm;
-    font-size: 5mm;
+    text-indent: -9.5em;
+    font-size: 1em;
 }
 
 .htmlApprofondimento li {
-    margin: 3mm 10% 3mm 5%;
+    margin: 0.7em 10% 0.7em 5%;
 }
 
 .htmlApprofondimento .ritorna {
@@ -163,25 +167,33 @@ textarea {
 */
 
 #bodyEsplora h2 {
-    margin: 5mm 0;
-    margin-bottom: 2mm;
+    margin: 1em 0;
+    margin-bottom: 0.5em;
 }
 
 #bodyEsplora p {
-    margin: 2mm 0;
+    margin: 0.5em 0;
+}
+
+#esploraAside {
+    clear: both;
+}
+
+#esploraAside li {
+    page-break-inside: avoid;
 }
 
 #bodyEsplora dt {
-    font-size: 5mm;
+    font-size: 1.3em;
 }
 
 #bodyEsplora dd {
     width: 95%;
-    margin: 1mm auto;
+    margin: 0.25em auto;
 }
 
 #bodyEsplora #eventi dd + dd, #bodyEsplora #siti dd {
-    margin-bottom: 2mm;
+    margin-bottom: 0.5em;
 }
 
 #bodyEsplora dd + dd::before {
@@ -204,8 +216,8 @@ textarea {
 }
 
 #visualizzaReport h2  {
-    font-size: 5mm;
-    margin: 2mm 0;
+    font-size: 1.2em;
+    margin: 0.5em 0;
 }
 
 #visualizzaReport h2::after  {
@@ -218,15 +230,15 @@ textarea {
 
 #visualizzaReport #giocatoriReport p {  /* Per non andare a capo spezzando nome */
     display: inline-block;
-    margin: 0.5mm 0 2mm 0;
+    margin: 0.1em 0 0.5em 0;
 }
 
 #visualizzaReport #infoDiCreazione p {
-    margin-left: 2mm;
+    margin-left: 0.5em;
 }
 
 #visualizzaReport #giocatoriReport p {
-    margin-left: 3mm;
+    margin-left: 0.7em;
 }
 
 #visualizzaReport #commentiField {
@@ -234,7 +246,7 @@ textarea {
 }
 
 #visualizzaReport .commento .badgeUtente {
-    font-size: 4.5mm;
+    font-size: 0.9em;
     padding: 0;
 }
 
@@ -262,7 +274,7 @@ textarea {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-.box ul {
+.box, .cards, .cards li {
     /* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
     display: flex;
     flex-wrap: wrap;
@@ -271,16 +283,16 @@ textarea {
     list-style: none;
 }
 
-.box ul li.cardReport {
+.box li.cardReport {
     page-break-inside: avoid;
     float:left;
     width: 45%;
-    margin: 5mm 2.5%;
+    margin: 1.2em 2.5%;
 }
 
-.box ul li {
+.box li {
     page-break-inside: avoid;
-    margin: 3mm;
+    margin: 0.7em;
 }
 
 .box li > button {
@@ -288,13 +300,13 @@ textarea {
 }
 
 .testoCardRep h4 {
-    font-size: 6mm;
-    margin: 1mm auto;
+    font-size: 1.4em;
+    margin: 0.25em auto;
 }
 
 .testoCardRep p {
-    padding: 2mm;
-    margin: 1mm 3mm;
+    padding: 0.5em;
+    margin: 0.25em 0.7em;
 }
 
 .box .publicazione, #areaPersonale .cards .badgeUtente img {
@@ -333,18 +345,18 @@ textarea {
 */
 
 #areaPersonale h2, #areaPersonale p {
-    margin: 2mm;
+    margin: 0.5em;
 }
 
 #areaPersonale dl > * {
-    margin: 1mm 0 1mm;
+    margin: 0.25em 0 0.25em;
 }
 
 #areaPersonale dt {
     font-weight: bold;
     float: left;
     width: 25%;
-    margin-left: 3mm;
+    margin-left: 0.7em;
 }
 
 #areaPersonale dd {
@@ -363,13 +375,13 @@ textarea {
 }
 
 #areaPersonale #personaggiUtente h2 {
-    padding-top: 4mm;
+    padding-top: 0.9em;
 }
 
 #areaPersonale .box img {
     display: block;
-    width: 20mm;
-    margin: 3mm;
+    width: 4.7em;
+    margin: 0.7em;
     margin-left: calc(50% - 10mm);
 }
 
@@ -377,7 +389,7 @@ textarea {
     page-break-inside: avoid;
     float:left;
     width: 30%;
-    margin: 3mm 1.666%;
+    margin: 0.7em 1.666%;
 }
 
 #areaPersonale .box ul li.cardPersonaggio button {
@@ -879,7 +891,7 @@ form#datiPassword .submitForm {
 }
 
 #contentPersonaggio.scheda #sezTestualiPersonaggio {
-    font-size: 3mm;
+    font-size: 0.7em;
 }
 
 #contentPersonaggio.scheda * {
