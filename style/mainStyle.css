@@ -77,7 +77,6 @@ body{
     margin: auto;
     min-height: 100vh;
     margin-top: 4.5em;
-    overflow: hidden;
 }
 
 #breadcrumb {
