@@ -39,7 +39,6 @@
     $banner = createPossibleBanner($returnPage);
     if($banner!=""){
         $html = str_replace('</body>', "</body>" . $banner , $html);
-        $html = str_replace('<body', "<body tabindex='-1' ", $html);
     }
     if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'lementi_salvati')){
         if(isset($_SESSION['stagedReports'])){
@@ -68,7 +67,7 @@
             if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
                     <fieldset id='bannerSalvataggio'>
-                    <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner'>Close</a></legend>";
+                    <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner' aria-label='chiudi banner degli elementi salvati' tabindex='2'>Close</a></legend>";
                 if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner.="<p id='titoloAvviso' tabindex='1'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
@@ -106,7 +105,7 @@
                 case "salvataggio_pendente":
                     $htmlBanner .= "      
                     <div id='closeDirettamente'>
-                    <a href='PLACEHOLDER' ></a>                          
+                    <a href='PLACEHOLDER'  aria-label='chiudi messaggio del salvataggio pendente' tabindex='2'></a>                          
                     </div>  
                     <h1 tabindex='1' aria-label='messaggio di conferma: salvataggio pendente'>Salvataggio Pendente</h1>
                     <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
@@ -120,7 +119,7 @@
                 case "creazione_documento_confermata":
                     $htmlBanner .= "    
                     <div id='closeDirettamente'>
-                    <a href='PLACEHOLDER' ></a>                          
+                    <a href='PLACEHOLDER'  aria-label='chiudi messaggio: conferma creazione documento' tabindex='2'></a>                          
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Creazione Confermata'>Creazione Confermata</h1>
                     <p>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
@@ -132,7 +131,7 @@
                 case "modifica_documento_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                    <a href='PLACEHOLDER' ></a>                          
+                    <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma modifica documento' tabindex='2'></a>                          
                     </div>
                         <h1 tabindex='1' aria-label='messaggio di conferma: Modifica confermata'>Modifica Confermata</h1>
                         <p>Confermiamo che la modifica del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
@@ -144,7 +143,7 @@
                 case "creazione_utente_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                    <a href='PLACEHOLDER' ></a>                          
+                    <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma creazione utente' tabindex='2'></a>                          
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Registrazione Confermata'>Registrazione Confermata</h1>
                     <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
@@ -156,7 +155,7 @@
                 case "modifica_utente_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                        <a href='PLACEHOLDER' ></a>                          
+                        <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma modifica utente' tabindex='2'></a>                          
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Modifica utente confermata'>Modifica utente confermata</h1>
                     <p>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
@@ -211,7 +210,7 @@
                 case "pubblica_esplora_eplora_confermata":
                     $htmlBanner .= "
                     <div id='closeDirettamente'>
-                    <a href='PLACEHOLDER' ></a>                          
+                    <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma publicazione report in area esplora' tabindex='2'></a>                          
                     </div>
                         <h1 tabindex='1' aria-label='messaggio di conferma: Publicazione confermata'>Pubblicazione Confermata</h1>
                         <p>Confermiamo che la pubblicazion del <span xml:lang=\"en\" lang=\"en\">report</span> nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
