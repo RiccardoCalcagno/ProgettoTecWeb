@@ -697,7 +697,9 @@ body{
     width: 22em;
     margin-right: 3em;
     display: block;
-    float: right;
+    position: absolute;
+    left: calc(80vw - 15em);
+    top: 9em;
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;
