@@ -269,6 +269,8 @@ function validazioneCampo(input, inputArray) {
 
     // Elimino messaggi precedenti per evitare ripetizione
    clearErrorStatus(input);
+    // Debilito il focus per far ripartire il ciclo dei tabindex
+   document.activeElement.blur();
 
     var regex = inputArray[0]; // Espressione regolare associata all' ID
     var text = input.value;
