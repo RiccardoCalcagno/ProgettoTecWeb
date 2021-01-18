@@ -34,6 +34,21 @@ function characterPage($charID) {
                 $html = str_replace("<bondsValue />", $character->get_bonds(), $html);
                 $html = str_replace("<flawsValue />", $character->get_flaws(), $html);
                 $html = str_replace("<charIDValue />", $charID, $html);
+
+                $imgAlt="";
+                switch($character->get_race()){
+                case 'umano': $imgAlt.="giovane donna in tenuta da avventuriera con un libro sotto un braccio e un bastone nell'altra mano";break;
+                case 'elfo': $imgAlt.="elfo incappucciato con una faccia truce armato di due sciabole";break;
+                case 'nano': $imgAlt.="donna nano fantasy dallo sguardo intenso che impugna un grosso maglio";break;
+                case 'halfling': $imgAlt.="piccola donna che sta ridendo, suona uno strumento a corde e ha sulle spalle uno zaino da avventuriero";break;
+                case 'gnome': $imgAlt.="piccola umanoide armata di arco, con una freccia incoccata e molte altre pronte nella faretra che ha sulla schiena";break;
+                case 'tiefling': $imgAlt.="umanoide dalle orecchie a punta, dotata di piccole corna nascoste fra i capelli e una grossa coda demoniaca che spunta tra le vesti";break;
+                case 'dragonide': $imgAlt.="figura bipede dall'aspetto draconico, in una veste da sciamano. Maneggia strumeni per catalizzare la magia";break;
+                case 'mezzelfo': $imgAlt.="uomo dalle orecchie leggermente a punta con indosso vesti pregiate e una coroncina";break;
+                case 'mezzorco': $imgAlt.="orchessa con lunghi capelli scuri, piccole zanne alla bocca e orecchie a punta. Indossa vesti semplici e maneggia un martello da guerra";break;
+                }
+                $html = str_replace("<imgAlt />", $imgAlt, $html);
+
             }
             else {  // User sta cercando di accedere ad un personaggio non suo
                 errorPage("Questo personaggio non e' tuo ??? !! :))");  // ERROR PAGE ?
