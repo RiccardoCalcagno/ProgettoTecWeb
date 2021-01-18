@@ -160,7 +160,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 #copertina header dl{
     width: 20em;
     margin-right: 2em;
-    left: calc(60vw - 10em);
+    left: calc(60vw - 10.5em);
     top:6em;
     padding: 0.5em;
     border-top-left-radius: 3em;

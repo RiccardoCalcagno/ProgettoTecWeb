@@ -448,13 +448,8 @@ body{
 
 #areaPersonale #access input[value="Area Personale"]{
     cursor: default;
-    background-color:#0000;
-}
-#areaPersonale #access input[value="Area Personale"]:hover{
-    background-color:rgb(41, 41, 41);
-}
-#areaPersonale #access input[value="Area Personale"]:active{
-    background-color:#463516;
+    background-color:#000000;
+    border-radius: 0;
 }
 
 
