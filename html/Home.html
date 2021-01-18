@@ -64,8 +64,8 @@ ACCESSIBILITÀ CHECK LIST
 
     <header id="intestazioneSito">
 
-        <ul class="AiutiNavigazione">
-            <li><a href="index.php#titolo" tabindex="11">Vai al Contenuto</a></li>
+        <ul class="AiutiNavigazione">           <!-- Tutti gli item vanno messi con tabindex="11" tutti riferisono a id che hanno tabindex definito >-1, sempre il link al contenuto ha id="breadContent" -->
+            <li><a id="breadContent" href="index.php#titolo" tabindex="11">Vai al Contenuto</a></li>
         </ul>
 
         <div id="access">
@@ -103,7 +103,7 @@ ACCESSIBILITÀ CHECK LIST
 
     </header>
 
-    <nav id="breadcrumb" aria-label="breadcrumb">
+    <nav id="breadcrumb" aria-label="breadcrumb"> <!-- Tutti gli item non current vanno messi con tabindex=-1 , il current va messo con: tabindex="9" aria-label="Ti trovi in (il nome della pagina)" -->
         <ul>
             <li id="breadCCurrent" xml:lang="en" lang="en" tabindex="9" aria-label="Ti trovi in Home">Home</li>
         </ul>

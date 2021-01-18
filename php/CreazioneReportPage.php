@@ -23,7 +23,7 @@
             <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />';
 
             $header = '<header id="intestazionePagina">
-            <h1>Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  
+            <h1 id="content">Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  
                 href="../php/Approf_report.php">?</a></span></h1>
             </header>';
 
@@ -38,7 +38,7 @@
             <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />';
 
             $header = '<header id="intestazionePagina">
-            <h1>Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  href="../php/Approf_report.php">?</a></span></h1>
+            <h1 id="content">Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  href="../php/Approf_report.php">?</a></span></h1>
             <p>Sei qui per realizzare il tuo primo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione? Non temere, segui questi semplici 
                 passaggi e in breve il tuo ricordo sarà condensato in un <span xml:lang=\"en\" lang=\"en\">report</span> da mostrare a chi vorrai. </p>
             <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del <span xml:lang=\"en\" lang=\"en\">report</span> sarà necessaria una tua autenticazione)</p>

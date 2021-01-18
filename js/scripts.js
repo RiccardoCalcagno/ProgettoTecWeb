@@ -296,7 +296,7 @@ function mostraErrore(input, inputArray) {
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
     elemento.setAttribute("tabindex","10");
-    elemento.focus();
+    document.getElementById('foo').click();
     //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
     elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
     
