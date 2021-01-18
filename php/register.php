@@ -1,4 +1,6 @@
 <?php
+    require_once("report_data.php");
+    require_once("character.php");
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 

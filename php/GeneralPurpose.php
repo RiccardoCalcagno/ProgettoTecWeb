@@ -20,10 +20,6 @@
         }else{
             if((isset($_SESSION['stagedPersonaggi'])) &&(!empty($_SESSION['stagedPersonaggi']))){
                 foreach ($_SESSION['stagedPersonaggi'] as &$personaggio){
-                    echo var_dump($_SESSION['stagedPersonaggi']);
-                    echo "HEEEEEEEEEEEE";
-                    echo var_dump($_SESSION['stagedPersonaggi']);
-                    exit();
                     $personaggio->set_author($_SESSION['username']);
                     $result = $db->addCharacter($personaggio);  
                     if(!$result){

@@ -1,5 +1,6 @@
 <?php 
     require_once("report_data.php");
+    require_once("character.php");
     require_once("DBinterface.php");
     require_once("banners.php");
     require_once("GeneralPurpose.php");
@@ -41,7 +42,7 @@
     else
     {
         $_SESSION["login"] = false;
-	$_SESSION["tmp"] = $_POST["username"];
+    $_SESSION["tmp"] = $_POST["username"];
         unset($_POST["password"]);
         header("Location: login.php");
     }
