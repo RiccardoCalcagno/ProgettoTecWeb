@@ -261,9 +261,6 @@ function validateForm(testArray) {
             firstError = false;
         }
     }
-    if(!corretto){
-        location.reload();
-    }
 
     return corretto;
 }
