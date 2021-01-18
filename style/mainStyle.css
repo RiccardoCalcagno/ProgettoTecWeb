@@ -898,6 +898,7 @@ body{
 
 #ritorna{
     margin-top: 1em;
+    margin-left: calc(50% - 10em);
 }
 
 
