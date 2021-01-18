@@ -624,9 +624,11 @@ body{
     color:#FFFFFF;
     text-decoration: underline;
 }
+#bannerSalvataggio a:visited{
+    color:#ffecac;
+}
 #bannerSalvataggio #chiusuraBanner{
     font-weight: 500;
-    color:#ffc8c8;
     cursor: pointer;
 }
 #bannerSalvataggio #chiusuraBanner:before{
@@ -2300,7 +2302,7 @@ p.campiObbligatori{
     background-color: #ffdfa4;
     background-image: url(../img/sfondo_card_personaggi.png);
     background-size: 10.25em 13em;
-    border: 11px ridge #915f14cc;
+    border: 11px ridge #5f3900bf;
 }
 #personaggiUtente .cardPersonaggio button{
     height: 100%;
@@ -2312,7 +2314,8 @@ p.campiObbligatori{
     background-color: #f1f1f16b;
 }
 #personaggiUtente .cardPersonaggio button:active{
-    background-color: #ffe0b175;
+    background-color: transparent;
+    border: 11px solid #633800;
 }
 
 #personaggiUtente .cardPersonaggio h4{
@@ -3068,6 +3071,15 @@ body.errorPage section, body.errorPage header{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#disclaimer a{
+    color:#8ec2ff;
+}
+#disclaimer a:hover{
+    color:#aafffb;
+}
+#disclaimer a:visited{
+    color:#b68eff;
+}
 
 dl#contenutoInformativa dt {
     margin-top: 3em;
