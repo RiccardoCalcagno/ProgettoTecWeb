@@ -376,7 +376,7 @@ input[type="file"]{
     font-size: 1em;
     max-width: calc(100% - 1em);
 }
-.report .espandi li:not(:nth-child(3)){
+.report .espandi label{
     text-decoration: underline;
 }
 .report .espandi li.inputMove input{

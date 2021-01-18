@@ -2312,7 +2312,8 @@ p.campiObbligatori{
     background-color: #f1f1f16b;
 }
 #personaggiUtente .cardPersonaggio button:active{
-    background-color: #ffe0b175;
+    background-color: transparent;
+    border: 11px solid #633800;
 }
 
 #personaggiUtente .cardPersonaggio h4{
