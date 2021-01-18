@@ -98,12 +98,8 @@
 
     if(isset($_SESSION['banners']) && $_SESSION['banners']=="creazione_utente_confermata"){
 
-//    echo "banner";
         unset($_SESSION["err"]);
         unset($_SESSION["tmpUser"]);
-
-        echo var_dump($_SESSION);
-        exit();
 
         $html = addPossibleBanner($html, "area_personale.php");
 
