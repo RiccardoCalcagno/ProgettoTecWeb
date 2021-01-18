@@ -232,7 +232,7 @@
         $stringa_giocatori .= '<li>
                                     <div class="badgeUtente">
                                         <div>
-                                            <img src="'.$dbInterface->getUserPic($singleUser).'" alt="Immagine di Profilo" />
+                                            <img src="'.$dbInterface->getUserPic($singleUser).'" alt="" />
                                             <p class="textVariable">'.$singleUser.'</p>
                                         </div>
                                         <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
