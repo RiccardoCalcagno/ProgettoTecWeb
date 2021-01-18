@@ -234,7 +234,7 @@ else {
         $html = str_replace("<footerAction_placeholder/>", $footerAction, $html);
         $html = str_replace("<hiddenReportID />", $hiddenReportID, $html);
 
-        $html = addPossibleBanner($html, "ReportPage.php");
+        $html = addPossibleBanner($html, "ReportPage.php?ReportID=".$_GET['ReportID']);
 
         echo ($html);
     }
