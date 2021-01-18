@@ -2300,7 +2300,7 @@ p.campiObbligatori{
     background-color: #ffdfa4;
     background-image: url(../img/sfondo_card_personaggi.png);
     background-size: 10.25em 13em;
-    border: 11px ridge #915f14cc;
+    border: 11px ridge #5f3900bf;
 }
 #personaggiUtente .cardPersonaggio button{
     height: 100%;
@@ -3069,6 +3069,15 @@ body.errorPage section, body.errorPage header{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#disclaimer a{
+    color:#8ec2ff;
+}
+#disclaimer a:hover{
+    color:#aafffb;
+}
+#disclaimer a:visited{
+    color:#b68eff;
+}
 
 dl#contenutoInformativa dt {
     margin-top: 3em;
