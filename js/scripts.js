@@ -269,7 +269,6 @@ function validazioneCampo(input, inputArray) {
 
     // Elimino messaggi precedenti per evitare ripetizione
    clearErrorStatus(input);
-   document.getElementById('content').focus();
 
     var regex = inputArray[0]; // Espressione regolare associata all' ID
     var text = input.value;
@@ -296,7 +295,7 @@ function mostraErrore(input, inputArray) {
 
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
-    elemento.setAttribute("tabindex","10");
+    elemento.setAttribute("tabindex","0");
     //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
     elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
     
@@ -319,7 +318,11 @@ var charCreationValues = {
 };
 
 function validateCharCreation() {
-    return validateForm(charCreationValues);
+    var b=validateForm(charCreationValues);
+    if(!b){
+        document.getElementById("submitSalvaScheda").setAttribute("aria-label","Salva Scheda, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 // ---------------------------------------------------------------------------------
@@ -336,7 +339,11 @@ var reportValues = {
 
 
 function validateReport() {
-    return validateForm(reportValues);
+    var b=validateForm(reportValues);
+    if(!b){
+        document.getElementById("buttonPartecip").setAttribute("aria-label","Salva Report, Hai già risolto gli errori che ti abbiamo segnalato?");
+    }
+    return b;
 }
 
 function trasforma(e){
@@ -432,7 +439,7 @@ function validateChangeUserData() {
 }
 
 function validateChangeUserPassword() {
-    return validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch(); 
+    return validateForm(oldPasswordValue) && validateForm(newPasswordValue) && checkPasswordMatch();    
 }
 
 function updateProfileImg()
