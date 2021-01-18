@@ -89,6 +89,8 @@ textarea {
 .text-errore {
     display: inline-block;
     width: 100%;
+    text-align: center;
+    margin: 0 auto 0.5em;
     /* color: red; WORTH ? */
 }
 
@@ -240,6 +242,7 @@ textarea {
 }
 
 #visualizzaReport h2  {
+    display: inline-block;
     font-size: 1.2em;
     margin: 0.5em 0;
 }
@@ -265,6 +268,10 @@ textarea {
     margin-left: 0.7em;
 }
 
+#visualizzaReport #testoReport p {
+    white-space: pre-wrap;
+}
+
 #visualizzaReport #commentiField {
     border: none;
 }
@@ -279,6 +286,7 @@ textarea {
 }
 
 #visualizzaReport li.commento {
+    page-break-inside: avoid;
     margin: 0;
 }
 
@@ -298,15 +306,12 @@ textarea {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-.box, .cards, .cards li {
-    /* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    */
+.box ul, .cards{
     list-style: none;
 }
 
+/* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
+*/
 .box li.cardReport {
     page-break-inside: avoid;
     float:left;
@@ -752,10 +757,10 @@ form#datiPassword .submitForm {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-/* #visualizzaScheda {
+#visualizzaScheda {
     max-height: 290mm;
     overflow: hidden;
-} */
+}
 
 #visualizzaScheda * {
     -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
@@ -777,8 +782,8 @@ form#datiPassword .submitForm {
     height: 197px; 
     background-image: url(../img/pergamena/pergamena_head.png);
     background-size: 100% 197px;
-    position: relative;
-    top: -80px;
+    position: absolute;
+    top: 1mm;
 }
 
 #visualizzaScheda #contentPersonaggio.pergamena{
@@ -810,7 +815,7 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.pergamena > div:last-child{
     position: relative;
-    top: -100px;
+    top: 10mm;
     left: 5px;
     width: 85%;
     margin:auto;
@@ -818,7 +823,6 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.pergamena h1{
     width: 14em;
-    overflow: hidden;
     font-size: 2.5em;
     padding-top: 0.1em;
     margin-bottom: 1em;
@@ -866,7 +870,7 @@ form#datiPassword .submitForm {
     width: calc(50% - 2em);
     margin:auto;
     padding: 1em;
-    top: -20mm;
+    top: -3mm;
 }
 
 
@@ -883,6 +887,7 @@ form#datiPassword .submitForm {
     font-weight: 400;
     font-size: 1.3em;
     max-width: 120mm;
+    white-space: pre-wrap;
     word-break: break-all;
 }
 .pergamena #sezTestualiPersonaggio dl > div{
@@ -943,6 +948,9 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.scheda dd {
     position: absolute;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 #contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
@@ -962,8 +970,12 @@ form#datiPassword .submitForm {
     width: 53mm;
     top: 52mm;
     left: 143.5mm;
+    height: 13mm;
 }
 
+#contentPersonaggio.scheda #pers-traits {
+    height: 20.2mm;
+}
 #contentPersonaggio.scheda #ideals {
     top: 78mm;
 }
@@ -974,4 +986,73 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.scheda #flaws {
     top: 119.5mm;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            PAGINE ERRORE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+body.errorPage {
+    text-align: center;
+}
+
+.errorPage h1 {
+    padding-top: 0.8em;
+    font-size: 4em;
+}
+
+.errorPage section {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.errorPage header h2 {
+    padding: 1em;
+}
+
+#body404 section h3 {
+    font-size: 1.7em;
+    padding: 1em;
+}
+
+.errorPage section p {
+    font-size: 1.2em;
+}
+
+#body404 section p {
+    padding: 0.5em; /* 1em se rimuovi secondo p*/
+}
+
+#errorBody section p {
+    padding: 3em 0 1.5em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            INFO DA FOOTER
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+dl#contenutoInformativa {
+    width: 90%;
+    margin: auto;
+}
+
+dl#contenutoInformativa dt {
+    margin: 2em auto 0.5em;
+}
+
+dl#contenutoInformativa a{
+    display: block;
+    margin-top: 0.3em;
+}
+
+dl#contenutoInformativa a::after {
+    display: none;
 }
