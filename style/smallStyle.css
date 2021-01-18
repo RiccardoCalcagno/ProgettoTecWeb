@@ -72,6 +72,13 @@ input[type="file"]{
 #breadcrumb li:first-child::before{
     content: "";
 }
+#breadcrumb:before{
+    content: "Ti trovi in:";
+    font-size: 1em;
+    display: block;
+    margin:auto;
+}
+
 .submitForm a, .submitForm input{
     width: 8em;
 }
