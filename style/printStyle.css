@@ -302,15 +302,12 @@ textarea {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-.box, .cards, .cards li {
-    /* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    */
+.box ul, .cards{
     list-style: none;
 }
 
+/* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
+*/
 .box li.cardReport {
     page-break-inside: avoid;
     float:left;
