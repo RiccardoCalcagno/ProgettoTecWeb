@@ -163,7 +163,8 @@ else {
         //aggiungi un commento/registrati per commentare
         if(isset($_SESSION["username"])) {
             $replacer = '<div id="InserimentoCommento">
-                            <input type="text" placeholder="Lascia un commento.." name="contenutoCommento" />
+                            <label for="textComment" class="AiutiNavigazione">Digita un commento</label>
+                            <input type="text" id="textComment" placeholder="Lascia un commento.." name="contenutoCommento" />
                             <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
                         </div>';
             $html = str_replace("<InsertComment_placeholder/>", $replacer, $html);
