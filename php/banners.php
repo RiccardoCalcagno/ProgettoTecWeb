@@ -108,12 +108,12 @@
                     <a href='PLACEHOLDER'  aria-label='chiudi messaggio del salvataggio pendente' tabindex='2'></a>                          
                     </div>  
                     <h1 tabindex='1' aria-label='messaggio di conferma: salvataggio pendente'>Salvataggio Pendente</h1>
-                    <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
-                    <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
+                    <h2 tabindex='1'>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
+                    <p tabindex='1' id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
                         verrà automaticamente salvato nella tua Area Personale</p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../php/login.php'>ACCESSO</a>
-                        <a class='buttonLink' href='../php/register.php'>ISCRIZIONE</a>
+                        <a tabindex='1' class='buttonLink' href='../php/login.php'>ACCESSO</a>
+                        <a tabindex='1' class='buttonLink' href='../php/register.php'>ISCRIZIONE</a>
                     </div>";
                 break;
                 case "creazione_documento_confermata":
@@ -122,10 +122,10 @@
                     <a href='PLACEHOLDER'  aria-label='chiudi messaggio: conferma creazione documento' tabindex='2'></a>                          
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Creazione Confermata'>Creazione Confermata</h1>
-                    <p>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
-                    <p id='refAreaPersConf'>Quando vorrai potrai recuperare questo speciale manufatto nella tua </br><a href='../php/area_personale.php'>Area Personale</a></p>
+                    <p tabindex='1'>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
+                    <p id='refAreaPersConf' tabindex='1'>Quando vorrai potrai recuperare questo speciale manufatto nella tua </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
+                        <a tabindex='1' class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
                 case "modifica_documento_confermata":
@@ -134,10 +134,10 @@
                     <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma modifica documento' tabindex='2'></a>                          
                     </div>
                         <h1 tabindex='1' aria-label='messaggio di conferma: Modifica confermata'>Modifica Confermata</h1>
-                        <p>Confermiamo che la modifica del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
+                        <p tabindex='1'>Confermiamo che la modifica del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
-                        <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
+                        <a tabindex='1' class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
+                        <a tabindex='1' class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
                     </div>";
                 break;
                 case "creazione_utente_confermata":
@@ -146,10 +146,10 @@
                     <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma creazione utente' tabindex='2'></a>                          
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Registrazione Confermata'>Registrazione Confermata</h1>
-                    <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
-                    <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='../php/area_personale.php'>Area Personale</a></p>
+                    <p tabindex='1'>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
+                    <p tabindex='1' id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
+                        <a tabindex='1' class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
                 case "modifica_utente_confermata":
@@ -158,22 +158,22 @@
                         <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma modifica utente' tabindex='2'></a>                          
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Modifica utente confermata'>Modifica utente confermata</h1>
-                    <p>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
+                    <p tabindex='1'>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
-                        <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
+                        <a tabindex='1' class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
+                        <a tabindex='1' class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
                 case "confermare_eliminazione_personaggio":
                     $htmlBanner .= "
                     <h1 tabindex='1' aria-label='messaggio di richiesta di conferma: Confermare Eliminazione'>Confermare Eliminazione</h1>
-                    <h2>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
-                    <p>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
+                    <h2 tabindex='1'>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
+                    <p tabindex='1'>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
                     <form id='linkVelociPostConferma' method='POST' action='action_character.php'>
                         <div>
-                            <a class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
-                            <input type='hidden' id='charID' name='charID' value=".$_SESSION['banners_ID']." />
+                            <a tabindex='1' class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                            <input tabindex='1' type='hidden' id='charID' name='charID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
                     unset($_SESSION['banners_ID']);
@@ -181,13 +181,13 @@
                 case "confermare_eliminazione_report":
                     $htmlBanner .= "
                     <h1 tabindex='1' aria-label='messaggio di richiesta di conferma: confermare eliminazione'>Confermare Eliminazione</h1>
-                    <h2>Sei sicuro di voler eliminare questo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione?</h2>
-                    <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
+                    <h2 tabindex='1'>Sei sicuro di voler eliminare questo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione?</h2>
+                    <p tabindex='1'>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
                         <div>
-                            <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
-                            <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
+                            <a tabindex='1' class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                            <input tabindex='1' type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
                     unset($_SESSION['banners_ID']);
@@ -195,12 +195,12 @@
                 case "confermare_eliminazione_commento":
                     $htmlBanner .= "
                     <h1 tabindex='1' aria-label='messaggio di richiesta di conferma: confermare eliminazione'>Confermare Eliminazione</h1>
-                    <h2>Sei sicuro di voler eliminare questo commento?</h2>
-                    <p>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
+                    <h2 tabindex='1'>Sei sicuro di voler eliminare questo commento?</h2>
+                    <p tabindex='1'>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
                         <div>
-                            <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
-                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO'/>
+                            <a tabindex='1' class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO'/>
                             <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']['ReportID']." />
                             <input type='hidden' id='CommentID' name='CommentID' value=".$_SESSION['banners_ID']['CommentID']." />
                         </div>
@@ -213,11 +213,11 @@
                     <a href='PLACEHOLDER' aria-label='chiudi messaggio: conferma publicazione report in area esplora' tabindex='2'></a>                          
                     </div>
                         <h1 tabindex='1' aria-label='messaggio di conferma: Publicazione confermata'>Pubblicazione Confermata</h1>
-                        <p>Confermiamo che la pubblicazion del <span xml:lang=\"en\" lang=\"en\">report</span> nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
-                        <p>Dai subito un'occhiata al tuo <span xml:lang=\"en\" lang=\"en\">Report</span> nella sezione Esplora</p>
+                        <p tabindex='1'>Confermiamo che la pubblicazion del <span xml:lang=\"en\" lang=\"en\">report</span> nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
+                        <p tabindex='1'>Dai subito un'occhiata al tuo <span xml:lang=\"en\" lang=\"en\">Report</span> nella sezione Esplora</p>
                     <div id='linkVelociPostConferma'>
-                        <a class='buttonLink' href='PLACEHOLDER'>CHIUDI</a>
-                        <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
+                        <a tabindex='1' class='buttonLink' href='PLACEHOLDER'>CHIUDI</a>
+                        <a tabindex='1' class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
                     </div>";
                     unset($_SESSION['banners_ID']);
                 break;
