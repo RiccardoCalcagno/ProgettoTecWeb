@@ -18,6 +18,11 @@
         $email = $_SESSION["tmpUser"]["email"];
         $birthdate = $_SESSION["tmpUser"]["birthdate"];
 
+
+        if(!empty($_SESSION["tmpUser"]["img"]))
+            $_FILES["imgProfilo"]=$_SESSION["tmpUser"]["img"];
+
+
         $err = $_SESSION["err"];
 
         if($err["img_err"])
@@ -95,6 +100,9 @@
     $html = str_replace("value=\"<name>\"", "value=\"" . $name_surname . "\"", $html);
     $html = str_replace("value=\"<email>\"", "value=\"" . $email . "\"", $html);
     $html = str_replace("value=\"<birthdate>\"", "value=\"" . $birthdate . "\"", $html);
+
+    if(!empty($_SESSION["tmpUser"]["img"]))
+        $html = str_replace("<imgValue>", $_FILES["imgProfilo"]["tmp_name"] , $html);
 
 
 

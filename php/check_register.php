@@ -103,27 +103,27 @@
 //    echo " Controllo img non null passato ";
            $err["img_err"] = !validate_img($_FILES["imgProfilo"], $img);
 //echo " fa validazione img ";
-	   //$_FILES["imgProfilo"]["size"] > 1000000 ? $err["img_err"] = true : $err["img_err"] = false;
+       //$_FILES["imgProfilo"]["size"] > 1000000 ? $err["img_err"] = true : $err["img_err"] = false;
 
             if(!$err["img_err"])
             {
 //    echo " non ci sono errori";
-		$img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
-               	if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+        $img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
+                   if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
                 {
 //            echo "upload avvenuto correttamente ";
                     $err["img_err"] = false;
-            	}
-            	else
-            	{
+                }
+                else
+                {
                     errorPage("Spiacenti! Errore nel caricamento dell'immagine");
                     exit();
-            	}
+                }
              }
              else
              {
 //            echo " ci sono errori ";
-             	$img = null;
+                 $img = null;
              }
         }
         else
@@ -139,7 +139,12 @@
         $_SESSION["tmpUser"]["NomeCognome"] = $name_surname;
         $_SESSION["tmpUser"]["email"] = $email;
         $_SESSION["tmpUser"]["birthdate"] = $birthdate;
-        $_SESSION["tmpUser"]["img"] = $img;
+
+
+        $_SESSION["tmpUser"]["img"] = $_FILES["imgProfilo"];
+
+
+
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
                 $_SESSION["err"] = $err;
                 header("Location: register.php");
