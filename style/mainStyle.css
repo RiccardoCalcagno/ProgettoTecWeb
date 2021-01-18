@@ -495,7 +495,7 @@ body{
 }
 
 #footerContent {
-    padding: 0.5em 1em 0;
+    padding: 5em 1em 0;
     background-color: rgb(48, 44, 44);
     color: rgb(241, 245, 245);
 }
@@ -513,13 +513,13 @@ body{
 #footerContent h2::after{
     content: " ";
     position: relative;
-    left: calc(3em + 10000px);
-    top: -2em;
+    left: calc(50vw - 5em + 10000px);
+    top: -5em;
     display: block;
-    width: 5em;
-    height: 1.633em;
+    width: 10em;
+    height: 3.27em;
     background-image: url(../img/logo.png);
-    background-size: 5em 1.633em;
+    background-size: 10em 3.27em;
 }
 
 
