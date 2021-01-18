@@ -20,6 +20,10 @@
         }else{
             if((isset($_SESSION['stagedPersonaggi'])) &&(!empty($_SESSION['stagedPersonaggi']))){
                 foreach ($_SESSION['stagedPersonaggi'] as &$personaggio){
+                    echo var_dump($_SESSION['stagedPersonaggi']);
+                    echo "HEEEEEEEEEEEE";
+                    echo var_dump($_SESSION['stagedPersonaggi']);
+                    exit();
                     $personaggio->set_author($_SESSION['username']);
                     $result = $db->addCharacter($personaggio);  
                     if(!$result){
@@ -132,16 +136,16 @@
 
     function check_file_name($img, $name)
     {
-	$i = 1;
-	while(file_exists($img))
-	{
-	    $name_arr = explode('.', $name);
-	    $name_arr[0] .= $i;
-	    $name = implode('.', $name_arr);
-	    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . $name;
-	    $i++; 
-	}
-	return $img;
+    $i = 1;
+    while(file_exists($img))
+    {
+        $name_arr = explode('.', $name);
+        $name_arr[0] .= $i;
+        $name = implode('.', $name_arr);
+        $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . $name;
+        $i++; 
+    }
+    return $img;
 
     }
 
