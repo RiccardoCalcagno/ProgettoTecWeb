@@ -72,13 +72,6 @@ input[type="file"]{
 #breadcrumb li:first-child::before{
     content: "";
 }
-#breadcrumb:before{
-    content: "NOME SITO";
-    display: block;
-    width: 6em;
-    margin:auto;
-}
-
 .submitForm a, .submitForm input{
     width: 8em;
 }
