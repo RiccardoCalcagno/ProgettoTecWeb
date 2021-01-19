@@ -51,6 +51,8 @@
         
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
+        }else if ( !isset($_SESSION['errorMessage']) ) {
+            $_SESSION['errorMessage'] = 'Errore: Nessun Errore :)';
         }
 
         if(isset($_SESSION["login"])&&($_SESSION["login"])) {
@@ -74,7 +76,10 @@
             //unset OK anche su null
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
+        }else if ( !isset($_SESSION['errorMessage']) ) {
+            $_SESSION['errorMessage'] = 'Errore: Nessun Errore :)';
         }
+        
         unset($_SESSION['id_report_modifica']);
         unset($_SESSION["listaGiocatori"]);
         unset($_SESSION["first_logged"]);

@@ -17,7 +17,9 @@
 
         /* controllo che il personaggio sia di questo utente */
         $db = new DBinterface();
-        $db->openConnection();
+        $connection=$db->openConnection();
+        if(!$connection)
+            errorPage("EDB");
         if($db->getCharacterOfUser($_GET["Personaggio"], $_SESSION["username"]))
         {
             $db->closeConnection();
@@ -26,9 +28,8 @@
         }
         else
         {
-            $db->closeConnection();
-            header("Location: 404.php");
-            exit();
+            $db->closeConnection();     // Potrebbe essere un errore DB ma anche un azione volontaria malevola (più probabilmente)
+            errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
         }
     }
 
@@ -72,11 +73,11 @@
                 header("Location: area_personale.php");
             }
             else {
-                errorPage("Cancellazione personaggio non riuscita. Riprovare piu' tardi.");
+                errorPage("EDB");
             }
         }
         else {
-            errorPage("Connessione DB non riuscita.");
+            errorPage("EDB");
         }
 
     }

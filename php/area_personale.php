@@ -37,7 +37,7 @@ else if($_SESSION["login"])
 
         if(!isset($_SESSION["first_logged"]))
         {
-            $db->openConnection();
+            if(!$db->openConnection()){errorPage("EDB");}
     
             $_SESSION["vai_avanti_master"] = false;
             $_SESSION["vai_avanti_rep"] = false;
@@ -331,7 +331,7 @@ else if($_SESSION["login"])
             }
 
         } catch(Exception $e) {
-            header("Location: Errore.php");
+            errorPage("EDB");
             exit();
         }
     }
