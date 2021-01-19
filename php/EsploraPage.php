@@ -90,7 +90,7 @@ else{
             </div>
             <div class=\"badgeUtente\">
                 <h5>Autore</h5>
-                <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
+                <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"immagine profilo inserita da utente\" /> 
                 <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
             </div>
         <footer>
