@@ -3047,14 +3047,31 @@ body.errorPage section, body.errorPage header{
 }
 
 .errorPage section p {
-    font-size: 1.2em;
+    font-size: 1em;
 }
 
 #body404 section p {
     padding: 0.5em; /* 1em se rimuovi secondo p*/
 }
+#errorBody section ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+#errorBody section ul li {
+    flex: 0 1 28%;
+    padding: 0 0 1em;
+    margin: auto;
+    min-width: 9em;
+}
+#errorBody section ul li:nth-child(2){
+    padding: 0 1em 1em;
+}
+#errorBody section ul a {
+    width: 100%;
+}
 
-#errorBody section p:first-child {
+
+#errorBody section:first-child {
     font-size: 1.2em;
     padding: 0.5em 0 1.5em;
     width: 90%;
