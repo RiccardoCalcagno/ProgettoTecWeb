@@ -575,6 +575,16 @@ body a[aria-label="apri il menù"] {
     font-size: 0.8em;
     padding: 0.1em 1em;
 }
+#globalFooter a{
+    color:#8ec2ff;
+}
+#globalFooter a:hover{
+    color:#aafffb;
+}
+#globalFooter a:visited{
+    color:#b68eff;
+}
+
 #globalFooter > a{
     color: #FFFFFF;
 }
@@ -3157,15 +3167,6 @@ body.errorPage section, body.errorPage header{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#globalFooter a{
-    color:#8ec2ff;
-}
-#globalFooter a:hover{
-    color:#aafffb;
-}
-#globalFooter a:visited{
-    color:#b68eff;
-}
 
 dl#contenutoInformativa dt {
     margin-top: 3em;
