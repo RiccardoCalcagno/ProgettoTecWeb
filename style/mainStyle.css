@@ -357,6 +357,9 @@ body{
 #menu a.dropdown {
     cursor: pointer;
 }
+
+
+
 #menu a#currentDirect{
     background-color:black;
 }
@@ -412,7 +415,6 @@ body a[aria-label="apri il menù"] {
     width:46%; 
     margin-top: 0.2em;
     height: 2.6em;
-    box-shadow: inset 0 0 0 2px rgba(117, 80, 0, 0.1);
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -426,31 +428,35 @@ body a[aria-label="apri il menù"] {
 }
 
 #access #Accesso{
-    background-color:#8f5b20;
-    color: #FFFFFF;
+    background-color:#6b4519;
+    color: #ffe482;
+    font-weight: 500;
     margin-right: 5%;
 }
 #access #Accesso:hover{
-    background-color:#a36a28;
+    background-color:#966124;
 }
 #access #Accesso:active{
-    background-color:#ac5c00;
+    background-color:#7a3700;
 }
 #access #Iscrizione{
-    background-color: #7d9900;
-    color: #FFFFFF;
+    background-color: #f5d563;
+    color: #664117;
+    font-weight: 500;
 }
 #access #Iscrizione:hover{
-    background-color: #a1c900;
+    background-color: #ffce3c;
 }
 #access #Iscrizione:active{
-    background-color: #61b600;
+    background-color: #fcbd5e;
 }
 
 #areaPersonale #access input[value="Area Personale"]{
     cursor: default;
     background-color:#000000;
     border-radius: 0;
+    color: #FFFFFF;
+    font-weight: 400;
 }
 
 
@@ -467,7 +473,7 @@ body a[aria-label="apri il menù"] {
 }
 
 #globalFooter.static {
-    border-top: 13px solid black;
+    border-top: 13px solid rgb(27, 27, 27);
 }
 
 #globalFooter.static #tornaSuFooter,  #globalFooter.static dl{
@@ -490,8 +496,8 @@ body a[aria-label="apri il menù"] {
     display: block;
     /*text-decoration: none;*/
     font-size: 1.2em;
-    border: 2px solid black;
-    background-color: rgb(12, 12, 12);
+    border: 2px solid rgb(27, 27, 27);
+    background-color: rgb(27, 27, 27);
     color: white;
 }
 
@@ -565,12 +571,31 @@ body a[aria-label="apri il menù"] {
 }
 
 #disclaimer {
-    background-color: rgb(12, 12, 12);
-    border: 1px solid black;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(27, 27, 27);
     color: white;
     text-align: center;
     font-size: 0.8em;
     padding: 0.1em 1em;
+}
+#globalFooter a{
+    color:#8ec2ff;
+}
+#globalFooter a:hover{
+    color:#aafffb;
+}
+#globalFooter a:visited{
+    color:#b68eff;
+}
+
+#globalFooter > a{
+    color: #FFFFFF;
+}
+#globalFooter > a:visited{
+    color: #ffdd92;
+}
+#globalFooter > a:hover{
+    color: #fff4dc;
 }
 
 #footerContent dl dd.footer-open-dd {
@@ -694,9 +719,9 @@ body a[aria-label="apri il menù"] {
     top: -2em;
     display: block;
     width: 25em;
-    height: 8.17em;
+    height: 9.17em;
     background-image: url(../img/logo.png);
-    background-size: 25em 8.17em;
+    background-size: 25em 9.17em;
 }
 
 #copertina header h1{
@@ -3002,18 +3027,6 @@ body.errorPage section, body.errorPage header{
     font-weight: bold;
 }
 
-#body404 h1::after {
-    display: block;
-    content: "";
-    width: calc(3em + 10%);
-    padding-bottom: calc(2.4em + 4%);
-    height: 0;
-    background: transparent url('../img/404_img.png') no-repeat;
-    background-size: 100%;
-    border-radius: 0.2em;
-    margin: 0.1em auto 0.3em;
-}
-
 .errorPage section {
     background-color: #FFF0D4;
     border-radius: 1em;
@@ -3028,17 +3041,25 @@ body.errorPage section, body.errorPage header{
     border-radius: 1em 1em 0 0;
 }
 
+/*
 #body404 header h2 {
     font-size: 1.3em;
     width: 4.5em;
     padding: 0.4em 0.4em 0;
     margin-left: 15%;
 }
+*/
 
 #errorBody header h2 {
     display: inline-block;
     padding: 0.2em 0.6em 0;
     margin-top: 3vh;
+}
+
+#body404 header h2{
+    width: 10em;
+    margin: auto;
+    padding: 0.3em 0.5em;
 }
 
 #body404 section h3 {
@@ -3072,25 +3093,41 @@ body.errorPage section, body.errorPage header{
 
 .errorPage h1:before {
     content: " ";
-    display: block;
-    position: relative;
-    top: 10em;
-    left: 10em;
-    width: 10em;
-    height: 10em;
-    background-image: url(../img/razze/errore1.png);
-    background-size: 10em 10em;
+    display: inline-block;
+    position: absolute;
+    top: 1.3em;
+    left: calc(50vw - 4.8em);
+    width: 180px;
+    height: 180px;
+    background-image: url(../img/razze/errore4.png);
+    background-size: 180px 180px;
 }
 .errorPage h1:after {
     content: " ";
-    display: block;
-    position: relative;
-    top: 10em;
-    left: 40em;
-    width: 10em;
-    height: 10em;
+    display: inline-block;
+    position: absolute;
+    top: 1.2em;
+    left: calc(50vw + 2.4em);
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/razze/errore3.png);
+    background-size: 200px 200px;
+}
+#body404 h1::after {
+    background-image: url(../img/razze/errore1.png);
+    /*display: block;
+    content: "";
+    width: calc(3em + 10%);
+    padding-bottom: calc(2.4em + 4%);
+    height: 0;
+    background: transparent url('../img/404_img.png') no-repeat;
+    background-size: 100%;
+    border-radius: 0.2em;
+    margin: 0.1em auto 0.3em;
+    */
+}
+#body404 h1::before {
     background-image: url(../img/razze/errore2.png);
-    background-size: 10em 10em;
 }
 
 #errorBody section:first-child {
@@ -3133,15 +3170,6 @@ body.errorPage section, body.errorPage header{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#globalFooter a{
-    color:#8ec2ff;
-}
-#globalFooter a:hover{
-    color:#aafffb;
-}
-#globalFooter a:visited{
-    color:#b68eff;
-}
 
 dl#contenutoInformativa dt {
     margin-top: 3em;
