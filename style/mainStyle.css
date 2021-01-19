@@ -452,6 +452,8 @@ body a[aria-label="apri il menù"] {
     cursor: default;
     background-color:#000000;
     border-radius: 0;
+    color: #FFFFFF;
+    font-weight: 300;
 }
 
 
