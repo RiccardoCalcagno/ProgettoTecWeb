@@ -470,7 +470,7 @@ body a[aria-label="apri il menù"] {
 }
 
 #globalFooter.static {
-    border-top: 13px solid black;
+    border-top: 13px solid rgb(27, 27, 27);
 }
 
 #globalFooter.static #tornaSuFooter,  #globalFooter.static dl{
@@ -493,8 +493,8 @@ body a[aria-label="apri il menù"] {
     display: block;
     /*text-decoration: none;*/
     font-size: 1.2em;
-    border: 2px solid black;
-    background-color: rgb(12, 12, 12);
+    border: 2px solid rgb(27, 27, 27);
+    background-color: rgb(27, 27, 27);
     color: white;
 }
 
@@ -568,8 +568,8 @@ body a[aria-label="apri il menù"] {
 }
 
 #disclaimer {
-    background-color: rgb(12, 12, 12);
-    border: 1px solid black;
+    background-color: rgb(27, 27, 27);
+    border: 1px solid rgb(27, 27, 27);
     color: white;
     text-align: center;
     font-size: 0.8em;
