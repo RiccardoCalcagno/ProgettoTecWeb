@@ -425,27 +425,27 @@ body a[aria-label="apri il menù"] {
 }
 
 #access #Accesso{
-    background-color:#8f5b20;
-    color: #f7d659;
+    background-color:#664117;
+    color: #ffe482;
     font-weight: 500;
     margin-right: 5%;
 }
 #access #Accesso:hover{
-    background-color:#a36a28;
+    background-color:#966124;
 }
 #access #Accesso:active{
-    background-color:#ac5c00;
+    background-color:#7a3700;
 }
 #access #Iscrizione{
-    background-color: #f7d659;
-    color: #6e471a;
+    background-color: #f5d563;
+    color: #664117;
     font-weight: 500;
 }
 #access #Iscrizione:hover{
-    background-color: #f7ca45;
+    background-color: #ffce3c;
 }
 #access #Iscrizione:active{
-    background-color: #f7b859;
+    background-color: #fcbd5e;
 }
 
 #areaPersonale #access input[value="Area Personale"]{
@@ -453,7 +453,7 @@ body a[aria-label="apri il menù"] {
     background-color:#000000;
     border-radius: 0;
     color: #FFFFFF;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 
