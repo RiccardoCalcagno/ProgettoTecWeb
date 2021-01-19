@@ -3002,18 +3002,6 @@ body.errorPage section, body.errorPage header{
     font-weight: bold;
 }
 
-#body404 h1::after {
-    display: block;
-    content: "";
-    width: calc(3em + 10%);
-    padding-bottom: calc(2.4em + 4%);
-    height: 0;
-    background: transparent url('../img/404_img.png') no-repeat;
-    background-size: 100%;
-    border-radius: 0.2em;
-    margin: 0.1em auto 0.3em;
-}
-
 .errorPage section {
     background-color: #FFF0D4;
     border-radius: 1em;
@@ -3091,6 +3079,22 @@ body.errorPage section, body.errorPage header{
     height: 200px;
     background-image: url(../img/razze/errore1.png);
     background-size: 200px 200px;
+}
+#body404 h1::after {
+    background-image: url(../img/razze/errore3.png);
+    /*display: block;
+    content: "";
+    width: calc(3em + 10%);
+    padding-bottom: calc(2.4em + 4%);
+    height: 0;
+    background: transparent url('../img/404_img.png') no-repeat;
+    background-size: 100%;
+    border-radius: 0.2em;
+    margin: 0.1em auto 0.3em;
+    */
+}
+#body404 h1::before {
+    background-image: url(../img/razze/errore4.png);
 }
 
 #errorBody section:first-child {
