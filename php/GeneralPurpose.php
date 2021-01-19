@@ -98,6 +98,9 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }
+        if($errorMessage==="EDB"){
+            $errorMessage = "Ci scusiamo per il malfunzionamento, provvederemo a ripristinare i server al più presto";
+        }
         $_SESSION['errorMessage'] = $errorMessage;
         header("Location: Errore.php");
         exit();

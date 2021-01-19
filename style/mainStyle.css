@@ -1252,6 +1252,9 @@ section#testoReport {
     position: relative;
     top:0.3em;
 }
+
+
+
 /*
 --------------------------------------- COMMENTI REPO ----------------------------------------------
 ------------------------------------------------------------------------------------------------
@@ -3051,9 +3054,11 @@ body.errorPage section, body.errorPage header{
     padding: 0.5em; /* 1em se rimuovi secondo p*/
 }
 
-#errorBody section p {
+#errorBody section p:first-child {
     font-size: 1.2em;
-    padding: 3em 0 1.5em;
+    padding: 0.5em 0 1.5em;
+    width: 90%;
+    margin: auto;
 }
 
 #body404 .buttonLink {
