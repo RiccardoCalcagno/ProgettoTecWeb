@@ -202,7 +202,7 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            if($db->setExplorable($_GET['ReportID'], 0)){errorPage("EDB");exit();}
+            if(!$db->setExplorable($_GET['ReportID'], 0)){errorPage("EDB");exit();}
             $db->closeConnection();
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{

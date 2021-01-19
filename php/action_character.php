@@ -19,7 +19,7 @@
         $db = new DBinterface();
         $connection=$db->openConnection();
         if(!$connection)
-            errorPage("EDB");exit();
+            {errorPage("EDB");exit();}
         if($db->getCharacterOfUser($_GET["Personaggio"], $_SESSION["username"]))
         {
             $db->closeConnection();

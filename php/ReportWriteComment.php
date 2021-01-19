@@ -6,7 +6,7 @@ require_once("banners.php");
 
 
 if ( !isset($_SESSION['RepCommentPOST']) ) {
-    errorPage("EDB");
+    errorPage("EDB");exit();
 }
 
 $commentText = clean_input($_SESSION['RepCommentPOST']['contenutoCommento']);

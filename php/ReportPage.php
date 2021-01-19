@@ -74,6 +74,7 @@ else {
         
     }else{
         errorPage("EDB");
+        exit();
     }
 
     //chiudo la connessione

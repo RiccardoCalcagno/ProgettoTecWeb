@@ -371,8 +371,9 @@
                      "FROM Characters ". 
                      "WHERE Characters.author = '".$username."';";
 
-            if($query){
-                $query_result = mysqli_query($this->connection, $query)->fetch_array();
+            $query_result = mysqli_query($this->connection, $query);
+            if(($query_result)&&($query_result->num_rows)){
+                $query_result=$query_result->fetch_array();
                 return $query_result["COUNT(Characters.id)"];}
                 else{return 0;}
         }
@@ -840,7 +841,7 @@
           $query = "SELECT * FROM report_giocatore RG WHERE RG.user = '".$user."';";
           $query_result = mysqli_query($this->connection, $query);
 
-            if($query_result->num_rows){
+            if(($query_result) && ($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $report_id = $row["report"];         
@@ -856,7 +857,7 @@
           $query = "SELECT Users.username FROM report_giocatore RG JOIN Users ON RG.user = Users.id WHERE RG.report = '".$report_id."';";
           $query_result = mysqli_query($this->connection, $query);
 
-            if($query_result->num_rows){
+            if($query_result && $query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $username = $row["username"];         
