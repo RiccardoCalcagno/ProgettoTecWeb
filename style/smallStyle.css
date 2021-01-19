@@ -74,7 +74,7 @@ input[type="file"]{
 }
 #breadcrumb:before{
     content: "Ti trovi in:";
-    font-size: 1em;
+    font-size: 0.8em;
     display: block;
     margin:auto;
 }
