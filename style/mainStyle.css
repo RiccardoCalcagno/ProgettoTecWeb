@@ -481,9 +481,6 @@ body a[aria-label="apri il menù"] {
     padding-bottom: 0.5em;
 }
 
-#globalFooter.interactive #footerContent a {
-    display: none;
-}
 
 #tornaSuFooter {
     display: block;
