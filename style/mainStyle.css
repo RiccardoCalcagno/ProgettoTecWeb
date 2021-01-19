@@ -569,7 +569,7 @@ body a[aria-label="apri il menù"] {
     color: white;
     text-align: center;
     font-size: 0.8em;
-    padding: 0 1em;
+    padding: 0.1em 1em;
 }
 
 #footerContent dl dd.footer-open-dd {
