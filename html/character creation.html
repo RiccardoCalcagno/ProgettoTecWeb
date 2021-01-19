@@ -66,8 +66,8 @@
             <form action="../php/action.php" method="get">
                 <div>
                     <input type="text" class="hidden" name="beforeAccess" value="character_creation(FormAction).php" />
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accesso">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
@@ -295,10 +295,10 @@
 
 
             <div>
-                <a href="../index.php" class="annulla">ANNULLA</a>
+                <a href="../index.php" class="annulla" aria-label="Annulla la creazione corrente e rimanda alla pagina Home">ANNULLA</a>
                 <input id="submitSalvaScheda" class="buttonLink" type="submit" name="salvaPers" value="<buttonValue />"  aria-label="salva la scheda giocatore"/>  
                 <!-- DA SCAMBIARE CON:
-                    <input class="buttonLink" type="submit" name="salvaPers" value="SALVA MODIFICA"/>  
+                    <input class="buttonLink" type="submit" name="salvaPers" value="SALVA MODIFICA" aria-label="Salva le modifiche della scheda giocatore"/>  
                 --> 
             </div>
                

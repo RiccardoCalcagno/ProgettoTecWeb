@@ -72,9 +72,9 @@
             <div id="access">
                 <form action="../php/action.php" method="get">
                     <div>
-                        <input type="text" class="hidden" name="beforeAccess" value="modify_user.php" />
-                        <input id="Accesso" type="submit" name="accesso" value="Esci">         <!-- altro valore possibile : "Esci" -->
-                        <input id="Iscrizione" type="submit" name="accesso" value="Area Personale">    <!-- altro valore possibile : "Area Personale" -->
+                        <input type="text" class="hidden" name="beforeAccess" value="modify_user.php" aria-label=""/>
+                        <input id="Accesso" type="submit" name="accesso" value="Esci" aria-label="Disconnettiti dal profilo">         <!-- altro valore possibile : "Esci" -->
+                        <input id="Iscrizione" type="submit" name="accesso" value="Area Personale" aria-label="Vai in area personale">    <!-- altro valore possibile : "Area Personale" -->
                     </div>
                 </form>
             </div>
@@ -218,7 +218,7 @@
             <div class="submitForm">
                 <p>Salva i dati di utenza e anagrafici che hai modificato </p>
                 <div>
-                    <a href="../php/area_personale.php" class="annulla">ANNULLA</a>
+                    <a href="../php/area_personale.php" class="annulla" aria-label="Annulla le modifiche apportare e ritorna nell'area personale">ANNULLA</a>
                     <input id="submitDatiUtente" class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati"  aria-label="salva i dati di utenza"/>  
                 </div>      
             </div>
@@ -288,20 +288,10 @@
             <div class="submitForm">
                 <p>Salva la nuova password</p>
                 <div>
-                    <a href="../php/area_personale.php" class="annulla">ANNULLA</a>
+                    <a href="../php/area_personale.php" class="annulla" aria-label="Annulla le modifiche e torna nell'area personale">ANNULLA</a>
                     <input id="submitNewPasswd" class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password" aria-label="Salva la nuova password"/>  
                 </div>        
             </div>
-            <!--            
-            <div class="submitForm">
-                <p>Salva la nuova registrazione</p>
-                <div>
-                    <a href="../index.php" class="annulla">ANNULLA</a>
-                    <input class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Registrazione"/>  
-                </div>        
-            </div>
-            -->
-
 
 
 
