@@ -119,7 +119,7 @@ else {
         //ATTENZIONE, sopra è un alternativa, segue invece come se questa pagina ricevesse direttamente l'oggetto report, $report_info
 
         //titolo e sottotitolo
-        $replacer = '<h1 id="titolo">'.$report_info->get_title().'</h1>'.'<p>'.$report_info->get_subtitle().'</p>';
+        $replacer = '<h1 id="titolo" tabindex="0">'.$report_info->get_title().'</h1>'.'<p>'.$report_info->get_subtitle().'</p>';
         $html = str_replace("<TitleAndSub_placeholder/>", $replacer, $html);
 
         //autore e img
