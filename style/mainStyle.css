@@ -3071,7 +3071,7 @@ body.errorPage section, body.errorPage header{
     display: inline-block;
     position: absolute;
     top: 1.3em;
-    left: 12vw;
+    left: calc(50vw - 4.8em);
     width: 180px;
     height: 180px;
     background-image: url(../img/razze/errore4.png);
@@ -3082,10 +3082,9 @@ body.errorPage section, body.errorPage header{
     display: inline-block;
     position: absolute;
     top: 1.2em;
-    left: 70vw;
+    left: calc(50vw + 2.4em);
     width: 200px;
     height: 200px;
-    background-image: url(../img/razze/errore4.png);
     background-image: url(../img/razze/errore3.png);
     background-size: 200px 200px;
 }
