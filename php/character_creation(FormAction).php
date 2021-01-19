@@ -14,10 +14,9 @@ function preparePage($htmlPage, $toEdit) {
 
     if ( $toEdit ){
 
-        $title = '<title> - Modifica Scheda Giocatore</title>
+        $title = '<title>Modifica Scheda Giocatore - D&Diary</title>
         <meta name="title" content="Modifica Scheda Giocatore" />
-        <meta name="description" content="Modifica la tua Scheda Giocatore!" />
-        <meta name="keywords" content="modifica personaggio, Dungeons and Dragons character" />';
+        <meta name="description" content="Modifica la Scheda Giocatore che precedentemente hai creato!" />';
 
         $header = '<header id="intestazionePagina">
             <h1 id="titolo">Modifica Scheda Giocatore<span> <a class="puntoInterrogativo" aria-label="Cosa è una Scheda Giocatore?" href="../php/Approf_personaggio.php">?</a></span></h1>
@@ -31,10 +30,9 @@ function preparePage($htmlPage, $toEdit) {
     }
     else  {
 
-        $title = '<title> - Creazione Scheda Giocatore</title>
+        $title = '<title>Creazione Scheda Giocatore - D&Diary</title>
             <meta name="title" content="Creazione Scheda Giocatore" />
-            <meta name="description" content="Crea la tua Scheda Giocatore!" />
-            <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" />';
+            <meta name="description" content="Crea la tua Scheda Giocatore!" />';
 
         $header = '<header id="intestazionePagina">
             <h1 id="titolo">Creazione Scheda Giocatore<span> <a class="puntoInterrogativo" aria-label="Cosa è una Scheda Giocatore?" href="../php/Approf_personaggio.php">?</a></span></h1>

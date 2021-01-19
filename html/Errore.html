@@ -4,21 +4,19 @@
  
 <head>
 
-<title>Errore</title>
-
-<meta name="description" content=""/>           
+<title>Errore - D&Diary</title>
+<meta name="title" content="Errore D&Diary" />
+<meta name="description" content="La pagina mostra un Errore dovuto alla motivazione che riporta"/>           
 <meta name="keywords" content="" />
 <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
 <meta name="language" content="italian it" />
 <meta charset="utf-8" >
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>      
 <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
 <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="../js/scripts.js"></script> 
 
 </head>
@@ -34,40 +32,39 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input type="text" class="hidden" name="beforeAccess" value="Errore.php" />
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
         
         <ul id="menu" role="menubar">
             <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                    <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem">Crea Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1"><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" >Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem">Sezione Esplora</a></li>
                 </ul>
             </li>
-        </ul>
+    </ul>
     </header>
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
-            <li>Errore</li>
+            <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
+            <li  id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Pagina di Errore">Errore</li>
         </ul>
     </nav>
 <header>

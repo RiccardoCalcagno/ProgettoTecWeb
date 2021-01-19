@@ -17,10 +17,9 @@
         $headTitle = ''; $header = ''; $p = ''; $button = '';
         
         if($toEdit){
-            $headTitle = '<title>Modifica Report di Sessione</title>
+            $headTitle = '<title>Modifica Report di Sessione - D&Diary</title>
             <meta name="title" content="Modifica Report di Sessione" />
-            <meta name="description" content="Modifica il tuo report di sessione" />
-            <meta name="keywords" content="modifica, report, Dungeons and Dragons, sessione" />';
+            <meta name="description" content="Modifica il report di sessione che precedentemente hai creato" />';
 
             $header = '<header id="intestazionePagina">
             <h1 id="content">Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  
@@ -32,10 +31,9 @@
             $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA" aria-label="salva la modifica del report"/>';
         }
         else {
-            $headTitle = '<title>Creazione Report di Sessione</title>
+            $headTitle = '<title>Creazione Report di Sessione - D&Diary</title>
             <meta name="title" content="Creazione Report di Sessione" />
-            <meta name="description" content="Crea il tuo report di sessione" />
-            <meta name="keywords" content="creazione, report, Dungeons and Dragons, sessione" />';
+            <meta name="description" content="Crea il tuo report di sessione!" />';
 
             $header = '<header id="intestazionePagina">
             <h1 id="content">Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  href="../php/Approf_report.php">?</a></span></h1>
@@ -232,7 +230,7 @@
         $stringa_giocatori .= '<li>
                                     <div class="badgeUtente">
                                         <div>
-                                            <img src="'.$dbInterface->getUserPic($singleUser).'" alt="Immagine di Profilo" />
+                                            <img src="'.$dbInterface->getUserPic($singleUser).'" alt="" />
                                             <p class="textVariable">'.$singleUser.'</p>
                                         </div>
                                         <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>

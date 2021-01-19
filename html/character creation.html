@@ -1,56 +1,22 @@
-﻿
-<!--
-    ATTENZIONE:
-
-    QUESTO HTML CONTIENE IL NECESSARIO SIA PER CREARE SIA PER MODIFICARE UNA CHEDA GIOCATORE MA..
-    BISOGNA SCAMBIARE I SEGUENTI ELEMENTI:
-
-    1) <head>
-    2) <header> intestazionePagina
-    3) <p> nell'ultimo submitForm
--->
-
-
-<!-- RICORDARSI DI TOGLIERE L'ATTENZIONE SULL' HEADER SE L'UTENTE HA GIÀ FATTO L'AUTENTICAZIONE-->
-
-
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="it">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-
-
-
     <titleValue />
-    <!-- <title> - Creazione Scheda Giocatore</title>
-    <meta name="title" content="Creazione Scheda Giocatore" />
-    <meta name="description" content="Crea la tua Scheda Giocatore!" />
-    <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" /> -->
-
-    <!-- QUESTO È L'HEAD CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
-    <title> - Modifica Scheda Giocatore</title>
-    <meta name="title" content="Modifica Scheda Giocatore" />
-    <meta name="description" content="Modifica la tua Scheda Giocatore!" />
-    <meta name="keywords" content="modifica personaggio, Dungeons and Dragons character" />
-    -->
-
-
-
 
     <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
- 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
+                                    ricordo, riassunto, avventura, giocatori, fantasia, scheda giocatore, personaggio
+                                    giochi di ruolo, Talkien, vintage, narratore, narrare, scenari, eventi, dadi ,regole,
+                                    creazione, realizzazione" />
+    <meta charset="utf-8" >
 
     <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" />
     <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
     <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
     <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../js/scripts.js"></script> 
 </head>
 
@@ -65,44 +31,42 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input type="text" class="hidden" name="beforeAccess" value="character_creation(FormAction).php" />
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accesso">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
         <ul id="menu" role="menubar">
             <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false" id="currentDirect">Crea</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</a>
                 <ul role="menu" class="dropdown-content">
                     <li role="none" id="currentLink">Crea Scheda Giocatore</li>
-                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1"><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" >Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/Approf_esplora.php" role="menuitem">Sezione Esplora</a></li>
                 </ul>
             </li>
         </ul>
-
 
     </header>
 
     <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
-            <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
-            <li>Crea</li>
-            <li id="breadCCurrent">Crea Scheda Giocatore</li>
+            <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
+            <li tabindex="-1">Crea</li>
+            <li  id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Crea Scheda Giocatore">Crea Scheda Giocatore</li>
         </ul>
     </nav>
 
@@ -134,8 +98,8 @@
                     <legend>
                         <h2 class="campiObbligatori">Razza</h2>
                     </legend>
-                    <div id="razzaDesc"><p>La <strong>Razza</strong> rappresenta il popolo e l’etnia di cui fa parte il personaggio. Le razze influenzano 
-                        le caratteristiche e le abilità che rendono unico ogni personaggio come il modo in cui potrebbe
+                    <div id="razzaDesc"><p>La <strong>Razza</strong> rappresenta il <em>popolo</em> e l’<em>etnia</em> di cui fa parte il personaggio. Le razze influenzano 
+                        le <em>caratteristiche</em> e le <em>abilità</em> che rendono unico ogni personaggio come il modo in cui potrebbe
                         interagire con gli altri personaggi.</p></div>
                     <div>
                         <label for="crace" class="ccLabel">Scegli una <strong>Razza</strong> tra quelle proposte</label>
@@ -159,8 +123,8 @@
                     <legend>
                         <h2 class="campiObbligatori">Classe</h2>
                     </legend>
-                    <div id="classeDesc"><p>La <strong>Classe</strong> rappresenta la professione o vocazione del personaggio. Essa determina ciò che
-                         il personaggio è in grado di fare, come: combattere, sfruttare 
+                    <div id="classeDesc"><p>La <strong>Classe</strong> rappresenta la <em>professione</em> o <em>vocazione</em> del personaggio. Essa determina ciò che
+                         il personaggio è <em>in grado di fare</em>, come: combattere, sfruttare 
                          capacità magiche e impiegare abilità speciali e altro ancora.</p></div>
                     <div>
                         <label for="cclass" class="ccLabel">Scegli una <strong>Classe</strong> tra quelle proposte</label>
@@ -188,7 +152,7 @@
                         <h2 class="campiObbligatori">Background</h2>
                     </legend>
                     <div id="backgDesc"><p>Ogni personaggio è un individuo dotato di storia, interessi, contatti e capacità personali.
-                        Il <strong xml:lang="en" lang="en">Background</strong> ci da la possibilità di esprimere lo sfondo storico
+                        Il <strong xml:lang="en" lang="en">Background</strong> ci da la possibilità di esprimere lo <em>sfondo storico</em> 
                         adatto per introdurre il personaggio nell’azione.</p></div>
                     <div>
                         <label for="cbackground" class="ccLabel">Scegli un <strong xml:lang="en" lang="en">Background</strong> tra quelli proposti</label>
@@ -215,9 +179,9 @@
                     <legend>
                         <h2 class="campiObbligatori">Allineamento</h2>
                     </legend>
-                    <p>L’<strong>Allineamento</strong> esprime la disposizione dell’animo del personaggio e si esprime grazie 
-                        a due attributi: uno riguardante l’ approccio alla legge [Legale, Neutrale, Caotico]
-                         e l’altro riguardante la scelta morale [Buono, Neutrale, Malvagio]</p>
+                    <p>L’<strong>Allineamento</strong> esprime la <em>disposizione dell’animo del personaggio</em> e si esprime grazie 
+                        a due attributi: uno riguardante l’ approccio alla <em>legge</em> [Legale, Neutrale, Caotico]
+                         e l’altro riguardante la scelta <em>morale</em> [Buono, Neutrale, Malvagio]</p>
                     <div>
                         <label for="calignment" class="ccLabel">Scegli un <strong>Allineamento</strong> tra quelli
                             proposti</label>
@@ -241,8 +205,8 @@
                         <h2>Tratti del Personaggio</h2>
                     </legend>
                     <p>
-                        Questa sezione ti permetterà di descrivere in modo più sensibile il tuo personaggio, è divisa in quattro campi per
-                        aiutarti a focalizzarti su ciò che rende realistico e vivo un personaggio.
+                        Questa sezione ti permetterà di <strong>descrivere</strong> in modo più sensibile il tuo personaggio, è divisa in quattro campi per
+                        aiutarti a focalizzarti su ciò che rende <strong>realistico e vivo</strong> un personaggio.
                     </p>
                     <p>(<strong class="Attenzione">Attenzione</strong>: Il <span xml:lang="en" lang="en">rendering</span> di ciascuno dei seguenti campi 
                         nel <span xml:lang="en" lang="en">layout</span> <span xml:lang="en" lang="en">standard</span> <abbr title="Dungeons & Dragons">D&D</abbr> troncherà ogni testo di 
@@ -284,22 +248,9 @@
 
         <div id="submitPersonaggio" class="submitForm">
             <p><pValue /></p>
-
-
-<!--
-    QUESTO È IL <p> CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
-
-    <p>Concludi la modifica salvando la nuova versione della Scheda Giocatore</p>
-
--->
-
-
             <div>
                 <a href="../index.php" class="annulla" aria-label="Annulla la creazione corrente e rimanda alla pagina Home">ANNULLA</a>
                 <input id="submitSalvaScheda" class="buttonLink" type="submit" name="salvaPers" value="<buttonValue />"  aria-label="salva la scheda giocatore"/>  
-                <!-- DA SCAMBIARE CON:
-                    <input class="buttonLink" type="submit" name="salvaPers" value="SALVA MODIFICA" aria-label="Salva le modifiche della scheda giocatore"/>  
-                --> 
             </div>
                
         </div>

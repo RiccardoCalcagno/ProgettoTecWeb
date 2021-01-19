@@ -172,7 +172,7 @@
                     <form id='linkVelociPostConferma' method='POST' action='action_character.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA' aria-label='Conferma l'eliminaziome della scheda personaggio'/>
                             <input tabindex='1' type='hidden' id='charID' name='charID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
@@ -186,7 +186,7 @@
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA'/>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA' aria-label='Conferma l'eliminazione del report di sessione'/>
                             <input tabindex='1' type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
@@ -200,7 +200,7 @@
                     <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
-                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO'/>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO' aria-label='Conferma l'eliminazione del commento'/>
                             <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']['ReportID']." />
                             <input type='hidden' id='CommentID' name='CommentID' value=".$_SESSION['banners_ID']['CommentID']." />
                         </div>

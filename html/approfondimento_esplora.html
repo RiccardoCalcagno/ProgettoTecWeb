@@ -4,21 +4,21 @@
 
 <head>
 
-<title>Titolo</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
-
-<meta name="description" content="Approfondimento sulla sezione esplora"/>           
-<meta name="keywords" content="" />
+<title>Esplora Approfondimento - D&Diary</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+<meta name="title" content="Approfondimento Sezione Esplora" />
+<meta name="description" content="Approfondimento sulla sezione esplora del sito D&Diary"/>           
+<meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
+                                ricordo, riassunto, avventura, giocatori, fantasia, scheda giocatore, personaggio
+                                giochi di ruolo, Talkien, vintage, narratore, narrare, scenari, eventi, dadi ,regole, globale" />
 <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
 <meta name="language" content="italian it" />
 <meta charset="utf-8" >
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" href="../style/mainStyle.css" media="screen"/>      
 <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
 <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="../js/scripts.js"></script> 
 
 </head>
@@ -35,42 +35,42 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input type="text" class="hidden" name="beforeAccess" value="Approf_esplora.php" aria-label="beforeAccess"/>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accesso">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
         <ul id="menu" role="menubar">
             <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                    <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem">Crea Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false" id="currentDirect">Approfondimenti</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1"><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
+                    <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="../php/Approf_report.php" role="menuitem" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                    <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" >Scheda Giocatore</a></li>
                     <li role="none" id="currentLink">Sezione Esplora</li>
                 </ul>
             </li>
         </ul>
+
     </header>
 
     <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
-            <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
-            <li>Approfondimenti</li>
-            <li id="breadCCurrent">Sezione Esplora</li>
+            <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
+            <li tabindex="-1">Approfondimenti</li>
+            <li id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Approfondimento Sezione Esplora">Sezione Esplora</li>
         </ul>
     </nav>
 
@@ -82,11 +82,11 @@
     <div id="contentEsplora" class="content">              
         
         <section>
-            <h2>Il social su misura per te</h2>                                             <!--CAMBIA SEGNA POSTO NOME SITOOOOOOOOOOOOO-->
-            <p>Noi di nomeSito crediamo nell’importanza di attribuire ad ogni                        
+            <h2>Il social su misura per te</h2>                                           
+            <p>Noi di <span xml:lang="en">D&Diary</span> crediamo nell’importanza di attribuire ad ogni                        
                 contenuto il suo adatto grado di <strong>visibilità</strong>. Alcune volte infatti 
                 è preferibile <strong>preservare</strong> dal mondo intero cosa si è dato vita. </p>
-            <p>Per questa ragione potrai contare su un ambiente protetto in cui 
+            <p>Per questa ragione potrai contare su un ambiente <strong>protetto</strong> in cui 
                 tu e i tuoi compagni di avventura potrete instaurare una <strong>conversazione</strong> 
                 sotto forma di commenti associati al singolo <span xml:lang="en" lang="en">report</span>.</p>
         </section>
@@ -94,7 +94,7 @@
             <h2>Un intera <strong xml:lang="en" lang="en">community</strong> pronta a ispirarti</h2>
             <p>Credi che quanto hai scritto riguardo la sessione possa diventare uno 
                 <strong>spunto interessante</strong>  per futuri <span xml:lang="en" lang="en">master</span>? O forse tu e tuoi compagni non 
-                vedete l’ora di fare <strong>nuovi incontri</strong> , condividere con quante più persone 
+                vedete l’ora di fare <strong>nuovi incontri</strong> , <strong>condividere</strong> con quante più persone 
                 ciò che di bello avete creato nella sessione.</p>
             <p>Se è così prova ad entrare a far parte della <span xml:lang="en" lang="en">community</span> presente nella 
                 sezione <span><a href="../php/EsploraPage.php">Esplora</a></span>, qui troverai <span xml:lang="en" lang="en">report</span> di sessione publicati da M<span xml:lang="en" lang="en">Master</span>aster di                 <!--riferimanto a EsploraAAAAAAAAAAAAAAAA-->
@@ -114,10 +114,10 @@
                 rettangolare, e il gioco è fatto!                          
             </li>
         </ol>
-        <img src="../img/campione_report_card.png" alt=""/>                                                                             <!--Trovare o meglio realizzare la foto-->
+        <img src="../img/campione_report_card.png" alt="Esempio di visualizzazione di una Report-Card. Per pubblicare un report globalmente basterà cliccare sul lato destro della Card."/>                                                                             <!--Trovare o meglio realizzare la foto-->
     </div>
 
-    <button class="hidden" id="ritorna" onclick="goBack()" tabindex="11">torna alla pagina precedente</button>
+    <button class="hidden" id="ritorna" onclick="goBack()">torna alla pagina precedente</button>
     </div>
     </div>
     

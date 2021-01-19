@@ -51,11 +51,13 @@
         
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
+        }else if ( !isset($_SESSION['errorMessage']) ) {
+            $_SESSION['errorMessage'] = 'Errore: Nessun Errore :)';
         }
 
         if(isset($_SESSION["login"])&&($_SESSION["login"])) {
-            $html = str_replace('<input id="Accesso" type="submit" name="accesso" value="Accedi">', '<input id="Accesso" name="accesso" type="submit" value="Esci">', $html);
-            $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale">', $html);
+            $html = str_replace('<input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">', '<input id="Accesso" name="accesso" type="submit" value="Esci" aria-label="Disconnettiti dalla area personale e torna in Home">', $html);
+            $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale" aria-label="Vai alla tua area personale">', $html);
         }
         unset($_SESSION['id_report_modifica']);
         unset($_SESSION["count_esplora"]);
@@ -74,7 +76,10 @@
             //unset OK anche su null
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
+        }else if ( !isset($_SESSION['errorMessage']) ) {
+            $_SESSION['errorMessage'] = 'Errore: Nessun Errore :)';
         }
+        
         unset($_SESSION['id_report_modifica']);
         unset($_SESSION["listaGiocatori"]);
         unset($_SESSION["first_logged"]);
@@ -132,16 +137,16 @@
 
     function check_file_name($img, $name)
     {
-	$i = 1;
-	while(file_exists($img))
-	{
-	    $name_arr = explode('.', $name);
-	    $name_arr[0] .= $i;
-	    $name = implode('.', $name_arr);
-	    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . $name;
-	    $i++; 
-	}
-	return $img;
+    $i = 1;
+    while(file_exists($img))
+    {
+        $name_arr = explode('.', $name);
+        $name_arr[0] .= $i;
+        $name = implode('.', $name_arr);
+        $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . $name;
+        $i++; 
+    }
+    return $img;
 
     }
 

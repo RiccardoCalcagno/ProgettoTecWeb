@@ -1,13 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="it">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>Scheda Giocatore</title>
+        <meta charset="utf-8" >
+        <title>Scheda Giocatore - D&Diary</title>
         <meta name="title" content="Visualizzazione Scheda Giocatore" />
-    
-        <meta name="description" content="Visualizza i dettagli della scheda giocatore" />
-        <meta name="keywords" content="" />
-    
+        <meta name="description" content="Visualizza i dettagli della scheda giocatore che hai selezionato" />
+        <meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
+                                        ricordo, riassunto, avventura, giocatori, fantasia, scheda giocatore, personaggio
+                                        giochi di ruolo, Talkien, vintage, narratore, narrare, scenari, eventi, dadi ,regole
+                                        visualizzazione, scheda giocatore, documento" />
         <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
     
         <link rel="stylesheet" type="text/css" href="../style/mainStyle.css" media="screen" /> 
@@ -15,8 +16,7 @@
         <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
         <link rel="stylesheet" href="../style/printStyle.css" media="print" />
         <link rel="stylesheet" href="../style/printFullScreen.css" media="print" />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="../js/scripts.js"></script> 
     </head>
 
@@ -31,32 +31,31 @@
             <div id="access">
                 <form action="../php/action.php" method="GET">
                     <div>
-                        <input type="text" class="hidden" name="beforeAccess" value="CharacterPage.php" />
-                        <input id="Accesso" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->
-                        <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                        <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">         <!-- altro valore possibile : "Esci" -->
+                        <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">    <!-- altro valore possibile : "Area Personale" -->
                     </div>
                 </form>
             </div>
 
-            <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
+            <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
             <ul id="menu" role="menubar">
                 <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
                 <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
                 <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</a>
                     <ul role="menu" class="dropdown-content">
-                        <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                        <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                        <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem">Crea Scheda Giocatore</a></li>
+                        <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                     </ul>
                 </li>
                 <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                    <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                     <ul role="menu" class="dropdown-content">
-                        <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
-                        <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1"><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                        <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                        <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                        <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
+                        <li role="none"><a href="../php/Approf_report.php" role="menuitem" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                        <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" >Scheda Giocatore</a></li>
+                        <li role="none"><a href="../php/Approf_esplora.php" role="menuitem">Sezione Esplora</a></li>
                     </ul>
                 </li>
         </ul>
@@ -66,8 +65,8 @@
     
         <nav id="breadcrumb">
             <ul>
-                <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
-                <li id="breadCCurrent">Scheda Giocatore</li>
+                <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
+                <li  id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Scheda Giocatore">Scheda Giocatore</li>
             </ul>
         </nav>
         <form id="DocumentActions" method="GET" action="../php/action_character.php">
@@ -90,7 +89,7 @@
             <div>
             <h1><nameValue /></h1>
             <div id="infoBreviPersonaggio">
-                <img src="<imgPath />" alt="" /> <!--src="../img/razze/<halfing>.png"-->
+                <img src="<imgPath />" alt="<imgAlt />" /> <!--src="../img/razze/<halfing>.png"-->
 
                 <dl>
                 <div>
@@ -138,13 +137,13 @@
 
         <ul id="footAction">
             <li>
-                <input type="submit" name="charAction" value="ELIMINA" class="buttonLink"/>    
+                <input type="submit" name="charAction" value="ELIMINA" class="buttonLink" aria-label="Elimina questo personaggio"/>    
             </li>
             <li>
-                <input type="button" name="charAction" value="STAMPA" class="buttonLink" onclick="window.print()"/>   <!-- NO JS ???????????????-->
+                <input type="button" name="charAction" value="STAMPA" class="buttonLink" onclick="window.print()" aria-label="Stampa questo personaggio"/>   <!-- NO JS ???????????????-->
             </li>
             <li>
-                <input type="submit" name="charAction" value="MODIFICA" class="buttonLink"/>
+                <input type="submit" name="charAction" value="MODIFICA" class="buttonLink" aria-label="Modifica questa pagina"/>
             </li>
         </ul>
 

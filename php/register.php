@@ -1,4 +1,6 @@
 <?php
+    require_once("report_data.php");
+    require_once("character.php");
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
@@ -23,13 +25,13 @@
         if($err["img_err"])
         {
 
-        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\" class=\"text-errore\"> tabindex='10'", $html);
+        $html = str_replace("<p id=\"ImgErr\" class=\"hidden\">", "<p id=\"ImgErr\" class=\"text-errore\" tabindex='10' >", $html);
         $html = str_replace("name=\"imgProfilo\"", "name=\"imgProfilo\" class=\"input-errore\"", $html);
         }
 
         if($err["user_already_exist"])
         {
-            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\"> tabindex='10'", $html);
+            $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\" tabindex='10' >", $html);
         $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
   //      echo "utente esistente";
         }
@@ -37,14 +39,14 @@
 
         if($err["user_empty"])   
         { 
-       $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\"> tabindex='10'", $html);
+       $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\" tabindex='10' >", $html);
        $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
 //        echo "utente vuoto";
         }
 
         if($err["empty_passwd"])
         {
-       $html = str_replace("<p id=\"PasswordEmpty\" class=\"hidden\">","<p id=\"PasswordEmpty\" class=\"text-errore\"> tabindex='10'", $html);
+       $html = str_replace("<p id=\"PasswordEmpty\" class=\"hidden\">","<p id=\"PasswordEmpty\" class=\"text-errore\" tabindex='10' >", $html);
        $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
 
@@ -54,7 +56,7 @@
 
         if($err["rep_passwd_err"])
     {
-            $html = str_replace("<p class=\"RepPasswdErr hidden\">","<p class=\"RepPasswdErr text-errore\"> tabindex='10'", $html);
+            $html = str_replace("<p class=\"RepPasswdErr hidden\">","<p class=\"RepPasswdErr text-errore\" tabindex='10' >", $html);
             $html = str_replace("name=\"PasswdAgan\"", "name=\"PasswdAgan\" class=\"input-errore\"", $html);
             $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
@@ -64,7 +66,7 @@
 
         if($err["email_err"])
     {
-            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\" class=\"text-errore\"> tabindex='10'", $html);
+            $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\" class=\"text-errore\" tabindex='10' >", $html);
             $html = str_replace("name=\"email\"", "name=\"email\" class=\"input-errore\"", $html);
 
 //        echo "email err";
@@ -72,7 +74,7 @@
    
         if($err["email_already_exist"])
     {
-            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\" class=\"text-errore\"> tabindex='10'", $html);
+            $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\" class=\"text-errore\" tabindex='10' >", $html);
             $html = str_replace("name=\"email\"", "name=\"email\" class=\"input-errore\"", $html);
 
 //        echo "email esistente";
@@ -80,7 +82,7 @@
 
         if($err["empty_name"])
     {
-            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\" class=\"text-errore\"> tabindex='10'", $html);
+            $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\" class=\"text-errore\" tabindex='10' >", $html);
             $html = str_replace("name=\"NomeCognome\"", "name=\"NomeCognome\" class=\"input-errore\"", $html);
 
 //        echo "nome vuoto";
@@ -100,8 +102,7 @@
 
 //    echo "banner";
         unset($_SESSION["err"]);
-    unset($_SESSION["tmpUser"]);
-        unset($_POST);
+        unset($_SESSION["tmpUser"]);
 
         $html = addPossibleBanner($html, "area_personale.php");
 

@@ -9,7 +9,7 @@
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_GET["PostRep"]) ) {
-                errorPage("Pubblicazione fallita. Riprovare piu' tardi");
+                errorPage("EDB");
             }else{
                 unset($_SESSION["first_logged"]);
                 $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
@@ -17,7 +17,7 @@
             $db->closeConnection();
         }
         else {
-            errorPage("Can't connect to DB");
+            errorPage("EDB");
         }
         header("Location: area_personale.php#reportMaster");
         exit();
@@ -26,14 +26,14 @@
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_GET["RemoveRep"],0) ) {
-                errorPage("Rimozione fallita. Riprovare piu' tardi");
+                errorPage("EDB");
             }else{
                 unset($_SESSION["first_logged"]);
             }
             $db->closeConnection();
         }
         else {
-            errorPage("Can't connect to DB");
+            errorPage("EDB");
         }
         header("Location: area_personale.php#reportMaster");
         exit();
@@ -43,8 +43,8 @@
     if(isset($_GET["RemoveRep"]))
     {
         $db = new DBinterface();
-        $db->openConnection();
-        $db->setExplorable($_POST["RemoveRep"], false);
+        if(!$db->openConnection()) {errorPage("EDB");}
+        if(!$db->setExplorable($_POST["RemoveRep"], false)){errorPage("EDB");}
         $db->closeConnection();
         header("Location: area_personale.php#reportMaster");
     }
@@ -144,12 +144,12 @@
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->deleteComments($_POST["CommentID"]) ) {
-                errorPage("Cancellazione Commento fallita. Riprovare piu' tardi");
+                errorPage("EDB");
             }
             $db->closeConnection();
         }
         else {
-            errorPage("Can't connect to DB");
+            errorPage("EDB");
         }
 // feedback?
         header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]."#anchorComment");
@@ -176,11 +176,11 @@
                     header("Location: area_personale.php");
                 }
                 else {
-                    errorPage("Cancellazione Report non riuscita. Riprovare piu' tardi.");
+                    errorPage("EDB");
                 }
             }
             else {
-                errorPage("Connessione DB non riuscita.");
+                errorPage("EDB");
             }
             exit();
         }
@@ -189,12 +189,12 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            $db->setExplorable($_GET['ReportID']);
+            if(!$db->setExplorable($_GET['ReportID'])){errorPage("EDB");}
             $db->closeConnection();
             $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{
-            errorPage("Connessione DB non riuscita.");
+            errorPage("EDB");
         }
         exit();
     }
@@ -202,11 +202,11 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            $db->setExplorable($_GET['ReportID'], 0);
+            if($db->setExplorable($_GET['ReportID'], 0)){errorPage("EDB");}
             $db->closeConnection();
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{
-            errorPage("Connessione DB non riuscita.");
+            errorPage("EDB");
         }
         exit();
     }

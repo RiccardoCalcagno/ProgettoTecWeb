@@ -4,10 +4,12 @@
  
 <head>
 
-<title> - <span xml:lang="en" lang="en">Home Page</span></title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
-
-<meta name="description" content="Benvenuto nel mondo di Dungeons & Drangons! Qui puoi creare i tuoi personaggi e organizzare delle sessioni per le tue campagne "/>           
-<meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons" />
+<title>Home Page - D&Diary</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+<meta name="title" content="D&Diary" />
+<meta name="description" content="Benvenuto nel mondo di Dungeons & Drangons! Qui puoi creare le tue schede giocatore e rielaborare in compagnia il tuo post-sessione"/>           
+<meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
+                                ricordo, riassunto, avventura, giocatori, fantasia, scheda giocatore, personaggio
+                                giochi di ruolo, Talkien, vintage, narratore, narrare, scenari, eventi, dadi ,regole" />
 <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
 <meta name="language" content="italian it" />
 <meta charset="utf-8" >
@@ -16,7 +18,7 @@
 <link rel="stylesheet" href="style/mediumStyle.css" media="screen and (max-width:768px), only screen and (max-width:768px)"/>    
 <link rel="stylesheet" href="style/smallStyle.css" media="screen and (max-width:480px), only screen and (max-width:480px)"/>
 <link rel="stylesheet" href="style/printStyle.css" media="print"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="js/scripts.js"></script> 
 
 </head>
@@ -65,37 +67,37 @@ ACCESSIBILITÀ CHECK LIST
     <header id="intestazioneSito">
 
         <ul class="AiutiNavigazione" title="Aiuti alla Navigazione">           <!-- Tutti gli item vanno messi con tabindex="11" tutti riferisono a id che hanno tabindex definito >-1-->
-            <li><a href="index.php#titolo" tabindex="0">Vai al Contenuto</a></li>
+            <li><a href="index.php#titolo">Vai al Contenuto</a></li>
         </ul>
 
         <div id="access">
             <form action="php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi" tabindex="0">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione" tabindex="0">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a id="hamburger" href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù" tabindex="0"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" lang="en" id="currentLink" tabindex="0">Home</li>
-            <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem" tabindex="0">Esplora</a></li>
+            <li role="none" xml:lang="en" lang="en" id="currentLink">Home</li>
+            <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0">Crea</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="php/character_creation(FormAction).php" role="menuitem" tabindex="0">Crea Scheda Giocatore</a></li>
-                    <li role="none"><a href="php/CreazioneReportPage.php" role="menuitem" tabindex="0">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                    <li role="none"><a href="php/character_creation(FormAction).php" role="menuitem">Crea Scheda Giocatore</a></li>
+                    <li role="none"><a href="php/CreazioneReportPage.php" role="menuitem">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
             </li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0">Approfondimenti</a>
+                <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                 <ul role="menu" class="dropdown-content">
-                    <li role="none"><a href="php/Approf_D&D.php" role="menuitem" class="DeD" tabindex="0" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
-                    <li role="none"><a href="php/Approf_report.php" role="menuitem" tabindex="0" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                    <li role="none"><a href="php/Approf_personaggio.php" role="menuitem" tabindex="0" >Scheda Giocatore</a></li>
-                    <li role="none"><a href="php/Approf_esplora.php" role="menuitem" tabindex="0" >Sezione Esplora</a></li>
+                    <li role="none"><a href="php/Approf_D&D.php" role="menuitem" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
+                    <li role="none"><a href="php/Approf_report.php" role="menuitem" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                    <li role="none"><a href="php/Approf_personaggio.php" role="menuitem" >Scheda Giocatore</a></li>
+                    <li role="none"><a href="php/Approf_esplora.php" role="menuitem" >Sezione Esplora</a></li>
                 </ul>
             </li>
         </ul>
@@ -105,7 +107,7 @@ ACCESSIBILITÀ CHECK LIST
 
     <nav id="breadcrumb" aria-label="breadcrumb"> <!-- Tutti gli item non current vanno messi con tabindex=-1 , il current va messo con: tabindex="9" aria-label="Ti trovi in (il nome della pagina)" -->
         <ul>
-            <li id="breadCCurrent" xml:lang="en" lang="en" tabindex="0" aria-label="Ti trovi in Home">Home</li>
+            <li id="breadCCurrent" xml:lang="en" lang="en" tabindex="9" aria-label="Ti trovi in Home">Home</li>
         </ul>
     </nav>
 
@@ -116,7 +118,7 @@ ACCESSIBILITÀ CHECK LIST
     <div id="personaggiCoperina"></div>
 
     <header>
-        <h1 id="titolo" tabindex="0">Titolo del Sito</h1>
+        <h1 id="titolo" xml:lang="en" tabindex="0">D&Diary</h1>
         <dl id="starFeature">
             <dt>Preparati per la sessione con la nostra..</dt>
             <dd><a class="buttonLink" href="php/character_creation(FormAction).php" aria-label="clicca per creare una scheda giocatore">Scheda Giocatore</a></dd>
@@ -133,43 +135,43 @@ ACCESSIBILITÀ CHECK LIST
 
     <h2>La cornice adatta a <span class="DeD" xml:lang="en" lang="en">Dungeons &amp; Dragons</span></h2>       <!--Mettere sempre class D&D in css metter con un after il sibolo: ® -->
     <p>Contorna la tua esperienza di gioco dall’inizio 
-        alla fine con un ambiente ideale per condividere 
-        la tua passione con tutti i tuoi amici</p>
+        alla fine con un ambiente ideale per <strong>condividere</strong> 
+        la tua passione con tutti i tuoi <strong>amici</strong></p>
     <p id="indicazioneUsoFeature">Scorri verso destra per scoprire cosa possiamo <strong>offrirti</strong></p>
     <div>
     <ul id="features">
         <li>
-            <img src="img/features/personaggio.png" alt="Silouette Figura umana e testo simbolico rappresentato al suo fianco"/>
+            <img src="img/features/personaggio.png" alt="Silouette Figura umana e testo simbolico rappresentato al suo fianco."/>
         
             <p><em>Crea e gestisci i tuoi personaggi</em> per avere sempre disponibili
                  schede aggiornate da stampare e usare nelle tue nuove avventure</p>
         </li>
         <li>
-            <img src="img/features/utente.png" alt="mezzo busto superiore di una persona stilizzata vista frontalmente"/>
+            <img src="img/features/utente.png" alt="mezzo busto superiore di una persona stilizzata vista frontalmente."/>
         
             <p>La <span xml:lang="en" lang="en">community</span> aspetta solo di conoscerti! <em>Accedi alla tua 
                 Area Personale</em> e raccontaci che tipo di giocatore sei</p>                              <!--Area Riservata e altre keyword da mettere in enfasi oppure come href-->
         </li>
         <li>
-            <img src="img/features/trascrizioneIdee.png" alt="icona stilizzata di un report contenente delle scritte e figure simboliche"/>
+            <img src="img/features/trascrizioneIdee.png" alt="icona stilizzata di un report contenente delle scritte e figure simboliche."/>
         
             <p>Sei un <span xml:lang="en" lang="en">Master</span>? Realizza il tuo personalissimo <em><span xml:lang="en" lang="en">Report</span> di Sessione</em>,           <!--Report di Sessione come href?-->
                 cosicché nulla di vissuto durante il gioco venga perso</p>                 <!--Master e Report li mettiamo in inglese?-->
         </li>
         <li>
-            <img src="img/features/comunità.png" alt="un gruppo di tre case stilizzate una più grande in primo piano"/>
+            <img src="img/features/comunità.png" alt="un gruppo di tre case stilizzate una più grande in primo piano."/>
         
             <p>Ogni <span xml:lang="en" lang="en">Report</span> di Sessione costituisce un micro cosmo in cui potrai 
                 <em>aprire conversazioni private </em> con i tuoi intimi compagni di avventura</p>
         </li>
         <li>
-            <img src="img/features/globo.png" alt="l'icona di un planisfero stilizzato"/>
+            <img src="img/features/globo.png" alt="l'icona di un planisfero stilizzato."/>
         
             <p >A tua discrezione potrai <em>rendere publici i tuoi <span xml:lang="en" lang="en">report</span></em>, avventurieri 
                 di tutta Italia potranno ispirarsi e interagire con il tuo gruppo</p>
         </li>
         <li>
-            <img src="img/features/dashboard.png" alt="icona di una dashboard costituita da cinque elementi rettangolari stilizzati messi uno sotto l'altro in due colonne"/>
+            <img src="img/features/dashboard.png" alt="icona di una dashboard costituita da cinque elementi rettangolari stilizzati messi uno sotto l'altro in due colonne."/>
 
             <p><em>La <span xml:lang="en" lang="en">dashboard</span> </em> permetterà di tenere traccia
                 dei <span xml:lang="en" lang="en">report</span> che hai pubblicato da <span xml:lang="en" lang="en">Master</span> e di quelli che ti riguardano come giocatore</p>
@@ -184,7 +186,7 @@ ACCESSIBILITÀ CHECK LIST
 <div id="argomenti">       
 
 <div id="aboutReport" class="about">
-    <img src="img/argomenti/aboutReport.png" alt="foto raffigurante due ragazzini attorno a un tavolo da gioco in piedi che urlano di gioia. Si stanno guardando e il bambino di destra ha i pugni sollevati, in primo piano sul tavolo si trova un libro messo in verticale"/>              
+    <img src="img/argomenti/aboutReport.png" alt="foto raffigurante due ragazzini attorno a un tavolo da gioco in piedi che urlano di gioia. Si stanno guardando e il bambino di destra ha i pugni sollevati, in primo piano sul tavolo si trova un libro messo in verticale."/>              
 
     <div class="testoArgomento">
     <h2><span xml:lang="en" lang="en">Report</span> di sessione <span> <a class="puntoInterrogativo" aria-label="Cos è un Report di sessione?" href="php/Approf_report.php">?</a></span></h2>
@@ -210,14 +212,14 @@ ACCESSIBILITÀ CHECK LIST
 
 <div id="howToReport" class="howTo">
    
-    <img src="img/argomenti/howToReport.png" alt="foto raffigurante il report realizzabile nel nostro sito, è un foglio bianco rettangolare il cui contenuto è espresso nel paragrafo precedente"/>                <!--INSERISCI IMMAGINE-->
+    <img src="img/argomenti/howToReport.png" alt="foto raffigurante il report realizzabile nel nostro sito, è un foglio bianco rettangolare il cui contenuto è espresso nel paragrafo precedente."/>                <!--INSERISCI IMMAGINE-->
     
     <div class="testoArgomento">
     <h2>Come realizzare il tuo <span xml:lang="en" lang="en">Report</span> di Sessione</h2>
         <ol id="passaggiHowToReport">
-            <li>Aggiungi tramite una rapida ricerca i giocatori che hanno partecipato</li>
-            <li>Riporta un riassunto testuale della sessione ed eventuali momenti salienti</li>
-            <li>Posta il primo commento, i tuoi prodi ti raggiungeranno subito!</li>
+            <li>Aggiungi tramite una rapida ricerca i <strong>giocatori che hanno partecipato</strong></li>
+            <li>Riporta un <strong>riassunto</strong> testuale della sessione ed eventuali momenti salienti</li>
+            <li>Posta il primo <strong>commento</strong>, i tuoi prodi ti raggiungeranno subito!</li>
         </ol>
         <a href="php/CreazioneReportPage.php" class="buttonLink">Progetta il tuo <span xml:lang="en" lang="en">Report</span> di Sessione</a>
     </div>
@@ -226,12 +228,12 @@ ACCESSIBILITÀ CHECK LIST
 
 <div id="aboutPersonaggio" class="about">
 
-    <img src="img/argomenti/aboutPersonaggio.png" alt="disegno raffigurante un essere umanoide dalle sembianze di un drago con la pelle a scuame di colore rosso, ha un armatura grigio scuro ha in mano due spade e sta guardando con grinta nella nostra direzione"/>          
+    <img src="img/argomenti/aboutPersonaggio.png" alt="disegno raffigurante uno stregone calvo vestito con una tunica senza maniche arancione, sta evocanto un incantesimo che si manifesta come una scia arancione di fumo che lo avvolge in una spirale."/>          
 
     <div class="testoArgomento">
     <h2>Prova le nostre schede giocatore<span> <a class="puntoInterrogativo" aria-label="Cosa è una scheda giocatore?" href="php/Approf_personaggio.php">?</a></span></h2>
 
-    <p>Siete pronti per l’azione? Un attimo.. avete con voi la scheda giocatore? …No?!
+    <p>Siete pronti per l’azione? Un attimo.. avete con voi la <strong>scheda giocatore</strong>? …No?!
         <br/>
         Provate la nostra! <strong>Compilarla</strong> è molto <strong>semplice</strong>, e in men che non si dica avrete una scheda giocatore da:
     </p>
@@ -245,14 +247,14 @@ ACCESSIBILITÀ CHECK LIST
 
 
 <div id="howToPersonaggio" class="howTo">
-    <img src="img/argomenti/howToPersonaggio.png" alt="foto raffigurante due schede giocatore, una sovrapposta all'altra, hanno due layout differenti, una con le fattezze di una pergamena, l'altra rappresentata da un foglio con lo standard di D&D"/>                <!--INSERISCI IMMAGINE-->
+    <img src="img/argomenti/howToPersonaggio.png" alt="foto raffigurante due schede giocatore, una sovrapposta all'altra. Hanno due layout differenti, una ha le fattezze di una pergamena, mentre l'altra è la scheda del personaggio classica di D&D."/>                <!--INSERISCI IMMAGINE-->
 
     <div class="testoArgomento">
     <h2>Come realizzare la tua Scheda Giocatore</h2>
     <ol id="passaggiHowToPersonaggio">
         <li>Seleziona un vecchio personaggio da modificare o creare da zero</li>
         <li>Configura la scheda con le informazioni indipendenti dalla giocata</li>
-        <li>Visualizza il risultato in formato di stampa in ogni momento</li>
+        <li>Visualizza il risultato in <strong>formato di stampa</strong> in ogni momento</li>
         <li>Stampa la tua scheda giocatore</li>
     </ol>
     <a class="buttonLink" href="php/character_creation(FormAction).php">Progetta la tua Scheda Giocatore</a>

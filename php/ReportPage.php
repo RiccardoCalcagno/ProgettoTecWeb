@@ -125,7 +125,7 @@ else {
         //autore e img
         $replacer = '<h2>Autore</h2>';
         $replacer .= '<div class="badgeUtente">';
-        $replacer .= '<img src="'.$report_info->get_author_img().'" alt="Immagine profilo" />';
+        $replacer .= '<img src="'.$report_info->get_author_img().'" alt="" />';
         $replacer .= '<p class="textVariable">'.$report_info->get_author().'</p>';
         $replacer .= '</div>';
         $html = str_replace("<author_placeholder/>", $replacer, $html);
@@ -142,7 +142,7 @@ else {
             for ($i = 0; $i < count($usernameArray);$i++){// if ==0 => "non ci sono giocatori"
                 $replacer .= '<li>';
                 $replacer .= '<div class="badgeUtente">';
-                $replacer .= '<img src="'.$userPic[$i].'" alt="Immagine profilo" />';
+                $replacer .= '<img src="'.$userPic[$i].'" alt="" />';
                 $replacer .= '<p class="textVariable">'.$usernameArray[$i].'</p>';
                 $replacer .= '</div>';
                 $replacer .= '</li>';
@@ -165,7 +165,7 @@ else {
             $replacer = '<div id="InserimentoCommento">
                             <label for="textComment" class="AiutiNavigazione">Digita un commento</label>
                             <input type="text" id="textComment" placeholder="Lascia un commento.." name="contenutoCommento" />
-                            <input type="submit" name="report" value="COMMENTA" class="buttonLink" />
+                            <input type="submit" name="report" value="COMMENTA" class="buttonLink" aria-label="Pubblica il tuo commento" />
                         </div>';
             $html = str_replace("<InsertComment_placeholder/>", $replacer, $html);
         }
@@ -183,7 +183,7 @@ else {
 
             for($i = 0; $i < count($commentsArray);$i++){
                 $replacer .= '<li class="commento"><div class="badgeUtente">';
-                $replacer .= '<img src="'.$commenterPic[$i].'" alt="Immagine profilo" />';
+                $replacer .= '<img src="'.$commenterPic[$i].'" alt="" />';
                 $replacer .= '<p class="textVariable">'.$commentsArray[$i]->get_author().'</p></div>';
                 $replacer .= '<div class="testoCommento">';
                 $replacer .= '<p>'.$commentsArray[$i]->get_text().'</p>';
@@ -210,17 +210,17 @@ else {
 
             $footerAction = '<form method="GET" action="../php/action_report.php"> 
                             <ul id="footAction">
-                            <li> <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink"/> </li>';
+                            <li> <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink" aria-label="Elimina questo report"/> </li>';
 
             if(!$report_info->get_isExplorable()){
 
-                $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink"/> </li>';              
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink" aria-label="Publica questo report"/> </li>';              
             }else{
-                $footerAction .= '<li> <input type="submit" name="reportAction" value="Rimuovi da ESPLORA" class="buttonLink"/> </li>';
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Rimuovi da ESPLORA" class="buttonLink" aria-label="Rendi privato questo report"/> </li>';
             }
 
             $footerAction .=     '<li>
-                                <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink"/> 
+                                <input type="submit" name="reportAction" value="MODIFICA" class="buttonLink" aria-label="Modifica questo report"/> 
                             </li>
                         </ul>
                         <div>
@@ -234,7 +234,7 @@ else {
         $html = str_replace("<footerAction_placeholder/>", $footerAction, $html);
         $html = str_replace("<hiddenReportID />", $hiddenReportID, $html);
 
-        $html = addPossibleBanner($html, "ReportPage.php");
+        $html = addPossibleBanner($html, "ReportPage.php?ReportID=".$_GET['ReportID']);
 
         echo ($html);
     }

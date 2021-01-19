@@ -42,10 +42,24 @@ h2 {
 /*    font-weight: normal;*/
 }
 
-a:link::after, a:visited::after {
+a:not(.annulla)::after {
     content: " [" attr(href) "] ";
     font-size: 90%;
 }
+
+.buttonLink, .annulla {
+    box-sizing: content-box;
+    display: inline-block;
+    text-decoration: underline;
+    color: black;
+    font-size: 0.9em;
+    background-color: white;
+    height: 1.6em;
+    padding: 0.4em;
+    border: 1px solid black;
+    margin: 0.1em;
+}
+
 abbr {
     text-decoration: none;
 }
@@ -70,6 +84,18 @@ textarea {
 
 #globalFooter {
     display: none;
+}
+
+.text-errore {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 0.5em;
+    /* color: red; WORTH ? */
+}
+
+.hidden {
+    display: none !important;
 }
 
 /*
@@ -216,6 +242,7 @@ textarea {
 }
 
 #visualizzaReport h2  {
+    display: inline-block;
     font-size: 1.2em;
     margin: 0.5em 0;
 }
@@ -241,6 +268,10 @@ textarea {
     margin-left: 0.7em;
 }
 
+#visualizzaReport #testoReport p {
+    white-space: pre-wrap;
+}
+
 #visualizzaReport #commentiField {
     border: none;
 }
@@ -255,6 +286,7 @@ textarea {
 }
 
 #visualizzaReport li.commento {
+    page-break-inside: avoid;
     margin: 0;
 }
 
@@ -274,20 +306,22 @@ textarea {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-.box, .cards, .cards li {
-    /* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    */
+.box ul, .cards{
     list-style: none;
 }
 
+/* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
+*/
 .box li.cardReport {
     page-break-inside: avoid;
     float:left;
     width: 45%;
+    height: 5.3em;
     margin: 1.2em 2.5%;
+}
+
+.box li.cardReportPartecipante, .box li.cardReportEsplora {
+    height: 7.3em;    /* SPAZIO PER AUTORE*/
 }
 
 .box li {
@@ -296,29 +330,37 @@ textarea {
 }
 
 .box li > button {
+    width: 100%;
+    height: 100%;
     background-color: white;
 }
 
 .testoCardRep h4 {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-size: 1.4em;
     margin: 0.25em auto;
 }
 
 .testoCardRep p {
-    padding: 0.5em;
-    margin: 0.25em 0.7em;
+    max-height: 3.5em;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    padding: 0 0.3em;
+    margin: 0 0.7em;
 }
 
 .box .publicazione, #areaPersonale .cards .badgeUtente img {
     display: none;
 }
 
-.box .cards .badgeUtente > * {
+.box li.cardReport .badgeUtente > * {
     display: inline-block;
     font-weight: bold;
 }
 
-.box .cards .badgeUtente > img {
+.box li.cardReport .badgeUtente > img {
     display: none;
 }
 
@@ -425,6 +467,9 @@ textarea {
 /*------------------------------------- LOGIN ------------------------------------------------
 ------------------------------------------------------------------------------------------------
 */
+#loginBody {
+    text-align: center;
+}
 
 #loginBody > div {
     margin-top: 20%;
@@ -448,7 +493,7 @@ textarea {
     font-weight: 500;
     display: block;
     text-align: center;
-    padding-bottom: 0.4em;
+    padding: 0.4em 0;
 }
 
 #loginBody form > input{
@@ -456,15 +501,12 @@ textarea {
     margin:0 calc(50% - 10.5em) 3em;
 }
 
-#loginBody form p:last-child{
-    text-align: center;
-}
 
 #loginBody #submitLogin{
     width: 90%;
     display: flex;
     margin: auto;
-    padding-bottom: 0.4em;
+    padding: 1em;
 }
 
 #loginBody #submitLogin div >*{
@@ -522,17 +564,17 @@ textarea {
 */
 
 #modificaDati input {
-    display: block;
-    margin: 0.2em auto 2em;
+    display: inline-block;
+    margin: 0.2em auto 0.4em;
 }
 
 textarea,input[type="text"],input[type="date"],input[type="password"]{
     padding:0.5em;
-    width: 25em;
+    min-width: 20em;
 }
 
 .userFields fieldset{
-    margin: 2em 1em;
+    margin: 0.5em 1em;
 }
 
 form#datiUtenza{
@@ -541,19 +583,13 @@ form#datiUtenza{
 
 form#datiUtenza > div:first-child {
     display: flex;
-    width: 100%;
-}
-
-#modificaDati .submitForm input {
-    display: inline;
-    margin: 0.5em;
 }
 
 .userFields fieldset img {
     display: block;
     margin: 1em auto 0;
-    width: 10em;
-    height: 10em;
+    width: 5em;
+    height: 5em;
     border-radius: 6em;
 }
 
@@ -561,21 +597,16 @@ form#datiUtenza > div:first-child {
     text-align: center;
 }
 
-#datiUtenza #username, #datiUtenza #future_username {
-    width: 20em;
-    display: block;
-}
 
 .userFields fieldset label {
-    padding-bottom: 0.5em;
-    margin-top: 0.5em;
+    padding-bottom: 0.2em;
     display: block;
     font-weight: bold;
 }
 
 .userFields fieldset li{
     list-style-type: none;
-    width:26em;
+    text-align: center;
     margin:auto;
 }
 
@@ -629,7 +660,7 @@ form#datiPassword .submitForm {
     padding: 0.5em;
 }
 
-.creazioneFields li input,  .creazioneFields li textarea {
+.creazioneFields li textarea {
     padding: 1em;
     margin: 1em;
 }
@@ -637,6 +668,10 @@ form#datiPassword .submitForm {
 .creazioneFields li fieldset label {
     display: inline-block;
     margin-top: 1em;
+}
+
+.submitForm {
+    page-break-inside: avoid;
 }
 
 /*------------------------------------- CREAZIONE REPORT ------------------------------------------------
@@ -672,6 +707,7 @@ form#datiPassword .submitForm {
 }
 
 #conclusione #condivisione div {
+    text-align: center;
     margin: 0.4em;
 }
 
@@ -721,9 +757,14 @@ form#datiPassword .submitForm {
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#visualizzaScheda {
+    max-height: 290mm;
+    overflow: hidden;
+}
+
 #visualizzaScheda * {
     -webkit-print-color-adjust: exact !important;   /* Chrome, Safari */
-    color-adjust: exact !important;                 /*Firefox*/
+    color-adjust: exact !important;                 /*Firefox*/ 
 }
 
 #visualizzaScheda #content{
@@ -741,16 +782,17 @@ form#datiPassword .submitForm {
     height: 197px; 
     background-image: url(../img/pergamena/pergamena_head.png);
     background-size: 100% 197px;
-    position: relative;
-    top: -80px;
+    position: absolute;
+    top: 1mm;
 }
 
 #visualizzaScheda #contentPersonaggio.pergamena{
     max-width: 58em;
     margin: 83px auto 0;
     width: 100%; 
+    max-height: 290mm;
     background-image: url(../img/pergamena/pergamena_body.png);
-    background-size: 100% 448px;
+    background-size: 100% 100%;
     background-repeat: repeat-y;
 }
 #contentPersonaggio.pergamena p, #contentPersonaggio.pergamena h1, #contentPersonaggio.pergamena dd, #contentPersonaggio.pergamena dt, #contentPersonaggio.pergamena span{
@@ -765,7 +807,7 @@ form#datiPassword .submitForm {
     width: 100%; 
     height: 135px;
     background-image: url(../img/pergamena/pergamena_foot.png);
-    background-size: 100% 135px;
+    background-size: 100% 100%;
     position: relative;
     top: 40px;
 }
@@ -773,7 +815,7 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.pergamena > div:last-child{
     position: relative;
-    top: -100px;
+    top: 10mm;
     left: 5px;
     width: 85%;
     margin:auto;
@@ -781,7 +823,6 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.pergamena h1{
     width: 14em;
-    overflow: hidden;
     font-size: 2.5em;
     padding-top: 0.1em;
     margin-bottom: 1em;
@@ -789,8 +830,7 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.pergamena dt{
     font-size: 1.8em;
-    padding-top: 2em;
-    margin-right: 2em;
+    margin-right: 1em;
 }
 .pergamena #infoBreviPersonaggio dd{
     font-size: 1.3em;
@@ -825,24 +865,30 @@ form#datiPassword .submitForm {
 }
 
 .pergamena #infoBreviPersonaggio img{
+    position: relative;
     display: block;
     width: calc(50% - 2em);
     margin:auto;
     padding: 1em;
+    top: -3mm;
 }
 
 
 .pergamena #sezTestualiPersonaggio{
     position: relative;
-    top: 0;
+    top: -24mm;
 }
 
-.pergamena #sezTestualiPersonaggio dl :first-child dt{
-    padding-top: 0;
+.pergamena #sezTestualiPersonaggio dl dt{
+    padding-top: 0.5em;
 }
+
 .pergamena #sezTestualiPersonaggio dd{
     font-weight: 400;
     font-size: 1.3em;
+    max-width: 120mm;
+    white-space: pre-wrap;
+    word-break: break-all;
 }
 .pergamena #sezTestualiPersonaggio dl > div{
     max-width: 38em;
@@ -902,6 +948,9 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.scheda dd {
     position: absolute;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
 }
 
 #contentPersonaggio.scheda #class, #contentPersonaggio.scheda #background, #contentPersonaggio.scheda #race, #contentPersonaggio.scheda #alignment {
@@ -921,8 +970,12 @@ form#datiPassword .submitForm {
     width: 53mm;
     top: 52mm;
     left: 143.5mm;
+    height: 13mm;
 }
 
+#contentPersonaggio.scheda #pers-traits {
+    height: 20.2mm;
+}
 #contentPersonaggio.scheda #ideals {
     top: 78mm;
 }
@@ -933,4 +986,73 @@ form#datiPassword .submitForm {
 
 #contentPersonaggio.scheda #flaws {
     top: 119.5mm;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            PAGINE ERRORE
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+body.errorPage {
+    text-align: center;
+}
+
+.errorPage h1 {
+    padding-top: 0.8em;
+    font-size: 4em;
+}
+
+.errorPage section {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.errorPage header h2 {
+    padding: 1em;
+}
+
+#body404 section h3 {
+    font-size: 1.7em;
+    padding: 1em;
+}
+
+.errorPage section p {
+    font-size: 1.2em;
+}
+
+#body404 section p {
+    padding: 0.5em; /* 1em se rimuovi secondo p*/
+}
+
+#errorBody section p {
+    padding: 3em 0 1.5em;
+}
+
+/*
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+                                                            INFO DA FOOTER
+--------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+dl#contenutoInformativa {
+    width: 90%;
+    margin: auto;
+}
+
+dl#contenutoInformativa dt {
+    margin: 2em auto 0.5em;
+}
+
+dl#contenutoInformativa a{
+    display: block;
+    margin-top: 0.3em;
+}
+
+dl#contenutoInformativa a::after {
+    display: none;
 }

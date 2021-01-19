@@ -4,10 +4,13 @@
 
 <head>
 
-<title> - Esplora</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
-
-<meta name="description" content="Esplora le sessioni attivi e unisciti al gioco"/>           
-<meta name="keywords" content="Dungeons & Dragons, Dungeons, Dragons, Dungeons and Dragons, tornei Dungeons and Dragons, sessioni Dungeons and Dragons, esplora Dungeons and Dragons" />
+<title>Esplora - D&Diary</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+<meta name="title" content="Esplora" />
+<meta name="description" content="Esplora le sessioni che altri giocatori come te hanno voluto condividere nel web, e scopri le novità che il territorio ti mette a disposizione"/>           
+<meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
+                                ricordo, riassunto, avventura, giocatori, fantasia, scheda giocatore, personaggio
+                                giochi di ruolo, Talkien, vintage, narratore, narrare, scenari, eventi, dadi ,regole
+                                tornei Dungeons and Dragons, sessioni Dungeons and Dragons, esplora Dungeons and Dragons" />
 <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
 <meta name="language" content="italian it" />
 <meta charset="utf-8" >
@@ -16,7 +19,7 @@
 <link rel="stylesheet" href="../style/mediumStyle.css" media="handheld, screen and (max-width:768px), only screen and (max-device-width:768px)"/>
 <link rel="stylesheet" href="../style/smallStyle.css" media="handheld, screen and (max-width:480px), only screen and (max-device-width:480px)"/>
 <link rel="stylesheet" href="../style/printStyle.css" media="print"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="../js/scripts.js"></script> 
 </head>
 
@@ -32,32 +35,31 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input type="text" class="hidden" name="beforeAccess" value="EsploraPage.php" />
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
         <ul id="menu" role="menubar">
                 <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
                 <li id="currentLink">Esplora</li>
                 <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Crea</a>
+                    <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</a>
                     <ul role="menu" class="dropdown-content">
-                        <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem" tabindex="-1">Crea Scheda Giocatore</a></li>
-                        <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem" tabindex="-1">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
+                        <li role="none"><a href="../php/character_creation(FormAction).php" role="menuitem">Crea Scheda Giocatore</a></li>
+                        <li role="none"><a href="../php/CreazioneReportPage.php" role="menuitem">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                     </ul>
                 </li>
                 <li role="none" class="externalLink">
-                    <a class="dropdown" role="menuitem" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
+                    <a class="dropdown" role="menuitem" aria-label="opzioni di approfondimento" tabindex="0" aria-haspopup="true" aria-expanded="false">Approfondimenti</a>
                     <ul role="menu" class="dropdown-content">
-                        <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" tabindex="-1" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
-                        <li role="none"><a href="../php/Approf_report.php" role="menuitem" tabindex="-1"><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
-                        <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" tabindex="-1">Scheda Giocatore</a></li>
-                        <li role="none"><a href="../php/Approf_esplora.php" role="menuitem" tabindex="-1">Sezione Esplora</a></li>
+                        <li role="none"><a href="../php/Approf_D&D.php" role="menuitem" class="DeD" xml:lang="en" lang="en">Dungeons & Dragons</a></li>
+                        <li role="none"><a href="../php/Approf_report.php" role="menuitem" ><span xml:lang="en" lang="en">Report</span> Sessione</a></li>
+                        <li role="none"><a href="../php/Approf_personaggio.php" role="menuitem" >Scheda Giocatore</a></li>
+                        <li role="none"><a href="../php/Approf_esplora.php" role="menuitem">Sezione Esplora</a></li>
                     </ul>
                 </li>
         </ul>
@@ -66,15 +68,15 @@
 
     <nav id="breadcrumb">
         <ul>
-            <li><a href="../index.php" xml:lang="en" lang="en">Home</a></li>
-            <li id="breadCCurrent">Esplora</li>
+            <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
+            <li id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Esplora">Esplora</li>
         </ul>
     </nav>
 
     <header id="intestazionePagina">
         <h1 id="titolo" tabindex="0">Benvenuto in Esplora <span> <a class="puntoInterrogativo" data-approf="Cos è Esplora" href="../php/Approf_esplora.php">?</a></span></h1>
-        <p>In questa pagina avrai la possibilità di scoprire le avventure che m<span xml:lang="en" lang="en">master</span>aster come te hanno voluto condividere globalmente.
-             Qui troverai anche interesantissimi aggiornamenti su ciò che il nostro territorio mette a disposizione ad avventurieri come noi.</p>
+        <p>In questa pagina avrai la possibilità di <strong>scoprire le avventure</strong> che <span xml:lang="en" lang="en">master</span> come te hanno voluto <strong>condividere globalmente</strong>.
+             Qui troverai anche interesantissimi <strong>aggiornamenti</strong> su ciò che il nostro territorio mette a disposizione ad avventurieri come noi.</p>
     </header>
 
     <div id="esploraWrapper">
@@ -104,10 +106,10 @@
             <ul>
                 <li id="eventi">
                     <h2>Prossimi Eventi</h2>
-                    <p>Scopri quali sono gli eventi pianificati per il futuro, unisciti alla <span xml:lang="en" lang="en">Community</span> dal vivo!</p>
+                    <p>Scopri quali sono gli <strong>eventi pianificati</strong> per il futuro, unisciti alla <span xml:lang="en" lang="en">Community</span> dal vivo!</p>
                     <dl>
                         <dt>Lucca <span xml:lang="en" lang="en">Comics</span></dt>
-                        <dd>Visita il padiglione di <span xml:lang="en" lang="en">Dungeons & Dragons</span> per conoscere altri giocatori come te e partecipare a sessioni a tema!</dd>
+                        <dd>Visita il padiglione di <span xml:lang="en" lang="en">Dungeons & Dragons</span> per conoscere altri giocatori come te e <strong>partecipare a sessioni a tema</strong>!</dd>
                         <dd>Da Giovedì 10 Marzo 2021, aperta per tutto il <span xml:lang="en" lang="en">Weekend</span></dd>
 
                         <dt>Fiera del Fumetto di Milano</dt>
@@ -118,7 +120,7 @@
 
                 <li id="siti">
                     <h2>Siti Utili, Strumenti e Manuali</h2>
-                    <p>Hai ancora un po di tempo per navigare? Ecco alcuni strumenti utili che puoi trovare <span xml:lang="en" lang="en">online</span> per arricchire la tua esperienza!</p>
+                    <p>Hai ancora un po di tempo per navigare? Ecco alcuni <strong>strumenti utili</strong> che puoi trovare <span xml:lang="en" lang="en">online</span> per arricchire la tua esperienza!</p>
                     <dl>
                         <dt><a href="https://dnd.wizards.com/" target="_blank" xml:lang="en" lang="en">Dungeons&Dragons</a></dt>
                         <dd>Visita il sito ufficiale per controllare tutte le novità sul gioco</dd>
