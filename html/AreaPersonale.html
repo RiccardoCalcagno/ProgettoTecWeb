@@ -46,7 +46,7 @@
 
         <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
-        <ul id="menu" role="menubar">
+        <ul id="menu" role="menubar" tabindex="0">
             <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
@@ -77,9 +77,9 @@
         </ul>
     </nav>
 
-    <div role="main">
+    <main>
     <header id="intestazionePagina">
-        <h1 id="titolo">Benvenuto in Area Personale</h1>
+        <h1 id="titolo" tabindex="0">Benvenuto in Area Personale</h1>
         <p>In questa pagina troverai le <strong>informazioni</strong> che caratterizzano la tua 
             <strong>identità</strong> su questo sito, le <strong>schede utente</strong> e i 
             <strong xml:lang="en" lang="en">report</strong> che hai creato oltre ai <span xml:lang="en" lang="en">report</span> 
@@ -117,7 +117,7 @@
 
     <section id="personaggiUtente">
         <header>
-            <h2 id="titolo_schede_giocatore">Schede Giocatore</h2>
+            <h2 id="titolo_schede_giocatore" tabindex="0">Schede Giocatore</h2>
             <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
         </header>
         <div class="box">
@@ -137,7 +137,7 @@
 
     <section class="report">
         <header>
-            <h2 id="titolo_schede_report"><span xml:lang="en" lang="en">Report</span> Sessione</h2>
+            <h2 id="titolo_schede_report" tabindex="0"><span xml:lang="en" lang="en">Report</span> Sessione</h2>
             <a href="../php/CreazioneReportPage.php" class="buttonLink">Aggiungi <span xml:lang="en" lang="en">report</span> sessione</a>           <!--Da completare href-->
         </header>
         <div class="listeReport">
@@ -202,7 +202,7 @@
     </section> 
 
     </div>
-    </div>
+</main>
 
     <footerPH />
 

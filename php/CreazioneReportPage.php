@@ -22,7 +22,7 @@
             <meta name="description" content="Modifica il report di sessione che precedentemente hai creato" />';
 
             $header = '<header id="intestazionePagina">
-            <h1 id="content">Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  
+            <h1 id="content" tabindex="0">Modifica <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  
                 href="../php/Approf_report.php">?</a></span></h1>
             </header>';
 
@@ -36,7 +36,7 @@
             <meta name="description" content="Crea il tuo report di sessione!" />';
 
             $header = '<header id="intestazionePagina">
-            <h1 id="content">Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  href="../php/Approf_report.php">?</a></span></h1>
+            <h1 id="content" tabindex="0">Creazione <span xml:lang=\"en\" lang=\"en\">Report</span> di Sessione <span> <a class="puntoInterrogativo" aria-label="Cosa è un Report di Sessione?"  href="../php/Approf_report.php">?</a></span></h1>
             <p>Sei qui per realizzare il tuo primo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione? Non temere, segui questi semplici 
                 passaggi e in breve il tuo ricordo sarà condensato in un <span xml:lang=\"en\" lang=\"en\">report</span> da mostrare a chi vorrai. </p>
             <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio del <span xml:lang=\"en\" lang=\"en\">report</span> sarà necessaria una tua autenticazione)</p>
@@ -119,7 +119,7 @@
                 }
     
                 }else{
-                $message = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di <span xml:lang="en" lang="en">input</span>"><ul>'; // TO FIX
+                $message = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; // TO FIX
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
                     $message.='<li>titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
                 }
