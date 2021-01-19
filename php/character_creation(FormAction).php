@@ -155,13 +155,10 @@ function Char_Form($toEdit) {
                         unset($_SESSION['CharFormPOST']);
                     }
                     else {
-                        // Can't insert in DB
-                        errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
-                    }
+                        errorPage("EDB");
                 }
                 else {
-                    // Can't connect to DB
-                    errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
+                    errorPage("EDB");
                 }
 
                 $db->closeConnection();
@@ -196,11 +193,11 @@ function Char_Form($toEdit) {
                 $flaws = $character->get_flaws();
             }
             else {
-                // ERROR PAGE ?
+                errorPage("EDB");
             }
         }
         else {
-            // ERROR PAGE ?
+            errorPage("EDB");
         }
     }
 
