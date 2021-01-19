@@ -3016,12 +3016,14 @@ body.errorPage section, body.errorPage header{
     border-radius: 1em 1em 0 0;
 }
 
+/*
 #body404 header h2 {
     font-size: 1.3em;
     width: 4.5em;
     padding: 0.4em 0.4em 0;
     margin-left: 15%;
 }
+*/
 
 #errorBody header h2 {
     display: inline-block;
