@@ -60,7 +60,7 @@ function preparePage($htmlPage, $toEdit) {
 }
 
 function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws) {
-    $messaggioForm = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di <span xml:lang="en" lang="en">input</span>"><ul>'; 
+    $messaggioForm = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; 
 
     if(!$check_name) {
         $namelen = strlen($name);
@@ -156,6 +156,7 @@ function Char_Form($toEdit) {
                     }
                     else {
                         errorPage("EDB");
+                    }
                 }
                 else {
                     errorPage("EDB");
