@@ -15,14 +15,14 @@
 
 
     if( !empty($_FILES["imgProfilo"]["name"]))
-    	$img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
+        $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
     else
-    	$img = null;
+        $img = null;
 
     try {
         $db = new DBinterface();
         
-        $db->openConnection();    
+        if(!$db->openConnection()){errorPage("EDB");exit();}
 
         if(preg_match("/^.{1,}$/", trim($username)) )
         {
@@ -72,30 +72,30 @@
 
             if(!$err["img_err"])
             {
-	    	$img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
+            $img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
 
-            	if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
-            	{
-            	    $err["img_err"] = false;
-	    	    if($_SESSION["img"] != "../img/img_profilo_mancante.png")
-            	    	unlink($_SESSION["img"]);
-            	}
-            	else
-            	{
-            	    errorPage("Spiacenti! Errore nel caricamento dell'immagine");
-            	    exit();
-            	}
+                if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+                {
+                    $err["img_err"] = false;
+                if($_SESSION["img"] != "../img/img_profilo_mancante.png")
+                        unlink($_SESSION["img"]);
+                }
+                else
+                {
+                    errorPage("EDB");
+                    exit();
+                }
             }
             else
             {
-            	$img = null;
+                $img = null;
             }
-     	}
-    	else
-    	{
+         }
+        else
+        {
             $err["img_err"] = false;
             $img = $_SESSION["img"];
-    	}
+        }
 
 
         if(in_array(true, $err))
@@ -111,12 +111,12 @@
         }
         else
         {
-        $db->openConnection();
+            if(!$db->openConnection()){errorPage("EDB");exit();}
             $modify_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img);
 
             if($db->setUser($modify_user, $_SESSION["username"]))
             {
-		$_SESSION["username"] = $username;
+        $_SESSION["username"] = $username;
                 $_SESSION["name_surname"] = $name_surname;
                 $_SESSION["email"] = $email;
                 $_SESSION["passwd"] = $passwd;
@@ -125,13 +125,13 @@
                 $_SESSION["result"] = true;
 
                 $_SESSION['banners']= "modifica_utente_confermata";
-        	$db->closeConnection();
+            $db->closeConnection();
                 header("Location: modify_user.php");
             }
             else
             {
-        	$db->closeConnection();
-        	errorPage("Spiacenti! Errore nella modifica dell'utente"); 
+            $db->closeConnection();
+                errorPage("EDB");
                 exit();
             }
         }
@@ -140,7 +140,7 @@
 
 
     } catch(Exception $e) {
-        errorPage("Spiacenti! Qualcosa è andato storto :(");
+        errorPage("EDB");
         exit();
     }
 

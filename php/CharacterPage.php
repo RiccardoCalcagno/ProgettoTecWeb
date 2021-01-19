@@ -50,20 +50,17 @@ function characterPage($charID) {
                 $html = str_replace("<imgAlt />", $imgAlt, $html);
 
             }
-            else {  // User sta cercando di accedere ad un personaggio non suo
-                errorPage("Questo personaggio non e' tuo ??? !! :))");  // ERROR PAGE ?
-                
+            else {  
+                errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
+                exit();
             }
         }
         else {
-        // Can't get data from DB
-            errorPage("Problema ?"); // ERROR PAGE ? // (ERRORE LATO DB)
+            errorPage("EDB");exit();
         }
     }
     else {
-        // Non serve chiudere la connessione qui se non si e' neanche aperta (no ?)
-    // Can't connect to DB
-        errorPage("Connessione con DB non riuscita.");  // ERROR PAGE ? // (ERRORE LATO Server)
+        errorPage("EDB");exit();
     }
 
     $html = addPossibleBanner($html, "CharacterPage.php");
@@ -92,11 +89,13 @@ function changeCharLayout($html) {
 if ( session_status() == PHP_SESSION_NONE ) {
 
     session_start();
-    header("Location: login.php"); // ?
+    errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
+    exit();
 }
 else if ( !isset($_SESSION['username']) ) {
 
-    errorPage("Errore ..."); // header("Location: login.php"); ?
+    errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
+    exit();
 }
 else if ( isset($_GET['Personaggio']) || isset($_GET['charID'])) { //|| isset($_SESSION['charLayoutID']) || isset($_SESSION['character_id']) 
 

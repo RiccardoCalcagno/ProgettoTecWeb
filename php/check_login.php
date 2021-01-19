@@ -12,7 +12,7 @@
     $db = new DBinterface();
 
     try{
-        $db->openConnection();
+        if(!$db->openConnection()){errorPage("EDB");exit();}
 
 
     $user_data = $db->getUser(trim($_POST["username"]), $_POST["password"]);
@@ -50,7 +50,7 @@
     
     } catch (Exception $e)  {
         session_destroy();
-        header("Location: Errore.php");
+        errorPage("EDB");
         exit();
     }
 

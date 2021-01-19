@@ -253,6 +253,7 @@
 
         public function getCharactersByUser($username)
         {
+            $characters = array();
             $username = clean_input($username);
             $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT * ".
@@ -262,13 +263,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
-                $characters = array();
+            if(($query_result)&&($query_result->num_rows)){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $character = new Character($row["id"], 
@@ -292,6 +287,7 @@
 
         public function getCharactersById($id)
         {
+            $char=null;
             $id = clean_input($id);
             $query = "SELECT * ".
                     "FROM Characters ". 
@@ -300,14 +296,9 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
+            if(($query_result)&&($query_result->num_rows)){
                 $row = $query_result->fetch_assoc();
-                return new Character($row["id"], 
+                $char= new Character($row["id"], 
                                      $row["name"], 
                                      $row["race"], 
                                      $row["class"], 
@@ -320,6 +311,7 @@
                                      $row["author"], 
                                      $row["creation_date"]);
             }
+            return $char;
         }
 
         public function deleteCharacter($id)
@@ -392,7 +384,8 @@
         //-----------------------------------------------------------------------------------------------------------------
 
         public function getReport($id_report) {
-            $id_report = clean_input($id_report);    
+            $id_report = clean_input($id_report);   
+            $repo=null; 
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                     "FROM Report ". 
                     "INNER JOIN Users ".
@@ -401,13 +394,9 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result || mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! Report non trovato";
-                return null;
-            }
-            else {
+            if(($query_result) && (mysqli_num_rows($query_result) > 0)){
                 $row = $query_result->fetch_assoc();
-                return new ReportData($row["id"], 
+                $repo= new ReportData($row["id"], 
                                     $row["title"], 
                                     $row["subtitle"], 
                                     $row["content"], 
@@ -417,6 +406,7 @@
                                     $row["img_path"], 
                                     $row["last_modified"]);
             }
+            return $repo;
         }
 
         
@@ -609,7 +599,7 @@
             return $reports;
         }
 
-        /*
+        /*    DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public function countReportAuthor($username)
         {
             $count=0;
@@ -626,7 +616,7 @@
         }
         */
 
-        /*
+        /*  DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public function countReportExplorable()
         {
             $count=0;
@@ -642,7 +632,7 @@
         }
         */
 
-        /*
+        /*    DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         public function countReport($username)
         {
             $count=0;
@@ -701,12 +691,7 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(!$query_result || !$query_result->num_rows) 
-            {
-                return null;
-            }
-            else
-            {
+            if($query_result && $query_result->num_rows){
                 while($row = mysqli_fetch_assoc($query_result))
                 {
                     $comment = new Comments($row["testo"], $row["author"], $row["report"], $row['id'], $row['data_ora']);          
@@ -884,6 +869,7 @@
 
         public function getReportForPertecipant($id_report, $partecipant)
         {
+            $repo=array();
             $id_report = clean_input($id_report);
             $query = $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                             "FROM Report ". 
@@ -895,13 +881,9 @@
 
             $query_result = mysqli_query($this->connection, $query);
 
-            if(mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! Report non trovato";
-                return null;
-            }
-            else {
+            if($query_result && mysqli_num_rows($query_result) > 0){
                 $report_data = $query->fetch_assoc();
-                return new ReportData($row["id"], 
+                $repo= new ReportData($row["id"], 
                                         $row["title"], 
                                         $row["subtitle"], 
                                         $row["content"], 
@@ -910,13 +892,9 @@
                                         DBinterface::getALLUsernamesForReport($row["id"]),
                                         $row["img_path"], 
                                         $row["last_modified"]);
-                /*
-                return new UserData($user_data["username"], $user_data["name_surname"], $user_data["email"], $user_data["passwd"], $user_data["bithdate"], $user_data["img_path"]);
 
-                $row_arr = $query->mysqli_fetch_assoc(MYSQLI_ASSOC);
-                return $row_arr;
-                */
             }
+            return $repo;
         }
 
     }

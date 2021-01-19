@@ -6,7 +6,7 @@ require_once("banners.php");
 
 
 if ( !isset($_SESSION['RepCommentPOST']) ) {
-    errorPage("NO RepCommnetPOST");
+    errorPage("EDB");
 }
 
 $commentText = clean_input($_SESSION['RepCommentPOST']['contenutoCommento']);
@@ -24,14 +24,13 @@ if ( !(trim($commentText) == '') ) {
     
     if ($conn) { 
         if( !$db->addComments($comment)) {
-
-            errorPage("NO COMM");
+            errorPage("EDB");exit();
         }
 
         $db->closeConnection();
     }
     else {
-        errorPage("Can't connect to DB.");
+        errorPage("EDB");exit();
     }
 }
 

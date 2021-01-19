@@ -16,7 +16,6 @@
     $img = $_SESSION["img"];
 
     try {
-        $db = new DBinterface();
 
     $_SESSION["old_passwd"] = $old_passwd;
 
@@ -61,7 +60,8 @@
         }
         else
         {
-            $db->openConnection();
+            $db = new DBinterface();
+            if(!$db->openConnection()){errorPage("EDB");exit();}
             $modify_user = new UserData($username, $name_surname, $email, $new_password, $birthdate, $img_path);
             if($db->setPassword($modify_user))
             {
@@ -80,7 +80,7 @@
             }
             else
             {
-                header("Location: 404.php");
+                errorPage("EDB");
                 exit();
             }
         }
@@ -89,7 +89,7 @@
 
 
     } catch(Exception $e) {
-        header("Location: Errore.php");
+        errorPage("EDB");
         exit();
     }
 

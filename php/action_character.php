@@ -19,7 +19,7 @@
         $db = new DBinterface();
         $connection=$db->openConnection();
         if(!$connection)
-            errorPage("EDB");
+            errorPage("EDB");exit();
         if($db->getCharacterOfUser($_GET["Personaggio"], $_SESSION["username"]))
         {
             $db->closeConnection();
@@ -30,6 +30,7 @@
         {
             $db->closeConnection();     // Potrebbe essere un errore DB ma anche un azione volontaria malevola (più probabilmente)
             errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
+            exit();
         }
     }
 
@@ -73,11 +74,11 @@
                 header("Location: area_personale.php");
             }
             else {
-                errorPage("EDB");
+                errorPage("EDB");exit();
             }
         }
         else {
-            errorPage("EDB");
+            errorPage("EDB");exit();
         }
 
     }

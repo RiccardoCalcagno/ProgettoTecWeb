@@ -37,7 +37,7 @@ else if($_SESSION["login"])
 
         if(!isset($_SESSION["first_logged"]))
         {
-            if(!$db->openConnection()){errorPage("EDB");}
+            if(!$db->openConnection()){errorPage("EDB");exit();}
     
             $_SESSION["vai_avanti_master"] = false;
             $_SESSION["vai_avanti_rep"] = false;

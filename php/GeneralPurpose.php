@@ -16,7 +16,7 @@
         $db = new DBinterface();
         $openConnection = $db->openConnection();
         if ($openConnection == false) {
-            return false;
+            return -1;
         }else{
             if((isset($_SESSION['stagedPersonaggi'])) &&(!empty($_SESSION['stagedPersonaggi']))){
                 foreach ($_SESSION['stagedPersonaggi'] as &$personaggio){
@@ -52,7 +52,7 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }else if ( !isset($_SESSION['errorMessage']) ) {
-            $_SESSION['errorMessage'] = 'Errore: Nessun Errore :)';
+            $_SESSION['errorMessage'] = 'Tutto fila liscio non ci sono Errori all\'orizzonte';
         }
 
         if(isset($_SESSION["login"])&&($_SESSION["login"])) {
@@ -77,9 +77,9 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }else if ( !isset($_SESSION['errorMessage']) ) {
-            $_SESSION['errorMessage'] = 'Errore: Nessun Errore :)';
+            $_SESSION['errorMessage'] = 'ETutto fila liscio non ci sono Errori all\'orizzonte';
         }
-        
+
         unset($_SESSION['id_report_modifica']);
         unset($_SESSION["listaGiocatori"]);
         unset($_SESSION["first_logged"]);

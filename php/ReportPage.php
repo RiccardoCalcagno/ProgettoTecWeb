@@ -31,7 +31,7 @@ if ( session_status() == PHP_SESSION_NONE ) {
 }
 
 if ( !isset($_GET['ReportID']) ) {
-    errorPage('No GET');
+    errorPage('EDB');exit();
 }
 else {
     //prelevo Report.html
@@ -53,6 +53,7 @@ else {
 
         //prelevo l'oggetto report
         $report_info = $dbInterface->getReport($_GET['ReportID']);
+        if(!$report_info){ $dbInterface->closeConnection(); errorPage("EDB");exit();}
 
         //faccio subito le richieste al DB per poter chiudere la connessione
         $usernameArray = $report_info->get_lista_giocatori(); //si tratta di un array di username, sono i giocatori collegati al report
@@ -71,18 +72,21 @@ else {
             }
         }
         
+    }else{
+        errorPage("EDB");
     }
 
     //chiudo la connessione
     $dbInterface->closeConnection();
 
     if ( !hasAccess($report_info, $usernameArray) ) {
-        errorPage("Non hai i permessi per visualizzare questo report!");
+        errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione per questo Report");
+        exit();
     }
 
     if( !isset($report_info) ) {    // Resto non serve necessariamente ?
         
-        errorPage("Can't connect to DB.");
+        errorPage("EDB");exit();
     }
     else{
 

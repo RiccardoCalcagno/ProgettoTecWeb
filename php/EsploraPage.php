@@ -16,7 +16,7 @@ unset($_SESSION["first_logged"]);
 unset($_SESSION["listaGiocatori"]);
 
 if($connection == false){
-    header("Location: Errore.php");
+    errorPage("EDB");
     exit();
 }
 else{

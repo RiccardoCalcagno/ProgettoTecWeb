@@ -27,7 +27,7 @@
     try {
         $db = new DBinterface();
         
-        $conn = $db->openConnection();
+        if(!$db->openConnection()){errorPage("EDB");exit();}
 
 //    echo "Arrivato qui, dopo connessione db";
 
@@ -116,7 +116,7 @@
                 }
                 else
                 {
-                    errorPage("Spiacenti! Errore nel caricamento dell'immagine");
+                    errorPage("EDB");
                     exit();
                 }
              }
@@ -147,7 +147,7 @@
             }
             else
             {
-                $db->openConnection();
+                if(!$db->openConnection()){errorPage("EDB");exit();}
                 $new_user = new UserData($username, $name_surname, $email, $passwd, $birthdate, $img);
 
         if($db->addUser($new_user))
@@ -164,7 +164,7 @@
                 else
                 {
                     session_destroy();
-                    errorPage("Spiacenti! Errore nella registrazione di un nuovo utente");
+                    errorPage("EDB");
                     exit();
                 }
                 
@@ -178,7 +178,7 @@
 
 
     } catch(Exception $e) {
-        errorPage("Spiacenti! Qualcosa è andato storto :(");
+        errorPage("EDB");
         exit();
     }
 ?>

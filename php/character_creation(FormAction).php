@@ -155,11 +155,11 @@ function Char_Form($toEdit) {
                         unset($_SESSION['CharFormPOST']);
                     }
                     else {
-                        errorPage("EDB");
+                        errorPage("EDB");exit();
                     }
                 }
                 else {
-                    errorPage("EDB");
+                    errorPage("EDB");exit();
                 }
 
                 $db->closeConnection();
@@ -194,11 +194,11 @@ function Char_Form($toEdit) {
                 $flaws = $character->get_flaws();
             }
             else {
-                errorPage("EDB");
+                errorPage("EDB");exit();
             }
         }
         else {
-            errorPage("EDB");
+            errorPage("EDB");exit();
         }
     }
 

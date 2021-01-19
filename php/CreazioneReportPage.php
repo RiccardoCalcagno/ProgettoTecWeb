@@ -105,12 +105,11 @@
                             //azzero la form
                             $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
                         }else{
-                            //messaggi di errore inserimento nel DB
-                            errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
+                            errorPage("EDB");exit();
                         }
                     }
                     else{
-                        errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
+                        errorPage("EDB");exit();
                     }
                     $dbInterface->closeConnection();
                 }else{
@@ -157,7 +156,7 @@
                     $html = str_replace("<altriAiutiDiNavigazione/>", '<li><a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a></li>', $html);
                 }
                 else {
-                    errorPage("Ci scusiamo del malfunzionamento, provvederemo a ripristinare i server al più presto");
+                    errorPage("EDB");exit();
                 }
     
                 $dbInterface->closeConnection();
@@ -201,11 +200,11 @@
                 $_SESSION['listaGiocatori']= $rep->get_lista_giocatori();
             }
             else {
-                // ERROR PAGE ?
+                errorPage("EDB");exit();
             }
         }
         else {
-            // ERROR PAGE ?
+            errorPage("EDB");exit();
         }
 
         $dbInterface->closeConnection();
@@ -222,15 +221,16 @@
     $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
 
     $dbInterface = new DBinterface();
-    $connection = $dbInterface->openConnection();
-    //controllo if($connection) TODO
+    if(!$dbInterface->openConnection()){errorPage("EDB");exit();}
 
     $stringa_giocatori = '';
     foreach($_SESSION['listaGiocatori'] as $singleUser){
+        $pic = $dbInterface->getUserPic($singleUser);
+        if(!$pic){$dbInterface->closeConnection(); errorPage("EDB");exit();}
         $stringa_giocatori .= '<li>
                                     <div class="badgeUtente">
                                         <div>
-                                            <img src="'.$dbInterface->getUserPic($singleUser).'" alt="" />
+                                            <img src="'.$pic.'" alt="" />
                                             <p class="textVariable">'.$singleUser.'</p>
                                         </div>
                                         <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
