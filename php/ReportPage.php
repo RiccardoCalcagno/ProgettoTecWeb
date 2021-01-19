@@ -31,7 +31,8 @@ if ( session_status() == PHP_SESSION_NONE ) {
 }
 
 if ( !isset($_GET['ReportID']) ) {
-    errorPage('EDB');exit();
+    header("Location: 404.php");
+    exit();
 }
 else {
     //prelevo Report.html
@@ -53,7 +54,11 @@ else {
 
         //prelevo l'oggetto report
         $report_info = $dbInterface->getReport($_GET['ReportID']);
-        if(!$report_info){ $dbInterface->closeConnection(); errorPage("EDB");exit();}
+        if(!$report_info){ 
+            $dbInterface->closeConnection(); 
+            header("Location: 404.php");
+            exit();
+        }
 
         //faccio subito le richieste al DB per poter chiudere la connessione
         $usernameArray = $report_info->get_lista_giocatori(); //si tratta di un array di username, sono i giocatori collegati al report
@@ -87,7 +92,7 @@ else {
 
     if( !isset($report_info) ) {    // Resto non serve necessariamente ?
         
-        errorPage("EDB");exit();
+        header("Location: 404.php");exit();
     }
     else{
 

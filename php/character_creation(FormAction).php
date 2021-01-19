@@ -194,7 +194,8 @@ function Char_Form($toEdit) {
                 $flaws = $character->get_flaws();
             }
             else {
-                errorPage("EDB");exit();
+                errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
+                exit();
             }
         }
         else {

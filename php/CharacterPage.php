@@ -56,7 +56,8 @@ function characterPage($charID) {
             }
         }
         else {
-            errorPage("EDB");exit();
+            header("Location: 404.php");
+            exit();
         }
     }
     else {
