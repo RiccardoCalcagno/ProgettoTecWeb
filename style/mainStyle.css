@@ -425,7 +425,7 @@ body a[aria-label="apri il menù"] {
 }
 
 #access #Accesso{
-    background-color:#664117;
+    background-color:#6b4519;
     color: #ffe482;
     font-weight: 500;
     margin-right: 5%;
@@ -574,6 +574,15 @@ body a[aria-label="apri il menù"] {
     text-align: center;
     font-size: 0.8em;
     padding: 0.1em 1em;
+}
+#globalFooter > a{
+    color: #FFFFFF;
+}
+#globalFooter > a:visited{
+    color: #ffdd92;
+}
+#globalFooter > a:hover{
+    color: #fff4dc;
 }
 
 #footerContent dl dd.footer-open-dd {
