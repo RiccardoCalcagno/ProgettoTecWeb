@@ -3074,7 +3074,7 @@ body.errorPage section, body.errorPage header{
     left: 12vw;
     width: 180px;
     height: 180px;
-    background-image: url(../img/razze/errore3.png);
+    background-image: url(../img/razze/errore4.png);
     background-size: 180px 180px;
 }
 .errorPage h1:after {
@@ -3086,10 +3086,11 @@ body.errorPage section, body.errorPage header{
     width: 200px;
     height: 200px;
     background-image: url(../img/razze/errore4.png);
+    background-image: url(../img/razze/errore3.png);
     background-size: 200px 200px;
 }
 #body404 h1::after {
-    background-image: url(../img/razze/errore2.png);
+    background-image: url(../img/razze/errore1.png);
     /*display: block;
     content: "";
     width: calc(3em + 10%);
@@ -3102,7 +3103,7 @@ body.errorPage section, body.errorPage header{
     */
 }
 #body404 h1::before {
-    background-image: url(../img/razze/errore1.png);
+    background-image: url(../img/razze/errore2.png);
 }
 
 #errorBody section:first-child {
