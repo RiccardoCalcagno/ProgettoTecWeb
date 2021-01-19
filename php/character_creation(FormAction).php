@@ -145,6 +145,7 @@ function Char_Form($toEdit) {
                     $result = $toEdit ? 
                     $db->setCharacter($character, $_SESSION['CharFormPOST']["charID"]) : 
                     $db->addCharacter($character); // TO FIX $_SESSION['user_id'] ?
+                    $db->closeConnection();
 
                     if($result == true) {    // conferma ed errori con str_replace o banner_salvataggio.html ?
                         $_SESSION['banners'] = $toEdit ? 
@@ -161,8 +162,6 @@ function Char_Form($toEdit) {
                 else {
                     errorPage("EDB");exit();
                 }
-
-                $db->closeConnection();
             }
             else {  
                 // if(!$toEdit) altrimenti errore?
@@ -182,6 +181,7 @@ function Char_Form($toEdit) {
 
         if ($openConnection == true) {
             $character = $db->getCharacterOfUser($_GET['charID'], $_SESSION['username']);
+            $db->closeConnection();
             if($character) {
                 $name = $character->get_name();
                 $race = $character->get_race();

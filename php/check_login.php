@@ -50,6 +50,9 @@
     
     } catch (Exception $e)  {
         session_destroy();
+        if(isset($db)&&($db)){
+        $db->closeConnection();
+        }
         errorPage("EDB");
         exit();
     }

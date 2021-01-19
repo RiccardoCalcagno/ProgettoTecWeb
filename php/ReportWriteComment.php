@@ -24,6 +24,7 @@ if ( !(trim($commentText) == '') ) {
     
     if ($conn) { 
         if( !$db->addComments($comment)) {
+            $db->closeConnection();
             errorPage("EDB");exit();
         }
 

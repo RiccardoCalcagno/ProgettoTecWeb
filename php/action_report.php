@@ -9,6 +9,7 @@
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_GET["PostRep"]) ) {
+                $db->closeConnection();
                 errorPage("EDB");exit();
             }else{
                 unset($_SESSION["first_logged"]);
@@ -26,6 +27,7 @@
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_GET["RemoveRep"],0) ) {
+                $db->closeConnection();
                 errorPage("EDB");exit();
             }else{
                 unset($_SESSION["first_logged"]);
@@ -44,7 +46,7 @@
     {
         $db = new DBinterface();
         if(!$db->openConnection()) {errorPage("EDB");exit();}
-        if(!$db->setExplorable($_POST["RemoveRep"], false)){errorPage("EDB");exit();}
+        if(!$db->setExplorable($_POST["RemoveRep"], false)){$db->closeConnection();errorPage("EDB");exit();}
         $db->closeConnection();
         header("Location: area_personale.php#reportMaster");
     }
@@ -144,7 +146,7 @@
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->deleteComments($_POST["CommentID"]) ) {
-                errorPage("EDB");exit();
+                $db->closeConnection();errorPage("EDB");exit();
             }
             $db->closeConnection();
         }
@@ -189,7 +191,7 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            if(!$db->setExplorable($_GET['ReportID'])){errorPage("EDB");exit();}
+            if(!$db->setExplorable($_GET['ReportID'])){$db->closeConnection();errorPage("EDB");exit();}
             $db->closeConnection();
             $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
@@ -202,7 +204,7 @@
     {
         $db = new DBinterface();
         if($db->openConnection()) {
-            if(!$db->setExplorable($_GET['ReportID'], 0)){errorPage("EDB");exit();}
+            if(!$db->setExplorable($_GET['ReportID'], 0)){$db->closeConnection();errorPage("EDB");exit();}
             $db->closeConnection();
             header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
         }else{

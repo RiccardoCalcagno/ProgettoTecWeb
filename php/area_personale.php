@@ -331,6 +331,9 @@ else if($_SESSION["login"])
             }
 
         } catch(Exception $e) {
+            if(isset($db)&&($db)){
+            $db->closeConnection();
+            }
             errorPage("EDB");
             exit();
         }

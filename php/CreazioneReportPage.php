@@ -99,6 +99,7 @@
     
                     if($connection){
                         $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
+                        $dbInterface->closeConnection();
 
                         if($result){
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
@@ -111,7 +112,6 @@
                     else{
                         errorPage("EDB");exit();
                     }
-                    $dbInterface->closeConnection();
                 }else{
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
                     array_push($_SESSION['stagedReports'], $rep);
@@ -154,12 +154,11 @@
                         $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
                     $html = str_replace("<altriAiutiDiNavigazione/>", '<li><a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a></li>', $html);
+                    $dbInterface->closeConnection();
                 }
                 else {
                     errorPage("EDB");exit();
                 }
-    
-                $dbInterface->closeConnection();
     
             }
 
@@ -188,6 +187,7 @@
 
         if ($connection) {
             $rep = $dbInterface->getReport($id_report);
+            $dbInterface->closeConnection();
 
             if($rep) {
 
@@ -206,8 +206,6 @@
         else {
             errorPage("EDB");exit();
         }
-
-        $dbInterface->closeConnection();
     }
     }
 

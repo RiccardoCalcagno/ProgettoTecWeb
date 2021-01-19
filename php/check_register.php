@@ -164,6 +164,7 @@
                 else
                 {
                     session_destroy();
+                    $db->closeConnection();
                     errorPage("EDB");
                     exit();
                 }
@@ -178,6 +179,9 @@
 
 
     } catch(Exception $e) {
+        if(isset($db)&&($db)){
+        $db->closeConnection();
+        }
         errorPage("EDB");
         exit();
     }

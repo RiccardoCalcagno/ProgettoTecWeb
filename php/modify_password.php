@@ -80,15 +80,20 @@
             }
             else
             {
+                $db->closeConnection();
                 errorPage("EDB");
                 exit();
             }
+            $db->closeConnection();
         }
 
 
 
 
     } catch(Exception $e) {
+        if(isset($db)&&($db)){
+        $db->closeConnection();
+        }
         errorPage("EDB");
         exit();
     }
