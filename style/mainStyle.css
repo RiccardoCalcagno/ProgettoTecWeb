@@ -394,7 +394,7 @@ body{
     display: block;
 }
 
-#hamburger{
+body a[aria-label="apri il menù"] {
     display: none;
 }
 
@@ -3088,13 +3088,13 @@ body.errorPage section, body.errorPage header{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#disclaimer a{
+#globalFooter a{
     color:#8ec2ff;
 }
-#disclaimer a:hover{
+#globalFooter a:hover{
     color:#aafffb;
 }
-#disclaimer a:visited{
+#globalFooter a:visited{
     color:#b68eff;
 }
 
