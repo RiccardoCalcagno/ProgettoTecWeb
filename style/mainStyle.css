@@ -3073,23 +3073,24 @@ body.errorPage section, body.errorPage header{
 .errorPage h1:before {
     content: " ";
     display: inline-block;
-    position: relative;
-    top: 1.4em;
-    width: 250px;
-    height: 250px;
+    position: absolute;
+    top: 1.3em;
+    left: 12vw;
+    width: 180px;
+    height: 180px;
     background-image: url(../img/razze/errore2.png);
-    background-size: 250px 250px;
+    background-size: 180px 180px;
 }
 .errorPage h1:after {
     content: " ";
     display: inline-block;
-    position: relative;
-    top: 1.6em;
-    left: 0.3em;
-    width: 280px;
-    height: 280px;
+    position: absolute;
+    top: 1.2em;
+    left: 70vw;
+    width: 200px;
+    height: 200px;
     background-image: url(../img/razze/errore1.png);
-    background-size: 280px 280px;
+    background-size: 200px 200px;
 }
 
 #errorBody section:first-child {
