@@ -1,46 +1,11 @@
-﻿
-<!--
-    ATTENZIONE:
-
-    QUESTO HTML CONTIENE IL NECESSARIO SIA PER CREARE SIA PER MODIFICARE UNA CHEDA GIOCATORE MA..
-    BISOGNA SCAMBIARE I SEGUENTI ELEMENTI:
-
-    1) <head>
-    2) <header> intestazionePagina
-    3) <p> nell'ultimo submitForm
--->
-
-
-<!-- RICORDARSI DI TOGLIERE L'ATTENZIONE SULL' HEADER SE L'UTENTE HA GIÀ FATTO L'AUTENTICAZIONE-->
-
-
-
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="it">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-
-
-
     <titleValue />
-    <!-- <title> - Creazione Scheda Giocatore</title>
-    <meta name="title" content="Creazione Scheda Giocatore" />
-    <meta name="description" content="Crea la tua Scheda Giocatore!" />
-    <meta name="keywords" content="creazione personaggio, Dungeons and Dragons character" /> -->
-
-    <!-- QUESTO È L'HEAD CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
-    <title> - Modifica Scheda Giocatore</title>
-    <meta name="title" content="Modifica Scheda Giocatore" />
-    <meta name="description" content="Modifica la tua Scheda Giocatore!" />
-    <meta name="keywords" content="modifica personaggio, Dungeons and Dragons character" />
-    -->
-
-
-
 
     <meta name="author" content="Calcagno Riccardo, Pavin Nicola, Sertori Nicholas, Pirolo Alessandro" />
  
@@ -72,7 +37,7 @@
             </form>
         </div>
 
-        <a href="javascript:void(0);" onclick="hamburgerFunction();"></a>
+        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
         <ul id="menu" role="menubar">
             <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
@@ -284,22 +249,9 @@
 
         <div id="submitPersonaggio" class="submitForm">
             <p><pValue /></p>
-
-
-<!--
-    QUESTO È IL <p> CHE BISOGNA SCAMBIARE SE INVECE DI CREARE LA SCHEDA LA STA MODIFICANDO
-
-    <p>Concludi la modifica salvando la nuova versione della Scheda Giocatore</p>
-
--->
-
-
             <div>
                 <a href="../index.php" class="annulla">ANNULLA</a>
                 <input id="submitSalvaScheda" class="buttonLink" type="submit" name="salvaPers" value="<buttonValue />"  aria-label="salva la scheda giocatore"/>  
-                <!-- DA SCAMBIARE CON:
-                    <input class="buttonLink" type="submit" name="salvaPers" value="SALVA MODIFICA"/>  
-                --> 
             </div>
                
         </div>

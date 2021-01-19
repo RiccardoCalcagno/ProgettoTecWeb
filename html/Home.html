@@ -65,26 +65,26 @@ ACCESSIBILITÀ CHECK LIST
     <header id="intestazioneSito">
 
         <ul class="AiutiNavigazione" title="Aiuti alla Navigazione">           <!-- Tutti gli item vanno messi con tabindex="11" tutti riferisono a id che hanno tabindex definito >-1-->
-            <li><a href="index.php#titolo" tabindex="0">Vai al Contenuto</a></li>
+            <li><a href="index.php#titolo">Vai al Contenuto</a></li>
         </ul>
 
         <div id="access">
             <form action="php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi" tabindex="0">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione" tabindex="0">    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscrizione">    <!-- altro valore possibile : "Area Personale" -->
                 </div>
             </form>
         </div>
 
-        <a id="hamburger" href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù" tabindex="0"></a>
+        <a id="hamburger" href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
         <ul id="menu" role="menubar">
-            <li role="none" xml:lang="en" lang="en" id="currentLink" tabindex="0">Home</li>
-            <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem" tabindex="0">Esplora</a></li>
+            <li role="none" xml:lang="en" lang="en" id="currentLink">Home</li>
+            <li role="none" class="externalLink"><a href="php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
-                <a class="dropdown" role="menuitem" aria-label="opzioni di creazione" tabindex="0">Crea</a>
-                <ul role="menu" class="dropdown-content">
+                <a class="dropdown" role="menuitem">Crea</a>
+                <ul role="menu" class="dropdown-content" aria-label="opzioni di creazione">
                     <li role="none"><a href="php/character_creation(FormAction).php" role="menuitem" tabindex="0">Crea Scheda Giocatore</a></li>
                     <li role="none"><a href="php/CreazioneReportPage.php" role="menuitem" tabindex="0">Crea <span xml:lang="en" lang="en">Report</span> di Sessione</a></li>
                 </ul>
