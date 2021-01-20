@@ -77,7 +77,7 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }else if ( !isset($_SESSION['errorMessage']) ) {
-            $_SESSION['errorMessage'] = 'ETutto fila liscio non ci sono Errori all\'orizzonte';
+            $_SESSION['errorMessage'] = 'E Tutto fila liscio non ci sono Errori all\'orizzonte';
         }
 
         unset($_SESSION['id_report_modifica']);
@@ -145,8 +145,8 @@
     $name_arr_1 = array();
     foreach($name_arr as $val)
     {
-	if($val != " " && $val != "#" && $val != "\$")
-	    $name_arr_1[] = $val;
+    if($val != " " && $val != "#" && $val != "\$")
+        $name_arr_1[] = $val;
     }
 
     $name = implode($name_arr_1);

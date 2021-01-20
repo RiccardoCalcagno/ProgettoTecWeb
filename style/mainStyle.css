@@ -297,7 +297,7 @@ input[type="file"]:hover{
     font-weight: 600;
     vertical-align: middle;
     position: relative;
-    top:-100%;
+    bottom: 7.5em;
     left: +32%
 }
 .deleteButton:hover{
