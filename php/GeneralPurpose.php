@@ -56,8 +56,8 @@
         }
 
         if(isset($_SESSION["login"])&&($_SESSION["login"])) {
-            $html = str_replace('<input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale">', '<input id="Accesso" name="accesso" type="submit" value="Esci" aria-label="Disconnettiti dalla area personale e torna in Home">', $html);
-            $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Iscriviti">', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale" aria-label="Vai alla tua area personale">', $html);
+            $html = str_replace('<input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale"/>', '<input id="Accesso" name="accesso" type="submit" value="Esci" aria-label="Disconnettiti dalla area personale e torna in Home">', $html);
+            $html = str_replace('<input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Effettua l\'iscrizione al sito"/>', '<input id="Iscrizione" name="accesso" type="submit" value="Area Personale" aria-label="Vai alla tua area personale">', $html);
         }
         unset($_SESSION['id_report_modifica']);
         unset($_SESSION["count_esplora"]);

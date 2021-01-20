@@ -38,8 +38,8 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale"/>         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Effettua l'iscrizione al sito"/>    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Esci" aria-label="Disconnettiti dalla area personale e torna in Home">         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" disabled="disabled" type="submit" name="accesso" value="Area Personale">
                 </div>
             </form>
         </div>
@@ -147,7 +147,7 @@
                 <p>La <span xml:lang="en" lang="en">dashboard</span> seguente raccoglie tutti i <span xml:lang="en" lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
-            <form action="../php/action_report.php" method="GET">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+            <form action="../php/action_report.php" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul class="cards">
 
                 <report_author/>
@@ -175,7 +175,7 @@
                 <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
-            <form action="../php/action_report.php" method="GET">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+            <form action="../php/action_report.php" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <ul class="cards">
 
                 <report/>
