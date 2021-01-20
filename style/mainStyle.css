@@ -389,7 +389,7 @@ body{
 }
 
 #menu ul.dropdown-content li#currentLink{
-    width: calc(100% - 1.2em);
+    width: calc(100% - 1.1em);
 }
 
 #menu ul.dropdown-content li a {
