@@ -37,7 +37,7 @@ function updateCounterTextarea(numCount){
             max=120;
             break;
         case 3:
-            IDText="username";
+            IDText="future_username";
             IDCurrent="currentCountUser";
             max=20;
             break;
@@ -65,6 +65,12 @@ function updateCounterTextarea(numCount){
             IDText="cname";
             IDCurrent="currentCountNome";
             max=20;
+            break;
+        case 8:
+            IDText="username";
+            IDCurrent="currentCountUser";
+            max=20;
+            break;
     }
     var characterCount=document.getElementById(IDText).value.length;
     var obj1=document.getElementById(IDCurrent);
