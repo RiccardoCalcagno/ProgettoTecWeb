@@ -161,7 +161,7 @@ a.buttonLink:visited{
     background-color: #7d9900 !important;
     color: #FFFFFF;
 }
-a.buttonLink:visited:hover, a.buttonLink:visited:focus, a.annulla:visited:hover, a.annulla:visited:focus{
+a.buttonLink:visited:hover, a.buttonLink:visited:focus{
     background-color: #e7f094 !important;
     color:#2e3b08;
 }
@@ -171,7 +171,7 @@ a.buttonLink:visited:active, a.annulla:visited:active{
 }
 
 .annulla{
-    background-color: #f3c775;
+    background-color: #ffffff;
     color: #3d2808;
     text-align: center;
     width:20em;
@@ -185,14 +185,14 @@ a.buttonLink:visited:active, a.annulla:visited:active{
     padding-top:0.55em;
     height: 2.15em;
 }
-.annulla:hover{
+.annulla:hover, .annulla:focus{
     background-color: #ffe6bf;
 }
 .annulla:active{
     background-color: #fab485;
 }
 a.annulla:visited{
-    background-color: #f3b875;
+    background-color: #f3c775;
 }
 
 .espandi{
