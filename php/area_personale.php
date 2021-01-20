@@ -272,7 +272,7 @@ else if($_SESSION["login"])
                 for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                    <div onclick=visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . "\);>
+                    <div onclick=visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");>
                         <div class=\"testoCardRep\">
                             <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>

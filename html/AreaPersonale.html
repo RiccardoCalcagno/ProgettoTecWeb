@@ -127,7 +127,7 @@
                 <form_personaggi/>
   
             </ul>
-        <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
+            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
         <nav class='espandi' id='espandi_pers' tabindex="-1">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
             <label for="espandiPers" id="labPersonEspandi">Vedi di Più</label>
             <input type="submit" id="espandiPers" name="espandi" value="Pers">     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
@@ -148,11 +148,13 @@
                 <p>La <span xml:lang="en" lang="en">dashboard</span> seguente raccoglie tutti i <span xml:lang="en" lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
-                <ul class="cards">
+            <form action="../php/action_report.php" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+            <ul class="cards">
 
-                    <report_author/>
+                <report_author/>
 
-                </ul>
+            </ul>
+            </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <nav class="espandi" id='report_master'>                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
@@ -174,11 +176,14 @@
                 <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
-                <ul class="cards">
+            <form action="../php/action_report.php" method="get">                                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+            <ul class="cards">
 
-                    <report/>
+                <report/>
 
-                </ul>
+            </ul>
+
+            </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    
             <nav class="espandi" id='report_normale'>  
