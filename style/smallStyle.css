@@ -402,6 +402,9 @@ input[type="file"]{
 .report .cards li{
     height: 11em;
 }
+#reportMaster .cardReport footer {
+    top: calc(0.2em + 5px);
+}
 .report .cards .badgeUtente img{
     margin-top: 0.2em;
     margin-bottom: 0.2em;
@@ -413,7 +416,7 @@ input[type="file"]{
     font-size: 1em;
 }
 .report .cardReport .publicazione{
-    top: calc(-12.4em + 4px);
+    top: calc(-11em + 4px);
 
     width: calc(27% - 1.2em);
     min-width: 4em;
