@@ -1829,10 +1829,6 @@ p.campiObbligatori{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#creazioneReport label{
-    position: relative;
-    top: -0.5em;
-}
 
 .campiObbligatori::before{
     content:"*";
