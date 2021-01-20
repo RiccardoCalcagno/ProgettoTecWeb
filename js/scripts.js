@@ -494,7 +494,7 @@ function js_on_approf(){
 
 
 
-function veidiPiùPers(){
+function vediPiùPers(){
     var personaggi = document.getElementById("Personaggi");
     var labelEspandi = document.getElementById("labPersonEspandi");
     var inputEspandi = document.getElementById("espandiPers");
@@ -508,4 +508,9 @@ function veidiPiùPers(){
         inputEspandi.setAttribute("name","espandi");
     }
     return false;
+}
+
+
+function visualizzaPersonaggio(num){
+    window.location.href = "../php/action_character.php?Personaggio="+num;
 }

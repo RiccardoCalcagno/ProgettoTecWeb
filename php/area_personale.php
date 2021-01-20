@@ -151,7 +151,7 @@ else if($_SESSION["login"])
                 }
 
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
-                <button name=\"Personaggio\" value=\"" . $_SESSION["character_data"][$i]->get_id() . "\">
+                <div onclick=visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");>
                     <img src=\"" . $urlImgRace . " />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
                     <ul>
@@ -163,7 +163,7 @@ else if($_SESSION["login"])
                             </fieldset>
                         </li>
                     </ul>
-                </button>
+                </div>
                 </li>\n";
             }
             if($_SESSION["num_pers"]==0){

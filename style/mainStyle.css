@@ -2364,17 +2364,23 @@ p.campiObbligatori{
     background-size: 10.25em 13em;
     border: 11px ridge #5f3900bf;
 }
-#personaggiUtente .cardPersonaggio button{
+
+#personaggiUtente .cardPersonaggio div{
     height: 100%;
     width: 100%;
     background-color: transparent;
     border: none;
+    position: relative;
+    top: -0.4em;
+    cursor: pointer;
 }
-#personaggiUtente .cardPersonaggio button:hover{
-    background-color: #f1f1f16b;
+
+#personaggiUtente .cardPersonaggio div > *{
+    position: relative;
+    top: 1em;
 }
-#personaggiUtente .cardPersonaggio button:active{
-    background-color: #ffffff88;
+#personaggiUtente .cardPersonaggio div:hover{
+    background-color: #ffffff27;
 }
 
 
@@ -2413,11 +2419,11 @@ p.campiObbligatori{
 }
 
 #personaggiUtente .cardPersonaggio li h5{
-    width: 36%;
+    width: 44%;
+    padding-left: 1.5em;
     float: left;
     font-size: 0.9em;
     font-weight: 500;
-    padding-left: 0.8em;
 }
 #personaggiUtente .cardPersonaggio li p{
     font-size: 0.9em;
