@@ -340,6 +340,9 @@ body{
     list-style: none;
     color:#FFFFFF;
 }
+#menu.hideForHamburger{
+    display: flex;
+}
 
 #menu > li {
     display: inline-block;

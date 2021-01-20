@@ -115,6 +115,13 @@
         $html = addPossibleBanner($html, "area_personale.php");
     }
 
+    if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+        $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/register.php?Hamburger=no", $html);
+    }else{
+        $html = str_replace("{RedirectHamburger}", "../php/register.php?Hamburger=yes", $html);
+    }
+
     echo $html;
 ?>
 

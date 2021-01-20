@@ -219,6 +219,14 @@ function Char_Form($toEdit) {
     $html = str_replace('<valoreBonds />', $bonds, $html);
     $html = str_replace('<valoreFlaws />', $flaws, $html);
 
+
+    if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+        $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/character_creation(FormAction).php?Hamburger=no", $html);
+    }else{
+        $html = str_replace("{RedirectHamburger}", "../php/character_creation(FormAction).php?Hamburger=yes", $html);
+    }
+
     $html = addPossibleBanner($html, "character_creation(FormAction).php");
 
     // unset($_SESSION['CharFormPOST']);   // Chiudo (come fosse POST) forse no, page refresh
