@@ -22,7 +22,7 @@
         session_destroy();
     }
 
-    $html = str_replace("value=\"\" <!--username-->", "value=\"" . $username . "\"", $html);
+    $html = str_replace("<username/>", $username, $html);
 
     echo $html;
 ?>

@@ -84,13 +84,13 @@
                     <li>
                     <img class="hidden" id = "immagine_profilo" alt="immagine di profilo caricata da utente" src="../img/img_profilo_mancante.png">
                     <label for="imgProfilo">Immagine profilo</label>
-                    <p id="ImgErr" class="hidden"> L'immagine ha un formato sbagliato non supportato o è troppo pesante </p>
+                    <p id="ImgErr" class="hidden"> Inserisci una immagine che pesa al massimo 2 <abbr title="Mega Byte">MB</abbr> e che abbia uno dei seguenti formati: jpg, jpeg, gif, png </p>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();">
                     </li>
                     <li>
                     <label for="username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
-                    <p id="UserEmpty" class="hidden">  Inserisci un username valido </p>
-                    <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
+                    <p id="UserEmpty" class="hidden">  <span xml:lang="en" lang="en">Username</span> non valido! Lo <span xml:lang="en" lang="en">username</span> deve almeno un carattere e non deve essere vuoto </p>
+                    <p id="UserAlreadyExists" class="hidden"> Ops! Lo <span xml:lang="en" lang="en">username</span> che ha inserito sembra esistere già </p>
                     <span><input type="text"  aria-required="true"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
@@ -110,7 +110,7 @@
                     <li>
                     
                     <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
-                    <p id="NameEmpty" class="hidden">  Inserisci il tuo Nome e Cognome </p>
+                    <p id="NameEmpty" class="hidden"> Nome e cognome non validi! Il nome deve avere almeno un carattere </p>
                     <span><input type="text"  aria-required="true"
                         name="NomeCognome" 
                         id="NomeCognome"
@@ -120,8 +120,8 @@
                     <li>
                     
                     <label for="email" class="campiObbligatori">E-mail</label>
-                    <p id="EmailErr" class="hidden"> Inserisci una email valida </p>
-            <p id="MailAlreadyExists" class="hidden"> Email già esistente </p>
+                    <p id="EmailErr" class="hidden"> E-mail non valida! </p>
+            <p id="MailAlreadyExists" class="hidden"> Ops! l'e-mail che ha inserito sembra esistere già </p>
                 <span><input type="text" aria-required="true"
                         name="email" 
                         id="email"
@@ -147,8 +147,8 @@
                     <li>
                         
                         <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
-                        <p id="NewPasswdEmpty" class="hidden"> Inserisci una password valida </p>
-                        <p class="RepPasswdErr hidden">  Le password devono coincidere  </p>
+                        <p id="NewPasswdEmpty" class="hidden"> Password non valida! La password deve contenere almeno 3 caratteri </p>
+                        <p class="RepPasswdErr hidden">  Le password devono coincidere!  </p>
                     <span><input type="password"  aria-required="true"
                             name="newPasswd" 
                             id="newPasswd"
@@ -158,7 +158,7 @@
                     </li>
                     <li>
                         <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
-                        <p class="RepPasswdErr hidden">  Le password devono coincidere </p>
+                        <p class="RepPasswdErr hidden">  Le password devono coincidere! </p>
 
                     <span><input type="password"  aria-required="true"
                             name="PasswdAgan" 
