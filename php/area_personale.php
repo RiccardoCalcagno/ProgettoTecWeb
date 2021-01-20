@@ -210,7 +210,7 @@ else if($_SESSION["login"])
                     <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
                         <div>
                         <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
+                            <h3 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h3>
                             <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
                         </div>
                         </div>
@@ -276,11 +276,11 @@ else if($_SESSION["login"])
                     $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
                         <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
+                            <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                         </div>
                         <div class=\"badgeUtente\">
-                            <h5>Autore</h5>
+                            <h4>Autore</h4>
                             <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
                             <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
