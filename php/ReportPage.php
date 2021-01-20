@@ -247,9 +247,9 @@ else {
 
         if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
             $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
-            $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=no&ReportPage.php?ReportID=".$_GET['ReportID'], $html);
+            $html = str_replace("{RedirectHamburger}", "../php/ReportPage.php?Hamburger=no&ReportID=".$_GET['ReportID'], $html);
         }else{
-            $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=yes&ReportPage.php?ReportID=".$_GET['ReportID'], $html);
+            $html = str_replace("{RedirectHamburger}", "../php/ReportPage.php?Hamburger=yes&ReportID=".$_GET['ReportID'], $html);
         }
 
         $html = addPossibleBanner($html, "ReportPage.php?ReportID=".$_GET['ReportID']);
