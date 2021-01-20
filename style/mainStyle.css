@@ -113,7 +113,7 @@ body{
     color: #FFFFFF;             /* DA CAMBIARE */
   }
 #breadcrumb li a:visited {
-    color: #ffed86;             /* DA CAMBIARE */
+    color: #ffefb6;             /* DA CAMBIARE */
   } 
 #breadcrumb li a:hover {
     color: #ffd59f;             /* DA CAMBIARE */
@@ -361,7 +361,6 @@ body{
     padding: 0.5em;
 }
 #menu a:visited{
-    color:#ffe485 !important;
 }
 
 #menu #currentLink {
