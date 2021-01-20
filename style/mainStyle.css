@@ -2549,7 +2549,7 @@ p.campiObbligatori{
     flex-direction: column;
     text-align: left;
  }
-.report .cardReport .testoCardRep h3{
+#dashboard .report .cardReport .testoCardRep h3{
     font-size: 1.2em;
     font-weight: 400;
     padding-left: 0.5em;
