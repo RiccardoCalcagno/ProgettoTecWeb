@@ -165,7 +165,7 @@ a.buttonLink:visited:hover, a.buttonLink:visited:focus{
     background-color: #e7f094 !important;
     color:#2e3b08;
 }
-a.buttonLink:visited:active, a.annulla:visited:active{
+a.buttonLink:visited:active{
     background-color: #3e9e07 !important;
     color: #FFFFFF;
 }
@@ -185,7 +185,7 @@ a.buttonLink:visited:active, a.annulla:visited:active{
     padding-top:0.55em;
     height: 2.15em;
 }
-.annulla:hover, .annulla:focus{
+.annulla:hover{
     background-color: #ffe6bf;
 }
 .annulla:active{
