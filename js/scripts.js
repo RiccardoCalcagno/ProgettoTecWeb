@@ -514,3 +514,9 @@ function vediPiùPers(){
 function visualizzaPersonaggio(num){
     window.location.href = "../php/action_character.php?Personaggio="+num;
 }
+function visualizzaReportMaster(num){
+    window.location.href = "../php/action_report.php?ReportMaster="+num;
+}
+function visualizzaReportPartecip(num){
+    window.location.href = "../php/action_report.php?ReportPartecip="+num;
+}

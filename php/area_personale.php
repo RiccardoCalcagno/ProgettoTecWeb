@@ -207,12 +207,10 @@ else if($_SESSION["login"])
                 for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                 {
                     $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
-                    <button name=\"ReportMaster\" value= \"". $_SESSION["author_report_data"][$i]->get_id() . "\">
-                        <div>
+                    <div onclick=visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");>
                         <div class=\"testoCardRep\">
                             <h3 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h3>
                             <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
-                        </div>
                         </div>
                         <footer>";
                         if($_SESSION["author_report_data"][$i]->get_isExplorable() == 1)
@@ -224,7 +222,7 @@ else if($_SESSION["login"])
                             $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
                         }
                         $_schede_report_master .= "</footer>
-                    </button>
+                    </div>
                     <div class=\"publicazione\">";
                     if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
                     { 
@@ -274,7 +272,7 @@ else if($_SESSION["login"])
                 for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
+                    <div onclick=visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . "\);>
                         <div class=\"testoCardRep\">
                             <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
@@ -294,7 +292,7 @@ else if($_SESSION["login"])
                         $_schede_report .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>";
                     }
                     $_schede_report .= "</footer>
-                    </button>
+                    </div>
                 </li>\n";
                 }
 
