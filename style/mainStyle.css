@@ -384,7 +384,7 @@ body{
 
 #menu ul.dropdown-content li {
     display: block;
-    width: 100%;
+    width: calc(100% + 0.1em);
     background-color: rgb(48, 44, 44);
 }
 
