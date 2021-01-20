@@ -133,7 +133,7 @@ button:focus{
 } */
 
 .buttonLink{
-    background-color: #8f5b20;
+    background-color: #81521c;
     color: #FFF8E6;
     text-align: center;
     width:20em;
@@ -150,25 +150,29 @@ a.buttonLink {
     height: 2.15em;
 }
 .buttonLink:hover{
-    background-color: #a36a28 !important;
+    background-color: #d4a15d !important;
+    color:#52310c;
 }
 .buttonLink:active{
-    background-color: rgb(172, 91, 37);
+    background-color: rgb(155, 85, 19);
 }
 
-a.buttonLink:visited,a.annulla:visited{
+a.buttonLink:visited{
     background-color: #7d9900 !important;
+    color: #FFFFFF;
 }
-a.buttonLink:visited:hover, a.buttonLink:visited:focus, a.annulla:visited:hover, a.annulla:visited:focus{
-    background-color: #a1c900 !important;
+a.buttonLink:visited:hover, a.buttonLink:visited:focus{
+    background-color: #e7f094 !important;
+    color:#2e3b08;
 }
-a.buttonLink:visited:active, a.annulla:visited:active{
-    background-color: #61b600 !important;
+a.buttonLink:visited:active{
+    background-color: #3e9e07 !important;
+    color: #FFFFFF;
 }
 
 .annulla{
-    background-color: #bb7000;
-    color: #FFF8E6;
+    background-color: #ffffff;
+    color: #3d2808;
     text-align: center;
     width:20em;
     height: 2.7em;
@@ -182,10 +186,13 @@ a.buttonLink:visited:active, a.annulla:visited:active{
     height: 2.15em;
 }
 .annulla:hover{
-    background-color: #ca7900;
+    background-color: #ffe6bf !important;
 }
 .annulla:active{
-    background-color: #cf6f00;
+    background-color: #fab485 !important;
+}
+a.annulla:visited{
+    background-color: #f3c775 !important;
 }
 
 .espandi{
