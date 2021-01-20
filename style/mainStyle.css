@@ -336,6 +336,7 @@ body{
 
 #menu a:hover, #menu .dropdown:hover {
     background-color: #4e4e4e;
+    text-decoration: underline;
 }
 
 #menu a,  #menu .dropdown{
@@ -360,10 +361,6 @@ body{
 
 #menu a#currentDirect{
     background-color:black;
-}
-
-#menu a:hover{
-    text-decoration: underline;
 }
 
 #menu li ul.dropdown-content {
