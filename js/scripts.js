@@ -244,6 +244,7 @@ function openDD(nth_dd) {
 
 function tornaSu() {
     window.scrollTo(0, 0);
+//    document.getElementById("").focus(); // reset or aiutiNav
 }
 
 // ---------------------------------------------------------------------------------
