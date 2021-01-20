@@ -336,11 +336,12 @@ body{
     display: inline-block;
 }
 
-#menu a:hover {
+#menu a:hover, #menu .dropdown:hover {
     background-color: #4e4e4e;
+    text-decoration: underline;
 }
 
-#menu a {
+#menu a,  #menu .dropdown{
     text-decoration: none;
     color:#FFFFFF;
     display: inline-block;
@@ -356,18 +357,14 @@ body{
     padding: 0.6em;
 }
 
-#menu a.dropdown {
+#menu .dropdown {
     cursor: pointer;
 }
-
-
 
 #menu a#currentDirect{
     background-color:black;
 }
-#menu a:not(.dropdown):hover{
-    text-decoration: underline;
-}
+
 #menu li ul.dropdown-content {
     display: none;
     position: absolute;
