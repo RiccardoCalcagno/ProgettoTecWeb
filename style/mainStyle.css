@@ -2605,11 +2605,11 @@ p.campiObbligatori{
 .report .cardReport .publicazione button:active{
     background-color: #f9efff;
 }
-
 .report .cardReport footer{
     clear: both;
     position: relative;
     left: -5px;
+    top: calc(-2em + 5px);
 }
 .report .cardReport footer p{
     width: 16em;
@@ -2624,6 +2624,10 @@ p.campiObbligatori{
     border-top-right-radius: 2em;
     border-bottom-left-radius: 0.5em;
 }
+#reportMaster .cardReport footer{
+    top:0;
+}
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
