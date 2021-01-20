@@ -122,6 +122,12 @@ else{
     $html = str_replace("<currentPageReport/>", $_SESSION["count_esplora"], $html);
     $html = str_replace("<totPagReport/>", $numero_pag_esplora, $html);
 
+    if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+        $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/EsploraPage.php?Hamburger=no", $html);
+    }else{
+        $html = str_replace("{RedirectHamburger}", "../php/EsploraPage.php?Hamburger=yes", $html);
+    }
 
     $html = addPossibleBanner($html, "EsploraPage.php");
 

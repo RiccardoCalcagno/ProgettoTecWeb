@@ -151,7 +151,7 @@ else if($_SESSION["login"])
                 }
 
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
-                <button name=\"Personaggio\" value=\"" . $_SESSION["character_data"][$i]->get_id() . "\">
+                <div onclick=visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");>
                     <img src=\"" . $urlImgRace . " />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
                     <ul>
@@ -163,7 +163,7 @@ else if($_SESSION["login"])
                             </fieldset>
                         </li>
                     </ul>
-                </button>
+                </div>
                 </li>\n";
             }
             if($_SESSION["num_pers"]==0){
@@ -181,7 +181,7 @@ else if($_SESSION["login"])
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
                     $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
-                    $html = str_replace("<label for=\"espandiPers\">Vedi di Più</label>", "<label for=\"espandiPers\">Vedi di Meno</label>", $html);
+                    $html = str_replace("<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Più</label>", "<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Meno</label>", $html);
                     $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", $html);
 
                     unset($_SESSION["espandiPers"]);
@@ -190,7 +190,7 @@ else if($_SESSION["login"])
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == false)
                 {
                     $html = str_replace("<ul class=\"expanded\">", "<ul class=\"cards\" id='Personaggi'>", $html);
-                    $html = str_replace("<label for=\"espandiPers\">Vedi di Meno</label>", "<label for=\"espandiPers\">Vedi di Più</label>", $html);
+                    $html = str_replace("<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Meno</label>", "<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Più</label>", $html);
                     $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", $html);
 
                     unset($_SESSION["espandiPers"]);
@@ -325,6 +325,14 @@ else if($_SESSION["login"])
 
 
                 $html = addPossibleBanner($html, "area_personale.php");
+
+                if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+                    $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+                    $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=no", $html);
+                }else{
+                    $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=yes", $html);
+                }
+
 
                 echo $html;
 

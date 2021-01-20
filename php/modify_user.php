@@ -113,6 +113,13 @@
 
     $footer = file_get_contents(dirname(__DIR__) . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "Footer_Template.html");
     $html = str_replace('<footerPH />', $footer, $html);
+
+    if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+        $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=no", $html);
+    }else{
+        $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=yes", $html);
+    }
     
     $html = addPossibleBanner($html, "modify_user.php");
 

@@ -255,6 +255,13 @@
         $html = str_replace('{check_placeholder}','',$html);
     }
 
+    if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+        $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/CreazioneReportPage.php?Hamburger=no", $html);
+    }else{
+        $html = str_replace("{RedirectHamburger}", "../php/CreazioneReportPage.php?Hamburger=yes", $html);
+    }
+
 
     $html = addPossibleBanner($html, "CreazioneReportPage.php");
 

@@ -170,7 +170,7 @@ a.buttonLink:visited:active{
     color: #FFFFFF;
 }
 
-.annulla{
+a.annulla{
     background-color: #ffffff;
     color: #3d2808;
     text-align: center;
@@ -185,14 +185,17 @@ a.buttonLink:visited:active{
     padding-top:0.55em;
     height: 2.15em;
 }
-.annulla:hover{
-    background-color: #ffe6bf !important;
+a.annulla:not(:visited):hover{
+    background-color: #f7daad !important;
 }
-.annulla:active{
+a.annulla:visited:hover{
+    background-color: #ffffff !important;
+}
+a.annulla:active{
     background-color: #fab485 !important;
 }
 a.annulla:visited{
-    background-color: #f3c775 !important;
+    background-color: #eecf95 !important;
 }
 
 .espandi{
@@ -294,7 +297,7 @@ input[type="file"]:hover{
     font-weight: 600;
     vertical-align: middle;
     position: relative;
-    top:-100%;
+    bottom: 7.5em;
     left: +32%
 }
 .deleteButton:hover{
@@ -336,6 +339,9 @@ body{
     font-size: 1.1em;
     list-style: none;
     color:#FFFFFF;
+}
+#menu.hideForHamburger{
+    display: flex;
 }
 
 #menu > li {
@@ -381,12 +387,12 @@ body{
 
 #menu ul.dropdown-content li {
     display: block;
-    width: 100%;
+    width: calc(100% + 0.1em);
     background-color: rgb(48, 44, 44);
 }
 
 #menu ul.dropdown-content li#currentLink{
-    width: calc(100% - 1.2em);
+    width: calc(100% - 1.1em);
 }
 
 #menu ul.dropdown-content li a {
@@ -748,7 +754,7 @@ body a[aria-label="apri il menù"] {
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;
-    background-color: #ffecc4bd;
+    background-color: #265c13a8;
     font-weight: 500;
     border-top-left-radius: 7em;
     border-bottom-right-radius: 7em;
@@ -775,6 +781,7 @@ body a[aria-label="apri il menù"] {
 }
 #copertina header dt{
     padding-bottom: 0.5em;
+    color:#FFFFFF;
 }
 #copertina h3{
     text-align: center;
@@ -1826,10 +1833,6 @@ p.campiObbligatori{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
-#creazioneReport label{
-    position: relative;
-    top: -0.5em;
-}
 
 .campiObbligatori::before{
     content:"*";
@@ -1899,7 +1902,6 @@ p.campiObbligatori{
 #selezionamentoGiocatori #inserimentoGiocatori input[type="text"]{
     width: 15em;
     overflow: auto;
-    padding:0 0.5em 0 0.5em;
 }
 #selezionamentoGiocatori #inserimentoGiocatori input[type="submit"]{
     width:8em;
@@ -2096,7 +2098,6 @@ p.campiObbligatori{
     width: 10em;
     padding: 0.3em;
     text-align-last: center;
-    text-indent: -5%;
     border: 1px inset black;
     appearance: none;
     border-radius: 5px;
@@ -2363,17 +2364,23 @@ p.campiObbligatori{
     background-size: 10.25em 13em;
     border: 11px ridge #5f3900bf;
 }
-#personaggiUtente .cardPersonaggio button{
+
+#personaggiUtente .cardPersonaggio div{
     height: 100%;
     width: 100%;
     background-color: transparent;
     border: none;
+    position: relative;
+    top: -0.4em;
+    cursor: pointer;
 }
-#personaggiUtente .cardPersonaggio button:hover{
-    background-color: #f1f1f16b;
+
+#personaggiUtente .cardPersonaggio div > *{
+    position: relative;
+    top: 1em;
 }
-#personaggiUtente .cardPersonaggio button:active{
-    background-color: #ffffff88;
+#personaggiUtente .cardPersonaggio div:hover{
+    background-color: #ffffff27;
 }
 
 
@@ -2412,11 +2419,11 @@ p.campiObbligatori{
 }
 
 #personaggiUtente .cardPersonaggio li h5{
-    width: 36%;
+    width: 44%;
+    padding-left: 1.5em;
     float: left;
     font-size: 0.9em;
     font-weight: 500;
-    padding-left: 0.8em;
 }
 #personaggiUtente .cardPersonaggio li p{
     font-size: 0.9em;

@@ -244,6 +244,14 @@ else {
         $html = str_replace("<footerAction_placeholder/>", $footerAction, $html);
         $html = str_replace("<hiddenReportID />", $hiddenReportID, $html);
 
+
+        if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+            $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+            $html = str_replace("{RedirectHamburger}", "../php/ReportPage.php?Hamburger=no&ReportID=".$_GET['ReportID'], $html);
+        }else{
+            $html = str_replace("{RedirectHamburger}", "../php/ReportPage.php?Hamburger=yes&ReportID=".$_GET['ReportID'], $html);
+        }
+
         $html = addPossibleBanner($html, "ReportPage.php?ReportID=".$_GET['ReportID']);
 
         echo ($html);

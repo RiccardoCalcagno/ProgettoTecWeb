@@ -77,7 +77,7 @@
         if( session_status() == PHP_SESSION_NONE ) {
             session_start();
         }else if ( !isset($_SESSION['errorMessage']) ) {
-            $_SESSION['errorMessage'] = 'ETutto fila liscio non ci sono Errori all\'orizzonte';
+            $_SESSION['errorMessage'] = 'E Tutto fila liscio non ci sono Errori all\'orizzonte';
         }
 
         unset($_SESSION['id_report_modifica']);
@@ -123,10 +123,10 @@
     {
 //echo " entrato in  validateImg";
         $uploadOk = true;
-        /*if($img["size"] > 1000000) 
+        if($img["error"] != UPLOAD_ERR_OK) 
         {
             $uploadOk = false;
-        }*/
+        }
           
         $imageFileType = strtolower( pathinfo( $path,PATHINFO_EXTENSION));
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) 
@@ -140,6 +140,22 @@
 
     function check_file_name($img, $name)
     {
+
+    $name_arr = str_split($name);
+    $name_arr_1 = array();
+    foreach($name_arr as $val)
+    {
+    if($val != " " && $val != "#" && $val != "\$")
+        $name_arr_1[] = $val;
+    }
+
+    $name = implode($name_arr_1);
+    unset($name_arr);
+    unset($name_arr_1);
+
+    $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . $name;
+ 
+
     $i = 1;
     while(file_exists($img))
     {

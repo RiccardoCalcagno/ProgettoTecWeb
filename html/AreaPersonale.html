@@ -44,9 +44,9 @@
             </form>
         </div>
 
-        <a href="javascript:void(0);" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
+        <a href="{RedirectHamburger}" onclick="hamburgerFunction();" aria-label="apri il menù"></a>
 
-        <ul id="menu" role="menubar" tabindex="0">
+        <ul id="menu" class="hideForHamburger" role="menubar" tabindex="0">
             <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
             <li role="none" class="externalLink"><a href="../php/EsploraPage.php" role="menuitem">Esplora</a></li>
             <li role="none" class="externalLink">
@@ -121,14 +121,15 @@
             <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
         </header>
         <div class="box">
-        <form action="../php/action_character.php" method="get">                                   <!--SPECIFICARE LA PAGINA DI AZIONE-->
+                     <!--SE È ATTIVO JS LA FORM NON FA IL SUBMIT-->
             <ul class="cards" id='Personaggi'>
 
                 <form_personaggi/>
   
             </ul>
+        <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
         <nav class='espandi' id='espandi_pers' tabindex="-1">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
-            <label for="espandiPers">Vedi di Più</label>
+            <label for="espandiPers" id="labPersonEspandi">Vedi di Più</label>
             <input type="submit" id="espandiPers" name="espandi" value="Pers">     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
         </nav>
         </form>                                     

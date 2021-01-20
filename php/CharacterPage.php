@@ -106,6 +106,13 @@ else if ( isset($_GET['Personaggio']) || isset($_GET['charID'])) { //|| isset($_
 
     $html = characterPage($charID);
 
+    if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
+        $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/CharacterPage.php?Hamburger=no&Personaggio=".$charID, $html);
+    }else{
+        $html = str_replace("{RedirectHamburger}", "../php/CharacterPage.php?Hamburger=yes&Personaggio=".$charID, $html);
+    }
+
     if ( isset($_GET['charLayout'])  && $_GET['charLayout'] == 'scheda' ) {
         $html = changeCharLayout($html);
     }
