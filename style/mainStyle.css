@@ -751,7 +751,7 @@ body a[aria-label="apri il menù"] {
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;
-    background-color: #ffecc4bd;
+    background-color: #265c13a8;
     font-weight: 500;
     border-top-left-radius: 7em;
     border-bottom-right-radius: 7em;
@@ -778,6 +778,7 @@ body a[aria-label="apri il menù"] {
 }
 #copertina header dt{
     padding-bottom: 0.5em;
+    color:#FFFFFF;
 }
 #copertina h3{
     text-align: center;
