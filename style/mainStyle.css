@@ -124,13 +124,13 @@ body{
     font-size: 0.3em;
 }
 
-input, textarea, a{
+/* input, textarea, a{  SERVE !!!
         outline: none;
 }
 
 button:focus{
     outline: none;
-}
+} */
 
 .buttonLink{
     background-color: #81521c;
