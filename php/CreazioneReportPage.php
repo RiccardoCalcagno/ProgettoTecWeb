@@ -228,7 +228,7 @@
         $stringa_giocatori .= '<li>
                                     <div class="badgeUtente">
                                         <div>
-                                            <img src="'.$pic.'" alt="" />
+                                            <img src="'.$pic.'" alt="immagine profilo inserita da utente" />
                                             <p class="textVariable">'.$singleUser.'</p>
                                         </div>
                                         <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
