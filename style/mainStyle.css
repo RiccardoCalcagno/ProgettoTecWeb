@@ -361,6 +361,7 @@ body{
     padding: 0.5em;
 }
 #menu a:visited{
+    color:#ffefb6 !important;
 }
 
 #menu #currentLink {
