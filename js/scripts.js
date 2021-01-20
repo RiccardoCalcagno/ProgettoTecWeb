@@ -520,3 +520,6 @@ function visualizzaReportMaster(num){
 function visualizzaReportPartecip(num){
     window.location.href = "../php/action_report.php?ReportPartecip="+num;
 }
+function visualizzaReportEsplora(num){
+    window.location.href = "../php/action_report.php?ReportEsplora="+num;
+}

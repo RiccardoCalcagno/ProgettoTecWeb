@@ -83,7 +83,7 @@ else{
         {
         $_schede_report_esplora .=   
         "<li class=\"cardReport cardReportEsplora\">
-        <button name=\"ReportEsplora\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
+        <div onclick=\"visualizzaReportEsplora(". $_SESSION["report_data"][$i]->get_id() .");>
             <div class=\"testoCardRep\">
                 <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
@@ -96,7 +96,7 @@ else{
         <footer>
             <p class=\"lableRepPublico\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>
         </footer>
-        </button>
+        </div>
         </li>\n";
         }  
         
