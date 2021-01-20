@@ -36,13 +36,11 @@ if(isset($_GET["accesso"]))
     {
         header("Location: area_personale.php");
         exit();
+	
     }
 }
 
 header("Location: ../index.php");
-
-
-
 
 
 ?>

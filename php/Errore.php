@@ -7,5 +7,6 @@ $html = setup_clear($html);
 $html = addPossibleBanner($html, "Errore.php");
 $html = str_replace('<TestoErrore />', $_SESSION['errorMessage'], $html);
 
+
 echo $html;
 ?>
