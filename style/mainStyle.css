@@ -334,7 +334,7 @@ body{
 #menu > li {
     display: inline-block;
 }
-p.dropdown {color: red !important;}
+
 #menu a:hover, #menu .dropdown:hover {
     background-color: #4e4e4e;
     text-decoration: underline;
