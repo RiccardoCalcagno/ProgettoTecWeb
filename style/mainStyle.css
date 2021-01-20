@@ -361,7 +361,7 @@ body{
     padding: 0.5em;
 }
 #menu a:visited{
-    color:#ffed86 !important;
+    color:#ffe485 !important;
 }
 
 #menu #currentLink {
@@ -451,7 +451,7 @@ body a[aria-label="apri il menù"] {
     background-color:#7a3700;
 }
 #access #Iscrizione{
-    background-color: #f5d563;
+    background-color: #ffe485;
     color: #664117;
     font-weight: 500;
 }
