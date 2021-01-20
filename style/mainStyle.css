@@ -2359,7 +2359,7 @@ p.campiObbligatori{
     flex: 0 0 10.25em;
     height: 13em;
     margin: 1em 5px 1.2em 1em;
-    background-color: #ffdfa4;
+    background-color: #ebd3a4;
     background-image: url(../img/sfondo_card_personaggi.png);
     background-size: 10.25em 13em;
     border: 11px ridge #5f3900bf;
@@ -2513,28 +2513,26 @@ p.campiObbligatori{
     hyphens: auto;
 }
 
-.report .cardReport > button{
-    height: 100%;
-    width: 100%;
+.report .cardReport > div:first-child{
+    height: calc(100% - 10px);
     border: 5px solid #e9e4dd;
     border-radius: 0.5em;
     background-color: transparent;
+    cursor: pointer;
 }
-.report .cardReport > button:hover{
-    background-color: #5a5a5a11;
+.report .cardReport > div:first-child:hover{
+    background-color: #5555550c;
 }
-.report .cardReport > button:hover footer p{
+
+.report .cardReport > div:first-child:hover footer p{
     background-color: #ffebc6;
 }
-.report .cardReport > button:active{
+.report .cardReport > div:first-child:active{
     background-color: #ffffff;
     border: 5px solid #633800;
 }
-.report .cardReport > button:active footer p{
+.report .cardReport > div:first-child:active footer p{
     border: 5px solid #633800;
-}
-.report .cardReport > button footer p{
-    background-color: #FFF0D4;
 }
 
 .report .cards li{
@@ -2583,16 +2581,13 @@ p.campiObbligatori{
     margin-right: 0.5em;
 }
 
-.report #reportMaster button > div{
-    height: 100%;
-}
 .report .cardReport .publicazione{
     float: right;
     width: calc(27% - 1.2em);
     height: calc(100% - 10px);
     border-radius: 0.5em;
     position: relative;
-    top: calc(-10.8em + 5px);
+    top: calc(-9.4em + 5px);
     right: 5px;
 }
 .report .cardReport div.publicazione button{
@@ -2614,7 +2609,6 @@ p.campiObbligatori{
 .report .cardReport footer{
     clear: both;
     position: relative;
-    bottom: calc(1.4em + 4px);
     left: -5px;
 }
 .report .cardReport footer p{
@@ -2623,6 +2617,7 @@ p.campiObbligatori{
     padding-right: 0.5em;
     padding-bottom: 0.1em;
     font-size: 0.95em;
+    background-color: #FFF0D4;
 
     text-align: center;
     border: 5px solid #e9e4dd;
