@@ -186,13 +186,13 @@ a.buttonLink:visited:active{
     height: 2.15em;
 }
 .annulla:hover{
-    background-color: #ffe6bf;
+    background-color: #ffe6bf !important;
 }
 .annulla:active{
-    background-color: #fab485;
+    background-color: #fab485 !important;
 }
 a.annulla:visited{
-    background-color: #f3c775;
+    background-color: #f3c775 !important;
 }
 
 .espandi{
