@@ -13,6 +13,7 @@ if(isset($_GET["Hamburger"])){
         $html = str_replace("../php/action.php?Hamburger=yes", "../php/action.php?Hamburger=no", $html);
     }
     echo $html;
+    exit();
 }
 
 if(isset($_GET["accesso"]))
