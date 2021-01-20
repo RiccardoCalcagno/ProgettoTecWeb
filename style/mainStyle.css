@@ -2596,7 +2596,7 @@ p.campiObbligatori{
     border-bottom-left-radius: 3em;
     margin: auto;
     height: 100.5%;
-    border: none;
+    border: calc(0.5vw + 0.3em) solid #dddddd;
     background-color: #ddddddbe;
 }
 .report .cardReport .publicazione button:hover{

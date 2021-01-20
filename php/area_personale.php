@@ -213,14 +213,7 @@ else if($_SESSION["login"])
                             <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
                         </div>
                         <footer>";
-                        if($_SESSION["author_report_data"][$i]->get_isExplorable() == 1)
-                        {
-                            $_schede_report_master .= "<p class=\"lableRepPublico\"><span xml:lang=\"en\" lang=\"en\">Report</span> publico</p>";
-                        }
-                        else
-                        {
-                            $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
-                        }
+                        $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
                         $_schede_report_master .= "</footer>
                     </div>
                     <div class=\"publicazione\">";
