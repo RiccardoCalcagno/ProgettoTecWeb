@@ -86,15 +86,15 @@
                 <ul>
                     <li>
                     <img class="hidden"  id="" alt="immagine profilo caricata da utente" src="../img/img_profilo_mancante.png">
-                    <p id="ImgErr" class="hidden"> L'immagine ha un formato sbagliato non supportato o è troppo pesante</p>
+                    <p id="ImgErr" class="hidden"> Inserisci una immagine che pesa al massimo 2 <abbr title="Mega Byte">MB</abbr> e che abbia uno dei seguenti formati: jpg, jpeg, gif, png</p>
                     <label for="imgProfilo">Immagine profilo</label>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();" aria-label="carica un Immagine profilo"/>
                     </li>
                     <li>
             
-                    <label for="future_username" class="campiObbligatori">Username <span class="limitazioniText">massimo 20 caratteri</span></label>
-                    <p id="UserEmpty" class="hidden">  Username vuoto o troppo lungo </p>
-                    <p id="UserAlreadyExists" class="hidden">  Utente già esistente  </p>
+                    <label for="future_username" class="campiObbligatori"><span xml:lang="en" lang="en">Username</span> <span class="limitazioniText">massimo 20 caratteri</span></label>
+                    <p id="UserEmpty" class="hidden"> <span xml:lang="en" lang="en">Username</span> non valido! Lo <span xml:lang="en" lang="en">username</span> deve almeno un carattere e non deve essere vuoto </p>
+                    <p id="UserAlreadyExists" class="hidden">  Ops! Lo <span xml:lang="en" lang="en">username</span> che ha inserito sembra esistere già  </p>
                     <span><input type="text"  aria-required="true"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
@@ -112,7 +112,7 @@
                 <ul>
                     <li>
                     <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
-                    <p id="NameEmpty" class="hidden">  Inserisci il tuo nome e cognome  </p>
+                    <p id="NameEmpty" class="hidden"> Nome e cognome non validi! Il nome deve avere almeno due caratteri </p>
                     <span>
                         <input type="text"  aria-required="true"
                         name="NomeCognome" 
@@ -125,8 +125,8 @@
                     </li>
                     <li>
                     <label for="future_email" class="campiObbligatori">E-mail</label>
-                    <p id="EmailErr" class="hidden"> Inserisci una email valida </p>
-                    <p id="MailAlreadyExists" class="hidden"> Email già esistente  </p>
+                    <p id="EmailErr" class="hidden"> <span xml:lang="en" lang="en">E-mail</span> non valida!</p>
+                    <p id="MailAlreadyExists" class="hidden"> Ops! la <span xml:lang="en" lang="en">e-mail</span> che ha inserito sembra esistere già </p>
                     <span><input type="text"  aria-required="true"
                         name="future_email" 
                         id="future_email"
@@ -162,13 +162,13 @@
             <p class="campiObbligatori"  aria-label="tutti i campi seguenti sono obbligatori"> : campo obbligatorio</p>
             <form id="datiPassword" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserPassword();" action="../php/modify_password.php" method="post">
 
-            <fieldset id="passField">  <legend><h2>Password</h2></legend> 
+            <fieldset id="passField">  <legend><h2 xml:lang="en" lang="en">Password</h2></legend> 
                 <ul>
 
                     <li>
                         
-                    <label for="password" class="campiObbligatori">Password corrente</label>
-                    <p id="OldPasswdErr" class="hidden"> La password che hai inserito non corrisponde a quella del tuo account </p>
+                    <label for="password" class="campiObbligatori"><span xml:lang="en" lang="en">Password</span> corrente</label>
+                    <p id="OldPasswdErr" class="hidden"> La <span xml:lang="en" lang="en">password</span> deve corrispondere a quella del suo account </p>
                     <span><input type="password"  aria-required="true"
                         name="password" 
                         id="password"
@@ -177,9 +177,9 @@
                     </li>
 
                     <li>
-                    <label for="newPasswd" class="campiObbligatori">Nuova Password</label>
-                    <p id="NewPasswdEmpty" class="hidden"> Inserisci una password valida </p>
-                    <p class="RepPasswdErr hidden">  Le password non corrispondono  </p>
+                    <label for="newPasswd" class="campiObbligatori">Nuova <span xml:lang="en" lang="en">Password</span></label>
+                    <p id="NewPasswdEmpty" class="hidden"> <span xml:lang="en" lang="en">Password</span> non valida! La password deve contenere almeno 3 caratteri </p>
+                    <p class="RepPasswdErr hidden">  Le <span xml:lang="en" lang="en">password</span> non corrispondono! </p>
                     <span><input type="password"  aria-required="true"
                         name="newPasswd" 
                         id="newPasswd"
@@ -187,8 +187,8 @@
                         placeholder="Digitare la nuova password"/></span>
                     </li>
                     <li>
-                        <label for="PasswdAgan" class="campiObbligatori">Conferma Password</label>
-                        <p class="RepPasswdErr hidden">  Le password non corrispondono </p>
+                        <label for="PasswdAgan" class="campiObbligatori">Conferma <span xml:lang="en" lang="en">Password</span></label>
+                        <p class="RepPasswdErr hidden">  Le <span xml:lang="en" lang="en">password</span> non corrispondono! </p>
                         <span><input type="password"  aria-required="true"
                             name="PasswdAgan" 
                             id="PasswdAgan"

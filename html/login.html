@@ -30,16 +30,16 @@
             <h1>Accesso</h1>
             <form onsubmit="return validateLogin();" method="POST" action="../php/check_login.php">
                 
-                <label for="username">Username</label>
-                <p class="loginError hidden"> Utente o <span xml:lang="en" lang="en">password</span> scorretti</p>
+                <label for="username" xml:lang="en" lang="en">Username</label>
+                <p class="loginError hidden"> Utente o <span xml:lang="en" lang="en">password</span> scorretti!</p>
                 <div><input type="text" 
                         name="username" 
                         id="username"
-                        value="" <!--username-->
+                        value="<username/>" 
                         placeholder="Inserisci il tuo username"/></div>
 
-                <label for="password">Password</label>
-                <p class="loginError hidden"> Utente o <span xml:lang="en" lang="en">password</span> scorretti</p>
+                <label for="password" xml:lang="en" lang="en">Password</label>
+                <p class="loginError hidden"> Utente o <span xml:lang="en" lang="en">password</span> scorretti!</p>
                 <div><input type="password"
                         name="password" 
                         id="password"
