@@ -108,9 +108,9 @@ else if ( isset($_GET['Personaggio']) || isset($_GET['charID'])) { //|| isset($_
 
     if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
         $html = str_replace("class=\"hideForHamburger\" ", " ", $html);
-        $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=no", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/CharacterPage.php?Hamburger=no&Personaggio=".$charID, $html);
     }else{
-        $html = str_replace("{RedirectHamburger}", "../php/area_personale.php?Hamburger=yes", $html);
+        $html = str_replace("{RedirectHamburger}", "../php/CharacterPage.php?Hamburger=yes&Personaggio=".$charID, $html);
     }
 
     if ( isset($_GET['charLayout'])  && $_GET['charLayout'] == 'scheda' ) {
