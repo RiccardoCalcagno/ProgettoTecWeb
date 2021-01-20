@@ -9,6 +9,8 @@
     unset($_SESSION["first_logged"]);
     unset($_SESSION["listaGiocatori"]);
 
+    $html = setup($html);
+
     $username = $_SESSION["username"];
     $name_surname = $_SESSION["name_surname"];
     $email = $_SESSION["email"];
