@@ -85,11 +85,11 @@ else{
         "<li class=\"cardReport cardReportEsplora\">
         <button name=\"ReportEsplora\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\">
             <div class=\"testoCardRep\">
-                <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
+                <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
             </div>
             <div class=\"badgeUtente\">
-                <h5>Autore</h5>
+                <h4>Autore</h4>
                 <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"immagine profilo inserita da utente\" /> 
                 <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
             </div>

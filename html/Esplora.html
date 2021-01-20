@@ -45,7 +45,7 @@
 
         <ul id="menu" role="menubar" tabindex="0">
                 <li role="none" xml:lang="en" lang="en" class="externalLink"><a href="../index.php" role="menuitem">Home</a></li>
-                <li id="currentLink">Esplora</li>
+                <li id="currentLink" role="menuitem">Esplora</li>
                 <li role="none" class="externalLink">
                     <p class="dropdown" role="menuitem" aria-label="Opzioni di creazione" tabindex="0" aria-haspopup="true" aria-expanded="true">Crea</p>
                     <ul role="menu" class="dropdown-content">
@@ -66,7 +66,7 @@
     </header>
 
 
-    <nav id="breadcrumb">
+    <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
             <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
             <li id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Esplora">Esplora</li>
@@ -89,13 +89,13 @@
                 <ul class="cards box">
                     <reports/>
                 </ul>
-                <nav class="espandi">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+                <nav class="espandi" aria-label="Cambia pagina della dashboard di Report">                                       <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                     <div id="anchorEsplora"></div>
                     <ul>
                           <li><label id="LblEsploraPrecedente" for="esploraPrecedente" aria-label="passa alla pagina precedente della dashboard di Report">precedente</label></li>
-                          <li class="inputMove"><input type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente"></li>                     
+                          <li class="inputMove"><input type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente"/></li>                     
                           <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagEsplora"><currentPageReport/></span>/<span id="totNumPagEsplora"><totPagReport/></span></li>
-                          <li class="inputMove"><input type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo"></li> 
+                          <li class="inputMove"><input type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo"/></li> 
                           <li><label id="LblEsploraSuccessivo" for="esploraSuccessivo" aria-label="passa alla pagina successiva della dashboard di Report">successiva</label></li>
                     </ul> 
                   </nav>
