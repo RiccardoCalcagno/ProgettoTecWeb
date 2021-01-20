@@ -381,8 +381,8 @@ function trasforma(e){
 // NameSpace ?
 
 var loginValues = {
-    "username": [/^.{1,}$/, "Inserisci il tuo username"],
-    "password": [/^.{1,}$/, "Inserisci la tua password"],
+    "username": [/^.{1,}$/, "Utente o password scorretti!"],
+    "password": [/^.{1,}$/, "Utente o password scorretti!"],
 };
 
 function validateLogin() {
@@ -395,16 +395,16 @@ function validateLogin() {
 // NameSpace ?
 var userDataValues = {
     // ID: ["TestDaEseguire", "MessaggioErrore"]
-    "username": [/^.{1,}$/, "Inserisci il tuo username"],
-    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
-    "future_email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"]
+    "username": [/^.{1,}$/, "Username non valido! Lo username deve almeno un carattere e non deve essere vuoto "],
+    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"], /* TO FIX ?*/
+    "future_email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "E-mail non valida!"]
 };
 var newUserDataValues = {
     // ID: ["TestDaEseguire", "MessaggioErrore"]
-    "username": [/^.{1,}$/, "Inserisci il tuo username"],
-    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Inserisci il tuo Nome e Cognome"], /* TO FIX ?*/
-    "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "Inserisci un email valida"],
-    "newPasswd": [/^.{3,}$/, "Inserisci una password di almeno 3 caratteri"]
+    "username": [/^.{1,}$/, "Username non valido! Lo username deve almeno un carattere e non deve essere vuoto "],
+    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"], /* TO FIX ?*/
+    "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "E-mail non valida!"],
+    "newPasswd": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"]
 };
 
 
@@ -416,8 +416,8 @@ function validateUserData() {
 function checkPasswordMatch() {
 
     var passwordMatchValues = { // KINDA MEH
-        "newPasswd": ["", "Le password devono coincidere"],
-        "PasswdAgan": ["", "Le password devono coincidere"]
+        "newPasswd": ["", "Le password devono coincidere!"],
+        "PasswdAgan": ["", "Le password devono coincidere!"]
     };
 
     var psw = document.getElementById("newPasswd");
