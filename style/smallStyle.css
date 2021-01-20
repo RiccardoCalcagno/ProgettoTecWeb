@@ -683,7 +683,7 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
 #selezionamentoGiocatori #inserimentoGiocatori input[type="text"]{
     text-align: center;
     display: block;
-    padding: 0 0.5em 0 0.5em;
+    padding: 0.4em 0.5em 0.4em 0.5em;
     margin: auto;
 }
 

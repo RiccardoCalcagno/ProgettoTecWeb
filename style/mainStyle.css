@@ -1899,7 +1899,6 @@ p.campiObbligatori{
 #selezionamentoGiocatori #inserimentoGiocatori input[type="text"]{
     width: 15em;
     overflow: auto;
-    padding:0 0.5em 0 0.5em;
 }
 #selezionamentoGiocatori #inserimentoGiocatori input[type="submit"]{
     width:8em;
