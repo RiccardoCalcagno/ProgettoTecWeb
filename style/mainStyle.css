@@ -225,6 +225,7 @@ a.buttonLink:visited:active, a.annulla:visited:active{
     clip: rect(1px, 1px, 1px, 1px);
 }
 
+
 input[type="file"]{
     margin:auto;
     width: 24.3em;
@@ -1275,7 +1276,15 @@ section#testoReport {
     top:0.3em;
 }
 
-
+.AiutiNavigazione a{
+    color:#FFFFFF;
+    background-color: #000000;
+}
+.AiutiNavigazione a:hover{
+    color:#ffd3d3;
+}.AiutiNavigazione a:visited{
+    color:#e5ffd3;
+}
 
 /*
 --------------------------------------- COMMENTI REPO ----------------------------------------------

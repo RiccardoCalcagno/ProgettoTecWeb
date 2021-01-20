@@ -159,7 +159,7 @@ else {
             }
             $replacer .= '</ul>';
         }else{
-            $replacer .= '<p>Non è stato trovato alcun giocatore associato a questo <span xml:lang=\"en\" lang=\"en\">report</span></p>'; 
+            $replacer .= '<p>Non è stato trovato alcun giocatore associato a questo <span xml:lang="en" lang="en">report</span></p>'; 
         }
 
 
