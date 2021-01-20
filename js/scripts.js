@@ -167,6 +167,7 @@ function hamburgerFunction(){
     }else{
         x.style.display="block";
     }
+    return false;
 }
 
 
@@ -484,4 +485,27 @@ function js_on_approf(){
     var backLink = document.getElementById("ritorna");
     backLink.classList.remove("hidden");
     backLink.classList.add("buttonLink");
+}
+
+// ---------------------------------------------------------------------------------
+// ------------------------------- Espandi Personaggi -------------------------------
+// ---------------------------------------------------------------------------------
+
+
+
+
+function veidiPiùPers(){
+    var personaggi = document.getElementById("Personaggi");
+    var labelEspandi = document.getElementById("labPersonEspandi");
+    var inputEspandi = document.getElementById("espandiPers");
+    if(inputEspandi.name=="espandi"){
+        personaggi.setAttribute("class","expanded");
+        labelEspandi.innerHTML="Vedi di Meno";
+        inputEspandi.setAttribute("name","riduci");
+    }else{
+        personaggi.setAttribute("class","cards");
+        labelEspandi.innerHTML="Vedi di Più";
+        inputEspandi.setAttribute("name","espandi");
+    }
+    return false;
 }

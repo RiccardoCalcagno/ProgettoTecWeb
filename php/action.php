@@ -5,6 +5,17 @@
         session_start();
     }
 
+if(isset($_GET["Hamburger"])){
+    clearSession();
+    $html = file_get_contents("..". DIRECTORY_SEPARATOR ."html". DIRECTORY_SEPARATOR . "Home.html");
+    if($_GET["Hamburger"]=="yes"){
+        $html = str_replace("<ul id=\"menu\"", "<ul id=\"menu\" style=\"display:block;\"", $html);
+        $html = str_replace("../php/action.php?Hamburger=yes", "../php/action.php?Hamburger=no", $html);
+    }
+    echo $html;
+    exit();
+}
+
 if(isset($_GET["accesso"]))
 {
 
