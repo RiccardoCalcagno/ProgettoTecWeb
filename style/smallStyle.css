@@ -151,15 +151,18 @@ input[type="file"]{
     border-top: none;
     font-size: 1.15em;
 }
-#intestazioneSito #menu li a:not(.dropdown):hover{
+#intestazioneSito #menu li a:hover{
     background-color: #464441;
 }
-#intestazioneSito #menu li a:not(.dropdown){
+#intestazioneSito #menu li a{
     text-decoration: underline;
 }
-#intestazioneSito #menu > li a{
+#intestazioneSito #menu > li a, #intestazioneSito .dropdown{
     padding: 1em;
     font-size: 1.1em;
+}
+#intestazioneSito .dropdown{
+    cursor: default;
 }
 
  #breadcrumb #breadCCurrent{

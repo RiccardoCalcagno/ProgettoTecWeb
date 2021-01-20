@@ -25,7 +25,7 @@
     padding-top: 1em;
     height: 1.8em;
 }
-#intestazioneSito #menu > li > a{
+#intestazioneSito #menu > li > a, #intestazioneSito .dropdown{
     padding-top: 1em;
     height:1.8em;
 }
@@ -59,7 +59,7 @@
     padding: 0.6em;
     font-size: 1.2em;
 }
-#menu a.dropdown::after { 
+#menu .dropdown::after { 
     display: none;
 }
 

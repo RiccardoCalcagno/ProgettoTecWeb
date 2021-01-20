@@ -11,9 +11,9 @@
 
 
     class DBinterface {
-        private const HOST = "localhost";
-        private const USERNAME = "nsertori";
-        private const PASSWORD = "AeP3hae1chaeM6zo";
+        private const HOST = "localhost:3306";
+        private const USERNAME = "admin";
+        private const PASSWORD = "adminPSW3";
         private const DB_NAME = "nsertori";
         
         private $connection;
