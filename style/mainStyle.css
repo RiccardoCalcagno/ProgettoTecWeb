@@ -218,6 +218,8 @@ a.buttonLink:visited:active, a.annulla:visited:active{
 
 
 .AiutiNavigazione {
+    color:#FFFFFF;
+    background-color: #000000;
     position: absolute;
     height: 1px;
     width: 1px;
