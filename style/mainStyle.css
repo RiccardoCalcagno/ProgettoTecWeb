@@ -185,14 +185,17 @@ a.annulla{
     padding-top:0.55em;
     height: 2.15em;
 }
-a.annulla:hover{
-    background-color: #ffe6bf !important;
+a.annulla:not(:visited):hover{
+    background-color: #f7daad !important;
+}
+a.annulla:visited:hover{
+    background-color: #ffffff !important;
 }
 a.annulla:active{
     background-color: #fab485 !important;
 }
 a.annulla:visited{
-    background-color: #e9bd6b !important;
+    background-color: #eecf95 !important;
 }
 
 .espandi{
