@@ -124,13 +124,13 @@ body{
     font-size: 0.3em;
 }
 
-input, textarea, a{
+/* input, textarea, a{  SERVE !!!
         outline: none;
 }
 
 button:focus{
     outline: none;
-}
+} */
 
 .buttonLink{
     background-color: #8f5b20;
@@ -333,7 +333,7 @@ body{
 #menu > li {
     display: inline-block;
 }
-
+p.dropdown {color: red !important;}
 #menu a:hover, #menu .dropdown:hover {
     background-color: #4e4e4e;
     text-decoration: underline;
