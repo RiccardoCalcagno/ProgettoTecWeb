@@ -151,7 +151,7 @@ else if($_SESSION["login"])
                 }
 
                 $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
-                <div onclick=visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");>
+                <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
                     <img src=\"" . $urlImgRace . " />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
                     <ul>
@@ -207,7 +207,7 @@ else if($_SESSION["login"])
                 for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                 {
                     $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
-                    <div onclick=visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");>
+                    <div onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
                         <div class=\"testoCardRep\">
                             <h3 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h3>
                             <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
@@ -272,7 +272,7 @@ else if($_SESSION["login"])
                 for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                 {
                     $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                    <div onclick=visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");>
+                    <div onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
                         <div class=\"testoCardRep\">
                             <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
