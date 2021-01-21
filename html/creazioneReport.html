@@ -85,7 +85,7 @@
                         <p>Che <strong>titolo</strong> daresti all' <strong>avventura</strong> che avete vissuto?</p>
                         <div>
                             <label class="limitazioniText" for="titoloReport">Inserisci un titolo di massimo 30 lettere</label>
-                            <span><textarea id="titoloReport" name="titolo" rows=1 cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"><valueTitle /></textarea></span>
+                            <span><textarea id="titoloReport" name="titolo" rows="1" cols="60" placeholder="Digita il titolo" maxlength="30" aria-required="true" onkeyup="updateCounterTextarea(1);"><valueTitle /></textarea></span>
                             <p class="counter"><span id="currentCountTitolo"></span>/30</p>
                         </div>
                     </fieldset>
@@ -96,7 +96,7 @@
                         <p>Pensa ora ad un <strong>breve riassunto</strong> di quello che è successo, è ciò che verrà <strong>mostrato nell'anteprima</strong> del tuo <span xml:lang="en" lang="en">report</span></p>
                         <div>
                             <label for="sottoTRepo" class="limitazioniText">Inserisci un sottotitolo di massimo 120 lettere</label>
-                            <span><textarea id="sottoTRepo" name="sottotitolo" rows=4 cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"><valueSubtitle /></textarea></span>
+                            <span><textarea id="sottoTRepo" name="sottotitolo" rows="4" cols="60" placeholder="Digita il sottotitolo" maxlength="120" aria-required="true" onkeyup="updateCounterTextarea(2);"><valueSubtitle /></textarea></span>
                             <p class="counter"><span id="currentCountSottotitolo"></span>/120</p>
                         </div>
                     </fieldset>
@@ -107,7 +107,7 @@
                         <p>Ci siamo! È giunto il momento di dare libero sfogo alla fantasia, vai a pesca nella tua memoria e <strong>narraci la tua esperienza</strong> </p>
                         <div>
                             <label for="contRepo">Digita il contenuto, non hai limitazioni!</label>
-                            <textarea id="contRepo" name="contenuto" rows=4 cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"><valueContent /></textarea>
+                            <textarea id="contRepo" name="contenuto" rows="4" cols="60" placeholder="Inserisci il contenuto.. senza alcun sfreno!" aria-required="true"><valueContent /></textarea>
                         </div>
                     </fieldset>
                 </li>
@@ -128,7 +128,7 @@
                             <div id="inserimentoGiocatori">
                                 <label for="writeUsername">Aggiungi il giocatore inserendo il suo <span xml:lang="en" lang="en">username</span></label>
                                 <div>
-                                    <input type="text" id="writeUsername" name="usernameGiocatore" placeholder="Digita l'username" maxlength="30"></textarea>
+                                    <input type="text" id="writeUsername" name="usernameGiocatore" placeholder="Digita l'username" maxlength="30"/>
                                     <input id="aggiungiGiocatore" class="buttonLink" type="submit" name="aggiungiGiocatore" value="AGGIUNGI" aria-label="aggiungi il giocatore che hai digitato alla lista"/>
                                 </div>
 
@@ -156,8 +156,8 @@
                     <h3>Desideri condividere il tuo <span xml:lang="en" lang="en">report</span> alla <span xml:lang="en" lang="en">community</span> registrata in questo portale?</h3>
                     <p>permetterai a molta più gente di vederlo e commentarlo</p>
                     <div>
-                        <label for="condividi">Condividi in "Esplora"</label>
                         <input type="checkbox" id="condividi" name="condividi" value="false" {check_placeholder}/>
+                        <label for="condividi">Condividi in "Esplora"</label>
                     </div>
                 </div>
                 <div id="submitReport" class="submitForm">

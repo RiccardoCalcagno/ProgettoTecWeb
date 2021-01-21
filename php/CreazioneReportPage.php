@@ -28,7 +28,7 @@
 
             $p = '<p>Concludi la modifica salvando la nuova versione del <span xml:lang="en" lang="en">report</span> nella tua Area Personale</p>';
 
-            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA" aria-label="salva la modifica del report"/>';
+            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA MODIFICA" aria-label="Salva modifica effettuata al tuo Report"/>';
         }
         else {
             $headTitle = '<title>Creazione Report di Sessione - D&Diary</title>
@@ -44,7 +44,7 @@
 
             $p = '<p>Concludi la creazione salvando il nuovo <span xml:lang="en" lang="en">report</span> nella tua Area Personale</p>';
 
-            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT" aria-label="salva il nuovo report"/>';
+            $button = '<input id="buttonPartecip" class="buttonLink" type="submit" name="salvaRep" value="SALVA REPORT" aria-label="Salva report appena compilato"/>';
         }
 
         $html = str_replace('<headTitle_placeholder />',$headTitle,$html);
@@ -60,7 +60,7 @@
     staged_session();
 
     $toEdit = false;
-    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $message = ''; $feedback_message = '';
+    $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; $message = ''; $feedback_message = ''; $aiutiNav = '';
     if ( isset($_SESSION['id_report_modifica']) ) {
         $toEdit =  true;
         $id_report = $_SESSION['id_report_modifica'];
@@ -153,7 +153,7 @@
                     else{
                         $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
-                    $html = str_replace("<altriAiutiDiNavigazione/>", '<li><a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a></li>', $html);
+                    $aiutiNav = '<li><a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a></li>';
                     $dbInterface->closeConnection();
                 }
                 else {
@@ -217,6 +217,7 @@
     $html = str_replace('<valueSubtitle />',$sottotitolo,$html);
     $html = str_replace('<valueContent />',$contenuto,$html);
     $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
+    $html = str_replace('<altriAiutiDiNavigazione/>',$aiutiNav, $html);
 
     $dbInterface = new DBinterface();
     if(!$dbInterface->openConnection()){errorPage("EDB");exit();}

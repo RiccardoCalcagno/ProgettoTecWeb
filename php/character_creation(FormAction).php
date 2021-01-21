@@ -10,7 +10,7 @@ function checkText($text) {
 
 function preparePage($htmlPage, $toEdit) {
 
-    $title = ''; $header = ''; $p = ''; $button = ''; $hiddenCharID = '';
+    $title = ''; $header = ''; $p = ''; $button = ''; $ariaLabelValue = ''; $hiddenCharID = '';
 
     if ( $toEdit ){
 
@@ -25,6 +25,8 @@ function preparePage($htmlPage, $toEdit) {
             $p = 'Concludi la modifica salvando la nuova versione della Scheda Giocatore';
 
             $button = 'SALVA MODIFICA';
+
+            $ariaLabelValue = 'Salva modifica effettuata alla scheda personaggio';
 
             $hiddenCharID = '<input type="hidden" id="charID" name="charID" value="'.$_GET['charID'].'" />';     // toEdit => get 
     }
@@ -44,16 +46,20 @@ function preparePage($htmlPage, $toEdit) {
 
             $button = 'SALVA SCHEDA'; 
 
+            $ariaLabelValue = 'Salva scheda personaggio';
+
             // $hiddenCharID = '';
     }
     // else {
     //     // ERROR PAGE ? forse non serve neanche 
     // }
+    
 
     $htmlPage = str_replace('<titleValue />', $title, $htmlPage);
     $htmlPage = str_replace('<headerValue />', $header, $htmlPage);
     $htmlPage = str_replace('<pValue />', $p, $htmlPage);
     $htmlPage = str_replace('<buttonValue />', $button, $htmlPage);
+    $htmlPage = str_replace('<ariaLabelValue />', $ariaLabelValue, $htmlPage);
     $htmlPage = str_replace('<hiddenCharID />', $hiddenCharID, $htmlPage);
 
     return $htmlPage;
