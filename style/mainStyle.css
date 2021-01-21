@@ -2553,15 +2553,16 @@ p.campiObbligatori{
     padding: 0.6em;
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: left;
  }
-#dashboard .report .cardReport .testoCardRep h3{
+.report .cardReport .testoCardRep h3{
     font-size: 1.2em;
     padding-left: 0.5em;
     padding-bottom: 0.4em;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
  }
 .report .cardReport .testoCardRep p{
     font-size: 0.9em;
