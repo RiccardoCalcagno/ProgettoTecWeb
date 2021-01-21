@@ -237,7 +237,7 @@
                                                 <img src="'.$pic.'" alt="immagine profilo inserita da utente" />
                                                 <p class="textVariable">'.$singleUser.'</p>
                                             </div>
-                                            <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
+                                            <button class="deleteButton" name="deletePlayer" aria-label="Rimuovi '. "$singleUser". ' dai partecipanti al Report"value="'.$singleUser.'">X</button>
                                         </div>
                                     </li>';
         }
