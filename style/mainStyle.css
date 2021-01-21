@@ -744,13 +744,13 @@ body a[aria-label="apri il menù"] {
     display: block;
     float: left;
 }
-#copertina header dl{
+#copertina #starFeature{
     width: 22em;
     margin-right: 3em;
     display: block;
     position: relative;
-    left: 40vw;
-    top: 9em;
+    left: calc(75% - 13em);
+    top: calc(-66em + 100%);
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;
@@ -759,27 +759,27 @@ body a[aria-label="apri il menù"] {
     border-top-left-radius: 7em;
     border-bottom-right-radius: 7em;
 }
-#copertina header dl >*{
+#copertina #starFeature >*{
     display: block;
 }
-#copertina header a{
+#copertina #starFeature a{
     height: 1.8em;
     padding-top: 0.3em;
     width: 12em;
     margin-left: 3em;
 }
-#copertina header dl :nth-child(2){
+#copertina #starFeature :nth-child(2){
     float: right;
     margin-right: 3em;
 }
-#copertina header dt:nth-child(1){
+#copertina #starFeature dt:nth-child(1){
     text-align: right;
 }
-#copertina header dt:nth-child(3){
+#copertina #starFeature dt:nth-child(3){
     padding-top: 1em;
     clear: both;
 }
-#copertina header dt{
+#copertina #starFeature dt{
     padding-bottom: 0.5em;
     color:#FFFFFF;
 }

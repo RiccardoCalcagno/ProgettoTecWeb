@@ -223,7 +223,6 @@ input[type="file"]{
     height: calc(20em + 30px);
     left: calc(100% - 1000px);
     z-index: 1;
-    opacity: 0.5;
 }
 
 #personaggiCoperina{
@@ -232,7 +231,6 @@ input[type="file"]{
     margin-top: 0;
     top:-305px;
     z-index: 2;
-    opacity: 0.6;
 }
 
 #copertina header{
@@ -241,39 +239,44 @@ input[type="file"]{
     position: relative;
     top:calc(-15em -  300px);
 }
-#copertina header dl{
+#personaggiCoperina{
+    display: none;
+}
+#bodyHome #copertina #starFeature{
+    z-index: 2;
     margin-left: 0.25em;
     position: relative;
     width: calc(100% - 1.5em);
-    top: 2.8em;
+    top: -305px;
+    background-color: #275c13c7;
     left: 0;
     float: none;
     clear: both;
     padding: 0.5em;
     border-radius: 2em;
 }
-#copertina #titolo::after{
-    top: -0.3em;
+#bodyHome #copertina #titolo::after{
+    top: 4.2em;
     left: calc(10000px + 50vw - 2.5em);
     width: 5em;
     height: 1.64em;
     background-size: 5em 1.64em;
 }
-#copertina header dl#starFeature > dt{
+#bodyHome #copertina #starFeature > dt{
     width: 100%;
     text-align: center;
 }
-#copertina header dl#starFeature > dd{
+#bodyHome #copertina #starFeature > dd{
     float:none;
     width: 100%;
 }
-#copertina header dl#starFeature > dd a{
+#bodyHome #copertina #starFeature > dd a{
     margin:auto;
 }
-#copertina header dt:nth-child(3){
+#bodyHome #copertina #starFeature dt:nth-child(3){
     padding-top: 0.6em;
 }
-#copertina #titolo{
+#bodyHome #copertina #titolo{
     width: 100%;
     text-align: center;
     color: #FFFFFF;
