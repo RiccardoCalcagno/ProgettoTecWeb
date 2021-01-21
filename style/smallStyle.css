@@ -241,11 +241,16 @@ input[type="file"]{
     position: relative;
     top:calc(-15em -  300px);
 }
+#personaggiCoperina{
+    display: none;
+}
 #copertina #starFeature{
+    z-index: 2;
     margin-left: 0.25em;
     position: relative;
     width: calc(100% - 1.5em);
-    top: 2.8em;
+    top: -305px;
+    background-color: #275c13ec;
     left: 0;
     float: none;
     clear: both;
