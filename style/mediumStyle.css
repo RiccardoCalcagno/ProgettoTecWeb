@@ -160,7 +160,7 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     background-size: 20em 7em;
 }
 
-#copertina header dl{
+#copertina #starFeature{
     width: 20em;
     margin-right: 2em;
     left: calc(60vw - 10.5em);
@@ -169,10 +169,10 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     border-top-left-radius: 3em;
     border-bottom-right-radius: 3em;
 }
-#copertina header dt:nth-child(3){
+#copertina #starFeature dt:nth-child(3){
     padding-top: 0.6em;
 }
-#copertina header dt{
+#copertina #starFeature dt{
     padding-bottom: 0em;
 }
 #copertina header h1{

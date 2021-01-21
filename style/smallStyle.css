@@ -241,7 +241,7 @@ input[type="file"]{
     position: relative;
     top:calc(-15em -  300px);
 }
-#copertina header dl{
+#copertina #starFeature{
     margin-left: 0.25em;
     position: relative;
     width: calc(100% - 1.5em);
@@ -259,18 +259,18 @@ input[type="file"]{
     height: 1.64em;
     background-size: 5em 1.64em;
 }
-#copertina header dl#starFeature > dt{
+#copertina dl#starFeature > dt{
     width: 100%;
     text-align: center;
 }
-#copertina header dl#starFeature > dd{
+#copertina dl#starFeature > dd{
     float:none;
     width: 100%;
 }
-#copertina header dl#starFeature > dd a{
+#copertina dl#starFeature > dd a{
     margin:auto;
 }
-#copertina header dt:nth-child(3){
+#copertina #starFeature dt:nth-child(3){
     padding-top: 0.6em;
 }
 #copertina #titolo{
