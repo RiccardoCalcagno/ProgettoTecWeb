@@ -153,7 +153,7 @@
                     else{
                         $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
-                    $aiutiNav = '<li><a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a></li>';
+                    $aiutiNav = '<a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a>';
                     $dbInterface->closeConnection();
                 }
                 else {
