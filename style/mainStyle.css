@@ -158,7 +158,7 @@ a.buttonLink {
 }
 
 a.buttonLink:visited{
-    background-color: #6d8600 !important;
+    background-color: #678000 !important;
     color: #FFFFFF;
 }
 a.buttonLink:visited:hover, a.buttonLink:visited:focus{
@@ -455,7 +455,8 @@ body a[aria-label="apri il menù"] {
     font-weight: 400;
 }
 #access #Iscrizione:hover{
-    background-color: #ffce3c;
+    background-color: #ffd151;
+    color: #180e00;
 }
 #access #Iscrizione:active{
     background-color: #fcbd5e;
@@ -3198,7 +3199,7 @@ body.errorPage section, body.errorPage header{
 }
 
 dl#contenutoInformativa dt {
-    margin-top: 3em;
+    margin-top: 6em;
 }
 
 dl#contenutoInformativa {
