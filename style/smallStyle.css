@@ -411,7 +411,7 @@ input[type="file"]{
     font-size: 1em;
 }
 .report .cardReport .publicazione{
-    top: calc(-11em + 4px);
+    top: calc(-11em - 1px);
 
     width: calc(27% - 1.2em);
     min-width: 4em;

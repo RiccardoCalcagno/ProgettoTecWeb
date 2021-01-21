@@ -219,11 +219,11 @@ else if($_SESSION["login"])
                     <div class=\"publicazione\">";
                     if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
                     { 
-                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Publica in \"Esplora\"</button>";
+                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Pubblica in Esplora</button>";
                     }
                     else                
                     {                         
-                        $_schede_report_master .="<button name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Rimuovi da \"Esplora\"</button>";
+                        $_schede_report_master .="<button class=\"InEsplora\" name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Rimuovi da Esplora</button>";
                     }
                     
                     $_schede_report_master .= "</div>

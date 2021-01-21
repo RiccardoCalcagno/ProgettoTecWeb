@@ -2538,28 +2538,64 @@ p.campiObbligatori{
     hyphens: auto;
 }
 
+#areaPersonale .report .cardReport > div:first-child{
+    border: 5px solid #5d4016;}
+#areaPersonale .report .cardReport > div:first-child footer p{
+    border: 5px solid #5d4016;
+    background-color: #976c1c;
+    color:#FFFFFF;}
+.report .cardReport div.publicazione button{
+    border: 5px solid #5d4016;
+    background-color: #976c1c;
+    color:#FFFFFF;}
+.report .cardReport div.publicazione button.InEsplora{
+    border: 5px solid #294500;
+    background-color: #678000;}
+
+#areaPersonale .report .cardReport > div:first-child:hover{
+    background-color: #e3e3e3;}
+#areaPersonale .report .cardReport > div:first-child:hover footer p{
+    background-color: #86662a;}
+#areaPersonale .cardReport .publicazione button:hover{
+    background-color: #dab163;
+    color:#000000;}
+#areaPersonale .cardReport .publicazione button.InEsplora:hover{
+    background-color: #c7d672;
+    color:#000000;}
+
+#areaPersonale .report .cardReport > div:first-child:active{
+    border-color: #fbc300;}
+#areaPersonale .report .cardReport > div:first-child:active footer p{
+    border-color: #fbc300;}
+#areaPersonale .cardReport .publicazione button:active{
+    border-color: #fbc300;}
+
+
+#bodyEsplora .report .cardReport > div:first-child{
+    border: 5px solid #294500;}
+#bodyEsplora .report .cardReport > div:first-child footer p{
+    border: 5px solid #294500;
+    background-color: #678000;
+    color:#FFFFFF;}
+
+#bodyEsplora .report .cardReport > div:first-child:hover{
+    background-color: #e3e3e3;}
+#bodyEsplora .report .cardReport > div:first-child:hover footer p{
+    background-color: #49502e;}
+
+#bodyEsplora .report .cardReport > div:first-child:active{
+    border-color: #c5fb00;}
+#bodyEsplora .report .cardReport > div:first-child:active footer p{
+    border-color: #c5fb00;}
+
+
+
 .report .cardReport > div:first-child{
     height: calc(100% - 10px);
-    border: 5px solid #e9e4dd;
     border-radius: 0.5em;
     background-color: transparent;
     cursor: pointer;
 }
-.report .cardReport > div:first-child:hover{
-    background-color: #5555550c;
-}
-
-.report .cardReport > div:first-child:hover footer p{
-    background-color: #ffebc6;
-}
-.report .cardReport > div:first-child:active{
-    background-color: #ffffff;
-    border: 5px solid #633800;
-}
-.report .cardReport > div:first-child:active footer p{
-    border: 5px solid #633800;
-}
-
 .report .cards li{
     width: 95%;
     min-width: 30em;
@@ -2609,11 +2645,10 @@ p.campiObbligatori{
 .report .cardReport .publicazione{
     float: right;
     width: calc(27% - 1.2em);
-    height: calc(100% - 10px);
     border-radius: 0.5em;
     position: relative;
-    top: calc(-9.4em + 5px);
-    right: 5px;
+    height: 100%;
+    top:-9.4em;
 }
 .report .cardReport div.publicazione button{
     border-radius: 0.2em;
@@ -2621,14 +2656,6 @@ p.campiObbligatori{
     border-bottom-left-radius: 3em;
     margin: auto;
     height: 100.5%;
-    border: calc(0.5vw + 0.3em) solid #dddddd;
-    background-color: #ddddddbe;
-}
-.report .cardReport .publicazione button:hover{
-    background-color: #e3b8ffbe;
-}
-.report .cardReport .publicazione button:active{
-    background-color: #f9efff;
 }
 .report .cardReport footer{
     clear: both;
@@ -2642,10 +2669,8 @@ p.campiObbligatori{
     padding-right: 0.5em;
     padding-bottom: 0.1em;
     font-size: 0.95em;
-    background-color: #FFF0D4;
 
     text-align: center;
-    border: 5px solid #e9e4dd;
     border-top-right-radius: 2em;
     border-bottom-left-radius: 0.5em;
 }
