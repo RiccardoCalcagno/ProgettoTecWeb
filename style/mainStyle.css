@@ -2649,11 +2649,6 @@ p.campiObbligatori{
     position: relative;
     height: 100%;
     top:-9.4em;
-    /*
-    height: calc(100% - 10px);
-    top: calc(-9.4em + 5px);
-    right: 5px;
-    */
 }
 .report .cardReport div.publicazione button{
     border-radius: 0.2em;
