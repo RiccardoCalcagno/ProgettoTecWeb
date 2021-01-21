@@ -163,8 +163,8 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 #copertina #starFeature{
     width: 20em;
     margin-right: 2em;
-    left: calc(60vw - 10.5em);
-    top:6em;
+    top: calc(-24em + -10vw);
+    left: calc(82% - 16em);
     padding: 0.5em;
     border-top-left-radius: 3em;
     border-bottom-right-radius: 3em;

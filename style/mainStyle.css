@@ -749,8 +749,8 @@ body a[aria-label="apri il menù"] {
     margin-right: 3em;
     display: block;
     position: relative;
-    left: 40vw;
-    top: 9em;
+    left: calc(75% - 13em);
+    top: calc(-66em + 100%);
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;

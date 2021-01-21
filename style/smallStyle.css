@@ -259,15 +259,15 @@ input[type="file"]{
     height: 1.64em;
     background-size: 5em 1.64em;
 }
-#copertina dl#starFeature > dt{
+#copertina #starFeature > dt{
     width: 100%;
     text-align: center;
 }
-#copertina dl#starFeature > dd{
+#copertina #starFeature > dd{
     float:none;
     width: 100%;
 }
-#copertina dl#starFeature > dd a{
+#copertina #starFeature > dd a{
     margin:auto;
 }
 #copertina #starFeature dt:nth-child(3){
