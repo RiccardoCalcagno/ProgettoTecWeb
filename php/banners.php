@@ -123,8 +123,9 @@
                     </div>
                     <h1 tabindex='1' aria-label='messaggio di conferma: Creazione Confermata'>Creazione Confermata</h1>
                     <p tabindex='1'>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
-                    <p id='refAreaPersConf' tabindex='1'>Quando vorrai potrai recuperare questo speciale manufatto nella tua </br><a href='../php/area_personale.php'>Area Personale</a></p>
+                    <p id='refAreaPersConf' tabindex='1'>Quando vorrai potrai recuperare questo speciale manufatto nella tua Area Personale</p>
                     <div id='linkVelociPostConferma'>
+                        <a tabindex='1' class='buttonLink' href='../php/area_personale.php'>Area Personale</a>
                         <a tabindex='1' class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
