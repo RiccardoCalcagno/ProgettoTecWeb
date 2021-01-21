@@ -158,7 +158,7 @@ a.buttonLink {
 }
 
 a.buttonLink:visited{
-    background-color: #7d9900 !important;
+    background-color: #6d8600 !important;
     color: #FFFFFF;
 }
 a.buttonLink:visited:hover, a.buttonLink:visited:focus{
@@ -440,8 +440,7 @@ body a[aria-label="apri il menù"] {
 
 #access #Accesso{
     background-color:#6b4519;
-    color: #ffe482;
-    font-weight: 500;
+    color: #ffefb6;
     margin-right: 5%;
 }
 #access #Accesso:hover{
@@ -452,8 +451,8 @@ body a[aria-label="apri il menù"] {
 }
 #access #Iscrizione{
     background-color: #ffe485;
-    color: #664117;
-    font-weight: 500;
+    color: #482f13;
+    font-weight: 400;
 }
 #access #Iscrizione:hover{
     background-color: #ffce3c;
@@ -754,7 +753,7 @@ body a[aria-label="apri il menù"] {
     text-align: left;
     padding: 1em 1.5em;
     border-radius: 0.6em;
-    background-color: #265c13a8;
+    background-color: #193c0ca8;
     font-weight: 500;
     border-top-left-radius: 7em;
     border-bottom-right-radius: 7em;
@@ -893,7 +892,7 @@ body a[aria-label="apri il menù"] {
     text-decoration: none;
 }
 .puntoInterrogativo:visited{
-    background-color:#769100;
+    background-color:#6d8600;
     color:#FFFFFF;
 }
 .puntoInterrogativo:hover{
@@ -2250,7 +2249,6 @@ p.campiObbligatori{
     width: 80%;
     margin: auto;
     margin-top: 7em;
-    color: #6b6b6b;
     }
 
 
