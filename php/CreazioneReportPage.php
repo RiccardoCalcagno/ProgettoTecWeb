@@ -121,13 +121,13 @@
                 }else{
                 $message = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; // TO FIX
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
-                    $message.='<li>titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
+                    $message.='<li role=\"alert\">Titolo non valido! Il titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
                 }
                 if ((strlen($sottotitolo) > 120 || strlen($sottotitolo)<3)) {
-                    $message .='<li>sottotitolo deve avere una lunghezza compresa tra i 3 e 120 caratteri</li>';
+                    $message .='<li role=\"alert\">Sottotitolo non valido! Il sottotitolo deve avere una lunghezza compresa tra i 3 e 120 caratteri</li>';
                 }
                 if (strlen($contenuto) < 3) {
-                    $message.='<li>contenuto deve avere almeno 3 caratteri</li>';
+                    $message.='<li role=\"alert\">Contenuto non valido! Il contenuto deve avere almeno 3 caratteri</li>';
                 }
                 $message .= '</ul></div>';
                 }
@@ -145,13 +145,13 @@
                         //aggiungo il giocatore alla lista
                         array_push($_SESSION['listaGiocatori'],$_GET['usernameGiocatore']);
     
-                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1" role=\"alert\">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
                     }
                     else if(!(array_search($_GET['usernameGiocatore'],$_SESSION['listaGiocatori']) === false)){
-                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1" role=\"alert\"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
                     }
                     else{
-                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" tabindex="1" role=\"alert\"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
                     $aiutiNav = '<a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a>';
                     $dbInterface->closeConnection();
