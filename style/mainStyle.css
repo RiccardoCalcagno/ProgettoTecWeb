@@ -1245,6 +1245,10 @@ section#testoReport {
 --------------------------------------- InfoDiCreazioni ----------------------------------------------
 */
 
+#condivisione h2{
+    font-size: 1.3em;
+}
+
 #contentRepo #infoDiCreazione{
     display: flex;
     padding-bottom:1em;
