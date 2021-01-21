@@ -232,7 +232,6 @@ input[type="file"]{
     margin-top: 0;
     top:-305px;
     z-index: 2;
-    opacity: 0.6;
 }
 
 #copertina header{
@@ -258,7 +257,7 @@ input[type="file"]{
     border-radius: 2em;
 }
 #bodyHome #copertina #titolo::after{
-    top: -0.3em;
+    top: 4.2em;
     left: calc(10000px + 50vw - 2.5em);
     width: 5em;
     height: 1.64em;
