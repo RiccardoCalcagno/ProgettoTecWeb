@@ -2476,6 +2476,7 @@ p.campiObbligatori{
 }
 .report .espandi button{
     text-decoration: underline;
+    color: #2c2318;
 }
 
 .report .espandi .precedente, .report .espandi .successivo {
@@ -2485,6 +2486,10 @@ p.campiObbligatori{
 
 .report .espandi button:hover {
     color: #724713ed;
+}
+
+.report .espandi button:active {
+    color: #3d2f1f96;
 }
 
 .report .espandi button::after {
