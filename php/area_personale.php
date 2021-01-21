@@ -219,7 +219,7 @@ else if($_SESSION["login"])
                     <div class=\"publicazione\">";
                     if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
                     { 
-                        $_schede_report_master .= "<button ame=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Pubblica in Esplora</button>";
+                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Pubblica in Esplora</button>";
                     }
                     else                
                     {                         
