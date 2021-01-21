@@ -2316,6 +2316,10 @@ p.campiObbligatori{
     padding-bottom: 5em;
 }
 
+#personaggiUtente h3{
+    text-align: center;
+    font-size: 1.2em;
+}
 
 #personaggiUtente .box{
     width: 80%;
