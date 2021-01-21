@@ -28,7 +28,7 @@ function preparePage($htmlPage, $toEdit) {
 
             $ariaLabelValue = 'Salva modifica effettuata alla scheda personaggio';
 
-            $hiddenCharID = '<input type="hidden" id="charID" name="charID" value="'.$_GET['charID'].'" />';     // toEdit => get 
+            $hiddenCharID = '<input type="hidden" name="charID" value="'.$_GET['charID'].'" />';     // toEdit => get 
     }
     else  {
 

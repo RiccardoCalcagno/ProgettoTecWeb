@@ -223,19 +223,27 @@
     if(!$dbInterface->openConnection()){errorPage("EDB");exit();}
 
     $stringa_giocatori = '';
-    foreach($_SESSION['listaGiocatori'] as $singleUser){
-        $pic = $dbInterface->getUserPic($singleUser);
-        if(!$pic){$dbInterface->closeConnection(); errorPage("EDB");exit();}
-        $stringa_giocatori .= '<li>
-                                    <div class="badgeUtente">
-                                        <div>
-                                            <img src="'.$pic.'" alt="immagine profilo inserita da utente" />
-                                            <p class="textVariable">'.$singleUser.'</p>
+    if ( !empty($_SESSION['listaGiocatori']) ) {
+
+        $stringa_giocatori = '<ul>';
+
+        foreach($_SESSION['listaGiocatori'] as $singleUser){
+
+            $pic = $dbInterface->getUserPic($singleUser);
+            if(!$pic){$dbInterface->closeConnection(); errorPage("EDB");exit();}
+            $stringa_giocatori .= '<li>
+                                        <div class="badgeUtente">
+                                            <div>
+                                                <img src="'.$pic.'" alt="immagine profilo inserita da utente" />
+                                                <p class="textVariable">'.$singleUser.'</p>
+                                            </div>
+                                            <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
                                         </div>
-                                        <button aria-label="rimuovi giocatore" class="deleteButton" name="deletePlayer" value="'.$singleUser.'">X</button>
-                                    </div>
-                                </li>';
+                                    </li>';
+        }
+        $stringa_giocatori .= '</ul>';
     }
+    
 
     $dbInterface->closeConnection();
 

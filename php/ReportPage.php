@@ -175,7 +175,7 @@ else {
             $replacer = '<div id="InserimentoCommento">
                             <label for="textComment" class="AiutiNavigazione">Digita un commento</label>
                             <input type="text" id="textComment" placeholder="Lascia un commento.." name="contenutoCommento" />
-                            <input type="submit" name="report" value="COMMENTA" class="buttonLink" aria-label="Pubblica il tuo commento" />
+                            <input type="submit" name="report" value="COMMENTA" class="buttonLink" aria-label="Commenta " />
                         </div>';
             $html = str_replace("<InsertComment_placeholder/>", $replacer, $html);
         }
@@ -200,7 +200,7 @@ else {
                 $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i]->get_date().'</p></div>';      // TO FIX __________________----------------------------------------------------------------------------------------------------------------------
                 if($commentsArray[$i]->get_author()==$_SESSION["username"]){
                     $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i]->get_id().'"
-                     aria-label="Elimina il commento: '.$commentsArray[$i]->get_text().'"/></li>';
+                     aria-label="Elimina commento: '.$commentsArray[$i]->get_text().'"/></li>';
                 }
             }
         }
@@ -224,9 +224,9 @@ else {
 
             if(!$report_info->get_isExplorable()){
 
-                $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink" aria-label="Publica questo report"/> </li>';              
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Pubblica in ESPLORA" class="buttonLink" aria-label="Pubblica in esplora il Report e rendilo pubblico"/> </li>';              
             }else{
-                $footerAction .= '<li> <input type="submit" name="reportAction" value="Rimuovi da ESPLORA" class="buttonLink" aria-label="Rendi privato questo report"/> </li>';
+                $footerAction .= '<li> <input type="submit" name="reportAction" value="Rimuovi da ESPLORA" class="buttonLink" aria-label="Rimuovi da esplora il Report e rendilo privato"/> </li>';
             }
 
             $footerAction .=     '<li>
