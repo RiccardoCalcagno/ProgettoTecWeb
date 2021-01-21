@@ -2176,7 +2176,10 @@ p.campiObbligatori{
                                                 VISUALIZZA INFO UTENTE
 ------------------------------------------------------------------------------------------------------------
 */
-
+#areaPersonale h3{
+    text-align: center;
+    font-size: 1.2em;
+}
 
 #viewInfoUser > div {
     display: flex;
@@ -2307,18 +2310,12 @@ p.campiObbligatori{
 ------------------------------------------------------------------------------------------------
 */
 
-
 #personaggiUtente{
     border-top: 1px solid #5f3f1738;
     padding-top:calc(2em + 3%);
     border-bottom: 1px solid #5f3f1738;
     margin-bottom: calc(2em + 3%);
     padding-bottom: 5em;
-}
-
-#personaggiUtente h3{
-    text-align: center;
-    font-size: 1.2em;
 }
 
 #personaggiUtente .box{
