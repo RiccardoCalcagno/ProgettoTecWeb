@@ -2545,21 +2545,21 @@ p.campiObbligatori{
     background-color: #976c1c;
     color:#FFFFFF;}
 .report .cardReport div.publicazione button{
-    border: calc(0.5vw + 0.3em) solid #5d4016;
+    border: 5px solid #5d4016;
     background-color: #976c1c;
     color:#FFFFFF;}
 .report .cardReport div.publicazione button.InEsplora{
-    border: calc(0.5vw + 0.3em) solid #294500;
+    border: 5px solid #294500;
     background-color: #678000;}
 
 #areaPersonale .report .cardReport > div:first-child:hover{
     background-color: #e3e3e3;}
 #areaPersonale .report .cardReport > div:first-child:hover footer p{
     background-color: #86662a;}
-.cardReport .publicazione button:hover{
+#areaPersonale .cardReport .publicazione button:hover{
     background-color: #dab163;
     color:#000000;}
-.cardReport .publicazione button.InEsplora:hover{
+#areaPersonale .cardReport .publicazione button.InEsplora:hover{
     background-color: #c7d672;
     color:#000000;}
 
@@ -2567,7 +2567,7 @@ p.campiObbligatori{
     border-color: #fbc300;}
 #areaPersonale .report .cardReport > div:first-child:active footer p{
     border-color: #fbc300;}
-.cardReport .publicazione button:active{
+#areaPersonale .cardReport .publicazione button:active{
     border-color: #fbc300;}
 
 
@@ -2645,11 +2645,14 @@ p.campiObbligatori{
 .report .cardReport .publicazione{
     float: right;
     width: calc(27% - 1.2em);
-    height: calc(100% - 10px);
     border-radius: 0.5em;
     position: relative;
+    height: 100%;
+    /*
+    height: calc(100% - 10px);
     top: calc(-9.4em + 5px);
     right: 5px;
+    */
 }
 .report .cardReport div.publicazione button{
     border-radius: 0.2em;
