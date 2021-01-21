@@ -2648,6 +2648,7 @@ p.campiObbligatori{
     border-radius: 0.5em;
     position: relative;
     height: 100%;
+    top:-9.4em;
     /*
     height: calc(100% - 10px);
     top: calc(-9.4em + 5px);
