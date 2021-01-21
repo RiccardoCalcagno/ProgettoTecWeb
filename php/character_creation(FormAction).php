@@ -71,13 +71,13 @@ function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds
     if(!$check_name) {
         $namelen = strlen($name);
         if ($namelen < 3) { 
-            $messaggioForm .= '<li>Il campo Nome personaggio deve avere almeno 3 caratteri</li>';
+            $messaggioForm .= '<li role=\"alert\">Nome personaggio non valido! Il nome deve avere almeno 3 caratteri</li>';
         }
         else if ($namelen > 20) {
-            $messaggioForm .= '<li>Il campo Nome personaggio deve avere al massimo 20 caratteri</li>';
+            $messaggioForm .= '<li role=\"alert\">Nome personaggio non valido! Il nome deve avere al massimo 20 caratteri</li>';
         }
         else {
-            $messaggioForm .= '<li>Il formato del campo Nome non è valido: utilizzare solo lettere, spazi, virgole, punti e <span xml:lang="en">hypen</span></li>';
+            $messaggioForm .= '<li role=\"alert\">Nome personaggio non valido! Nel nome si possono utilizzare solo lettere, spazi, virgole, punti e <span xml:lang="en">hypen</span></li>';
         }
     }
 
@@ -85,7 +85,7 @@ function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds
     $checkCharTraits = array($check_traits, $check_ideals, $check_bonds, $check_flaws);
     for ($i = 0; $i < 4; $i++) {
         if(!$checkCharTraits[$i]) {
-            $messaggioForm .= '<li>Il campo: "' . $charTraits[$i]. '" deve contenere almeno 10 caratteri </li>';
+            $messaggioForm .= '<li role=\"alert\">Il campo "' . $charTraits[$i]. '" non è valido! "' . $charTraits[$i] . '" deve contenere almeno 10 caratteri </li>';
         }
     }
     $messaggioForm .= '</ul></div>';

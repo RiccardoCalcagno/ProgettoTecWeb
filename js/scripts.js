@@ -312,7 +312,8 @@ function mostraErrore(input, inputArray) {
 
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
-    elemento.setAttribute("tabindex","0");
+    //elemento.setAttribute("tabindex","0");
+    elemento-setAttribute("role","alert");
     //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
     elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
     
@@ -325,9 +326,9 @@ function mostraErrore(input, inputArray) {
 
 // NameSpace ?
 var charCreationTextRegex = /^[\s\S]{10,}$/;
-var charCreationTextErrorMessage = "Inserisci almeno 10 caratteri";
+var charCreationTextErrorMessage = "Il campo non è valido! Deve contenere almeno 10 caratteri";
 var charCreationValues = {
-    "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Il nome deve essere da 3 a 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e <span xml:lang=\"en\">hypens</span>"],
+    "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome personaggio non valido! Il nome deve contenere dai 3 ai 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e <span xml:lang=\"en\">hypens</span>"],
     "ctraits": [charCreationTextRegex, charCreationTextErrorMessage],
     "cideals": [charCreationTextRegex, charCreationTextErrorMessage],
     "cbonds": [charCreationTextRegex, charCreationTextErrorMessage],
@@ -348,9 +349,9 @@ function validateCharCreation() {
 // NameSpace ?
 
 var reportValues = {
-    "titoloReport": [/^.{3,30}$/, "Inserisci dai 3 ai 30 caratteri"],
-    "sottoTRepo": [/^.{3,120}$/, "Inserisci dai 3 ai 120 caratteri"],
-    "contRepo": [/^[\s\S]{3,}$/, "Inserisci almeno 3 caratteri"],
+    "titoloReport": [/^.{3,30}$/, "Titolo non valido! Il titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri"],
+    "sottoTRepo": [/^.{3,120}$/, "Sottotitolo non valido! Il sottotitolo deve avere una lunghezza compresa tra i 3 e 120 caratteri"],
+    "contRepo": [/^[\s\S]{3,}$/, "Contenuto non valido! Il contenuto deve avere almeno 3 caratteri"],
 };
 
 
@@ -447,7 +448,7 @@ function checkPasswordMatch() {
 // ------------------------------- Change Data ------------------------------------------
 
 var oldPasswordValue = {
-    "password": [/^.{3,}$/, "Non corrispponde alla password corrente"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
+    "password": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
 };
 
 function validateChangeUserData() {
