@@ -574,10 +574,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     padding-top: 0.2em;
     padding-bottom: 0.4em;
  }
- .report .cardReport .testoCardRep h4{
-     padding-top: 0.2em;
-     padding-bottom: 0.2em;
- }
  .report .cardReport .publicazione{
     top: calc(-10.4em + 3px);
 }

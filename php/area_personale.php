@@ -209,7 +209,7 @@ else if($_SESSION["login"])
                     $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
                     <div onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
                         <div class=\"testoCardRep\">
-                            <h3 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h3>
+                            <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
                             <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
                         </div>
                         <footer>";
@@ -267,7 +267,7 @@ else if($_SESSION["login"])
                     $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
                     <div onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
                         <div class=\"testoCardRep\">
-                            <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
+                            <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                         </div>
                         <div class=\"badgeUtente\">
