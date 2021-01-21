@@ -2486,6 +2486,7 @@ p.campiObbligatori{
 
 .report .espandi button:hover {
     color: #724713ed;
+    cursor: pointer;
 }
 
 .report .espandi button:active {
