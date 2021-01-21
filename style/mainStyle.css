@@ -268,7 +268,7 @@ input[type="file"]:hover{
     text-align: center;
     width:6.5em;
 }
-.badgeUtente h4{
+.badgeUtente h4, .badgeUtente h5{
     font-size: 1em;
     font-weight: 500;
     margin: auto;

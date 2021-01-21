@@ -271,7 +271,7 @@ else if($_SESSION["login"])
                             <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                         </div>
                         <div class=\"badgeUtente\">
-                            <h4>Autore</h4>
+                            <h5>Autore</h5>
                             <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
                             <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
                         </div>
