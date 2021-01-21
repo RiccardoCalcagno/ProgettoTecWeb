@@ -244,41 +244,41 @@ input[type="file"]{
 #personaggiCoperina{
     display: none;
 }
-#copertina #starFeature{
+#bodyHome #copertina #starFeature{
     z-index: 2;
     margin-left: 0.25em;
     position: relative;
     width: calc(100% - 1.5em);
     top: -305px;
-    background-color: #275c13ec;
+    background-color: #275c13c7;
     left: 0;
     float: none;
     clear: both;
     padding: 0.5em;
     border-radius: 2em;
 }
-#copertina #titolo::after{
+#bodyHome #copertina #titolo::after{
     top: -0.3em;
     left: calc(10000px + 50vw - 2.5em);
     width: 5em;
     height: 1.64em;
     background-size: 5em 1.64em;
 }
-#copertina #starFeature > dt{
+#bodyHome #copertina #starFeature > dt{
     width: 100%;
     text-align: center;
 }
-#copertina #starFeature > dd{
+#bodyHome #copertina #starFeature > dd{
     float:none;
     width: 100%;
 }
-#copertina #starFeature > dd a{
+#bodyHome #copertina #starFeature > dd a{
     margin:auto;
 }
-#copertina #starFeature dt:nth-child(3){
+#bodyHome #copertina #starFeature dt:nth-child(3){
     padding-top: 0.6em;
 }
-#copertina #titolo{
+#bodyHome #copertina #titolo{
     width: 100%;
     text-align: center;
     color: #FFFFFF;
