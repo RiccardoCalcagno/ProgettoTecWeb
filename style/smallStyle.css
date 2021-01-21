@@ -462,6 +462,9 @@ Da qui in poi è contenuto che esisteva già prima e non so a cosa serviva... ne
     margin-bottom: 2em;
     border-bottom: 1px solid #cccccc;
 }
+#dashboard #personaggiUtente h3{
+    display: none;
+}
 #areaPersonale .listeReport{
     margin-top:0.8em;
 }

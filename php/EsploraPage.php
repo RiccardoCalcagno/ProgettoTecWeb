@@ -114,7 +114,7 @@ else{
 
     if($numero_pag_esplora <= 1)
         {
-        $html = str_replace("<nav class=\"espandi\">", "<nav class=\"hidden\">", $html);
+        $html = str_replace("<nav class=\"espandi\"", "<nav class=\"hidden\"", $html);
         }
 
 

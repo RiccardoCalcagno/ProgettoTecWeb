@@ -2256,6 +2256,7 @@ p.campiObbligatori{
 
 #dashboard h3{
     font-size: 2em;
+    text-align: center;
 }
 #dashboard h2, #viewInfoUser h2{
     float: left;

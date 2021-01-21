@@ -38,8 +38,8 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Esci" aria-label="Disconnettiti dalla area personale e torna in Home">         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" disabled="disabled" type="submit" name="accesso" value="Area Personale">
+                    <input id="Accesso" type="submit" name="accesso" value="Esci" aria-label="Disconnettiti dalla area personale e torna in Home"/>         <!-- altro valore possibile : "Esci" -->
+                    <input id="Iscrizione" disabled="disabled" type="submit" name="accesso" value="Area Personale"/>
                 </div>
             </form>
         </div>
@@ -93,7 +93,7 @@
         </header>
         
         <div>
-            <div><img alt="immagine profilo caricata da utente" src="../img/icone_razze/dragonide.png"></div>
+            <div><img alt="immagine profilo caricata da utente" src="../img/icone_razze/dragonide.png"/></div>
         
             <dl> 
                 <dt xml:lang="en" lang="en">Username</dt>
@@ -121,16 +121,17 @@
             <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
         </header>
         <div class="box">
+            <h3>Le tue schede giocatore</h3>
                      <!--SE È ATTIVO JS LA FORM NON FA IL SUBMIT-->
+            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
             <ul class="cards" id='Personaggi'>
 
                 <form_personaggi/>
   
             </ul>
-            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
-        <nav class='espandi' id='espandi_pers' tabindex="-1">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
+        <nav class='espandi' id='espandi_pers' tabindex="-1" aria-label="Visualizza più personaggi">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
             <label for="espandiPers" id="labPersonEspandi">Vedi di Più</label>
-            <input type="submit" id="espandiPers" name="espandi" value="Pers">     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
+            <input type="submit" id="espandiPers" name="espandi" value="Pers"/>     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
         </nav>
         </form>                                     
         </div>                                                  
@@ -157,13 +158,13 @@
             </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <nav class="espandi" id='report_master'>                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+            <nav class="espandi" id='report_master' aria-label="Cambia pagina della dashboard dei tuoi Report">                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
                 <div id="anchorMaster"></div>
                 <ul>
                   <li><label id="LblMasterPrecedente" for="masterPrecedente" aria-label="passa alla pagina precedente della dashboard: i tuoi report">precedente</label></li>
-                  <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"></li>                     
+                  <li class="inputMove"><input type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente"/></li>                     
                   <li><span><abbr title="Pagina">Pag</abbr></span>. <span id="numPagMaster"><numero_attuale_master/></span>/<span id="totNumPagMaster"><numero_di_master/></span></li>
-                  <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"></li> 
+                  <li class="inputMove"><input type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo"/></li> 
                   <li><label id="LblMasterSuccessivo" for="masterSuccessivo" aria-label="passa alla pagina successiva della dashboard: i tuoi report">successiva</label></li>
                 </ul> 
               </nav>
@@ -183,7 +184,7 @@
                 </ul>
             </div>
             <form action="../php/action_report.php" method="post">                                    
-            <nav class="espandi" id='report_normale'>  
+            <nav class="espandi" id='report_normale' aria-label="Cambia pagina della dashboard dei Report condivisi con te">  
                 <div id="anchorPartecipante"></div>                    
                 <ul>
                   <li><label id="LblPartecPrecedente" for="partecPrecedente" aria-label="passa alla pagina precedente della dashboard: report condivisi con te">precedente</label></li>

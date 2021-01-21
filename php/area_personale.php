@@ -248,7 +248,7 @@ else if($_SESSION["login"])
 
                 if($numero_pag_master <= 1)
                 {
-                    $html = str_replace("<nav class=\"espandi\" id='report_master'>", "<nav id='report_master' class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='report_master'", "<nav id='report_master' class=\"hidden\"", $html);
                 }
 
                 $html = str_replace("<report_author/>", $_schede_report_master, $html);
@@ -307,7 +307,7 @@ else if($_SESSION["login"])
 
                 if($numero_pag_report <= 1)
                 {
-                    $html = str_replace("<nav class=\"espandi\" id='report_normale'>", "<nav id='report_normale' class=\"hidden\">", $html);
+                    $html = str_replace("<nav class=\"espandi\" id='report_normale'", "<nav id='report_normale' class=\"hidden\"", $html);
                 }
 
                 $html = str_replace("<report/>", $_schede_report, $html);
