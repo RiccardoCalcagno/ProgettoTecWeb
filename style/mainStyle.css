@@ -2164,11 +2164,6 @@ p.campiObbligatori{
     overflow: hidden;
 }
 
-.espandi ul {
-    display: flex;
-    justify-content: center;
-}
-
 #anchorPartecipante, #anchorMaster, #anchorEsplora{
     position: relative;
     top: -70vh;
@@ -2470,7 +2465,6 @@ p.campiObbligatori{
 */
 
 .report .espandi{
-    width: 20em;
     font-size: 0.9em;
 }
 
@@ -2478,31 +2472,56 @@ p.campiObbligatori{
     display: inline; width: 5.3em;
 }
 .report .espandi .inputMove{
-    width: 1em;
     margin: auto 0.5em auto 0.5em;
 }
+.report .espandi button{
+    text-decoration: underline;
+}
 
-.report .espandi .precedente, .report .espandi .successivo{
-    position:relative;
-    top:-5px;
-    width: 20px;
-    height: 18px;
+.report .espandi .precedente, .report .espandi .successivo {
+    background: none;
+    border: none;
+}
+
+.report .espandi button:hover {
+    color: #724713ed;
+}
+
+.report .espandi button::after {
+    content: "";
+    width: 7px;
+    height: 100%;
     border-style: solid;
 }
-.report .espandi .precedente{
-    border-width: 9px 20px 9px 0;
-    border-color: transparent #2c2318 transparent transparent ;
+
+.report .espandi .precedente::after {
+    float: right;
+    border-width: 10px 15px 10px 0; /*9px 0 9px 15px;*/
+    border-color: transparent #2c2318 transparent transparent;
 }
-.report .espandi .successivo{
-    border-width: 9px 0 9px 20px;
+
+.report .espandi .successivo::after {
+    float: left;
+    border-style: solid;
+    border-width: 10px 0 10px 15px; /*9px 0 9px 15px;*/
     border-color: transparent transparent transparent #2c2318;
 }
-.report input.precedente:hover{border-right-color: #724713;}
-.report input.precedente:active{border-right-color: #3d2f1f96;}
-.report input.successivo:hover{border-left-color: #724713;}
-.report input.successivo:active{border-left-color: #3d2f1f96;}
 
+.report .espandi .precedente:hover::after {
+    border-right-color: #724713;
+}
 
+.report .espandi .precedente:active::after { 
+    border-right-color: #3d2f1f96;
+}
+
+.report .espandi .successivo:hover::after {
+    border-left-color: #724713;
+}
+
+.report .espandi .successivo:active::after {
+    border-left-color: #3d2f1f96;
+}
 
 /*--------------------------- CARDS REPORTS -------------------
 */

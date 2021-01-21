@@ -538,30 +538,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
 /*--------------------------- ESPANDI REPORTS -------------------
 */
 /* TO FIX (MAYBE)
-.report .espandi{
-    width: 60%;
-}
-
-.report .espandi li{
-    display: inline; width: 5.3em;
-}
-
-.report .espandi .precedente, .report .espandi .successivo{
-    position:relative;
-    top:-5px;
-    width: 20px;
-    height: 18px;
-    border-style: solid;
-}
-.report .espandi .precedente{
-    border-width: 9px 20px 9px 0;
-    border-color: transparent #2c2318 transparent transparent ;
-}
-.report .espandi .successivo{
-    border-width: 9px 0 9px 20px;
-    border-color: transparent transparent transparent #2c2318;
-}
-*/
 
 /*--------------------------- CARDS REPORTS -------------------
 */

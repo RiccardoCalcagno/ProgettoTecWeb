@@ -102,19 +102,17 @@ else{
         
     if($_SESSION["count_esplora"] == 1)
         {
-        $html = str_replace("<li><label id=\"LblEsploraPrecedente\" for=\"esploraPrecedente\" aria-label=\"passa alla pagina precedente della dashboard di Report\">precedente</label></li>", " ", $html);
-        $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"esploraPrecedente\" class=\"precedente\" name=\"espandi\" value=\"esploraPrecedente\"></li>", " ", $html);
+            $html = str_replace('<li class="inputMove"><button type="submit" id="esploraPrecedente" class="precedente" name="espandi" value="esploraPrecedente" aria-label="Visualizza la pagina di Report precedente">Precedente</button></li>', '', $html);
         }
 
     if($_SESSION["count_esplora"] == $numero_pag_esplora)
         {
-        $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"esploraSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"esploraSuccessivo\"></li>", " ", $html); 
-        $html = str_replace("<li><label id=\"LblEsploraSuccessivo\" for=\"esploraSuccessivo\" aria-label=\"passa alla pagina successiva della dashboard di Report\">successiva</label></li>", " ", $html); 
+            $html = str_replace('<li class="inputMove"><button type="submit" id="esploraSuccessivo" class="successivo" name="espandi" value="esploraSuccessivo" aria-label="Visualizza la pagina di Report Successiva">Successiva</button></li> ', '', $html); 
         }
 
     if($numero_pag_esplora <= 1)
         {
-        $html = str_replace("<nav class=\"espandi\"", "<nav class=\"hidden\"", $html);
+            $html = str_replace("<nav class=\"espandi\"", "<nav class=\"hidden\"", $html);
         }
 
 

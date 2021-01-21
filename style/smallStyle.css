@@ -387,15 +387,7 @@ input[type="file"]{
     font-size: 1em;
     max-width: calc(100% - 1em);
 }
-.report .espandi label{
-    text-decoration: underline;
-}
-.report .espandi li.inputMove input{
-    border-color: transparent;
-    border-width: 0;
-    width: 0.1em;
-    height: 0.1em;
-}
+
 /*
 ------------------------------------------------------------------------------------------------------------
                                                 CARD REPORT

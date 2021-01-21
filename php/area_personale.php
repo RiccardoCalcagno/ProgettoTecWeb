@@ -236,14 +236,12 @@ else if($_SESSION["login"])
 
                 if($_SESSION["count_master"] == 1)
                 {
-                    $html = str_replace("<li><label id=\"LblMasterPrecedente\" for=\"masterPrecedente\" aria-label=\"passa alla pagina precedente della dashboard: i tuoi report\">precedente</label></li>", " ", $html);
-                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterPrecedente\" class=\"precedente\" name=\"espandi\" value=\"masterPrecedente\"></li>", " ", $html);
+                    $html = str_replace('<li class="inputMove"><button type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente" aria-label="Passa alla pagina precedente dei tuoi Report">Precedente</button></li>', '', $html);
                 }
 
                 if($_SESSION["count_master"] == $numero_pag_master)
                 {
-                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"masterSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"masterSuccessivo\"></li>", " ", $html);
-                    $html = str_replace("<li><label id=\"LblMasterSuccessivo\" for=\"masterSuccessivo\" aria-label=\"passa alla pagina successiva della dashboard: i tuoi report\">successiva</label></li>", " ", $html);
+                    $html = str_replace('<li class="inputMove"><button type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo" aria-label="Passa alla pagina successiva dei tuoi Report">Successiva</button></li> ', '', $html);
                 }
 
                 if($numero_pag_master <= 1)
@@ -288,14 +286,12 @@ else if($_SESSION["login"])
 
                 if($_SESSION["count_rep"] == 1)
                 {
-                    $html = str_replace("<li><label id=\"LblPartecPrecedente\" for=\"partecPrecedente\" aria-label=\"passa alla pagina precedente della dashboard: report condivisi con te\">precedente</label></li>", " ", $html);
-                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"partecPrecedente\" class=\"precedente\" name=\"espandi\" value=\"partecPrecedente\"></li>", " ", $html);
+                    $html = str_replace('<li class="inputMove"><button type="submit" id="partecPrecedente" class="precedente" name="espandi" value="partecPrecedente" aria-label="Passa alla pagina precedente dei Report condivisi con te">Precedente</button></li>', '', $html);
                 }
 
                 if($_SESSION["count_rep"] == $numero_pag_report)
                 {      
-                    $html = str_replace("<li class=\"inputMove\"><input type=\"submit\" id=\"partecSuccessivo\" class=\"successivo\" name=\"espandi\" value=\"partecSuccessivo\"></li>", " ", $html);
-                    $html = str_replace("<li><label id=\"LblPartecSuccessivo\" for=\"partecSuccessivo\" aria-label=\"passa alla pagina successiva della dashboard: report condivisi con te\">successiva</label></li>", " ", $html);
+                    $html = str_replace('<li class="inputMove"><button type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo" aria-label="Passa alla pagina successiva dei Report condivisi con te">Successiva</button></li>', '', $html);
                 }
 
                 if($numero_pag_report <= 1)
