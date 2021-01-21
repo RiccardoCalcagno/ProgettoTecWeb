@@ -3188,6 +3188,14 @@ body.errorPage section, body.errorPage header{
 --------------------------------------------------------------------------------------------------------------------------------------
 */
 
+#informativaBody h1#titolo {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 0em;
+    position: relative;
+    top: 0.5em;
+}
 
 dl#contenutoInformativa dt {
     margin-top: 3em;
