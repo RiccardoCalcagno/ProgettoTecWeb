@@ -137,7 +137,7 @@ else if($_SESSION["login"])
             
             if ( $_SESSION["num_pers"] > 0 ) {
 
-                $_schede_personaggio = '<ul class="cards">';
+                $_schede_personaggio = '<ul class="cards" id="Personaggi">';
 
                 for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
                 {
