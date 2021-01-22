@@ -2364,8 +2364,10 @@ p.campiObbligatori{
     width: 3em;
     font-size: 0.9em;
     position: absolute;
-    top: -1.6em;
-    left:-0.7em;
+    top: -1em;
+    z-index: 1;
+    border-radius: 0;
+    border-bottom-right-radius: 0.6em;
 }
 #personaggiUtente .cardPersonaggio:not(.phpCard) > div:first-child{
     display: none;
@@ -2379,7 +2381,7 @@ p.campiObbligatori{
     background-color: #ebd3a4;
     background-image: url(../img/sfondo_card_personaggi.png);
     background-size: 10.25em 13em;
-    border: 11px ridge #362100;
+    border: 11px ridge #6d4c18;
 }
 #personaggiUtente .cardPersonaggio:not(.phpCard):active{
     border: 11px solid #fbc300;
