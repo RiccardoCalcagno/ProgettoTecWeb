@@ -18,7 +18,7 @@
     try {
 
     $_SESSION["old_passwd"] = $old_passwd;
-
+//echo $_SESSION["old_passwd"];
         if($old_passwd == $_SESSION["passwd"])
         {
             $err["old_password_err"] = false;

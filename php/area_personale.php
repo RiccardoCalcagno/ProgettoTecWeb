@@ -21,6 +21,7 @@ $_SESSION["email"]="lollolooll@gmail.com";
 $_SESSION["birthdate"]="1999-06-12";
 */
 
+
 if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
     header("Location: login.php");
