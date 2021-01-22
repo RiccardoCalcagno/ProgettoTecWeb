@@ -313,7 +313,7 @@ function mostraErrore(input, inputArray) {
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
     //elemento.setAttribute("tabindex","0");
-    elemento-setAttribute("role","alert");
+    elemento.setAttribute("role","alert");
     //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
     elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
     
@@ -328,7 +328,7 @@ function mostraErrore(input, inputArray) {
 var charCreationTextRegex = /^[\s\S]{10,}$/;
 var charCreationTextErrorMessage = "Il campo non è valido! Deve contenere almeno 10 caratteri";
 var charCreationValues = {
-    "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome personaggio non valido! Il nome deve contenere dai 3 ai 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e <span xml:lang=\"en\">hypens</span>"],
+    "cname": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome personaggio non valido! Il nome deve contenere dai 3 ai 20 caratteri, iniziare con una lettera e contenero soltanto lettere, virgole, punti, apostrofi e hypens"],
     "ctraits": [charCreationTextRegex, charCreationTextErrorMessage],
     "cideals": [charCreationTextRegex, charCreationTextErrorMessage],
     "cbonds": [charCreationTextRegex, charCreationTextErrorMessage],
