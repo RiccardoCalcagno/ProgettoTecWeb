@@ -61,7 +61,7 @@
         }
     }
 
-    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA' ) {
+    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA SCHEDA' ) {
     // Serve una pagina solo per questo ? o anche solo una function ? .
         $db = new DBinterface();
         if($db->openConnection()) {

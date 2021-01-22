@@ -85,7 +85,7 @@
             <fieldset>  <legend><h2>Dati di Utenza</h2></legend>
                 <ul>
                     <li>
-                    <img class="hidden"  id="immagine_profilo" alt="immagine profilo caricata da utente" src="../img/img_profilo_mancante.png">
+                    <img class="hidden"  id="immagine_profilo" alt="immagine profilo caricata da utente" src="../img/img_profilo_mancante.png"/>
                     <p id="ImgErr" class="hidden"> Inserisci una immagine che pesa al massimo 2 <abbr title="Mega Byte">MB</abbr> e che abbia uno dei seguenti formati: jpg, jpeg, gif, png</p>
                     <label for="imgProfilo">Immagine profilo</label>
                     <input type="file" id="imgProfilo" name="imgProfilo" accept="image/*" onchange="updateProfileImg();" aria-label="carica un Immagine profilo"/>
@@ -95,7 +95,7 @@
                     <label for="future_username" class="campiObbligatori"><span xml:lang="en" lang="en">Username</span> <span class="limitazioniText">massimo 20 caratteri</span></label>
                     <p id="UserEmpty" class="hidden"> <span xml:lang="en" lang="en">Username</span> non valido! Lo <span xml:lang="en" lang="en">username</span> deve almeno un carattere e non deve essere vuoto </p>
                     <p id="UserAlreadyExists" class="hidden">  Ops! Lo <span xml:lang="en" lang="en">username</span> che ha inserito sembra esistere già  </p>
-                    <span><input type="text"  aria-required="true"
+                    <span><input type="text"
                             maxlength="20"
                             onkeyup="updateCounterTextarea(3);"
                             name="future_username" 
@@ -114,7 +114,7 @@
                     <label for="NomeCognome" class="campiObbligatori">Nome e cognome</label>
                     <p id="NameEmpty" class="hidden"> Nome e cognome non validi! Il nome deve avere almeno due caratteri </p>
                     <span>
-                        <input type="text"  aria-required="true"
+                        <input type="text"
                         name="NomeCognome" 
                         id="NomeCognome"
                         value="<name>" 
@@ -127,7 +127,7 @@
                     <label for="future_email" class="campiObbligatori" xml:lang="en" lang="en">E-mail</label>
                     <p id="EmailErr" class="hidden"> <span xml:lang="en" lang="en">E-mail</span> non valida!</p>
                     <p id="MailAlreadyExists" class="hidden"> Ops! la <span xml:lang="en" lang="en">e-mail</span> che ha inserito sembra esistere già </p>
-                    <span><input type="text"  aria-required="true"
+                    <span><input type="text"
                         name="future_email" 
                         id="future_email"
                         value="<email>"
@@ -151,10 +151,10 @@
             </div>
 
             <div class="submitForm">
-                <p>Salva i dati di utenza e anagrafici che hai modificato </p>
+                <p id="salvaDat">Salva dati di utenza e anagrafici che hai modificato </p>
                 <div>
                     <a href="../php/area_personale.php" class="annulla" aria-label="Annulla le modifiche apportare e ritorna nell'area personale">ANNULLA</a>
-                    <input id="submitDatiUtente" class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati"  aria-label="salva i dati di utenza"/>  
+                    <input id="submitDatiUtente" class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Dati" aria-labelledby="salvaDat"/>  
                 </div>      
             </div>
             </form>
@@ -169,7 +169,7 @@
                         
                     <label for="password" class="campiObbligatori"><span xml:lang="en" lang="en">Password</span> corrente</label>
                     <p id="OldPasswdErr" class="hidden"> La <span xml:lang="en" lang="en">password</span> deve corrispondere a quella del suo account </p>
-                    <span><input type="password"  aria-required="true"
+                    <span><input type="password"
                         name="password" 
                         id="password"
                         value=""
@@ -178,9 +178,9 @@
 
                     <li>
                     <label for="newPasswd" class="campiObbligatori">Nuova <span xml:lang="en" lang="en">Password</span></label>
-                    <p id="NewPasswdEmpty" class="hidden"> <span xml:lang="en" lang="en">Password</span> non valida! La <span xml:lang="en" lang="en">password</span>< deve contenere almeno 3 caratteri </p>
+                    <p id="NewPasswdEmpty" class="hidden"> <span xml:lang="en" lang="en">Password</span> non valida! La <span xml:lang="en" lang="en">password</span> deve contenere almeno 3 caratteri </p>
                     <p class="RepPasswdErr hidden">  Le <span xml:lang="en" lang="en">password</span> non corrispondono! </p>
-                    <span><input type="password"  aria-required="true"
+                    <span><input type="password"
                         name="newPasswd" 
                         id="newPasswd"
                         value=""
@@ -189,7 +189,7 @@
                     <li>
                         <label for="PasswdAgan" class="campiObbligatori">Conferma <span xml:lang="en" lang="en">Password</span></label>
                         <p class="RepPasswdErr hidden">  Le <span xml:lang="en" lang="en">password</span> non corrispondono! </p>
-                        <span><input type="password"  aria-required="true"
+                        <span><input type="password"
                             name="PasswdAgan" 
                             id="PasswdAgan"
                             value=""
@@ -201,7 +201,7 @@
             </fieldset>
 
             <div class="submitForm">
-                <p>Salva la nuova <span xml:lang="en" lang="en">password</span><</p>
+                <p>Salva la nuova <span xml:lang="en" lang="en">password</span></p>
                 <div>
                     <a href="../php/area_personale.php" class="annulla" aria-label="Annulla le modifiche e torna nell'area personale">ANNULLA</a>
                     <input id="submitNewPasswd" class="buttonLink" type="submit" name="salvaDatiUtente" value="Salva Password" aria-label="Salva la nuova password"/>  

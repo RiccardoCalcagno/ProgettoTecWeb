@@ -173,7 +173,7 @@
                     <form id='linkVelociPostConferma' method='POST' action='action_character.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA' aria-label=\"Conferma l'eliminaziome della scheda personaggio\"/>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA SCHEDA' aria-label=\"Conferma l'eliminaziome della scheda personaggio\"/>
                             <input tabindex='1' type='hidden' name='charID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
