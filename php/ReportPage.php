@@ -188,8 +188,9 @@ else {
 
         //lista dei commenti
         //devo mostrare il commento con tutti i suoi dati, oltre che l'immagine del giocatore (non è un dato del commento)
-        $replacer = '<ul id="listaCommenti">';
-        if ( isset($commentsArray) ) {
+        $replacer = '';
+        if ( !empty($commentsArray) ) {
+            $replacer = '<ul id="listaCommenti">';
 
             for($i = 0; $i < count($commentsArray);$i++){
                 $replacer .= '<li class="commento"><div class="badgeUtente">';
@@ -203,8 +204,10 @@ else {
                      aria-label="Elimina commento: '.$commentsArray[$i]->get_text().'"/></li>';
                 }
             }
+
+            $replacer .= '</ul>';
         }
-        $replacer .= '</ul>';
+
 
         $html = str_replace("<comments_placeholder/>", $replacer, $html);
 
@@ -218,7 +221,7 @@ else {
 
         if($_SESSION["username"]==$report_info->get_author()){  // user e' autore report
 
-            $footerAction = '<form method="GET" action="../php/action_report.php"> 
+            $footerAction = '<form method="get" action="../php/action_report.php"> 
                             <ul id="footAction">
                             <li> <input type="submit" name="reportAction" value="ELIMINA" class="buttonLink" aria-label="Elimina questo report"/> </li>';
 

@@ -165,7 +165,7 @@
         exit();
     }
 
-    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA' ) {  // Eliminazione Report, da banner conferma_eliminazine in ReportPage.php
+    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA REPORT' ) {  // Eliminazione Report, da banner conferma_eliminazine in ReportPage.php
         // Serve una pagina solo per questo ? o anche solo una function ? .
             $db = new DBinterface();
             if($db->openConnection()) {

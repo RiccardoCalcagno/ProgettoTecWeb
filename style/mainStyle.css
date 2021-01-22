@@ -3247,7 +3247,10 @@ body.errorPage section, body.errorPage header{
 }
 
 dl#contenutoInformativa dt {
-    margin-top: 6em;
+    margin-top: 2em;
+    font-size: 2em;
+    font-weight: 500;
+    padding-bottom: 0.5em;
 }
 
 dl#contenutoInformativa {

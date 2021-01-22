@@ -170,7 +170,7 @@
                     <h1 tabindex='1' aria-label=\"messaggio di richiesta di conferma: Confermare Eliminazione\">Confermare Eliminazione</h1>
                     <h2 tabindex='1'>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
                     <p tabindex='1'>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
-                    <form id='linkVelociPostConferma' method='POST' action='action_character.php'>
+                    <form id='linkVelociPostConferma' method='post' action='action_character.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
                             <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA SCHEDA' aria-label=\"Conferma l'eliminaziome della scheda personaggio\"/>
@@ -184,10 +184,10 @@
                     <h1 tabindex='1' aria-label=\"messaggio di richiesta di conferma: confermare eliminazione\">Confermare Eliminazione</h1>
                     <h2 tabindex='1'>Sei sicuro di voler eliminare questo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione?</h2>
                     <p tabindex='1'>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
-                    <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
+                    <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA' aria-label=\"Conferma l'eliminazione del report di sessione\"/>
+                            <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA REPORT' aria-label=\"Conferma l'eliminazione del report di sessione\"/>
                             <input tabindex='1' type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
@@ -198,7 +198,7 @@
                     <h1 tabindex='1' aria-label=\"messaggio di richiesta di conferma: confermare eliminazione\">Confermare Eliminazione</h1>
                     <h2 tabindex='1'>Sei sicuro di voler eliminare questo commento?</h2>
                     <p tabindex='1'>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
-                    <form id='linkVelociPostConferma' method='POST' action='../php/action_report.php'>
+                    <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
                         <div>
                             <a tabindex='1' class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
                             <input tabindex='1' type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO' aria-label=\"Conferma l'eliminazione del commento\"/>
