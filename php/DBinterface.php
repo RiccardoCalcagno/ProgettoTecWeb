@@ -228,7 +228,8 @@
             $query = "SELECT * ".
                      "FROM Characters ". 
                      "WHERE Characters.author = '" . $username . "' " . 
-                     "AND Characters.id = '" . $char_id . "';";
+                     "AND Characters.id = '" . $char_id . "' 
+                     ORDER BY Characters.creation_date DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -548,7 +549,8 @@
                 ON report_giocatore.report = Report.id 
                 INNER JOIN Users U2 
                 ON U2.username = Report.author 
-                WHERE U1.username = '".$username."';";
+                WHERE U1.username = '".$username."' 
+                ORDER BY Report.last_modified DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -578,7 +580,8 @@
             $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                      "FROM Report INNER JOIN Users ON Report.author = Users.username ". 
-                     "WHERE Report.author = '" . $username . "';";
+                     "WHERE Report.author = '" . $username . "' 
+                     ORDER BY Report.last_modified DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
             $reports = array();
@@ -688,7 +691,8 @@
             $id_report = clean_input($id_report);
             $query = "SELECT Comments.id, Comments.testo, Comments.data_ora, Comments.author, Comments.report ".
                      "FROM Comments ". 
-                     "WHERE Comments.report = '" . $id_report . "';";
+                     "WHERE Comments.report = '" . $id_report . "' 
+                      ORDER BY Comments.data_ora DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
 
@@ -878,7 +882,8 @@
                             "ON Report.id = report_giocatore.report ". 
                             "INNER JOIN Users ". 
                             "ON report_giocatore.user = Users.id ". 
-                            "WHERE Users.username = '" . $partecipant . "' AND Report.id = '" . $id_report . "';";
+                            "WHERE Users.username = '" . $partecipant . "' AND Report.id = '" . $id_report . "' 
+                             ORDER BY Report.last_modified DESC;";
 
             $query_result = mysqli_query($this->connection, $query);
 
