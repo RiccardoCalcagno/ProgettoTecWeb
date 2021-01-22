@@ -247,7 +247,7 @@
 
     $dbInterface->closeConnection();
 
-    $html = str_replace('<listaGiocatori />',$stringa_giocatori,$html);
+    $html = str_replace('<ul><li><listaGiocatori /></li></ul>',$stringa_giocatori,$html);
 
     /*
     //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
