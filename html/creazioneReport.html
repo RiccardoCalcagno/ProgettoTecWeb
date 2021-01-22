@@ -76,7 +76,7 @@
 
         <p class="campiObbligatori" aria-label="i campi: Titolo, Sottotitolo e contenuto Report sono obbligatori"> : campo obbligatorio</p>
 
-        <form id="areaCreazione" autocomplete="on" class="creazioneFields" action="../php/CreazioneReportPage.php#giocatoriRepo" method="get" onsubmit="return validateReport();">
+        <form id="areaCreazione" autocomplete="on" class="creazioneFields" action="../php/CreazioneReportPage.php#giocatoriRepo" method="get">
             <messaggioForm />
             <ol>
                 <li>
@@ -119,9 +119,8 @@
                             alla sessione, così che possano vedere la tua creazione e <strong>commentarla</strong> assieme!
                         </p>
                         <div id="selezionamentoGiocatori">
-                            <div>
-                                <listaGiocatori />
-                            </div>
+
+                            <ul><li>Qui verranno visualizzati i giocatori inseriti</li></ul>
 
                             <div id="inserimentoGiocatori">
                                 <label for="writeUsername">Aggiungi il giocatore inserendo il suo <span xml:lang="en" lang="en">username</span></label>
@@ -150,6 +149,7 @@
             </ol>
 
             <div id="conclusione">
+                <fieldset>
                 <div id="condivisione">
                     <h2>Desideri condividere il tuo <span xml:lang="en" lang="en">report</span> alla <span xml:lang="en" lang="en">community</span> registrata in questo portale?</h2>
                     <p>permetterai a molta più gente di vederlo e commentarlo</p>
@@ -158,6 +158,7 @@
                         <label for="condividi">Condividi in Esplora</label>
                     </div>
                 </div>
+            </fieldset>
                 <div id="submitReport" class="submitForm">
 
                     <!--Il placeholder cambia valore se il report sta venendo creato per la prima volta oppure modificato-->
