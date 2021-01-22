@@ -225,7 +225,7 @@
     $stringa_giocatori = '';
     if ( !empty($_SESSION['listaGiocatori']) ) {
 
-        $stringa_giocatori = '<ul>';
+        $stringa_giocatori = '';
 
         foreach($_SESSION['listaGiocatori'] as $singleUser){
 
@@ -241,13 +241,12 @@
                                         </div>
                                     </li>';
         }
-        $stringa_giocatori .= '</ul>';
     }
     
 
     $dbInterface->closeConnection();
 
-    $html = str_replace('<ul><li><listaGiocatori/></li></ul>',$stringa_giocatori,$html);
+    $html = str_replace('<li>Qui verranno visualizzati i giocatori inseriti</li>',$stringa_giocatori,$html);
 
     /*
     //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
