@@ -42,7 +42,7 @@ function preparePage($htmlPage, $toEdit) {
             <p class="attenzioneP">(<strong class="Attenzione">Attenzione</strong>: per effettuare il salvataggio della scheda sarà necessaria una tua autenticazione)</p>
             </header>';
 
-            $p = 'Concludi la crazione salvando nuova la Scheda Giocatore nella tua Area Personale';
+            $p = 'Concludi la crazione salvando la Scheda Giocatore nella tua Area Personale';
 
             $button = 'SALVA SCHEDA'; 
 
