@@ -82,7 +82,7 @@ else{
 
     for($i = ($_SESSION["count_esplora"]-1)*5 ; $i < $limit = ($_SESSION["num_report_esplora"] < $_SESSION["count_esplora"]*5 ? $_SESSION["num_report_esplora"] : 5*$_SESSION["count_esplora"]) ; $i++)
         {
-        $$contaReport++;
+        $contaReport++;
         $_schede_report_esplora .=   
         "<li class=\"cardReport cardReportEsplora\">
         <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportEsplora(". $_SESSION["report_data"][$i]->get_id() .");\">
