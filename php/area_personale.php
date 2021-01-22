@@ -118,7 +118,7 @@ else if($_SESSION["login"])
         {
             if($_SESSION["img"] == "" || !file_exists($_SESSION["img"]))
             {
-                $_SESSION["img"] = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "img_profilo_mancante.png";
+                $_SESSION["img"] = "../img/img_profilo_mancante.png";
             }
 
             $html = str_replace("../img/icone_razze/dragonide.png", $_SESSION["img"], $html);
@@ -154,15 +154,15 @@ else if($_SESSION["login"])
                 <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
                     <img src=\"" . $urlImgRace . " />                 
                     <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
-                    <ul>
-                        <li><h5>Razza </h5><p class=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</p></li>        
-                        <li><h5>Classe </h5><p class=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</p></li>
-                        <li class=\"allineamento\">
-                            <fieldset><legend>Allineamento</legend>
-                                <p class=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</p>
-                            </fieldset>
-                        </li>
-                    </ul>
+                    <dl>
+                        <dt>Razza</dt>
+                        <dd class=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</dd>       
+                        <dt>Classe</dt>
+                        <dd class=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</dd>
+                        <dt class=\"allineamento\">Allineamento</dt>
+                        <dd class=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</dd>
+                        
+                    </dl>
                 </div>
                 </li>\n";
             }

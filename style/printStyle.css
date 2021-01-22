@@ -316,12 +316,18 @@ textarea {
     page-break-inside: avoid;
     float:left;
     width: 45%;
-    height: 5.3em;
+    height: 7em;
+    outline: 1px solid black;
+    outline-offset: 4px;
     margin: 1.2em 2.5%;
 }
 
+.box li.cardReport h4{
+    text-align: center;
+}
+
 .box li.cardReportPartecipante, .box li.cardReportEsplora {
-    height: 7.3em;    /* SPAZIO PER AUTORE*/
+    height: 8.5em;    /* SPAZIO PER AUTORE*/
 }
 
 .box li {
@@ -329,10 +335,9 @@ textarea {
     margin: 0.7em;
 }
 
-.box li > button {
+.box li > div {
     width: 100%;
     height: 100%;
-    background-color: white;
 }
 
 .testoCardRep h4 {
@@ -344,7 +349,7 @@ textarea {
 }
 
 .testoCardRep p {
-    max-height: 3.5em;
+    max-height: 4.5em;
     overflow:hidden;
     text-overflow: ellipsis;
     padding: 0 0.3em;
@@ -355,12 +360,16 @@ textarea {
     display: none;
 }
 
-.box li.cardReport .badgeUtente > * {
+#reportPartecipante .box li.cardReport .badgeUtente > * {
     display: inline-block;
+    text-align: center;
+    width: 25%;
     font-weight: bold;
+    padding: 0;
+    margin: 0;
 }
 
-.box li.cardReport .badgeUtente > img {
+#reportPartecipante .box li.cardReport .badgeUtente > img {
     display: none;
 }
 
@@ -427,14 +436,26 @@ textarea {
     margin-left: calc(50% - 10mm);
 }
 
-#areaPersonale .box ul li.cardPersonaggio {
+#areaPersonale .box ul .cardPersonaggio {
+    text-align: center;
     page-break-inside: avoid;
     float:left;
     width: 30%;
     margin: 0.7em 1.666%;
+    outline: 1px solid black;
+    outline-offset: 4px;
 }
 
-#areaPersonale .box ul li.cardPersonaggio button {
+#areaPersonale ul .cardPersonaggio > div {
+    width: 100%;
+}
+
+#areaPersonale .cardPersonaggio dt, #areaPersonale .cardPersonaggio dd {
+    width: 50%;
+    margin: 0.3em 0;
+}
+
+#areaPersonale .cardPersonaggio .allineamento, #areaPersonale .cardPersonaggio .persAllineamento {
     width: 100%;
 }
 

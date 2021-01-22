@@ -649,7 +649,9 @@ body a[aria-label="apri il menù"] {
     border:none;
     box-shadow: 5px 8px 15px 0px rgba(0,0,0,0.5);
 }
-#bannerSalvataggio legend{
+#bannerSalvataggio a{
+    position: absolute;
+    top:-1em;
     background-color: #3d3d3d;
     padding:0.5em;
     padding-bottom: 0;
@@ -661,6 +663,7 @@ body a[aria-label="apri il menù"] {
 #bannerSalvataggio #titoloAvviso{
     font-size: 1.1em;
     font-weight: 500;
+    padding-top: 0.5em;
 }
 #bannerSalvataggio ul{
     padding-bottom: 0.5em;
@@ -2393,34 +2396,29 @@ p.campiObbligatori{
     margin: 0.3em auto 0.4em auto;
     border-radius: 0.3em;
 }
-#personaggiUtente .cardPersonaggio ul{
+#personaggiUtente .cardPersonaggio dl{
     height: 6em;
     width: 100%;
 }
-#personaggiUtente .cardPersonaggio li{
+#personaggiUtente .cardPersonaggio dt:not(.allineamento), #personaggiUtente .cardPersonaggio dd:not(.persAllineamento){
     height: 1.4em;
+    padding-bottom: 0.2em;
 }
-#personaggiUtente .cardPersonaggio .allineamento *{
-    width: 90%;
-    margin: auto;
+#personaggiUtente .cardPersonaggio .allineamento, #personaggiUtente .cardPersonaggio .persAllineamento {
+    float: none;
+    width: 100%;
     text-align: center;
-    border-radius: 0.2em;
-    border-color: #dbceb281;
-}
-#personaggiUtente .cardPersonaggio .allineamento legend{
-    padding: 0 0.3em 0 0.3em;
-    font-weight: 500;
-    font-size: 0.9em;
+    padding: 0;
 }
 
-#personaggiUtente .cardPersonaggio li h5{
+#personaggiUtente .cardPersonaggio dt{
     width: 44%;
     padding-left: 1.5em;
     float: left;
     font-size: 0.9em;
-    font-weight: 500;
+    font-weight: 700;
 }
-#personaggiUtente .cardPersonaggio li p{
+#personaggiUtente .cardPersonaggio dd{
     font-size: 0.9em;
     padding-bottom: 0;
 }

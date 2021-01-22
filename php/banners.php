@@ -66,8 +66,8 @@
 
             if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
-                    <fieldset id='bannerSalvataggio'>
-                    <legend><a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner' aria-label=\"chiudi banner degli elementi salvati\" tabindex='2'>Close</a></legend>";
+                    <div id='bannerSalvataggio'>
+                   <a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner' aria-label=\"chiudi banner degli elementi salvati\" tabindex='2'>Close</a>";
                 if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner.="<p id='titoloAvviso' tabindex='1'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
