@@ -402,7 +402,7 @@ function validateLogin() {
 // NameSpace ?
 var userDataValues = {
     // ID: ["TestDaEseguire", "MessaggioErrore"]
-    "username": [/^.{1,}$/, "Username non valido! Lo username deve almeno un carattere e non deve essere vuoto "],
+    "future_username": [/^.{1,}$/, "Username non valido! Lo username deve almeno un carattere e non deve essere vuoto "],
     "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"], /* TO FIX ?*/
     "future_email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "E-mail non valida!"]
 };
