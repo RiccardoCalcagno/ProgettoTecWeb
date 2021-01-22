@@ -551,3 +551,13 @@ function setCardsReport(){
         i++;
     }
 }
+function setCards(){
+    setCardsReport();
+    var i=1;
+    var card;
+    while( (card=document.getElementById("personJSid"+i.toString()))!=null ){
+        card.setAttribute("class","cardPersonaggio");
+        card.setAttribute("tabindex","0");
+        i++;
+    }
+}
