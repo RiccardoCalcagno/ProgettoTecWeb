@@ -2547,7 +2547,11 @@ p.campiObbligatori{
     width: 3em;
     position: absolute;
     top: -1.6em;
-    Left:-0.7em;
+    left:-0.7em;
+}
+#bodyEsplora .testoCardRep > div button{
+    top: -0.7em;
+    color:#678000;
 }
 
 .cardReport > div:first-child:not(.phpCard) .testoCardRep > div{
