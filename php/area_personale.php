@@ -208,6 +208,7 @@ else if($_SESSION["login"])
                 //                                                  REPORT MASTER
                 // ----------------------------------------------------------------------------------------------------------------------------
 
+                $contaReport=0;
 
                 $_schede_report_master = "";
 
@@ -217,8 +218,9 @@ else if($_SESSION["login"])
 
                     for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                     {
+                        $contaReport++;
                         $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
-                        <div class=\"phpCard\" onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
+                        <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
                             <div class=\"testoCardRep\">
                                 <div>
                                     <button name=\"ReportMaster\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
@@ -282,8 +284,9 @@ else if($_SESSION["login"])
 
                     for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                     {
+                        $contaReport++;
                         $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                        <div class=\"phpCard\" onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
+                        <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
                             <div class=\"testoCardRep\">
                                 <div>
                                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>

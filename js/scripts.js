@@ -517,6 +517,9 @@ function vediPiùPers(){
     return false;
 }
 
+// ---------------------------------------------------------------------------------
+// ------------------------------- Visualizza documento -----------------------------
+// ---------------------------------------------------------------------------------
 
 function visualizzaPersonaggio(num){
     window.location.href = "../php/action_character.php?Personaggio="+num;
@@ -529,4 +532,18 @@ function visualizzaReportPartecip(num){
 }
 function visualizzaReportEsplora(num){
     window.location.href = "../php/action_report.php?ReportEsplora="+num;
+}
+
+// ---------------------------------------------------------------------------------
+// ------------------------ Setta card Report per JS -------------------------------
+// ---------------------------------------------------------------------------------
+
+function setCardsReport(){
+    var i=1;
+    var card;
+    while( (card=document.getElementById("reportJSid"+i.toString()))!=null ){
+        card.setAttribute("class"," ");
+        card.setAttribute("tabindex","0");
+        i++;
+    }
 }

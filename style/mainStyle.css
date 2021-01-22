@@ -2550,7 +2550,7 @@ p.campiObbligatori{
     Left:-0.7em;
 }
 
-.cardReport > div:first-child:not(.phpCard){
+.cardReport > div:first-child:not(.phpCard) .testoCardRep > div{
     display: none;
 }   
 
@@ -2604,13 +2604,14 @@ p.campiObbligatori{
 #bodyEsplora .report .cardReport > div:first-child:not(.phpCard):active footer p{
     border-color: #c5fb00;}
 
-
+.cardReport > div:first-child:not(.phpCard){
+    cursor: pointer;
+}
 
 .report .cardReport > div:first-child{
     height: calc(100% - 10px);
     border-radius: 0.5em;
     background-color: transparent;
-    cursor: pointer;
 }
 .report .cards li{
     width: 95%;
@@ -2631,7 +2632,7 @@ p.campiObbligatori{
     flex-direction: column;
     text-align: left;
  }
-.cardReport  > div:first-child:not(.phpCard) h4, .cardReport  > div:first-child:not(.phpCard) h3{
+.cardReport  > div:first-child.phpCard h4, .cardReport  > div:first-child.phpCard h3{
     width: calc(100% - 3.5em);    
     margin-left: 2.4em;
 }
