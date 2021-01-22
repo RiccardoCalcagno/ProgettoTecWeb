@@ -122,11 +122,9 @@
         </header>
         <div class="box">
             <h3>Le tue schede giocatore</h3>
-            <ul class="cards" id='Personaggi'>
 
                 <form_personaggi/>
-  
-            </ul>
+                
             <!--SE È ATTIVO JS LA FORM NON FA IL SUBMIT-->
             <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
                 <nav class='espandi' id='espandi_pers' tabindex="-1" aria-label="Visualizza più personaggi">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
@@ -150,11 +148,9 @@
             </header>
             <div class="box">
             <form action="../php/action_report.php" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <ul class="cards">
 
                 <report_author/>
 
-            </ul>
             </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
@@ -175,11 +171,9 @@
                 <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
-                <ul class="cards">
 
                     <report/>
 
-                </ul>
             </div>
             <form action="../php/action_report.php" method="post">                                    
             <nav class="espandi" id='report_normale' aria-label="Cambia pagina della dashboard dei Report condivisi con te">  

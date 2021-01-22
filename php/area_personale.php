@@ -134,39 +134,46 @@ else if($_SESSION["login"])
             // ----------------------------------------------------------------------------------------------------------------------------
 
             $_schede_personaggio = "";
+            
+            if ( $_SESSION["num_pers"] > 0 ) {
 
-            for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
-            {
-                $urlImgRace="../img/icone_razze/";
-                switch($_SESSION["character_data"][$i]->get_race()){
-                case 'Umano': $urlImgRace.="umano.png\" alt='volto di una giovane donna di colore ornata di gioielli'";break;
-                case 'Elfo': $urlImgRace.="elfo.png\" alt='volto di elfo incappucciato con una faccia truce e scura'";break;
-                case 'Nano': $urlImgRace.="nano.png\" alt='volto di una nano fantasy con capelli rossi e con un espressione arrabbiata'";break;
-                case 'Halfling': $urlImgRace.="halfing.png\" alt='volto di una piccola donna che sta ridendo, ha un naso a punta e sopracciglia maliziose'";break;
-                case 'Gnome': $urlImgRace.="gnomo.png\" alt='volto di un piccolo essere dai lineamenti femminili orecchie a punta capelli lunghi al vento'";break;
-                case 'Tiefling': $urlImgRace.="tiefilng.png\" alt='volto di donna con pelle di colore rossastro capelli lunghi e orecchie a punta, in abito nobile'";break;
-                case 'Dragonide': $urlImgRace.="dragonide.png\" alt='essere dal volto simile a quello di un drago con squame rosse'";break;
-                case 'Mezzelfo': $urlImgRace.="mezzelfo.png\" alt='volto di un umano sereno con una corona in testa e orecchie a punta non accentuata'";break;
-                case 'Mezzorco': $urlImgRace.="mezzorco.png\" alt='volto di orchessa con capelli marroni, pelle violacea, piccole zanne alla bocca e orecchie a punta'";break;
+                $_schede_personaggio = '<ul class="cards">';
+
+                for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
+                {
+                    $urlImgRace="../img/icone_razze/";
+                    switch($_SESSION["character_data"][$i]->get_race()){
+                    case 'Umano': $urlImgRace.="umano.png\" alt='volto di una giovane donna di colore ornata di gioielli'";break;
+                    case 'Elfo': $urlImgRace.="elfo.png\" alt='volto di elfo incappucciato con una faccia truce e scura'";break;
+                    case 'Nano': $urlImgRace.="nano.png\" alt='volto di una nano fantasy con capelli rossi e con un espressione arrabbiata'";break;
+                    case 'Halfling': $urlImgRace.="halfing.png\" alt='volto di una piccola donna che sta ridendo, ha un naso a punta e sopracciglia maliziose'";break;
+                    case 'Gnome': $urlImgRace.="gnomo.png\" alt='volto di un piccolo essere dai lineamenti femminili orecchie a punta capelli lunghi al vento'";break;
+                    case 'Tiefling': $urlImgRace.="tiefilng.png\" alt='volto di donna con pelle di colore rossastro capelli lunghi e orecchie a punta, in abito nobile'";break;
+                    case 'Dragonide': $urlImgRace.="dragonide.png\" alt='essere dal volto simile a quello di un drago con squame rosse'";break;
+                    case 'Mezzelfo': $urlImgRace.="mezzelfo.png\" alt='volto di un umano sereno con una corona in testa e orecchie a punta non accentuata'";break;
+                    case 'Mezzorco': $urlImgRace.="mezzorco.png\" alt='volto di orchessa con capelli marroni, pelle violacea, piccole zanne alla bocca e orecchie a punta'";break;
+                    }
+
+                    $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
+                    <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
+                        <img src=\"" . $urlImgRace . " />                 
+                        <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
+                        <dl>
+                            <dt>Razza</dt>
+                            <dd class=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</dd>       
+                            <dt>Classe</dt>
+                            <dd class=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</dd>
+                            <dt class=\"allineamento\">Allineamento</dt>
+                            <dd class=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</dd>
+                            
+                        </dl>
+                    </div>
+                    </li>\n";
                 }
 
-                $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
-                <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
-                    <img src=\"" . $urlImgRace . " />                 
-                    <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
-                    <dl>
-                        <dt>Razza</dt>
-                        <dd class=\"persRazza\">" . $_SESSION["character_data"][$i]->get_race() . "</dd>       
-                        <dt>Classe</dt>
-                        <dd class=\"persClasse\">" . $_SESSION["character_data"][$i]->get_class() . "</dd>
-                        <dt class=\"allineamento\">Allineamento</dt>
-                        <dd class=\"persAllineamento\">" . $_SESSION["character_data"][$i]->get_alignment() . "</dd>
-                        
-                    </dl>
-                </div>
-                </li>\n";
+                $_schede_personaggio .= '</ul>';
             }
-            if($_SESSION["num_pers"]==0){
+            else {
                 $_schede_personaggio .= "<p class='mancanoCards' >Qui verranno inserite le schede giocatore che realizzerai</p>";
             }
 
@@ -204,33 +211,39 @@ else if($_SESSION["login"])
 
                 $_schede_report_master = "";
 
-                for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
-                {
-                    $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
-                    <div onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
-                        <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
-                            <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
-                        </div>
-                        <footer>";
-                        $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
-                        $_schede_report_master .= "</footer>
-                    </div>
-                    <div class=\"publicazione\">";
-                    if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
-                    { 
-                        $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Pubblica in Esplora</button>";
-                    }
-                    else                
-                    {                         
-                        $_schede_report_master .="<button class=\"InEsplora\" name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Rimuovi da Esplora</button>";
-                    }
-                    
-                    $_schede_report_master .= "</div>
-                        </li>\n";
-                }
+                if($_SESSION["num_report_master"] > 0) {
 
-                if($_SESSION["num_report_master"]==0){
+                    $_schede_report_master = '<ul class="cards">';
+
+                    for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
+                    {
+                        $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
+                        <div onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
+                            <div class=\"testoCardRep\">
+                                <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
+                                <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
+                            </div>
+                            <footer>";
+                            $_schede_report_master .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep_master"][$_SESSION["author_report_data"][$i]->get_id()] . "</span> giocatori</p>";
+                            $_schede_report_master .= "</footer>
+                        </div>
+                        <div class=\"publicazione\">";
+                        if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
+                        { 
+                            $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Pubblica in Esplora</button>";
+                        }
+                        else                
+                        {                         
+                            $_schede_report_master .="<button class=\"InEsplora\" name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\">Rimuovi da Esplora</button>";
+                        }
+                        
+                        $_schede_report_master .= "</div>
+                            </li>\n";
+                    }
+
+                    $_schede_report_master .= '</ul>';
+                }
+                else{
                     $_schede_report_master .= "<p class='mancanoCards' >Qui verranno inseriti i report di sessione che realizzerai</p>";
                 }
 
@@ -260,27 +273,33 @@ else if($_SESSION["login"])
 
                 $_schede_report = "";
 
-                for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
-                {
-                    $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                    <div onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
-                        <div class=\"testoCardRep\">
-                            <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
-                            <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
-                        </div>
-                        <div class=\"badgeUtente\">
-                            <h5>Autore</h5>
-                            <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
-                            <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
-                        </div>
-                    <footer>";
-                    $_schede_report .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>";
-                    $_schede_report .= "</footer>
-                    </div>
-                </li>\n";
-                }
+                if($_SESSION["num_report"] > 0) {
 
-                if($_SESSION["num_report"]==0){
+                    $_schede_report = '<ul class="cards">';
+
+                    for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
+                    {
+                        $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
+                        <div onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
+                            <div class=\"testoCardRep\">
+                                <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
+                                <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
+                            </div>
+                            <div class=\"badgeUtente\">
+                                <h5>Autore</h5>
+                                <img src=\"" . $_SESSION["report_data"][$i]->get_author_img() ."\" alt=\"\" /> 
+                                <p class=\"textVariable\">" . $_SESSION["report_data"][$i]->get_author() . "</p>
+                            </div>
+                        <footer>";
+                        $_schede_report .= "<p class=\"lableRepPrivato\"><span xml:lang=\"en\" lang=\"en\">Report</span> condiviso a <span class=\"numCondivisioni\">" . $_SESSION["array_num_part_rep"][$_SESSION["report_data"][$i]->get_id()] . "</span> giocatori</p>";
+                        $_schede_report .= "</footer>
+                        </div>
+                    </li>\n";
+                    }
+
+                    $_schede_report .= '</ul>';
+                }
+                else {
                     $_schede_report .= "<p class='mancanoCards' >Non appena verrai citato come giocatore in qualche report di sessione vedrai apparire qui quei report</p>";
                 }
 
