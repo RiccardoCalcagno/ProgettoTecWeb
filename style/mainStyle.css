@@ -496,7 +496,7 @@ body a[aria-label="apri il menù"] {
 
 #globalFooter.static #footerContent a {
     display: inline-block;
-    padding-bottom: 0.5em;
+    padding-bottom: 2em;
 }
 
 #globalFooter.interactive #footerContent > a {
