@@ -83,8 +83,11 @@ else{
         {
         $_schede_report_esplora .=   
         "<li class=\"cardReport cardReportEsplora\">
-        <div onclick=\"visualizzaReportEsplora(". $_SESSION["report_data"][$i]->get_id() .");\">
+        <div class=\"phpCard\" onclick=\"visualizzaReportEsplora(". $_SESSION["report_data"][$i]->get_id() .");\">
             <div class=\"testoCardRep\">
+                <div>
+                    <button name=\"ReportEsplora\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                </div>
                 <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
             </div>

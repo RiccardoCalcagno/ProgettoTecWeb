@@ -2537,6 +2537,23 @@ p.campiObbligatori{
     hyphens: auto;
 }
 
+.testoCardRep > div{
+    display: block;
+    position: relative;
+    width: 0px;
+    height: 0px;
+}
+#areaPersonale .testoCardRep > div button, #bodyEsplora .testoCardRep > div button{
+    width: 3em;
+    position: absolute;
+    top: -1.6em;
+    Left:-0.7em;
+}
+
+.cardReport > div:first-child:not(.phpCard){
+    display: none;
+}   
+
 #areaPersonale .report .cardReport > div:first-child{
     border: 5px solid #5d4016;}
 #areaPersonale .report .cardReport > div:first-child footer p{
@@ -2551,9 +2568,9 @@ p.campiObbligatori{
     border: 5px solid #294500;
     background-color: #678000;}
 
-#areaPersonale .report .cardReport > div:first-child:hover{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):hover{
     background-color: #e3e3e3;}
-#areaPersonale .report .cardReport > div:first-child:hover footer p{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):hover footer p{
     background-color: #86662a;}
 #areaPersonale .cardReport .publicazione button:hover{
     background-color: #dab163;
@@ -2562,9 +2579,9 @@ p.campiObbligatori{
     background-color: #c7d672;
     color:#000000;}
 
-#areaPersonale .report .cardReport > div:first-child:active{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):active{
     border-color: #fbc300;}
-#areaPersonale .report .cardReport > div:first-child:active footer p{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):active footer p{
     border-color: #fbc300;}
 #areaPersonale .cardReport .publicazione button:active{
     border-color: #fbc300;}
@@ -2577,14 +2594,14 @@ p.campiObbligatori{
     background-color: #678000;
     color:#FFFFFF;}
 
-#bodyEsplora .report .cardReport > div:first-child:hover{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):hover{
     background-color: #e3e3e3;}
-#bodyEsplora .report .cardReport > div:first-child:hover footer p{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):hover footer p{
     background-color: #49502e;}
 
-#bodyEsplora .report .cardReport > div:first-child:active{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):active{
     border-color: #c5fb00;}
-#bodyEsplora .report .cardReport > div:first-child:active footer p{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):active footer p{
     border-color: #c5fb00;}
 
 
@@ -2614,6 +2631,11 @@ p.campiObbligatori{
     flex-direction: column;
     text-align: left;
  }
+.cardReport  > div:first-child:not(.phpCard) h4, .cardReport  > div:first-child:not(.phpCard) h3{
+    width: calc(100% - 3.5em);    
+    margin-left: 2.4em;
+}
+
 .report .cardReport .testoCardRep h4, #reportEsplora h3{
     font-size: 1.2em;
     padding-left: 0.5em;
