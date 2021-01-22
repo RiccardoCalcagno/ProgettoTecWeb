@@ -139,7 +139,7 @@ else if($_SESSION["login"])
             if ( $_SESSION["num_pers"] > 0 ) {
 
                 $_schede_personaggio = '<ul class="cards" id="Personaggi">';
-
+                $contaPersonaggio=0;
                 for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
                 {
                     $urlImgRace="../img/icone_razze/";
@@ -154,8 +154,11 @@ else if($_SESSION["login"])
                     case 'Mezzelfo': $urlImgRace.="mezzelfo.png\" alt='volto di un umano sereno con una corona in testa e orecchie a punta non accentuata'";break;
                     case 'Mezzorco': $urlImgRace.="mezzorco.png\" alt='volto di orchessa con capelli marroni, pelle violacea, piccole zanne alla bocca e orecchie a punta'";break;
                     }
-
-                    $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
+                    $contaPersonaggio++;
+                    $_schede_personaggio .= "<li id='personJSid". $contaPersonaggio ."' class=\"cardPersonaggio phpCard\"> 
+                    <div>
+                        <button name=\"Personaggio\" value=\"". $_SESSION["character_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                    </div>
                     <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
                         <img src=\"" . $urlImgRace . " />                 
                         <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>

@@ -2354,6 +2354,24 @@ p.campiObbligatori{
 /*----------------------- CARD PERSONAGGI --------------------------
 */
 
+#personaggiUtente .phpCard > div:first-child{
+    display: block;
+    position: relative;
+    width: 0px;
+    height: 0px;
+}
+#personaggiUtente .phpCard > div:first-child button{
+    width: 3em;
+    font-size: 0.9em;
+    position: absolute;
+    top: -1.6em;
+    left:-0.7em;
+}
+#personaggiUtente .cardPersonaggio:not(.phpCard) > div:first-child{
+    display: none;
+}   
+
+
 #personaggiUtente .cardPersonaggio{
     flex: 0 0 10.25em;
     height: 13em;
@@ -2361,24 +2379,29 @@ p.campiObbligatori{
     background-color: #ebd3a4;
     background-image: url(../img/sfondo_card_personaggi.png);
     background-size: 10.25em 13em;
-    border: 11px ridge #5f3900bf;
+    border: 11px ridge #362100;
+}
+#personaggiUtente .cardPersonaggio:not(.phpCard):active{
+    border: 11px solid #fbc300;
+}
+#personaggiUtente .cardPersonaggio:not(.phpCard){
+    cursor: pointer;
 }
 
-#personaggiUtente .cardPersonaggio div{
+#personaggiUtente .cardPersonaggio div:last-child{
     height: 100%;
     width: 100%;
     background-color: transparent;
     border: none;
     position: relative;
     top: -0.4em;
-    cursor: pointer;
 }
 
-#personaggiUtente .cardPersonaggio div > *{
+#personaggiUtente .cardPersonaggio div:last-child > *{
     position: relative;
     top: 1em;
 }
-#personaggiUtente .cardPersonaggio div:hover{
+#personaggiUtente .cardPersonaggio:not(.phpCard) div:last-child:hover{
     background-color: #ffffff27;
 }
 
