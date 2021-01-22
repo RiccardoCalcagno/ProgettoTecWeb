@@ -2551,7 +2551,7 @@ p.campiObbligatori{
 }
 #bodyEsplora .testoCardRep > div button{
     top: -0.7em;
-    color:#678000;
+    background-color:#678000;
 }
 
 .cardReport > div:first-child:not(.phpCard) .testoCardRep > div{
