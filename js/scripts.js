@@ -451,6 +451,10 @@ var oldPasswordValue = {
     "password": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
 };
 
+var newPasswordValue = {
+    "newPasswd": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"]
+}
+
 function validateChangeUserData() {
 //    validateForm(futureEmail) TO FIX !!!!!! ----------------------------------------------------------------------------------------------------------
     return validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
