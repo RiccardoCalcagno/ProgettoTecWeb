@@ -2554,7 +2554,7 @@ p.campiObbligatori{
     background-color:#678000;
 }
 #bodyEsplora .testoCardRep > div button:hover{
-    background-color:#e0f39c;
+    background-color:#e0f39c !important;
 }
 
 .cardReport > div:first-child:not(.phpCard) .testoCardRep > div{
