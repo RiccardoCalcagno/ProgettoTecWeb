@@ -1933,6 +1933,7 @@ p.campiObbligatori{
     border: 8px inset #dfdfdf;
     border-radius: 0.5em;
     overflow: scroll;
+    margin: auto;
 }
 
 #creazioneReport #selezionamentoGiocatori ul li{
