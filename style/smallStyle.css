@@ -257,7 +257,7 @@ input[type="file"]{
 }
 #bodyHome #copertina #titolo::after{
     top: 4.2em;
-    left: calc(10000px + 50vw - 2.5em);
+    left: calc(50vw - 2.5em);
 }
 #bodyHome #copertina #starFeature > dt{
     width: 100%;
