@@ -49,9 +49,9 @@
 
     function setup($html) { // Setup generico per tutte le pagine
         
-        if( session_status() == PHP_SESSION_NONE ) {
+      
             session_start();
-        }else if ( !isset($_SESSION['errorMessage']) ) {
+        if ( !isset($_SESSION['errorMessage']) ) {
             $_SESSION['errorMessage'] = 'Tutto fila liscio non ci sono Errori all\'orizzonte';
         }
 
@@ -74,9 +74,8 @@
     
     function clearSession() {   // Clear di variabili session utili solo a specifiche pagine
             //unset OK anche su null
-        if( session_status() == PHP_SESSION_NONE ) {
-            session_start();
-        }else if ( !isset($_SESSION['errorMessage']) ) {
+        session_start();
+        if ( !isset($_SESSION['errorMessage']) ) {
             $_SESSION['errorMessage'] = 'E Tutto fila liscio non ci sono Errori all\'orizzonte';
         }
 
@@ -95,9 +94,8 @@
     }
 
     function errorPage($errorMessage) {
-        if( session_status() == PHP_SESSION_NONE ) {
-            session_start();
-        }
+        
+        session_start();
         if($errorMessage==="EDB"){
             $errorMessage = "Ci scusiamo per il malfunzionamento, provvederemo a ripristinare i server al più presto";
         }
