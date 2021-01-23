@@ -2584,7 +2584,7 @@ p.campiObbligatori{
 }
 
 .cardReport > div:first-child:not(.phpCard) .testoCardRep > div{
-    display: none;
+    text-indent:100%; white-space:nowrap; overflow:hidden;
 }   
 
 #areaPersonale .report .cardReport > div:first-child{
