@@ -548,7 +548,6 @@ function setCardsReport(){
     var card;
     while( (card=document.getElementById("reportJSid"+i.toString()))!=null ){
         card.setAttribute("class"," ");
-        card.setAttribute("tabindex","0");
         i++;
     }
 }
@@ -558,7 +557,6 @@ function setCards(){
     var card;
     while( (card=document.getElementById("personJSid"+i.toString()))!=null ){
         card.setAttribute("class","cardPersonaggio");
-        card.setAttribute("tabindex","0");
         i++;
     }
 }
