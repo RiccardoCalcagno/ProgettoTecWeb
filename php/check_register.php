@@ -4,6 +4,8 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
+    session_start();
+
     $new_user = null;
     $err = array();
 
@@ -143,7 +145,16 @@
 
                 unset($_POST["newPasswd"], $_POST["PasswdAgan"]);
                 $_SESSION["err"] = $err;
-                header("Location: register.php");
+		if($err["empty_passwd"] || $err["rep_passwd_err"])
+                {
+		    header("Location: register.php#passField");
+		    exit();
+		}
+		else
+		{
+		    header("Location: register.php#datiUtenza");
+		    exit();
+		}
             }
             else
             {

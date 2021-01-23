@@ -6,6 +6,8 @@
     $modify_user = null;
     $err = array();
 
+    session_start();
+
     $username = $_SESSION["username"];
     $name_surname = $_SESSION["name_surname"];
     $email = $_SESSION["email"];
@@ -17,8 +19,6 @@
 
     try {
 
-    $_SESSION["old_passwd"] = $old_passwd;
-//echo $_SESSION["old_passwd"];
         if($old_passwd == $_SESSION["passwd"])
         {
             $err["old_password_err"] = false;
@@ -46,6 +46,8 @@
             $err["old_password_err"] = true;
         }
 
+	print_r($err);
+
         if(in_array(true, $err))
         {
         $_SESSION["tmpUser"]["username"] = $username;
@@ -53,13 +55,13 @@
         $_SESSION["tmpUser"]["email"] = $email;
         $_SESSION["tmpUser"]["birthdate"] = $birthdate;
         $_SESSION["tmpUser"]["img"] = $img;
-
             $_SESSION["err"] = $err;
             $_SESSION["result"] = false;
             header("Location: modify_user.php#passField");
         }
         else
         {
+
             $db = new DBinterface();
             if(!$db->openConnection()){errorPage("EDB");exit();}
             $modify_user = new UserData($username, $name_surname, $email, $new_password, $birthdate, $img_path);
