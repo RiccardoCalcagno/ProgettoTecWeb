@@ -72,7 +72,7 @@
     <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
             <li><a href="../index.php" xml:lang="en" lang="en" tabindex="-1">Home</a></li>
-            <li id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Area Personale">Area Personale</li>
+            <li id="breadCCurrent" tabindex="0" aria-label="Ti trovi in Area Personale">Area Personale</li>
         </ul>
     </nav>
 
@@ -120,13 +120,13 @@
             <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
         </header>
         <div class="box">
-            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
+            <form action="../php/action_character.php" method="get"> 
             <h3>Le tue schede giocatore</h3>
 
                 <form_personaggi/>
-                
+            </form>   
             <!--SE È ATTIVO JS LA FORM NON FA IL SUBMIT-->
-
+            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
                 <nav class='espandi' id='espandi_pers' tabindex="-1" aria-label="Visualizza più personaggi">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
                     <label for="espandiPers" id="labPersonEspandi">Vedi di Più</label>
                     <input type="submit" id="espandiPers" name="espandi" value="Pers"/>     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
