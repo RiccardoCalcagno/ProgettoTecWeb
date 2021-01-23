@@ -114,7 +114,6 @@ else if ( isset($_GET['Personaggio']) || isset($_GET['charID'])) { //|| isset($_
         $html = str_replace("{RedirectHamburger}", "../php/CharacterPage.php?Hamburger=yes&Personaggio=".$charID, $html);
     }
 
-    echo var_dump($_GET['charLayout']);
     $html = changeCharLayout($html);
     
     echo $html;
