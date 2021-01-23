@@ -2355,7 +2355,7 @@ p.campiObbligatori{
 /*----------------------- CARD PERSONAGGI --------------------------
 */
 
-#personaggiUtente .phpCard > div:first-child{
+#personaggiUtente .cardPersonaggio > div:first-child{
     display: block;
     position: relative;
     width: 0px;
