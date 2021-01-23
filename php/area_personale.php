@@ -21,6 +21,7 @@ $_SESSION["email"]="lollolooll@gmail.com";
 $_SESSION["birthdate"]="1999-06-12";
 */
 
+
 if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
     header("Location: login.php");
@@ -138,7 +139,7 @@ else if($_SESSION["login"])
             if ( $_SESSION["num_pers"] > 0 ) {
 
                 $_schede_personaggio = '<ul class="cards" id="Personaggi">';
-
+                $contaPersonaggio=0;
                 for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
                 {
                     $urlImgRace="../img/icone_razze/";
@@ -153,8 +154,11 @@ else if($_SESSION["login"])
                     case 'Mezzelfo': $urlImgRace.="mezzelfo.png\" alt='volto di un umano sereno con una corona in testa e orecchie a punta non accentuata'";break;
                     case 'Mezzorco': $urlImgRace.="mezzorco.png\" alt='volto di orchessa con capelli marroni, pelle violacea, piccole zanne alla bocca e orecchie a punta'";break;
                     }
-
-                    $_schede_personaggio .= "<li class=\"cardPersonaggio\"> 
+                    $contaPersonaggio++;
+                    $_schede_personaggio .= "<li id='personJSid". $contaPersonaggio ."' class=\"cardPersonaggio phpCard\"> 
+                    <div>
+                        <button name=\"Personaggio\" value=\"". $_SESSION["character_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                    </div>
                     <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
                         <img src=\"" . $urlImgRace . " />                 
                         <h4 class=\"textVariable\">" . $_SESSION["character_data"][$i]->get_name() . "</h4>
@@ -187,18 +191,18 @@ else if($_SESSION["login"])
 
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
-                    $html = str_replace("<ul class=\"cards\" id='Personaggi'>", "<ul class=\"expanded\">", $html);
+                    $html = str_replace("<ul class=\"cards\" id=\"Personaggi\">", "<ul class=\"expanded\" id=\"Personaggi\">", $html);
                     $html = str_replace("<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Più</label>", "<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Meno</label>", $html);
-                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", $html);
+                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\"/>", "<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", $html);
 
                     unset($_SESSION["espandiPers"]);
                 }
 
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == false)
                 {
-                    $html = str_replace("<ul class=\"expanded\">", "<ul class=\"cards\" id='Personaggi'>", $html);
+                    $html = str_replace("<ul class=\"expanded\" id=\"Personaggi\">", "<ul class=\"cards\" id=\"Personaggi\">", $html);
                     $html = str_replace("<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Meno</label>", "<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Più</label>", $html);
-                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\">", $html);
+                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\"/>", $html);
 
                     unset($_SESSION["espandiPers"]);
                 }
@@ -208,6 +212,7 @@ else if($_SESSION["login"])
                 //                                                  REPORT MASTER
                 // ----------------------------------------------------------------------------------------------------------------------------
 
+                $contaReport=0;
 
                 $_schede_report_master = "";
 
@@ -217,9 +222,13 @@ else if($_SESSION["login"])
 
                     for($i = ($_SESSION["count_master"]-1)*5 ; $i < $limit = ($_SESSION["num_report_master"] < $_SESSION["count_master"]*5 ? $_SESSION["num_report_master"] : 5*$_SESSION["count_master"]) ; $i++)
                     {
+                        $contaReport++;
                         $_schede_report_master .= "<li class=\"cardReport cardReportMaster\">
-                        <div onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
+                        <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
                             <div class=\"testoCardRep\">
+                                <div>
+                                    <button name=\"ReportMaster\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                                </div>
                                 <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
                                 <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
                             </div>
@@ -279,9 +288,13 @@ else if($_SESSION["login"])
 
                     for($i = ($_SESSION["count_rep"]-1)*5 ; $i < $limit = ($_SESSION["num_report"] < $_SESSION["count_rep"]*5 ? $_SESSION["num_report"] : 5*$_SESSION["count_rep"]); $i++)
                     {
+                        $contaReport++;
                         $_schede_report .= "<li class=\"cardReport cardReportPartecipante\">
-                        <div onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
+                        <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
                             <div class=\"testoCardRep\">
+                                <div>
+                                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                                </div>
                                 <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
                             </div>

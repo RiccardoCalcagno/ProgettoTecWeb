@@ -24,7 +24,7 @@
 
 
 
-<body id="areaPersonale">
+<body id="areaPersonale" onload="setCards();">
     <header id="intestazioneSito">
 
         <ul class="AiutiNavigazione" title="Aiuti alla Navigazione">
@@ -120,12 +120,13 @@
             <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
         </header>
         <div class="box">
+            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
             <h3>Le tue schede giocatore</h3>
 
                 <form_personaggi/>
                 
             <!--SE È ATTIVO JS LA FORM NON FA IL SUBMIT-->
-            <form action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
+
                 <nav class='espandi' id='espandi_pers' tabindex="-1" aria-label="Visualizza più personaggi">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
                     <label for="espandiPers" id="labPersonEspandi">Vedi di Più</label>
                     <input type="submit" id="espandiPers" name="espandi" value="Pers"/>     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
@@ -146,11 +147,11 @@
                 <p>La <span xml:lang="en" lang="en">dashboard</span> seguente raccoglie tutti i <span xml:lang="en" lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
-            <form action="../php/action_report.php" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+                <form action="../php/action_report.php" method="get">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
 
-                <report_author/>
+                    <report_author/>
 
-            </form>
+                </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
             <nav class="espandi" id='report_master' aria-label="Cambia pagina della dashboard dei tuoi Report">                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
@@ -170,9 +171,11 @@
                 <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
             </header>
             <div class="box">
+                <form action="../php/action_report.php" method="get"> 
 
                     <report/>
 
+                </form>
             </div>
             <form action="../php/action_report.php" method="post">                                    
             <nav class="espandi" id='report_normale' aria-label="Cambia pagina della dashboard dei Report condivisi con te">  

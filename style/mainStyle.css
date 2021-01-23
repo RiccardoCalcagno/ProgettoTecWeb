@@ -496,7 +496,7 @@ body a[aria-label="apri il menù"] {
 
 #globalFooter.static #footerContent a {
     display: inline-block;
-    padding-bottom: 0.5em;
+    padding-bottom: 2em;
 }
 
 #globalFooter.interactive #footerContent > a {
@@ -722,20 +722,21 @@ body a[aria-label="apri il menù"] {
 
 }
 #copertina #titolo{
-    font-size: 1em;
-    position: absolute;
-    left:-10000px;
+    text-indent:150%; 
+    white-space:nowrap; 
+    overflow:hidden;
 }
+
+
 #copertina #titolo::after{
     content: " ";
     position: absolute;
-    left: calc(3em + 10000px);
-    top: -2em;
+    top: -0.3em;
     display: block;
-    width: 25em;
-    height: 9.17em;
+    width: 5em;
+    height: 1.83em;
     background-image: url(../img/logo.png);
-    background-size: 25em 9.17em;
+    background-size: 5em 1.83em;
 }
 
 #copertina header h1{
@@ -2354,6 +2355,26 @@ p.campiObbligatori{
 /*----------------------- CARD PERSONAGGI --------------------------
 */
 
+#personaggiUtente .phpCard > div:first-child{
+    display: block;
+    position: relative;
+    width: 0px;
+    height: 0px;
+}
+#personaggiUtente .phpCard > div:first-child button{
+    width: 3em;
+    font-size: 0.9em;
+    position: absolute;
+    top: -1em;
+    z-index: 1;
+    border-radius: 0;
+    border-bottom-right-radius: 0.6em;
+}
+#personaggiUtente .cardPersonaggio:not(.phpCard) > div:first-child{
+    display: none;
+}   
+
+
 #personaggiUtente .cardPersonaggio{
     flex: 0 0 10.25em;
     height: 13em;
@@ -2361,24 +2382,29 @@ p.campiObbligatori{
     background-color: #ebd3a4;
     background-image: url(../img/sfondo_card_personaggi.png);
     background-size: 10.25em 13em;
-    border: 11px ridge #5f3900bf;
+    border: 11px ridge #6d4c18;
+}
+#personaggiUtente .cardPersonaggio:not(.phpCard):active{
+    border: 11px solid #fbc300;
+}
+#personaggiUtente .cardPersonaggio:not(.phpCard){
+    cursor: pointer;
 }
 
-#personaggiUtente .cardPersonaggio div{
+#personaggiUtente .cardPersonaggio div:last-child{
     height: 100%;
     width: 100%;
     background-color: transparent;
     border: none;
     position: relative;
     top: -0.4em;
-    cursor: pointer;
 }
 
-#personaggiUtente .cardPersonaggio div > *{
+#personaggiUtente .cardPersonaggio div:last-child > *{
     position: relative;
     top: 1em;
 }
-#personaggiUtente .cardPersonaggio div:hover{
+#personaggiUtente .cardPersonaggio:not(.phpCard) div:last-child:hover{
     background-color: #ffffff27;
 }
 
@@ -2537,6 +2563,30 @@ p.campiObbligatori{
     hyphens: auto;
 }
 
+.testoCardRep > div{
+    display: block;
+    position: relative;
+    width: 0px;
+    height: 0px;
+}
+#areaPersonale .testoCardRep > div button, #bodyEsplora .testoCardRep > div button{
+    width: 3em;
+    position: absolute;
+    top: -1.6em;
+    left:-0.7em;
+}
+#bodyEsplora .testoCardRep > div button{
+    top: -0.7em;
+    background-color:#678000;
+}
+#bodyEsplora .testoCardRep > div button:hover{
+    background-color:#e0f39c !important;
+}
+
+.cardReport > div:first-child:not(.phpCard) .testoCardRep > div{
+    display: none;
+}   
+
 #areaPersonale .report .cardReport > div:first-child{
     border: 5px solid #5d4016;}
 #areaPersonale .report .cardReport > div:first-child footer p{
@@ -2551,9 +2601,9 @@ p.campiObbligatori{
     border: 5px solid #294500;
     background-color: #678000;}
 
-#areaPersonale .report .cardReport > div:first-child:hover{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):hover{
     background-color: #e3e3e3;}
-#areaPersonale .report .cardReport > div:first-child:hover footer p{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):hover footer p{
     background-color: #86662a;}
 #areaPersonale .cardReport .publicazione button:hover{
     background-color: #dab163;
@@ -2562,9 +2612,9 @@ p.campiObbligatori{
     background-color: #c7d672;
     color:#000000;}
 
-#areaPersonale .report .cardReport > div:first-child:active{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):active{
     border-color: #fbc300;}
-#areaPersonale .report .cardReport > div:first-child:active footer p{
+#areaPersonale .report .cardReport > div:first-child:not(.phpCard):active footer p{
     border-color: #fbc300;}
 #areaPersonale .cardReport .publicazione button:active{
     border-color: #fbc300;}
@@ -2577,23 +2627,24 @@ p.campiObbligatori{
     background-color: #678000;
     color:#FFFFFF;}
 
-#bodyEsplora .report .cardReport > div:first-child:hover{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):hover{
     background-color: #e3e3e3;}
-#bodyEsplora .report .cardReport > div:first-child:hover footer p{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):hover footer p{
     background-color: #49502e;}
 
-#bodyEsplora .report .cardReport > div:first-child:active{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):active{
     border-color: #c5fb00;}
-#bodyEsplora .report .cardReport > div:first-child:active footer p{
+#bodyEsplora .report .cardReport > div:first-child:not(.phpCard):active footer p{
     border-color: #c5fb00;}
 
-
+.cardReport > div:first-child:not(.phpCard){
+    cursor: pointer;
+}
 
 .report .cardReport > div:first-child{
     height: calc(100% - 10px);
     border-radius: 0.5em;
     background-color: transparent;
-    cursor: pointer;
 }
 .report .cards li{
     width: 95%;
@@ -2614,6 +2665,11 @@ p.campiObbligatori{
     flex-direction: column;
     text-align: left;
  }
+.cardReport  > div:first-child.phpCard h4, .cardReport  > div:first-child.phpCard h3{
+    width: calc(100% - 3.5em);    
+    margin-left: 2.4em;
+}
+
 .report .cardReport .testoCardRep h4, #reportEsplora h3{
     font-size: 1.2em;
     padding-left: 0.5em;

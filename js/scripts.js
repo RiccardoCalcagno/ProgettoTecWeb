@@ -176,6 +176,7 @@ function hamburgerFunction(){
     return false;
 }
 
+function returnFalse(){return false;}
 
 function switchCharLayout(clickedButton) {
 
@@ -451,6 +452,10 @@ var oldPasswordValue = {
     "password": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
 };
 
+var newPasswordValue = {
+    "newPasswd": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"]
+}
+
 function validateChangeUserData() {
 //    validateForm(futureEmail) TO FIX !!!!!! ----------------------------------------------------------------------------------------------------------
     return validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
@@ -517,6 +522,9 @@ function vediPiùPers(){
     return false;
 }
 
+// ---------------------------------------------------------------------------------
+// ------------------------------- Visualizza documento -----------------------------
+// ---------------------------------------------------------------------------------
 
 function visualizzaPersonaggio(num){
     window.location.href = "../php/action_character.php?Personaggio="+num;
@@ -529,4 +537,28 @@ function visualizzaReportPartecip(num){
 }
 function visualizzaReportEsplora(num){
     window.location.href = "../php/action_report.php?ReportEsplora="+num;
+}
+
+// ---------------------------------------------------------------------------------
+// ------------------------ Setta card Report per JS -------------------------------
+// ---------------------------------------------------------------------------------
+
+function setCardsReport(){
+    var i=1;
+    var card;
+    while( (card=document.getElementById("reportJSid"+i.toString()))!=null ){
+        card.setAttribute("class"," ");
+        card.setAttribute("tabindex","0");
+        i++;
+    }
+}
+function setCards(){
+    setCardsReport();
+    var i=1;
+    var card;
+    while( (card=document.getElementById("personJSid"+i.toString()))!=null ){
+        card.setAttribute("class","cardPersonaggio");
+        card.setAttribute("tabindex","0");
+        i++;
+    }
 }
