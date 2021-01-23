@@ -89,7 +89,7 @@ else{
             <div class=\"testoCardRep\">
                 <div>
                     <button name=\"ReportEsplora\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\" 
-                    aria-label='visualizza report: ".$_SESSION["report_data"][$i]->get_title().">VEDI</button>
+                    aria-label='visualizza report: ".$_SESSION["report_data"][$i]->get_title()."'>VEDI</button>
                 </div>
                 <h3 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h3>
                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
