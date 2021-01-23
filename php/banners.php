@@ -100,7 +100,7 @@
                     <p>Li puoi trovare nella tua Area Personale</p>
                     </fieldset>";
                 }
-
+            $htmlBanner .= "</div>";
 
             }else{
             $htmlBanner = "<div id='bannerPage' class='transitorio'><div>";
@@ -228,7 +228,6 @@
             }
 
             $htmlBanner .= "</div></div>";
-            //if($returnPage="index.php"){$htmlBanner =str_replace("../","",$htmlBanner);}
             $htmlBanner =str_replace("PLACEHOLDER",$returnPage,$htmlBanner);
         }
 
