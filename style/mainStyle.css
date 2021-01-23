@@ -1378,7 +1378,7 @@ ul#listaCommenti {
 
 #commentiField li > button{
     color: transparent;
-    text-indent: 100%;
+    line-height: 0;
     overflow: hidden;
     position: relative;
     margin-left:0.7em;
