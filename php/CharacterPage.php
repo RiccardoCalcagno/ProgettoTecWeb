@@ -75,15 +75,11 @@ function changeCharLayout($html) {
     if(isset($_GET['charLayout'])){
         if($_GET['charLayout'] == 'scheda' ) {
             $html = str_replace(
-                '<button id="pergamena" class="disabled" type="submit" name="charLayout" value="pergamena" 
-                onclick="switchCharLayout(this)" disabled="disabled" aria-label="layout impostato: pergamena">PERGAMENA</button>', 
-                '<button id="pergamena" class="active" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)" 
-                aria-label="clicca per impostare il layout a pergamena">PERGAMENA</button>', $html);
+                'class="disabled" disabled="disabled" aria-label="layout impostato: pergamena"', 
+                'class="active" aria-label="clicca per impostare il layout a pergamena"', $html);
               $html = str_replace(
-                '<button id="scheda" class="active" type="submit" name="charLayout" value="scheda" 
-                onclick="switchCharLayout(this)" aria-label="clicca per impostare il layout a standard D&D" xml:lang="en" lang="en">STANDARD <abbr title="Dungeons & Dragons">D&amp;D</abbr></button>',
-                '<button id="scheda" class="disabled" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)" aria-label="layout impostato: standard D&D" disabled="disabled"><span xml:lang="en" lang="en">STANDARD </span><abbr title="Dungeons & Dragons">D&amp;D</abbr></button>', $html
-              );
+                'class="active" aria-label="clicca per impostare il layout a standard D&D"',
+                'class="disabled" disabled="disabled" aria-label="layout impostato: standard D&D"', $html);
               $html = str_replace('id="contentPersonaggio" class="pergamena"', 'id="contentPersonaggio" class="scheda"', $html);
         }
     }
