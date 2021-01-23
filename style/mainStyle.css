@@ -2656,7 +2656,7 @@ p.campiObbligatori{
 }
 
 .report .cardReport > div:first-child{
-    height: calc(100% - 10px);
+    height: calc(100% - 9px);
     border-radius: 0.5em;
     background-color: transparent;
 }
