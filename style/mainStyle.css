@@ -722,20 +722,21 @@ body a[aria-label="apri il menù"] {
 
 }
 #copertina #titolo{
-    font-size: 1em;
-    position: absolute;
-    left:-10000px;
+    text-indent:150%; 
+    white-space:nowrap; 
+    overflow:hidden;
 }
+
+
 #copertina #titolo::after{
     content: " ";
     position: absolute;
-    left: calc(3em + 10000px);
-    top: -2em;
+    top: -0.3em;
     display: block;
-    width: 25em;
-    height: 9.17em;
+    width: 5em;
+    height: 1.83em;
     background-image: url(../img/logo.png);
-    background-size: 25em 9.17em;
+    background-size: 5em 1.83em;
 }
 
 #copertina header h1{

@@ -153,13 +153,6 @@ textarea,input[type="text"],input[type="date"],input[type="password"] {
     position: relative;
     left: calc(100% - 800px);
 }
-#copertina #titolo::after{
-    top: -1em;
-    width: 20em;
-    height: 7em;
-    background-size: 20em 7em;
-}
-
 #copertina #starFeature{
     width: 20em;
     margin-right: 2em;
