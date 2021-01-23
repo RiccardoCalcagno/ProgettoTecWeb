@@ -41,7 +41,7 @@
         //$html = str_replace('</body>', "</body>" . $banner , $html);
         $matches = array();
         if (preg_match('<body(.*?)>', $html, $matches)) {
-            var_dump($matches[0]);
+            var_dump($matches);
             exit();
             }
     }
