@@ -2,9 +2,9 @@
     require_once("GeneralPurpose.php");
     require_once("DBinterface.php");
 
-    if( session_status() == PHP_SESSION_NONE ) {
+    
         session_start();
-    }
+    
 
     if ( isset($_GET["Personaggio"]) ) {   // AreaPersonale (Character card) 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
 

@@ -1,9 +1,9 @@
 <?php
     require_once("GeneralPurpose.php");
 
-    if( session_status() == PHP_SESSION_NONE ) {
+    
         session_start();
-    }
+   
 
     if ( isset($_GET["PostRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
         $db = new DBinterface();
