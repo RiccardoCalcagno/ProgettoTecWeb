@@ -258,9 +258,6 @@ input[type="file"]{
 #bodyHome #copertina #titolo::after{
     top: 4.2em;
     left: calc(10000px + 50vw - 2.5em);
-    width: 5em;
-    height: 1.64em;
-    background-size: 5em 1.64em;
 }
 #bodyHome #copertina #starFeature > dt{
     width: 100%;
@@ -275,15 +272,6 @@ input[type="file"]{
 }
 #bodyHome #copertina #starFeature dt:nth-child(3){
     padding-top: 0.6em;
-}
-#bodyHome #copertina #titolo{
-    width: 100%;
-    text-align: center;
-    color: #FFFFFF;
-    position: relative;
-    font-size: 3em;
-    margin-bottom: 0.4em;
-    padding: 0em;
 }
 
 /*
