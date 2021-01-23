@@ -641,6 +641,7 @@ body a[aria-label="apri il menù"] {
     color:#FFFFFF;
     position: fixed;
     top: 6em;
+    z-index: 4;
     left: calc(100% - 23em);
     width: 20em;
     padding:0.7em;
