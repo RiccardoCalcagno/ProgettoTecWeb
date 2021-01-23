@@ -2,8 +2,6 @@
     require_once("banners.php");
     require_once("GeneralPurpose.php");
 
-//echo "entra in mdoif";
-echo $_SESSION["old_passwd"];	
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     if(!$html)
         header("Location: 404.php");
@@ -21,7 +19,6 @@ echo $_SESSION["old_passwd"];
 
     if(isset($_SESSION["result"]) && $_SESSION["result"] == false)
     {
-    echo "trovati errori";
 
         $username = $_SESSION["tmpUser"]["username"];
         $name_surname = $_SESSION["tmpUser"]["name_surname"];
@@ -54,7 +51,7 @@ echo $_SESSION["old_passwd"];
 
         if($err["rep_passwd_err"])
         {
-            $html = str_replace("<p id=\"RepPasswdErr\" class=\"hidden\">","<p id=\"RepPasswdErr\" class=\"text-errore\" role=\"alert\">", $html);
+            $html = str_replace("<p class=\"RepPasswdErr hidden\">","<p class=\"RepPasswdErr text-errore\" role=\"alert\">", $html);
             $html = str_replace("name=\"PasswdAgan\"", "name=\"PasswdAgan\" class=\"input-errore\"", $html);
             $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
@@ -88,10 +85,8 @@ echo $_SESSION["old_passwd"];
         
         if($err["old_password_err"])
         {
-echo "errore pass vecchia";
             $html = str_replace("<p id=\"OldPasswdErr\" class=\"hidden\">", "<p id=\"OldPasswdErr\" class=\"text-errore\" role=\"alert\">", $html);
             $html = str_replace("name=\"password\"", "name=\"password\" class=\"input-errore\"", $html);
-
         }
 
         if($err["new_password_empty"])
