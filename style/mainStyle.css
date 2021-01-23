@@ -2372,6 +2372,7 @@ p.campiObbligatori{
 }
 #personaggiUtente .cardPersonaggio:not(.phpCard) > div:first-child{
     text-indent:100%; white-space:nowrap; overflow:hidden;
+    float: none; height: 0px; width: 0px;
 }   
 
 
