@@ -38,11 +38,9 @@
     function addPossibleBanner($html, $returnPage) {
     $banner = createPossibleBanner($returnPage);
     if($banner!=""){
-        //$html = str_replace('</body>', "</body>" . $banner , $html);
         $matches = array();
         if (preg_match('#<body(.*?)>#', $html, $matches)) {
-            echo var_dump($matches);
-            exit();
+            $html = str_replace($matches[1].'>', $matches[1].">".$banner , $html);
             }
     }
     if(isset($_SESSION['banners']) && strpos($_SESSION['banners'],'lementi_salvati')){
