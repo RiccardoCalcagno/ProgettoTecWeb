@@ -508,16 +508,17 @@ function js_on_approf(){
 
 function vediPiùPers(){
     var personaggi = document.getElementById("Personaggi");
-    var labelEspandi = document.getElementById("labPersonEspandi");
-    var inputEspandi = document.getElementById("espandiPers");
-    if(inputEspandi.name=="espandi"){
+    var buttonEspandi = document.getElementById("espandiPers");
+    if(buttonEspandi.name=="espandi"){
         personaggi.setAttribute("class","expanded");
-        labelEspandi.innerHTML="Vedi di Meno";
-        inputEspandi.setAttribute("name","riduci");
+        buttonEspandi.innerHTML="Vedi di Meno";
+        buttonEspandi.setAttribute("name","riduci");
+        buttonEspandi.setAttribute("title","Riduci il box e visualizza meno personaggi");
     }else{
         personaggi.setAttribute("class","cards");
-        labelEspandi.innerHTML="Vedi di Più";
-        inputEspandi.setAttribute("name","espandi");
+        buttonEspandi.innerHTML="Vedi di Più";
+        buttonEspandi.setAttribute("name","espandi");
+        buttonEspandi.setAttribute("title","Espandi il box e visualizza più personaggi");
     }
     return false;
 }

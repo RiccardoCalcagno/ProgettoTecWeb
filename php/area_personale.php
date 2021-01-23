@@ -158,7 +158,7 @@ else if($_SESSION["login"])
                     $_schede_personaggio .= "<li id='personJSid". $contaPersonaggio ."' class=\"cardPersonaggio phpCard\"> 
                     <div>
                         <button name=\"Personaggio\" value=\"". $_SESSION["character_data"][$i]->get_id() . "\" class=\"buttonLink\"
-                            aria-label='visualizza scheda: ".$_SESSION["character_data"][$i]->get_name()."'>VEDI</button>
+                            aria-label='Vedi la scheda del personaggio: ".$_SESSION["character_data"][$i]->get_name()."'>VEDI<span class=\"hidden\"> la scheda del personaggio: ".$_SESSION["character_data"][$i]->get_name()."</span></button>
                     </div>
                     <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
                         <img src=\"" . $urlImgRace . " />                 
@@ -193,17 +193,20 @@ else if($_SESSION["login"])
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
                 {
                     $html = str_replace("<ul class=\"cards\" id=\"Personaggi\">", "<ul class=\"expanded\" id=\"Personaggi\">", $html);
-                    $html = str_replace("<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Più</label>", "<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Meno</label>", $html);
-                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\"/>", "<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", $html);
-
+                    $html = str_replace(
+                        '<button type="submit" id="espandiPers" name="espandi" value="Pers" title="Espandi il box e visualizza più personaggi">Vedi di Più</button>',
+                        '<button type="submit" id="espandiPers" name="riduci" value="Pers" title="Riduci il box e visualizza meno personaggi">Vedi di Meno</button>',
+                        $html);
                     unset($_SESSION["espandiPers"]);
                 }
 
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == false)
                 {
                     $html = str_replace("<ul class=\"expanded\" id=\"Personaggi\">", "<ul class=\"cards\" id=\"Personaggi\">", $html);
-                    $html = str_replace("<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Meno</label>", "<label for=\"espandiPers\" id=\"labPersonEspandi\">Vedi di Più</label>", $html);
-                    $html = str_replace("<input type=\"submit\" id=\"espandiPers\" name=\"riduci\" value=\"Pers\">", "<input type=\"submit\" id=\"espandiPers\" name=\"espandi\" value=\"Pers\"/>", $html);
+                    $html = str_replace(
+                        '<button type="submit" id="espandiPers" name="riduci" value="Pers" title="Riduci il box e visualizza meno personaggi">Vedi di Meno</button>',
+                        '<button type="submit" id="espandiPers" name="espandi" value="Pers" title="Espandi il box e visualizza più personaggi">Vedi di Più</button>',
+                         $html);
 
                     unset($_SESSION["espandiPers"]);
                 }
@@ -229,7 +232,7 @@ else if($_SESSION["login"])
                             <div class=\"testoCardRep\">
                                 <div>
                                     <button name=\"ReportMaster\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" class=\"buttonLink\" 
-                                    aria-label='visualizza report: ".$_SESSION["author_report_data"][$i]->get_title()."'>VEDI</button>
+                                    aria-label='Vedi il report intitolato: ".$_SESSION["author_report_data"][$i]->get_title()."'>VEDI<span class=\"hidden\"> il report intitolato: ".$_SESSION["author_report_data"][$i]->get_title()."</span></button>
                                 </div>
                                 <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
                                 <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
@@ -241,11 +244,11 @@ else if($_SESSION["login"])
                         <div class=\"publicazione\">";
                         if($_SESSION["author_report_data"][$i]->get_isExplorable() == 0)    
                         { 
-                            $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" aria-label=\"Pubblica in esplora il Report intitolato: " . $_SESSION["author_report_data"][$i]->get_title() . "\">Pubblica in Esplora</button>";
+                            $_schede_report_master .= "<button name=\"PostRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" aria-label=\"Pubblica in Esplora il Report intitolato: ". $_SESSION["author_report_data"][$i]->get_title() . "\">Pubblica in Esplora<span class=\"hidden\"> il Report intitolato: ". $_SESSION["author_report_data"][$i]->get_title() . "</span></button>";
                         }
                         else                
                         {                         
-                            $_schede_report_master .="<button class=\"InEsplora\" name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" aria-label=\"Rimuovi da esplora il Report intitolato: " . $_SESSION["author_report_data"][$i]->get_title() . "\">Rimuovi da Esplora</button>";
+                            $_schede_report_master .="<button class=\"InEsplora\" name=\"RemoveRep\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" aria-label=\"Rimuovi da esplora il Report intitolato: " . $_SESSION["author_report_data"][$i]->get_title() . "\">Rimuovi da Esplora<span class=\"hidden\"> il Report intitolato: " . $_SESSION["author_report_data"][$i]->get_title() . "</span></button>";
                         }
                         
                         $_schede_report_master .= "</div>
@@ -296,7 +299,7 @@ else if($_SESSION["login"])
                             <div class=\"testoCardRep\">
                                 <div>
                                     <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\" 
-                                    aria-label='visualizza report: ".$_SESSION["report_data"][$i]->get_title()."'>VEDI</button>
+                                    aria-label='Vedi il Report intitolato: ".$_SESSION["report_data"][$i]->get_title()."'>VEDI<span class=\"hidden\"> il Report intitolato: ".$_SESSION["report_data"][$i]->get_title()."</span></button>
                                 </div>
                                 <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>

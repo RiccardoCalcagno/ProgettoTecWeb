@@ -77,7 +77,7 @@
             <h1 id="titolo" tabindex="0">Modifica i tuoi dati</h1>
         </header>
 
-        <p class="campiObbligatori" aria-label="i campi: Username, Nome e Cognome, Email, data di Nascita, sono obbligatori"> : campo obbligatorio</p>
+        <p class="campiObbligatori" title="i campi: Username, Nome e Cognome, Email, data di Nascita, sono obbligatori"> : campo obbligatorio</p>
         
         <div class="userFields">
             <form id="datiUtenza" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserData();" action="../php/modify.php" method="post" enctype="multipart/form-data">
@@ -159,7 +159,7 @@
             </div>
             </form>
             <div id="modificaPassword"> 
-            <p class="campiObbligatori"  aria-label="tutti i campi seguenti sono obbligatori"> : campo obbligatorio</p>
+            <p class="campiObbligatori"  title="tutti i campi seguenti sono obbligatori"> : campo obbligatorio</p>
             <form id="datiPassword" autocomplete="on" class="creazioneFields" onsubmit="return validateChangeUserPassword();" action="../php/modify_password.php" method="post">
 
             <fieldset id="passField">  <legend><h2 xml:lang="en" lang="en">Password</h2></legend> 

@@ -2301,12 +2301,12 @@ p.campiObbligatori{
 .espandi{
     background-color: #f7ecd4;
 }
-.espandi input{
+/* .espandi input{
     background-color: transparent;
     font-size:0;
-}
-.espandi label:hover{color: #97581d;}
-.espandi label:active{color: #994107;}
+} */
+/* .espandi label:hover{color: #97581d;}
+.espandi label:active{color: #994107;} */
 
 
 
@@ -2349,8 +2349,11 @@ p.campiObbligatori{
 #personaggiUtente .espandi{
     width: 7em;
 }
-#personaggiUtente .espandi input{
-    display: none;
+#personaggiUtente .espandi button{
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /*----------------------- CARD PERSONAGGI --------------------------
