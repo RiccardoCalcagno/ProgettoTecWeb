@@ -112,7 +112,7 @@
             $username=mysqli_real_escape_string ( $this->connection , $username);
             $query = "SELECT * ". 
                      "FROM Users ". 
-                     "WHERE Users.username = '" . $username . "';";
+                     "WHERE BINARY Users.username = '" . $username . "';";
 
             $exist =   mysqli_query($this->connection, $query);
         if($exist->num_rows > 0)
