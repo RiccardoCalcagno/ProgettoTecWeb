@@ -6,13 +6,6 @@
         session_start();
     }
 
-    if ( isset($_GET['charLayout']) ) {    // SUBMIT AVVIENE SOLO SE JS NON FUNZIONA
-
-        //$_GET['charLayout'] == 'scheda' ?
-        redirect_GET("CharacterPage.php", $_GET);
-        //header("Location: CharacterPage.php?Personaggio=".$_GET['charID']);
-    }
-
     if ( isset($_GET["Personaggio"]) ) {   // AreaPersonale (Character card) 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
 
         /* controllo che il personaggio sia di questo utente */

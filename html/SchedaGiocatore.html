@@ -69,21 +69,19 @@
                 <li  id="breadCCurrent" tabindex="9" aria-label="Ti trovi in Scheda Giocatore">Scheda Giocatore</li>
             </ul>
         </nav>
-        <form id="DocumentActions" method="get" action="../php/action_character.php" onsubmit="return returnFalse();">
 
         <div id="content" tabindex="0">
             <div id="setLayout">
                 <p><span xml:lang="en" lang="en">Layout</span> Scheda Personaggio</p>
+                <form id="DocumentActions" method="get" action="../php/CharacterPage.php" onsubmit="return returnFalse();">
                 <div id="pulsante">
-
-
-                    <button id="pergamena" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)"
+                    <button id="pergamena" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)" 
                      class="disabled" disabled="disabled" aria-label="layout impostato: pergamena">PERGAMENA</button>                         <!--UNA VOLTA CLICCATO BISOGNA SWICCIARE: button diventa p e p diventa button con aggiunta del corretto link-->
-                    <button id="scheda" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)"
+                    <button id="scheda" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)" 
                      class="active" aria-label="clicca per impostare il layout a standard D&D" xml:lang="en" lang="en">STANDARD <abbr title="Dungeons & Dragons">D&amp;D</abbr></button>
-                    
-                    
+                    <input type="hidden" name="charID" value="<charIDValue />" />
                 </div>
+                </form>
             </div>
         <div id="contentPersonaggio" class="pergamena">
             <div>
@@ -132,9 +130,9 @@
             </div>
             </div>
         </div>
-
         </div>
 
+        <form id="DocumentActions" method="get" action="../php/action_character.php">
         <ul id="footAction">
             <li>
                 <input type="submit" name="charAction" value="ELIMINA" class="buttonLink" aria-label="Elimina questo personaggio"/>    
