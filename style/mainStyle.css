@@ -1316,7 +1316,7 @@ section#testoReport {
 
 ul#listaCommenti {
     max-height: 22.7em;
-    overflow: scroll;
+    overflow: auto;
     background-color: #f7ecd4;
     border-radius: 0.5em;
 }
@@ -1376,8 +1376,10 @@ ul#listaCommenti {
     width: 10em;
 }
 
-#commentiField li > input{
+#commentiField li > button{
     color: transparent;
+    text-indent: 100%;
+    overflow: hidden;
     position: relative;
     margin-left:0.7em;
     top:0.35em;
@@ -1388,10 +1390,10 @@ ul#listaCommenti {
     background-color: transparent;
     border:none;
 }
-#commentiField li > input:hover{
+#commentiField li > button:hover{
     background-position: center;
 }
-#commentiField li > input:active{
+#commentiField li > button:active{
     background-position: bottom;
 }
 
@@ -1934,13 +1936,21 @@ p.campiObbligatori{
     padding: 1.2em 0 1em 1em;
     border: 8px inset #dfdfdf;
     border-radius: 0.5em;
-    overflow: scroll;
+    overflow: auto;
     margin: auto;
 }
 
 #creazioneReport #selezionamentoGiocatori ul li{
     float: left;
     padding-right:1em;
+}
+
+#creazioneReport #selezionamentoGiocatori ul #noPlayers {
+    text-align: center;
+    width: calc(100% - 1em);
+    font-size: 0.9em;
+    font-weight: 400;
+    padding: 3em 0 0;
 }
 
 

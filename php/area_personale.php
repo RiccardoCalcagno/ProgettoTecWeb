@@ -232,7 +232,7 @@ else if($_SESSION["login"])
                             <div class=\"testoCardRep\">
                                 <div>
                                     <button name=\"ReportMaster\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" class=\"buttonLink\" 
-                                    aria-label='Vedi il report intitolato: ".$_SESSION["author_report_data"][$i]->get_title()."'>VEDI<span class=\"hidden\"> il report intitolato: ".$_SESSION["author_report_data"][$i]->get_title()."</span></button>
+                                    aria-label='Vedi il tuo Report intitolato: ".$_SESSION["author_report_data"][$i]->get_title()."'>VEDI<span class=\"hidden\"> il tuo report intitolato: ".$_SESSION["author_report_data"][$i]->get_title()."</span></button>
                                 </div>
                                 <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
                                 <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>

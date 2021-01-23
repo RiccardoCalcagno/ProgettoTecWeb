@@ -145,13 +145,13 @@
                         //aggiungo il giocatore alla lista
                         array_push($_SESSION['listaGiocatori'],$_GET['usernameGiocatore']);
     
-                        $feedback_message = '<p id="feedbackAddGiocatore" role=\"alert\">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" role="alert">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
                     }
                     else if(!(array_search($_GET['usernameGiocatore'],$_SESSION['listaGiocatori']) === false)){
-                        $feedback_message = '<p id="feedbackAddGiocatore" role=\"alert\"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" role="alert"><span class="scorretto">Il giocatore è già stato aggiunto precedentemente</span></p>';
                     }
                     else{
-                        $feedback_message = '<p id="feedbackAddGiocatore" role=\"alert\"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
+                        $feedback_message = '<p id="feedbackAddGiocatore" role="alert"><span class="scorretto">Non è stato trovato nessun giocatore con questo username</span></p>';
                     }
                     $aiutiNav = '<a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a>';
                     $dbInterface->closeConnection();
@@ -219,13 +219,14 @@
     $html = str_replace('<feedback_placeholder />',$feedback_message,$html);
     $html = str_replace('<altriAiutiDiNavigazione/>',$aiutiNav, $html);
 
-    $dbInterface = new DBinterface();
-    if(!$dbInterface->openConnection()){errorPage("EDB");exit();}
+    $stringa_giocatori = '<li id="noPlayers">Qui verranno visualizzati i giocatori inseriti</li>';
 
-    $stringa_giocatori = '';
     if ( !empty($_SESSION['listaGiocatori']) ) {
 
         $stringa_giocatori = '';
+
+        $dbInterface = new DBinterface();
+        if(!$dbInterface->openConnection()){errorPage("EDB");exit();}
 
         foreach($_SESSION['listaGiocatori'] as $singleUser){
 
@@ -237,16 +238,15 @@
                                                 <img src="'.$pic.'" alt="immagine profilo inserita da utente" />
                                                 <p class="textVariable">'.$singleUser.'</p>
                                             </div>
-                                            <button class="deleteButton" name="deletePlayer" aria-label="Rimuovi '. "$singleUser". ' dai partecipanti al Report"value="'.$singleUser.'">X</button>
+                                            <button class="deleteButton" name="deletePlayer" aria-label="X: Rimuovi '. "$singleUser". ' dai partecipanti"value="'.$singleUser.'">X<span class="hidden">: rimuovi '.$singleUser.' dai partecipanti</span></button>
                                         </div>
                                     </li>';
         }
+
+        $dbInterface->closeConnection();
     }
-    
 
-    $dbInterface->closeConnection();
-
-    $html = str_replace('<li>Qui verranno visualizzati i giocatori inseriti</li>',$stringa_giocatori,$html);
+    $html = str_replace('<listaGiocatori />',$stringa_giocatori,$html);
 
     /*
     //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)

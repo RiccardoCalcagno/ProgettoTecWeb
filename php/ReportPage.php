@@ -200,9 +200,9 @@ else {
                 $replacer .= '<p>'.$commentsArray[$i]->get_text().'</p>';
                 $replacer .= '<p class="dateTimeCommento">'.$commentsArray[$i]->get_date().'</p></div>';      // TO FIX __________________----------------------------------------------------------------------------------------------------------------------
                 if($commentsArray[$i]->get_author()==$_SESSION["username"]){
-                    $replacer .= '<input title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i]->get_id().'"
-                     aria-label="Elimina commento: '.$commentsArray[$i]->get_text().'"/></li>';
+                    $replacer .= '<button title="elimina commento" type="submit" name="eliminaCommento" value="'.$commentsArray[$i]->get_id().'">Elimina commento: '.$commentsArray[$i]->get_text().'</button>';
                 }
+                $replacer .= '</li>';
             }
 
             $replacer .= '</ul>';
