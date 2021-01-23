@@ -176,6 +176,7 @@ function hamburgerFunction(){
     return false;
 }
 
+function returnFalse(){return false;}
 
 function switchCharLayout(clickedButton) {
 
