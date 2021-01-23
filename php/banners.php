@@ -40,7 +40,7 @@
     if($banner!=""){
         //$html = str_replace('</body>', "</body>" . $banner , $html);
         $matches = array();
-        if (preg_match('<body(.*?)>', $html, $matches)) {
+        if (preg_match('\<body(.*?)\>', $html, $matches)) {
             var_dump($matches);
             exit();
             }
