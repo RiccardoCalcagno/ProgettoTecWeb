@@ -157,7 +157,8 @@ else if($_SESSION["login"])
                     $contaPersonaggio++;
                     $_schede_personaggio .= "<li id='personJSid". $contaPersonaggio ."' class=\"cardPersonaggio phpCard\"> 
                     <div>
-                        <button name=\"Personaggio\" value=\"". $_SESSION["character_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                        <button name=\"Personaggio\" value=\"". $_SESSION["character_data"][$i]->get_id() . "\" class=\"buttonLink\"
+                            aria-label='visualizza scheda: ".$_SESSION["character_data"][$i]->get_name()."'>VEDI</button>
                     </div>
                     <div onclick=\"visualizzaPersonaggio(" . $_SESSION["character_data"][$i]->get_id() . ");\">
                         <img src=\"" . $urlImgRace . " />                 
@@ -227,7 +228,8 @@ else if($_SESSION["login"])
                         <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportMaster(". $_SESSION["author_report_data"][$i]->get_id() . ");\">
                             <div class=\"testoCardRep\">
                                 <div>
-                                    <button name=\"ReportMaster\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                                    <button name=\"ReportMaster\" value=\"". $_SESSION["author_report_data"][$i]->get_id() . "\" class=\"buttonLink\" 
+                                    aria-label='visualizza report: ".$_SESSION["author_report_data"][$i]->get_title()."'>VEDI</button>
                                 </div>
                                 <h4 class=\"textVariable\">" . $_SESSION["author_report_data"][$i]->get_title() . "</h4>
                                 <p>". $_SESSION["author_report_data"][$i]->get_subtitle() ."</p>
@@ -293,7 +295,8 @@ else if($_SESSION["login"])
                         <div id='reportJSid". $contaReport ."' class=\"phpCard\" onclick=\"visualizzaReportPartecip(". $_SESSION["report_data"][$i]->get_id() . ");\">
                             <div class=\"testoCardRep\">
                                 <div>
-                                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\">VEDI</button>
+                                    <button name=\"ReportPartecip\" value=\"". $_SESSION["report_data"][$i]->get_id() . "\" class=\"buttonLink\" 
+                                    aria-label='visualizza report: ".$_SESSION["report_data"][$i]->get_title()."'>VEDI</button>
                                 </div>
                                 <h4 class=\"textVariable\">". $_SESSION["report_data"][$i]->get_title() ."</h4>
                                 <p> ". $_SESSION["report_data"][$i]->get_subtitle() . "</p>
