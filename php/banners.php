@@ -110,7 +110,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER'  aria-label=\"chiudi messaggio del salvataggio pendente\"></a>                          
                     </div>  
-                    <h1 tabindex='0' aria-label=\"messaggio di conferma: salvataggio pendente\">Salvataggio Pendente</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: salvataggio pendente\">Salvataggio Pendente</h1>
                     <h2>La creazione del documento è avvenuta <strong class='corretto'>correttamente</strong> ma per poter essere salvato è necessaria un' <strong class='scorretto'>autenticazione</strong> </h2>
                     <p id='PsalvataggioPendente'>Quando ti è possibile esegui l'accesso o l'iscrizione e il tuo documento 
                         verrà automaticamente salvato nella tua Area Personale</p>
@@ -137,7 +137,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' aria-label=\"chiudi messaggio: conferma modifica documento\"></a>                          
                     </div>
-                        <h1 tabindex='0' aria-label=\"messaggio di conferma: Modifica confermata\">Modifica Confermata</h1>
+                        <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: Modifica confermata\">Modifica Confermata</h1>
                         <p>Confermiamo che la modifica del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
@@ -149,7 +149,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' aria-label=\"chiudi messaggio: conferma creazione utente\"></a>                          
                     </div>
-                    <h1 tabindex='0' aria-label=\"messaggio di conferma: Registrazione Confermata\">Registrazione Confermata</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: Registrazione Confermata\">Registrazione Confermata</h1>
                     <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='../php/area_personale.php'>Area Personale</a></p>
                     <div id='linkVelociPostConferma'>
@@ -161,7 +161,7 @@
                     <div id='closeDirettamente'>
                         <a href='PLACEHOLDER' aria-label=\"chiudi messaggio: conferma modifica utente\"></a>                          
                     </div>
-                    <h1 tabindex='0' aria-label=\"messaggio di conferma: Modifica utente confermata\">Modifica utente confermata</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: Modifica utente confermata\">Modifica utente confermata</h1>
                     <p>Le confermiamo che la modifica alle informazioni di utenza è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='../php/area_personale.php'>AREA PERSONALE</a>
@@ -170,7 +170,7 @@
                 break;
                 case "confermare_eliminazione_personaggio":
                     $htmlBanner .= "
-                    <h1 tabindex='0' aria-label=\"messaggio di richiesta di conferma: Confermare Eliminazione\">Confermare Eliminazione</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di richiesta di conferma: Confermare Eliminazione\">Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questa scheda giocatore?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
                     <form id='linkVelociPostConferma' method='post' action='action_character.php'>
@@ -184,7 +184,7 @@
                 break;
                 case "confermare_eliminazione_report":
                     $htmlBanner .= "
-                    <h1 tabindex='0' aria-label=\"messaggio di richiesta di conferma: confermare eliminazione\">Confermare Eliminazione</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di richiesta di conferma: confermare eliminazione\">Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questo <span xml:lang=\"en\" lang=\"en\">report</span> di sessione?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
                     <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
@@ -198,7 +198,7 @@
                 break;
                 case "confermare_eliminazione_commento":
                     $htmlBanner .= "
-                    <h1 tabindex='0' aria-label=\"messaggio di richiesta di conferma: confermare eliminazione\">Confermare Eliminazione</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di richiesta di conferma: confermare eliminazione\">Confermare Eliminazione</h1>
                     <h2>Sei sicuro di voler eliminare questo commento?</h2>
                     <p>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
                     <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
@@ -216,7 +216,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER' aria-label=\"chiudi messaggio: conferma publicazione report in area esplora\"></a>                          
                     </div>
-                        <h1 tabindex='0' aria-label=\"messaggio di conferma: Publicazione confermata\">Pubblicazione Confermata</h1>
+                        <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: Publicazione confermata\">Pubblicazione Confermata</h1>
                         <p>Confermiamo che la pubblicazion del <span xml:lang=\"en\" lang=\"en\">report</span> nell'area Esplora è avvenuta <strong class='corretto'>correttamente</strong></p>
                         <p>Dai subito un'occhiata al tuo <span xml:lang=\"en\" lang=\"en\">Report</span> nella sezione Esplora</p>
                     <div id='linkVelociPostConferma'>

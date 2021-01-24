@@ -17,7 +17,7 @@ function onLoadModificaDati(){
 
     var numCount = document.getElementById("future_username") ? 3 : 9;
     updateCounterTextarea(numCount);
-
+    
     removeHidden('immagine_profilo');
 }
 
@@ -67,7 +67,7 @@ function updateCounterTextarea(numCount){
             IDCurrent="currentCountNome";
             max=20;
             break;
-        case 9:
+        case 8:
             IDText="username";
             IDCurrent="currentCountUser";
             max=20;
@@ -253,6 +253,7 @@ function openDD(nth_dd) {
 
 function tornaSu() {
     window.scrollTo(0, 0);
+//    document.getElementById("").focus(); // reset or aiutiNav
 }
 
 // ---------------------------------------------------------------------------------
