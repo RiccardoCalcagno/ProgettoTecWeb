@@ -100,11 +100,13 @@
                         if($connection){
                             $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
                             $dbInterface->closeConnection();
-
+    
                             if($result){
                                 $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                                 //azzero la form
                                 $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
+                                header("Location: CreazioneReportPage.php#bannerID");
+                                exit();
                             }else{
                                 errorPage("EDB");exit();
                             }
@@ -116,8 +118,9 @@
                         $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
                         array_push($_SESSION['stagedReports'], $rep);
                         $_SESSION['banners']= "salvataggio_pendente";
+                        header("Location: CreazioneReportPage.php#bannerID");
+                        exit();
                     }
-    
                 }else{
                 $message = '<ul id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input">';
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
@@ -131,8 +134,6 @@
                 }
                 $message .= '</ul>';
                 }
-                header("Location: CreazioneReportPage.php#bannerID");
-                exit();
             }
     
 
@@ -272,9 +273,14 @@
         $html = str_replace("{RedirectHamburger}", "../php/CreazioneReportPage.php?Hamburger=yes", $html);
     }
 
-
-    $html = addPossibleBanner($html, "CreazioneReportPage.php");
-
+    if(/*isset($_SESSION['banner']) &&*/ $_SESSION['banners'] == "creazione_documento_confermata")
+    {
+        $html = addPossibleBanner($html, "CreazioneReportPage.php");
+    }
+    else if(/*isset($_SESSION['banner']) &&*/ $_SESSION['banners'] == "modifica_documento_confermata")
+    {
+        $html = addPossibleBanner($html, "CreazioneReportPage.php");
+    }
     echo $html;
 
 ?>

@@ -33,7 +33,7 @@
         {
             $html = str_replace("<p id=\"UserAlreadyExists\" class=\"hidden\">", "<p id=\"UserAlreadyExists\" class=\"text-errore\" role=\"alert\">", $html);
         $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
-  //      echo "utente esistente";
+
         }
 
 
@@ -41,7 +41,7 @@
         { 
        $html = str_replace("<p id=\"UserEmpty\" class=\"hidden\">","<p id=\"UserEmpty\" class=\"text-errore\" role=\"alert\" >", $html);
        $html = str_replace("name=\"username\"", "name=\"username\" class=\"input-errore\"", $html);
-//        echo "utente vuoto";
+
         }
 
         if($err["empty_passwd"])
@@ -49,8 +49,6 @@
        $html = str_replace("<p id=\"PasswordEmpty\" class=\"hidden\">","<p id=\"PasswordEmpty\" class=\"text-errore\" role=\"alert\">", $html);
        $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
-
-//        echo "password vuota";
         }
 
 
@@ -60,7 +58,6 @@
             $html = str_replace("name=\"PasswdAgan\"", "name=\"PasswdAgan\" class=\"input-errore\"", $html);
             $html = str_replace("name=\"newPasswd\"", "name=\"newPasswd\" class=\"input-errore\"", $html);
 
-//        echo "password ripetuta errata";
     }
 
 
@@ -69,7 +66,6 @@
             $html = str_replace("<p id=\"EmailErr\" class=\"hidden\">","<p id=\"EmailErr\" class=\"text-errore\" role=\"alert\">", $html);
             $html = str_replace("name=\"email\"", "name=\"email\" class=\"input-errore\"", $html);
 
-//        echo "email err";
     }         
    
         if($err["email_already_exist"])
@@ -77,7 +73,6 @@
             $html = str_replace("<p id=\"MailAlreadyExists\" class=\"hidden\">","<p id=\"MailAlreadyExists\" class=\"text-errore\" role=\"alert\" >", $html);
             $html = str_replace("name=\"email\"", "name=\"email\" class=\"input-errore\"", $html);
 
-//        echo "email esistente";
     }
 
         if($err["empty_name"])
@@ -85,7 +80,6 @@
             $html = str_replace("<p id=\"NameEmpty\" class=\"hidden\">","<p id=\"NameEmpty\" class=\"text-errore\" role=\"alert\">", $html);
             $html = str_replace("name=\"NomeCognome\"", "name=\"NomeCognome\" class=\"input-errore\"", $html);
 
-//        echo "nome vuoto";
     }
 
 
@@ -100,7 +94,6 @@
 
     if(isset($_SESSION['banners']) && $_SESSION['banners']=="creazione_utente_confermata"){
 
-//    echo "banner";
         unset($_SESSION["err"]);
         unset($_SESSION["tmpUser"]);
 
