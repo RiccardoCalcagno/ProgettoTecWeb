@@ -15,15 +15,15 @@
     pubblica_esplora_eplora_confermata
     */
 
-    if(session_status() == PHP_SESSION_NONE) {
+    //if(session_status() == PHP_SESSION_NONE) {
         session_start();
-    }
+    //}
 
     function staged_session() { // Da chiamare a inizio codice ogni volta che si possono usare staged
 
-        if(session_status() == PHP_SESSION_NONE) {
+        //if(session_status() == PHP_SESSION_NONE) {
             session_start();
-        }
+        //}
 
         if(!isset($_SESSION['stagedPersonaggi'])) {
             $_SESSION['stagedPersonaggi'] = array();
@@ -175,7 +175,7 @@
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento</p>
                     <form id='linkVelociPostConferma' method='post' action='action_character.php'>
                         <div>
-                            <a class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
+                            <a class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."' title='Annulla l\'eliminazione'>ANNULLA</a>
                             <input type='submit' class='buttonLink' name='documento' value='ELIMINA SCHEDA' aria-label=\"Elimina scheda definitivamente\"/>
                             <input type='hidden' name='charID' value=".$_SESSION['banners_ID']." />
                         </div>
@@ -189,7 +189,7 @@
                     <p>A seguito dell'operazione non sarà più possibile recuperare il documento e i commenti ad esso associati</p>
                     <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
                         <div>
-                            <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
+                            <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."' title='Annulla l\'eliminazione'>ANNULLA</a>
                             <input type='submit' class='buttonLink' name='documento' value='ELIMINA REPORT' aria-label=\"Elimina Report definitivamente\"/>
                             <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
                         </div>
@@ -203,7 +203,7 @@
                     <p>A seguito dell'operazione non sarà più possibile recuperare il contenuto del commento</p>
                     <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
                         <div>
-                            <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
+                            <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."' title='Annulla l\'eliminazione'>ANNULLA</a>
                             <input type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO' aria-label=\"Elimina commento definitivamente\"/>
                             <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']['ReportID']." />
                             <input type='hidden' id='CommentID' name='CommentID' value=".$_SESSION['banners_ID']['CommentID']." />
@@ -221,7 +221,7 @@
                         <p>Dai subito un'occhiata al tuo <span xml:lang=\"en\" lang=\"en\">Report</span> nella sezione Esplora</p>
                     <div id='linkVelociPostConferma'>
                         <a class='buttonLink' href='PLACEHOLDER'>CHIUDI</a>
-                        <a class='buttonLink' href='../php/EsploraPage.php'>ESPLORA</a>
+                        <a class='buttonLink' href='../php/EsploraPage.php' title='Vai alla pagina Esplora'>ESPLORA</a>
                     </div>";
                     unset($_SESSION['banners_ID']);
                 break;
