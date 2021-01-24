@@ -12,7 +12,7 @@ if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
     $html = str_replace("{RedirectHamburger}", "../php/404.php?Hamburger=yes", $html);
 }
 
-$html = addPossibleBanner($html, "404.php");
+$_SESSION['banners']=null;
 
 echo $html;
 
