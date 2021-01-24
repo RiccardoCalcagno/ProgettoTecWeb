@@ -271,13 +271,18 @@
         $html = str_replace("{RedirectHamburger}", "../php/CreazioneReportPage.php?Hamburger=yes", $html);
     }
 
-    if(/*isset($_SESSION['banner']) &&*/ $_SESSION['banners'] == "creazione_documento_confermata")
-    {
-        $html = addPossibleBanner($html, "CreazioneReportPage.php");
-    }
-    else if(/*isset($_SESSION['banner']) &&*/ $_SESSION['banners'] == "modifica_documento_confermata")
-    {
-        $html = addPossibleBanner($html, "CreazioneReportPage.php");
+    if(isset($_SESSION['banner'])){
+        if(/*isset($_SESSION['banner']) &&*/ $_SESSION['banners'] == "creazione_documento_confermata")
+            {
+            $html = addPossibleBanner($html, "CreazioneReportPage.php");
+            }
+        else if($_SESSION['banners'] == "modifica_documento_confermata")
+            {
+            $html = addPossibleBanner($html, "CreazioneReportPage.php");
+            }
+        else if($_SESSION['banners'] == "salvataggio_pendente"){
+            $html = addPossibleBanner($html, "CreazioneReportPage.php");
+            }
     }
     echo $html;
 
