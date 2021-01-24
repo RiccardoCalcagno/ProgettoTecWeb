@@ -2431,11 +2431,11 @@ p.campiObbligatori{
 }
 
 #personaggiUtente .cardPersonaggio dt{
-    width: 44%;
-    padding-left: 1.5em;
+    width: 50%;
     float: left;
     font-size: 0.9em;
     font-weight: 700;
+    text-align: center;
 }
 #personaggiUtente .cardPersonaggio dd{
     font-size: 0.9em;
