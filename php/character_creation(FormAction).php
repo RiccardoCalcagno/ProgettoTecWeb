@@ -233,7 +233,22 @@ function Char_Form($toEdit) {
         $html = str_replace("{RedirectHamburger}", "../php/character_creation(FormAction).php?Hamburger=yes", $html);
     }
 
-    $html = addPossibleBanner($html, "character_creation(FormAction).php");
+    //$html = addPossibleBanner($html, "character_creation(FormAction).php");
+    if(isset($_SESSION['banners']))
+    {
+	if($_SESSION['banners'] == "creazione_documento_confermata")
+	{
+	    $html = addPossibleBanner($html, "character_creation(FormAction).php");
+	}
+	else if($_SESSION['banners'] == "modifica_documento_confermata")
+	{
+	    $html = addPossibleBanner($html, "area_personale.php");
+	}
+	else if($_SESSION['banners'] == "salvataggio_pendente")
+	{
+	    $html = addPossibleBanner($html, "character_creation(FormAction).php");
+	}
+    }
 
     // unset($_SESSION['CharFormPOST']);   // Chiudo (come fosse POST) forse no, page refresh
 

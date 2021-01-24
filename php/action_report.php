@@ -137,7 +137,7 @@
     if(isset($_POST["eliminaCommento"])) {  // Eliminazione commento, da ReportPage.php
         $_SESSION['banners']="confermare_eliminazione_commento";
         $_SESSION['banners_ID'] = array("ReportID" => $_POST['ReportID'], "CommentID" => $_POST['eliminaCommento']);    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: ReportPage.php?ReportID=".$_POST['ReportID']."#anchorComment");
+        header("Location: ReportPage.php?ReportID=".$_POST['ReportID']."#bannerID");
         exit();
     }
 
@@ -161,7 +161,7 @@
     if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {    // Eliminazione Report, da ReportPage.php 
         $_SESSION['banners']="confermare_eliminazione_report";
         $_SESSION['banners_ID'] = $_GET['ReportID'];    // PASSAGGIO PER CAMPO HIDDEN
-        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
+        header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#bannerID");
         exit();
     }
 
@@ -194,7 +194,7 @@
             if(!$db->setExplorable($_GET['ReportID'])){$db->closeConnection();errorPage("EDB");exit();}
             $db->closeConnection();
             $_SESSION["banners"]="pubblica_esplora_eplora_confermata";
-            header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#footAction");
+            header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#bannerID");
         }else{
             errorPage("EDB");exit();
         }
