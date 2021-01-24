@@ -91,7 +91,6 @@
             }
             else if(mysqli_num_rows($query_result) == 0) 
             {
-                echo "Spiacenti! Utente non trovato";
                 return null;
             }
             else 
@@ -775,7 +774,6 @@
             $query = "SELECT * FROM Photo WHERE Photo.id = '".$photo_id."';";
             $query_result = mysqli_query($this->connection, $query);
             if(mysqli_num_rows($query_result) == 0) {
-                echo "Spiacenti! Foto non trovata";
                 return null;
             }
             else {

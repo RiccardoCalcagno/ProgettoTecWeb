@@ -105,6 +105,8 @@
                             $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                             //azzero la form
                             $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
+                            header("Location: CreazioneReportPage.php#bannerID");
+                            exit();
                         }else{
                             errorPage("EDB");exit();
                         }
@@ -116,8 +118,9 @@
                     $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
                     array_push($_SESSION['stagedReports'], $rep);
                     $_SESSION['banners']= "salvataggio_pendente";
+                    header("Location: CreazioneReportPage.php#bannerID");
+                    exit();
                 }
-    
                 }else{
                 $message = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; // TO FIX
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
@@ -131,8 +134,6 @@
                 }
                 $message .= '</ul></div>';
                 }
-                header("Location: CreazioneReportPage.php#bannerID");
-                exit();
             }
     
 

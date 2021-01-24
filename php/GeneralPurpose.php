@@ -119,7 +119,6 @@
 
     function validate_img($img, $path)
     {
-//echo " entrato in  validateImg";
         $uploadOk = true;
         if($img["error"] != UPLOAD_ERR_OK) 
         {
@@ -132,7 +131,6 @@
             $uploadOk = false;
         }
 
-//    echo "controllo esistenza file";
         return $uploadOk;
     }
 

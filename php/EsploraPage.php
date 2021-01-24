@@ -33,11 +33,6 @@ else{
     $_SESSION["report_data"] = $db->getReportExplorable();// getReportExplorable();     // DA METTERE
     $_SESSION["num_report_esplora"] = count($_SESSION["report_data"]);
 
-
-    //echo "<!DOCTYPE html><html lang='it' ><head>  </head> <body><h1>" .$_SESSION["num_report_esplora"]." -rep: ".$_SESSION['report_data']."</h1></body></html>";
-    //exit();
-
-
     for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
     {
         $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = count($db->getALLUsernamesForReport($_SESSION["report_data"][$i]->get_id()));
