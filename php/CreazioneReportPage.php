@@ -131,6 +131,8 @@
                 }
                 $message .= '</ul></div>';
                 }
+                header("Location: CreazioneReportPage.php");
+                exit();
             }
     
 
