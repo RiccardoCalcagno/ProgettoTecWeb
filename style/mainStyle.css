@@ -170,34 +170,6 @@ a.buttonLink:visited:active{
     color: #FFFFFF;
 }
 
-a.annulla{
-    background-color: #ffffff;
-    color: #3d2808;
-    text-align: center;
-    width:20em;
-    height: 2.7em;
-    border-radius: 4px;
-    border:none;
-    cursor: pointer;
-    margin:auto;
-    text-decoration: none;
-    display: block;
-    padding-top:0.55em;
-    height: 2.15em;
-}
-a.annulla:not(:visited):hover{
-    background-color: #f7daad !important;
-}
-a.annulla:visited:hover{
-    background-color: #ffffff !important;
-}
-a.annulla:active{
-    background-color: #fab485 !important;
-}
-a.annulla:visited{
-    background-color: #eecf95 !important;
-}
-
 .espandi{
     position: relative;
     top:-0.8em;
@@ -1831,7 +1803,7 @@ p.campiObbligatori{
     flex-wrap: wrap;
     margin: auto;
 }
-#bannerPage .buttonLink, #bannerPage .annulla{
+#bannerPage .buttonLink{
     margin-top: 1em;
     width: 13em;
 }
