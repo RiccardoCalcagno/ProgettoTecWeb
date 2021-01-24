@@ -133,7 +133,7 @@ button:focus{
 } */
 
 input[type="submit"].buttonLink, button.buttonLink{
-    border: 0.5em ridge #e4af3d;
+    border: 0.4em outset #c3ab76;
 }
 
 .buttonLink{
@@ -409,6 +409,7 @@ body a[aria-label="apri il menù"] {
 }
 #access input[value="Esci"]{
     width: 25%;
+    border: 0.4em outset #c3ab76;
 }
 #access input[value="Area Personale"]{
     width: 65%;
