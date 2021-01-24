@@ -105,8 +105,6 @@
                                 $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
                                 //azzero la form
                                 $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
-                                header("Location: CreazioneReportPage.php#bannerID");
-                                exit();
                             }else{
                                 errorPage("EDB");exit();
                             }
@@ -156,6 +154,8 @@
                     }
                     $aiutiNav = '<a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a>';
                     $dbInterface->closeConnection();
+                    header("Location: CreazioneReportPage.php#giocatoriRepo");
+                    exit();
                 }
                 else {
                     errorPage("EDB");exit();
