@@ -118,6 +118,7 @@
                         $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
                         array_push($_SESSION['stagedReports'], $rep);
                         $_SESSION['banners']= "salvataggio_pendente";
+                        unset($_SESSION['listaGiocatori']);
                     }
                     }else{
                 $message = '<ul id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input">';
