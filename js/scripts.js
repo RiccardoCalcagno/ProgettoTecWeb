@@ -174,7 +174,9 @@ function hamburgerFunction(){
     }else{
         x.style.display="block";
     }
-    return false;
+    var y = document.getElementById("hamburgerID");
+    y.setAttribute("href", "javascript:void(0)");
+   //return false;
 }
 
 function returnFalse(){return false;}
