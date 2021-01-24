@@ -15,7 +15,8 @@ function onLoadModificaDati(){
     today = yyyy+'-'+mm+'-'+dd;
     document.getElementById("birthdate").setAttribute("max", today);    
 
-    updateCounterTextarea(3);
+    var numCount = document.getElementById("future_username") ? 3 : 9;
+    updateCounterTextarea(numCount);
 
     removeHidden('immagine_profilo');
 }
