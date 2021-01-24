@@ -128,6 +128,7 @@ input[type="file"]{
 #intestazioneSito #menu > li {
     display: block;
     text-align: center;
+    background-color: #3b3835;
 }
 #intestazioneSito #menu .dropdown{
     width: 100%;
