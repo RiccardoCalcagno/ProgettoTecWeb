@@ -124,7 +124,7 @@
                     <div id='closeDirettamente'>
                     <a href='PLACEHOLDER'  aria-label=\"chiudi messaggio: conferma creazione documento\"></a>                          
                     </div>
-                    <h1 tabindex='0' aria-label=\"messaggio di conferma: Creazione Confermata\">Creazione Confermata</h1>
+                    <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: Creazione Confermata\">Creazione Confermata</h1>
                     <p>Confermiamo che la creazione del documento è avvenuta <strong class='corretto'>correttamente</strong></p>
                     <p id='refAreaPersConf' >Quando vorrai potrai recuperare questo speciale manufatto nella tua Area Personale</p>
                     <div id='linkVelociPostConferma'>
