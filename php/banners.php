@@ -70,7 +70,7 @@
             if((strpos($_SESSION['banners'],'lementi_salvati'))&&((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
                 $htmlBanner="
                     <div id='bannerSalvataggio'>
-                   <a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner' aria-label=\"chiudi banner degli elementi salvati\">Close</a>";
+                   <a xml:lang='en' href='../php/" . $returnPage . "' id='chiusuraBanner' aria-label=\"Chiudi banner degli elementi salvati\">Chiudi</a>";
                 if($_SESSION['banners']=="elementi_salvati_errore"){
                     $htmlBanner.="<p id='titoloAvviso' tabindex='0'>Sono stati riscontrati errori nel salvataggio</p><ul>";  
                 }else{
@@ -176,7 +176,7 @@
                     <form id='linkVelociPostConferma' method='post' action='action_character.php'>
                         <div>
                             <a class='annulla' href='../php/CharacterPage.php?Personaggio=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA SCHEDA' aria-label=\"Conferma l'eliminaziome della scheda personaggio\"/>
+                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA SCHEDA' aria-label=\"Elimina scheda definitivamente\"/>
                             <input type='hidden' name='charID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
@@ -190,7 +190,7 @@
                     <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
                         <div>
                             <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']."'>ANNULLA</a>
-                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA REPORT' aria-label=\"Conferma l'eliminazione del report di sessione\"/>
+                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA REPORT' aria-label=\"Elimina Report definitivamente\"/>
                             <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']." />
                         </div>
                     </form>";
@@ -204,7 +204,7 @@
                     <form id='linkVelociPostConferma' method='post' action='../php/action_report.php'>
                         <div>
                             <a class='annulla' href='../php/ReportPage.php?ReportID=".$_SESSION['banners_ID']['ReportID']."'>ANNULLA</a>
-                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO' aria-label=\"Conferma l'eliminazione del commento\"/>
+                            <input type='submit' class='buttonLink' name='documento' value='ELIMINA COMMENTO' aria-label=\"Elimina commento definitivamente\"/>
                             <input type='hidden' id='ReportID' name='ReportID' value=".$_SESSION['banners_ID']['ReportID']." />
                             <input type='hidden' id='CommentID' name='CommentID' value=".$_SESSION['banners_ID']['CommentID']." />
                         </div>

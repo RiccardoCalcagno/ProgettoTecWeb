@@ -184,13 +184,22 @@ else if($_SESSION["login"])
 
                 $html = str_replace("<form_personaggi/>", $_schede_personaggio, $html);
 
+                if ($_SESSION["num_pers"] == 0) {
+                    $html = str_replace('<charForm />', '', $html );
+                    $html = str_replace('</charForm />', '', $html );
+                }
+                else {
+                    $html = str_replace('<charForm />', '<form action="../php/action_character.php" method="get">', $html );
+                    $html = str_replace('</charForm />', '</form>', $html );
+                }
+
                 if($_SESSION["num_pers"] <= 4)
                 {
-                    $html = str_replace('<charForm />', 'class="hidden"', $html);
+                    $html = str_replace('<charFormEspandi />', 'class="hidden"', $html);
                     $_SESSION["espandiPers"] = true;
                 }
                 else {
-                    $html = str_replace('<charForm />', '', $html);
+                    $html = str_replace('<charFormEspandi />', '', $html);
                 }
 
                 if(isset($_SESSION["espandiPers"]) && $_SESSION["espandiPers"] == true)
@@ -274,12 +283,22 @@ else if($_SESSION["login"])
                     $html = str_replace('<li class="inputMove"><button type="submit" id="masterSuccessivo" class="successivo" name="espandi" value="masterSuccessivo" aria-label="Passa alla pagina successiva dei tuoi Report">Successiva</button></li> ', '', $html);
                 }
 
-                if($numero_pag_master <= 1)
-                {
-                    $html = str_replace('<masterForm />', 'class="hidden"', $html);
+
+                if ( $_SESSION["num_report_master"] == 0) {
+                    $html = str_replace('<masterForm />', '', $html );
+                    $html = str_replace('</masterForm />', '', $html );
                 }
                 else {
-                    $html = str_replace('<masterForm />', '', $html);
+                    $html = str_replace('<masterForm />', '<form action="../php/action_report.php" method="get">', $html );
+                    $html = str_replace('</masterForm />', '</form>', $html );
+                }
+
+                if($numero_pag_master <= 1)
+                {
+                    $html = str_replace('<masterFormEspandi />', 'class="hidden"', $html);
+                }
+                else {
+                    $html = str_replace('<masterFormEspandi />', '', $html);
                 }
 
                 $html = str_replace("<report_author/>", $_schede_report_master, $html);
@@ -337,13 +356,21 @@ else if($_SESSION["login"])
                 {      
                     $html = str_replace('<li class="inputMove"><button type="submit" id="partecSuccessivo" class="successivo" name="espandi" value="partecSuccessivo" aria-label="Passa alla pagina successiva dei Report condivisi con te">Successiva</button></li>', '', $html);
                 }
-
-                if($numero_pag_report <= 1)
-                {
-                    $html = str_replace('<partForm />', 'class="hidden"', $html);
+                
+                if ( $_SESSION["num_report"] == 0) {
+                    $html = str_replace('<partForm />', '', $html );
+                    $html = str_replace('</partForm />', '', $html );
                 }
                 else {
-                    $html = str_replace('<partForm />', '', $html);
+                    $html = str_replace('<partForm />', '<form action="../php/action_report.php" method="get">', $html );
+                    $html = str_replace('</partForm />', '</form>', $html );
+                }
+                if($numero_pag_report <= 1)
+                {
+                    $html = str_replace('<partFormEspandi />', 'class="hidden"', $html);
+                }
+                else {
+                    $html = str_replace('<partFormEspandi />', '', $html);
                 }
 
                 $html = str_replace("<report/>", $_schede_report, $html);
