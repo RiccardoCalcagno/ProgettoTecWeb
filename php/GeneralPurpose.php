@@ -106,6 +106,8 @@
 
     function redirect_GET($path, $get) {   // Dato il path, esegue il redirect come se action fosse su quella pagina
 
+        $vector=explode("#",$path);
+        $path=$vector[0];
         $path .= '?';
 
         foreach($get as $key => $value) {
@@ -113,6 +115,9 @@
         }
         $path = rtrim($path, '&');
 
+        if(isset($vector[1])&&($vector[1])){
+            $path .= "#".$vector[1];
+        }
         header("Location: $path");
         exit();
     }
