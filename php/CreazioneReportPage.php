@@ -154,6 +154,7 @@
                     }
                     $aiutiNav = '<a href="../php/CreazioneReportPage.php#writeUsername">torna all\' aggiunta di giocatori</a>';
                     $dbInterface->closeConnection();
+                    unset($_GET["aggiungiGiocatore"]);
                     redirect_GET("CreazioneReportPage.php#giocatoriRepo",$_GET);
                     exit();
                 }
