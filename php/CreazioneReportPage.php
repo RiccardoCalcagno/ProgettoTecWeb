@@ -79,9 +79,9 @@
 
         if(   (isset($_GET['salvaRep']))  ||  (isset($_GET['aggiungiGiocatore']))  ||  (isset($_GET['deletePlayer']))   ){
 
-            $titolo = $_GET['titolo'];
-            $sottotitolo = $_GET['sottotitolo'];
-            $contenuto = $_GET['contenuto'];
+            $titolo = clean_input($_GET['titolo']);
+            $sottotitolo = clean_input($_GET['sottotitolo']);
+            $contenuto = clean_input($_GET['contenuto']);
             $condividi = (int)(isset($_GET['condividi']));
     
  
@@ -90,47 +90,47 @@
     
                 if( strlen($titolo) <= 30 && strlen($titolo)>=3 && strlen($sottotitolo) <= 120 && strlen($sottotitolo)>=3 && strlen($contenuto) >=3  ){
     
-                if(isset($_SESSION['username'])) {
+                    if(isset($_SESSION['username'])) {
 
-                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
+                        $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
 
-                    $dbInterface = new DBinterface();
-                    $connection = $dbInterface->openConnection();
+                        $dbInterface = new DBinterface();
+                        $connection = $dbInterface->openConnection();
+        
+                        if($connection){
+                            $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
+                            $dbInterface->closeConnection();
     
-                    if($connection){
-                        $result = $toEdit ? $dbInterface->setReport($rep) : $dbInterface->addReport($rep);
-                        $dbInterface->closeConnection();
-
-                        if($result){
-                            $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
-                            //azzero la form
-                            $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
-                            header("Location: CreazioneReportPage.php#bannerID");
-                            exit();
-                        }else{
+                            if($result){
+                                $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
+                                //azzero la form
+                                $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
+                                header("Location: CreazioneReportPage.php#bannerID");
+                                exit();
+                            }else{
+                                errorPage("EDB");exit();
+                            }
+                        }
+                        else{
                             errorPage("EDB");exit();
                         }
+                    }else{
+                        $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
+                        array_push($_SESSION['stagedReports'], $rep);
+                        $_SESSION['banners']= "salvataggio_pendente";
                     }
-                    else{
-                        errorPage("EDB");exit();
-                    }
-                }else{
-                    $rep = new ReportData($id_report, $titolo, $sottotitolo, $contenuto, null, $condividi, $_SESSION['listaGiocatori']);
-                    array_push($_SESSION['stagedReports'], $rep);
-                    $_SESSION['banners']= "salvataggio_pendente";
-                }
-                }else{
-                $message = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; // TO FIX
+                    }else{
+                $message = '<ul id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input">';
                 if ( (strlen($titolo) > 30 || strlen($titolo)<3)) {
-                    $message.='<li role=\"alert\">Titolo non valido! Il titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</li>';
+                    $message.='<li><p role="alert">Titolo non valido! Il titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri</p></li>';
                 }
                 if ((strlen($sottotitolo) > 120 || strlen($sottotitolo)<3)) {
-                    $message .='<li role=\"alert\">Sottotitolo non valido! Il sottotitolo deve avere una lunghezza compresa tra i 3 e 120 caratteri</li>';
+                    $message .='<li><p role="alert">Sottotitolo non valido! Il sottotitolo deve avere una lunghezza compresa tra i 3 e 120 caratteri</p></li>';
                 }
                 if (strlen($contenuto) < 3) {
-                    $message.='<li role=\"alert\">Contenuto non valido! Il contenuto deve avere almeno 3 caratteri</li>';
+                    $message.='<li><p role="alert">Contenuto non valido! Il contenuto deve avere almeno 3 caratteri</p></li>';
                 }
-                $message .= '</ul></div>';
+                $message .= '</ul>';
                 }
             }
     

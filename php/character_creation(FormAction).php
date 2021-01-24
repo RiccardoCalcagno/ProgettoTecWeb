@@ -66,18 +66,18 @@ function preparePage($htmlPage, $toEdit) {
 }
 
 function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws) {
-    $messaggioForm = '<div id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input"><ul>'; 
+    $messaggioForm = '<ul id="errori" class="" tabindex="10" aria-label="sono stati riscontrati alcuni errori. ti trovi all\' inizio della lista di input">'; 
 
     if(!$check_name) {
         $namelen = strlen($name);
         if ($namelen < 3) { 
-            $messaggioForm .= '<li role=\"alert\">Nome personaggio non valido! Il nome deve avere almeno 3 caratteri</li>';
+            $messaggioForm .= '<li><p role="alert">Nome personaggio non valido! Il nome deve avere almeno 3 caratteri</p></li>';
         }
         else if ($namelen > 20) {
-            $messaggioForm .= '<li role=\"alert\">Nome personaggio non valido! Il nome deve avere al massimo 20 caratteri</li>';
+            $messaggioForm .= '<li><p role="alert">Nome personaggio non valido! Il nome deve avere al massimo 20 caratteri</p></li>';
         }
         else {
-            $messaggioForm .= '<li role=\"alert\">Nome personaggio non valido! Nel nome si possono utilizzare solo lettere, spazi, virgole, punti e <span xml:lang="en">hypen</span></li>';
+            $messaggioForm .= '<li><p role="alert">Nome personaggio non valido! Nel nome si possono utilizzare solo lettere, spazi, virgole, punti e <span xml:lang="en">hypen</span></p></li>';
         }
     }
 
@@ -85,10 +85,10 @@ function getErrors($name,$check_name, $check_traits, $check_ideals, $check_bonds
     $checkCharTraits = array($check_traits, $check_ideals, $check_bonds, $check_flaws);
     for ($i = 0; $i < 4; $i++) {
         if(!$checkCharTraits[$i]) {
-            $messaggioForm .= '<li role=\"alert\">Il campo "' . $charTraits[$i]. '" non è valido! "' . $charTraits[$i] . '" deve contenere almeno 10 caratteri </li>';
+            $messaggioForm .= '<li><p role="alert">Il campo "' . $charTraits[$i]. '" non è valido! "' . $charTraits[$i] . '" deve contenere almeno 10 caratteri</p></li>';
         }
     }
-    $messaggioForm .= '</ul></div>';
+    $messaggioForm .= '</ul>';
     
     return $messaggioForm;
 }
@@ -118,21 +118,21 @@ function Char_Form($toEdit) {
         //Fare i controlli sugli input
         //Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
 
-        $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", $name);// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
+        $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", clean_input($name));// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
         //$check_race = ;            //provengono da select, non possono essere sbagliati, no?
         //$check_class = ;
         //$check_background = ;
         //$check_alignment = ;
-        $check_traits = checkText($traits);
-        $check_ideals = checkText($ideals);
-        $check_bonds = checkText($bonds);
-        $check_flaws = checkText($flaws);
+        $check_traits = checkText(clean_input($traits));
+        $check_ideals = checkText(clean_input($ideals));
+        $check_bonds = checkText(clean_input($bonds));
+        $check_flaws = checkText(clean_input($flaws));
 
         if($check_name && $check_traits && $check_ideals && $check_bonds && $check_flaws){
             //se passo i controlli allora passo gli input alla costruzione di dati per il DB.
             $character = new Character(
                 0,    // ID qui inutile, non viene considerato per inserimento DB (e poi oggetto character viene distrutto) (aggiungere valore di default?)
-                $name,
+                clean_input($name),
                 $race, $class, $background, $alignment,    // Ok, select
                 clean_input($traits), 
                 clean_input($ideals), 
