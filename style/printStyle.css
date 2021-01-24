@@ -42,12 +42,12 @@ h2 {
 /*    font-weight: normal;*/
 }
 
-a:not(.annulla)::after {
+a::after {
     content: " [" attr(href) "] ";
     font-size: 90%;
 }
 
-.buttonLink, .annulla {
+.buttonLink{
     box-sizing: content-box;
     display: inline-block;
     text-decoration: underline;

@@ -132,6 +132,10 @@ button:focus{
     outline: none;
 } */
 
+input[type="submit"].buttonLink, button.buttonLink{
+    border: 0.4em outset #c3ab76;
+}
+
 .buttonLink{
     background-color: #81521c;
     color: #FFF8E6;
@@ -168,34 +172,6 @@ a.buttonLink:visited:hover, a.buttonLink:visited:focus{
 a.buttonLink:visited:active{
     background-color: #3e9e07 !important;
     color: #FFFFFF;
-}
-
-a.annulla{
-    background-color: #ffffff;
-    color: #3d2808;
-    text-align: center;
-    width:20em;
-    height: 2.7em;
-    border-radius: 4px;
-    border:none;
-    cursor: pointer;
-    margin:auto;
-    text-decoration: none;
-    display: block;
-    padding-top:0.55em;
-    height: 2.15em;
-}
-a.annulla:not(:visited):hover{
-    background-color: #f7daad !important;
-}
-a.annulla:visited:hover{
-    background-color: #ffffff !important;
-}
-a.annulla:active{
-    background-color: #fab485 !important;
-}
-a.annulla:visited{
-    background-color: #eecf95 !important;
 }
 
 .espandi{
@@ -433,6 +409,7 @@ body a[aria-label="apri il menù"] {
 }
 #access input[value="Esci"]{
     width: 25%;
+    border: 0.4em outset #c3ab76;
 }
 #access input[value="Area Personale"]{
     width: 65%;
@@ -1831,7 +1808,7 @@ p.campiObbligatori{
     flex-wrap: wrap;
     margin: auto;
 }
-#bannerPage .buttonLink, #bannerPage .annulla{
+#bannerPage .buttonLink{
     margin-top: 1em;
     width: 13em;
 }
@@ -2383,6 +2360,7 @@ p.campiObbligatori{
     z-index: 1;
     border-radius: 0;
     border-bottom-right-radius: 0.6em;
+    border:none;
 }
 #personaggiUtente .cardPersonaggio:not(.phpCard) > div:first-child{
     text-indent:100%; white-space:nowrap; overflow:hidden;
@@ -2588,6 +2566,7 @@ p.campiObbligatori{
     position: absolute;
     top: -1.6em;
     left:-0.7em;
+    border:none;
 }
 #bodyEsplora .testoCardRep > div button{
     top: -0.7em;
