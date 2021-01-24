@@ -12,9 +12,9 @@ if((isset($_GET["Hamburger"])) && ($_GET["Hamburger"]=="yes")){
     $html = str_replace("{RedirectHamburger}", "../php/Errore.php?Hamburger=yes", $html);
 }
 
-$html = addPossibleBanner($html, "Errore.php");
 $html = str_replace('<TestoErrore />', $_SESSION['errorMessage'], $html);
 
+$_SESSION['banners']=null;
 
 echo $html;
 ?>
