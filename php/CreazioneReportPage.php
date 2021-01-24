@@ -271,7 +271,7 @@
         $html = str_replace("{RedirectHamburger}", "../php/CreazioneReportPage.php?Hamburger=yes", $html);
     }
 
-    if(isset($_SESSION['banner'])){
+    if(isset($_SESSION['banners'])){
         echo "heyyyy";
         exit();
         if($_SESSION['banners'] == "creazione_documento_confermata")
