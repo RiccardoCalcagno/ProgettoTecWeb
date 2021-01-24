@@ -236,7 +236,21 @@ input[type="file"]:hover{
     text-align: center; color: rgb(216, 0, 0); background-color: #FFFFFF; padding: 1em;
 }
 
+.hidden {
+    display: none !important;
+}
 
+.input-errore {
+    box-shadow: 0 0 0 2px #da0000;
+}
+
+#errori p, .text-errore {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #da0000;
+    margin: 0 auto 0.5em;
+}
 
 /*                                                      
 ----------------------------------------------------------- BADGE -------------------------------------------------------------------*/
@@ -3256,22 +3270,6 @@ body.errorPage section, body.errorPage header{
 
 #body404 .buttonLink {
     width: 13em;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.input-errore {
-    box-shadow: 0 0 0 2px red;
-}
-
-.text-errore {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    color: red;
-    margin: 0 auto 0.5em;
 }
 
 #ImgErr, #UserEmpty, #UserAlreadyExists, #NameEmpty, #EmailErr, #MailAlreadyExists, #NewPasswdEmpty, .RepPasswdErr
