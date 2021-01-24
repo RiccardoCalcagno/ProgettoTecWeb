@@ -66,7 +66,7 @@ function updateCounterTextarea(numCount){
             IDCurrent="currentCountNome";
             max=20;
             break;
-        case 8:
+        case 9:
             IDText="username";
             IDCurrent="currentCountUser";
             max=20;
