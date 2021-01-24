@@ -272,8 +272,6 @@
     }
 
     if(isset($_SESSION['banners'])){
-        echo "heyyyy";
-        exit();
         if($_SESSION['banners'] == "creazione_documento_confermata")
             {
             $html = addPossibleBanner($html, "CreazioneReportPage.php");
