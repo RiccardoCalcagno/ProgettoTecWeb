@@ -1,29 +1,10 @@
 <?php
 
-    /*
-    La variabile banners può assumere i seguenti valori:
+    session_start();
 
-    null
-    salvataggio_pendente
-    creazione_documento_confermata
-    modifica_documento_confermata
-    creazione_utente_confermata
-    modifica_utente_confermata
-    confermare_eliminazione_personaggio
-    confermare_eliminazione_report
-    elementi_salvati
-    pubblica_esplora_eplora_confermata
-    */
+    function staged_session() { 
 
-    //if(session_status() == PHP_SESSION_NONE) {
         session_start();
-    //}
-
-    function staged_session() { // Da chiamare a inizio codice ogni volta che si possono usare staged
-
-        //if(session_status() == PHP_SESSION_NONE) {
-            session_start();
-        //}
 
         if(!isset($_SESSION['stagedPersonaggi'])) {
             $_SESSION['stagedPersonaggi'] = array();
@@ -31,8 +12,7 @@
 
         if(!isset($_SESSION['stagedReports'])) {
             $_SESSION['stagedReports'] = array();
-        }
-        
+        }  
     }
 
     function addPossibleBanner($html, $returnPage) {
@@ -50,12 +30,7 @@
         if(isset($_SESSION['stagedPersonaggi'])){
             $_SESSION['stagedPersonaggi']=null;
         }
-        /*
-        if(((isset($_SESSION['stagedReports'])&&($_SESSION['stagedReports']))||(isset($_SESSION['stagedPersonaggi'])&&($_SESSION['stagedPersonaggi'])))){
-            foreach ($_SESSION['stagedPersonaggi'] as $i => $value) {unset($_SESSION['stagedPersonaggi'][$i]);}
-            foreach ($_SESSION['stagedReports'] as $i => $value) {unset($_SESSION['stagedReports'][$i]);}
-        }
-        */
+    
     }
     $_SESSION['banners']=null;
     

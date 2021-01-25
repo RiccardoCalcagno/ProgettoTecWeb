@@ -43,21 +43,15 @@
             return $this->report;
         }
 
-
-        // non ha senso settare l'id
-
         public function set_text($var)
         {
             $this->text = $var;
         }
 
-        // non ha senso settare la data
-
         public function set_author($var)
         {
             $this->author = $var;
         }
-        // non ha senso cambiare il report
     }
 
 ?>

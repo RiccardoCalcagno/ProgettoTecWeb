@@ -5,7 +5,7 @@
         session_start();
    
 
-    if ( isset($_GET["PostRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+    if ( isset($_GET["PostRep"])) {  
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_GET["PostRep"]) ) {
@@ -23,7 +23,7 @@
         header("Location: area_personale.php#reportMaster");
         exit();
     }
-    if ( isset($_GET["RemoveRep"])) {    // Pubblica in Esplora, da banner conferma_pubblica in AreaPersonale.php
+    if ( isset($_GET["RemoveRep"])) {   
         $db = new DBinterface();
         if( $db->openConnection() ) {
             if (!$db->setExplorable($_GET["RemoveRep"],0) ) {
@@ -51,17 +51,17 @@
         header("Location: area_personale.php#reportMaster");
     }
 
-    if( isset($_GET["ReportMaster"]) ) {    // Report creato da user, Da AreaPersonale.php
+    if( isset($_GET["ReportMaster"]) ) {    
         header("Location: ReportPage.php?ReportID=".$_GET["ReportMaster"]);
         exit();
     }
 
-    if(isset($_GET["ReportPartecip"])) {    // Report in cui user partecipa, Da AreaPersonale.php
+    if(isset($_GET["ReportPartecip"])) {   
         header("Location: ReportPage.php?ReportID=".$_GET["ReportPartecip"]);
         exit();
     }
 
-    if(isset($_GET["ReportEsplora"])) { // Report condiviso in esplora, Da EsploraPage.php
+    if(isset($_GET["ReportEsplora"])) { 
         header("Location: ReportPage.php?ReportID=".$_GET["ReportEsplora"]);
         exit();
     }
@@ -122,26 +122,14 @@
         }
     }
 
-
-
-    // if(isset($_GET["contenutoCommento"]))
-    // {
-    //     //create comment from data
-    //     $comment = new Comments(0,$_GET["contenutoCommento"],0,$_SESSION["username"],$_SESSION["report_id"]);
-    //     $db->openConnection();
-    //     $db->addComments($comment);
-    //     $db->closeConnection();
-    //     header("Location: ReportPage.php");
-    // }
-
-    if(isset($_POST["eliminaCommento"])) {  // Eliminazione commento, da ReportPage.php
+    if(isset($_POST["eliminaCommento"])) { 
         $_SESSION['banners']="confermare_eliminazione_commento";
-        $_SESSION['banners_ID'] = array("ReportID" => $_POST['ReportID'], "CommentID" => $_POST['eliminaCommento']);    // PASSAGGIO PER CAMPO HIDDEN
+        $_SESSION['banners_ID'] = array("ReportID" => $_POST['ReportID'], "CommentID" => $_POST['eliminaCommento']); 
         header("Location: ReportPage.php?ReportID=".$_POST['ReportID']."#bannerID");
         exit();
     }
 
-    if(isset($_POST["documento"]) && $_POST['documento'] == 'ELIMINA COMMENTO') {   // Eliminazione commento, da banner conferma_eliminazine in ReportPage.php
+    if(isset($_POST["documento"]) && $_POST['documento'] == 'ELIMINA COMMENTO') { 
         
         $db = new DBinterface();
         if( $db->openConnection() ) {
@@ -153,20 +141,18 @@
         else {
             errorPage("EDB");exit();
         }
-// feedback?
         header("Location: ReportPage.php?ReportID=".$_POST["ReportID"]."#anchorComment");
         exit();
     }
 
-    if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {    // Eliminazione Report, da ReportPage.php 
+    if(isset($_GET["reportAction"]) && $_GET['reportAction'] == 'ELIMINA') {
         $_SESSION['banners']="confermare_eliminazione_report";
-        $_SESSION['banners_ID'] = $_GET['ReportID'];    // PASSAGGIO PER CAMPO HIDDEN
+        $_SESSION['banners_ID'] = $_GET['ReportID']; 
         header("Location: ReportPage.php?ReportID=".$_GET['ReportID']."#bannerID");
         exit();
     }
 
-    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA REPORT' ) {  // Eliminazione Report, da banner conferma_eliminazine in ReportPage.php
-        // Serve una pagina solo per questo ? o anche solo una function ? .
+    if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA REPORT' ) {
             $db = new DBinterface();
             if($db->openConnection()) {
     
@@ -174,7 +160,6 @@
                 $db->closeConnection();
         
                 if ($done) {
-                    // FEEDBACK? like $_SESSION['AP_message'] = 'Cancellazione Riuscita.'; // e poi metterlo in AreaP
                     header("Location: area_personale.php");
                 }
                 else {

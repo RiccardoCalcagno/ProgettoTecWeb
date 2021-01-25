@@ -1,9 +1,9 @@
 function onLoadModificaDati(){
 
-    // SETTARE LA DATA MASSIMA DI NASCITA
+
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
+    var mm = today.getMonth()+1;
     var yyyy = today.getFullYear();
      if(dd<10){
             dd='0'+dd
@@ -176,7 +176,6 @@ function hamburgerFunction(){
     }
     var y = document.getElementById("hamburgerID");
     y.setAttribute("href", "javascript:void(0)");
-   //return false;
 }
 
 function returnFalse(){return false;}
@@ -214,7 +213,7 @@ function CharSheet_JS_ON() {
     sheetButton.setAttribute('type', 'button');
 }
 
-function footer_JS_ON() { // IF JS ON -> interactive footer
+function footer_JS_ON() { 
 
     document.getElementById("globalFooter").className = "interactive";
 }
@@ -227,25 +226,25 @@ function openDD(nth_dd) {
     var dd = dl.querySelectorAll("dd")[nth_dd];
 
     if(dl.className === "open-footer") {    
-    // Un dd e' gia' aperto
+    
 
-        if (dd.className === "footer-open-dd") {    // il dd corrispondente era aperto, chiudilo e ripristina dl
+        if (dd.className === "footer-open-dd") { 
             dl.className = "";
             dd.className = "";
         }
         
-        else {  // Un dd era aperto, chiudilo e apri il nuovo
+        else { 
             var dds = dl.querySelectorAll("dd");
             for(i = 0; i < 4; i++) {
                 var dd_i = dds[i];
                 if (dd_i.className === "footer-open-dd") {
-                    dd_i.className = "";    // Chiudi dd aperto
+                    dd_i.className = "";   
                 }
             }
-            dd.className = "footer-open-dd";    // Apri nuovo dd
+            dd.className = "footer-open-dd"; 
         }
     }
-    else {  // Nessuno dd era aperto, aprilo
+    else {  
         dl.className = "open-footer";
         dd.className = "footer-open-dd";
     }
@@ -255,14 +254,9 @@ function openDD(nth_dd) {
 
 function tornaSu() {
     window.scrollTo(0, 0);
-//    document.getElementById("").focus(); // reset or aiutiNav
+
 }
 
-// ---------------------------------------------------------------------------------
-// ------------------------------- General Validator -------------------------------
-// ---------------------------------------------------------------------------------
-
-// Abstract Validator
 function validateForm(testArray) {
     var corretto = true;
     var firstError = true;
@@ -273,7 +267,7 @@ function validateForm(testArray) {
 
         if(!corretto && firstError) {
             input.previousSibling.scrollIntoView();
-            window.scrollBy(0, -100); // Feedback (Doesn't work consistentely?)
+            window.scrollBy(0, -100); 
             firstError = false;
         }
     }
@@ -283,7 +277,6 @@ function validateForm(testArray) {
 
 function validazioneCampo(input, inputArray) {
 
-    // Elimino messaggi precedenti per evitare ripetizione
    clearErrorStatus(input);
 
    var a=document.getElementsByClassName("text-errore");
@@ -291,9 +284,9 @@ function validazioneCampo(input, inputArray) {
        k.className="hidden";
    }
 
-    var regex = inputArray[0]; // Espressione regolare associata all' ID
+    var regex = inputArray[0]; 
     var text = input.value;
-    if (text.search(regex) != 0) {  // seartch match
+    if (text.search(regex) != 0) { 
         mostraErrore(input, inputArray);
         return false;
     }
@@ -316,19 +309,13 @@ function mostraErrore(input, inputArray) {
 
     var elemento = document.createElement("strong");
     elemento.className = "text-errore";
-    //elemento.setAttribute("tabindex","0");
     elemento.setAttribute("role","alert");
-    //elemento.appendChild(document.createTextNode(testArray[input.id][1])); e' piu' giusto?
-    elemento.innerHTML = inputArray[1];    // Per usare tags all'interno
-    
+    elemento.innerHTML = inputArray[1];   
+
     var p = input.parentNode;
     p.insertBefore(elemento, input);
 }
-// ------------------------------------------------------------------------------------
-// ------------------------------- validateCharCreation -------------------------------
-// ------------------------------------------------------------------------------------
 
-// NameSpace ?
 var charCreationTextRegex = /^[\s\S]{10,}$/;
 var charCreationTextErrorMessage = "Il campo non è valido! Deve contenere almeno 10 caratteri";
 var charCreationValues = {
@@ -346,11 +333,6 @@ function validateCharCreation() {
     }
     return b;
 }
-
-// ---------------------------------------------------------------------------------
-// ------------------------------- validatereport ----------------------------------
-// ---------------------------------------------------------------------------------
-// NameSpace ?
 
 var reportValues = {
     "titoloReport": [/^.{3,30}$/, "Titolo non valido! Il titolo deve avere una lunghezza compresa tra i 3 e 30 caratteri"],
@@ -386,10 +368,6 @@ function trasforma(e){
             document.getElementById("buttonPartecip").addEventListener("click",trasforma);
 })
 
-// ---------------------------------------------------------------------------------
-// ------------------------------- log-in ------------------------------------------
-// ---------------------------------------------------------------------------------
-// NameSpace ?
 
 var loginValues = {
     "username": [/^.{1,}$/, "Utente o password scorretti!"],
@@ -400,20 +378,13 @@ function validateLogin() {
     return validateForm(loginValues);
 }
 
-// ---------------------------------------------------------------------------------
-// ------------------------------- log-in e Change Data ------------------------------------------
-// ---------------------------------------------------------------------------------
-// NameSpace ?
 var userDataValues = {
-    // ID: ["TestDaEseguire", "MessaggioErrore"]
     "future_username": [/^.{1,}$/, "Username non valido! Lo username deve almeno un carattere e non deve essere vuoto "],
-    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"], /* TO FIX ?*/
-    "future_email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "E-mail non valida!"]
+    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"],
 };
 var newUserDataValues = {
-    // ID: ["TestDaEseguire", "MessaggioErrore"]
     "username": [/^.{1,}$/, "Username non valido! Lo username deve almeno un carattere e non deve essere vuoto "],
-    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"], /* TO FIX ?*/
+    "NomeCognome": [/^[a-z][a-z ,.'-]{2,20}$/i, "Nome e cognome non validi! Il nome deve avere almeno due caratteri"],
     "email": [/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, "E-mail non valida!"],
     "newPasswd": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"]
 };
@@ -423,10 +394,9 @@ function validateUserData() {
     return validateForm(newUserDataValues) && checkPasswordMatch();
 }
 
-/* TO FIX MAKE BETTER */
 function checkPasswordMatch() {
 
-    var passwordMatchValues = { // KINDA MEH
+    var passwordMatchValues = { 
         "newPasswd": ["", "Le password devono coincidere!"],
         "PasswdAgan": ["", "Le password devono coincidere!"]
     };
@@ -440,7 +410,7 @@ function checkPasswordMatch() {
     if(psw.value != conf_psw.value) {
         mostraErrore(psw, passwordMatchValues[psw.id]);
         mostraErrore(conf_psw, passwordMatchValues[conf_psw.id]);
-        window.scrollBy(0, -10); // Feedback
+        window.scrollBy(0, -10);
 
         return false;
     }
@@ -449,10 +419,8 @@ function checkPasswordMatch() {
     }
 }
 
-// ------------------------------- Change Data ------------------------------------------
-
 var oldPasswordValue = {
-    "password": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"] // DA NON CONTROLLARE, PASSWORD CORRENTE. min 3 chars (5?)
+    "password": [/^.{3,}$/, "Password non valida! La password deve contenere almeno 3 caratteri"] 
 };
 
 var newPasswordValue = {
@@ -460,8 +428,7 @@ var newPasswordValue = {
 }
 
 function validateChangeUserData() {
-//    validateForm(futureEmail) TO FIX !!!!!! ----------------------------------------------------------------------------------------------------------
-    return validateForm(userDataValues);    // Stesso di log-in MA EMAIL ID DIVERSO -----------------------------------------------------------------------
+    return validateForm(userDataValues); 
 }
 
 function validateChangeUserPassword() {
@@ -487,10 +454,6 @@ function removeHidden(id_name)
     element.setAttribute("class", "");    
 }
 
-// ---------------------------------------------------------------------------------
-// ------------------------------- Approfondimenti ------------------------------------------
-// ---------------------------------------------------------------------------------
-
 function goBack()
 {
     window.history.back();
@@ -501,12 +464,6 @@ function js_on_approf(){
     backLink.classList.remove("hidden");
     backLink.classList.add("buttonLink");
 }
-
-// ---------------------------------------------------------------------------------
-// ------------------------------- Espandi Personaggi -------------------------------
-// ---------------------------------------------------------------------------------
-
-
 
 
 function vediPiùPers(){
@@ -526,10 +483,6 @@ function vediPiùPers(){
     return false;
 }
 
-// ---------------------------------------------------------------------------------
-// ------------------------------- Visualizza documento -----------------------------
-// ---------------------------------------------------------------------------------
-
 function visualizzaPersonaggio(num){
     window.location.href = "../php/action_character.php?Personaggio="+num;
 }
@@ -542,10 +495,6 @@ function visualizzaReportPartecip(num){
 function visualizzaReportEsplora(num){
     window.location.href = "../php/action_report.php?ReportEsplora="+num;
 }
-
-// ---------------------------------------------------------------------------------
-// ------------------------ Setta Cards per JS -------------------------------
-// ---------------------------------------------------------------------------------
 
 function setCardsReport(){
     var i=1;

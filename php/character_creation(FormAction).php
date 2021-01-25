@@ -5,7 +5,7 @@ require_once("character.php");
 require_once("banners.php");
 
 function checkText($text) {
-    return preg_match("/^[\s\S]{10,}$/", $text); // clean_input dopo
+    return preg_match("/^[\s\S]{10,}$/", $text); 
 }
 
 function preparePage($htmlPage, $toEdit) {
@@ -28,7 +28,7 @@ function preparePage($htmlPage, $toEdit) {
 
             $ariaLabelValue = 'Salva modifica effettuata alla scheda personaggio';
 
-            $hiddenCharID = '<input type="hidden" name="charID" value="'.$_GET['charID'].'" />';     // toEdit => get 
+            $hiddenCharID = '<input type="hidden" name="charID" value="'.$_GET['charID'].'" />';    
     }
     else  {
 
@@ -48,11 +48,8 @@ function preparePage($htmlPage, $toEdit) {
 
             $ariaLabelValue = 'Salva scheda personaggio';
 
-            // $hiddenCharID = '';
     }
-    // else {
-    //     // ERROR PAGE ? forse non serve neanche 
-    // }
+
     
 
     $htmlPage = str_replace('<titleValue />', $title, $htmlPage);
@@ -105,8 +102,8 @@ function Char_Form($toEdit) {
     $html = setup($html);
     $html = preparePage($html, $toEdit);
 
-    if ( isset($_SESSION['CharFormPOST']) ) {   // $_SESSION['CharFormPOST'] == $_POST prima del redirect
-        $name = $_SESSION['CharFormPOST']['cname'];    //estraggo dal post della form le informazioni contenute
+    if ( isset($_SESSION['CharFormPOST']) ) {  
+        $name = $_SESSION['CharFormPOST']['cname'];  
         $race = $_SESSION['CharFormPOST']['crace'];
         $class = $_SESSION['CharFormPOST']['cclass'];
         $background = $_SESSION['CharFormPOST']['cbackground'];
@@ -115,25 +112,19 @@ function Char_Form($toEdit) {
         $ideals = $_SESSION['CharFormPOST']['cideals'];
         $bonds = $_SESSION['CharFormPOST']['cbonds'];
         $flaws = $_SESSION['CharFormPOST']['cflaws'];
-        //Fare i controlli sugli input
-        //Uso variabili booleane, true se la variabile che controlla passa il check, false altrimenti
 
-        $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", clean_input($name));// trim dopo, accetta sequenze strane ,,,,---...  //preg_match("/\\S+/",$name);
-        //$check_race = ;            //provengono da select, non possono essere sbagliati, no?
-        //$check_class = ;
-        //$check_background = ;
-        //$check_alignment = ;
+        $check_name = preg_match("/^[a-z][a-z ,.'-]{2,20}$/i", clean_input($name));
+
         $check_traits = checkText(clean_input($traits));
         $check_ideals = checkText(clean_input($ideals));
         $check_bonds = checkText(clean_input($bonds));
         $check_flaws = checkText(clean_input($flaws));
 
         if($check_name && $check_traits && $check_ideals && $check_bonds && $check_flaws){
-            //se passo i controlli allora passo gli input alla costruzione di dati per il DB.
             $character = new Character(
-                0,    // ID qui inutile, non viene considerato per inserimento DB (e poi oggetto character viene distrutto) (aggiungere valore di default?)
+                0,    
                 clean_input($name),
-                $race, $class, $background, $alignment,    // Ok, select
+                $race, $class, $background, $alignment,   
                 clean_input($traits), 
                 clean_input($ideals), 
                 clean_input($bonds), 
@@ -150,10 +141,10 @@ function Char_Form($toEdit) {
                 if ($openConnection == true) {
                     $result = $toEdit ? 
                     $db->setCharacter($character, $_SESSION['CharFormPOST']["charID"]) : 
-                    $db->addCharacter($character); // TO FIX $_SESSION['user_id'] ?
+                    $db->addCharacter($character); 
                     $db->closeConnection();
 
-                    if($result == true) {    // conferma ed errori con str_replace o banner_salvataggio.html ?
+                    if($result == true) { 
                         $_SESSION['banners'] = $toEdit ? 
                         "modifica_documento_confermata" : 
                         "creazione_documento_confermata";
@@ -170,18 +161,16 @@ function Char_Form($toEdit) {
                 }
             }
             else {  
-                // if(!$toEdit) altrimenti errore?
                 array_push($_SESSION['stagedPersonaggi'], $character);
                 $_SESSION['banners']= "salvataggio_pendente";
             }
         }
         else{
-            //se non passo i controlli allora restituisco messaggi adeguati per informare l'utente degli errori di input.
             $messaggioForm=getErrors($name, $check_name, $check_traits, $check_ideals, $check_bonds, $check_flaws);
         }
         unset($_SESSION['CharFormPOST']);
     }
-    else if ($toEdit) {   // Effettuato solo la prima volta, poi POST avra' valore
+    else if ($toEdit) { 
         $db = new DBinterface();
         $openConnection = $db->openConnection();
 
@@ -209,17 +198,16 @@ function Char_Form($toEdit) {
         }
     }
 
-    // Replace PLACEHOLDERS
 
     $html = str_replace("<messaggioForm />", $messaggioForm, $html);
 
     $html = str_replace('<valoreNome />', $name, $html);
-    // options
-    $html = str_replace("value=\"$race\">", "value=\"$race\" selected=\"selected\">", $html);   // se $race="" nessun replace
+
+    $html = str_replace("value=\"$race\">", "value=\"$race\" selected=\"selected\">", $html);  
     $html = str_replace("value=\"$class\">", "value=\"$class\" selected=\"selected\">", $html);
     $html = str_replace("value=\"$background\">", "value=\"$background\" selected=\"selected\">", $html);
     $html = str_replace("value=\"$alignment\">", "value=\"$alignment\" selected=\"selected\">", $html);
-    // text-areas
+
     $html = str_replace('<valoreTraits />', $traits, $html);
     $html = str_replace('<valoreIdeals />', $ideals, $html);
     $html = str_replace('<valoreBonds />', $bonds, $html);
@@ -233,7 +221,6 @@ function Char_Form($toEdit) {
         $html = str_replace("{RedirectHamburger}", "../php/character_creation(FormAction).php?Hamburger=yes", $html);
     }
 
-    //$html = addPossibleBanner($html, "character_creation(FormAction).php");
     if(isset($_SESSION['banners']))
     {
 	if($_SESSION['banners'] == "creazione_documento_confermata")
@@ -249,8 +236,6 @@ function Char_Form($toEdit) {
 	    $html = addPossibleBanner($html, "character_creation(FormAction).php");
 	}
     }
-
-    // unset($_SESSION['CharFormPOST']);   // Chiudo (come fosse POST) forse no, page refresh
 
     return $html;
 }

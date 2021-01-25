@@ -12,7 +12,6 @@
         private $isExplorable;
         private $author_img;
 
-        /*HO INSERITO QUESTO CAMPO*/
         private $lista_giocatori;                          
 
         private $last_modified;

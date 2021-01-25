@@ -30,7 +30,7 @@ else{
     $html = setup($html);
     $_SESSION["count_esplora"] = $temp;
 
-    $_SESSION["report_data"] = $db->getReportExplorable();// getReportExplorable();     // DA METTERE
+    $_SESSION["report_data"] = $db->getReportExplorable();
     $_SESSION["num_report_esplora"] = count($_SESSION["report_data"]);
 
     for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
@@ -40,27 +40,6 @@ else{
     $db->closeConnection();
     $numero_pag_esplora = ($_SESSION["num_report_esplora"]==0)? 0 : ((int)(($_SESSION["num_report_esplora"] -1) / 5) +1);
 
-
-    /*
-    $html = file_get_contents('..'. DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'Esplora.html');
-    $html = setup($html);
-    $_SESSION["vai_avanti_esplora"] = false;
-    $_SESSION["vai_indietro_esplora"] = false;
-    $_SESSION["count_esplora"] = 1;
-    $_SESSION["num_report_esplora"] = 1;      // DA METTERE
-    $_SESSION["report_data"] = array(new ReportData(1,'Iniziare una Locanda','Il modo più classico di iniziare una campagna può essere inaspettato?','Potete Appena Ci siamolocanda alla fine è rimasto ben poco LOL','Grog',true,['hey','gio','come','stai']));
-    $numero_pag_esplora = 2;
-
-    for($i = 0; $i < $_SESSION["num_report_esplora"]; $i++)
-    {
-        $_SESSION["array_num_part_rep_esplora"][$_SESSION["report_data"][$i]->get_id()] = 3;
-    }
-*/
-
-
-
-
-    /** controllo se si può andare avanti o indietro */
     if(isset($_SESSION["vai_avanti_esplora"]) && $_SESSION["vai_avanti_esplora"])
     {
         $_SESSION["count_esplora"] == $numero_pag_esplora ? $_SESSION["count_esplora"] = $numero_pag_esplora : $_SESSION["count_esplora"]++;

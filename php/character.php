@@ -39,9 +39,6 @@
             $this->flaws=$flaws;
             
             $this->author=$author;
-                
-    //        $this ->set_creation_date($_creation_date);
-
         }
 
         public function get_id()
@@ -103,10 +100,6 @@
         {
             return $this->creation_date;
         }
-        /*public function set_id($var)
-        {
-
-        }*/
 
         public function set_name($var)
         {

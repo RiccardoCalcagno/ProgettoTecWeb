@@ -3,9 +3,6 @@
     require_once("comments.php");
     require_once("character.php");
     require_once("report_data.php");
-    //require_once("card_data.php");
-    //require_once("photo_data.php");
-    //require_once("report_giocatore_data.php");
 
     require_once("GeneralPurpose.php");
 
@@ -187,7 +184,6 @@
             return $done;
         }
 
-        //in base allo username restituisce l'immagine di profilo
         public function getUserPic($username)
         {
             $username = clean_input($username);
@@ -202,7 +198,6 @@
             return $ritorno;
         }
 
-        //in base allo username restituisce l'id
         public function getUserId($username)
         {
             $username = clean_input($username);
@@ -337,7 +332,7 @@
                      "    ideals = '" . $character_data->get_ideals() . "', ".
                      "    bonds = '" . $character_data->get_bonds() . "', ".
                      "    flaws = '" . $character_data->get_flaws() . "'".
-                     "WHERE id = '" . $id . "';"; //"WHERE author = '" . $id . "';";
+                     "WHERE id = '" . $id . "';";
 
             $done =   mysqli_query($this->connection, $query);
             return $done;
@@ -378,19 +373,13 @@
                 else{return 0;}
         }
 
-        
-
-        //-----------------------------------------------------------------------------------------------------------------
-        // FUNZIONI RELATIVE AI REPORT
-        //-----------------------------------------------------------------------------------------------------------------
-
         public function getReport($id_report) {
             $id_report = clean_input($id_report);   
             $repo=null; 
             $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, Users.img_path, Report.last_modified ".
                     "FROM Report ". 
                     "INNER JOIN Users ".
-                    "ON Users.username = Report.author ".   /// TO FIX
+                    "ON Users.username = Report.author ". 
                     "WHERE Report.id = '" . $id_report . "';";
 
             $query_result = mysqli_query($this->connection, $query);
@@ -410,8 +399,6 @@
             return $repo;
         }
 
-        
-        //restituisce il pi� alto id di report
         public function getHighestRepId()
         {
             $query = "SELECT Report.id FROM Report ORDER BY id DESC;";
@@ -424,7 +411,6 @@
             return $ritorno;
         }
 
-        // aggiunta di un report
         public function addReport(ReportData $report_data){
             $report_data=DBinterface::escapeReport($report_data);
             $query = "INSERT INTO Report (title,subtitle,content,author,isExplorable) ".
@@ -449,10 +435,8 @@
             }else{
                 return $done;
             }
-            //return $isAdded; //$done && 
         }
 
-        // modifica report
         public function setReport(ReportData $report_data){
             $report_data=DBinterface::escapeReport($report_data);
             $query = "UPDATE Report ".
@@ -476,7 +460,6 @@
             return ($done && $isCleared && $isAdded);
         }
 
-        // elimina report
         public function deleteReport($id)
         {
             $id = clean_input($id);
@@ -492,7 +475,6 @@
             return $done;
         }
 
-        //funzione per ricavare il numero di utenti linkati ad un report come "partecipanti"
         public function linkedUsersCounter($repo_id) {
           $repo_id = clean_input($repo_id);
             $query = "SELECT * FROM report_giocatore RG WHERE RG.report = '".$repo_id."';";
@@ -602,64 +584,6 @@
             return $reports;
         }
 
-        /*    DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        public function countReportAuthor($username)
-        {
-            $count=0;
-            $username = clean_input($username);
-            $username=mysqli_real_escape_string ( $this->connection , $username);
-            $query = "SELECT Report.id ".
-                     "FROM Report ". 
-                     "WHERE Report.author = '" . $username . "';";
-            $query_result =   mysqli_query($this->connection, $query);
-            if(($query_result)&&($query_result->num_rows)) {
-                $count=$query_result->num_rows;
-            }
-            return $count;
-        }
-        */
-
-        /*  DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        public function countReportExplorable()
-        {
-            $count=0;
-            $query = "SELECT Report.id ".
-            "FROM Report ".  "WHERE Report.isExplorable = 1";
-            $query_result = mysqli_query($this->connection, $query);
-
-            if(($query_result)&&($query_result->num_rows)) {
-                $count=$query_result->num_rows;
-            }
-
-            return $count;
-        }
-        */
-
-        /*    DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        public function countReport($username)
-        {
-            $count=0;
-            $username = clean_input($username);
-            $username=mysqli_real_escape_string ( $this->connection , $username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, U2.img_path, Report.last_modified 
-            FROM Users U1 
-            INNER JOIN report_giocatore 
-            ON U1.id = report_giocatore.user 
-            INNER JOIN Report 
-            ON report_giocatore.report = Report.id 
-            INNER JOIN Users U2 
-            ON U2.username = Report.author 
-            WHERE U1.username = '".$username."';";
-
-            $query_result = mysqli_query($this->connection, $query);
-
-            if(($query_result)&&($query_result->num_rows)) {
-                $count=$query_result->num_rows;
-            }
-
-            return $count;
-        }
-        */
 
         public function setExplorable($report_id, $isExplorable = 1)
         {
@@ -677,12 +601,6 @@
           $row = $queryResult->fetch_row();
           return $row[0];
         }
-
-        /**
-         * -------------------------------------------------------------------
-         * Funzioni relative ai commenti
-         * -------------------------------------------------------------------
-         */
 
         public function getComments($id_report)
         {
@@ -725,68 +643,6 @@
             return $done;
         }
 
-        //-----------------------------------------------------------------------------------------------------------------
-        // FUNZIONI RELATIVE A PHOTO REPORT
-        //-----------------------------------------------------------------------------------------------------------------
-
-        /*public function getMediaGallery ($repo_id){
-          $repo_id = clean_input($repo_id);
-          $querySelect = "SELECT * FROM Photo WHERE Photo.report = '".$repo_id."' ORDER BY ID ASC;";
-          $queryResult = mysqli_query($this->connection, $querySelect);
-
-          if(mysqli_num_rows($queryResult) == 0){
-            return null;
-          }
-          else{
-            $PhotoArray = array();
-            while($row = mysqli_fetch_assoc($queryResult)){
-              $singlePhoto = new PhotoData($row['id'],$row['img_path'],$riga['report']);
-
-              array_push($PhotoArray,$singlePhoto);
-            }
-
-            return $PhotoArray;
-          }
-        }
-
-        public function addPhoto (PhotoData $photo_data){
-            $query = "INSERT INTO Photo (id,img_path,report)".
-               "VALUES ('" . $photo_data.get_id() . "', ".
-                        "'" . $photo_data.get_img_path() . "', ".
-                        "'" . $photo_data.get_report() . "');";
-
-            $done =   mysqli_query($this->connection, $query);
-            return $done;
-        }
-
-        // elimina photo
-        public function deletePhoto($id)
-        {
-            $id = clean_input($id);
-            $query = "DELETE FROM Photo WHERE id = '" . $id . "';";
-            $done =   mysqli_query($this->connection, $query);
-            return $done;
-        }
-
-        // funzione per prendere una specifica foto dal db
-        public function getSinglePhoto ($photo_id){
-          $photo_id = clean_input($photo_id);
-            $query = "SELECT * FROM Photo WHERE Photo.id = '".$photo_id."';";
-            $query_result = mysqli_query($this->connection, $query);
-            if(mysqli_num_rows($query_result) == 0) {
-                return null;
-            }
-            else {
-                $row_arr = $query->mysqli_assoc(MYSQLI_ASSOC);
-                return $row_arr;
-            }
-        }*/
-
-        //-----------------------------------------------------------------------------------------------------------------
-        // FUNZIONI RELATIVE A REPORT_GIOCATORE
-        //-----------------------------------------------------------------------------------------------------------------
-
-        // Aggiunge una riga alla tabella report_giocatore
         public function addLinkedUser (UserData $user, ReportData $report){
           $query = "INSERT INTO report_giocatore (user, report) ". 
                      "VALUES ('" . $user->get_id() . "', ".  
@@ -795,7 +651,6 @@
             return $done;
         }
 
-        // Aggiunge una riga, ma usa il singolo dato e non l'intero oggetto
         public function ALUsimplified ($username, $report_id){
           $query = "INSERT INTO report_giocatore (user, report) ". 
                      "VALUES ('" . $username . "', ".  
@@ -804,7 +659,6 @@
             return $done;
         }
 
-        //elimina un singolo utente da un determinato report
         public function deleteUserFromReport(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "' AND report = '".$report->get_id()."';";
@@ -812,7 +666,6 @@
             return $done;
         }
 
-        //elimina un singolo utente da tutti i report
         public function deleteUserFromALL(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE user = '" . $user->get_id() . "';";
@@ -820,7 +673,6 @@
             return $done;
         }
 
-        //elimina tutte le mention ad un determinato Report
         public function deleteReportMention(UserData $user, ReportData $report)
         {
             $query = "DELETE FROM report_giocatore WHERE report = '".$report->get_id()."';";
@@ -828,7 +680,6 @@
             return $done;
         }
 
-        //elimina tutte le mention ad un report, semplificata al solo report id
         public function deleteReportMention_by_id($report_id)
         {
             $query = "DELETE FROM report_giocatore WHERE report = '".$report_id."';";
@@ -836,7 +687,6 @@
             return $done;
         }
 
-        // Restituisce tutti i report (id) legati ad un utente
         public function getALLForUser($user){
             $reportsWITHuser = array();
           $user = clean_input($user);

@@ -11,16 +11,6 @@ if(isset($_SESSION["first_logged"])&&($_SESSION["first_logged"])){
 }
 
 
-/*
-$_SESSION["username"]="QueenAdministrator";
-$_SESSION["passwd"]="1000BimbiFucsia";
-$_SESSION["login"]=true;
-$_SESSION["img"]="../img/icone_razze/dragonide.png";
-$_SESSION["name_surname"]="HEyla";
-$_SESSION["email"]="lollolooll@gmail.com";
-$_SESSION["birthdate"]="1999-06-12";
-*/
-
 
 if(!isset($_SESSION["login"]) || !$_SESSION["login"])
 {
@@ -68,13 +58,8 @@ else if($_SESSION["login"])
             $db->closeConnection();
 
         }
-
-        // calcolo numero delle pagine di report
         $numero_pag_report = ($_SESSION["num_report"]==0)? 0 : ((int)(($_SESSION["num_report"] -1) / 5) +1);
         $numero_pag_master = ($_SESSION["num_report_master"]==0)? 0 : ((int)(($_SESSION["num_report_master"] -1) / 5) +1);
-
-
-        /** controllo se si può andare avanti o indietro */
 
 
         if(isset($_SESSION["vai_avanti_master"]) && $_SESSION["vai_avanti_master"])
@@ -102,7 +87,7 @@ else if($_SESSION["login"])
         }
 
 
-        /* fine controllo */
+
 
         $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "AreaPersonale.html");
 
@@ -130,17 +115,13 @@ else if($_SESSION["login"])
 
 
 
-            //  ---------------------------------------------------------------------------------------------------------------------------
-            //                                                  SCHEDE GIOCATORE
-            // ----------------------------------------------------------------------------------------------------------------------------
-
             $_schede_personaggio = "";
             
             if ( $_SESSION["num_pers"] > 0 ) {
 
                 $_schede_personaggio = '<ul class="cards" id="Personaggi">';
                 $contaPersonaggio=0;
-                for($i = 0; $i < $_SESSION["num_pers"] ; $i++)                                              //   DA IMPLEMENTARE L'IMMAGINE CON UNO SWITCH SU RACE
+                for($i = 0; $i < $_SESSION["num_pers"] ; $i++)               
                 {
                     $urlImgRace="../img/icone_razze/";
                     switch($_SESSION["character_data"][$i]->get_race()){
@@ -224,10 +205,6 @@ else if($_SESSION["login"])
                 }
 
 
-                //  ---------------------------------------------------------------------------------------------------------------------------
-                //                                                  REPORT MASTER
-                // ----------------------------------------------------------------------------------------------------------------------------
-
                 $contaReport=0;
 
                 $_schede_report_master = "";
@@ -305,10 +282,6 @@ else if($_SESSION["login"])
                 $html = str_replace("<numero_attuale_master/>", $_SESSION["count_master"], $html);
                 $html = str_replace("<numero_di_master/>", $numero_pag_master, $html);
 
-
-                //  ---------------------------------------------------------------------------------------------------------------------------
-                //                                                  REPORT PARTECIPANTE
-                // ----------------------------------------------------------------------------------------------------------------------------
 
                 $_schede_report = "";
 
