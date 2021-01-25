@@ -918,7 +918,7 @@ form#datiUtenza{
 }
 
 #visualizzaReport #footAction :nth-child(2) input{
-    width: 10.3em;
+    width: 11em;
     margin-top: 1.7em;
 }
 #footAction :nth-child(3) {
