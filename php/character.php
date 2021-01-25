@@ -100,10 +100,6 @@
         {
             return $this->creation_date;
         }
-        /*public function set_id($var)
-        {
-
-        }*/
 
         public function set_name($var)
         {

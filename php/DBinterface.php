@@ -584,31 +584,6 @@
             return $reports;
         }
 
-        /*    DA LASCIARE PER FUTUTI INCREMENTIII !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        public function countReport($username)
-        {
-            $count=0;
-            $username = clean_input($username);
-            $username=mysqli_real_escape_string ( $this->connection , $username);
-            $query = "SELECT Report.id, Report.title, Report.subtitle, Report.content, Report.author, Report.isExplorable, U2.img_path, Report.last_modified 
-            FROM Users U1 
-            INNER JOIN report_giocatore 
-            ON U1.id = report_giocatore.user 
-            INNER JOIN Report 
-            ON report_giocatore.report = Report.id 
-            INNER JOIN Users U2 
-            ON U2.username = Report.author 
-            WHERE U1.username = '".$username."';";
-
-            $query_result = mysqli_query($this->connection, $query);
-
-            if(($query_result)&&($query_result->num_rows)) {
-                $count=$query_result->num_rows;
-            }
-
-            return $count;
-        }
-        */
 
         public function setExplorable($report_id, $isExplorable = 1)
         {
