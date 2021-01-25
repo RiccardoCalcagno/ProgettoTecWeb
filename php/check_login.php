@@ -6,7 +6,7 @@
     require_once("GeneralPurpose.php");
 
 
-    clearSession(); // ok ?
+    clearSession();
 
     
     $db = new DBinterface();
@@ -19,7 +19,7 @@
 
     if($user_data)
     {
-        $_SESSION['userID'] = $user_data->get_id();     // TO FIX Forse 
+        $_SESSION['userID'] = $user_data->get_id(); 
         $_SESSION["username"] = $user_data->get_username();
         $_SESSION["name_surname"] = $user_data->get_name_surname();
         $_SESSION["email"] = $user_data->get_email();
@@ -46,7 +46,6 @@
         unset($_POST["password"]);
         header("Location: login.php");
     }
-//    $user_data->free(); error ?
     
     } catch (Exception $e)  {
         session_destroy();

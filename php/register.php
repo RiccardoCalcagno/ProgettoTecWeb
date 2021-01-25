@@ -5,7 +5,7 @@
     require_once("GeneralPurpose.php");
 
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "register.html");
-    $html = setup($html);   // setup_clear () ?  Ha poco senso questa fuznzione, se accedo alla pagina di registrazione io non sono loggato. Non lascio accedere a questa pagina un utente loggato, quindi i pulsati del menù rimangono invariati
+    $html = setup($html); 
 
     unset($_SESSION["first_logged"]);
     unset($_SESSION["listaGiocatori"]);

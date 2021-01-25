@@ -1,5 +1,4 @@
 <?php
-    //require
     require_once("DBinterface.php");
     require_once("report_data.php");
     require_once("GeneralPurpose.php");
@@ -7,11 +6,6 @@
 
     unset($_SESSION["first_logged"]);
 
-
-
-//-------------------------- UTILITY
-    
-    //prepara la pagina. Se e' un report da modificare e non da creare da zero, cambieranno alcuni elementi dell'html
     function preparePage($html, $toEdit){
         
         $headTitle = ''; $header = ''; $p = ''; $button = '';
@@ -54,8 +48,6 @@
 
         return $html;
     }
-
-// -------------------------------------------------------
 
     staged_session();
 
@@ -103,7 +95,6 @@
     
                             if($result){
                                 $_SESSION['banners']= $toEdit ? "modifica_documento_confermata" : "creazione_documento_confermata";
-                                //azzero la form
                                 $titolo = ''; $sottotitolo = ''; $contenuto = ''; $condividi = 0; unset($_SESSION['listaGiocatori']);
                                 header("Location: CreazioneReportPage.php#bannerID");
                                 exit();
@@ -144,7 +135,6 @@
     
                 if($connection){
                     if( ($dbInterface->existUser($_GET['usernameGiocatore'])) && (array_search($_GET['usernameGiocatore'],$_SESSION['listaGiocatori']) === false) ){
-                        //aggiungo il giocatore alla lista
                         array_push($_SESSION['listaGiocatori'],$_GET['usernameGiocatore']);
     
                         $feedback_message = '<p id="feedbackAddGiocatore" role="alert">Il giocatore è stato aggiunto <span class="corretto">correttamente</span> alla lista</p>';
@@ -173,11 +163,6 @@
             }
 
         }
-
-        ////wd awdhawhjdg djh abdbah bdjhawbdhjawbdhjbadjhba hjdbahbwdh d
-        // wdh jwdja djbaw dbawjhbd ahdhbawhdb ajwhd awdjabhdj abdhahbwd awd 
-
-        //a wkjdjkaw bdab bawdkba bdabw baw bdaw daw anw dnabnb
 
     }else{
         $_SESSION['listaGiocatori']= array();
@@ -210,10 +195,6 @@
         }
     }
     }
-
-
-    //--------------------------------------------------------------------
-    //il contenuto della pagina viene settato qui
     $html = str_replace("<messaggioForm />", $message, $html);
     $html = str_replace('<valueTitle />',$titolo,$html);
     $html = str_replace('<valueSubtitle />',$sottotitolo,$html);
@@ -249,15 +230,7 @@
     }
 
     $html = str_replace('<listaGiocatori />',$stringa_giocatori,$html);
-
-    /*
-    //creo l'oggetto report  AUTOR PUO ESSERE NULL (È CORRETTO, serve anche ai salvataggi pendenti)
-    $rep = new ReportData($_SESSION['report_id'], $titolo, $sottotitolo, $contenuto, $_SESSION['username'], $condividi, $_SESSION['listaGiocatori']);
-    //assegno il report così come creato alla variabile che ne tiene conto per ri-riempire la form ad un eventuale ricaricamento
-    $_SESSION['report_in_creazione'] = $rep;
-    */
-
-    //modifico il checkbox    
+  
     if($condividi){
         $html = str_replace('{check_placeholder}','checked="checked"',$html);
     }

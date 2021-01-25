@@ -39,9 +39,6 @@
             $this->flaws=$flaws;
             
             $this->author=$author;
-                
-    //        $this ->set_creation_date($_creation_date);
-
         }
 
         public function get_id()

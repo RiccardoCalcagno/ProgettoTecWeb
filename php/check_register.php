@@ -15,29 +15,17 @@
     $passwd = $_POST["newPasswd"];
     $rep_passwd = $_POST["PasswdAgan"];
     $birthdate = $_POST["birthdate"];
-
-
-//    echo "poco prima dell'inserimento img";
-//    echo $_FILES;    
+   
     if( empty($_FILES["imgProfilo"]["name"]))
     $img = null;
     else
         $img = ".." . DIRECTORY_SEPARATOR . "img" . DIRECTORY_SEPARATOR . "immagini_profilo" . DIRECTORY_SEPARATOR . basename($_FILES["imgProfilo"]["name"]);
-//  echo " controlla che ci sia qualcosa in Files ";
-
 
     try {
         $db = new DBinterface();
         
         if(!$db->openConnection()){errorPage("EDB");exit();}
 
-//    echo "Arrivato qui, dopo connessione db";
-
-        if(session_status() == PHP_SESSION_NONE)
-        {
-//    echo "dopo controllo sessione";
-           session_start();
-    }
             if(preg_match("/^.{1,}$/", trim($username)) )
             {
                 $err["user_empty"] = false;
@@ -102,18 +90,13 @@
 
         if($img)
         {
-//    echo " Controllo img non null passato ";
            $err["img_err"] = !validate_img($_FILES["imgProfilo"], $img);
-//echo " fa validazione img ";
-       //$_FILES["imgProfilo"]["size"] > 1000000 ? $err["img_err"] = true : $err["img_err"] = false;
 
             if(!$err["img_err"])
             {
-//    echo " non ci sono errori";
-        $img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
-                   if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
+                $img = check_file_name($img, basename($_FILES["imgProfilo"]["name"]));
+                if(move_uploaded_file($_FILES["imgProfilo"]["tmp_name"], $img))
                 {
-//            echo "upload avvenuto correttamente ";
                     $err["img_err"] = false;
                 }
                 else
@@ -124,13 +107,11 @@
              }
              else
              {
-//            echo " ci sono errori ";
                  $img = null;
              }
         }
         else
         {
-//echo " img nulla";
             $err["img_err"] = false;
         }
 

@@ -1,7 +1,5 @@
 <?php
 
-    //Da definire controlli sugli errori di imput
-
     class PhotoData {
         
         private $id;

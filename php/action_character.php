@@ -6,9 +6,8 @@
         session_start();
     
 
-    if ( isset($_GET["Personaggio"]) ) {   // AreaPersonale (Character card) 'personaggio' != 'Personaggio' !!!!!!!!!!!!!!!
+    if ( isset($_GET["Personaggio"]) ) {
 
-        /* controllo che il personaggio sia di questo utente */
         $db = new DBinterface();
         $connection=$db->openConnection();
         if(!$connection)
@@ -21,7 +20,7 @@
         }
         else
         {
-            $db->closeConnection();     // Potrebbe essere un errore DB ma anche un azione volontaria malevola (più probabilmente)
+            $db->closeConnection();  
             errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
             exit();
         }
@@ -37,8 +36,8 @@
         if($_GET['charAction'] == "ELIMINA") {
 
             $_SESSION['banners']="confermare_eliminazione_personaggio";
-            $_SESSION['banners_ID'] = $_GET['charID'];  // PASSAGGIO PER CAMPO HIDDEN
-            header("Location: CharacterPage.php?charID=".$_GET['charID']."#bannerID");  // Ignora ELIMINA on Page Refresh (voluto)
+            $_SESSION['banners_ID'] = $_GET['charID']; 
+            header("Location: CharacterPage.php?charID=".$_GET['charID']."#bannerID"); 
         }
     }
 
@@ -47,15 +46,14 @@
         $_SESSION['CharFormPOST'] = $_POST;
         
         if ( $_POST['salvaPers'] == 'SALVA SCHEDA' ) {
-            header("Location: character_creation(FormAction).php"); // TO FIX KEEP IT LIKE THIS ?
+            header("Location: character_creation(FormAction).php"); 
         }
-        else {  // $_POST['salvaPers'] == 'SALVA MODIFICA'
-            header("Location: character_creation(FormAction).php?charAction=MODIFICA&charID=".$_POST['charID']);    //// TO FIX ok like this OR <hiddenCharAction /> ????
+        else {  
+            header("Location: character_creation(FormAction).php?charAction=MODIFICA&charID=".$_POST['charID']);  
         }
     }
 
     if (isset($_POST['documento']) && $_POST['documento'] == 'ELIMINA SCHEDA' ) {
-    // Serve una pagina solo per questo ? o anche solo una function ? .
         $db = new DBinterface();
         if($db->openConnection()) {
 
@@ -63,7 +61,6 @@
             $db->closeConnection();
     
             if ($done) {
-                // FEEDBACK? like $_SESSION['AP_message'] = 'Cancellazione Riuscita.'; // e poi metterlo in AreaP
                 header("Location: area_personale.php");
             }
             else {

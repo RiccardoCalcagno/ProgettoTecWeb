@@ -47,7 +47,7 @@
         return $presenti;
     }
 
-    function setup($html) { // Setup generico per tutte le pagine
+    function setup($html) {
         
       
             session_start();
@@ -72,8 +72,7 @@
         return $html;
     }
     
-    function clearSession() {   // Clear di variabili session utili solo a specifiche pagine
-            //unset OK anche su null
+    function clearSession() {   
         session_start();
         if ( !isset($_SESSION['errorMessage']) ) {
             $_SESSION['errorMessage'] = 'E Tutto fila liscio non ci sono Errori all\'orizzonte';
@@ -87,7 +86,7 @@
         unset($_SESSION["count_esplora"]);
     }
 
-    function setup_clear($html) { // Setup generico e clearSession
+    function setup_clear($html) { 
         
         clearSession();
         return setup($html);
@@ -104,7 +103,7 @@
         exit();
     }
 
-    function redirect_GET($path, $get) {   // Dato il path, esegue il redirect come se action fosse su quella pagina
+    function redirect_GET($path, $get) { 
 
         $vector=explode("#",$path);
         $path=$vector[0];

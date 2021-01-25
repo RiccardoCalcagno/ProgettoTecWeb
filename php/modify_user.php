@@ -5,7 +5,7 @@
     $html = file_get_contents("..". DIRECTORY_SEPARATOR . "html". DIRECTORY_SEPARATOR . "crea_modifica_utente.html");
     if(!$html)
         header("Location: 404.php");
-    //$html = setup($html);   // setup_clear() ?
+
     unset($_SESSION["first_logged"]);
     unset($_SESSION["listaGiocatori"]);
 
@@ -24,7 +24,6 @@
         $name_surname = $_SESSION["tmpUser"]["name_surname"];
         $email = $_SESSION["tmpUser"]["email"];
         $birthdate = $_SESSION["tmpUser"]["birthdate"];
-        //$img = $_SESSION["tmpUser"]["img"];
 
         $err = $_SESSION["err"];
 
@@ -95,10 +94,6 @@
     unset($_SESSION["err"]);
     unset($err);
 
-    /*if(isset($_SESSION["result"]) && $_SESSION["result"] == true)
-    {
-        str_replace("<p id=\"Successful\" class=\"hidden\">", "<p id=\"Successful\">", $html);
-    }*/
     $html = str_replace("src=\"../img/img_profilo_mancante.png\"", "src=\"" . $img ."\"", $html) ;
     $html = str_replace("value=\"<username>\"", "value=\"" . $username . "\"", $html);
     $html = str_replace("value=\"<name>\"", "value=\"" . $name_surname . "\"", $html);

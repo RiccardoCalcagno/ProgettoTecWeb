@@ -70,8 +70,6 @@ function characterPage($charID) {
 }
 
 function changeCharLayout($html) {
-
-    // Modifica bottoni
     if(isset($_GET['charLayout'])){
         if($_GET['charLayout'] == 'scheda' ) {
             $html = str_replace(
@@ -99,11 +97,11 @@ else if ( !isset($_SESSION['username']) ) {
     errorPage("Ci spiace informarla che non siamo riusciti a verificare i suoi diritti di visualizzazione su questa scheda giocatore");
     exit();
 }
-else if ( isset($_GET['Personaggio']) || isset($_GET['charID'])) { //|| isset($_SESSION['charLayoutID']) || isset($_SESSION['character_id']) 
+else if ( isset($_GET['Personaggio']) || isset($_GET['charID'])) {
 
     $charID = isset($_GET['Personaggio']) ?
-        $_GET['Personaggio'] :          // Da AreaPersonale
-        $_GET['charID'];                // No JS -> PHP change layout
+        $_GET['Personaggio'] :    
+        $_GET['charID'];       
 
     $html = characterPage($charID);
 
