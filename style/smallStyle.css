@@ -313,7 +313,7 @@ input[type="file"]{
 .howTo li:before{
     padding-bottom: 1em;
 }
-#bodyHome h2:not(#footerContent > h2){
+#bodyHome h2:not(#h-footer){
     font-size: 1.8em;
 }
 
