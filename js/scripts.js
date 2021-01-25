@@ -18,7 +18,7 @@ function onLoadModificaDati(){
     var numCount = document.getElementById("future_username") ? 3 : 9;
     updateCounterTextarea(numCount);
     
-    removeHidden('immagine_profilo');
+    document.getElementById("immagine_profilo").setAttribute("class", " "); 
 }
 
 
@@ -67,7 +67,7 @@ function updateCounterTextarea(numCount){
             IDCurrent="currentCountNome";
             max=20;
             break;
-        case 8:
+        case 9:
             IDText="username";
             IDCurrent="currentCountUser";
             max=20;

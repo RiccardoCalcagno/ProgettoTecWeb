@@ -151,8 +151,9 @@
                     </div>
                     <h1 tabindex='0' id='bannerID' aria-label=\"messaggio di conferma: Registrazione Confermata\">Registrazione Confermata</h1>
                     <p>Le confermiamo che la sua registrazione è avvenuta <strong class='corretto'>correttamente</strong></p>
-                    <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima </br><a href='../php/area_personale.php'>Area Personale</a></p>
+                    <p id='refAreaPersConf'> Scopri subito cosa può offrirti la tua personalissima Area Personale</p>
                     <div id='linkVelociPostConferma'>
+                        <a class='buttonLink' href='../php/area_personale.php'>Area Personale</a>
                         <a class='buttonLink' href='../index.php' xml:lang='en' lang='en'>HOME</a>
                     </div>";
                 break;
