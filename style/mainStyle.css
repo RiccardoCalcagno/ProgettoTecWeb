@@ -2260,7 +2260,9 @@ p.campiObbligatori{
     margin: auto;
     margin-top: 7em;
     }
-
+#areaPersonale #personaggiUtente .mancanoCards{
+    margin-top: 4em;
+}
 
 /*----------------------- HEADERS GENERICI DELLA DASHBOARD--------------------------
 */
