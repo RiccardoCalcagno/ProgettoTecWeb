@@ -201,7 +201,9 @@ a.buttonLink:visited:active{
 .submitForm div :nth-child(1){margin-right: 0.5em;}
 .submitForm div :nth-child(2){margin-left: 0.5em;}
 
-
+p.newl {
+    padding: 0 !important;
+}
 
 .AiutiNavigazione {
     position: absolute;
