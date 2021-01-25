@@ -998,6 +998,10 @@ body a[aria-label="apri il menù"] {
 ------------------------------------------------------------------------------------------------
 */
 
+.appBody {
+    min-height: 0;
+}
+
 #ritorna{
     margin-top: 2em;
     margin-left: calc(50% - 10em);
@@ -3148,10 +3152,7 @@ form#datiUtenza > div:first-child fieldset:first-child{
 
 body.errorPage {
     height: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    min-height: 0;
     margin: 0 auto;
 }
 
