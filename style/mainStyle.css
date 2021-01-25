@@ -162,7 +162,7 @@ a.buttonLink {
 }
 
 a.buttonLink:visited{
-    background-color: #678000 !important;
+    background-color: #5f7600 !important;
     color: #FFFFFF;
 }
 a.buttonLink:visited:hover, a.buttonLink:visited:focus{
@@ -896,7 +896,7 @@ body a[aria-label="apri il menù"] {
     text-decoration: none;
 }
 .puntoInterrogativo:visited{
-    background-color:#678000;
+    background-color:#5f7600;
     color:#FFFFFF;
 }
 .puntoInterrogativo:hover{
@@ -2593,7 +2593,7 @@ p.campiObbligatori{
 }
 #bodyEsplora .testoCardRep > div button{
     top: -0.7em;
-    background-color:#678000;
+    background-color:#5f7600;
 }
 #bodyEsplora .testoCardRep > div button:hover{
     background-color:#e0f39c !important;
@@ -2615,7 +2615,7 @@ p.campiObbligatori{
     color:#FFFFFF;}
 .report .cardReport div.publicazione button.InEsplora{
     border: 5px solid #294500;
-    background-color: #678000;}
+    background-color: #5f7600;}
 
 #areaPersonale .report .cardReport > div:first-child:not(.phpCard):hover{
     background-color: #e3e3e3;}
@@ -2640,7 +2640,7 @@ p.campiObbligatori{
     border: 5px solid #294500;}
 #bodyEsplora .report .cardReport > div:first-child footer p{
     border: 5px solid #294500;
-    background-color: #678000;
+    background-color: #5f7600;
     color:#FFFFFF;}
 
 #bodyEsplora .report .cardReport > div:first-child:not(.phpCard):hover{
