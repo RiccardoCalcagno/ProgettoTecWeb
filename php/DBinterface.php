@@ -82,7 +82,7 @@
             
             $query = "SELECT Users.username, Users.name_surname, Users.email, Users.passwd, Users.birthdate, Users.img_path, Users.id 
                       FROM Users
-                      WHERE BINARY Users.username = '".$name."' AND Users.passwd = '".$password."';";
+                      WHERE BINARY Users.username = '".$name."' AND BINARY Users.passwd = '".$password."';";
 
             $query_result = mysqli_query($this->connection, $query);
 
