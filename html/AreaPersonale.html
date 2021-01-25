@@ -4,9 +4,9 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Area personale - D&Diary</title>                                   <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+        <title>Area personale - D&Diary</title>                                  
         <meta name="title" content="Area Personale" />
-        <meta name="description" content="La tua area personale, dove puoi salvare e visualizzare i tuoi personaggi e le tue sessioni preferite, da te create o condivise con te"/>                   <!--DA COMPILARE-->
+        <meta name="description" content="La tua area personale, dove puoi salvare e visualizzare i tuoi personaggi e le tue sessioni preferite, da te create o condivise con te"/>
         <meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
                                         ricordo, riassunto, avventura, giocatori, fantasia, scheda giocatore, personaggio
                                         giochi di ruolo, Talkien, vintage, narratore, narrare, scenari, eventi, dadi ,regole
@@ -37,7 +37,7 @@
         <div id="access">
             <form action="../php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Esci" aria-label="Esci dal tuo profilo"/>         <!-- altro valore possibile : "Esci" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Esci" aria-label="Esci dal tuo profilo"/>       
                     <input id="Iscrizione" disabled="disabled" type="submit" name="accesso" value="Area Personale"/>
                 </div>
             </form>
@@ -88,7 +88,7 @@
     <section id="viewInfoUser">
         <header>
             <h2>Dati personali</h2>
-            <a href="../php/modify_user.php" class="buttonLink">Modifica profilo</a>                     <!--Da completare href-->
+            <a href="../php/modify_user.php" class="buttonLink">Modifica profilo</a>                    
         </header>
         
         <div>
@@ -117,7 +117,7 @@
     <section id="personaggiUtente">
         <header>
             <h2 id="titolo_schede_giocatore" tabindex="0">Schede Giocatore</h2>
-            <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                     <!--Da completare href-->
+            <a href="../php/character_creation(FormAction).php" class="buttonLink">Aggiungi scheda giocatore</a>                    
         </header>
         <div class="box">
 
@@ -126,10 +126,10 @@
                 <form_personaggi/>
             </charForm />
             
-            <!--SE È ATTIVO JS LA FORM NON FA IL SUBMIT-->
+            
             <form <charFormEspandi /> action="../php/action_character.php" method="get" onsubmit="return vediPiùPers();"> 
-                <nav class='espandi' id='espandi_pers' tabindex="-1" aria-label="Visualizza più personaggi">                         <!--DA DISABILITARE SE NON CI SONO CARDS AGGIUNTIVE-->
-                    <button type="submit" id="espandiPers" name="espandi" value="Pers" title="Espandi il box e visualizza più personaggi">Vedi di Più</button>     <!--NEL CAMPO HREF METTERE IL LINK DEL PHP SEGUITO DA "/espandi=Personaggio" Questo Metoto get permette di togliere le clausole CSS "overflow:hidden" e "height:.." nel flexbox:boxPersonaggi-->
+                <nav class='espandi' id='espandi_pers' tabindex="-1" aria-label="Visualizza più personaggi">                         
+                    <button type="submit" id="espandiPers" name="espandi" value="Pers" title="Espandi il box e visualizza più personaggi">Vedi di Più</button>
                 </nav>
             </form>                                     
         </div>                                                  
@@ -138,23 +138,23 @@
     <section class="report">
         <header>
             <h2 id="titolo_schede_report" tabindex="0"><span xml:lang="en" lang="en">Report</span> Sessione</h2>
-            <a href="../php/CreazioneReportPage.php" class="buttonLink">Aggiungi <span xml:lang="en" lang="en">report</span> sessione</a>           <!--Da completare href-->
+            <a href="../php/CreazioneReportPage.php" class="buttonLink">Aggiungi <span xml:lang="en" lang="en">report</span> sessione</a>  
         </header>
         <div class="listeReport">
         <div id="reportMaster">
             <header>
                 <h3>I tuoi <span xml:lang="en" lang="en">Report</span></h3>
-                <p>La <span xml:lang="en" lang="en">dashboard</span> seguente raccoglie tutti i <span xml:lang="en" lang="en">Report</span> di Sessione che hai realizzato</p>                                     <!--Da compilare Sottotitolo-->
+                <p>La <span xml:lang="en" lang="en">dashboard</span> seguente raccoglie tutti i <span xml:lang="en" lang="en">Report</span> di Sessione che hai realizzato</p>
             </header>
             <div class="box">
-                <masterForm />                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
+                <masterForm />
 
                     <report_author/>
 
                 </masterForm /> 
             </div>
-            <form <masterFormEspandi /> action="../php/action_report.php" method="post">                                    <!--SPECIFICARE LA PAGINA DI AZIONE-->
-            <nav class="espandi" id='report_master' aria-label="Cambia pagina della dashboard dei tuoi Report">                                      <!--DA DISABILITARE SE NON CI SONO PAGINE MULTIPLE-->
+            <form <masterFormEspandi /> action="../php/action_report.php" method="post">
+            <nav class="espandi" id='report_master' aria-label="Cambia pagina della dashboard dei tuoi Report">
                 <div id="anchorMaster"></div>
                 <ul>
                     <li class="inputMove"><button type="submit" id="masterPrecedente" class="precedente" name="espandi" value="masterPrecedente" aria-label="Passa alla pagina precedente dei tuoi Report">Precedente</button></li>                     
@@ -168,7 +168,7 @@
         <div id="reportPartecipante">
             <header>
                 <h3><span xml:lang="en" lang="en">Report</span> condivisi con te</h3>
-                <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>                                     <!--Da compilare Sottotitolo-->
+                <p>Questa <span xml:lang="en" lang="en">dashboard</span> riporta tutti i <span xml:lang="en" lang="en">Report</span> al cui interno sei citato come giocatore</p>
             </header>
             <div class="box">
                 <partForm /> 
