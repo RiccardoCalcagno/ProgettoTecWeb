@@ -276,6 +276,10 @@ textarea {
     border: none;
 }
 
+#visualizzaReport #commentiField .testoCommento {
+    padding: 0.2em 0.3em;
+}
+
 #visualizzaReport .commento .badgeUtente {
     font-size: 0.9em;
     padding: 0;
@@ -308,6 +312,10 @@ textarea {
 
 .box ul, .cards{
     list-style: none;
+}
+
+.box button {
+    display: none;
 }
 
 /* CANT USE CAUSE page-break-inside: avoid;  DOESNT WORK WITH FLEX APPARENTLY :)))))
@@ -360,7 +368,7 @@ textarea {
     display: none;
 }
 
-#reportPartecipante .box li.cardReport .badgeUtente > * {
+ .box li.cardReport .badgeUtente > * {
     display: inline-block;
     text-align: center;
     width: 25%;
@@ -369,7 +377,7 @@ textarea {
     margin: 0;
 }
 
-#reportPartecipante .box li.cardReport .badgeUtente > img {
+ .box li.cardReport .badgeUtente > img {
     display: none;
 }
 
@@ -430,10 +438,10 @@ textarea {
 }
 
 #areaPersonale .box img {
-    display: block;
+    /* display: block;
     width: 4.7em;
     margin: 0.7em;
-    margin-left: calc(50% - 10mm);
+    margin-left: calc(50% - 10mm); */
 }
 
 #areaPersonale .box ul .cardPersonaggio {
@@ -450,9 +458,14 @@ textarea {
     width: 100%;
 }
 
+#areaPersonale ul .cardPersonaggio h4 {
+    font-size: 1.4em;
+    padding-bottom: 0.3em;
+}
+
 #areaPersonale .cardPersonaggio dt, #areaPersonale .cardPersonaggio dd {
     width: 50%;
-    margin: 0.3em 0;
+    margin: 0.2em 0;
 }
 
 #areaPersonale .cardPersonaggio .allineamento, #areaPersonale .cardPersonaggio .persAllineamento {
@@ -586,7 +599,7 @@ textarea {
 
 #modificaDati input {
     display: inline-block;
-    margin: 0.2em auto 0.4em;
+    margin: 0.2em 0.5em 1em;
 }
 
 textarea,input[type="text"],input[type="date"],input[type="password"]{
@@ -635,6 +648,11 @@ form#datiPassword {
     width: 90%;
     margin:auto;
     display: flex;
+}
+
+#datiUtenza #passField {
+    width: 50%;
+    margin: 1em auto;
 }
 
 form#datiPassword .submitForm {
@@ -704,15 +722,15 @@ form#datiPassword .submitForm {
     margin: 0.3em auto;
 }
 
-#selezionamentoGiocatori div:first-child button {
+#selezionamentoGiocatori button {
     display: none;
 }
 
-#selezionamentoGiocatori div:first-child ul {
+#selezionamentoGiocatori ul {
     margin: 1em 0;
 }
 
-#selezionamentoGiocatori div:first-child ul li {
+#selezionamentoGiocatori ul li {
     float: left;
     margin: 0;
     font-weight: bold;
@@ -721,10 +739,6 @@ form#datiPassword .submitForm {
 #selezionamentoGiocatori div:first-child .badgeUtente {
     padding: 0;
     margin: 0.3em;
-}
-
-#inserimentoGiocatori {
-    clear: both;
 }
 
 #conclusione #condivisione div {
@@ -898,6 +912,7 @@ form#datiPassword .submitForm {
 .pergamena #sezTestualiPersonaggio{
     position: relative;
     top: -24mm;
+    padding-bottom: 3em;
 }
 
 .pergamena #sezTestualiPersonaggio dl dt{
@@ -1052,6 +1067,16 @@ body.errorPage {
     padding: 3em 0 1.5em;
 }
 
+#errorBody li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0em 0.2em;
+}
+
+#errorBody p a::after {
+    display: none;
+}
+
 /*
 --------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------
@@ -1066,6 +1091,7 @@ dl#contenutoInformativa {
 }
 
 dl#contenutoInformativa dt {
+    font-size: 2em;
     margin: 2em auto 0.5em;
 }
 
