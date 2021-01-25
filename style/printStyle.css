@@ -439,13 +439,6 @@ textarea {
     padding-top: 0.9em;
 }
 
-#areaPersonale .box img {
-    /* display: block;
-    width: 4.7em;
-    margin: 0.7em;
-    margin-left: calc(50% - 10mm); */
-}
-
 #areaPersonale .box ul .cardPersonaggio {
     text-align: center;
     page-break-inside: avoid;

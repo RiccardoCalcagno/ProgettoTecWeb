@@ -395,7 +395,14 @@ body{
     border-top: 1px solid black;
 }
 
-#menu li:hover .dropdown-content, #menu li:focus-within .dropdown-content {
+#menu li:hover .dropdown-content {
+    display: block;
+}
+#menu li:focus-within .dropdown-content {
+    display: block;
+}
+
+#menu li:focus .dropdown-content,  #menu p:focus + .dropdown-content { /* INTERNET EXPLORER :o) */
     display: block;
 }
 
