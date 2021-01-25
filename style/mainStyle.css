@@ -921,6 +921,18 @@ body a[aria-label="apri il menù"] {
 }
 
 
+<<<<<<< HEAD
+=======
+/*
+------------------------------------- APPROFONDIMENTI ------------------------------------
+------------------------------------------------------------------------------------------------
+*/
+
+.appBody {
+    min-height: 0;
+}
+
+>>>>>>> c2486f8f8a6121481f45d120f329390d193d09aa
 #ritorna{
     margin-top: 2em;
     margin-left: calc(50% - 10em);
@@ -2898,15 +2910,12 @@ form#datiUtenza > div:first-child fieldset:first-child{
 
 body.errorPage {
     height: auto;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    min-height: 0;
     margin: 0 auto;
 }
 
 body.errorPage > footer {
-    margin: 2.5em 0 0;
+    margin: 5em 0 0;
 }
 
 body.errorPage section, body.errorPage header{
