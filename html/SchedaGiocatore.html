@@ -31,8 +31,8 @@
             <div id="access">
                 <form action="../php/action.php" method="get">
                     <div>
-                        <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale"/>         <!-- altro valore possibile : "Esci" -->
-                        <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Effettua l'iscrizione al sito"/>    <!-- altro valore possibile : "Area Personale" -->
+                        <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale"/>
+                        <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Effettua l'iscrizione al sito"/>
                     </div>
                 </form>
             </div>
@@ -76,7 +76,7 @@
                 <form method="get" action="../php/CharacterPage.php" onsubmit="return returnFalse();">
                 <div id="pulsante">
                     <button id="pergamena" type="submit" name="charLayout" value="pergamena" onclick="switchCharLayout(this)" 
-                     class="disabled" disabled="disabled" aria-label="layout impostato: pergamena">PERGAMENA</button>                         <!--UNA VOLTA CLICCATO BISOGNA SWICCIARE: button diventa p e p diventa button con aggiunta del corretto link-->
+                     class="disabled" disabled="disabled" aria-label="layout impostato: pergamena">PERGAMENA</button>
                     <button id="scheda" type="submit" name="charLayout" value="scheda" onclick="switchCharLayout(this)" 
                      class="active" aria-label="clicca per impostare il layout a standard D&D" xml:lang="en" lang="en">STANDARD <abbr title="Dungeons & Dragons">D&amp;D</abbr></button>
                     <input type="hidden" name="charID" value="<charIDValue />" />
@@ -87,7 +87,7 @@
             <div>
             <h1><nameValue /></h1>
             <div id="infoBreviPersonaggio">
-                <img src="<imgPath />" alt="<imgAlt />" /> <!--src="../img/razze/<halfing>.png"-->
+                <img src="<imgPath />" alt="<imgAlt />" />
 
                 <dl>
                 <div>
@@ -138,7 +138,7 @@
                 <input type="submit" name="charAction" value="ELIMINA" class="buttonLink" aria-label="Elimina questo personaggio"/>    
             </li>
             <li>
-                <input type="button" name="charAction" value="STAMPA" class="buttonLink" onclick="window.print()" aria-label="Stampa questo personaggio"/>   <!-- NO JS ???????????????-->
+                <input type="button" name="charAction" value="STAMPA" class="buttonLink" onclick="window.print()" aria-label="Stampa questo personaggio"/>
             </li>
             <li>
                 <input type="submit" name="charAction" value="MODIFICA" class="buttonLink" aria-label="Modifica questa pagina"/>

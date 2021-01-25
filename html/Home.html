@@ -5,7 +5,7 @@
 <head>
     
 <meta charset="utf-8" />
-<title>Home Page - D&Diary</title>                         <!--ATTENZIONE QUI DEVE ESSERE CAMBIATO IL SEGNAPOSTO-->
+<title>Home Page - D&Diary</title>
 <meta name="title" content="D&Diary" />
 <meta name="description" content="Benvenuto nel mondo di Dungeons & Drangons! Qui puoi creare le tue schede giocatore e rielaborare in compagnia il tuo post-sessione"/>           
 <meta name="keywords" content="Dungeons & Dragons, Dungeons and Dragons, Dungeon, Dragons, condividere, report, sessione, 
@@ -23,58 +23,19 @@
 
 </head>
 
-
-
-<!--
-
-Note DI CORREZIONE PER TUTTI I FILE DEL PROGETTO:
-
-1) CAPIRE QUANDO USARE <a> o <input>
-    1.1) CAMBIARE COLORE (default e visited) di tutti gli <a> anche dei testi dei pulsanti fatti con a  
-
-2) cambiere tutti i Master e Report in scritte in INGLESE
-
-3) Aggiungere le lable  , e per gli input cards?
-
-4) mettere gli alt
-
-5) mettere gli href
-
-6) ARIA + TABINDEX  (es. ariaDescribeBy)
-
-7) CREARE LA PAGINA 404
-
-8) CAMBIARE GLI em con strong
-
-9) Verificare link vai al contenuto
-
-10) Mettere label a <a> hover per il punto interrogativo
-
-11) DEFINIRE Tutti i punti di ritorno es. tasti "annulla" pulsanti a "X" ecc..
-
-12) che si fa della regola "button[name="RemoveRep"]" nel main.css?
-
-
-ACCESSIBILITÀ CHECK LIST
-    1) ogni input contenuto in <span> , <fieldset> o <div> , per sovraccarico cognitivo
-
--->
-
-
-
 <body id="bodyHome">
 
     <header id="intestazioneSito">
 
-        <ul class="AiutiNavigazione" title="Aiuti alla Navigazione">           <!-- Tutti gli item vanno messi con tabindex="11" tutti riferisono a id che hanno tabindex definito >-1-->
+        <ul class="AiutiNavigazione" title="Aiuti alla Navigazione">
             <li><a href="#mainContent">Vai al Contenuto</a></li>
         </ul>
 
         <div id="access">
             <form action="php/action.php" method="get">
                 <div>
-                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale"/>         <!-- altro valore possibile : "Esci" -->
-                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Effettua l'iscrizione al sito"/>    <!-- altro valore possibile : "Area Personale" -->
+                    <input id="Accesso" type="submit" name="accesso" value="Accedi" aria-label="Accedi alla tua area personale"/>
+                    <input id="Iscrizione" type="submit" name="accesso" value="Iscrizione" aria-label="Effettua l'iscrizione al sito"/>
                 </div>
             </form>
         </div>
@@ -105,7 +66,7 @@ ACCESSIBILITÀ CHECK LIST
 
     </header>
 
-    <nav id="breadcrumb" aria-label="breadcrumb"> <!-- Tutti gli item non current vanno messi con tabindex=-1 , il current va messo con: tabindex="9" aria-label="Ti trovi in (il nome della pagina)" -->
+    <nav id="breadcrumb" aria-label="breadcrumb">
         <ul>
             <li id="breadCCurrent" xml:lang="en" lang="en" tabindex="0" aria-label="Ti trovi in Home">Home</li>
         </ul>
@@ -133,7 +94,7 @@ ACCESSIBILITÀ CHECK LIST
 
     <div id="presentazioneFeatures">
 
-    <h2>La cornice adatta a <span class="DeD" xml:lang="en" lang="en">Dungeons &amp; Dragons</span></h2>       <!--Mettere sempre class D&D in css metter con un after il sibolo: ® -->
+    <h2>La cornice adatta a <span class="DeD" xml:lang="en" lang="en">Dungeons &amp; Dragons</span></h2>
     <p>Contorna la tua esperienza di gioco dall’inizio 
         alla fine con un ambiente ideale per <strong>condividere</strong> 
         la tua passione con tutti i tuoi <strong>amici</strong></p>
@@ -150,13 +111,13 @@ ACCESSIBILITÀ CHECK LIST
             <img src="img/features/utente.png" alt="Mezzo busto superiore di una persona stilizzata vista frontalmente."/>
         
             <p>La <span xml:lang="en" lang="en">community</span> aspetta solo di conoscerti! <em>Accedi alla tua 
-                Area Personale</em> e raccontaci che tipo di giocatore sei</p>                              <!--Area Riservata e altre keyword da mettere in enfasi oppure come href-->
+                Area Personale</em> e raccontaci che tipo di giocatore sei</p>
         </li>
         <li>
             <img src="img/features/trascrizioneIdee.png" alt="Icona stilizzata di un report contenente delle scritte e figure simboliche"/>
         
-            <p>Realizza il tuo personalissimo <em><span xml:lang="en" lang="en">Report</span> di Sessione</em>,           <!--Report di Sessione come href?-->
-                cosicché nulla di vissuto durante il gioco venga perso</p>                 <!--Master e Report li mettiamo in inglese?-->
+            <p>Realizza il tuo personalissimo <em><span xml:lang="en" lang="en">Report</span> di Sessione</em>,
+                cosicché nulla di vissuto durante il gioco venga perso</p>
         </li>
         <li>
             <img src="img/features/comunità.png" alt="Un gruppo di tre case stilizzate una più grande in primo piano."/>
@@ -208,7 +169,7 @@ ACCESSIBILITÀ CHECK LIST
 
 <div id="howToReport" class="howTo">
    
-    <img src="img/argomenti/howToReport.png" alt="Report; documento con paragrafi testuali ed un flusso di commenti"/>                <!--INSERISCI IMMAGINE-->
+    <img src="img/argomenti/howToReport.png" alt="Report; documento con paragrafi testuali ed un flusso di commenti"/>
     
     <div class="testoArgomento">
     <h2>Come realizzare il tuo <span xml:lang="en" lang="en">Report</span> di Sessione</h2>
@@ -245,7 +206,7 @@ ACCESSIBILITÀ CHECK LIST
 
 
 <div id="howToPersonaggio" class="howTo">
-    <img src="img/argomenti/howToPersonaggio.png" alt="" longdesc="../html/longDescs/descrizioneImgHowToPersonaggio.html"/>                <!--INSERISCI IMMAGINE-->
+    <img src="img/argomenti/howToPersonaggio.png" alt="" longdesc="../html/longDescs/descrizioneImgHowToPersonaggio.html"/>
 
     <div class="testoArgomento">
     <h2>Come realizzare la tua Scheda Giocatore</h2>
@@ -265,7 +226,7 @@ ACCESSIBILITÀ CHECK LIST
 </div>
 
 <div id="approfondimenti">
-    <h2>Approfondimenti</h2>                                                       <!--Da aggiungere gli href-->
+    <h2>Approfondimenti</h2>
     <p>Ti sfugge qualcosa? Scopri di più sulle <strong>principali tematiche</strong> che trattiamo</p>
     <ul>
         <li><a href="php/Approf_D&D.php" id="toApprDeD" aria-label="cosa è Dungeons & Dragons?"><span xml:lang="en" lang="en">Dungeons &amp; Dragons</span></a></li>
